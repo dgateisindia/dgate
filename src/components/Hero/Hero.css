@@ -1,0 +1,296 @@
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ================= DESKTOP ================= */
+
+.hero-bg {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  max-width: 620px;
+}
+
+.hero-content h1 {
+  font-size: 5.2rem;
+  line-height: 0.95;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+.hero-content h1 span {
+  color: #FFD700;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.primary-btn {
+  background: #FFD700;
+  color: #111;
+  border: none;
+  padding: 18px 34px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.secondary-btn {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+  padding: 18px 34px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ================= 1024 ================= */
+
+@media (max-width:1024px){
+
+.hero-bg{
+    height:650px;
+}
+
+.hero-content{
+    left:40px;
+    top:50%;
+    transform:translateY(-50%);
+    max-width:420px;
+}
+
+.hero-content h1{
+    font-size:3.8rem;
+    line-height:1;
+}
+
+.hero-content p{
+    font-size:1rem;
+    line-height:1.8;
+}
+
+}
+
+
+/* ================= 768px ================= */
+
+@media (max-width:768px){
+
+.hero{
+    min-height:620px;
+}
+
+.hero-bg{
+    height:620px;
+    object-fit:cover;
+}
+
+.hero-content{
+    left:32px;
+    top:50%;
+    transform:translateY(-50%);
+    max-width:300px;
+}
+
+.hero-content h1{
+    font-size:3.2rem;
+    line-height:1.05;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.hero-content p{
+    font-size:1rem;
+    line-height:1.7;
+    margin-bottom:24px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:230px;
+    padding:15px 20px;
+    font-size:1rem;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+}
+
+
+/* ================= 425px ================= */
+
+@media (max-width:426px){
+
+.hero{
+    min-height:500px;
+}
+
+.hero-bg{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    object-position:75% center;
+}
+
+.hero-content{
+    position:absolute;
+    top:48%;
+    left:18px;
+    transform:translateY(-50%);
+    max-width:165px;
+}
+
+.hero-content h1{
+    font-size:1.9rem;
+    line-height:1.05;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.hero-content p{
+    font-size:.74rem;
+    line-height:1.55;
+    margin-bottom:14px;
+    max-width:160px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:155px;
+    padding:10px 12px;
+    font-size:.72rem;
+    font-weight:700;
+    white-space:nowrap;
+}
+}
+
+/* ================= 375 ================= */
+
+@media (max-width:375px){
+
+.hero{
+    min-height:500px;
+}
+
+.hero-bg{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    object-position:right center;
+}
+
+.hero-content{
+    left:16px;
+    top:48%;
+    max-width:165px;
+}
+
+.hero-content h1{
+    font-size:1.9rem;
+    line-height:1.05;
+    margin-bottom:14px;
+}
+
+.hero-content p{
+    font-size:.76rem;
+    line-height:1.55;
+    margin-bottom:14px;
+}
+
+.hero-buttons{
+    gap:8px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:150px;
+    padding:10px;
+    font-size:.72rem;
+    white-space:nowrap;
+}
+
+}
+
+
+/* ================= 320 ================= */
+
+@media (max-width:320px){
+
+.hero{
+    min-height:460px;
+}
+
+.hero-bg{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    object-position:right center;
+}
+
+.hero-content{
+    left:12px;
+    top:48%;
+    max-width:145px;
+}
+
+.hero-content h1{
+    font-size:1.6rem;
+    line-height:1.05;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    font-size:.66rem;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.hero-buttons{
+    gap:8px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:135px;
+    padding:9px;
+    font-size:.65rem;
+    white-space:nowrap;
+}
+
+}
