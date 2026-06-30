@@ -55,6 +55,21 @@
   cursor: pointer;
 }
 
+.nav-links button{
+    background:none;
+    border:none;
+    cursor:pointer;
+
+    font:inherit;
+    color:inherit;
+
+    padding:0;
+}
+
+.nav-links button:hover{
+    color:#FFD700;
+}
+
 /* Tablet */
 
 @media (max-width: 1024px) {

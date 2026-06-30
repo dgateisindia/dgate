@@ -3,7 +3,7 @@
 .industries{
     max-width:1400px;
     margin:0 auto;
-    padding:70px 40px;
+    padding:70px 40px 5px;
 
     display:grid;
     grid-template-columns:280px 1fr;

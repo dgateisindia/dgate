@@ -15,16 +15,16 @@ function Navbar() {
           <img src={logo} alt="D-GATE" />
         </div>
 
-        <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">ABOUT US</a></li>
-          <li><a href="#">SERVICES</a></li>
-          <li><a href="#">INDUSTRIES</a></li>
-          <li><a href="#">TECHNOLOGIES</a></li>
-          <li><a href="#">CAREERS</a></li>
-          <li><a href="#">INSIGHTS</a></li>
-          <li><a href="#">CONTACT US</a></li>
-        </ul>
+         <ul className={menuOpen ? "nav-links active" : "nav-links"}>
+  <li><button>HOME</button></li>
+  <li><button>ABOUT US</button></li>
+  <li><button>SERVICES</button></li>
+  <li><button>INDUSTRIES</button></li>
+  <li><button>TECHNOLOGIES</button></li>
+  <li><button>CAREERS</button></li>
+  <li><button>INSIGHTS</button></li>
+  <li><button>CONTACT US</button></li>
+</ul>
 
         <button className="talk-btn">
           LET'S TALK

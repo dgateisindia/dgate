@@ -25,15 +25,15 @@
   border-radius: 14px;
 
   transition: all 0.4s ease;
+  will-change: transform;
 }
 
 .stat-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.03);
 
   border-color: #FFD700;
 
-  box-shadow:
-    0 10px 25px rgba(255,215,0,0.15);
+  box-shadow: 0 12px 28px rgba(255,215,0,0.18);
 }
 
 .stat-icon {
@@ -44,7 +44,7 @@
 }
 
 .stat-card:hover .stat-icon {
-  transform: scale(1.15) rotate(8deg);
+  transform: scale(1.18) rotate(12deg);
 }
 
 .stat-card h3 {
@@ -54,10 +54,18 @@
   font-weight: 700;
 }
 
+.counter {
+  display: inline-block;
+  min-width: 40px;
+}
+
 .stat-card p {
   color: #d6d6d6;
   font-size: 0.95rem;
 }
+
+
+
 /* ================= 1024px ================= */
 
 @media (max-width:1024px){

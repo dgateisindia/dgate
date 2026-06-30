@@ -1,0 +1,339 @@
+/* ================= CTA ================= */
+
+.cta{
+    padding:40px 6% 70px;
+    background:#fff;
+}
+
+.cta-banner{
+
+    max-width:1400px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:30px;
+
+    padding:30px 40px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        #FFFDF6,
+        #FFF3C4
+    );
+
+    border:1px solid rgba(255,215,0,.35);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.08);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Background Pattern */
+
+.cta-banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,215,0,.18) 1px,
+            transparent 1px
+        );
+
+    background-size:24px 24px;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+/* ================= LEFT ================= */
+
+.cta-left{
+
+    display:flex;
+    align-items:center;
+    gap:22px;
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* ================= ICON ================= */
+
+.cta-icon{
+
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+
+    background:#FFD700;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#111;
+
+    font-size:1.8rem;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 10px 25px rgba(255,215,0,.35);
+
+}
+
+/* ================= CONTENT ================= */
+
+.cta-content h2{
+
+    margin:0;
+
+    color:#111;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.cta-content p{
+
+    margin:0;
+
+    color:#555;
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:620px;
+
+}
+
+/* ================= BUTTON ================= */
+
+.cta-btn{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:16px 28px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#FFD700;
+
+    color:#111;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    position:relative;
+    z-index:2;
+
+    white-space:nowrap;
+
+}
+
+.cta-btn:hover{
+
+    transform:translateY(-4px);
+
+    background:#111;
+
+    color:#FFD700;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.18);
+
+}
+
+/* ================= 1024 ================= */
+
+@media(max-width:1024px){
+
+.cta{
+
+    padding:35px 5% 60px;
+
+}
+
+.cta-banner{
+
+    padding:28px;
+
+}
+
+.cta-content h2{
+
+    font-size:1.7rem;
+
+}
+
+.cta-content p{
+
+    font-size:.95rem;
+
+}
+
+}
+
+/* ================= 768 ================= */
+
+@media(max-width:768px){
+
+.cta-banner{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:30px 25px;
+
+}
+
+.cta-left{
+
+    flex-direction:column;
+
+}
+
+.cta-content p{
+
+    max-width:100%;
+
+}
+
+.cta-btn{
+
+    margin-top:10px;
+
+}
+
+}
+
+/* ================= 425 ================= */
+
+@media(max-width:425px){
+
+.cta{
+
+    padding:30px 4% 50px;
+
+}
+
+.cta-banner{
+
+    padding:24px 20px;
+
+}
+
+.cta-icon{
+
+    width:60px;
+    height:60px;
+
+    font-size:1.5rem;
+
+}
+
+.cta-content h2{
+
+    font-size:1.45rem;
+
+}
+
+.cta-content p{
+
+    font-size:.9rem;
+
+}
+
+.cta-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}
+
+/* ================= 375 ================= */
+
+@media(max-width:375px){
+
+.cta-content h2{
+
+    font-size:1.3rem;
+
+}
+
+}
+
+/* ================= 320 ================= */
+
+@media(max-width:320px){
+
+.cta{
+
+    padding:25px 3% 40px;
+
+}
+
+.cta-banner{
+
+    padding:20px 16px;
+
+}
+
+.cta-content h2{
+
+    font-size:1.2rem;
+
+}
+
+.cta-content p{
+
+    font-size:.85rem;
+
+}
+
+.cta-btn{
+
+    font-size:.85rem;
+
+    padding:14px 18px;
+
+}
+
+}
