@@ -1,0 +1,1 @@
+export { default as popupBanner } from "./brx-popup.png";

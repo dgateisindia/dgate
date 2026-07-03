@@ -1,15 +1,17 @@
 import "./Clients.css";
 
-import bosch from "../../assets/images/bosch.png";
-import siemens from "../../assets/images/siemens.png";
-import philips from "../../assets/images/philips.png";
-import samsung from "../../assets/images/samsung.png";
-import honeywell from "../../assets/images/honeywell.png";
-import denso from "../../assets/images/denso.png";
-import deloitte from "../../assets/images/deloitte.png";
-import lt from "../../assets/images/lt.png";
-import tata from "../../assets/images/tata.png";
-import capgemini from "../../assets/images/capgemini.png";
+import {
+  bosch,
+  siemens,
+  philips,
+  samsung,
+  honeywell,
+  denso,
+  deloitte,
+  lt,
+  tata,
+  capgemini,
+} from "../../assets/images/clients";
 
 const logos = [
   bosch,

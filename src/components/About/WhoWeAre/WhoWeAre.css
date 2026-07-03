@@ -1,0 +1,375 @@
+/* ================= WHO WE ARE ================= */
+
+.who-we-are{
+    padding:60px 5% 100px;
+    background:#fff;
+}
+
+.who-container{
+    max-width:1320px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+
+    align-items:center;
+}
+
+/* ================= IMAGE ================= */
+
+.who-image{
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+.who-image img{
+    width:100%;
+    display:block;
+    transition:.5s ease;
+}
+
+.who-image:hover img{
+    transform:scale(1.05);
+}
+
+/* ================= CONTENT ================= */
+
+.section-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    background:#FFF7D6;
+
+    color:#C79C00;
+
+    font-size:.85rem;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    border-radius:30px;
+
+    margin-bottom:18px;
+}
+
+.who-content h2{
+
+    font-size:3rem;
+    line-height:1.15;
+
+    color:#111;
+
+    margin-bottom:24px;
+}
+
+.who-content p{
+
+    color:#555;
+
+    font-size:1rem;
+    line-height:1.9;
+
+    margin-bottom:20px;
+}
+
+/* ================= FEATURES ================= */
+
+.who-feature-list{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    column-gap:40px;
+    row-gap:18px;
+
+    margin-top:30px;
+}
+
+.who-feature{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    color:#222;
+
+    font-weight:600;
+}
+
+.who-feature svg{
+
+    color:#FFD700;
+
+    font-size:1.1rem;
+
+    flex-shrink:0;
+}
+
+/* ===================== 1024 ======================= */
+
+@media (max-width:1024px){
+
+.who-we-are{
+    padding:55px 5% 90px;
+}
+
+.who-container{
+    gap:45px;
+}
+
+.who-content h2{
+    font-size:2.4rem;
+}
+
+.who-content p{
+    font-size:.95rem;
+}
+
+.section-tag{
+    font-size:.8rem;
+}
+
+.who-feature-list{
+    column-gap:30px;
+    row-gap:15px;
+}
+
+.who-feature{
+    font-size:.92rem;
+}
+
+}
+
+
+/*============================768px============================= */
+
+@media (max-width:768px){
+
+.who-we-are{
+    padding:30px 5% 65px;
+}
+
+.who-container{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+/* Image */
+
+.who-image{
+    order:1;
+    width:100%;
+    max-width:520px;
+    margin:auto;
+}
+
+.who-image img{
+    height:290px;
+}
+
+/* Content */
+
+.who-content{
+    order:2;
+    text-align:center;
+}
+
+.section-tag{
+    margin-bottom:12px;
+}
+
+.who-content h2{
+    font-size:1.85rem;
+    line-height:1.25;
+    margin-bottom:16px;
+}
+
+.who-content p{
+    max-width:620px;
+    margin:0 auto 15px;
+    font-size:.9rem;
+    line-height:1.7;
+}
+
+
+.who-feature-list{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    width:fit-content;
+
+    margin:24px auto 0;
+}
+
+.who-feature{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+
+    gap:12px;
+
+    width:100%;
+
+    font-size:.9rem;
+}
+
+.who-feature svg{
+    font-size:1rem;
+    flex-shrink:0;
+}
+
+}
+
+/* ====================== 425 ======================= */
+
+@media (max-width:425px){
+
+.who-we-are{
+    padding:40px 5% 70px;
+}
+
+.who-container{
+    gap:28px;
+}
+
+.section-tag{
+
+    padding:7px 16px;
+
+    font-size:.72rem;
+}
+
+.who-content h2{
+
+    font-size:1.65rem;
+    line-height:1.3;
+
+    margin-bottom:18px;
+}
+
+.who-content p{
+
+    font-size:.85rem;
+    line-height:1.75;
+
+    text-align:left;
+}
+
+.who-image{
+
+    max-width:100%;
+}
+
+.who-feature-list{
+
+    gap:14px;
+}
+
+.who-feature{
+
+    justify-content:flex-start;
+
+    font-size:.84rem;
+}
+
+}
+
+
+/* ====================== 375 ======================= */
+
+@media (max-width:375px){
+
+.who-we-are{
+    padding:35px 4% 60px;
+}
+
+.section-tag{
+
+    font-size:.68rem;
+
+    padding:6px 14px;
+}
+
+.who-content h2{
+
+    font-size:1.5rem;
+    line-height:1.32;
+}
+
+.who-content p{
+
+    font-size:.82rem;
+    line-height:1.7;
+}
+
+.who-feature{
+
+    font-size:.8rem;
+}
+
+.who-image{
+    border-radius:18px;
+}
+
+}
+
+
+/* ====================== 320 ======================= */
+
+
+@media (max-width:320px){
+
+.who-we-are{
+    padding:30px 4% 55px;
+}
+
+.section-tag{
+
+    font-size:.64rem;
+
+    padding:6px 12px;
+}
+
+.who-content h2{
+
+    font-size:1.32rem;
+    line-height:1.35;
+}
+
+.who-content p{
+
+    font-size:.76rem;
+    line-height:1.65;
+}
+
+.who-feature-list{
+
+    gap:12px;
+}
+
+.who-feature{
+
+    font-size:.76rem;
+    gap:10px;
+}
+
+.who-feature svg{
+
+    font-size:1rem;
+}
+
+.who-image{
+    border-radius:16px;
+}
+
+}

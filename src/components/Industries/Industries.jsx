@@ -3,12 +3,14 @@ import "./Industries.css";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-import automotive from "../../assets/images/automotive.png";
-import healthcare from "../../assets/images/healthcare.png";
-import manufacturing from "../../assets/images/manufacturing.png";
-import banking from "../../assets/images/banking.png";
-import retail from "../../assets/images/retail.png";
-import telecom from "../../assets/images/telecom.png";
+import {
+  automotive,
+  banking,
+  healthcare,
+  manufacturing,
+  retail,
+  telecom,
+} from "../../assets/images/industries";
 
 const pages = [
   [

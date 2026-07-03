@@ -73,7 +73,6 @@
 .stats{
     padding:30px 20px;
 }
-
 .stats-container{
     grid-template-columns:repeat(3,1fr);
     gap:20px;

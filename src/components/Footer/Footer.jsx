@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-import logo from "../../assets/images/logo.webp";
+import { logo } from "../../assets/images/navbar";
 
 import {
   FaFacebookF,
@@ -15,13 +15,11 @@ import {
 function Footer() {
   return (
     <footer className="footer">
-
       <div className="footer-container">
 
         {/* Company */}
 
         <div className="footer-column company">
-
           <img src={logo} alt="DGATE Logo" className="footer-logo" />
 
           <p>
@@ -30,16 +28,18 @@ function Footer() {
             and scale through cutting-edge technologies.
           </p>
 
-          <p><strong>GST:</strong> 29AAJCD5329F1ZI</p>
+          <p>
+            <strong>GST:</strong> 29AAJCD5329F1ZI
+          </p>
 
-          <p><strong>CIN:</strong> U74999KA2022PTC165544</p>
-
+          <p>
+            <strong>CIN:</strong> U74999KA2022PTC165544
+          </p>
         </div>
 
-        {/* Company Links */}
+        {/* Company */}
 
         <div className="footer-column">
-
           <h3>Company</h3>
 
           <ul>
@@ -51,13 +51,11 @@ function Footer() {
             <li>Insights</li>
             <li>Contact Us</li>
           </ul>
-
         </div>
 
         {/* Solutions */}
 
         <div className="footer-column">
-
           <h3>Solutions</h3>
 
           <ul>
@@ -68,47 +66,83 @@ function Footer() {
             <li>IoT</li>
             <li>Cyber Security</li>
           </ul>
-
         </div>
 
         {/* Contact */}
 
         <div className="footer-column">
 
-          <h3>Contact Us</h3>
+          <h3>Address & Socials</h3>
 
-          <p>
+          <div className="contact-item">
             <FaMapMarkerAlt className="footer-icon" />
-            123 Business Park,
-            Whitefield,
-            Bangalore - 560066
-          </p>
 
-          <p>
+            <a
+              href="https://maps.app.goo.gl/WkxFxd7u8LUEDW756"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              218, 2nd Floor, JP Royale Complex
+              <br />
+              13th Cross, Sampige Rd
+              <br />
+              Malleshwaram
+              <br />
+              Bengaluru, Karnataka 560003
+            </a>
+          </div>
+
+          <div className="contact-item">
             <FaPhoneAlt className="footer-icon" />
-            +91 80 4712 9000
-          </p>
 
-          <p>
+            <a href="tel:+918040907113">
+              080-40907113
+            </a>
+          </div>
+
+          <div className="contact-item">
             <FaEnvelope className="footer-icon" />
-            info@dgateis.com
-          </p>
+
+            <a href="mailto:info@dgateis.com">
+              info@dgateis.com
+            </a>
+          </div>
 
           <div className="social-icons">
 
-            <a href="#">
-              <FaLinkedinIn />
-            </a>
-
-            <a href="#">
+            <a
+              href="https://www.instagram.com/dgateis"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <FaInstagram />
             </a>
 
-            <a href="#">
+            <a
+              href="https://www.linkedin.com/company/dgateis/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn />
+            </a>
+
+            <a
+              href="https://www.facebook.com/p/DGate-Integrated-Services-100084928221960/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
               <FaFacebookF />
             </a>
 
-            <a href="#">
+            <a
+              href="https://www.youtube.com/@dgateintegratedservices"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
               <FaYoutube />
             </a>
 
@@ -133,7 +167,6 @@ function Footer() {
         </div>
 
       </div>
-
     </footer>
   );
 }

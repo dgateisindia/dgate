@@ -9,17 +9,13 @@
 /* ================= Container ================= */
 
 .footer-container{
-
     max-width:1400px;
     margin:auto;
-
     padding:0 6% 45px;
 
     display:grid;
     grid-template-columns:2fr 1fr 1fr 1.3fr;
-
     gap:60px;
-
 }
 
 /* ================= Logo ================= */
@@ -28,53 +24,42 @@
     width:180px;
     height:auto;
     object-fit:contain;
+
     background:#fff;
     padding:12px 16px;
+
     border-radius:3px;
+
     margin-bottom:25px;
+
     box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 /* ================= Company ================= */
 
 .company p{
-
     color:#d4d4d4;
-
     line-height:1.8;
-
     margin-bottom:16px;
-
     font-size:.95rem;
-
 }
 
 .company strong{
-
     color:#FFD700;
-
 }
 
 /* ================= Headings ================= */
 
 .footer-column h3{
-
     color:#fff;
-
     font-size:1.15rem;
-
     margin-bottom:22px;
-
     position:relative;
-
 }
 
 .footer-column h3::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
     bottom:-8px;
 
@@ -82,69 +67,69 @@
     height:3px;
 
     background:#FFD700;
-
     border-radius:2px;
-
 }
 
 /* ================= Links ================= */
 
 .footer-column ul{
-
     list-style:none;
-
-    margin:0;
     padding:0;
-
+    margin:0;
 }
 
 .footer-column li{
-
     color:#d4d4d4;
-
     margin-bottom:14px;
-
     cursor:pointer;
-
     transition:.3s ease;
-
 }
 
 .footer-column li:hover{
-
     color:#FFD700;
-
     transform:translateX(6px);
-
 }
 
 /* ================= Contact ================= */
 
-.footer-column p{
+.contact-item{
 
     display:flex;
-
     align-items:flex-start;
+    gap:14px;
 
-    gap:12px;
-
-    color:#d4d4d4;
-
-    line-height:1.8;
-
-    margin-bottom:16px;
+    margin-bottom:18px;
 
 }
 
 .footer-icon{
 
     color:#FFD700;
+    font-size:16px;
 
     margin-top:4px;
 
     flex-shrink:0;
 
-    font-size:16px;
+}
+
+.contact-item a{
+
+    color:#d4d4d4;
+
+    text-decoration:none;
+
+    line-height:1.8;
+
+    transition:.3s ease;
+
+    pointer-events:auto;
+
+}
+
+.contact-item a:hover{
+
+    color:#FFD700;
 
 }
 
@@ -171,11 +156,11 @@
     justify-content:center;
     align-items:center;
 
+    text-decoration:none;
+
     background:#3a3a3a;
 
     color:#fff;
-
-    text-decoration:none;
 
     transition:.35s ease;
 
@@ -199,10 +184,11 @@
 
     border-top:1px solid rgba(255,255,255,.08);
 
+    margin-top:15px;
+
     padding:22px 6%;
 
     display:flex;
-
     justify-content:space-between;
     align-items:center;
 
@@ -226,9 +212,9 @@
 
     display:flex;
 
-    gap:18px;
-
     align-items:center;
+
+    gap:18px;
 
     flex-wrap:wrap;
 
@@ -240,7 +226,7 @@
 
     cursor:pointer;
 
-    transition:.3s ease;
+    transition:.3s;
 
 }
 
@@ -287,13 +273,16 @@
 .footer-column h3::after{
 
     left:50%;
+
     transform:translateX(-50%);
 
 }
 
-.footer-column p{
+.contact-item{
 
     justify-content:center;
+
+    text-align:left;
 
 }
 
@@ -323,15 +312,15 @@
 
 }
 
-.footer-logo{
-
-    width:150px;
-
-}
-
 .footer-container{
 
     padding:0 4% 35px;
+
+}
+
+.footer-logo{
+
+    width:150px;
 
 }
 
@@ -373,6 +362,12 @@
 
 }
 
+.contact-item{
+
+    gap:10px;
+
+}
+
 }
 
 /* ================= 320 ================= */
@@ -406,6 +401,12 @@
 .footer-links{
 
     font-size:.8rem;
+
+}
+
+.contact-item a{
+
+    font-size:.85rem;
 
 }
 

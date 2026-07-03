@@ -49,33 +49,33 @@ useEffect(() => {
     });
 
     tl.from(".section-title", {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      ease: "power3.out",
-    })
-      .from(
-        ".title-line",
-        {
-          scaleX: 0,
-          transformOrigin: "center",
-          duration: 0.5,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      )
-      .from(
-        ".tech-card",
-        {
-          opacity: 0,
-          y: 60,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power3.out",
-          clearProps: "all",
-        },
-        "-=0.2"
-      );
+  opacity: 0,
+  y: 30,
+  duration: 0.45,
+  ease: "power2.out",
+})
+.from(
+  ".title-line",
+  {
+    scaleX: 0,
+    transformOrigin: "center",
+    duration: 0.25,
+    ease: "power2.out",
+  },
+  "-=0.2"
+)
+.from(
+  ".tech-card",
+  {
+    opacity: 0,
+    y: 30,
+    duration: 0.3,
+    stagger: 0.04,
+    ease: "power2.out",
+    clearProps: "all",
+  },
+  "-=0.1"
+);
   }, sectionRef);
 
   ScrollTrigger.refresh();

@@ -7,12 +7,14 @@ import Technologies from "../components/Technologies/Technologies";
 import Clients from "../components/Clients/Clients";
 import CTA from "../components/CTA/CTA";
 import Footer from "../components/Footer/Footer";
+import BannerPopup from "../components/Popup/BannerPopup";
 
 
 function Home() {
   return (
     <>
       <Navbar />
+      <BannerPopup/>
       <Hero />
       <Stats/>
       <Services/>
