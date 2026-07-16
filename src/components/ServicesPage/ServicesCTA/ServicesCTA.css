@@ -1,0 +1,625 @@
+/* ================= SERVICES CTA ================= */
+
+.services-cta{
+
+    padding:40px 5% 90px;
+
+    background:var(--white);
+
+}
+
+/* ================= BOX ================= */
+
+.services-cta-box{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:42px 48px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        135deg,
+        var(--black),
+        #1f1f1f
+    );
+
+    box-shadow:var(--shadow);
+
+}
+
+/* Decorative Circle */
+
+.services-cta-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    border-radius:50%;
+
+    background:rgba(253,185,19,.08);
+
+    right:-160px;
+
+    top:-180px;
+
+}
+
+/* Decorative Circle */
+
+.services-cta-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(253,185,19,.06);
+
+    left:-90px;
+
+    bottom:-120px;
+
+}
+
+/* ================= LEFT ================= */
+
+.services-cta-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    flex:1;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ================= ICON ================= */
+
+.services-cta-icon{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:20px;
+
+    background:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    transition:var(--transition);
+
+}
+
+.services-cta-icon svg{
+
+    font-size:2rem;
+
+    color:var(--black);
+
+}
+
+.services-cta-box:hover
+.services-cta-icon{
+
+    transform:rotate(-8deg)
+    scale(1.05);
+
+}
+
+/* ================= CONTENT ================= */
+
+.services-cta-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.services-cta-tag{
+
+    display:inline-block;
+
+    width:max-content;
+
+    padding:7px 16px;
+
+    border-radius:30px;
+
+    background:rgba(253,185,19,.15);
+
+    color:var(--primary);
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:16px;
+
+}
+
+.services-cta-content h2{
+
+    color:var(--white);
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    line-height:1.3;
+
+    margin-bottom:14px;
+
+}
+
+.services-cta-content p{
+
+    max-width:620px;
+
+    color:#d9d9d9;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* ================= BUTTON ================= */
+
+.services-cta-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:18px 34px;
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    transition:var(--transition);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.services-cta-btn svg{
+
+    transition:var(--transition);
+
+}
+
+.services-cta-btn:hover{
+
+    background:var(--white);
+
+    color:var(--black);
+
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 28px rgba(253,185,19,.22);
+
+}
+
+.services-cta-btn:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+/* ================= 1024px ================= */
+
+@media (max-width:1024px){
+
+.services-cta{
+
+    padding:35px 5% 80px;
+
+}
+
+.services-cta-box{
+
+    padding:36px;
+
+    gap:35px;
+
+}
+
+.services-cta-left{
+
+    gap:20px;
+
+}
+
+.services-cta-icon{
+
+    width:68px;
+
+    height:68px;
+
+}
+
+.services-cta-icon svg{
+
+    font-size:1.7rem;
+
+}
+
+.services-cta-content h2{
+
+    font-size:1.8rem;
+
+}
+
+.services-cta-content p{
+
+    font-size:.95rem;
+
+}
+
+.services-cta-btn{
+
+    padding:16px 28px;
+
+    font-size:.9rem;
+
+}
+
+}
+
+/* ================= 768px ================= */
+
+@media (max-width:768px){
+
+.services-cta{
+
+    padding:30px 5% 70px;
+
+}
+
+.services-cta-box{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:34px 28px;
+
+    gap:28px;
+
+}
+
+.services-cta-left{
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.services-cta-content{
+
+    align-items:center;
+
+}
+
+.services-cta-content h2{
+
+    font-size:1.7rem;
+
+}
+
+.services-cta-content p{
+
+    max-width:100%;
+
+    font-size:.9rem;
+
+}
+
+.services-cta-btn{
+
+    width:100%;
+
+    padding:16px 20px;
+
+}
+
+.services-cta-box::before{
+
+    width:260px;
+
+    height:260px;
+
+}
+
+.services-cta-box::after{
+
+    width:170px;
+
+    height:170px;
+
+}
+
+}
+
+/* ================= 425px ================= */
+
+@media (max-width:425px){
+
+.services-cta{
+
+    padding:25px 5% 60px;
+
+}
+
+.services-cta-box{
+
+    padding:26px 20px;
+
+    gap:24px;
+
+    border-radius:18px;
+
+}
+
+.services-cta-left{
+
+    gap:16px;
+
+}
+
+.services-cta-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:16px;
+
+}
+
+.services-cta-icon svg{
+
+    font-size:1.4rem;
+
+}
+
+.services-cta-tag{
+
+    font-size:.7rem;
+
+    padding:6px 14px;
+
+    margin-bottom:12px;
+
+}
+
+.services-cta-content h2{
+
+    font-size:1.35rem;
+
+    line-height:1.4;
+
+}
+
+.services-cta-content p{
+
+    font-size:.84rem;
+
+    line-height:1.7;
+
+}
+
+.services-cta-btn{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    font-size:.82rem;
+
+    gap:8px;
+
+}
+
+}
+
+/* ================= 375px ================= */
+
+@media (max-width:375px){
+
+.services-cta{
+
+    padding:20px 4% 55px;
+
+}
+
+.services-cta-box{
+
+    padding:22px 18px;
+
+}
+
+.services-cta-icon{
+
+    width:52px;
+
+    height:52px;
+
+}
+
+.services-cta-icon svg{
+
+    font-size:1.25rem;
+
+}
+
+.services-cta-tag{
+
+    font-size:.68rem;
+
+}
+
+.services-cta-content h2{
+
+    font-size:1.2rem;
+
+}
+
+.services-cta-content p{
+
+    font-size:.8rem;
+
+    line-height:1.65;
+
+}
+
+.services-cta-btn{
+
+    font-size:.78rem;
+
+    padding:14px 16px;
+
+}
+
+}
+
+/* ================= 320px ================= */
+
+@media (max-width:320px){
+
+.services-cta{
+
+    padding:18px 4% 50px;
+
+}
+
+.services-cta-box{
+
+    padding:18px 15px;
+
+    border-radius:16px;
+
+}
+
+.services-cta-left{
+
+    gap:14px;
+
+}
+
+.services-cta-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:14px;
+
+}
+
+.services-cta-icon svg{
+
+    font-size:1.1rem;
+
+}
+
+.services-cta-tag{
+
+    font-size:.62rem;
+
+    padding:5px 12px;
+
+}
+
+.services-cta-content h2{
+
+    font-size:1.05rem;
+
+    line-height:1.4;
+
+}
+
+.services-cta-content p{
+
+    font-size:.74rem;
+
+    line-height:1.6;
+
+}
+
+.services-cta-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:13px 14px;
+
+    font-size:.72rem;
+
+    gap:6px;
+
+}
+
+}

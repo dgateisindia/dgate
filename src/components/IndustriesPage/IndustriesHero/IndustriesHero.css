@@ -1,0 +1,608 @@
+.industries-hero{
+
+    width:100%;
+
+    background:var(--white);
+
+    overflow:hidden;
+
+}
+
+.industries-container{
+
+    max-width:1600px;
+
+    margin:auto;
+
+    min-height:620px;
+
+    display:grid;
+
+    grid-template-columns:40% 60%;
+
+    align-items:center;
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+/* ================= LEFT ================= */
+
+.industries-left{
+
+    padding:70px 60px;
+
+    position:relative;
+
+    z-index:10;
+
+    background:var(--white);
+
+}
+
+.industries-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+}
+
+.industries-breadcrumb a{
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.industries-breadcrumb a:hover{
+
+    color:var(--primary);
+
+}
+
+.industries-breadcrumb span{
+
+    color:var(--text-light);
+
+}
+
+/* ================= TITLE ================= */
+
+.industries-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    line-height:1.08;
+
+    color:var(--black);
+
+    margin-bottom:22px;
+
+}
+
+.industries-title span{
+
+    color:var(--primary);
+
+    margin-top:8px;
+
+}
+
+.industries-line{
+
+    width:90px;
+
+    height:4px;
+
+    border-radius:50px;
+
+    background:var(--primary);
+
+    margin-bottom:28px;
+
+}
+
+.industries-text{
+
+    max-width:520px;
+
+    color:var(--text);
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+}
+
+/* ================= RIGHT ================= */
+
+.industries-right{
+
+    position:relative;
+
+    width:100%;
+
+    height:620px;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(253,185,19,.15),
+        transparent 65%
+    ),
+    linear-gradient(
+        135deg,
+        var(--white),
+        #eef5fc
+    );
+
+}
+
+/* ================= IMAGE ================= */
+
+.industries-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    opacity:.9;
+
+    filter:
+        brightness(1.12)
+        contrast(1.15)
+        saturate(1.18);
+
+    animation:heroZoom 12s ease-in-out infinite alternate;
+
+    z-index:1;
+
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* ================= OVERLAY ================= */
+
+.industries-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    width:35%;
+
+    background:linear-gradient(
+        90deg,
+        rgba(255,255,255,1),
+        rgba(255,255,255,.92),
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    z-index:2;
+
+}
+
+/* ================= CANVAS ================= */
+
+.industries-canvas{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
+
+    pointer-events:none;
+
+}
+
+.industries-canvas canvas{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    display:block;
+
+}
+
+/* Divider */
+
+.industries-right::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120px;
+
+    top:0;
+
+    width:220px;
+
+    height:100%;
+
+    background:var(--white);
+
+    transform:skewX(-24deg);
+
+    z-index:6;
+
+}
+
+.industries-right::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:58px;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:var(--primary);
+
+    transform:skewX(-24deg);
+
+    z-index:7;
+
+}
+
+/* ================= 1024px ========================= */
+
+@media(max-width:1024px){
+
+.industries-container{
+
+    grid-template-columns:45% 55%;
+
+    min-height:560px;
+
+}
+
+.industries-left{
+
+    padding:60px 40px;
+
+}
+
+.industries-title{
+
+    font-size:3.2rem;
+
+}
+
+.industries-text{
+
+    font-size:.95rem;
+
+}
+
+.industries-right{
+
+    height:560px;
+
+}
+
+.industries-right::before{
+
+    left:-105px;
+
+    width:200px;
+
+}
+
+.industries-right::after{
+
+    left:52px;
+
+}
+
+}
+
+/* ================= 768px ========================== */
+
+@media(max-width:768px){
+
+.industries-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.industries-left{
+
+    width:100%;
+
+    padding:50px 7% 40px;
+
+    text-align:center;
+
+}
+
+.industries-breadcrumb{
+
+    justify-content:center;
+
+}
+
+.industries-title{
+
+    font-size:2.8rem;
+
+}
+
+.industries-line{
+
+    margin:0 auto 22px;
+
+    width:70px;
+
+}
+
+.industries-text{
+
+    max-width:650px;
+
+    margin:auto;
+
+    font-size:.95rem;
+
+}
+
+.industries-right{
+
+    width:100%;
+
+    height:420px;
+
+}
+
+.industries-overlay,
+
+.industries-right::before,
+
+.industries-right::after{
+
+    display:none;
+
+}
+
+}
+
+/* ===================== 425px ====================== */
+
+@media (max-width:425px){
+
+.industries-left{
+
+    padding:40px 20px;
+
+}
+
+.industries-breadcrumb{
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+    font-size:.82rem;
+
+}
+
+.industries-title{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+}
+
+.industries-title span{
+
+    margin-top:4px;
+
+}
+
+.industries-line{
+
+    width:60px;
+
+    height:3px;
+
+    margin:0 auto 18px;
+
+}
+
+.industries-text{
+
+    font-size:.84rem;
+
+    line-height:1.75;
+
+}
+
+.industries-right{
+
+    height:300px;
+
+}
+
+.industries-bg{
+
+    object-position:center;
+
+}
+
+.industries-canvas{
+
+    transform:scale(.92);
+
+}
+
+}
+
+/* ===================== 375px ====================== */
+
+@media (max-width:375px){
+
+.industries-left{
+
+    padding:35px 18px;
+
+}
+
+.industries-breadcrumb{
+
+    font-size:.78rem;
+
+}
+
+.industries-title{
+
+    font-size:1.75rem;
+
+    line-height:1.25;
+
+}
+
+.industries-line{
+
+    width:55px;
+
+    margin-bottom:16px;
+
+}
+
+.industries-text{
+
+    font-size:.8rem;
+
+    line-height:1.7;
+
+}
+
+.industries-right{
+
+    height:260px;
+
+}
+
+.industries-canvas{
+
+    transform:scale(.85);
+
+}
+
+}
+
+/* ===================== 320px ====================== */
+
+@media (max-width:320px){
+
+.industries-left{
+
+    padding:30px 15px;
+
+}
+
+.industries-breadcrumb{
+
+    font-size:.72rem;
+
+    gap:6px;
+
+}
+
+.industries-title{
+
+    font-size:1.45rem;
+
+    line-height:1.3;
+
+}
+
+.industries-line{
+
+    width:48px;
+
+    height:3px;
+
+    margin:0 auto 15px;
+
+}
+
+.industries-text{
+
+    font-size:.72rem;
+
+    line-height:1.6;
+
+}
+
+.industries-right{
+
+    height:220px;
+
+}
+
+.industries-canvas{
+
+    transform:scale(.75);
+
+}
+
+}

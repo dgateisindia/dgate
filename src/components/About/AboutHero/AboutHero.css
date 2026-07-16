@@ -1,383 +1,485 @@
-/* ================= ABOUT HERO ================= */
-
 .about-hero{
-    position: relative;
-    height: 700px;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position:relative;
 
-    overflow: hidden;
+    height:700px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
 }
 
 .about-hero::before{
-    content: "";
-    position: absolute;
-    inset: 0;
 
-    background: rgba(0,0,0,.45);
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
 }
 
 .about-container{
 
-    position: relative;
-    z-index: 2;
+    position:relative;
 
-    max-width: 1320px;
-    height: 100%;
+    z-index:2;
 
-    margin: auto;
+    max-width:1320px;
 
-    padding: 0 5% 90px;
+    height:100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin:auto;
+
+    padding:0 5% 90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
-
-/* ================= LEFT CONTENT ================= */
 
 .about-content{
 
-    max-width: 470px;
+    max-width:470px;
 
-    color: #fff;
+    color:var(--white);
+
 }
 
 .breadcrumb{
 
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display:flex;
 
-    margin-bottom: 25px;
+    align-items:center;
 
-    font-size: .9rem;
+    gap:10px;
+
+    margin-bottom:25px;
+
+    font-size:.9rem;
+
 }
 
 .breadcrumb a{
 
-    color: #fff;
-    text-decoration: none;
+    color:var(--white);
 
-    transition: .3s;
+    text-decoration:none;
+
+    transition:var(--transition);
+
 }
 
 .breadcrumb a:hover{
 
-    color: #FFD700;
+    color:var(--primary);
+
 }
 
 .breadcrumb span{
 
-    color: #ddd;
+    color:#dddddd;
+
 }
 
 .about-content h1{
 
-    margin: 0;
+    margin:0;
 
-    font-size: 3.8rem;
-    font-weight: 800;
+    font-size:3.8rem;
 
-    line-height: 1.08;
+    font-weight:800;
+
+    line-height:1.08;
+
+    color:var(--white);
+
 }
 
 .about-content h1 span{
 
-    color: #FFD700;
+    color:var(--primary);
+
 }
 
 .hero-line{
 
-    width: 78px;
-    height: 4px;
+    width:78px;
 
-    background: #FFD700;
+    height:4px;
 
-    margin: 26px 0;
+    margin:26px 0;
 
-    border-radius: 4px;
+    background:var(--primary);
+
+    border-radius:var(--radius-sm);
+
 }
 
 .about-content h3{
 
-    margin-bottom: 22px;
+    margin-bottom:22px;
 
-    font-size: 2rem;
-    font-weight: 700;
+    font-size:2rem;
 
-    line-height: 1.3;
+    font-weight:700;
+
+    line-height:1.3;
+
+    color:var(--white);
+
 }
 
 .about-content p{
 
-    margin-bottom: 38px;
+    margin-bottom:38px;
 
-    font-size: 1.02rem;
+    font-size:1.02rem;
 
-    line-height: 1.8;
+    line-height:1.8;
 
-    color: rgba(255,255,255,.92);
+    color:rgba(255,255,255,.92);
+
 }
 
 .about-content button{
 
-    background: #FFD700;
+    padding:16px 36px;
 
-    color: #111;
+    border:none;
 
-    border: none;
+    border-radius:var(--radius-sm);
 
-    padding: 16px 36px;
+    background:var(--primary);
 
-    border-radius: 6px;
+    color:var(--black);
 
-    font-size: .92rem;
-    font-weight: 700;
+    font-size:.92rem;
 
-    cursor: pointer;
+    font-weight:700;
 
-    transition: .35s;
+    cursor:pointer;
+
+    transition:var(--transition);
+
 }
 
 .about-content button:hover{
 
-    background: #fff;
+    background:var(--white);
 
-    transform: translateY(-3px);
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow);
+
 }
-
-/* ================= RIGHT TECHNOLOGY GRAPHIC ================= */
 
 .hero-tech{
 
-    position: absolute;
+    position:absolute;
 
-    right: 2%;
+    right:2%;
 
-    top: 52%;
+    top:52%;
 
-    transform: translateY(-50%) scale(.82);
+    transform:translateY(-50%) scale(.82);
 
-    transform-origin: center;
+    transform-origin:center;
 
-    z-index: 2;
+    z-index:2;
+
 }
 
-/* ================= 1024 ================= */
+/* ==================== 1024px ====================== */
 
 @media(max-width:1024px){
 
 .about-hero{
 
-    height: 620px;
+    height:620px;
+
 }
 
 .about-container{
 
-    padding: 0 5% 70px;
+    padding:0 5% 70px;
+
 }
 
 .about-content{
 
-    max-width: 430px;
+    max-width:430px;
+
 }
 
 .about-content h1{
 
-    font-size: 3.2rem;
+    font-size:3.2rem;
+
 }
 
 .about-content h3{
 
-    font-size: 1.7rem;
+    font-size:1.7rem;
+
 }
 
 .about-content p{
 
-    font-size: .96rem;
+    font-size:.96rem;
+
+}
+
+.about-content button{
+
+    padding:15px 32px;
+
 }
 
 .hero-tech{
 
-    right: 0;
+    right:0;
 
-    transform: translateY(-50%) scale(.70);
+    transform:translateY(-50%) scale(.70);
+
 }
 
 }
 
-/* ================= 768 ================= */
+/* ===================== 768px ====================== */
 
 @media(max-width:768px){
 
 .about-hero{
 
-    height: 560px;
+    height:560px;
+
 }
 
 .about-container{
 
-    justify-content: center;
+    justify-content:center;
 
-    text-align: center;
+    text-align:center;
 
-    padding: 0 6% 60px;
+    padding:0 6% 60px;
+
 }
 
 .about-content{
 
-    max-width: 100%;
+    max-width:100%;
+
+}
+
+.breadcrumb{
+
+    justify-content:center;
+
 }
 
 .about-content h1{
 
-    font-size: 2.8rem;
+    font-size:2.8rem;
+
 }
 
 .hero-line{
 
-    margin: 22px auto;
+    margin:22px auto;
+
 }
 
 .about-content h3{
 
-    font-size: 1.45rem;
+    font-size:1.45rem;
+
 }
 
 .about-content p{
 
-    font-size: .95rem;
+    max-width:600px;
 
-    max-width: 600px;
+    margin:0 auto 32px;
 
-    margin: 0 auto 32px;
+    font-size:.95rem;
+
+}
+
+.about-content button{
+
+    padding:15px 30px;
+
 }
 
 .hero-tech{
 
-    display: none;
-}
+    display:none;
 
 }
 
-/* ================= 425 ================= */
+}
+
+/* ===================== 425px ====================== */
 
 @media(max-width:425px){
 
 .about-hero{
 
-    height: 500px;
+    height:500px;
+
 }
 
 .about-container{
 
-    padding: 0 5% 45px;
+    padding:0 5% 45px;
+
 }
 
 .breadcrumb{
 
-    justify-content: center;
+    justify-content:center;
 
-    font-size: .8rem;
+    font-size:.8rem;
+
 }
 
 .about-content h1{
 
-    font-size: 2.2rem;
+    font-size:2.2rem;
+
 }
 
 .hero-line{
 
-    width: 60px;
+    width:60px;
+
 }
 
 .about-content h3{
 
-    font-size: 1.2rem;
+    font-size:1.2rem;
+
 }
 
 .about-content p{
 
-    font-size: .85rem;
+    font-size:.85rem;
 
-    line-height: 1.7;
+    line-height:1.7;
+
 }
 
 .about-content button{
 
-    width: 100%;
-}
+    width:100%;
+
+    padding:15px 20px;
+
+    font-size:.85rem;
 
 }
 
-/* ================= 375 ================= */
+}
+
+/* ===================== 375px ====================== */
 
 @media(max-width:375px){
 
 .about-hero{
 
-    height: 470px;
+    height:470px;
+
 }
 
 .about-content h1{
 
-    font-size: 2rem;
+    font-size:2rem;
+
 }
 
 .about-content h3{
 
-    font-size: 1.1rem;
+    font-size:1.1rem;
+
 }
 
 .about-content p{
 
-    font-size: .82rem;
-}
+    font-size:.82rem;
 
 }
 
-/* ================= 320 ================= */
+.about-content button{
+
+    padding:14px 18px;
+
+    font-size:.82rem;
+
+}
+
+}
+
+/* ===================== 320px ====================== */
 
 @media(max-width:320px){
 
 .about-hero{
 
-    height: 450px;
+    height:450px;
+
 }
 
 .about-container{
 
-    padding: 0 4% 35px;
+    padding:0 4% 35px;
+
 }
 
 .about-content h1{
 
-    font-size: 1.7rem;
+    font-size:1.7rem;
+
 }
 
 .hero-line{
 
-    width: 50px;
+    width:50px;
+
 }
 
 .about-content h3{
 
-    font-size: 1rem;
+    font-size:1rem;
+
 }
 
 .about-content p{
 
-    font-size: .78rem;
+    font-size:.78rem;
+
+    line-height:1.6;
+
 }
 
 .about-content button{
 
-    padding: 12px 18px;
+    width:100%;
 
-    font-size: .78rem;
+    padding:12px 18px;
+
+    font-size:.78rem;
+
 }
 
 }

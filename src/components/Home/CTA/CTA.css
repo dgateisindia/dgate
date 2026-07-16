@@ -1,0 +1,589 @@
+/* ================================================= */
+/* ====================== CTA ======================= */
+/* ================================================= */
+
+.cta{
+
+    padding:50px 5% 80px;
+
+    background:var(--white);
+
+}
+
+/* ================================================= */
+/* ==================== BANNER ====================== */
+/* ================================================= */
+
+.cta-banner{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:40px 45px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        90deg,
+        rgba(255,215,0,.15) 0%,
+        rgba(255,215,0,.05) 100%
+    );
+
+    border:1px solid rgba(255,215,0,.35);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* Decorative Pattern */
+
+.cta-banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+
+            rgba(255,193,7,.18) 1px,
+
+            transparent 1px
+
+        );
+
+    background-size:22px 22px;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+/* ================================================= */
+/* ===================== LEFT ======================= */
+/* ================================================= */
+
+.cta-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    flex:1;
+
+    min-width:0;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ================================================= */
+/* ===================== ICON ======================= */
+/* ================================================= */
+
+.cta-icon{
+
+    width:78px;
+
+    height:78px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    border-radius:var(--radius-lg);
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    font-size:2rem;
+
+    transition:var(--transition);
+
+    box-shadow:0 10px 25px rgba(255,193,7,.28);
+
+}
+
+.cta-banner:hover .cta-icon{
+
+    transform:rotate(-8deg) scale(1.05);
+
+}
+
+/* ================================================= */
+/* ==================== CONTENT ===================== */
+/* ================================================= */
+
+.cta-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.cta-content h2{
+
+    margin:0 0 12px;
+
+    color:var(--black);
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    line-height:1.3;
+
+}
+
+.cta-content p{
+
+    margin:0;
+
+    max-width:650px;
+
+    color:var(--text);
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* ================================================= */
+/* ==================== BUTTON ====================== */
+/* ================================================= */
+
+.cta-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:18px 32px;
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    background:var(--black);
+
+    color:var(--primary);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    transition:var(--transition);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.cta-btn svg{
+
+    transition:var(--transition);
+
+}
+
+.cta-btn:hover{
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.cta-btn:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+/* ================================================= */
+/* ==================== 1024px ====================== */
+/* ================================================= */
+
+@media(max-width:1024px){
+
+.cta{
+
+    padding:45px 5% 70px;
+
+}
+
+.cta-banner{
+
+    gap:35px;
+
+    padding:35px;
+
+}
+
+.cta-left{
+
+    gap:20px;
+
+}
+
+.cta-icon{
+
+    width:70px;
+
+    height:70px;
+
+    font-size:1.8rem;
+
+}
+
+.cta-content h2{
+
+    font-size:1.9rem;
+
+}
+
+.cta-content p{
+
+    max-width:520px;
+
+    font-size:.95rem;
+
+}
+
+.cta-btn{
+
+    padding:16px 28px;
+
+    font-size:.9rem;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 768px ====================== */
+/* ================================================= */
+
+@media(max-width:768px){
+
+.cta{
+
+    padding:40px 5% 60px;
+
+}
+
+.cta-banner{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:30px;
+
+    padding:35px 28px;
+
+}
+
+.cta-left{
+
+    width:100%;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.cta-content{
+
+    align-items:center;
+
+}
+
+.cta-content h2{
+
+    font-size:1.7rem;
+
+}
+
+.cta-content p{
+
+    max-width:100%;
+
+    font-size:.92rem;
+
+    line-height:1.75;
+
+}
+
+.cta-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:16px 20px;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 425px ====================== */
+/* ================================================= */
+
+@media(max-width:425px){
+
+.cta{
+
+    padding:35px 4% 55px;
+
+}
+
+.cta-banner{
+
+    padding:28px 20px;
+
+    gap:24px;
+
+    border-radius:var(--radius-lg);
+
+}
+
+.cta-left{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:18px;
+
+}
+
+.cta-icon{
+
+    width:60px;
+
+    height:60px;
+
+    font-size:1.5rem;
+
+    border-radius:15px;
+
+}
+
+.cta-content{
+
+    align-items:center;
+
+}
+
+.cta-content h2{
+
+    font-size:1.45rem;
+
+    line-height:1.35;
+
+}
+
+.cta-content p{
+
+    max-width:100%;
+
+    font-size:.88rem;
+
+    line-height:1.7;
+
+}
+
+.cta-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:15px 18px;
+
+    font-size:.84rem;
+
+    gap:8px;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 375px ====================== */
+/* ================================================= */
+
+@media(max-width:375px){
+
+.cta{
+
+    padding:30px 4% 50px;
+
+}
+
+.cta-banner{
+
+    padding:24px 18px;
+
+    gap:22px;
+
+}
+
+.cta-icon{
+
+    width:54px;
+
+    height:54px;
+
+    font-size:1.35rem;
+
+    border-radius:14px;
+
+}
+
+.cta-content h2{
+
+    font-size:1.3rem;
+
+}
+
+.cta-content p{
+
+    font-size:.82rem;
+
+    line-height:1.65;
+
+}
+
+.cta-btn{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    font-size:.8rem;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 320px ====================== */
+/* ================================================= */
+
+@media(max-width:320px){
+
+.cta{
+
+    padding:25px 3% 45px;
+
+}
+
+.cta-banner{
+
+    padding:20px 15px;
+
+    gap:18px;
+
+    border-radius:var(--radius-md);
+
+}
+
+.cta-left{
+
+    gap:16px;
+
+}
+
+.cta-icon{
+
+    width:48px;
+
+    height:48px;
+
+    font-size:1.2rem;
+
+    border-radius:12px;
+
+}
+
+.cta-content h2{
+
+    font-size:1.1rem;
+
+    line-height:1.4;
+
+}
+
+.cta-content p{
+
+    font-size:.75rem;
+
+    line-height:1.6;
+
+}
+
+.cta-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:13px 14px;
+
+    font-size:.72rem;
+
+    gap:6px;
+
+}
+
+}

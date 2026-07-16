@@ -1,0 +1,653 @@
+/* ================================================= */
+/* ================= INDUSTRIES CTA ================= */
+/* ================================================= */
+
+.industries-cta{
+
+    width:100%;
+
+    padding:40px 5% 90px;
+
+    background:var(--white);
+
+}
+
+.industries-cta-container{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:45px;
+
+    padding:42px 55px;
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #fffdf7,
+        #fff5de
+    );
+
+    border:1px solid rgba(253,185,19,.18);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ================= LEFT ================= */
+
+.industries-cta-content{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    flex:1;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ================= ICON ================= */
+
+.industries-cta-icon{
+
+    width:74px;
+
+    height:74px;
+
+    min-width:74px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    background:var(--black);
+
+    transition:var(--transition);
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.industries-cta-container:hover
+.industries-cta-icon{
+
+    background:var(--primary);
+
+}
+
+.industries-cta-container:hover
+.industries-cta-icon svg{
+
+    color:var(--black);
+
+}
+
+/* ================= CONTENT ================= */
+
+.industries-cta-content h2{
+
+    margin:0 0 12px;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    color:var(--black);
+
+}
+
+.industries-cta-content p{
+
+    margin:0;
+
+    max-width:640px;
+
+    color:var(--text);
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* ================= BUTTON ================= */
+
+.industries-cta-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 34px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    white-space:nowrap;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.industries-cta-button svg{
+
+    transition:var(--transition);
+
+}
+
+.industries-cta-button:hover{
+
+    background:var(--black);
+
+    color:var(--primary);
+
+    transform:translateY(-3px);
+
+}
+
+.industries-cta-button:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+/* ================= DOTS ================= */
+
+.industries-cta-dots{
+
+    position:absolute;
+
+    right:28px;
+
+    bottom:24px;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,8px);
+
+    gap:8px;
+
+    z-index:1;
+
+}
+
+.industries-cta-dots span{
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    opacity:.75;
+
+}
+
+/* ================= DECORATION ================= */
+
+.industries-cta-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:360px;
+
+    height:360px;
+
+    border-radius:50%;
+
+    background:rgba(253,185,19,.08);
+
+    top:-180px;
+
+    right:-150px;
+
+    z-index:0;
+
+}
+
+.industries-cta-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:rgba(253,185,19,.06);
+
+    left:-120px;
+
+    bottom:-120px;
+
+    z-index:0;
+
+}
+
+/* ================================================= */
+/* ==================== 1024px ====================== */
+/* ================================================= */
+
+@media (max-width:1024px){
+
+.industries-cta{
+
+    padding:35px 5% 80px;
+
+}
+
+.industries-cta-container{
+
+    padding:36px;
+
+    gap:30px;
+
+}
+
+.industries-cta-content{
+
+    gap:20px;
+
+}
+
+.industries-cta-icon{
+
+    width:66px;
+
+    height:66px;
+
+    min-width:66px;
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:1.7rem;
+
+}
+
+.industries-cta-content h2{
+
+    font-size:1.7rem;
+
+}
+
+.industries-cta-content p{
+
+    font-size:.93rem;
+
+    line-height:1.7;
+
+}
+
+.industries-cta-button{
+
+    padding:16px 28px;
+
+    font-size:.9rem;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 768px ====================== */
+/* ================================================= */
+
+@media (max-width:768px){
+
+.industries-cta{
+
+    padding:30px 5% 70px;
+
+}
+
+.industries-cta-container{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:28px;
+
+    padding:34px 28px;
+
+}
+
+.industries-cta-content{
+
+    width:100%;
+
+    align-items:flex-start;
+
+}
+
+.industries-cta-icon{
+
+    width:60px;
+
+    height:60px;
+
+    min-width:60px;
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:1.5rem;
+
+}
+
+.industries-cta-content h2{
+
+    font-size:1.55rem;
+
+}
+
+.industries-cta-content p{
+
+    max-width:100%;
+
+    font-size:.9rem;
+
+}
+
+.industries-cta-button{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:16px 22px;
+
+    font-size:.9rem;
+
+}
+
+.industries-cta-dots{
+
+    display:none;
+
+}
+
+.industries-cta-container::before{
+
+    width:260px;
+
+    height:260px;
+
+}
+
+.industries-cta-container::after{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 425px ====================== */
+/* ================================================= */
+
+@media (max-width:425px){
+
+.industries-cta{
+
+    padding:25px 5% 60px;
+
+}
+
+.industries-cta-container{
+
+    padding:26px 20px;
+
+    border-radius:16px;
+
+}
+
+.industries-cta-content{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+
+.industries-cta-icon{
+
+    width:54px;
+
+    height:54px;
+
+    min-width:54px;
+
+    border-radius:14px;
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:1.3rem;
+
+}
+
+.industries-cta-content h2{
+
+    font-size:1.3rem;
+
+    line-height:1.35;
+
+    margin-bottom:8px;
+
+}
+
+.industries-cta-content p{
+
+    font-size:.82rem;
+
+    line-height:1.7;
+
+}
+
+.industries-cta-button{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:14px 18px;
+
+    font-size:.82rem;
+
+    border-radius:10px;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 375px ====================== */
+/* ================================================= */
+
+@media (max-width:375px){
+
+.industries-cta{
+
+    padding:20px 4% 55px;
+
+}
+
+.industries-cta-container{
+
+    padding:22px 18px;
+
+}
+
+.industries-cta-icon{
+
+    width:50px;
+
+    height:50px;
+
+    min-width:50px;
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:1.2rem;
+
+}
+
+.industries-cta-content h2{
+
+    font-size:1.15rem;
+
+}
+
+.industries-cta-content p{
+
+    font-size:.78rem;
+
+    line-height:1.65;
+
+}
+
+.industries-cta-button{
+
+    font-size:.78rem;
+
+    padding:13px;
+
+}
+
+}
+
+/* ================================================= */
+/* ===================== 320px ====================== */
+/* ================================================= */
+
+@media (max-width:320px){
+
+.industries-cta{
+
+    padding:20px 4% 50px;
+
+}
+
+.industries-cta-container{
+
+    padding:18px 15px;
+
+    border-radius:14px;
+
+}
+
+.industries-cta-icon{
+
+    width:45px;
+
+    height:45px;
+
+    min-width:45px;
+
+}
+
+.industries-cta-icon svg{
+
+    font-size:1.05rem;
+
+}
+
+.industries-cta-content h2{
+
+    font-size:1rem;
+
+    line-height:1.4;
+
+}
+
+.industries-cta-content p{
+
+    font-size:.72rem;
+
+    line-height:1.55;
+
+}
+
+.industries-cta-button{
+
+    width:100%;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:12px;
+
+    font-size:.72rem;
+
+}
+
+}

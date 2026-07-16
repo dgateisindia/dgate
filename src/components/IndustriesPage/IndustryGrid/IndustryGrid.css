@@ -1,0 +1,408 @@
+.industries-grid-section{
+    width:100%;
+    padding:90px 5%;
+    background:var(--white);
+}
+
+.industries-grid-container{
+    max-width:1500px;
+    margin:auto;
+}
+
+.industries-heading{
+    text-align:center;
+    margin-bottom:65px;
+}
+
+.industries-heading .section-tag{
+    margin-bottom:18px;
+}
+
+.industries-heading h2{
+    font-size:3.2rem;
+    font-weight:800;
+    line-height:1.15;
+    color:var(--black);
+    margin-bottom:18px;
+}
+
+.industries-heading p{
+    max-width:760px;
+    margin:auto;
+    font-size:1rem;
+    line-height:1.8;
+    color:var(--text);
+}
+
+.industries-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+}
+
+.industry-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+.industry-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:var(--primary);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:var(--transition);
+}
+
+.industry-card:hover{
+    transform:translateY(-10px);
+}
+
+.industry-card:hover::before{
+    transform:scaleX(1);
+}
+
+.industry-image{
+    width:100%;
+    height:230px;
+    overflow:hidden;
+    position:relative;
+}
+
+.industry-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s ease;
+}
+
+.industry-card:hover .industry-image img{
+    transform:scale(1.08);
+}
+
+.industry-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.28),
+        transparent 60%
+    );
+}
+
+.industry-content{
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.industry-content h3{
+    font-size:1.35rem;
+    font-weight:700;
+    color:var(--black);
+    margin-bottom:12px;
+    transition:var(--transition);
+}
+
+.industry-card:hover .industry-content h3{
+    color:var(--primary);
+}
+
+.industry-content p{
+    color:var(--text);
+    font-size:.95rem;
+    line-height:1.75;
+    margin-bottom:22px;
+    flex:1;
+}
+
+.industry-content button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:max-content;
+    border:none;
+    background:none;
+    color:var(--primary);
+    font-size:.92rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:var(--transition);
+    padding:0;
+}
+
+.industry-content button::before{
+    content:"";
+    width:28px;
+    height:2px;
+    background:var(--primary);
+    transition:var(--transition);
+}
+
+.industry-content button svg{
+    transition:var(--transition);
+}
+
+.industry-content button:hover{
+    color:var(--black);
+}
+
+.industry-content button:hover::before{
+    width:42px;
+}
+
+.industry-content button:hover svg{
+    transform:translateX(5px);
+}
+
+/* ===================== 1024 ======================= */
+
+@media (max-width:1024px){
+
+.industries-grid-section{
+    padding:80px 5%;
+}
+
+.industries-heading{
+    margin-bottom:55px;
+}
+
+.industries-heading h2{
+    font-size:2.7rem;
+}
+
+.industries-heading p{
+    font-size:.95rem;
+}
+
+.industries-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.industry-image{
+    height:240px;
+}
+
+.industry-content{
+    padding:22px;
+}
+
+.industry-content h3{
+    font-size:1.25rem;
+}
+
+.industry-content p{
+    font-size:.9rem;
+}
+
+}
+
+/* ====================== 768px ===================== */
+
+@media (max-width:768px){
+
+.industries-grid-section{
+    padding:70px 5%;
+}
+
+.industries-heading{
+    margin-bottom:45px;
+}
+
+.industries-heading .section-tag{
+    font-size:.75rem;
+    padding:7px 16px;
+}
+
+.industries-heading h2{
+    font-size:2.2rem;
+    line-height:1.25;
+}
+
+.industries-heading p{
+    max-width:620px;
+    font-size:.92rem;
+    line-height:1.75;
+}
+
+.industries-grid{
+    grid-template-columns:1fr;
+    gap:22px;
+}
+
+.industry-card{
+    border-radius:16px;
+}
+
+.industry-image{
+    height:260px;
+}
+
+.industry-content{
+    padding:22px;
+}
+
+.industry-content h3{
+    font-size:1.2rem;
+    margin-bottom:10px;
+}
+
+.industry-content p{
+    font-size:.88rem;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.industry-content button{
+    font-size:.84rem;
+}
+
+}
+
+/* ====================== 425px ===================== */
+
+@media (max-width:425px){
+
+.industries-grid-section{
+    padding:60px 5%;
+}
+
+.industries-heading{
+    margin-bottom:35px;
+}
+
+.industries-heading .section-tag{
+    font-size:.7rem;
+    padding:6px 14px;
+}
+
+.industries-heading h2{
+    font-size:1.75rem;
+    line-height:1.3;
+}
+
+.industries-heading p{
+    font-size:.84rem;
+    line-height:1.7;
+}
+
+.industry-image{
+    height:220px;
+}
+
+.industry-content{
+    padding:20px;
+}
+
+.industry-content h3{
+    font-size:1.1rem;
+}
+
+.industry-content p{
+    font-size:.82rem;
+    line-height:1.65;
+    margin-bottom:16px;
+}
+
+.industry-content button{
+    font-size:.8rem;
+}
+
+}
+
+/* ====================== 375px ===================== */
+
+@media (max-width:375px){
+
+.industries-grid-section{
+    padding:55px 4%;
+}
+
+.industries-heading h2{
+    font-size:1.6rem;
+}
+
+.industries-heading p{
+    font-size:.8rem;
+}
+
+.industry-image{
+    height:200px;
+}
+
+.industry-content{
+    padding:18px;
+}
+
+.industry-content h3{
+    font-size:1rem;
+}
+
+.industry-content p{
+    font-size:.78rem;
+}
+
+.industry-content button{
+    font-size:.78rem;
+}
+
+}
+
+/* ====================== 320px ===================== */
+
+@media (max-width:320px){
+
+.industries-grid-section{
+    padding:50px 4%;
+}
+
+.industries-heading .section-tag{
+    font-size:.65rem;
+}
+
+.industries-heading h2{
+    font-size:1.4rem;
+    line-height:1.35;
+}
+
+.industries-heading p{
+    font-size:.74rem;
+    line-height:1.6;
+}
+
+.industry-image{
+    height:180px;
+}
+
+.industry-content{
+    padding:16px;
+}
+
+.industry-content h3{
+    font-size:.95rem;
+}
+
+.industry-content p{
+    font-size:.74rem;
+    line-height:1.6;
+}
+
+.industry-content button{
+    font-size:.74rem;
+}
+
+}

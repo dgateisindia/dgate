@@ -1,84 +1,95 @@
 .vision-mission{
+
     padding:0 5% 90px;
-    background:#fff;
+
+    background:var(--white);
+
 }
 
 .vm-container{
-    max-width:1320px;
-    margin:auto;
-}
 
+    max-width:1320px;
+
+    margin:auto;
+
+}
 
 .vm-wrapper{
 
-    background:#fafafa;
+    background:var(--gray);
 
-    border-radius:20px;
+    border-radius:var(--radius-lg);
 
     padding:55px 50px;
 
     box-shadow:0 15px 40px rgba(0,0,0,.06);
+
 }
-
-
 
 .vm-title{
 
     text-align:center;
 
     margin-bottom:45px;
+
 }
 
 .vm-title h2{
 
-    font-size:2rem;
-    font-weight:800;
+    margin-bottom:12px;
 
-    color:#111;
+    font-size:2rem;
+
+    font-weight:800;
 
     text-transform:uppercase;
 
-    margin-bottom:12px;
+    color:var(--black);
+
 }
 
 .vm-line{
 
     width:55px;
+
     height:3px;
 
-    background:#FFD700;
+    margin:auto;
 
     border-radius:10px;
 
-    margin:auto;
-}
+    background:var(--primary);
 
+}
 
 .vm-cards{
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
 
     gap:35px;
-}
 
+}
 
 .vm-card{
 
     display:flex;
+
     align-items:flex-start;
 
     gap:24px;
 
-    background:#fff;
-
     padding:28px;
 
-    border-radius:18px;
+    background:var(--white);
+
+    border-radius:var(--radius-md);
 
     box-shadow:0 10px 28px rgba(0,0,0,.08);
 
-    transition:.35s ease;
+    transition:var(--transition);
+
 }
 
 .vm-card:hover{
@@ -86,143 +97,183 @@
     transform:translateY(-8px);
 
     box-shadow:0 18px 38px rgba(0,0,0,.14);
-}
 
+}
 
 .vm-icon{
 
     width:72px;
+
     height:72px;
 
     min-width:72px;
 
-    border-radius:50%;
-
-    background:#FFD22E;
-
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    transition:.35s ease;
+    border-radius:50%;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
 }
 
 .vm-icon svg{
 
     font-size:34px;
 
-    color:#111;
+    color:var(--black);
 
-    transition:.35s ease;
+    transition:var(--transition);
+
 }
 
 .vm-card:hover .vm-icon{
 
     transform:rotate(10deg) scale(1.05);
-}
 
+}
 
 .vm-content{
 
     flex:1;
+
 }
 
 .vm-content h3{
 
-    font-size:1.1rem;
-    font-weight:800;
+    margin-bottom:12px;
 
-    color:#111;
+    font-size:1.1rem;
+
+    font-weight:800;
 
     text-transform:uppercase;
 
-    margin-bottom:12px;
+    color:var(--black);
+
 }
 
 .vm-content p{
 
-    color:#444;
+    color:var(--text);
 
     font-size:.95rem;
 
     line-height:1.8;
+
 }
 
-
-/* ===================== 1024 ======================= */
+/* ==================== 1024px ====================== */
 
 @media(max-width:1024px){
 
 .vision-mission{
+
     padding:75px 5% 90px;
+
 }
 
 .vm-wrapper{
+
     padding:45px 35px;
+
 }
 
 .vm-title{
+
     margin-bottom:40px;
+
 }
 
 .vm-title h2{
+
     font-size:1.8rem;
+
 }
 
 .vm-cards{
+
     gap:25px;
+
 }
 
 .vm-card{
+
     gap:20px;
+
     padding:24px;
+
 }
 
 .vm-icon{
 
     width:64px;
+
     height:64px;
 
     min-width:64px;
+
 }
 
 .vm-icon svg{
+
     font-size:28px;
+
 }
 
 .vm-content h3{
+
     font-size:1rem;
+
 }
 
 .vm-content p{
+
     font-size:.9rem;
+
     line-height:1.7;
-}
 
 }
 
-/* ====================== 768 ======================= */
+}
+
+/* ===================== 768px ====================== */
 
 @media(max-width:768px){
 
 .vision-mission{
+
     padding:65px 5% 80px;
+
 }
 
 .vm-wrapper{
+
     padding:40px 28px;
+
 }
 
 .vm-title{
+
     margin-bottom:35px;
+
 }
 
 .vm-title h2{
+
     font-size:1.65rem;
+
 }
 
 .vm-line{
+
     width:45px;
+
 }
 
 .vm-cards{
@@ -230,6 +281,7 @@
     grid-template-columns:1fr;
 
     gap:22px;
+
 }
 
 .vm-card{
@@ -239,26 +291,31 @@
     gap:20px;
 
     padding:24px;
+
 }
 
 .vm-icon{
 
     width:60px;
+
     height:60px;
 
     min-width:60px;
+
 }
 
 .vm-icon svg{
 
     font-size:26px;
+
 }
 
 .vm-content h3{
 
+    margin-bottom:8px;
+
     font-size:.95rem;
 
-    margin-bottom:8px;
 }
 
 .vm-content p{
@@ -266,38 +323,45 @@
     font-size:.88rem;
 
     line-height:1.7;
-}
 
 }
 
-/* ====================== 425 ======================= */
+}
+
+/* ===================== 425px ====================== */
 
 @media(max-width:425px){
 
 .vision-mission{
+
     padding:55px 5% 70px;
+
 }
 
 .vm-wrapper{
 
     padding:30px 18px;
 
-    border-radius:16px;
+    border-radius:var(--radius-md);
+
 }
 
 .vm-title{
 
     margin-bottom:28px;
+
 }
 
 .vm-title h2{
 
     font-size:1.4rem;
+
 }
 
 .vm-line{
 
     width:40px;
+
 }
 
 .vm-card{
@@ -310,29 +374,34 @@
 
     padding:22px 18px;
 
-    border-radius:16px;
+    border-radius:var(--radius-md);
+
 }
 
 .vm-icon{
 
     width:56px;
+
     height:56px;
 
     min-width:56px;
 
     margin:0 auto;
+
 }
 
 .vm-icon svg{
 
     font-size:22px;
+
 }
 
 .vm-content h3{
 
+    margin-bottom:8px;
+
     font-size:.9rem;
 
-    margin-bottom:8px;
 }
 
 .vm-content p{
@@ -340,49 +409,59 @@
     font-size:.82rem;
 
     line-height:1.65;
-}
 
 }
 
-/* ====================== 375 ======================= */
+}
+
+/* ===================== 375px ====================== */
 
 @media(max-width:375px){
 
 .vision-mission{
+
     padding:50px 4% 65px;
+
 }
 
 .vm-wrapper{
 
     padding:26px 16px;
+
 }
 
 .vm-title h2{
 
     font-size:1.25rem;
+
 }
 
 .vm-card{
 
     padding:20px 16px;
+
 }
 
 .vm-icon{
 
     width:52px;
+
     height:52px;
 
     min-width:52px;
+
 }
 
 .vm-icon svg{
 
     font-size:20px;
+
 }
 
 .vm-content h3{
 
     font-size:.86rem;
+
 }
 
 .vm-content p{
@@ -390,39 +469,47 @@
     font-size:.78rem;
 
     line-height:1.6;
-}
 
 }
 
-/* ====================== 320 ======================= */
+}
+
+/* ===================== 320px ====================== */
 
 @media(max-width:320px){
 
 .vision-mission{
+
     padding:45px 4% 55px;
+
 }
 
 .vm-wrapper{
 
     padding:22px 14px;
 
-    border-radius:14px;
+    border-radius:var(--radius-sm);
+
 }
 
 .vm-title{
 
     margin-bottom:22px;
+
 }
 
 .vm-title h2{
 
     font-size:1.1rem;
+
 }
 
 .vm-line{
 
     width:34px;
+
     height:2px;
+
 }
 
 .vm-card{
@@ -430,24 +517,29 @@
     padding:18px 14px;
 
     gap:14px;
+
 }
 
 .vm-icon{
 
     width:46px;
+
     height:46px;
 
     min-width:46px;
+
 }
 
 .vm-icon svg{
 
     font-size:18px;
+
 }
 
 .vm-content h3{
 
     font-size:.8rem;
+
 }
 
 .vm-content p{
@@ -455,6 +547,7 @@
     font-size:.74rem;
 
     line-height:1.55;
+
 }
 
 }

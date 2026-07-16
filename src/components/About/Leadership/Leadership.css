@@ -1,0 +1,767 @@
+.leadership-presence{
+
+    padding:100px 5%;
+
+    background:var(--white);
+
+}
+
+.lp-container{
+
+    max-width:1380px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:58% 42%;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.leadership-section,
+.presence-section{
+
+    padding:30px;
+
+    background:var(--white);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.lp-heading{
+
+    margin-bottom:28px;
+
+}
+
+.lp-heading h2{
+
+    margin-bottom:8px;
+
+    font-size:1.8rem;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    color:var(--black);
+
+}
+
+.heading-line{
+
+    width:60px;
+
+    height:4px;
+
+    margin-bottom:12px;
+
+    border-radius:30px;
+
+    background:var(--primary);
+
+}
+
+.lp-heading p{
+
+    color:var(--text);
+
+    font-size:.9rem;
+
+    line-height:1.6;
+
+}
+
+
+.leaders-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+
+    margin-top:25px;
+
+}
+
+.leader-card{
+
+    min-height:190px;
+
+    padding:16px 10px;
+
+    text-align:center;
+
+    background:var(--white);
+
+    border-radius:12px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    transition:var(--transition);
+
+}
+
+.leader-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.14);
+
+}
+
+.leader-photo{
+
+    width:70px;
+
+    height:70px;
+
+    margin:0 auto 12px;
+
+    overflow:hidden;
+
+    border:3px solid var(--primary);
+
+    border-radius:50%;
+
+    background:var(--gray);
+
+}
+
+.leader-photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.leader-card h3{
+
+    margin-bottom:5px;
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    color:var(--black);
+
+}
+
+.leader-card span{
+
+    display:block;
+
+    min-height:34px;
+
+    color:var(--text);
+
+    font-size:.72rem;
+
+    line-height:1.5;
+
+}
+
+.leader-card a{
+
+    width:26px;
+
+    height:26px;
+
+    margin:12px auto 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.leader-card a:hover{
+
+    background:var(--black);
+
+    color:var(--primary);
+
+}
+
+
+.meet-btn{
+
+    display:block;
+
+    margin:25px auto 0;
+
+    padding:10px 22px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:var(--primary);
+
+    color:var(--black);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.meet-btn:hover{
+
+    background:var(--black);
+
+    color:var(--primary);
+
+}
+
+.presence-map{
+
+    position:relative;
+
+    margin-top:15px;
+
+}
+
+.presence-map img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.map-pin{
+
+    position:absolute;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    background:var(--white);
+
+    box-shadow:0 6px 15px rgba(0,0,0,.12);
+
+    font-size:.7rem;
+
+    font-weight:600;
+
+    color:var(--black);
+
+}
+
+.map-pin svg{
+
+    color:var(--primary);
+
+    font-size:.95rem;
+
+}
+
+/* ================= PIN POSITIONS ================== */
+
+.north-america{
+
+    top:18%;
+
+    left:8%;
+
+}
+
+.south-america{
+
+    bottom:18%;
+
+    left:22%;
+
+}
+
+.europe{
+
+    top:18%;
+
+    left:50%;
+
+}
+
+.middle-east{
+
+    top:43%;
+
+    left:56%;
+
+}
+
+.india{
+
+    top:48%;
+
+    left:67%;
+
+}
+
+.asia{
+
+    bottom:18%;
+
+    right:4%;
+
+}
+
+/* ==================== 1024px ====================== */
+
+@media(max-width:1024px){
+
+.lp-container{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+}
+
+.leaders-grid{
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+.leader-photo{
+
+    width:65px;
+
+    height:65px;
+
+}
+
+.leader-card{
+
+    min-height:180px;
+
+}
+
+.lp-heading h2{
+
+    font-size:1.6rem;
+
+}
+
+}
+
+/* ===================== 768px ====================== */
+
+@media (max-width:768px){
+
+.leadership-presence{
+
+    padding:65px 5% 75px;
+
+}
+
+.lp-container{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+}
+
+.leadership-section,
+.presence-section{
+
+    padding:28px;
+
+}
+
+.lp-heading{
+
+    text-align:center;
+
+}
+
+.heading-line{
+
+    margin:0 auto 12px;
+
+}
+
+.lp-heading h2{
+
+    font-size:1.6rem;
+
+}
+
+.lp-heading p{
+
+    font-size:.9rem;
+
+}
+
+.leaders-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.leader-card{
+
+    min-height:180px;
+
+}
+
+.leader-photo{
+
+    width:68px;
+
+    height:68px;
+
+}
+
+.leader-card h3{
+
+    font-size:.9rem;
+
+}
+
+.leader-card span{
+
+    font-size:.74rem;
+
+}
+
+.meet-btn{
+
+    margin-top:25px;
+
+}
+
+.presence-map{
+
+    max-width:600px;
+
+    margin:20px auto 0;
+
+}
+
+.map-pin{
+
+    padding:4px 8px;
+
+    font-size:.62rem;
+
+}
+
+}
+
+/* ===================== 425px ====================== */
+
+@media (max-width:425px){
+
+.leadership-presence{
+
+    padding:55px 5% 65px;
+
+}
+
+.leadership-section,
+.presence-section{
+
+    padding:22px;
+
+    border-radius:var(--radius-md);
+
+}
+
+.lp-heading{
+
+    text-align:center;
+
+}
+
+.lp-heading h2{
+
+    font-size:1.35rem;
+
+}
+
+.heading-line{
+
+    width:45px;
+
+    margin:0 auto 10px;
+
+}
+
+.lp-heading p{
+
+    font-size:.82rem;
+
+}
+
+.leaders-grid{
+
+    grid-template-columns:1fr;
+
+    gap:16px;
+
+}
+
+.leader-card{
+
+    min-height:auto;
+
+    padding:18px 15px;
+
+}
+
+.leader-photo{
+
+    width:62px;
+
+    height:62px;
+
+}
+
+.leader-card h3{
+
+    font-size:.88rem;
+
+}
+
+.leader-card span{
+
+    font-size:.74rem;
+
+}
+
+.meet-btn{
+
+    width:100%;
+
+    margin-top:22px;
+
+}
+
+.presence-map{
+
+    margin-top:18px;
+
+}
+
+.map-pin{
+
+    padding:3px 6px;
+
+    font-size:.52rem;
+
+}
+
+}
+
+/* ===================== 375px ====================== */
+
+@media (max-width:375px){
+
+.leadership-presence{
+
+    padding:50px 4% 60px;
+
+}
+
+.leadership-section,
+.presence-section{
+
+    padding:18px;
+
+}
+
+.lp-heading h2{
+
+    font-size:1.15rem;
+
+}
+
+.heading-line{
+
+    width:38px;
+
+}
+
+.lp-heading p{
+
+    font-size:.78rem;
+
+}
+
+.leader-photo{
+
+    width:58px;
+
+    height:58px;
+
+}
+
+.leader-card h3{
+
+    font-size:.82rem;
+
+}
+
+.leader-card span{
+
+    font-size:.7rem;
+
+}
+
+.meet-btn{
+
+    padding:10px 18px;
+
+    font-size:.8rem;
+
+}
+
+.map-pin{
+
+    font-size:.48rem;
+
+}
+
+}
+
+/* ===================== 320px ====================== */
+
+@media (max-width:320px){
+
+.leadership-presence{
+
+    padding:45px 4% 55px;
+
+}
+
+.leadership-section,
+.presence-section{
+
+    padding:15px;
+
+    border-radius:var(--radius-sm);
+
+}
+
+.lp-heading h2{
+
+    font-size:1rem;
+
+}
+
+.heading-line{
+
+    width:34px;
+
+    height:3px;
+
+}
+
+.lp-heading p{
+
+    font-size:.72rem;
+
+}
+
+.leaders-grid{
+
+    gap:14px;
+
+}
+
+.leader-photo{
+
+    width:52px;
+
+    height:52px;
+
+}
+
+.leader-card{
+
+    padding:15px 12px;
+
+}
+
+.leader-card h3{
+
+    font-size:.78rem;
+
+}
+
+.leader-card span{
+
+    font-size:.66rem;
+
+}
+
+.leader-card a{
+
+    width:24px;
+
+    height:24px;
+
+    font-size:.7rem;
+
+}
+
+.meet-btn{
+
+    padding:9px 16px;
+
+    font-size:.76rem;
+
+}
+
+.map-pin{
+
+    padding:2px 5px;
+
+    font-size:.44rem;
+
+}
+
+}
