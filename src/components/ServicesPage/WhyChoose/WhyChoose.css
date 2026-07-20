@@ -169,7 +169,7 @@
 .why-container{
     grid-template-columns:1fr;
     gap:40px;
-    padding:45px;
+    padding:30px;
 }
 
 .why-left{
@@ -196,7 +196,7 @@
 @media(max-width:768px){
 
 .why-section{
-    padding:70px 5%;
+    padding:20px 5%;
 }
 
 .why-container{
@@ -218,7 +218,7 @@
 @media(max-width:425px){
 
 .why-section{
-    padding:60px 5%;
+    padding:20px 5%;
 }
 
 .why-container{
@@ -251,7 +251,7 @@
 @media(max-width:375px){
 
 .why-section{
-    padding:55px 4%;
+    padding:20px 4%;
 }
 
 .why-container{
@@ -269,7 +269,7 @@
 @media(max-width:320px){
 
 .why-section{
-    padding:50px 4%;
+    padding:20px 4%;
 }
 
 .why-container{

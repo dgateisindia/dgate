@@ -1,8 +1,10 @@
 .who-we-are{
 
-    padding:60px 5% 100px;
+    padding:50px 5% 70px;
 
     background:var(--white);
+
+     scroll-margin-top: 110px;
 
 }
 
@@ -188,7 +190,7 @@
 
 .who-we-are{
 
-    padding:30px 5% 65px;
+    padding:40px 5% 65px;
 
 }
 
@@ -310,7 +312,7 @@
 
 .who-we-are{
 
-    padding:40px 5% 70px;
+    padding:30px 5% 40px;
 
 }
 
@@ -376,7 +378,7 @@
 
 .who-we-are{
 
-    padding:35px 4% 60px;
+    padding:30px 4% 60px;
 
 }
 
@@ -424,7 +426,7 @@
 
 .who-we-are{
 
-    padding:30px 4% 55px;
+    padding:30px 4% 40px;
 
 }
 

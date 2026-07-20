@@ -5,7 +5,6 @@ import {
   FaShieldAlt,
   FaCloud,
   FaChartLine,
-  FaArrowRight,
 } from "react-icons/fa";
 
 import {
@@ -72,10 +71,6 @@ function Services() {
             <h3>{item.title}</h3>
 
             <p>{item.desc}</p>
-
-            <button>
-              <FaArrowRight />
-            </button>
 
           </div>
 

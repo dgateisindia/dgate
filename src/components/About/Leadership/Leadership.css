@@ -1,6 +1,6 @@
 .leadership-presence{
 
-    padding:100px 5%;
+    padding:90px 5%;
 
     background:var(--white);
 
@@ -350,7 +350,7 @@
 
     grid-template-columns:1fr;
 
-    gap:30px;
+    gap:40px;
 
 }
 
@@ -390,7 +390,7 @@
 
 .leadership-presence{
 
-    padding:65px 5% 75px;
+    padding:40px 5% 45px;
 
 }
 
@@ -398,7 +398,7 @@
 
     grid-template-columns:1fr;
 
-    gap:30px;
+    gap:40px;
 
 }
 
@@ -497,7 +497,7 @@
 
 .leadership-presence{
 
-    padding:55px 5% 65px;
+    padding:40px 5% 40px;
 
 }
 
@@ -602,7 +602,7 @@
 
 .leadership-presence{
 
-    padding:50px 4% 60px;
+    padding:40px 4% 40px;
 
 }
 
@@ -673,7 +673,7 @@
 
 .leadership-presence{
 
-    padding:45px 4% 55px;
+    padding:40px 4% 40px;
 
 }
 

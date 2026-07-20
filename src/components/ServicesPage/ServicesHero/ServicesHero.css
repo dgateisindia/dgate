@@ -271,7 +271,7 @@
 
 .services-hero{
 
-    padding-top:85px;
+    padding-top:20px;
 
 }
 
@@ -285,7 +285,7 @@
 
 .services-left{
 
-    padding:0 40px;
+    padding:0 20px;
 
 }
 
@@ -348,7 +348,7 @@
 
 .services-hero{
 
-    padding-top:80px;
+    padding-top:20px;
 
 }
 
@@ -366,7 +366,7 @@
 
     width:100%;
 
-    padding:50px 7% 40px;
+    padding:20px 7% 40px;
 
     text-align:center;
 
@@ -456,13 +456,13 @@
 
 .services-hero{
 
-    padding-top:72px;
+    padding-top:20px;
 
 }
 
 .services-left{
 
-    padding:40px 6% 30px;
+    padding:20px 6% 30px;
 
 }
 
@@ -523,9 +523,15 @@
 
 @media (max-width:375px){
 
+.services-hero{
+
+    padding-top:20px;
+
+}
+
 .services-left{
 
-    padding:35px 5%;
+    padding:30px 5%;
 
 }
 
@@ -568,13 +574,13 @@
 
 .services-hero{
 
-    padding-top:68px;
+    padding-top:20px;
 
 }
 
 .services-left{
 
-    padding:30px 5%;
+    padding:20px 5%;
 
 }
 

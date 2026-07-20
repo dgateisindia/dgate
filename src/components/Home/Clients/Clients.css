@@ -264,7 +264,7 @@
 
 .clients{
 
-    padding:55px 0 65px;
+    padding:40px 0  20px;
 
 }
 
@@ -323,7 +323,7 @@
 
 .clients{
 
-    padding:50px 0 60px;
+    padding:20px 0 10px;
 
 }
 
@@ -382,6 +382,18 @@
 
 @media(max-width:375px){
 
+    .clients{
+
+    padding:20px 0  10px;
+
+}
+
+.clients-container{
+
+    padding:0 12px;
+
+}
+
 .clients-title{
 
     font-size:1.45rem;
@@ -422,7 +434,7 @@
 
 .clients{
 
-    padding:45px 0 55px;
+    padding:20px 0  10px;
 
 }
 

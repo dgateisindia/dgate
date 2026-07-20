@@ -141,6 +141,7 @@ function IndustriesGrid() {
   return (
 
     <section
+      id="industries-grid"
       className="industries-grid-section"
       ref={sectionRef}
     >

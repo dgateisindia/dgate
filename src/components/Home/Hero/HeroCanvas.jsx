@@ -1,8 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import Particles from "./Particles";
-import FloatingParticles from "./FloatingParticles";
+import {
+  EffectComposer,
+  Bloom,
+} from "@react-three/postprocessing";
 
+import Particles from "./Particles";
 
 export default function HeroCanvas() {
   return (
@@ -13,15 +15,17 @@ export default function HeroCanvas() {
           fov: 50,
         }}
         dpr={[1, 2]}
+        gl={{
+          alpha: true,
+          antialias: true,
+        }}
       >
-        <FloatingParticles/>
         <Particles />
-        
 
         <EffectComposer>
           <Bloom
-            intensity={0.9}
-            luminanceThreshold={0.15}
+            intensity={1.4}
+            luminanceThreshold={0.1}
             luminanceSmoothing={0.9}
           />
         </EffectComposer>

@@ -61,17 +61,23 @@ function WhoWeAre() {
 
     return (
 
-        <section className="who-we-are" ref={sectionRef}>
+        <section
+            id="our-story"
+            className="who-we-are"
+            ref={sectionRef}
+        >
 
             <div className="who-container">
 
                 {/* Left Image */}
 
                 <div className="who-image">
+
                     <img
                         src={office}
                         alt="D-GATE Office"
                     />
+
                 </div>
 
                 {/* Right Content */}
@@ -105,22 +111,30 @@ function WhoWeAre() {
 
                         <div className="who-feature">
                             <FaCheckCircle />
-                            <span>Innovation at the Core</span>
+                            <span>
+                                Innovation at the Core
+                            </span>
                         </div>
 
                         <div className="who-feature">
                             <FaCheckCircle />
-                            <span>Long-term Partnerships</span>
+                            <span>
+                                Long-term Partnerships
+                            </span>
                         </div>
 
                         <div className="who-feature">
                             <FaCheckCircle />
-                            <span>Commitment to Quality</span>
+                            <span>
+                                Commitment to Quality
+                            </span>
                         </div>
 
                         <div className="who-feature">
                             <FaCheckCircle />
-                            <span>Empowering Businesses</span>
+                            <span>
+                                Empowering Businesses
+                            </span>
                         </div>
 
                     </div>

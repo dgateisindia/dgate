@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 
 import { aboutHero } from "../../../assets/images/about";
 
-
 function AboutHero() {
+
+  const scrollToOurStory = () => {
+    const section = document.getElementById("our-story");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section
       className="about-hero"
@@ -29,7 +40,9 @@ function AboutHero() {
 
           <div className="hero-line"></div>
 
-          <h3>Engineering a Better Tomorrow</h3>
+          <h3>
+            Engineering a Better Tomorrow
+          </h3>
 
           <p>
             We design, build and support innovative engineering
@@ -37,10 +50,14 @@ function AboutHero() {
             product development and digital transformation.
           </p>
 
-          <button>OUR STORY →</button>
+          <button
+            type="button"
+            onClick={scrollToOurStory}
+          >
+            OUR STORY →
+          </button>
 
         </div>
-
 
       </div>
     </section>

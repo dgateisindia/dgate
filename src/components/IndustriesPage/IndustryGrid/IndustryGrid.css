@@ -1,7 +1,9 @@
-.industries-grid-section{
-    width:100%;
-    padding:90px 5%;
-    background:var(--white);
+.industries-grid-section {
+    width: 100%;
+    padding: 90px 5%;
+    background: var(--white);
+
+    scroll-margin-top: 110px;
 }
 
 .industries-grid-container{

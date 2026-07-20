@@ -1,112 +1,118 @@
+import "./Hero.css";
+
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 
-import "./Hero.css";
-import { heroBg, heroMobile } from "../../../assets/images/home/hero";
+import { heroBg } from "../../../assets/images/home/hero";
 import HeroCanvas from "./HeroCanvas";
 
 function Hero() {
 
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  const buttonRef = useRef(null);
+    const heroRef = useRef(null);
 
-  const navigate = useNavigate();
+    useEffect(() => {
 
-  useEffect(() => {
+        const ctx = gsap.context(() => {
 
-    const tl = gsap.timeline();
+            const tl = gsap.timeline({
+                defaults: {
+                    ease: "power3.out",
+                },
+            });
 
-    tl.from(titleRef.current, {
-      x: -30,
-      opacity: 0.3,
-      duration: 0.8,
-      ease: "power2.out",
-    })
-      .from(
-        textRef.current,
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      )
-      .from(
-        buttonRef.current,
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      );
+            tl.from(".hero-content h1", {
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+            })
 
-  }, []);
+            .from(".hero-content p", {
+                y: 30,
+                opacity: 0,
+                duration: 0.6,
+            }, "-=0.3")
 
-  return (
+            .from(".hero-buttons", {
+                y: 25,
+                opacity: 0,
+                duration: 0.5,
+            }, "-=0.25");
 
-    <section className="hero">
+        }, heroRef);
 
-      <picture>
-        <source
-          media="(max-width:768px)"
-          srcSet={heroMobile}
-        />
+        return () => ctx.revert();
 
-        <img
-          src={heroBg}
-          alt="Hero"
-          className="hero-bg"
-        />
-      </picture>
+    }, []);
 
-      <HeroCanvas />
+    return (
 
-      <div className="hero-content">
-
-        <h1 ref={titleRef}>
-          Engineering Solutions
-          <br />
-          That Drive
-          <span> Innovation</span>
-        </h1>
-
-        <p ref={textRef}>
-          DGATE is a trusted engineering services company delivering
-          software, product engineering and technology solutions that
-          help businesses transform and grow.
-        </p>
-
-        <div
-          className="hero-buttons"
-          ref={buttonRef}
+        <section
+            className="hero"
+            ref={heroRef}
         >
 
-          <button
-            className="primary-btn"
-            onClick={() => navigate("/services")}
-          >
-            EXPLORE SERVICES →
-          </button>
+            <img
+                src={heroBg}
+                alt="Engineering Solutions"
+                className="hero-bg"
+            />
 
-          <button
-            className="secondary-btn"
-            onClick={() => navigate("/about")}
-          >
-            ABOUT US →
-          </button>
+            <HeroCanvas />
 
-        </div>
+            <div className="hero-content">
 
-      </div>
+                <span className="hero-tag">
+                    ENGINEERING • DIGITAL • INNOVATION
+                </span>
 
-    </section>
+                <h1>
+                    Engineering
+                    <br />
 
-  );
+                    Solutions That
+                    <br />
+
+                    Drive
+
+                    <span>
+                        Innovation
+                    </span>
+                </h1>
+
+                <p>
+                    D-GATE Integrated Services delivers
+                    engineering, product development,
+                    software, cloud and digital solutions
+                    that help businesses innovate faster,
+                    operate smarter and achieve sustainable
+                    growth.
+                </p>
+
+                <div className="hero-buttons">
+
+                    <Link
+                        to="/services"
+                        className="primary-btn"
+                    >
+                        Explore Services
+                    </Link>
+
+                    <button
+                        type="button"
+                        className="secondary-btn"
+                    >
+                        Contact Us
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    );
+
 }
 
 export default Hero;

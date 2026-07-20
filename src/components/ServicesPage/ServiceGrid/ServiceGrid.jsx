@@ -14,7 +14,6 @@ import {
   FaDatabase,
   FaShieldAlt,
   FaProjectDiagram,
-  FaArrowRight,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -81,34 +80,39 @@ function ServiceGrid() {
       gsap.from(".service-heading", {
         y: 40,
         opacity: 0,
-        duration: .8,
+        duration: 0.8,
         ease: "power3.out",
+
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
         },
       });
 
-        gsap.fromTo(".service-card",
-          {
-            opacity: 0,
-            y: 50,
+      gsap.fromTo(
+        ".service-card",
+
+        {
+          opacity: 0,
+          y: 50,
+        },
+
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          clearProps: "opacity,transform",
+
+          scrollTrigger: {
+            trigger: ".services-grid",
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
           },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
-            clearProps: "opacity,transform",
-            scrollTrigger: {
-              trigger: ".services-grid",
-              start: "top 80%",
-              toggleActions: "play none none none",
-              once: true,
-            },
-          }
-        );
+        }
+      );
 
     }, sectionRef);
 
@@ -132,19 +136,15 @@ function ServiceGrid() {
           </span>
 
           <h2>
-
             Engineering Excellence
             <br />
             Across Every Domain
-
           </h2>
 
           <p>
-
             We provide end-to-end engineering and technology
             services that empower businesses to innovate,
             modernize and grow with confidence.
-
           </p>
 
         </div>
@@ -159,30 +159,16 @@ function ServiceGrid() {
             >
 
               <div className="service-icon">
-
                 {service.icon}
-
               </div>
 
               <h3>
-
                 {service.title}
-
               </h3>
 
               <p>
-
                 {service.description}
-
               </p>
-
-              <button>
-
-                Learn More
-
-                <FaArrowRight />
-
-              </button>
 
             </div>
 

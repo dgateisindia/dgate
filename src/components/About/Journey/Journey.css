@@ -192,7 +192,7 @@
 
 .journey-line{
 
-    left:7%;
+    left:28px;
 
     right:7%;
 
@@ -234,7 +234,7 @@
 
 .journey{
 
-    padding:65px 5% 80px;
+    padding:30px 5% 30px;
 
 }
 
@@ -266,7 +266,7 @@
 
     top:50px;
 
-    left:6%;
+    left:28px;
 
     right:6%;
 
@@ -314,110 +314,76 @@
 
 /* ===================== 425px ====================== */
 
-@media(max-width:425px){
+@media (max-width:425px){
 
 .journey{
-
-    padding:55px 5% 70px;
-
+    padding:30px 5%;
 }
 
 .journey-title{
-
     margin-bottom:35px;
-
 }
 
 .journey-title h2{
-
-    font-size:1.4rem;
-
+    font-size:1.45rem;
 }
 
 .journey-line-small{
-
     width:40px;
-
 }
 
-/* ================= Vertical Timeline ============= */
-
 .journey-wrapper{
-
-    padding-left:45px;
-
+    padding-left:30px;
 }
 
 .journey-line{
-
-    left:29px;
-
-    right:auto;
-
+    left:25px;
     top:0;
-
     bottom:0;
-
     width:3px;
-
     height:100%;
-
+    right:auto;
 }
 
 .journey-items{
-
     display:flex;
-
     flex-direction:column;
-
-    gap:35px;
-
+    gap:30px;
 }
 
 .journey-item{
-
-    position:relative;
-
     display:flex;
-
-    align-items:flex-start;
-
+    align-items:center;
     text-align:left;
-
+    gap:18px;
 }
 
 .journey-icon{
-
     width:52px;
-
     height:52px;
-
     min-width:52px;
-
-    margin:0 18px 0 -42px;
-
+    margin-left:-27px;
+    margin-bottom:0;
 }
 
 .journey-icon svg{
-
     font-size:20px;
-
 }
 
-.journey-item h3{
+.journey-content{
+    flex:1;
+}
 
+.journey-content h3{
+    margin:0 0 6px;
     font-size:1.2rem;
-
-    margin-bottom:6px;
-
+    line-height:1;
 }
 
-.journey-item p{
-
+.journey-content p{
+    margin:0;
     font-size:.82rem;
-
     line-height:1.6;
-
 }
 
 }
@@ -427,65 +393,47 @@
 @media(max-width:375px){
 
 .journey{
-
-    padding:50px 4% 65px;
-
+    padding:30px 4%;
 }
 
 .journey-title h2{
-
-    font-size:1.25rem;
-
+    font-size:1.3rem;
 }
 
 .journey-wrapper{
-
-    padding-left:40px;
-
+    padding-left:30px;
 }
 
 .journey-line{
-
-    left:24px;
-
+    left:28px;
 }
 
 .journey-items{
+    gap:28px;
+}
 
-    gap:30px;
-
+.journey-item{
+    gap:16px;
 }
 
 .journey-icon{
-
     width:48px;
-
     height:48px;
-
     min-width:48px;
-
-    margin:0 16px 0 -36px;
-
+    margin-left:-24px;
 }
 
 .journey-icon svg{
-
     font-size:18px;
-
 }
 
-.journey-item h3{
-
-    font-size:1.05rem;
-
+.journey-content h3{
+    font-size:1.1rem;
 }
 
-.journey-item p{
-
-    font-size:.76rem;
-
+.journey-content p{
+    font-size:.78rem;
     line-height:1.5;
-
 }
 
 }
@@ -495,79 +443,55 @@
 @media(max-width:320px){
 
 .journey{
-
-    padding:45px 4% 55px;
-
+    padding:30px 4%;
 }
 
 .journey-title{
-
     margin-bottom:28px;
-
 }
 
 .journey-title h2{
-
-    font-size:1.1rem;
-
+    font-size:1.15rem;
 }
 
 .journey-line-small{
-
     width:34px;
-
-    height:2px;
-
 }
 
 .journey-wrapper{
-
-    padding-left:35px;
-
+    padding-left:30px;
 }
 
 .journey-line{
-
-    left:20px;
-
+    left:28px;
 }
 
 .journey-items{
+    gap:24px;
+}
 
-    gap:26px;
-
+.journey-item{
+    gap:14px;
 }
 
 .journey-icon{
-
     width:44px;
-
     height:44px;
-
     min-width:44px;
-
-    margin:0 14px 0 -32px;
-
+    margin-left:-22px;
 }
 
 .journey-icon svg{
-
     font-size:16px;
-
 }
 
-.journey-item h3{
-
-    font-size:.95rem;
-
+.journey-content h3{
+    font-size:1rem;
 }
 
-.journey-item p{
-
+.journey-content p{
     font-size:.72rem;
-
     line-height:1.45;
-
 }
 
 }
