@@ -2,10 +2,14 @@
 
     width:100%;
 
-    padding:90px 5%;
+    padding:60px 5%;
 
     background:var(--section);
 
+}
+
+#technology-stack {
+    scroll-margin-top: 110px;
 }
 
 .tg-container{

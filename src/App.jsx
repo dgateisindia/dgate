@@ -7,6 +7,8 @@ import About from "./pages/About/About";
 import Services from "./pages/Services/Services.jsx";
 import Industries from "./pages/Industries/Industries.jsx";
 import Technologies from "./pages/Technologies/Technologies.jsx";
+import Careers from "./pages/Careers/Careers.jsx";
+import Insights from "./pages/Insights/Insights.jsx";
 
 function App() {
 
@@ -41,6 +43,14 @@ function App() {
           path="/technologies"
           element={<Technologies />}
         />
+
+        <Route
+         path="/careers" 
+         element={<Careers />} />
+
+         <Route 
+          path="/insights" 
+          element={<Insights />} />
 
       </Routes>
 

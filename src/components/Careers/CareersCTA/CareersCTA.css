@@ -1,0 +1,723 @@
+/* =========================================================
+   CAREER CTA SECTION
+========================================================= */
+
+.career-cta-section {
+
+    width: 100%;
+
+    padding: 20px 5% 35px;
+
+    background: #f7f8f9;
+
+}
+
+
+.career-cta-container {
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   CTA BOX
+========================================================= */
+
+.career-cta-box {
+
+    width: 100%;
+
+    min-height: 115px;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+
+    gap: 30px;
+
+
+    padding: 24px 34px;
+
+
+    border: 1px solid
+        rgba(255, 177, 0, 0.18);
+
+    border-radius: 12px;
+
+
+    background:
+
+        linear-gradient(
+
+            110deg,
+
+            rgba(255, 177, 0, 0.12),
+
+            rgba(255, 255, 255, 0.9)
+
+        );
+
+
+    box-shadow:
+
+        0 8px 28px
+
+        rgba(0, 0, 0, 0.04);
+
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.career-cta-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.career-cta-icon {
+
+    flex: 0 0 58px;
+
+
+    width: 58px;
+
+    height: 58px;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    border-radius: 50%;
+
+
+    background: var(--primary);
+
+
+    color: var(--white);
+
+
+    font-size: 1.45rem;
+
+
+    box-shadow:
+
+        0 8px 18px
+
+        rgba(255, 177, 0, 0.22);
+
+
+    transition:
+
+        transform 0.35s ease;
+
+}
+
+
+.career-cta-box:hover
+.career-cta-icon {
+
+    transform:
+
+        translateY(-3px)
+
+        rotate(-8deg);
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.career-cta-content h3 {
+
+    margin:
+
+        0
+
+        0
+
+        6px;
+
+
+    font-size: 1.15rem;
+
+    font-weight: 750;
+
+    line-height: 1.3;
+
+
+    color: var(--black);
+
+}
+
+
+.career-cta-content p {
+
+    margin: 0;
+
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.career-cta-btn {
+
+    flex-shrink: 0;
+
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    gap: 12px;
+
+
+    padding:
+
+        14px
+
+        22px;
+
+
+    border: none;
+
+    border-radius: 5px;
+
+
+    background: var(--primary);
+
+
+    color: var(--black);
+
+
+    font-size: 0.78rem;
+
+    font-weight: 750;
+
+    text-transform: uppercase;
+
+
+    cursor: pointer;
+
+
+    box-shadow:
+
+        0 7px 18px
+
+        rgba(255, 177, 0, 0.18);
+
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease;
+
+}
+
+
+.career-cta-btn svg {
+
+    font-size: 0.75rem;
+
+
+    transition:
+
+        transform 0.3s ease;
+
+}
+
+
+.career-cta-btn:hover {
+
+    transform:
+
+        translateY(-3px);
+
+
+    box-shadow:
+
+        0 11px 24px
+
+        rgba(255, 177, 0, 0.28);
+
+}
+
+
+.career-cta-btn:hover svg {
+
+    transform:
+
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   1024PX
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .career-cta-section {
+
+        padding:
+
+            27px
+
+            5%
+
+            40px;
+
+    }
+
+
+    .career-cta-box {
+
+        min-height: 105px;
+
+
+        padding:
+
+            21px
+
+            27px;
+
+    }
+
+
+    .career-cta-icon {
+
+        flex-basis: 52px;
+
+
+        width: 52px;
+
+        height: 52px;
+
+
+        font-size: 1.3rem;
+
+    }
+
+
+    .career-cta-content h3 {
+
+        font-size: 1.05rem;
+
+    }
+
+
+    .career-cta-content p {
+
+        font-size: 0.76rem;
+
+    }
+
+
+    .career-cta-btn {
+
+        padding:
+
+            13px
+
+            18px;
+
+
+        font-size: 0.72rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   768PX
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .career-cta-section {
+
+        padding:
+
+            25px
+
+            5%
+
+            36px;
+
+    }
+
+
+    .career-cta-box {
+
+        padding:
+
+            22px
+
+            24px;
+
+
+        gap: 22px;
+
+    }
+
+
+    .career-cta-left {
+
+        gap: 15px;
+
+    }
+
+
+    .career-cta-icon {
+
+        flex-basis: 48px;
+
+
+        width: 48px;
+
+        height: 48px;
+
+
+        font-size: 1.2rem;
+
+    }
+
+
+    .career-cta-content h3 {
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .career-cta-content p {
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .career-cta-btn {
+
+        padding:
+
+            12px
+
+            16px;
+
+
+        font-size: 0.67rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   425PX
+========================================================= */
+
+@media (max-width: 425px) {
+
+    .career-cta-section {
+
+        padding:
+
+            22px
+
+            5%
+
+            32px;
+
+    }
+
+
+    .career-cta-box {
+
+        min-height: auto;
+
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+
+        gap: 20px;
+
+
+        padding:
+
+            23px
+
+            20px;
+
+    }
+
+
+    .career-cta-left {
+
+        align-items: flex-start;
+
+        gap: 14px;
+
+    }
+
+
+    .career-cta-icon {
+
+        flex: 0 0 45px;
+
+
+        width: 45px;
+
+        height: 45px;
+
+
+        font-size: 1.1rem;
+
+    }
+
+
+    .career-cta-content h3 {
+
+        margin-bottom: 5px;
+
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .career-cta-content p {
+
+        font-size: 0.68rem;
+
+        line-height: 1.55;
+
+    }
+
+
+    .career-cta-btn {
+
+        width: 100%;
+
+
+        padding:
+
+            12px
+
+            16px;
+
+
+        font-size: 0.68rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   375PX
+========================================================= */
+
+@media (max-width: 375px) {
+
+    .career-cta-section {
+
+        padding:
+
+            20px
+
+            5%
+
+            30px;
+
+    }
+
+
+    .career-cta-box {
+
+        padding:
+
+            21px
+
+            18px;
+
+    }
+
+
+    .career-cta-left {
+
+        gap: 12px;
+
+    }
+
+
+    .career-cta-icon {
+
+        flex-basis: 42px;
+
+
+        width: 42px;
+
+        height: 42px;
+
+
+        font-size: 1rem;
+
+    }
+
+
+    .career-cta-content h3 {
+
+        font-size: 0.84rem;
+
+    }
+
+
+    .career-cta-content p {
+
+        font-size: 0.64rem;
+
+    }
+
+
+    .career-cta-btn {
+
+        font-size: 0.65rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   320PX
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .career-cta-section {
+
+        padding:
+
+            18px
+
+            4%
+
+            27px;
+
+    }
+
+
+    .career-cta-box {
+
+        gap: 17px;
+
+
+        padding:
+
+            19px
+
+            15px;
+
+
+        border-radius: 9px;
+
+    }
+
+
+    .career-cta-left {
+
+        gap: 10px;
+
+    }
+
+
+    .career-cta-icon {
+
+        flex-basis: 38px;
+
+
+        width: 38px;
+
+        height: 38px;
+
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .career-cta-content h3 {
+
+        font-size: 0.78rem;
+
+    }
+
+
+    .career-cta-content p {
+
+        font-size: 0.6rem;
+
+        line-height: 1.5;
+
+    }
+
+
+    .career-cta-btn {
+
+        padding:
+
+            11px
+
+            13px;
+
+
+        font-size: 0.61rem;
+
+    }
+
+}

@@ -5,8 +5,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { FaArrowRight } from "react-icons/fa";
-
 import {
   automotive,
   banking,
@@ -211,14 +209,6 @@ function IndustriesGrid() {
                   {industry.description}
 
                 </p>
-
-                <button>
-
-                  Learn More
-
-                  <FaArrowRight />
-
-                </button>
 
               </div>
 

@@ -1,0 +1,924 @@
+/* =====================================================
+   CAREERS HERO
+===================================================== */
+
+.careers-hero {
+
+    width: 100%;
+
+    background: var(--white);
+
+    overflow: hidden;
+
+}
+
+
+.careers-hero-container {
+
+    width: 100%;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    height: calc(100vh - 105px);
+
+    min-height: 520px;
+
+    max-height: 650px;
+
+    display: grid;
+
+    grid-template-columns: 40% 60%;
+
+    position: relative;
+
+}
+
+
+
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+
+.careers-left {
+
+    position: relative;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding:
+
+        40px
+        35px
+        40px
+        clamp(45px, 5vw, 80px);
+
+    background: var(--white);
+
+}
+
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.careers-breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    font-size: 16px;
+
+    color: var(--text);
+
+}
+
+
+.careers-breadcrumb a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    transition: var(--transition);
+
+}
+
+
+.careers-breadcrumb a:hover {
+
+    color: var(--primary);
+
+}
+
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.careers-title {
+
+    margin: 0 0 20px;
+
+    font-size: clamp(
+        2.8rem,
+        3.5vw,
+        3.8rem
+    );
+
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    color: var(--black);
+
+}
+
+
+.careers-title span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--primary);
+
+}
+
+
+
+/* =====================================================
+   SMALL YELLOW LINE
+===================================================== */
+
+.careers-line {
+
+    width: 75px;
+
+    height: 4px;
+
+    margin-bottom: 24px;
+
+    border-radius: 50px;
+
+    background: var(--primary);
+
+}
+
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.careers-description {
+
+    max-width: 490px;
+
+    margin:
+
+        0
+        0
+        27px;
+
+    font-size: 0.95rem;
+
+    line-height: 1.75;
+
+    color: var(--text);
+
+}
+
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.careers-hero-btn {
+
+    width: max-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 14px 21px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: var(--primary);
+
+    color: var(--black);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.careers-hero-btn svg {
+
+    font-size: 0.8rem;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+.careers-hero-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0
+        10px
+        25px
+        rgba(0, 0, 0, 0.12);
+
+}
+
+
+.careers-hero-btn:hover svg {
+
+    transform: translateX(5px);
+
+}
+
+
+
+/* =====================================================
+   RIGHT IMAGE
+===================================================== */
+
+.careers-image-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #111;
+
+}
+
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.careers-hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    z-index: 1;
+
+    transition:
+
+        transform
+        0.7s
+        ease;
+
+}
+
+
+.careers-image-wrapper:hover
+.careers-hero-image {
+
+    transform: scale(1.025);
+
+}
+
+
+
+/* =====================================================
+   SUBTLE IMAGE OVERLAY
+===================================================== */
+
+.careers-image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(0, 0, 0, 0.08),
+
+            rgba(0, 0, 0, 0.01) 35%,
+
+            rgba(0, 0, 0, 0.04)
+
+        );
+
+}
+
+
+
+/* =====================================================
+   THREE JS CANVAS
+===================================================== */
+
+.careers-canvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+}
+
+
+.careers-canvas canvas {
+
+    display: block;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}
+
+
+
+/* =====================================================
+   DIAGONAL WHITE SHAPE
+
+   This creates the custom diagonal transition instead
+   of a normal rectangular 40 / 60 split.
+===================================================== */
+
+.careers-image-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -5%;
+
+    left: -72px;
+
+    width: 145px;
+
+    height: 110%;
+
+    background: var(--white);
+
+    transform: skewX(-14deg);
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+
+/* =====================================================
+   YELLOW DIAGONAL ACCENT
+===================================================== */
+
+.careers-image-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -5%;
+
+    left: -5px;
+
+    width: 9px;
+
+    height: 110%;
+
+    background: var(--primary);
+
+    transform: skewX(-14deg);
+
+    z-index: 11;
+
+    pointer-events: none;
+
+}
+
+/* =====================================================
+   1024px
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .careers-hero-container {
+        grid-template-columns: 42% 58%;
+        min-height: 520px;
+    }
+
+    .careers-left {
+        padding: 45px 35px;
+    }
+
+    .careers-title {
+        font-size: 3rem;
+    }
+
+    .careers-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .careers-image-wrapper {
+        height: 520px;
+    }
+
+    .careers-image-overlay {
+        background: rgba(0, 0, 0, 0.12);
+    }
+}
+
+
+/* =====================================================
+   768px
+   MOBILE/TABLET HERO
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .careers-hero {
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .careers-hero-container {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        min-height: 620px;
+
+        overflow: hidden;
+    }
+
+
+    /* ==========================================
+       REMOVE DESKTOP DIAGONAL SHAPES
+    ========================================== */
+
+    .careers-image-wrapper::before,
+    .careers-image-wrapper::after,
+    .careers-hero-container::before,
+    .careers-hero-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+
+    /* ==========================================
+       FULL BACKGROUND IMAGE
+    ========================================== */
+
+    .careers-image-wrapper {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 1;
+
+        overflow: hidden;
+    }
+
+    .careers-hero-image {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        display: block;
+    }
+
+
+    /* ==========================================
+       DARK OVERLAY
+    ========================================== */
+
+    .careers-image-overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.48);
+
+        z-index: 2;
+
+        pointer-events: none;
+    }
+
+
+    /* ==========================================
+       CONTENT
+    ========================================== */
+
+    .careers-left {
+        position: relative;
+
+        z-index: 10;
+
+        width: 100%;
+        min-height: 620px;
+
+        padding: 65px 7% 50px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        text-align: left;
+
+        background: transparent;
+    }
+
+
+    /* Breadcrumb */
+
+    .careers-breadcrumb {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 24px;
+
+        font-size: 14px;
+
+        color: #ffffff;
+    }
+
+    .careers-breadcrumb a,
+    .careers-breadcrumb span {
+        color: #ffffff;
+    }
+
+
+    /* Title */
+
+    .careers-title {
+        max-width: 520px;
+
+        margin: 0;
+
+        font-size: 3rem;
+        line-height: 1.1;
+
+        color: #ffffff;
+    }
+
+    .careers-title span {
+        display: block;
+
+        margin-top: 5px;
+
+        color: var(--primary);
+    }
+
+
+    /* Yellow line */
+
+    .careers-line {
+        width: 72px;
+        height: 4px;
+
+        margin: 24px 0;
+
+        background: var(--primary);
+    }
+
+
+    /* Description */
+
+    .careers-description {
+        max-width: 470px;
+
+        margin: 0;
+
+        font-size: 16px;
+        line-height: 1.75;
+
+        color: #ffffff;
+    }
+
+
+    /* Button */
+
+    .careers-hero-btn {
+        margin-top: 30px;
+
+        padding: 14px 22px;
+
+        font-size: 13px;
+
+        position: relative;
+
+        z-index: 15;
+    }
+}
+
+
+/* =====================================================
+   425px
+===================================================== */
+
+@media (max-width: 425px) {
+
+    .careers-hero-container {
+        min-height: 620px;
+    }
+
+    .careers-image-wrapper {
+        height: 100%;
+    }
+
+    .careers-image-wrapper::before,
+    .careers-image-wrapper::after,
+    .careers-hero-container::before,
+    .careers-hero-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .careers-hero-image {
+        object-position: 58% center;
+    }
+
+    .careers-image-overlay {
+        background: rgba(0, 0, 0, 0.50);
+    }
+
+    .careers-left {
+        width: 100%;
+        min-height: 620px;
+
+        padding: 50px 24px 45px;
+
+        justify-content: center;
+
+        background: transparent;
+    }
+
+    .careers-breadcrumb {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+
+        color: #ffffff;
+    }
+
+    .careers-breadcrumb a,
+    .careers-breadcrumb span {
+        color: #ffffff;
+    }
+
+    .careers-title {
+        max-width: 360px;
+
+        font-size: 2.5rem;
+        line-height: 1.1;
+
+        color: #ffffff;
+    }
+
+    .careers-title span {
+        color: var(--primary);
+    }
+
+    .careers-line {
+        width: 65px;
+        height: 3px;
+
+        margin: 21px 0;
+    }
+
+    .careers-description {
+        max-width: 355px;
+
+        font-size: 14px;
+        line-height: 1.7;
+
+        color: #ffffff;
+    }
+
+    .careers-hero-btn {
+        margin-top: 28px;
+
+        padding: 14px 20px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   375px
+===================================================== */
+
+@media (max-width: 375px) {
+
+    .careers-hero-container {
+        min-height: 590px;
+    }
+
+    .careers-image-wrapper::before,
+    .careers-image-wrapper::after,
+    .careers-hero-container::before,
+    .careers-hero-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .careers-hero-image {
+        object-position: 59% center;
+    }
+
+    .careers-image-overlay {
+        background: rgba(0, 0, 0, 0.52);
+    }
+
+    .careers-left {
+        min-height: 590px;
+
+        padding: 45px 21px 40px;
+    }
+
+    .careers-breadcrumb {
+        margin-bottom: 18px;
+
+        font-size: 12px;
+    }
+
+    .careers-title {
+        max-width: 320px;
+
+        font-size: 2.2rem;
+        line-height: 1.1;
+
+        color: #ffffff;
+    }
+
+    .careers-title span {
+        color: var(--primary);
+    }
+
+    .careers-line {
+        width: 58px;
+
+        margin: 19px 0;
+    }
+
+    .careers-description {
+        max-width: 315px;
+
+        font-size: 13px;
+        line-height: 1.7;
+
+        color: #ffffff;
+    }
+
+    .careers-hero-btn {
+        margin-top: 25px;
+
+        padding: 12px 18px;
+
+        font-size: 11.5px;
+    }
+}
+
+
+/* =====================================================
+   320px
+===================================================== */
+
+@media (max-width: 320px) {
+
+    .careers-hero-container {
+        min-height: 550px;
+    }
+
+    .careers-image-wrapper::before,
+    .careers-image-wrapper::after,
+    .careers-hero-container::before,
+    .careers-hero-container::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .careers-hero-image {
+        object-position: 60% center;
+    }
+
+    .careers-image-overlay {
+        background: rgba(0, 0, 0, 0.54);
+    }
+
+    .careers-left {
+        min-height: 550px;
+
+        padding: 38px 17px 34px;
+    }
+
+    .careers-breadcrumb {
+        gap: 6px;
+
+        margin-bottom: 16px;
+
+        font-size: 11px;
+    }
+
+    .careers-title {
+        max-width: 280px;
+
+        font-size: 1.9rem;
+        line-height: 1.12;
+
+        color: #ffffff;
+    }
+
+    .careers-title span {
+        margin-top: 4px;
+
+        color: var(--primary);
+    }
+
+    .careers-line {
+        width: 52px;
+        height: 3px;
+
+        margin: 17px 0;
+    }
+
+    .careers-description {
+        max-width: 275px;
+
+        font-size: 12px;
+        line-height: 1.65;
+
+        color: #ffffff;
+    }
+
+    .careers-hero-btn {
+        margin-top: 22px;
+
+        padding: 11px 15px;
+
+        font-size: 10.5px;
+    }
+}

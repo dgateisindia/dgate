@@ -149,6 +149,7 @@ function TechnologyGrid() {
     return (
 
         <section
+            id="technology-stack"
             className="tg-section"
             ref={sectionRef}
         >

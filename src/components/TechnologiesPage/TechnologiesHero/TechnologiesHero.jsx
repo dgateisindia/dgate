@@ -5,10 +5,7 @@ import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
-import {
-    FaArrowRight,
-    FaCode,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 import TechnologiesCanvas from "./TechnologiesCanvas";
 
@@ -27,11 +24,8 @@ function TechnologiesHero() {
             tl.from(".tp-breadcrumb", {
 
                 x: -40,
-
                 opacity: 0,
-
                 duration: 0.6,
-
                 ease: "power3.out",
 
             })
@@ -39,11 +33,8 @@ function TechnologiesHero() {
             .from(".tp-title", {
 
                 y: 45,
-
                 opacity: 0,
-
                 duration: 0.8,
-
                 ease: "power3.out",
 
             }, "-=.2")
@@ -51,9 +42,7 @@ function TechnologiesHero() {
             .from(".tp-line", {
 
                 width: 0,
-
                 duration: 0.5,
-
                 ease: "power2.out",
 
             })
@@ -61,11 +50,8 @@ function TechnologiesHero() {
             .from(".tp-text", {
 
                 y: 30,
-
                 opacity: 0,
-
                 duration: 0.7,
-
                 ease: "power3.out",
 
             }, "-=.2")
@@ -73,11 +59,8 @@ function TechnologiesHero() {
             .from(".tp-buttons", {
 
                 y: 25,
-
                 opacity: 0,
-
                 duration: 0.6,
-
                 ease: "power3.out",
 
             }, "-=.3")
@@ -85,11 +68,8 @@ function TechnologiesHero() {
             .from(".tp-right", {
 
                 scale: 1.08,
-
                 opacity: 0,
-
                 duration: 1,
-
                 ease: "power3.out",
 
             }, "-=.5");
@@ -99,6 +79,30 @@ function TechnologiesHero() {
         return () => ctx.revert();
 
     }, []);
+
+
+    /* ==========================================
+       SCROLL TO TECHNOLOGY GRID
+    ========================================== */
+
+    const handleExploreStack = () => {
+
+        const technologySection =
+            document.getElementById("technology-stack");
+
+        if (technologySection) {
+
+            technologySection.scrollIntoView({
+
+                behavior: "smooth",
+                block: "start",
+
+            });
+
+        }
+
+    };
+
 
     return (
 
@@ -115,41 +119,54 @@ function TechnologiesHero() {
 
                     <div className="tp-breadcrumb">
 
-                        <Link to="/">Home</Link>
+                        <Link to="/">
+                            Home
+                        </Link>
 
                         <span>›</span>
 
-                        <span>Technologies</span>
+                        <span>
+                            Technologies
+                        </span>
 
                     </div>
+
 
                     <h1 className="tp-title">
 
                         Technologies
 
                         <span>
-
                             We Leverage
-
                         </span>
 
                     </h1>
 
+
                     <div className="tp-line"></div>
+
 
                     <p className="tp-text">
 
-                        We harness modern technologies, cloud-native
-                        platforms, artificial intelligence, enterprise
-                        frameworks and intelligent automation to build
-                        secure, scalable and future-ready digital
-                        solutions that accelerate business innovation.
+                        We harness modern technologies,
+                        cloud-native platforms, artificial
+                        intelligence, enterprise frameworks
+                        and intelligent automation to build
+                        secure, scalable and future-ready
+                        digital solutions that accelerate
+                        business innovation.
 
                     </p>
 
+
+                    {/* ================= BUTTON ================= */}
+
                     <div className="tp-buttons">
 
-                        <button className="tp-primary-btn">
+                        <button
+                            className="tp-primary-btn"
+                            onClick={handleExploreStack}
+                        >
 
                             Explore Stack
 
@@ -157,17 +174,10 @@ function TechnologiesHero() {
 
                         </button>
 
-                        <button className="tp-secondary-btn">
-
-                            <FaCode />
-
-                            View Expertise
-
-                        </button>
-
                     </div>
 
                 </div>
+
 
                 {/* ================= RIGHT ================= */}
 
@@ -183,7 +193,9 @@ function TechnologiesHero() {
 
                     />
 
+
                     <div className="tp-overlay"></div>
+
 
                     <div className="tp-canvas">
 

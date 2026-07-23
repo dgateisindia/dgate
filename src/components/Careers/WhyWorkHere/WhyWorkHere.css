@@ -1,0 +1,557 @@
+/* =========================================================
+   WHY WORK HERE SECTION
+========================================================= */
+
+.why-work-section {
+    width: 100%;
+    background: var(--white);
+
+    /*
+       top: 38px
+       left/right: 5%
+       bottom: 42px
+
+       Bottom padding gives proper separation
+       before the LifeAtDgate section.
+    */
+    padding: 38px 5% 45px;
+}
+
+.why-work-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.why-work-heading {
+    margin: 0 0 2px;
+    padding: 0;
+}
+
+.why-work-heading h2 {
+    margin: 0;
+
+    font-size: 1.65rem;
+    font-weight: 750;
+    line-height: 1.25;
+
+    color: var(--black);
+}
+
+.why-work-line {
+    width: 38px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+}
+
+
+/* =========================================================
+   BENEFITS LIST
+========================================================= */
+
+.why-work-list {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    align-items: stretch;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   INDIVIDUAL BENEFIT
+========================================================= */
+
+.why-work-item {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    position: relative;
+
+    /*
+       Equal vertical padding keeps
+       content vertically balanced.
+    */
+    padding: 12px 24px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* First Item */
+
+.why-work-item:first-child {
+    padding-left: 0;
+}
+
+
+/* Last Item */
+
+.why-work-item:last-child {
+    padding-right: 0;
+}
+
+
+/* Vertical Separators */
+
+.why-work-item:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 8%;
+    right: 0;
+
+    width: 1px;
+    height: 84%;
+
+    background: #dddddd;
+}
+
+
+/* Subtle Hover */
+
+.why-work-item:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.why-work-icon {
+    flex: 0 0 48px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--primary);
+
+    font-size: 2rem;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.why-work-item:hover .why-work-icon {
+    transform:
+        translateY(-3px)
+        scale(1.06);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.why-work-content {
+    min-width: 0;
+}
+
+.why-work-content h3 {
+    margin: 0 0 5px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: var(--black);
+
+    transition:
+        color 0.3s ease;
+}
+
+.why-work-item:hover .why-work-content h3 {
+    color: var(--primary);
+}
+
+.why-work-content p {
+    margin: 0;
+
+    max-width: 180px;
+
+    font-size: 0.72rem;
+    line-height: 1.5;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   1024PX
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .why-work-section {
+        padding: 34px 5% 38px;
+    }
+
+    .why-work-heading {
+        margin-bottom: 30px;
+    }
+
+    .why-work-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .why-work-line {
+        margin-top: 9px;
+    }
+
+    .why-work-item {
+        gap: 10px;
+
+        padding: 11px 14px;
+    }
+
+    .why-work-item:first-child {
+        padding-left: 0;
+    }
+
+    .why-work-item:last-child {
+        padding-right: 0;
+    }
+
+    .why-work-icon {
+        flex: 0 0 40px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 1.65rem;
+    }
+
+    .why-work-content h3 {
+        font-size: 0.82rem;
+    }
+
+    .why-work-content p {
+        font-size: 0.65rem;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* =========================================================
+   768PX
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .why-work-section {
+        padding: 32px 5% 36px;
+    }
+
+    .why-work-heading {
+        text-align: center;
+
+        margin-bottom: 26px;
+    }
+
+    .why-work-heading h2 {
+        font-size: 1.4rem;
+    }
+
+    .why-work-line {
+        margin: 9px auto 0;
+    }
+
+
+    /* Two-column layout */
+
+    .why-work-list {
+        grid-template-columns: repeat(2, 1fr);
+
+        align-items: stretch;
+    }
+
+    .why-work-item {
+        min-height: 95px;
+
+        padding: 15px 18px;
+
+        gap: 14px;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .why-work-item:first-child {
+        padding-left: 18px;
+    }
+
+    .why-work-item:last-child {
+        padding-right: 18px;
+    }
+
+
+    /* Remove desktop separators */
+
+    .why-work-item:not(:last-child)::after {
+        display: none;
+    }
+
+
+    /* Separator between columns */
+
+    .why-work-item:nth-child(odd) {
+        border-right: 1px solid #eeeeee;
+    }
+
+
+    /*
+       There are 5 items, so the 5th item
+       remains on the final row.
+    */
+
+    .why-work-item:last-child {
+        border-bottom: none;
+    }
+
+    .why-work-icon {
+        flex: 0 0 45px;
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 1.8rem;
+    }
+
+    .why-work-content h3 {
+        font-size: 0.9rem;
+    }
+
+    .why-work-content p {
+        max-width: 190px;
+
+        font-size: 0.7rem;
+    }
+
+}
+
+
+/* =========================================================
+   425PX
+========================================================= */
+
+@media (max-width: 425px) {
+
+    .why-work-section {
+        padding: 30px 5% 34px;
+    }
+
+    .why-work-heading {
+        margin-bottom: 20px;
+
+        text-align: left;
+    }
+
+    .why-work-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .why-work-line {
+        width: 35px;
+        height: 3px;
+
+        margin: 8px 0 0;
+    }
+
+
+    /* Single-column layout */
+
+    .why-work-list {
+        grid-template-columns: 1fr;
+    }
+
+    .why-work-item {
+        min-height: auto;
+
+        padding: 15px 8px;
+
+        gap: 15px;
+
+        border-right: none !important;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .why-work-item:first-child {
+        padding-left: 8px;
+    }
+
+    .why-work-item:last-child {
+        padding-right: 8px;
+
+        border-bottom: none;
+    }
+
+    .why-work-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .why-work-icon {
+        flex: 0 0 46px;
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 1.8rem;
+    }
+
+    .why-work-content h3 {
+        margin-bottom: 4px;
+
+        font-size: 0.9rem;
+    }
+
+    .why-work-content p {
+        max-width: 280px;
+
+        font-size: 0.72rem;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* =========================================================
+   375PX
+========================================================= */
+
+@media (max-width: 375px) {
+
+    .why-work-section {
+        padding: 28px 5% 32px;
+    }
+
+    .why-work-heading {
+        margin-bottom: 18px;
+    }
+
+    .why-work-heading h2 {
+        font-size: 1.2rem;
+    }
+
+    .why-work-item {
+        padding: 14px 7px;
+
+        gap: 13px;
+    }
+
+    .why-work-item:first-child {
+        padding-left: 7px;
+    }
+
+    .why-work-item:last-child {
+        padding-right: 7px;
+    }
+
+    .why-work-icon {
+        flex: 0 0 43px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 1.65rem;
+    }
+
+    .why-work-content h3 {
+        font-size: 0.85rem;
+    }
+
+    .why-work-content p {
+        font-size: 0.68rem;
+    }
+
+}
+
+
+/* =========================================================
+   320PX
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .why-work-section {
+        padding: 26px 4% 30px;
+    }
+
+    .why-work-heading {
+        margin-bottom: 16px;
+    }
+
+    .why-work-heading h2 {
+        font-size: 1.08rem;
+        line-height: 1.3;
+    }
+
+    .why-work-line {
+        width: 30px;
+        height: 3px;
+
+        margin-top: 7px;
+    }
+
+    .why-work-item {
+        padding: 12px 6px;
+
+        gap: 11px;
+    }
+
+    .why-work-item:first-child {
+        padding-left: 6px;
+    }
+
+    .why-work-item:last-child {
+        padding-right: 6px;
+    }
+
+    .why-work-icon {
+        flex: 0 0 39px;
+
+        width: 39px;
+        height: 39px;
+
+        font-size: 1.45rem;
+    }
+
+    .why-work-content h3 {
+        margin-bottom: 3px;
+
+        font-size: 0.8rem;
+    }
+
+    .why-work-content p {
+        max-width: 220px;
+
+        font-size: 0.64rem;
+        line-height: 1.45;
+    }
+
+}
