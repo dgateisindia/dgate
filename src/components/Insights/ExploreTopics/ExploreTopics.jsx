@@ -21,10 +21,6 @@ function ExploreTopics() {
 
   const sectionRef = useRef(null);
 
-  /* =========================================================
-     TOPIC DATA
-  ========================================================= */
-
   const topics = [
     {
       id: 1,
@@ -64,17 +60,14 @@ function ExploreTopics() {
     },
   ];
 
-
-  /* =========================================================
-     GSAP SCROLL ANIMATION
-  ========================================================= */
-
   useEffect(() => {
 
     const ctx = gsap.context(() => {
 
       gsap.from(".explore-topics-heading", {
+
         y: 20,
+
         opacity: 0,
 
         duration: 0.6,
@@ -82,15 +75,21 @@ function ExploreTopics() {
         ease: "power3.out",
 
         scrollTrigger: {
+
           trigger: sectionRef.current,
+
           start: "top 88%",
+
           once: true,
+
         },
+
       });
 
-
       gsap.from(".explore-topic-card", {
+
         y: 30,
+
         opacity: 0,
 
         duration: 0.65,
@@ -100,16 +99,25 @@ function ExploreTopics() {
         ease: "power3.out",
 
         scrollTrigger: {
+
           trigger: ".explore-topics-grid",
+
           start: "top 90%",
+
           once: true,
+
         },
+
       });
 
     }, sectionRef);
 
 
-    return () => ctx.revert();
+    return () => {
+
+      ctx.revert();
+
+    };
 
   }, []);
 
@@ -117,42 +125,40 @@ function ExploreTopics() {
   return (
 
     <section
+
+      id="explore-topics"
+
       className="explore-topics-section"
+
       ref={sectionRef}
+
     >
 
       <div className="explore-topics-container">
 
-
-        {/* ================================================
-            SECTION HEADING
-        ================================================= */}
-
         <div className="explore-topics-heading">
 
           <h2>
+
             Explore by Topic
+
           </h2>
 
           <div className="explore-topics-line" />
 
         </div>
 
-
-        {/* ================================================
-            TOPIC CARDS
-        ================================================= */}
-
         <div className="explore-topics-grid">
 
           {topics.map((topic) => (
 
             <article
-              className="explore-topic-card"
-              key={topic.id}
-            >
 
-              {/* ICON */}
+              className="explore-topic-card"
+
+              key={topic.id}
+
+            >
 
               <div className="explore-topic-icon">
 
@@ -160,26 +166,29 @@ function ExploreTopics() {
 
               </div>
 
-
-              {/* TITLE */}
-
               <h3>
+
                 {topic.title}
+
               </h3>
-
-
-              {/* BOTTOM */}
 
               <div className="explore-topic-bottom">
 
                 <span>
+
                   {topic.articles}
+
                 </span>
 
+
                 <button
+
                   type="button"
+
                   className="explore-topic-arrow"
+
                   aria-label={`Explore ${topic.title}`}
+
                 >
 
                   <FaArrowRight />

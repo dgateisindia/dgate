@@ -14,10 +14,6 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* =====================================================
-   Statistics Data
-===================================================== */
-
 const statistics = [
 
     {
@@ -68,7 +64,6 @@ function TechnologyStats() {
 
         const ctx = gsap.context(() => {
 
-            /* ================= Heading ================= */
 
             gsap.from(".ts-heading",{
 
@@ -88,7 +83,6 @@ function TechnologyStats() {
 
             });
 
-            /* ================= Cards ================= */
 
             gsap.from(".ts-card",{
 
@@ -111,8 +105,6 @@ function TechnologyStats() {
                 }
 
             });
-
-            /* ================= Counter ================= */
 
             numberRefs.current.forEach((element,index)=>{
 
@@ -184,7 +176,6 @@ function TechnologyStats() {
 
             <div className="ts-container">
 
-                {/* ================= Heading ================= */}
 
                 <div className="ts-heading">
 
@@ -220,7 +211,6 @@ function TechnologyStats() {
 
                 </div>
 
-                {/* ================= Statistics ================= */}
 
                 <div className="ts-grid">
 

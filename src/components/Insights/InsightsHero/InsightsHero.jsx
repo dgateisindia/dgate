@@ -3,14 +3,13 @@ import "./InsightsHero.css";
 import {
   useEffect,
   useRef,
-  useState,
 } from "react";
 
 import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
-import { FaSearch } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 import InsightsCanvas from "./InsightsCanvas";
 
@@ -23,9 +22,10 @@ function InsightsHero() {
 
   const heroRef = useRef(null);
 
-  const [searchTerm, setSearchTerm] =
-    useState("");
 
+  /* =========================================================
+     GSAP HERO ENTRANCE
+  ========================================================= */
 
   useEffect(() => {
 
@@ -39,6 +39,9 @@ function InsightsHero() {
 
       });
 
+
+      /* Breadcrumb */
+
       timeline.from(
         ".insights-breadcrumb",
         {
@@ -48,6 +51,8 @@ function InsightsHero() {
         }
       );
 
+
+      /* Title */
 
       timeline.from(
         ".insights-title",
@@ -59,6 +64,9 @@ function InsightsHero() {
         "-=0.2"
       );
 
+
+      /* Yellow Line */
+
       timeline.from(
         ".insights-title-line",
         {
@@ -67,6 +75,9 @@ function InsightsHero() {
         },
         "-=0.2"
       );
+
+
+      /* Description */
 
       timeline.from(
         ".insights-description",
@@ -79,8 +90,10 @@ function InsightsHero() {
       );
 
 
+      /* Explore Button */
+
       timeline.from(
-        ".insights-search-wrapper",
+        ".insights-explore-btn",
         {
           y: 20,
           opacity: 0,
@@ -89,6 +102,8 @@ function InsightsHero() {
         "-=0.2"
       );
 
+
+      /* Right Image */
 
       timeline.from(
         ".insights-image-side",
@@ -112,19 +127,28 @@ function InsightsHero() {
   }, []);
 
 
-  const handleSearch = (event) => {
+  /* =========================================================
+     SCROLL TO FEATURED ARTICLE
+  ========================================================= */
 
-    event.preventDefault();
+  const handleExploreInsights = () => {
 
-    const value =
-      searchTerm.trim();
+    const featuredSection =
+      document.getElementById(
+        "featured-article"
+      );
 
-    if (!value) return;
+    if (featuredSection) {
 
-    console.log(
-      "Searching insights:",
-      value
-    );
+      featuredSection.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start",
+
+      });
+
+    }
 
   };
 
@@ -138,30 +162,34 @@ function InsightsHero() {
 
       <div className="insights-hero-container">
 
+
+        {/* =================================================
+            LEFT CONTENT
+        ================================================= */}
+
         <div className="insights-content-side">
+
+
+          {/* Breadcrumb */}
 
           <div className="insights-breadcrumb">
 
             <Link to="/">
-
               Home
-
             </Link>
 
             <span>
-
               ›
-
             </span>
 
             <span>
-
               Insights
-
             </span>
 
           </div>
 
+
+          {/* Main Heading */}
 
           <h1 className="insights-title">
 
@@ -175,7 +203,13 @@ function InsightsHero() {
 
           </h1>
 
+
+          {/* Yellow Underline */}
+
           <div className="insights-title-line" />
+
+
+          {/* Description */}
 
           <p className="insights-description">
 
@@ -185,52 +219,39 @@ function InsightsHero() {
 
           </p>
 
-          <form
-            className="insights-search-wrapper"
-            onSubmit={handleSearch}
+
+          {/* Explore Insights Button */}
+
+          <button
+
+            type="button"
+
+            className="insights-explore-btn"
+
+            onClick={handleExploreInsights}
+
           >
 
-            <div className="insights-search-input">
+            <span>
+              Explore Insights
+            </span>
 
-              <FaSearch />
+            <FaArrowRight />
 
-              <input
-
-                type="text"
-
-                placeholder="Search insights, topics, keywords..."
-
-                value={searchTerm}
-
-                onChange={(event) =>
-                  setSearchTerm(
-                    event.target.value
-                  )
-                }
-
-                aria-label="Search insights"
-
-              />
-
-            </div>
-
-
-            <button
-              type="submit"
-              className="insights-search-btn"
-            >
-
-              Search
-
-            </button>
-
-          </form>
+          </button>
 
 
         </div>
 
 
+        {/* =================================================
+            RIGHT IMAGE + THREE.JS
+        ================================================= */}
+
         <div className="insights-image-side">
+
+
+          {/* Hero Image */}
 
           <img
 
@@ -242,7 +263,13 @@ function InsightsHero() {
 
           />
 
+
+          {/* Image Overlay */}
+
           <div className="insights-image-overlay" />
+
+
+          {/* Three.js Network */}
 
           <InsightsCanvas />
 

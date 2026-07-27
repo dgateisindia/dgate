@@ -19,10 +19,6 @@ function FeaturedArticle() {
 
   const sectionRef = useRef(null);
 
-  /* =========================================================
-     GSAP SCROLL ANIMATION
-  ========================================================= */
-
   useEffect(() => {
 
     const ctx = gsap.context(() => {
@@ -63,15 +59,12 @@ function FeaturedArticle() {
   return (
 
     <section
+      id="featured-article"
       className="featured-article-section"
       ref={sectionRef}
     >
 
       <div className="featured-article-container">
-
-        {/* ================================================
-            SECTION HEADING
-        ================================================= */}
 
         <div className="featured-article-heading">
 
@@ -83,14 +76,7 @@ function FeaturedArticle() {
 
         </div>
 
-
-        {/* ================================================
-            FEATURED ARTICLE CARD
-        ================================================= */}
-
         <article className="featured-article-card">
-
-          {/* IMAGE */}
 
           <div className="featured-article-image-wrapper">
 
@@ -102,19 +88,11 @@ function FeaturedArticle() {
 
           </div>
 
-
-          {/* CONTENT */}
-
           <div className="featured-article-content">
-
-            {/* BADGE */}
 
             <span className="featured-badge">
               Featured
             </span>
-
-
-            {/* TITLE */}
 
             <h3>
 
@@ -123,9 +101,6 @@ function FeaturedArticle() {
 
             </h3>
 
-
-            {/* DESCRIPTION */}
-
             <p className="featured-article-description">
 
               Explore how Artificial Intelligence is reshaping
@@ -133,9 +108,6 @@ function FeaturedArticle() {
               and driving innovation across industries.
 
             </p>
-
-
-            {/* META INFORMATION */}
 
             <div className="featured-article-meta">
 

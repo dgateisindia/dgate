@@ -1,6 +1,7 @@
 import "./CTA.css";
 
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -92,10 +93,10 @@ function CTA() {
 
         </div>
 
-        <button className="cta-btn">
+        <Link to="/contact" className="cta-btn">
           LET'S TALK TO OUR EXPERTS
           <FaArrowRight />
-        </button>
+        </Link>
 
       </div>
     </section>

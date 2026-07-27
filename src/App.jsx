@@ -9,6 +9,7 @@ import Industries from "./pages/Industries/Industries.jsx";
 import Technologies from "./pages/Technologies/Technologies.jsx";
 import Careers from "./pages/Careers/Careers.jsx";
 import Insights from "./pages/Insights/Insights.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
 
 function App() {
 
@@ -51,6 +52,10 @@ function App() {
          <Route 
           path="/insights" 
           element={<Insights />} />
+
+          <Route
+          path="/contact"
+          element={<Contact />} />
 
       </Routes>
 

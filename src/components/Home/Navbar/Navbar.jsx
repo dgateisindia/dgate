@@ -14,15 +14,13 @@ function Navbar() {
       <div className="container nav-container">
 
         {/* Logo */}
-
         <div className="logo">
-          <NavLink to="/">
+          <NavLink to="/" onClick={closeMenu}>
             <img src={logo} alt="D-GATE" />
           </NavLink>
         </div>
 
         {/* Navigation */}
-
         <ul className={menuOpen ? "nav-links active" : "nav-links"}>
 
           <li>
@@ -30,7 +28,9 @@ function Navbar() {
               to="/"
               end
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               HOME
             </NavLink>
@@ -40,7 +40,9 @@ function Navbar() {
             <NavLink
               to="/about"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               ABOUT US
             </NavLink>
@@ -50,7 +52,9 @@ function Navbar() {
             <NavLink
               to="/services"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               SERVICES
             </NavLink>
@@ -60,7 +64,9 @@ function Navbar() {
             <NavLink
               to="/industries"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               INDUSTRIES
             </NavLink>
@@ -70,7 +76,9 @@ function Navbar() {
             <NavLink
               to="/technologies"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               TECHNOLOGIES
             </NavLink>
@@ -80,7 +88,9 @@ function Navbar() {
             <NavLink
               to="/careers"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               CAREERS
             </NavLink>
@@ -90,17 +100,24 @@ function Navbar() {
             <NavLink
               to="/insights"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               INSIGHTS
             </NavLink>
           </li>
 
-          <li>
+          {/* Highlighted Contact Us Button */}
+          <li className="contact-nav-item">
             <NavLink
               to="/contact"
               onClick={closeMenu}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive
+                  ? "contact-nav-btn contact-active"
+                  : "contact-nav-btn"
+              }
             >
               CONTACT US
             </NavLink>
@@ -108,17 +125,13 @@ function Navbar() {
 
         </ul>
 
-        {/* Button */}
-
-        <button className="talk-btn">
-          LET'S TALK
-        </button>
-
         {/* Mobile Menu */}
-
         <div
           className="mobile-menu"
           onClick={() => setMenuOpen(!menuOpen)}
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle navigation menu"
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>

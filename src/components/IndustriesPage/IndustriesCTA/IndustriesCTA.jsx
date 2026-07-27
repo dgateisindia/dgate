@@ -1,6 +1,7 @@
 import "./IndustriesCTA.css";
 
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -138,15 +139,18 @@ function IndustriesCTA() {
 
         </div>
 
-        {/* Right */}
+        {/* Right - Redirect to Contact Us */}
 
-        <button className="industries-cta-button">
+        <Link
+          to="/contact"
+          className="industries-cta-button"
+        >
 
           TALK TO OUR EXPERTS
 
           <FaArrowRight />
 
-        </button>
+        </Link>
 
         {/* Decorative Dots */}
 

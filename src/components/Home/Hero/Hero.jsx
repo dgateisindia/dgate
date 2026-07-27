@@ -98,12 +98,12 @@ function Hero() {
                         Explore Services
                     </Link>
 
-                    <button
-                        type="button"
+                    <Link
+                        to="/contact"
                         className="secondary-btn"
                     >
                         Contact Us
-                    </button>
+                    </Link>
 
                 </div>
 

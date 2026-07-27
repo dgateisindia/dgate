@@ -1,6 +1,7 @@
 import "./AboutCTA.css";
 
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -125,15 +126,18 @@ function AboutCTA() {
 
         </div>
 
-        {/* Right */}
+        {/* Right - Redirect to Contact Us */}
 
-        <button className="cta-btn">
+        <Link
+          to="/contact"
+          className="cta-btn"
+        >
 
           GET IN TOUCH
 
           <FaArrowRight />
 
-        </button>
+        </Link>
 
       </div>
 
