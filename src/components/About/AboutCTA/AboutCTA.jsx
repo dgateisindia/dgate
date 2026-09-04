@@ -11,140 +11,107 @@ import { FaHandshake, FaArrowRight } from "react-icons/fa";
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutCTA() {
-
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-      gsap.from(".cta-box", {
+      if (reduceMotion) return;
 
-        y: 50,
-
-        opacity: 0,
-
-        duration: 0.9,
-
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
-
           trigger: sectionRef.current,
-
-          start: "top 80%",
-
+          start: "top 85%",
           once: true,
-
         },
-
       });
 
-      gsap.from(".cta-icon", {
+      timeline
+        .from(".about-cta__box", {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        })
 
-        scale: 0,
+        .from(
+          ".about-cta__icon",
+          {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4"
+        )
 
-        duration: 0.6,
-
-        ease: "back.out(1.7)",
-
-        scrollTrigger: {
-
-          trigger: sectionRef.current,
-
-          start: "top 80%",
-
-          once: true,
-
-        },
-
-      });
-
-      gsap.from(".cta-btn", {
-
-        x: 40,
-
-        opacity: 0,
-
-        duration: 0.8,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-          trigger: sectionRef.current,
-
-          start: "top 80%",
-
-          once: true,
-
-        },
-
-      });
-
+        .from(
+          ".about-cta__button",
+          {
+            x: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.35"
+        );
     }, sectionRef);
 
-    return () => ctx.revert();
-
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
-
     <section
       className="about-cta"
       ref={sectionRef}
+      aria-labelledby="about-cta-title"
     >
+      <div className="about-cta__box">
 
-      <div className="cta-box">
+        <div className="about-cta__left">
 
-        {/* Left */}
-
-        <div className="cta-left">
-
-          <div className="cta-icon">
-
+          <div
+            className="about-cta__icon"
+            aria-hidden="true"
+          >
             <FaHandshake />
-
           </div>
 
-          <div className="cta-content">
+          <div className="about-cta__content">
 
-            <h2>
-
+            <h2 id="about-cta-title">
               Let's Build Something Great Together
-
             </h2>
 
             <p>
-
               Partner with D-GATE to accelerate your digital
               transformation journey.
-
             </p>
 
           </div>
 
         </div>
 
-        {/* Right - Redirect to Contact Us */}
-
         <Link
           to="/contact"
-          className="cta-btn"
+          className="about-cta__button"
+          aria-label="Get in touch with D-GATE"
         >
+          <span>GET IN TOUCH</span>
 
-          GET IN TOUCH
-
-          <FaArrowRight />
-
+          <FaArrowRight aria-hidden="true" />
         </Link>
 
       </div>
-
     </section>
-
   );
-
 }
 
 export default AboutCTA;
