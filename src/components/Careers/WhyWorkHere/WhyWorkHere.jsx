@@ -1,6 +1,9 @@
 import "./WhyWorkHere.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,55 +18,62 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const benefits = [
   {
-    icon: <FaChartLine />,
+    id: "career-growth",
+    icon: FaChartLine,
     title: "Career Growth",
     description:
       "Continuous learning and growth opportunities",
   },
   {
-    icon: <FaUsers />,
+    id: "great-culture",
+    icon: FaUsers,
     title: "Great Culture",
     description:
       "Collaborative, inclusive and respectful workplace",
   },
   {
-    icon: <FaHeartbeat />,
+    id: "wellness-first",
+    icon: FaHeartbeat,
     title: "Wellness First",
     description:
       "Health & wellness programs for you and your family",
   },
   {
-    icon: <FaAward />,
+    id: "recognition",
+    icon: FaAward,
     title: "Recognition",
     description:
       "Celebrate achievements and reward excellence",
   },
   {
-    icon: <FaCalendarCheck />,
+    id: "work-life-balance",
+    icon: FaCalendarCheck,
     title: "Work-Life Balance",
     description:
       "Flexible schedules and work-life integration",
   },
 ];
 
-function WhyWorkHere() {
 
+function WhyWorkHere() {
   const sectionRef = useRef(null);
 
+
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
-
-      /* Heading Animation */
-
-      gsap.from(".why-work-heading", {
-        y: 25,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 85%",
@@ -72,23 +82,36 @@ function WhyWorkHere() {
       });
 
 
-      /* Benefits Stagger Animation */
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE
+      =============================================== */
 
-      gsap.from(".why-work-item", {
-        y: 35,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: "power3.out",
+      timeline
+        .from(
+          ".careers-why-work__heading",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-        scrollTrigger: {
-          trigger: ".why-work-list",
-          start: "top 88%",
-          once: true,
-        },
-      });
+        .from(
+          ".careers-why-work__item",
+          {
+            opacity: 0,
+            duration: 0.35,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        );
 
     }, sectionRef);
+
 
     return () => ctx.revert();
 
@@ -96,78 +119,77 @@ function WhyWorkHere() {
 
 
   return (
-
     <section
-      className="why-work-section"
+      className="careers-why-work"
       ref={sectionRef}
+      aria-labelledby="careers-why-work-title"
     >
+      <div className="container">
 
-      <div className="why-work-container">
 
-
-        {/* =========================
+        {/* ==========================================
             HEADING
-        ========================== */}
+        ========================================== */}
 
-        <div className="why-work-heading">
+        <div className="careers-why-work__heading">
 
-          <h2>
-            Why You’ll Love Working Here
+          <h2 id="careers-why-work-title">
+            Why You&apos;ll Love Working Here
           </h2>
 
-          <div className="why-work-line"></div>
+          <div
+            className="careers-why-work__line"
+            aria-hidden="true"
+          />
 
         </div>
 
 
-        {/* =========================
+        {/* ==========================================
             BENEFITS
-        ========================== */}
+        ========================================== */}
 
-        <div className="why-work-list">
+        <div className="careers-why-work__list">
 
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => {
+            const Icon = benefit.icon;
 
-            <div
-              className="why-work-item"
-              key={index}
-            >
+            return (
+              <article
+                className="careers-why-work__item"
+                key={benefit.id}
+              >
 
-              {/* Icon */}
+                <div
+                  className="careers-why-work__icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
+                </div>
 
-              <div className="why-work-icon">
 
-                {benefit.icon}
+                <div className="careers-why-work__content">
 
-              </div>
+                  <h3>
+                    {benefit.title}
+                  </h3>
 
+                  <p>
+                    {benefit.description}
+                  </p>
 
-              {/* Content */}
+                </div>
 
-              <div className="why-work-content">
-
-                <h3>
-                  {benefit.title}
-                </h3>
-
-                <p>
-                  {benefit.description}
-                </p>
-
-              </div>
-
-            </div>
-
-          ))}
+              </article>
+            );
+          })}
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default WhyWorkHere;

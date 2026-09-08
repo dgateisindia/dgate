@@ -8,125 +8,151 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { FaArrowRight } from "react-icons/fa";
 
-import { ctaImage } from "../../../assets/images/Technologies/cta";
+import {
+  ctaImage,
+} from "../../../assets/images/Technologies/cta";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 function TechnologiesCTA() {
+  const sectionRef = useRef(null);
 
-    const sectionRef = useRef(null);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-        const ctx = gsap.context(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-            const tl = gsap.timeline({
+    if (reduceMotion) return;
 
-                scrollTrigger:{
 
-                    trigger:sectionRef.current,
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 82%",
+          once: true,
+        },
+      });
 
-                    start:"top 80%",
 
-                    once:true,
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE / ROTATION
+      =============================================== */
 
-                }
+      timeline
+        .from(
+          ".technologies-page-cta__content",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-            });
+        .from(
+          ".technologies-page-cta__visual",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.3"
+        );
 
-            tl.from(".tcta-left",{
+    }, sectionRef);
 
-                x:-70,
 
-                opacity:0,
+    return () => ctx.revert();
 
-                duration:1,
+  }, []);
 
-                ease:"power3.out",
 
-            })
+  return (
+    <section
+      className="technologies-page-cta"
+      ref={sectionRef}
+      aria-labelledby="technologies-page-cta-title"
+    >
+      <div className="container">
 
-            .from(".tcta-right",{
+        <div className="technologies-page-cta__wrapper">
 
-                x:70,
 
-                opacity:0,
+          {/* ==========================================
+              CONTENT
+          ========================================== */}
 
-                duration:1,
+          <div className="technologies-page-cta__content">
 
-                ease:"power3.out",
+            <span className="technologies-page-cta__tag">
+              LET&apos;S BUILD TOGETHER
+            </span>
 
-            },"-=0.5");
 
-        },sectionRef);
+            <h2
+              id="technologies-page-cta-title"
+              className="technologies-page-cta__title"
+            >
+              Ready To Transform
 
-        return ()=>ctx.revert();
+              <span>
+                Your Business?
+              </span>
+            </h2>
 
-    },[]);
 
-        return(
+            <p className="technologies-page-cta__text">
+              Partner with D-GATE to leverage modern
+              technologies, AI, Cloud, Data Engineering,
+              IoT, and Enterprise solutions that accelerate
+              innovation, improve efficiency, and drive
+              sustainable business growth.
+            </p>
 
-        <section
-            className="tcta-section"
-            ref={sectionRef}
-        >
 
-            <div className="tcta-container">
+            <Link
+              to="/contact"
+              className="technologies-page-cta__button"
+            >
+              <span>
+                Talk To Our Experts
+              </span>
 
-                <div className="tcta-left">
+              <FaArrowRight aria-hidden="true" />
+            </Link>
 
-                    <span className="tcta-tag">
+          </div>
 
-                        Let's Build Together
 
-                    </span>
+          {/* ==========================================
+              IMAGE
+          ========================================== */}
 
-                    <h2 className="tcta-title">
+          <div className="technologies-page-cta__visual">
 
-                        Ready To Transform
+            <img
+              src={ctaImage}
+              alt="D-GATE technology team working on digital solutions"
+              className="technologies-page-cta__image"
+              loading="lazy"
+            />
 
-                        <span>Your Business?</span>
+          </div>
 
-                    </h2>
 
-                    <p className="tcta-text">
+        </div>
 
-                        Partner with D-GATE to leverage modern technologies,
-                        AI, Cloud, Data Engineering, IoT, and Enterprise
-                        solutions that accelerate innovation, improve
-                        efficiency, and drive sustainable business growth.
-
-                    </p>
-
-                    <Link
-                        to="/contact"
-                        className="tcta-btn"
-                    >
-
-                        Talk To Our Experts
-
-                        <FaArrowRight/>
-
-                    </Link>
-
-                </div>
-
-                <div className="tcta-right">
-
-                    <img
-                        src={ctaImage}
-                        alt="Technology Team"
-                        className="tcta-image"
-                    />
-
-                </div>
-
-            </div>
-
-        </section>
-
-    );
-
+      </div>
+    </section>
+  );
 }
+
 
 export default TechnologiesCTA;

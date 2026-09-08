@@ -1,0 +1,715 @@
+/* =========================================================
+   HOME - DIGITAL SUCCESS STORIES
+========================================================= */
+
+.home-success {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    82px
+    0
+    88px;
+
+  overflow: hidden;
+
+  background: var(--white);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-success__header {
+  width: 100%;
+
+  margin-bottom: 58px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.home-success__title {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--black);
+
+  font-family:
+    "Oswald",
+    sans-serif;
+
+  font-size:
+    clamp(
+      3.8rem,
+      7.1vw,
+      7.2rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.96;
+
+  letter-spacing: -2px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION / FILTER ROW
+========================================================= */
+
+.home-success__navigation {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  margin-top: 38px;
+}
+
+
+/* =========================================================
+   DECORATIVE LINE
+========================================================= */
+
+.home-success__decorative-line {
+  position: relative;
+
+  width: 138px;
+  height: 10px;
+
+  flex: 0 0 138px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.home-success__decorative-line::before {
+  content: "";
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--black);
+}
+
+
+.home-success__decorative-line::after {
+  content: "";
+
+  position: absolute;
+
+  right: -1px;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--black);
+
+  border-radius: 50%;
+}
+
+
+.home-success__decorative-line span {
+  position: absolute;
+
+  left: -1px;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--black);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.home-success__filters {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.home-success__filter {
+  min-height: 30px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    5px
+    17px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 999px;
+
+  background: var(--white);
+
+  color: #555555;
+
+  font-family: inherit;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   FILTER HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-success__filter:hover {
+    border-color:
+      rgba(253, 185, 19, 0.65);
+
+    background:
+      rgba(253, 185, 19, 0.08);
+
+    color: var(--black);
+  }
+
+}
+
+
+/* =========================================================
+   ACTIVE FILTER
+========================================================= */
+
+.home-success__filter--active {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  color: var(--black);
+
+  box-shadow:
+    0 4px 14px
+    rgba(253, 185, 19, 0.17);
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.home-success__grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    30px
+    22px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.home-success__card {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.04);
+
+  border-radius: 14px;
+
+  background: var(--gray);
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.035);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   NO TRANSLATE / SCALE
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-success__card:hover {
+    border-color:
+      rgba(253, 185, 19, 0.35);
+
+    box-shadow:
+      0 14px 34px
+      rgba(0, 0, 0, 0.09);
+  }
+
+
+  .home-success__card:hover
+  .home-success__image {
+    filter:
+      brightness(1.03)
+      saturate(1.04);
+  }
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.home-success__image {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio:
+    2.02 / 1;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    filter 0.3s ease;
+}
+
+
+/* =========================================================
+   SCREEN READER CONTENT
+========================================================= */
+
+.home-success__sr-content {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   1200PX
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .home-success {
+    padding:
+      70px
+      0
+      76px;
+  }
+
+
+  .home-success__title {
+    font-size:
+      clamp(
+        3.5rem,
+        7vw,
+        6rem
+      );
+  }
+
+
+  .home-success__header {
+    margin-bottom: 48px;
+  }
+
+
+  .home-success__navigation {
+    margin-top: 32px;
+
+    gap: 24px;
+  }
+
+
+  .home-success__decorative-line {
+    width: 110px;
+
+    flex-basis: 110px;
+  }
+
+
+  .home-success__filters {
+    gap: 11px;
+  }
+
+
+  .home-success__filter {
+    padding:
+      5px
+      14px;
+
+    font-size: 0.74rem;
+  }
+
+
+  .home-success__grid {
+    gap:
+      24px
+      20px;
+  }
+
+}
+
+
+/* =========================================================
+   1024PX
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .home-success {
+    padding:
+      62px
+      0
+      68px;
+  }
+
+
+  .home-success__title {
+    font-size:
+      clamp(
+        3.1rem,
+        7.4vw,
+        5rem
+      );
+
+    letter-spacing: -1.5px;
+  }
+
+
+  .home-success__navigation {
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 28px;
+  }
+
+
+  .home-success__decorative-line {
+    width: 130px;
+
+    flex-basis: auto;
+  }
+
+}
+
+
+/* =========================================================
+   768PX
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .home-success {
+    padding:
+      52px
+      0
+      58px;
+  }
+
+
+  .home-success__header {
+    margin-bottom: 38px;
+  }
+
+
+  .home-success__title {
+    font-size:
+      clamp(
+        2.7rem,
+        9vw,
+        4.2rem
+      );
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+
+    white-space: normal;
+  }
+
+
+  .home-success__navigation {
+    margin-top: 24px;
+  }
+
+
+  .home-success__filters {
+    gap: 9px;
+  }
+
+
+  .home-success__filter {
+    min-height: 31px;
+
+    padding:
+      6px
+      13px;
+
+    font-size: 0.72rem;
+  }
+
+
+  .home-success__grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .home-success__image {
+    aspect-ratio:
+      16 / 8.3;
+  }
+
+}
+
+
+/* =========================================================
+   600PX
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-success {
+    padding:
+      46px
+      0
+      52px;
+  }
+
+
+  .home-success__title {
+    font-size: 2.9rem;
+  }
+
+
+  .home-success__header {
+    margin-bottom: 32px;
+  }
+
+
+  .home-success__filters {
+    width: 100%;
+  }
+
+
+  .home-success__filter {
+    font-size: 0.7rem;
+  }
+
+
+  .home-success__card {
+    border-radius: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   425PX
+========================================================= */
+
+@media (max-width: 425px) {
+
+  .home-success {
+    padding:
+      42px
+      0
+      48px;
+  }
+
+
+  .home-success__title {
+    font-size: 2.45rem;
+
+    letter-spacing: -0.6px;
+  }
+
+
+  .home-success__navigation {
+    margin-top: 21px;
+  }
+
+
+  .home-success__decorative-line {
+    width: 90px;
+  }
+
+
+  .home-success__filters {
+    gap: 8px;
+  }
+
+
+  .home-success__filter {
+    min-height: 30px;
+
+    padding:
+      6px
+      11px;
+
+    font-size: 0.68rem;
+  }
+
+
+  .home-success__grid {
+    gap: 16px;
+  }
+
+
+  .home-success__image {
+    aspect-ratio:
+      16 / 9;
+  }
+
+}
+
+
+/* =========================================================
+   375PX
+========================================================= */
+
+@media (max-width: 375px) {
+
+  .home-success__title {
+    font-size: 2.2rem;
+  }
+
+
+  .home-success__filter {
+    padding:
+      6px
+      10px;
+
+    font-size: 0.66rem;
+  }
+
+}
+
+
+/* =========================================================
+   340PX
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .home-success {
+    padding:
+      38px
+      0
+      44px;
+  }
+
+
+  .home-success__title {
+    font-size: 2rem;
+  }
+
+
+  .home-success__filters {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    width: 100%;
+  }
+
+
+  .home-success__filter {
+    width: 100%;
+
+    min-height: 34px;
+
+    font-size: 0.68rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-success__filter,
+  .home-success__card,
+  .home-success__image {
+    transition: none;
+  }
+
+}

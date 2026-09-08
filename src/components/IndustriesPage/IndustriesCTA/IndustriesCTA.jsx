@@ -14,162 +14,131 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 function IndustriesCTA() {
-
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
 
     const ctx = gsap.context(() => {
-
-      gsap.from(".industries-cta-content", {
-
-        y: 50,
-
-        opacity: 0,
-
-        duration: 0.8,
-
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
-
           trigger: sectionRef.current,
-
-          start: "top 80%",
-
+          start: "top 82%",
           once: true,
-
         },
-
       });
 
-      gsap.from(".industries-cta-button", {
+      timeline
+        .from(".industries-page-cta__content", {
+          opacity: 0,
+          duration: 0.55,
+          ease: "power2.out",
+          clearProps: "opacity",
+        })
 
-        x: 40,
+        .from(
+          ".industries-page-cta__button",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-        opacity: 0,
-
-        duration: 0.8,
-
-        delay: 0.2,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-          trigger: sectionRef.current,
-
-          start: "top 80%",
-
-          once: true,
-
-        },
-
-      });
-
-      gsap.from(".industries-cta-dots span", {
-
-        scale: 0,
-
-        opacity: 0,
-
-        stagger: 0.05,
-
-        duration: 0.3,
-
-        ease: "back.out(1.8)",
-
-        scrollTrigger: {
-
-          trigger: sectionRef.current,
-
-          start: "top 80%",
-
-          once: true,
-
-        },
-
-      });
-
+        .from(
+          ".industries-page-cta__dot",
+          {
+            opacity: 0,
+            duration: 0.2,
+            stagger: 0.025,
+            ease: "power1.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        );
     }, sectionRef);
 
-    ScrollTrigger.refresh();
-
     return () => ctx.revert();
-
   }, []);
 
   return (
-
     <section
-      className="industries-cta"
+      className="industries-page-cta"
       ref={sectionRef}
+      aria-labelledby="industries-page-cta-title"
     >
+      <div className="container">
 
-      <div className="industries-cta-container">
+        <div className="industries-page-cta__box">
 
-        {/* Left */}
+          <div className="industries-page-cta__content">
 
-        <div className="industries-cta-content">
+            <div
+              className="industries-page-cta__icon"
+              aria-hidden="true"
+            >
+              <FaHeadset />
+            </div>
 
-          <div className="industries-cta-icon">
+            <div className="industries-page-cta__text">
 
-            <FaHeadset />
+              <h2 id="industries-page-cta-title">
+                Let&apos;s Build Industry-Specific
+                Solutions Together
+              </h2>
+
+              <p>
+                Our experts understand your industry challenges
+                and deliver innovative engineering solutions
+                that create measurable business impact through
+                digital transformation and technology excellence.
+              </p>
+
+            </div>
 
           </div>
 
-          <div>
 
-            <h2>
+          <Link
+            to="/contact"
+            className="industries-page-cta__button"
+          >
+            <span>
+              TALK TO OUR EXPERTS
+            </span>
 
-              Let's Build Industry-Specific Solutions Together
+            <FaArrowRight aria-hidden="true" />
+          </Link>
 
-            </h2>
 
-            <p>
-
-              Our experts understand your industry challenges
-              and deliver innovative engineering solutions
-              that create measurable business impact through
-              digital transformation and technology excellence.
-
-            </p>
-
+          <div
+            className="industries-page-cta__dots"
+            aria-hidden="true"
+          >
+            {Array.from(
+              { length: 25 },
+              (_, index) => (
+                <span
+                  className="industries-page-cta__dot"
+                  key={`dot-${index + 1}`}
+                />
+              )
+            )}
           </div>
-
-        </div>
-
-        {/* Right - Redirect to Contact Us */}
-
-        <Link
-          to="/contact"
-          className="industries-cta-button"
-        >
-
-          TALK TO OUR EXPERTS
-
-          <FaArrowRight />
-
-        </Link>
-
-        {/* Decorative Dots */}
-
-        <div className="industries-cta-dots">
-
-          {Array.from({ length: 25 }).map((_, index) => (
-
-            <span key={index}></span>
-
-          ))}
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
 
 export default IndustriesCTA;

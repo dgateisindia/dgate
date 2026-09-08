@@ -1,38 +1,57 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  Canvas,
+  useFrame,
+} from "@react-three/fiber";
+
 import {
   Float,
-  OrbitControls,
   Stars,
   Line,
 } from "@react-three/drei";
 
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
+
 import * as THREE from "three";
 
-/* ================= Rotating Cube ================= */
+
+const NODE_POINTS = [
+  [-2, 1.3, 0],
+  [-1, -1, 0],
+  [0.8, 1.5, 0],
+  [2, 0.3, 0],
+  [1.4, -1.5, 0],
+  [-2.2, -1.4, 0],
+];
+
+
+/* =========================================================
+   ROTATING CUBE
+========================================================= */
 
 function RotatingCube() {
+  const cubeRef = useRef(null);
 
-  const cubeRef = useRef();
+  useFrame((_, delta) => {
+    if (!cubeRef.current) return;
 
-  useFrame((state, delta) => {
+    cubeRef.current.rotation.x +=
+      delta * 0.3;
 
-    cubeRef.current.rotation.x += delta * 0.4;
-    cubeRef.current.rotation.y += delta * 0.6;
-
+    cubeRef.current.rotation.y +=
+      delta * 0.45;
   });
 
   return (
-
     <Float
-      speed={2}
-      rotationIntensity={1}
-      floatIntensity={2}
+      speed={1.6}
+      rotationIntensity={0.7}
+      floatIntensity={1.4}
     >
-
       <mesh ref={cubeRef}>
 
-        <boxGeometry args={[1.5, 1.5, 1.5]} />
+        <boxGeometry
+          args={[1.5, 1.5, 1.5]}
+        />
 
         <meshStandardMaterial
           color="#FDB913"
@@ -40,136 +59,110 @@ function RotatingCube() {
         />
 
       </mesh>
-
     </Float>
-
   );
-
 }
 
-/* ================= Floating Nodes ================= */
+
+/* =========================================================
+   NETWORK NODES
+========================================================= */
 
 function Nodes() {
-
-  const points = useMemo(() => {
-
-    return [
-      [-2, 1.3, 0],
-      [-1, -1, 0],
-      [0.8, 1.5, 0],
-      [2, 0.3, 0],
-      [1.4, -1.5, 0],
-      [-2.2, -1.4, 0],
-    ];
-
-  }, []);
-
   return (
-
     <>
-
-      {points.map((point, index) => (
-
+      {NODE_POINTS.map((point) => (
         <mesh
-          key={index}
+          key={point.join("-")}
           position={point}
         >
-
-          <sphereGeometry args={[0.08, 32, 32]} />
+          <sphereGeometry
+            args={[0.08, 16, 16]}
+          />
 
           <meshStandardMaterial
             color="#FDB913"
             emissive="#FDB913"
-            emissiveIntensity={1}
+            emissiveIntensity={0.8}
           />
-
         </mesh>
-
       ))}
 
       <Line
-        points={points}
+        points={NODE_POINTS}
         color="#FDB913"
         lineWidth={1}
       />
-
     </>
-
   );
-
 }
 
-/* ================= Scene ================= */
+
+/* =========================================================
+   SCENE
+========================================================= */
 
 function Scene() {
-
   return (
-
     <>
-
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={1} />
 
       <directionalLight
         position={[5, 5, 5]}
-        intensity={2}
+        intensity={1.5}
       />
 
       <pointLight
         position={[-5, -5, 5]}
-        intensity={2}
+        intensity={1.5}
         color="#FDB913"
       />
 
       <Stars
         radius={20}
         depth={30}
-        count={150}
+        count={100}
         factor={3}
         saturation={0}
         fade
-        speed={1}
+        speed={0.5}
       />
 
       <RotatingCube />
 
       <Nodes />
-
     </>
-
   );
-
 }
 
-/* ================= Canvas ================= */
+
+/* =========================================================
+   CANVAS
+========================================================= */
 
 function ServicesCanvas() {
-
   return (
-
-    <div className="services-canvas">
-
+    <div
+      className="services-page-hero__canvas"
+      aria-hidden="true"
+    >
       <Canvas
+        dpr={[1, 1.5]}
         camera={{
           position: [0, 0, 6],
           fov: 45,
         }}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference:
+            "high-performance",
+        }}
       >
-
         <Scene />
-
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={1}
-        />
-
       </Canvas>
-
     </div>
-
   );
-
 }
 
 export default ServicesCanvas;

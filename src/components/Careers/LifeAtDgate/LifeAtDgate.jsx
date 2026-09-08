@@ -1,6 +1,9 @@
 import "./LifeAtDgate.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,71 +20,89 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 
-function LifeAtDgate() {
+const galleryImages = [
+  {
+    id: "life-main",
+    src: life1,
+    alt: "DGATE team working and growing together",
+    className:
+      "careers-life__gallery-item careers-life__gallery-item--main",
+  },
+  {
+    id: "life-top",
+    src: life2,
+    alt: "DGATE employees enjoying workplace activities",
+    className:
+      "careers-life__gallery-item careers-life__gallery-item--top",
+  },
+  {
+    id: "life-bottom-left",
+    src: life3,
+    alt: "DGATE employees collaborating together",
+    className:
+      "careers-life__gallery-item careers-life__gallery-item--bottom-left",
+  },
+  {
+    id: "life-bottom-right",
+    src: life4,
+    alt: "DGATE team culture and celebration",
+    className:
+      "careers-life__gallery-item careers-life__gallery-item--bottom-right",
+  },
+];
 
+
+function LifeAtDgate() {
   const sectionRef = useRef(null);
 
 
-  /* =========================================================
-     GSAP ANIMATIONS
-  ========================================================= */
-
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
-
-
-      /* LEFT CONTENT */
-
-      gsap.from(".life-dgate-content", {
-
-        x: -45,
-
-        opacity: 0,
-
-        duration: 0.9,
-
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
-
           trigger: sectionRef.current,
-
-          start: "top 80%",
-
+          start: "top 82%",
           once: true,
-
         },
-
       });
 
 
-      /* IMAGES */
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE
+      =============================================== */
 
-      gsap.from(".life-gallery-item", {
+      timeline
+        .from(
+          ".careers-life__content",
+          {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-        y: 40,
-
-        opacity: 0,
-
-        duration: 0.8,
-
-        stagger: 0.12,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-          trigger: ".life-dgate-gallery",
-
-          start: "top 85%",
-
-          once: true,
-
-        },
-
-      });
-
+        .from(
+          ".careers-life__gallery-item",
+          {
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        );
 
     }, sectionRef);
 
@@ -91,201 +112,113 @@ function LifeAtDgate() {
   }, []);
 
 
-  /* =========================================================
-     SCROLL TO OPEN POSITIONS
-  ========================================================= */
-
   const scrollToPositions = () => {
-
     const section =
       document.getElementById("open-positions");
 
+    if (!section) return;
 
-    if (section) {
-
-      section.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "start",
-
-      });
-
-    }
-
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
 
   return (
-
     <section
-      className="life-dgate-section"
+      className="careers-life"
       ref={sectionRef}
+      aria-labelledby="careers-life-title"
     >
+      <div className="container">
 
-      <div className="life-dgate-container">
-
-
-        {/* =====================================================
-            LEFT CONTENT
-        ===================================================== */}
-
-        <div className="life-dgate-content">
+        <div className="careers-life__wrapper">
 
 
-          {/* TAG */}
+          {/* ==========================================
+              CONTENT
+          ========================================== */}
 
-          <span className="life-dgate-tag">
+          <div className="careers-life__content">
 
-            LIFE AT DGATE
-
-          </span>
-
-
-          {/* HEADING */}
-
-          <h2>
-
-            More Than Work.
-
-            <span>
-
-              A Place To Grow.
-
+            <span className="careers-life__tag">
+              LIFE AT DGATE
             </span>
 
-          </h2>
+
+            <h2 id="careers-life-title">
+              More Than Work.
+
+              <span>
+                A Place To Grow.
+              </span>
+            </h2>
 
 
-          {/* YELLOW LINE */}
-
-          <div className="life-dgate-line"></div>
-
-
-          {/* DESCRIPTION */}
-
-          <p>
-
-            At DGATE, work is more than just a job.
-            We foster a culture of innovation,
-            collaboration and belonging where people
-            are encouraged to share ideas, learn new
-            skills and create meaningful impact.
-
-          </p>
+            <div
+              className="careers-life__line"
+              aria-hidden="true"
+            />
 
 
-          <p className="life-dgate-secondary-text">
+            <p>
+              At DGATE, work is more than just a job.
+              We foster a culture of innovation,
+              collaboration and belonging where people
+              are encouraged to share ideas, learn new
+              skills and create meaningful impact.
+            </p>
 
-            Join a workplace where talented people
-            come together to solve challenges,
-            celebrate achievements and grow together.
 
-          </p>
+            <p className="careers-life__secondary-text">
+              Join a workplace where talented people
+              come together to solve challenges,
+              celebrate achievements and grow together.
+            </p>
 
 
-          {/* BUTTON */}
+            <button
+              type="button"
+              className="careers-life__button"
+              onClick={scrollToPositions}
+            >
+              <span>
+                Join Our Team
+              </span>
 
-          <button
-            type="button"
-            className="life-dgate-btn"
-            onClick={scrollToPositions}
-          >
+              <FaArrowRight aria-hidden="true" />
+            </button>
 
-            Join Our Team
+          </div>
 
-            <FaArrowRight />
 
-          </button>
+          {/* ==========================================
+              GALLERY
+          ========================================== */}
 
+          <div className="careers-life__gallery">
+
+            {galleryImages.map((image) => (
+              <div
+                className={image.className}
+                key={image.id}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+
+          </div>
 
         </div>
-
-
-        {/* =====================================================
-            RIGHT IMAGE COLLAGE
-        ===================================================== */}
-
-        <div className="life-dgate-gallery">
-
-
-          {/* LARGE IMAGE */}
-
-          <div
-            className="
-              life-gallery-item
-              life-gallery-main
-            "
-          >
-
-            <img
-              src={life1}
-              alt="DGATE team working and growing together"
-            />
-
-          </div>
-
-
-          {/* TOP RIGHT IMAGE */}
-
-          <div
-            className="
-              life-gallery-item
-              life-gallery-top
-            "
-          >
-
-            <img
-              src={life2}
-              alt="DGATE employees enjoying workplace activities"
-            />
-
-          </div>
-
-
-          {/* BOTTOM MIDDLE IMAGE */}
-
-          <div
-            className="
-              life-gallery-item
-              life-gallery-bottom-left
-            "
-          >
-
-            <img
-              src={life3}
-              alt="DGATE employees collaborating together"
-            />
-
-          </div>
-
-
-          {/* BOTTOM RIGHT IMAGE */}
-
-          <div
-            className="
-              life-gallery-item
-              life-gallery-bottom-right
-            "
-          >
-
-            <img
-              src={life4}
-              alt="DGATE team culture and celebration"
-            />
-
-          </div>
-
-
-        </div>
-
 
       </div>
-
     </section>
-
   );
-
 }
 
 

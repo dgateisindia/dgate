@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { aboutHero } from "../../../assets/images/about";
 
 function AboutHero() {
-
   const scrollToOurStory = () => {
     const section = document.getElementById("our-story");
 
@@ -19,30 +18,46 @@ function AboutHero() {
 
   return (
     <section
-      className="about-hero"
-      style={{ backgroundImage: `url(${aboutHero})` }}
+      className="about-page-hero"
+      style={{
+        backgroundImage: `url(${aboutHero})`,
+      }}
+      aria-labelledby="about-page-hero-title"
     >
-      <div className="about-container">
+      <div className="container about-page-hero__container">
 
-        {/* Left Content */}
+        <div className="about-page-hero__content">
 
-        <div className="about-content">
+          <nav
+            className="about-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
+            <Link to="/">
+              Home
+            </Link>
 
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <span>›</span>
-            <span>About Us</span>
-          </div>
+            <span aria-hidden="true">
+              ›
+            </span>
 
-          <h1>
-            ABOUT <span>D-GATE</span>
+            <span aria-current="page">
+              About Us
+            </span>
+          </nav>
+
+          <h1 id="about-page-hero-title">
+            ABOUT{" "}
+            <span>D-GATE</span>
           </h1>
 
-          <div className="hero-line"></div>
+          <div
+            className="about-page-hero__line"
+            aria-hidden="true"
+          />
 
-          <h3>
+          <h2>
             Engineering a Better Tomorrow
-          </h3>
+          </h2>
 
           <p>
             We design, build and support innovative engineering
@@ -52,9 +67,11 @@ function AboutHero() {
 
           <button
             type="button"
+            className="about-page-hero__button"
             onClick={scrollToOurStory}
           >
-            OUR STORY →
+            OUR STORY
+            <span aria-hidden="true">→</span>
           </button>
 
         </div>

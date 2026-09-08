@@ -2,6 +2,7 @@ import "./ServicesCTA.css";
 
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,107 +17,112 @@ function ServicesCTA() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    if (!sectionRef.current) return;
 
-      gsap.from(".services-cta-box", {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 82%",
           once: true,
         },
-        y: 60,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
       });
 
-      gsap.from(".services-cta-icon", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        scale: 0,
-        rotation: -180,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "back.out(1.8)",
-      });
+      timeline
+        .from(".services-page-cta__box", {
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "opacity",
+        })
 
-      gsap.from(".services-cta-content > *", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        y: 25,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        delay: 0.35,
-        ease: "power2.out",
-      });
+        .from(
+          ".services-page-cta__content > *",
+          {
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.25"
+        )
 
-      gsap.from(".services-cta-btn", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        x: 40,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.5,
-        ease: "power2.out",
-      });
-
+        .from(
+          ".services-page-cta__button",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        );
     }, sectionRef);
 
     return () => ctx.revert();
-
   }, []);
 
   return (
     <section
-      className="services-cta"
+      className="services-page-cta"
       ref={sectionRef}
+      aria-labelledby="services-page-cta-title"
     >
-      <div className="services-cta-box">
+      <div className="container">
 
-        <div className="services-cta-left">
+        <div className="services-page-cta__box">
 
-          <div className="services-cta-icon">
-            <FaEnvelopeOpenText />
+          <div className="services-page-cta__left">
+
+            <div
+              className="services-page-cta__icon"
+              aria-hidden="true"
+            >
+              <FaEnvelopeOpenText />
+            </div>
+
+            <div className="services-page-cta__content">
+
+              <span className="services-page-cta__tag">
+                LET&apos;S CONNECT
+              </span>
+
+              <h2 id="services-page-cta-title">
+                Ready to Transform
+                <br />
+                Your Business?
+              </h2>
+
+              <p>
+                Talk to our engineering experts and discover
+                how D-GATE can help accelerate innovation,
+                digital transformation and sustainable
+                business growth.
+              </p>
+
+            </div>
+
           </div>
 
-          <div className="services-cta-content">
-
-            <span className="services-cta-tag">
-              LET'S CONNECT
+          <Link
+            to="/contact"
+            className="services-page-cta__button"
+          >
+            <span>
+              TALK TO OUR EXPERTS
             </span>
 
-            <h2>
-              Ready to Transform
-              Your Business?
-            </h2>
-
-            <p>
-              Talk to our engineering experts and discover
-              how D-GATE can help accelerate innovation,
-              digital transformation and sustainable
-              business growth.
-            </p>
-
-          </div>
+            <FaArrowRight aria-hidden="true" />
+          </Link>
 
         </div>
-
-        {/* Redirect to Contact Us page */}
-
-        <Link
-          to="/contact"
-          className="services-cta-btn"
-        >
-          TALK TO OUR EXPERTS
-          <FaArrowRight />
-        </Link>
 
       </div>
     </section>

@@ -1,767 +1,771 @@
-.leadership-presence{
+/* =========================================================
+   ABOUT - LEADERSHIP & GLOBAL PRESENCE
+========================================================= */
 
-    padding:90px 5%;
-
-    background:var(--white);
-
-}
-
-.lp-container{
-
-    max-width:1380px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:58% 42%;
-
-    gap:30px;
-
-    align-items:start;
-
-}
-
-.leadership-section,
-.presence-section{
-
-    padding:30px;
-
-    background:var(--white);
-
-    border-radius:var(--radius-md);
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-.lp-heading{
-
-    margin-bottom:28px;
-
-}
-
-.lp-heading h2{
-
-    margin-bottom:8px;
-
-    font-size:1.8rem;
-
-    font-weight:800;
-
-    text-transform:uppercase;
-
-    color:var(--black);
-
-}
-
-.heading-line{
-
-    width:60px;
-
-    height:4px;
-
-    margin-bottom:12px;
-
-    border-radius:30px;
-
-    background:var(--primary);
-
+.about-leadership {
+  width: 100%;
+  padding: 70px 0;
+  background: var(--white);
 }
 
-.lp-heading p{
 
-    color:var(--text);
+/* =========================================================
+   LAYOUT
+========================================================= */
 
-    font-size:.9rem;
+.about-leadership__layout {
+  display: grid;
 
-    line-height:1.6;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(0, 1fr);
 
-}
-
-
-.leaders-grid{
-
-    display:grid;
+  gap: 30px;
 
-    grid-template-columns:repeat(4,1fr);
-
-    gap:14px;
-
-    margin-top:25px;
-
+  align-items: start;
 }
 
-.leader-card{
 
-    min-height:190px;
+/* =========================================================
+   SECTION
+========================================================= */
 
-    padding:16px 10px;
+.about-leadership__section {
+  width: 100%;
+  min-width: 0;
 
-    text-align:center;
+  display: flex;
+  flex-direction: column;
 
-    background:var(--white);
+  padding: 30px 30px 36px;
 
-    border-radius:12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+  background: var(--white);
 
-    transition:var(--transition);
-
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
 }
-
-.leader-card:hover{
 
-    transform:translateY(-6px);
 
-    box-shadow:0 18px 35px rgba(0,0,0,.14);
+/* =========================================================
+   HEADING
+========================================================= */
 
+.about-leadership__heading {
+  margin-bottom: 28px;
 }
 
-.leader-photo{
 
-    width:70px;
+.about-leadership__heading h2 {
+  margin: 0 0 8px;
 
-    height:70px;
+  color: var(--black);
 
-    margin:0 auto 12px;
+  font-size: 1.8rem;
+  font-weight: 800;
 
-    overflow:hidden;
+  line-height: 1.2;
 
-    border:3px solid var(--primary);
-
-    border-radius:50%;
-
-    background:var(--gray);
-
+  text-transform: uppercase;
 }
 
-.leader-photo img{
 
-    width:100%;
+.about-leadership__line {
+  width: 55px;
+  height: 3px;
 
-    height:100%;
+  margin-bottom: 12px;
 
-    object-fit:cover;
+  border-radius: 20px;
 
+  background: var(--primary);
 }
 
-.leader-card h3{
 
-    margin-bottom:5px;
+.about-leadership__heading p {
+  margin: 0;
 
-    font-size:.9rem;
+  color: var(--text);
 
-    font-weight:700;
+  font-size: 0.9rem;
 
-    color:var(--black);
-
+  line-height: 1.6;
 }
 
-.leader-card span{
 
-    display:block;
+/* =========================================================
+   LEADERS GRID
+========================================================= */
 
-    min-height:34px;
+.about-leadership__grid {
+  width: 100%;
 
-    color:var(--text);
+  display: grid;
 
-    font-size:.72rem;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
 
-    line-height:1.5;
+  gap: 14px;
 
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
-
-.leader-card a{
 
-    width:26px;
 
-    height:26px;
+/* =========================================================
+   LEADER CARD
+========================================================= */
 
-    margin:12px auto 0;
+.about-leadership__card {
+  width: 100%;
+  min-width: 0;
 
-    display:flex;
+  min-height: 190px;
 
-    justify-content:center;
+  display: flex;
+  flex-direction: column;
 
-    align-items:center;
+  align-items: center;
+  justify-content: center;
 
-    border-radius:50%;
+  padding: 18px 12px;
 
-    background:var(--primary);
-
-    color:var(--black);
-
-    text-decoration:none;
-
-    transition:var(--transition);
-
-}
+  text-align: center;
 
-.leader-card a:hover{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 
-    background:var(--black);
+  background: var(--white);
 
-    color:var(--primary);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.07);
 
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 
-.meet-btn{
+/* =========================================================
+   PHOTO
+========================================================= */
 
-    display:block;
+.about-leadership__photo {
+  width: 70px;
+  height: 70px;
 
-    margin:25px auto 0;
+  flex: 0 0 70px;
 
-    padding:10px 22px;
+  margin: 0 auto 12px;
 
-    border:none;
+  display: flex;
 
-    border-radius:30px;
+  align-items: center;
+  justify-content: center;
 
-    background:var(--primary);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
 
-    color:var(--black);
+  background: var(--gray);
 
-    font-size:.8rem;
+  color: var(--black);
 
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:var(--transition);
-
-}
-
-.meet-btn:hover{
-
-    background:var(--black);
-
-    color:var(--primary);
-
+  font-size: 1.8rem;
 }
-
-.presence-map{
-
-    position:relative;
 
-    margin-top:15px;
 
-}
+/* =========================================================
+   NAME
+========================================================= */
 
-.presence-map img{
+.about-leadership__card h3 {
+  margin: 0 0 5px;
 
-    width:100%;
+  color: var(--black);
 
-    display:block;
+  font-size: 0.9rem;
+  font-weight: 700;
 
+  line-height: 1.35;
 }
-
-.map-pin{
-
-    position:absolute;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    background:var(--white);
-
-    box-shadow:0 6px 15px rgba(0,0,0,.12);
 
-    font-size:.7rem;
 
-    font-weight:600;
+/* =========================================================
+   ROLE
+========================================================= */
 
-    color:var(--black);
+.about-leadership__role {
+  min-height: 36px;
 
-}
-
-.map-pin svg{
+  margin: 0;
 
-    color:var(--primary);
+  color: var(--text);
 
-    font-size:.95rem;
+  font-size: 0.78rem;
 
+  line-height: 1.45;
 }
-
-/* ================= PIN POSITIONS ================== */
-
-.north-america{
 
-    top:18%;
 
-    left:8%;
+/* =========================================================
+   LINKEDIN
+========================================================= */
 
-}
-
-.south-america{
+.about-leadership__linkedin {
+  width: 28px;
+  height: 28px;
 
-    bottom:18%;
+  margin: 12px auto 0;
 
-    left:22%;
+  display: inline-flex;
 
-}
+  align-items: center;
+  justify-content: center;
 
-.europe{
+  border-radius: 50%;
 
-    top:18%;
+  background: var(--primary);
 
-    left:50%;
+  color: var(--black);
 
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
 }
 
-.middle-east{
 
-    top:43%;
+.about-leadership__linkedin:hover {
+  background: var(--black);
 
-    left:56%;
+  color: var(--primary);
 
+  transform: translateY(-2px);
 }
 
-.india{
 
-    top:48%;
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
-    left:67%;
-
-}
+@media (hover: hover) {
 
-.asia{
+  .about-leadership__card:hover {
+    transform: translateY(-6px);
 
-    bottom:18%;
+    border-color: var(--primary);
 
-    right:4%;
+    box-shadow:
+      0 18px 35px rgba(0, 0, 0, 0.12);
+  }
 
 }
 
-/* ==================== 1024px ====================== */
 
-@media(max-width:1024px){
+/* =========================================================
+   MEET TEAM BUTTON
+========================================================= */
 
-.lp-container{
+.about-leadership__button {
+  width: fit-content;
+  min-width: 150px;
 
-    grid-template-columns:1fr;
+  /* SPACE FROM CARDS + CENTER */
+  margin: 32px auto 0;
 
-    gap:40px;
+  align-self: center;
 
-}
-
-.leaders-grid{
+  display: inline-flex;
 
-    grid-template-columns:repeat(4,1fr);
+  align-items: center;
+  justify-content: center;
 
-    gap:12px;
+  padding: 11px 24px;
 
-}
+  border-radius: 30px;
 
-.leader-photo{
+  background: var(--primary);
 
-    width:65px;
+  color: var(--black);
 
-    height:65px;
-
-}
+  font-size: 0.8rem;
+  font-weight: 700;
 
-.leader-card{
+  line-height: 1.2;
 
-    min-height:180px;
+  text-align: center;
 
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
 }
 
-.lp-heading h2{
 
-    font-size:1.6rem;
+.about-leadership__button:hover {
+  background: var(--black);
 
-}
+  color: var(--primary);
 
+  transform: translateY(-2px);
 }
-
-/* ===================== 768px ====================== */
 
-@media (max-width:768px){
 
-.leadership-presence{
-
-    padding:40px 5% 45px;
-
-}
+/* =========================================================
+   GLOBAL MAP
+========================================================= */
 
-.lp-container{
+.about-leadership__map {
+  position: relative;
 
-    grid-template-columns:1fr;
+  width: 100%;
+  max-width: 520px;
 
-    gap:40px;
+  margin: 30px auto 0;
 
+  overflow: visible;
 }
 
-.leadership-section,
-.presence-section{
 
-    padding:28px;
+.about-leadership__map img {
+  display: block;
 
-}
-
-.lp-heading{
+  width: 100%;
+  height: auto;
 
-    text-align:center;
-
+  object-fit: contain;
 }
 
-.heading-line{
 
-    margin:0 auto 12px;
-
-}
+/* =========================================================
+   MAP PIN
+========================================================= */
 
-.lp-heading h2{
+.about-leadership__pin {
+  position: absolute;
 
-    font-size:1.6rem;
+  display: flex;
 
-}
+  align-items: center;
+  justify-content: center;
 
-.lp-heading p{
+  gap: 5px;
 
-    font-size:.9rem;
+  padding: 5px 9px;
 
-}
+  border-radius: 20px;
 
-.leaders-grid{
+  background: var(--white);
 
-    grid-template-columns:repeat(2,1fr);
+  color: var(--black);
 
-    gap:18px;
+  font-size: 0.66rem;
+  font-weight: 600;
 
-}
+  line-height: 1;
 
-.leader-card{
+  white-space: nowrap;
 
-    min-height:180px;
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.14);
 
+  z-index: 3;
 }
-
-.leader-photo{
-
-    width:68px;
 
-    height:68px;
 
-}
-
-.leader-card h3{
+.about-leadership__pin svg {
+  flex: 0 0 auto;
 
-    font-size:.9rem;
+  color: var(--primary);
 
+  font-size: 0.75rem;
 }
 
-.leader-card span{
 
-    font-size:.74rem;
+/* =========================================================
+   MAP PIN POSITIONS
+========================================================= */
 
+.about-leadership__pin--north-america {
+  top: 16%;
+  left: 4%;
 }
 
-.meet-btn{
 
-    margin-top:25px;
-
+.about-leadership__pin--south-america {
+  top: 68%;
+  left: 19%;
 }
-
-.presence-map{
-
-    max-width:600px;
 
-    margin:20px auto 0;
 
+.about-leadership__pin--europe {
+  top: 14%;
+  left: 54%;
 }
 
-.map-pin{
 
-    padding:4px 8px;
-
-    font-size:.62rem;
-
+.about-leadership__pin--middle-east {
+  top: 44%;
+  left: 52%;
 }
-
-}
-
-/* ===================== 425px ====================== */
 
-@media (max-width:425px){
 
-.leadership-presence{
-
-    padding:40px 5% 40px;
-
+.about-leadership__pin--india {
+  top: 54%;
+  left: 68%;
 }
 
-.leadership-section,
-.presence-section{
 
-    padding:22px;
-
-    border-radius:var(--radius-md);
-
+.about-leadership__pin--asia {
+  top: 70%;
+  right: 0;
 }
 
-.lp-heading{
 
-    text-align:center;
+/* =========================================================
+   1200px
+========================================================= */
 
-}
+@media (max-width: 1200px) {
 
-.lp-heading h2{
+  .about-leadership__layout {
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(0, 1fr);
+  }
 
-    font-size:1.35rem;
 
-}
+  .about-leadership__section {
+    padding: 26px 26px 32px;
+  }
 
-.heading-line{
 
-    width:45px;
+  .about-leadership__grid {
+    gap: 12px;
+  }
 
-    margin:0 auto 10px;
 
-}
+  .about-leadership__card {
+    padding: 16px 10px;
+  }
 
-.lp-heading p{
 
-    font-size:.82rem;
+  .about-leadership__button {
+    margin-top: 30px;
+    
+  }
 
 }
 
-.leaders-grid{
 
-    grid-template-columns:1fr;
+/* =========================================================
+   TABLET - 1050px
+========================================================= */
 
-    gap:16px;
+@media (max-width: 1050px) {
 
-}
+  .about-leadership__layout {
+    grid-template-columns: 1fr;
 
-.leader-card{
+    gap: 30px;
+  }
 
-    min-height:auto;
 
-    padding:18px 15px;
-
-}
+  .about-leadership__grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
 
-.leader-photo{
 
-    width:62px;
+  .about-leadership__map {
+    max-width: 650px;
 
-    height:62px;
+    margin:
+      30px
+      auto
+      0;
+  }
 
 }
 
-.leader-card h3{
 
-    font-size:.88rem;
+/* =========================================================
+   TABLET - 768px
+========================================================= */
 
-}
-
-.leader-card span{
+@media (max-width: 768px) {
 
-    font-size:.74rem;
+  .about-leadership {
+    padding: 55px 0;
+  }
 
-}
 
-.meet-btn{
+  .about-leadership__section {
+    padding:
+      26px
+      26px
+      32px;
+  }
 
-    width:100%;
 
-    margin-top:22px;
+  .about-leadership__heading {
+    text-align: center;
+  }
 
-}
 
-.presence-map{
+  .about-leadership__line {
+    margin:
+      0
+      auto
+      12px;
+  }
 
-    margin-top:18px;
 
-}
+  .about-leadership__heading h2 {
+    font-size: 1.55rem;
+  }
 
-.map-pin{
 
-    padding:3px 6px;
+  .about-leadership__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
 
-    font-size:.52rem;
+    gap: 16px;
 
-}
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
 
-}
 
-/* ===================== 375px ====================== */
+  .about-leadership__button {
+    margin:
+      30px
+      auto
+      0;
 
-@media (max-width:375px){
+    align-self: center;
+  }
 
-.leadership-presence{
 
-    padding:40px 4% 40px;
+  .about-leadership__map {
+    max-width: 580px;
+  }
 
 }
 
-.leadership-section,
-.presence-section{
 
-    padding:18px;
+/* =========================================================
+   MOBILE - 480px
+========================================================= */
 
-}
+@media (max-width: 480px) {
 
-.lp-heading h2{
+  .about-leadership {
+    padding: 45px 0;
+  }
 
-    font-size:1.15rem;
-
-}
 
-.heading-line{
+  .about-leadership__section {
+    padding:
+      22px
+      18px
+      30px;
+  }
 
-    width:38px;
 
-}
+  .about-leadership__heading {
+    margin-bottom: 24px;
 
-.lp-heading p{
+    text-align: center;
+  }
 
-    font-size:.78rem;
 
-}
+  .about-leadership__heading h2 {
+    font-size: 1.35rem;
+  }
 
-.leader-photo{
 
-    width:58px;
+  .about-leadership__heading p {
+    font-size: 0.86rem;
+  }
 
-    height:58px;
 
-}
+  .about-leadership__grid {
+    grid-template-columns: 1fr;
 
-.leader-card h3{
+    gap: 16px;
 
-    font-size:.82rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-}
 
-.leader-card span{
+  .about-leadership__card {
+    min-height: auto;
 
-    font-size:.7rem;
+    padding: 20px 16px;
+  }
 
-}
 
-.meet-btn{
+  .about-leadership__photo {
+    width: 62px;
+    height: 62px;
 
-    padding:10px 18px;
+    flex-basis: 62px;
 
-    font-size:.8rem;
+    font-size: 1.6rem;
+  }
 
-}
 
-.map-pin{
+  .about-leadership__role {
+    min-height: auto;
 
-    font-size:.48rem;
+    font-size: 0.8rem;
+  }
 
-}
 
-}
+  /* BUTTON FIX */
 
-/* ===================== 320px ====================== */
+  .about-leadership__button {
+    width: 100%;
+    max-width: 220px;
 
-@media (max-width:320px){
+    margin:
+      28px
+      auto
+      0;
 
-.leadership-presence{
+    align-self: center;
 
-    padding:40px 4% 40px;
+    padding: 12px 20px;
 
-}
+    font-size: 0.8rem;
+  }
 
-.leadership-section,
-.presence-section{
 
-    padding:15px;
+  /* =========================================================
+     MOBILE MAP
+  ========================================================= */
 
-    border-radius:var(--radius-sm);
+  .about-leadership__map {
+    width: 100%;
+    max-width: 340px;
 
-}
+    margin:
+      25px
+      auto
+      0;
+  }
 
-.lp-heading h2{
 
-    font-size:1rem;
+  .about-leadership__pin {
+    width: 28px;
+    height: 28px;
 
-}
+    padding: 0;
 
-.heading-line{
+    border-radius: 50%;
 
-    width:34px;
+    font-size: 0.75rem;
+  }
 
-    height:3px;
 
-}
+  .about-leadership__pin span {
+    display: none;
+  }
 
-.lp-heading p{
 
-    font-size:.72rem;
+  .about-leadership__pin--north-america {
+    top: 18%;
+    left: 13%;
+  }
 
-}
 
-.leaders-grid{
+  .about-leadership__pin--south-america {
+    top: 65%;
+    left: 30%;
+  }
 
-    gap:14px;
 
-}
+  .about-leadership__pin--europe {
+    top: 18%;
+    left: 55%;
+  }
 
-.leader-photo{
 
-    width:52px;
+  .about-leadership__pin--middle-east {
+    top: 42%;
+    left: 57%;
+  }
 
-    height:52px;
 
-}
+  .about-leadership__pin--india {
+    top: 51%;
+    left: 67%;
+  }
 
-.leader-card{
 
-    padding:15px 12px;
+  .about-leadership__pin--asia {
+    top: 67%;
+    right: 8%;
+  }
 
 }
 
-.leader-card h3{
 
-    font-size:.78rem;
 
-}
-
-.leader-card span{
+/* =========================================================
+   SMALL MOBILE - 360px
+========================================================= */
 
-    font-size:.66rem;
+@media (max-width: 360px) {
 
-}
+  .about-leadership__section {
+    padding:
+      20px
+      14px
+      28px;
+  }
 
-.leader-card a{
 
-    width:24px;
+  .about-leadership__grid {
+    gap: 14px;
+  }
 
-    height:24px;
 
-    font-size:.7rem;
+  .about-leadership__card {
+    padding: 18px 14px;
+  }
 
-}
 
-.meet-btn{
+  .about-leadership__button {
+    width: 100%;
+    max-width: 200px;
 
-    padding:9px 16px;
+    margin:
+      26px
+      auto
+      0;
 
-    font-size:.76rem;
+    align-self: center;
+  }
 
 }
 
-.map-pin{
 
-    padding:2px 5px;
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-    font-size:.44rem;
+@media (prefers-reduced-motion: reduce) {
 
-}
+  .about-leadership__card,
+  .about-leadership__button,
+  .about-leadership__linkedin {
+    transition: none;
+  }
 
 }

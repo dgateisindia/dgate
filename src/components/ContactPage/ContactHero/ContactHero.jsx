@@ -18,158 +18,177 @@ import {
 import contactHero from "../../../assets/images/Contact/hero/contact-hero.png";
 
 
-function ContactHero() {
+/* =========================================================
+   FEATURE DATA
+========================================================= */
 
+const features = [
+  {
+    id: "quick-response",
+    title: "Quick Response",
+    description: "We get back to you within 24 hours",
+    Icon: FaHeadset,
+  },
+  {
+    id: "expert-guidance",
+    title: "Expert Guidance",
+    description: "Connect with our technology experts",
+    Icon: FaUsers,
+  },
+  {
+    id: "secure-confidential",
+    title: "Secure & Confidential",
+    description: "Your information is safe with us",
+    Icon: FaShieldAlt,
+  },
+];
+
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
+function ContactHero() {
   const heroRef = useRef(null);
 
 
   /* =========================================================
-     GSAP HERO ENTRANCE
+     HERO ENTRANCE
+     FADE ONLY
   ========================================================= */
 
   useEffect(() => {
+    if (!heroRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
-
-      const timeline = gsap.timeline({
-
-        defaults: {
-          ease: "power3.out",
-        },
-
-      });
+      const timeline = gsap.timeline();
 
 
-      /* Breadcrumb */
+      timeline
+        .from(
+          ".contact-page-hero__breadcrumb",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-      timeline.from(
-        ".contact-hero-breadcrumb",
-        {
-          x: -25,
-          opacity: 0,
-          duration: 0.5,
-        }
-      );
+        .from(
+          ".contact-page-hero__title",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
 
+        .from(
+          ".contact-page-hero__line",
+          {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-      /* Heading */
+        .from(
+          ".contact-page-hero__description",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
 
-      timeline.from(
-        ".contact-hero-title",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.7,
-        },
-        "-=0.2"
-      );
+        .from(
+          ".contact-page-hero__feature",
+          {
+            opacity: 0,
+            duration: 0.35,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
 
-
-      /* Yellow Line */
-
-      timeline.from(
-        ".contact-hero-title-line",
-        {
-          width: 0,
-          duration: 0.45,
-        },
-        "-=0.2"
-      );
-
-
-      /* Description */
-
-      timeline.from(
-        ".contact-hero-description",
-        {
-          y: 18,
-          opacity: 0,
-          duration: 0.55,
-        },
-        "-=0.15"
-      );
-
-
-      /* Features */
-
-      timeline.from(
-        ".contact-hero-feature",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.55,
-          stagger: 0.12,
-        },
-        "-=0.2"
-      );
-
-
-      /* Right Image */
-
-      timeline.from(
-        ".contact-hero-image-side",
-        {
-          x: 45,
-          opacity: 0,
-          duration: 0.85,
-        },
-        "-=0.7"
-      );
+        .from(
+          ".contact-page-hero__visual",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.35"
+        );
 
     }, heroRef);
 
 
-    return () => {
-
-      ctx.revert();
-
-    };
+    return () => ctx.revert();
 
   }, []);
 
 
   return (
-
     <section
-      className="contact-hero"
+      className="contact-page-hero"
       ref={heroRef}
+      aria-labelledby="contact-page-hero-title"
     >
+      <div className="contact-page-hero__container">
 
-      <div className="contact-hero-container">
 
-
-        {/* =================================================
+        {/* ==========================================
             LEFT CONTENT
-        ================================================= */}
+        ========================================== */}
 
-        <div className="contact-hero-content">
+        <div className="contact-page-hero__content">
 
 
           {/* BREADCRUMB */}
 
-          <div className="contact-hero-breadcrumb">
-
+          <nav
+            className="contact-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
             <Link to="/">
               Home
             </Link>
 
-            <span>
+            <span aria-hidden="true">
               ›
             </span>
 
-            <span>
+            <span aria-current="page">
               Contact Us
             </span>
+          </nav>
 
-          </div>
 
+          {/* TITLE */}
 
-          {/* HEADING */}
-
-          <h1 className="contact-hero-title">
-
+          <h1
+            id="contact-page-hero-title"
+            className="contact-page-hero__title"
+          >
             Let&apos;s Build Something
-
             <br />
 
             Amazing{" "}
@@ -177,142 +196,95 @@ function ContactHero() {
             <span>
               Together
             </span>
-
           </h1>
 
 
           {/* YELLOW LINE */}
 
-          <div className="contact-hero-title-line" />
+          <div
+            className="contact-page-hero__line"
+            aria-hidden="true"
+          />
 
 
           {/* DESCRIPTION */}
 
-          <p className="contact-hero-description">
-
+          <p className="contact-page-hero__description">
             Have a project in mind or want to learn more about
             how we can help your business grow? We&apos;d love
             to hear from you.
-
           </p>
 
 
-          {/* =================================================
+          {/* ==========================================
               FEATURES
-          ================================================= */}
+          ========================================== */}
 
-          <div className="contact-hero-features">
+          <div className="contact-page-hero__features">
 
+            {features.map((feature) => {
+              const Icon = feature.Icon;
 
-            {/* QUICK RESPONSE */}
+              return (
+                <div
+                  className="contact-page-hero__feature"
+                  key={feature.id}
+                >
 
-            <div className="contact-hero-feature">
-
-              <div className="contact-feature-icon">
-
-                <FaHeadset />
-
-              </div>
-
-              <div className="contact-feature-text">
-
-                <h3>
-                  Quick Response
-                </h3>
-
-                <p>
-                  We get back to you
-                  <br />
-                  within 24 hours
-                </p>
-
-              </div>
-
-            </div>
+                  <div
+                    className="contact-page-hero__feature-icon"
+                    aria-hidden="true"
+                  >
+                    <Icon />
+                  </div>
 
 
-            {/* EXPERT GUIDANCE */}
+                  <div className="contact-page-hero__feature-text">
 
-            <div className="contact-hero-feature">
+                    <h3>
+                      {feature.title}
+                    </h3>
 
-              <div className="contact-feature-icon">
+                    <p>
+                      {feature.description}
+                    </p>
 
-                <FaUsers />
+                  </div>
 
-              </div>
-
-              <div className="contact-feature-text">
-
-                <h3>
-                  Expert Guidance
-                </h3>
-
-                <p>
-                  Connect with our
-                  <br />
-                  technology experts
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* SECURE */}
-
-            <div className="contact-hero-feature">
-
-              <div className="contact-feature-icon">
-
-                <FaShieldAlt />
-
-              </div>
-
-              <div className="contact-feature-text">
-
-                <h3>
-                  Secure &amp; Confidential
-                </h3>
-
-                <p>
-                  Your information is safe
-                  <br />
-                  with us
-                </p>
-
-              </div>
-
-            </div>
+                </div>
+              );
+            })}
 
           </div>
 
         </div>
 
 
-        {/* =================================================
+        {/* ==========================================
             RIGHT IMAGE
-        ================================================= */}
+        ========================================== */}
 
-        <div className="contact-hero-image-side">
+        <div className="contact-page-hero__visual">
 
           <img
-
             src={contactHero}
-
             alt="DGATE global offices and corporate headquarters"
+            className="contact-page-hero__image"
+            fetchPriority="high"
+          />
 
-            className="contact-hero-image"
 
+          <div
+            className="contact-page-hero__overlay"
+            aria-hidden="true"
           />
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default ContactHero;

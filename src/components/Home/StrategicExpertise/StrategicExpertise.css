@@ -1,0 +1,180 @@
+.home-expertise {
+  width: 100%;
+
+  padding:
+    72px
+    0;
+
+  background: var(--section);
+}
+
+
+.home-expertise__heading {
+  max-width: 720px;
+
+  margin:
+    0 auto
+    38px;
+
+  text-align: center;
+}
+
+
+.home-expertise__heading > span {
+  color: var(--primary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+}
+
+
+.home-expertise__heading h2 {
+  margin:
+    8px
+    0
+    12px;
+
+  color: var(--black);
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3rem
+    );
+
+  line-height: 1.2;
+}
+
+
+.home-expertise__heading h2 strong {
+  color: var(--primary);
+}
+
+
+.home-expertise__heading p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.84rem;
+
+  line-height: 1.7;
+}
+
+
+.home-expertise__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.home-expertise__card {
+  min-height: 220px;
+
+  padding: 26px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--white);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.home-expertise__card:hover {
+  border-color:
+    rgba(253, 185, 19, 0.45);
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.06);
+}
+
+
+.home-expertise__icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(253, 185, 19, 0.1);
+
+  color: var(--primary);
+
+  font-size: 1.05rem;
+}
+
+
+.home-expertise__card h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: var(--black);
+
+  font-size: 0.95rem;
+}
+
+
+.home-expertise__card p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.76rem;
+
+  line-height: 1.68;
+}
+
+
+@media (max-width: 900px) {
+
+  .home-expertise__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .home-expertise {
+    padding:
+      55px
+      0;
+  }
+
+
+  .home-expertise__grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .home-expertise__card {
+    min-height: auto;
+  }
+
+}

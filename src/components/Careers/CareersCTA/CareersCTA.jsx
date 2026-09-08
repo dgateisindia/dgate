@@ -1,6 +1,9 @@
 import "./CareersCTA.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,107 +15,94 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-function CareersCTA() {
 
+function CareersCTA() {
   const sectionRef = useRef(null);
 
+
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
+      gsap.from(
+        ".careers-cta__box",
+        {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "opacity",
 
-      gsap.from(".career-cta-box", {
-
-        y: 35,
-        opacity: 0,
-
-        duration: 0.8,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-          trigger: sectionRef.current,
-
-          start: "top 88%",
-
-          once: true,
-
-        },
-
-      });
-
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
     }, sectionRef);
+
 
     return () => ctx.revert();
 
   }, []);
 
 
-  /* ==========================================
-     SCROLL TO OPEN POSITIONS
-  ========================================== */
-
   const scrollToPositions = () => {
-
     const section =
-      document.getElementById("open-positions");
+      document.getElementById(
+        "open-positions"
+      );
 
-    if (section) {
+    if (!section) return;
 
-      section.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "start",
-
-      });
-
-    }
-
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
 
   return (
-
     <section
-      className="career-cta-section"
+      className="careers-cta"
       ref={sectionRef}
+      aria-labelledby="careers-cta-title"
     >
+      <div className="container">
 
-      <div className="career-cta-container">
-
-        <div className="career-cta-box">
-
-
-          {/* LEFT SIDE */}
-
-          <div className="career-cta-left">
+        <div className="careers-cta__box">
 
 
-            {/* ICON */}
+          {/* ==========================================
+              LEFT CONTENT
+          ========================================== */}
 
-            <div className="career-cta-icon">
+          <div className="careers-cta__left">
 
+            <div
+              className="careers-cta__icon"
+              aria-hidden="true"
+            >
               <FaPaperPlane />
-
             </div>
 
 
-            {/* TEXT */}
+            <div className="careers-cta__content">
 
-            <div className="career-cta-content">
-
-              <h3>
-
+              <h3 id="careers-cta-title">
                 Ready to shape the future with us?
-
               </h3>
 
               <p>
-
                 Find the right opportunity and grow
                 your career with DGATE.
-
               </p>
 
             </div>
@@ -120,28 +110,28 @@ function CareersCTA() {
           </div>
 
 
-          {/* BUTTON */}
+          {/* ==========================================
+              BUTTON
+          ========================================== */}
 
           <button
             type="button"
-            className="career-cta-btn"
+            className="careers-cta__button"
             onClick={scrollToPositions}
           >
+            <span>
+              Browse Open Positions
+            </span>
 
-            Browse Open Positions
-
-            <FaArrowRight />
-
+            <FaArrowRight aria-hidden="true" />
           </button>
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default CareersCTA;

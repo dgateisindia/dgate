@@ -1,216 +1,219 @@
 import "./TechnologiesHero.css";
 
-import { useEffect, useRef } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+} from "react";
+
 import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
 import { FaArrowRight } from "react-icons/fa";
 
-import TechnologiesCanvas from "./TechnologiesCanvas";
+import {
+  heroBg,
+} from "../../../assets/images/Technologies/hero";
 
-import { heroBg } from "../../../assets/images/Technologies/hero";
+const TechnologiesCanvas = lazy(
+  () => import("./TechnologiesCanvas")
+);
 
 function TechnologiesHero() {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline();
+
+      timeline
+        .from(
+          ".technologies-page-hero__breadcrumb",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
+
+        .from(
+          ".technologies-page-hero__title",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".technologies-page-hero__line",
+          {
+            opacity: 0,
+            duration: 0.35,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".technologies-page-hero__text",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
+
+        .from(
+          ".technologies-page-hero__buttons",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
+
+        .from(
+          ".technologies-page-hero__visual",
+          {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.35"
+        );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleExploreStack = () => {
+    const technologySection =
+      document.getElementById("technology-stack");
+
+    if (!technologySection) return;
+
+    technologySection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  return (
+    <section
+      className="technologies-page-hero"
+      ref={heroRef}
+      aria-labelledby="technologies-page-hero-title"
+    >
+      <div className="technologies-page-hero__container">
 
-    const heroRef = useRef(null);
+        <div className="technologies-page-hero__content">
 
-    useEffect(() => {
+          <nav
+            className="technologies-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
+            <Link to="/">
+              Home
+            </Link>
 
-        const ctx = gsap.context(() => {
+            <span aria-hidden="true">
+              ›
+            </span>
 
-            const tl = gsap.timeline();
+            <span aria-current="page">
+              Technologies
+            </span>
+          </nav>
 
-            tl.from(".tp-breadcrumb", {
 
-                x: -40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
+          <h1
+            id="technologies-page-hero-title"
+            className="technologies-page-hero__title"
+          >
+            Technologies
 
-            })
+            <span>
+              We Leverage
+            </span>
+          </h1>
 
-            .from(".tp-title", {
 
-                y: 45,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out",
+          <div
+            className="technologies-page-hero__line"
+            aria-hidden="true"
+          />
 
-            }, "-=.2")
 
-            .from(".tp-line", {
+          <p className="technologies-page-hero__text">
+            We harness modern technologies, cloud-native
+            platforms, artificial intelligence, enterprise
+            frameworks and intelligent automation to build
+            secure, scalable and future-ready digital
+            solutions that accelerate business innovation.
+          </p>
 
-                width: 0,
-                duration: 0.5,
-                ease: "power2.out",
 
-            })
+          <div className="technologies-page-hero__buttons">
 
-            .from(".tp-text", {
+            <button
+              type="button"
+              className="technologies-page-hero__button"
+              onClick={handleExploreStack}
+            >
+              Explore Stack
 
-                y: 30,
-                opacity: 0,
-                duration: 0.7,
-                ease: "power3.out",
+              <FaArrowRight aria-hidden="true" />
+            </button>
 
-            }, "-=.2")
+          </div>
 
-            .from(".tp-buttons", {
+        </div>
 
-                y: 25,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
 
-            }, "-=.3")
+        <div className="technologies-page-hero__visual">
 
-            .from(".tp-right", {
+          <img
+            src={heroBg}
+            alt="Modern technology and digital engineering"
+            className="technologies-page-hero__image"
+          />
 
-                scale: 1.08,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out",
+          <div
+            className="technologies-page-hero__overlay"
+            aria-hidden="true"
+          />
 
-            }, "-=.5");
-
-        }, heroRef);
-
-        return () => ctx.revert();
-
-    }, []);
-
-
-    /* ==========================================
-       SCROLL TO TECHNOLOGY GRID
-    ========================================== */
-
-    const handleExploreStack = () => {
-
-        const technologySection =
-            document.getElementById("technology-stack");
-
-        if (technologySection) {
-
-            technologySection.scrollIntoView({
-
-                behavior: "smooth",
-                block: "start",
-
-            });
-
-        }
-
-    };
-
-
-    return (
-
-        <section
-            className="tp-hero"
-            ref={heroRef}
-        >
-
-            <div className="tp-container">
-
-                {/* ================= LEFT ================= */}
-
-                <div className="tp-left">
-
-                    <div className="tp-breadcrumb">
-
-                        <Link to="/">
-                            Home
-                        </Link>
-
-                        <span>›</span>
-
-                        <span>
-                            Technologies
-                        </span>
-
-                    </div>
-
-
-                    <h1 className="tp-title">
-
-                        Technologies
-
-                        <span>
-                            We Leverage
-                        </span>
-
-                    </h1>
-
-
-                    <div className="tp-line"></div>
-
-
-                    <p className="tp-text">
-
-                        We harness modern technologies,
-                        cloud-native platforms, artificial
-                        intelligence, enterprise frameworks
-                        and intelligent automation to build
-                        secure, scalable and future-ready
-                        digital solutions that accelerate
-                        business innovation.
-
-                    </p>
-
-
-                    {/* ================= BUTTON ================= */}
-
-                    <div className="tp-buttons">
-
-                        <button
-                            className="tp-primary-btn"
-                            onClick={handleExploreStack}
-                        >
-
-                            Explore Stack
-
-                            <FaArrowRight />
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                {/* ================= RIGHT ================= */}
-
-                <div className="tp-right">
-
-                    <img
-
-                        src={heroBg}
-
-                        alt="Technologies"
-
-                        className="tp-bg"
-
-                    />
-
-
-                    <div className="tp-overlay"></div>
-
-
-                    <div className="tp-canvas">
-
-                        <TechnologiesCanvas />
-
-                    </div>
-
-                </div>
-
+          <Suspense fallback={null}>
+            <div className="technologies-page-hero__canvas">
+              <TechnologiesCanvas />
             </div>
+          </Suspense>
 
-        </section>
+        </div>
 
-    );
-
+      </div>
+    </section>
+  );
 }
 
 export default TechnologiesHero;

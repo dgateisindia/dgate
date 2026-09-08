@@ -29,52 +29,62 @@ gsap.registerPlugin(ScrollTrigger);
 ========================================================= */
 
 const jobs = [
-
   {
-    icon: <FaLaptopCode />,
+    id: "software-engineer",
+    icon: FaLaptopCode,
     title: "Software Engineer",
     location: "Pune, India",
     experience: "3 - 6 Years Experience",
   },
 
   {
-    icon: <FaCloud />,
+    id: "cloud-engineer",
+    icon: FaCloud,
     title: "Cloud Engineer",
     location: "Bangalore, India",
     experience: "4 - 8 Years Experience",
   },
 
   {
-    icon: <FaShieldAlt />,
+    id: "qa-automation-engineer",
+    icon: FaShieldAlt,
     title: "QA Automation Engineer",
     location: "Chennai, India",
     experience: "3 - 6 Years Experience",
   },
 
   {
-    icon: <FaChartLine />,
+    id: "data-engineer",
+    icon: FaChartLine,
     title: "Data Engineer",
     location: "Hyderabad, India",
     experience: "4 - 7 Years Experience",
   },
 
   {
-    icon: <FaPalette />,
+    id: "ui-ux-designer",
+    icon: FaPalette,
     title: "UI/UX Designer",
     location: "Pune, India",
     experience: "2 - 5 Years Experience",
   },
-
 ];
 
 
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 function OpenPositions() {
-
   const sectionRef = useRef(null);
+  const carouselRef = useRef(null);
+  const trackRef = useRef(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] =
+    useState(0);
 
-  const [visibleCards, setVisibleCards] = useState(3);
+  const [visibleCards, setVisibleCards] =
+    useState(3);
 
 
   /* =========================================================
@@ -82,29 +92,16 @@ function OpenPositions() {
   ========================================================= */
 
   useEffect(() => {
-
     const updateVisibleCards = () => {
-
       const width = window.innerWidth;
 
       if (width <= 425) {
-
         setVisibleCards(1);
-
-      }
-
-      else if (width <= 768) {
-
+      } else if (width <= 768) {
         setVisibleCards(2);
-
-      }
-
-      else {
-
+      } else {
         setVisibleCards(3);
-
       }
-
     };
 
 
@@ -118,132 +115,11 @@ function OpenPositions() {
 
 
     return () => {
-
       window.removeEventListener(
         "resize",
         updateVisibleCards
       );
-
     };
-
-  }, []);
-
-
-  /* =========================================================
-     FIX CURRENT INDEX AFTER RESIZE
-  ========================================================= */
-
-  useEffect(() => {
-
-    const maxIndex = Math.max(
-      jobs.length - visibleCards,
-      0
-    );
-
-
-    if (currentIndex > maxIndex) {
-
-      setCurrentIndex(maxIndex);
-
-    }
-
-  }, [visibleCards, currentIndex]);
-
-
-  /* =========================================================
-     GSAP ANIMATION
-  ========================================================= */
-
-  useEffect(() => {
-
-    const ctx = gsap.context(() => {
-
-
-      gsap.from(
-        ".open-positions-header",
-        {
-
-          y: 35,
-
-          opacity: 0,
-
-          duration: 0.7,
-
-          ease: "power3.out",
-
-          scrollTrigger: {
-
-            trigger: sectionRef.current,
-
-            start: "top 85%",
-
-            once: true,
-
-          },
-
-        }
-      );
-
-
-      gsap.from(
-        ".jobs-carousel-wrapper",
-        {
-
-          y: 35,
-
-          opacity: 0,
-
-          duration: 0.8,
-
-          delay: 0.1,
-
-          ease: "power3.out",
-
-          scrollTrigger: {
-
-            trigger: sectionRef.current,
-
-            start: "top 80%",
-
-            once: true,
-
-          },
-
-        }
-      );
-
-
-      gsap.from(
-        ".open-positions-bottom",
-        {
-
-          y: 25,
-
-          opacity: 0,
-
-          duration: 0.7,
-
-          ease: "power3.out",
-
-          scrollTrigger: {
-
-            trigger: ".open-positions-bottom",
-
-            start: "top 95%",
-
-            once: true,
-
-          },
-
-        }
-      );
-
-
-    }, sectionRef);
-
-
-    return () => ctx.revert();
-
   }, []);
 
 
@@ -258,23 +134,154 @@ function OpenPositions() {
 
 
   /* =========================================================
+     KEEP INDEX VALID AFTER RESIZE
+  ========================================================= */
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [
+    visibleCards,
+    currentIndex,
+    maxIndex,
+  ]);
+
+
+  /* =========================================================
+     SCROLL CAROUSEL
+     NO INLINE TRANSFORM
+  ========================================================= */
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    const track = trackRef.current;
+
+    if (!carousel || !track) return;
+
+    const firstCard =
+      track.querySelector(
+        ".careers-open-positions__card"
+      );
+
+    if (!firstCard) return;
+
+
+    const trackStyles =
+      window.getComputedStyle(track);
+
+
+    const gap =
+      parseFloat(trackStyles.columnGap) ||
+      parseFloat(trackStyles.gap) ||
+      0;
+
+
+    const cardWidth =
+      firstCard.getBoundingClientRect().width;
+
+
+    const targetLeft =
+      currentIndex * (cardWidth + gap);
+
+
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    carousel.scrollTo({
+      left: targetLeft,
+      behavior: reduceMotion
+        ? "auto"
+        : "smooth",
+    });
+
+  }, [
+    currentIndex,
+    visibleCards,
+  ]);
+
+
+  /* =========================================================
+     GSAP
+     FADE ONLY
+  ========================================================= */
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    if (reduceMotion) return;
+
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 82%",
+          once: true,
+        },
+      });
+
+
+      timeline
+        .from(
+          ".careers-open-positions__header",
+          {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
+
+        .from(
+          ".careers-open-positions__carousel",
+          {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".careers-open-positions__bottom",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        );
+
+    }, sectionRef);
+
+
+    return () => ctx.revert();
+
+  }, []);
+
+
+  /* =========================================================
      NEXT
   ========================================================= */
 
   const handleNext = () => {
-
-    setCurrentIndex((previousIndex) => {
-
-      if (previousIndex >= maxIndex) {
-
-        return 0;
-
-      }
-
-      return previousIndex + 1;
-
-    });
-
+    setCurrentIndex(
+      (previousIndex) =>
+        previousIndex >= maxIndex
+          ? 0
+          : previousIndex + 1
+    );
   };
 
 
@@ -283,133 +290,83 @@ function OpenPositions() {
   ========================================================= */
 
   const handlePrevious = () => {
-
-    setCurrentIndex((previousIndex) => {
-
-      if (previousIndex <= 0) {
-
-        return maxIndex;
-
-      }
-
-      return previousIndex - 1;
-
-    });
-
-  };
-
-
-  /* =========================================================
-     SLIDER TRANSFORM
-  ========================================================= */
-
-  const trackStyle = {
-
-    "--visible-cards": visibleCards,
-
-    transform:
-
-      `translateX(
-        calc(
-          -${currentIndex} *
-          (
-            (
-              100%
-              -
-              (
-                (var(--visible-cards) - 1)
-                *
-                var(--job-gap)
-              )
-            )
-            /
-            var(--visible-cards)
-            +
-            var(--job-gap)
-          )
-        )
-      )`,
-
+    setCurrentIndex(
+      (previousIndex) =>
+        previousIndex <= 0
+          ? maxIndex
+          : previousIndex - 1
+    );
   };
 
 
   return (
-
     <section
       id="open-positions"
-      className="open-positions-section"
+      className="careers-open-positions"
       ref={sectionRef}
+      aria-labelledby="careers-open-positions-title"
     >
+      <div className="container">
 
-      <div className="open-positions-container">
 
-
-        {/* =====================================================
+        {/* =================================================
             HEADER
-        ===================================================== */}
+        ================================================= */}
 
-        <div className="open-positions-header">
+        <div className="careers-open-positions__header">
 
+          <div className="careers-open-positions__heading">
 
-          {/* LEFT */}
-
-          <div className="open-positions-heading">
-
-            <span className="open-positions-tag">
-
+            <span className="careers-open-positions__tag">
               CAREERS AT DGATE
-
             </span>
 
 
-            <h2>
-
+            <h2 id="careers-open-positions-title">
               Open Positions
-
             </h2>
 
 
-            <div className="open-positions-line"></div>
+            <div
+              className="careers-open-positions__line"
+              aria-hidden="true"
+            />
 
           </div>
 
 
-          {/* RIGHT */}
-
-          <div className="open-positions-right">
+          <div className="careers-open-positions__right">
 
             <p>
-
-              Explore opportunities to grow your career,
-              work on innovative technologies and build
-              solutions that create meaningful impact.
-
+              Explore opportunities to grow your
+              career, work on innovative technologies
+              and build solutions that create
+              meaningful impact.
             </p>
 
 
-            <div className="jobs-navigation">
+            <div
+              className="careers-open-positions__navigation"
+              aria-label="Job carousel navigation"
+            >
 
               <button
                 type="button"
-                className="jobs-nav-btn"
+                className="careers-open-positions__nav-button"
                 onClick={handlePrevious}
                 aria-label="Previous jobs"
               >
-
-                <FaChevronLeft />
-
+                <FaChevronLeft aria-hidden="true" />
               </button>
 
 
               <button
                 type="button"
-                className="jobs-nav-btn"
+                className="careers-open-positions__nav-button"
                 onClick={handleNext}
                 aria-label="Next jobs"
               >
-
-                <FaChevronRight />
-
+                <FaChevronRight aria-hidden="true" />
               </button>
 
             </div>
@@ -419,143 +376,138 @@ function OpenPositions() {
         </div>
 
 
-        {/* =====================================================
-            JOB CAROUSEL
-        ===================================================== */}
+        {/* =================================================
+            CAROUSEL
+        ================================================= */}
 
-        <div className="jobs-carousel-wrapper">
+        <div
+          className="careers-open-positions__carousel"
+          ref={carouselRef}
+        >
 
           <div
-            className="jobs-carousel-track"
-            style={trackStyle}
+            className="careers-open-positions__track"
+            ref={trackRef}
           >
 
-            {jobs.map((job, index) => (
+            {jobs.map((job) => {
+              const Icon = job.icon;
 
-              <article
-                className="job-card"
-                key={`${job.title}-${index}`}
-              >
+              return (
+                <article
+                  className="careers-open-positions__card"
+                  key={job.id}
+                >
 
-                <div className="job-icon">
-
-                  {job.icon}
-
-                </div>
-
-
-                <div className="job-info">
-
-                  <h3>
-
-                    {job.title}
-
-                  </h3>
-
-
-                  <div className="job-detail">
-
-                    <FaMapMarkerAlt />
-
-                    <span>
-
-                      {job.location}
-
-                    </span>
-
+                  <div
+                    className="careers-open-positions__icon"
+                    aria-hidden="true"
+                  >
+                    <Icon />
                   </div>
 
 
-                  <div className="job-detail">
+                  <div className="careers-open-positions__info">
 
-                    <FaBriefcase />
+                    <h3>
+                      {job.title}
+                    </h3>
 
-                    <span>
 
-                      {job.experience}
+                    <div className="careers-open-positions__detail">
 
-                    </span>
+                      <FaMapMarkerAlt
+                        aria-hidden="true"
+                      />
+
+                      <span>
+                        {job.location}
+                      </span>
+
+                    </div>
+
+
+                    <div className="careers-open-positions__detail">
+
+                      <FaBriefcase
+                        aria-hidden="true"
+                      />
+
+                      <span>
+                        {job.experience}
+                      </span>
+
+                    </div>
 
                   </div>
 
-                </div>
-
-              </article>
-
-            ))}
+                </article>
+              );
+            })}
 
           </div>
 
         </div>
 
 
-        {/* =====================================================
+        {/* =================================================
             INDICATORS
-        ===================================================== */}
+        ================================================= */}
 
-        <div className="jobs-indicators">
+        {maxIndex > 0 && (
+          <div className="careers-open-positions__indicators">
 
-          {Array.from({
+            {Array.from({
+              length: maxIndex + 1,
+            }).map((_, index) => (
 
-            length: maxIndex + 1,
+              <button
+                type="button"
+                key={`job-slide-${index + 1}`}
+                aria-label={
+                  `Go to jobs slide ${index + 1}`
+                }
+                aria-current={
+                  currentIndex === index
+                    ? "true"
+                    : undefined
+                }
+                className={
+                  currentIndex === index
+                    ? "careers-open-positions__indicator careers-open-positions__indicator--active"
+                    : "careers-open-positions__indicator"
+                }
+                onClick={() =>
+                  setCurrentIndex(index)
+                }
+              />
 
-          }).map((_, index) => (
+            ))}
 
-            <button
-
-              type="button"
-
-              key={index}
-
-              aria-label={
-                `Go to jobs slide ${index + 1}`
-              }
-
-              className={
-                currentIndex === index
-                  ? "job-indicator active"
-                  : "job-indicator"
-              }
-
-              onClick={() =>
-                setCurrentIndex(index)
-              }
-
-            />
-
-          ))}
-
-        </div>
+          </div>
+        )}
 
 
-        {/* =====================================================
+        {/* =================================================
             BOTTOM MESSAGE
-        ===================================================== */}
+        ================================================= */}
 
-        <div className="open-positions-bottom">
+        <div className="careers-open-positions__bottom">
 
           <strong>
-
-            Don't see the right opportunity?
-
+            Don&apos;t see the right opportunity?
           </strong>
 
-
           <span>
-
-            We're always looking for talented people
-            to join our growing team.
-
+            We&apos;re always looking for talented
+            people to join our growing team.
           </span>
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
 
 

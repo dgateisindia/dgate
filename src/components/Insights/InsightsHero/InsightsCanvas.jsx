@@ -1,167 +1,243 @@
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import * as THREE from "three";
 
-function InsightsCanvas() {
 
+/* =========================================================
+   FIXED NETWORK POINTS
+========================================================= */
+
+const NETWORK_POINTS = [
+  [-3.7, 1.8, 0.4],
+  [-2.7, 2.1, -0.3],
+  [-1.7, 1.5, 0.5],
+  [-0.6, 2.2, -0.2],
+  [0.6, 1.7, 0.4],
+  [1.8, 2.0, -0.3],
+  [3.1, 1.4, 0.3],
+
+  [-3.2, 0.3, -0.2],
+  [-2.1, 0.6, 0.4],
+  [-1.0, 0.1, -0.4],
+  [0.2, 0.5, 0.3],
+  [1.3, 0.0, -0.2],
+  [2.5, 0.5, 0.4],
+  [3.6, 0.0, -0.3],
+
+  [-3.5, -1.4, 0.3],
+  [-2.4, -0.9, -0.4],
+  [-1.3, -1.5, 0.2],
+  [-0.2, -0.8, -0.3],
+  [0.9, -1.4, 0.4],
+  [2.0, -0.8, -0.2],
+  [3.2, -1.3, 0.3],
+
+  [-2.1, -2.0, 0.2],
+  [0.0, -2.1, -0.3],
+  [2.2, -2.0, 0.2],
+];
+
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
+function InsightsCanvas() {
   const mountRef = useRef(null);
 
-  useEffect(() => {
 
-    const container = mountRef.current;
+  useEffect(() => {
+    const container =
+      mountRef.current;
 
     if (!container) return;
 
-    const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      100
-    );
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    /* =====================================================
+       SCENE
+    ===================================================== */
+
+    const scene =
+      new THREE.Scene();
+
+
+    const camera =
+      new THREE.PerspectiveCamera(
+        45,
+        container.clientWidth /
+          container.clientHeight,
+        0.1,
+        100
+      );
+
 
     camera.position.z = 8;
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
-    });
+
+    /* =====================================================
+       RENDERER
+    ===================================================== */
+
+    const renderer =
+      new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        powerPreference:
+          "high-performance",
+      });
+
 
     renderer.setPixelRatio(
-      Math.min(window.devicePixelRatio, 1.5)
+      Math.min(
+        window.devicePixelRatio || 1,
+        1.5
+      )
     );
+
 
     renderer.setSize(
       container.clientWidth,
       container.clientHeight
     );
 
-    renderer.setClearColor(0x000000, 0);
 
-    container.appendChild(renderer.domElement);
+    renderer.setClearColor(
+      0x000000,
+      0
+    );
 
-    const networkGroup = new THREE.Group();
+
+    container.appendChild(
+      renderer.domElement
+    );
+
+
+    /* =====================================================
+       NETWORK GROUP
+    ===================================================== */
+
+    const networkGroup =
+      new THREE.Group();
+
 
     scene.add(networkGroup);
 
-    const particleCount = 24;
+
+    /* =====================================================
+       POINT POSITIONS
+    ===================================================== */
 
     const positions = [];
 
-    const particlePositions = [];
+
+    const pointVectors =
+      NETWORK_POINTS.map(
+        ([x, y, z]) => {
+
+          positions.push(
+            x,
+            y,
+            z
+          );
 
 
-    for (let i = 0; i < particleCount; i++) {
-
-      const x =
-        (Math.random() - 0.5) * 9;
-
-      const y =
-        (Math.random() - 0.5) * 5.5;
-
-      const z =
-        (Math.random() - 0.5) * 2;
-
-
-      positions.push(
-        x,
-        y,
-        z
+          return new THREE.Vector3(
+            x,
+            y,
+            z
+          );
+        }
       );
 
 
-      particlePositions.push(
-        new THREE.Vector3(
-          x,
-          y,
-          z
-        )
-      );
-
-    }
-
+    /* =====================================================
+       PARTICLE GEOMETRY
+    ===================================================== */
 
     const particleGeometry =
       new THREE.BufferGeometry();
 
 
     particleGeometry.setAttribute(
-
       "position",
 
       new THREE.Float32BufferAttribute(
         positions,
         3
       )
-
     );
 
 
+    /* =====================================================
+       PARTICLE MATERIAL
+    ===================================================== */
+
     const particleMaterial =
       new THREE.PointsMaterial({
-
-        color: 0xffb000,
-
-        size: 0.085,
-
+        color: 0xfdb913,
+        size: 0.08,
         transparent: true,
-
-        opacity: 0.85,
-
+        opacity: 0.82,
         sizeAttenuation: true,
-
       });
 
 
     const particles =
       new THREE.Points(
-
         particleGeometry,
-
         particleMaterial
-
       );
 
 
-    networkGroup.add(particles);
+    networkGroup.add(
+      particles
+    );
+
+
+    /* =====================================================
+       CONNECTION LINES
+    ===================================================== */
 
     const linePositions = [];
 
 
     for (
       let i = 0;
-      i < particlePositions.length;
+      i < pointVectors.length;
       i++
     ) {
 
       for (
         let j = i + 1;
-        j < particlePositions.length;
+        j < pointVectors.length;
         j++
       ) {
 
         const distance =
-
-          particlePositions[i]
-            .distanceTo(
-              particlePositions[j]
-            );
+          pointVectors[i].distanceTo(
+            pointVectors[j]
+          );
 
 
-        if (distance < 2.1) {
+        if (distance < 1.9) {
 
           linePositions.push(
+            pointVectors[i].x,
+            pointVectors[i].y,
+            pointVectors[i].z,
 
-            particlePositions[i].x,
-            particlePositions[i].y,
-            particlePositions[i].z,
-
-            particlePositions[j].x,
-            particlePositions[j].y,
-            particlePositions[j].z
-
+            pointVectors[j].x,
+            pointVectors[j].y,
+            pointVectors[j].z
           );
 
         }
@@ -176,76 +252,39 @@ function InsightsCanvas() {
 
 
     lineGeometry.setAttribute(
-
       "position",
 
       new THREE.Float32BufferAttribute(
         linePositions,
         3
       )
-
     );
 
 
     const lineMaterial =
       new THREE.LineBasicMaterial({
-
-        color: 0xffb000,
-
+        color: 0xfdb913,
         transparent: true,
-
-        opacity: 0.22,
-
+        opacity: 0.2,
       });
 
 
     const lines =
       new THREE.LineSegments(
-
         lineGeometry,
-
         lineMaterial
-
       );
 
 
-    networkGroup.add(lines);
-
-
-    let mouseX = 0;
-
-    let mouseY = 0;
-
-
-    const handleMouseMove = (event) => {
-
-      const rect =
-        container.getBoundingClientRect();
-
-
-      mouseX =
-
-        ((event.clientX - rect.left) /
-          rect.width -
-          0.5) *
-        2;
-
-
-      mouseY =
-
-        ((event.clientY - rect.top) /
-          rect.height -
-          0.5) *
-        2;
-
-    };
-
-
-    container.addEventListener(
-      "mousemove",
-      handleMouseMove
+    networkGroup.add(
+      lines
     );
 
+
+    /* =====================================================
+       ANIMATION
+       INTERNAL THREE.JS ONLY
+    ===================================================== */
 
     let animationFrameId;
 
@@ -253,56 +292,55 @@ function InsightsCanvas() {
     const animate = () => {
 
       animationFrameId =
-        requestAnimationFrame(animate);
+        requestAnimationFrame(
+          animate
+        );
 
 
       networkGroup.rotation.y +=
-        0.0007;
+        0.00045;
 
 
       networkGroup.rotation.z +=
-        0.00015;
-
-
-      networkGroup.rotation.x +=
-
-        (
-          mouseY * 0.025 -
-          networkGroup.rotation.x
-        ) *
-        0.025;
-
-
-      networkGroup.rotation.y +=
-
-        (
-          mouseX * 0.02 -
-          networkGroup.rotation.y
-        ) *
-        0.004;
+        0.0001;
 
 
       renderer.render(
         scene,
         camera
       );
-
     };
 
 
-    animate();
+    if (reduceMotion) {
 
+      renderer.render(
+        scene,
+        camera
+      );
+
+    } else {
+
+      animate();
+
+    }
+
+
+    /* =====================================================
+       RESIZE
+    ===================================================== */
 
     const handleResize = () => {
-
-      if (!container) return;
-
 
       const width =
         container.clientWidth;
 
+
       const height =
         container.clientHeight;
+
+
+      if (!width || !height) return;
 
 
       camera.aspect =
@@ -325,22 +363,25 @@ function InsightsCanvas() {
       handleResize
     );
 
+
+    /* =====================================================
+       CLEANUP
+    ===================================================== */
+
     return () => {
 
-      cancelAnimationFrame(
-        animationFrameId
-      );
+      if (animationFrameId) {
+
+        cancelAnimationFrame(
+          animationFrameId
+        );
+
+      }
 
 
       window.removeEventListener(
         "resize",
         handleResize
-      );
-
-
-      container.removeEventListener(
-        "mousemove",
-        handleMouseMove
       );
 
 
@@ -374,19 +415,13 @@ function InsightsCanvas() {
 
 
   return (
-
     <div
-
       ref={mountRef}
-
-      className="insights-three-canvas"
-
+      className="insights-page-hero__canvas"
       aria-hidden="true"
-
     />
-
   );
-
 }
+
 
 export default InsightsCanvas;

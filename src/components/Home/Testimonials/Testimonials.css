@@ -1,0 +1,184 @@
+.home-testimonials {
+  width: 100%;
+
+  padding:
+    74px
+    0;
+
+  background: var(--white);
+}
+
+
+.home-testimonials__heading {
+  max-width: 680px;
+
+  margin:
+    0 auto
+    38px;
+
+  text-align: center;
+}
+
+
+.home-testimonials__heading > span {
+  color: var(--primary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+
+.home-testimonials__heading h2 {
+  margin:
+    8px
+    0
+    10px;
+
+  color: var(--black);
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3rem
+    );
+}
+
+
+.home-testimonials__heading h2 strong {
+  color: var(--primary);
+}
+
+
+.home-testimonials__heading p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.82rem;
+}
+
+
+.home-testimonials__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.home-testimonials__card {
+  min-height: 260px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 26px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--section);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.home-testimonials__card:hover {
+  border-color:
+    rgba(253, 185, 19, 0.45);
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.055);
+}
+
+
+.home-testimonials__quote {
+  color: var(--primary);
+
+  font-size: 1.3rem;
+}
+
+
+.home-testimonials__stars {
+  display: flex;
+
+  gap: 3px;
+
+  margin:
+    15px
+    0;
+
+  color: var(--primary);
+
+  font-size: 0.68rem;
+}
+
+
+.home-testimonials__card > p {
+  flex: 1;
+
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.82rem;
+
+  line-height: 1.72;
+}
+
+
+.home-testimonials__author {
+  margin-top: 22px;
+
+  padding-top: 17px;
+
+  border-top:
+    1px solid
+    var(--border);
+}
+
+
+.home-testimonials__author strong {
+  display: block;
+
+  color: var(--black);
+
+  font-size: 0.82rem;
+}
+
+
+.home-testimonials__author span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #777777;
+
+  font-size: 0.7rem;
+}
+
+
+@media (max-width: 768px) {
+
+  .home-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .home-testimonials__card {
+    min-height: auto;
+  }
+
+}

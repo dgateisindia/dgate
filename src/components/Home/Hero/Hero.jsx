@@ -8,111 +8,122 @@ import { heroBg } from "../../../assets/images/home/hero";
 import HeroCanvas from "./HeroCanvas";
 
 function Hero() {
+  const heroRef = useRef(null);
 
-    const heroRef = useRef(null);
+  useEffect(() => {
+    if (!heroRef.current) return;
 
-    useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-        const ctx = gsap.context(() => {
+    if (reduceMotion) return;
 
-            const tl = gsap.timeline({
-                defaults: {
-                    ease: "power3.out",
-                },
-            });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
 
-            tl.from(".hero-content h1", {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-            })
+      tl.from(".home-hero__tag", {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+      })
+        .from(
+          ".home-hero__title",
+          {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.2"
+        )
+        .from(
+          ".home-hero__description",
+          {
+            y: 25,
+            opacity: 0,
+            duration: 0.6,
+          },
+          "-=0.35"
+        )
+        .from(
+          ".home-hero__actions",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+          },
+          "-=0.3"
+        );
+    }, heroRef);
 
-            .from(".hero-content p", {
-                y: 30,
-                opacity: 0,
-                duration: 0.6,
-            }, "-=0.3")
+    return () => ctx.revert();
+  }, []);
 
-            .from(".hero-buttons", {
-                y: 25,
-                opacity: 0,
-                duration: 0.5,
-            }, "-=0.25");
+  return (
+    <section
+      className="home-hero"
+      ref={heroRef}
+      aria-labelledby="home-hero-title"
+    >
+      <img
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        className="home-hero__bg"
+        loading="eager"
+        fetchPriority="high"
+      />
 
-        }, heroRef);
+      <HeroCanvas />
 
-        return () => ctx.revert();
+      <div className="home-hero__content">
+        <span className="home-hero__tag">
+          ENGINEERING • DIGITAL • INNOVATION
+        </span>
 
-    }, []);
-
-    return (
-
-        <section
-            className="hero"
-            ref={heroRef}
+        <h1
+          id="home-hero-title"
+          className="home-hero__title"
         >
+          Engineering
+          <br />
+          Solutions That
+          <br />
+          Drive
+          <span className="home-hero__title-accent">
+            Innovation
+          </span>
+        </h1>
 
-            <img
-                src={heroBg}
-                alt="Engineering Solutions"
-                className="hero-bg"
-            />
+        <p className="home-hero__description">
+          D-GATE Integrated Services delivers engineering,
+          product development, software, cloud and digital
+          solutions that help businesses innovate faster,
+          operate smarter and achieve sustainable growth.
+        </p>
 
-            <HeroCanvas />
+        <div className="home-hero__actions">
+          <Link
+            to="/services"
+            className="home-hero__button home-hero__button--primary"
+          >
+            Explore Services
+          </Link>
 
-            <div className="hero-content">
-
-                <span className="hero-tag">
-                    ENGINEERING • DIGITAL • INNOVATION
-                </span>
-
-                <h1>
-                    Engineering
-                    <br />
-
-                    Solutions That
-                    <br />
-
-                    Drive
-
-                    <span>
-                        Innovation
-                    </span>
-                </h1>
-
-                <p>
-                    D-GATE Integrated Services delivers
-                    engineering, product development,
-                    software, cloud and digital solutions
-                    that help businesses innovate faster,
-                    operate smarter and achieve sustainable
-                    growth.
-                </p>
-
-                <div className="hero-buttons">
-
-                    <Link
-                        to="/services"
-                        className="primary-btn"
-                    >
-                        Explore Services
-                    </Link>
-
-                    <Link
-                        to="/contact"
-                        className="secondary-btn"
-                    >
-                        Contact Us
-                    </Link>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    );
-
+          <Link
+            to="/contact"
+            className="home-hero__button home-hero__button--secondary"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Hero;

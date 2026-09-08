@@ -1,6 +1,8 @@
 import "./InsightsHero.css";
 
 import {
+  lazy,
+  Suspense,
   useEffect,
   useRef,
 } from "react";
@@ -11,118 +13,109 @@ import gsap from "gsap";
 
 import { FaArrowRight } from "react-icons/fa";
 
-import InsightsCanvas from "./InsightsCanvas";
-
 import {
   insightsHero,
 } from "../../../assets/images/Insights/hero";
 
 
-function InsightsHero() {
+const InsightsCanvas = lazy(
+  () => import("./InsightsCanvas")
+);
 
+
+function InsightsHero() {
   const heroRef = useRef(null);
 
 
   /* =========================================================
-     GSAP HERO ENTRANCE
+     HERO ANIMATION
+     FADE ONLY
   ========================================================= */
 
   useEffect(() => {
+    if (!heroRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
-
-      const timeline = gsap.timeline({
-
-        defaults: {
-          ease: "power3.out",
-        },
-
-      });
+      const timeline = gsap.timeline();
 
 
-      /* Breadcrumb */
+      timeline
+        .from(
+          ".insights-page-hero__breadcrumb",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-      timeline.from(
-        ".insights-breadcrumb",
-        {
-          x: -25,
-          opacity: 0,
-          duration: 0.55,
-        }
-      );
+        .from(
+          ".insights-page-hero__title",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
 
+        .from(
+          ".insights-page-hero__line",
+          {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-      /* Title */
+        .from(
+          ".insights-page-hero__description",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.1"
+        )
 
-      timeline.from(
-        ".insights-title",
-        {
-          y: 35,
-          opacity: 0,
-          duration: 0.75,
-        },
-        "-=0.2"
-      );
+        .from(
+          ".insights-page-hero__button",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
 
-
-      /* Yellow Line */
-
-      timeline.from(
-        ".insights-title-line",
-        {
-          width: 0,
-          duration: 0.45,
-        },
-        "-=0.2"
-      );
-
-
-      /* Description */
-
-      timeline.from(
-        ".insights-description",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-        },
-        "-=0.15"
-      );
-
-
-      /* Explore Button */
-
-      timeline.from(
-        ".insights-explore-btn",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-        },
-        "-=0.2"
-      );
-
-
-      /* Right Image */
-
-      timeline.from(
-        ".insights-image-side",
-        {
-          x: 45,
-          opacity: 0,
-          duration: 0.9,
-        },
-        "-=0.7"
-      );
+        .from(
+          ".insights-page-hero__visual",
+          {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.35"
+        );
 
     }, heroRef);
 
 
-    return () => {
-
-      ctx.revert();
-
-    };
+    return () => ctx.revert();
 
   }, []);
 
@@ -132,67 +125,57 @@ function InsightsHero() {
   ========================================================= */
 
   const handleExploreInsights = () => {
-
     const featuredSection =
       document.getElementById(
         "featured-article"
       );
 
-    if (featuredSection) {
+    if (!featuredSection) return;
 
-      featuredSection.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "start",
-
-      });
-
-    }
-
+    featuredSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
 
   return (
-
     <section
-      className="insights-hero"
+      className="insights-page-hero"
       ref={heroRef}
+      aria-labelledby="insights-page-hero-title"
     >
+      <div className="insights-page-hero__container">
 
-      <div className="insights-hero-container">
 
-
-        {/* =================================================
+        {/* ==========================================
             LEFT CONTENT
-        ================================================= */}
+        ========================================== */}
 
-        <div className="insights-content-side">
+        <div className="insights-page-hero__content">
 
-
-          {/* Breadcrumb */}
-
-          <div className="insights-breadcrumb">
-
+          <nav
+            className="insights-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
             <Link to="/">
               Home
             </Link>
 
-            <span>
+            <span aria-hidden="true">
               ›
             </span>
 
-            <span>
+            <span aria-current="page">
               Insights
             </span>
+          </nav>
 
-          </div>
 
-
-          {/* Main Heading */}
-
-          <h1 className="insights-title">
-
+          <h1
+            id="insights-page-hero-title"
+            className="insights-page-hero__title"
+          >
             Insights that{" "}
 
             <span>
@@ -200,89 +183,66 @@ function InsightsHero() {
             </span>{" "}
 
             Innovation
-
           </h1>
 
 
-          {/* Yellow Underline */}
+          <div
+            className="insights-page-hero__line"
+            aria-hidden="true"
+          />
 
-          <div className="insights-title-line" />
 
-
-          {/* Description */}
-
-          <p className="insights-description">
-
+          <p className="insights-page-hero__description">
             Stay updated with the latest trends,
             insights and expert perspectives from
             the world of engineering and technology.
-
           </p>
 
 
-          {/* Explore Insights Button */}
-
           <button
-
             type="button"
-
-            className="insights-explore-btn"
-
+            className="insights-page-hero__button"
             onClick={handleExploreInsights}
-
           >
-
             <span>
               Explore Insights
             </span>
 
-            <FaArrowRight />
-
+            <FaArrowRight aria-hidden="true" />
           </button>
-
 
         </div>
 
 
-        {/* =================================================
-            RIGHT IMAGE + THREE.JS
-        ================================================= */}
+        {/* ==========================================
+            RIGHT VISUAL
+        ========================================== */}
 
-        <div className="insights-image-side">
-
-
-          {/* Hero Image */}
+        <div className="insights-page-hero__visual">
 
           <img
-
             src={insightsHero}
-
             alt="DGATE engineering and technology insights"
-
-            className="insights-hero-image"
-
+            className="insights-page-hero__image"
           />
 
 
-          {/* Image Overlay */}
+          <div
+            className="insights-page-hero__overlay"
+            aria-hidden="true"
+          />
 
-          <div className="insights-image-overlay" />
 
-
-          {/* Three.js Network */}
-
-          <InsightsCanvas />
-
+          <Suspense fallback={null}>
+            <InsightsCanvas />
+          </Suspense>
 
         </div>
 
-
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default InsightsHero;

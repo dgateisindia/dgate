@@ -1,275 +1,270 @@
 import "./TechnologyStats.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-    FaMicrochip,
-    FaTasks,
-    FaUsers,
-    FaAward,
+  FaMicrochip,
+  FaTasks,
+  FaUsers,
+  FaAward,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const statistics = [
-
-    {
-        icon: <FaMicrochip />,
-        value: 15,
-        suffix: "+",
-        title: "Modern Technologies",
-        description:
-            "Advanced technology stack powering enterprise solutions.",
-    },
-
-    {
-        icon: <FaTasks />,
-        value: 50,
-        suffix: "+",
-        title: "Projects Delivered",
-        description:
-            "Successful engineering and digital transformation projects.",
-    },
-
-    {
-        icon: <FaUsers />,
-        value: 20,
-        suffix: "+",
-        title: "Technology Experts",
-        description:
-            "Experienced professionals delivering innovative solutions.",
-    },
-
-    {
-        icon: <FaAward />,
-        value: 100,
-        suffix: "%",
-        title: "Quality Commitment",
-        description:
-            "Focused on excellence, reliability and customer satisfaction.",
-    },
-
+  {
+    id: "modern-technologies",
+    icon: FaMicrochip,
+    value: 15,
+    suffix: "+",
+    title: "Modern Technologies",
+    description:
+      "Advanced technology stack powering enterprise solutions.",
+  },
+  {
+    id: "projects-delivered",
+    icon: FaTasks,
+    value: 50,
+    suffix: "+",
+    title: "Projects Delivered",
+    description:
+      "Successful engineering and digital transformation projects.",
+  },
+  {
+    id: "technology-experts",
+    icon: FaUsers,
+    value: 20,
+    suffix: "+",
+    title: "Technology Experts",
+    description:
+      "Experienced professionals delivering innovative solutions.",
+  },
+  {
+    id: "quality-commitment",
+    icon: FaAward,
+    value: 100,
+    suffix: "%",
+    title: "Quality Commitment",
+    description:
+      "Focused on excellence, reliability and customer satisfaction.",
+  },
 ];
 
+
 function TechnologyStats() {
+  const sectionRef = useRef(null);
+  const numberRefs = useRef([]);
 
-    const sectionRef = useRef(null);
 
-    const numberRefs = useRef([]);
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    useEffect(() => {
 
-        const ctx = gsap.context(() => {
+    if (reduceMotion) {
+      numberRefs.current.forEach(
+        (element, index) => {
+          if (!element) return;
 
+          element.textContent =
+            `${statistics[index].value}${statistics[index].suffix}`;
+        }
+      );
 
-            gsap.from(".ts-heading",{
+      return;
+    }
 
-                y:40,
 
-                opacity:0,
+    const ctx = gsap.context(() => {
 
-                duration:.8,
+      /* =====================================================
+         HEADING + CARDS
+         OPACITY ONLY - NO TRANSFORM
+      ===================================================== */
 
-                ease:"power3.out",
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
 
-                scrollTrigger:{
-                    trigger:sectionRef.current,
-                    start:"top 80%",
-                    once:true,
-                }
 
-            });
+      timeline
+        .from(
+          ".technologies-stats__heading",
+          {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
+        .from(
+          ".technologies-stats__card",
+          {
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        );
 
-            gsap.from(".ts-card",{
 
-                y:50,
+      /* =====================================================
+         NUMBER COUNTERS
+      ===================================================== */
 
-                opacity:0,
+      numberRefs.current.forEach(
+        (element, index) => {
+          if (!element) return;
 
-                duration:.8,
+          const statistic = statistics[index];
 
-                stagger:.15,
+          const counter = {
+            value: 0,
+          };
 
-                ease:"power3.out",
 
-                clearProps:"all",
+          gsap.to(counter, {
+            value: statistic.value,
 
-                scrollTrigger:{
-                    trigger:".ts-grid",
-                    start:"top 80%",
-                    once:true,
-                }
+            duration: 1.6,
 
-            });
+            ease: "power2.out",
 
-            numberRefs.current.forEach((element,index)=>{
+            scrollTrigger: {
+              trigger: element,
+              start: "top 88%",
+              once: true,
+            },
 
-                gsap.fromTo(
+            onUpdate: () => {
+              element.textContent =
+                `${Math.floor(counter.value)}${statistic.suffix}`;
+            },
 
-                    element,
+            onComplete: () => {
+              element.textContent =
+                `${statistic.value}${statistic.suffix}`;
+            },
+          });
+        }
+      );
 
-                    {
+    }, sectionRef);
 
-                        innerText:0,
 
-                    },
+    return () => ctx.revert();
 
-                    {
+  }, []);
 
-                        innerText:statistics[index].value,
 
-                        duration:2,
+  return (
+    <section
+      className="technologies-stats"
+      ref={sectionRef}
+      aria-labelledby="technologies-stats-title"
+    >
+      <div className="container">
 
-                        ease:"power2.out",
 
-                        snap:{
-                            innerText:1,
-                        },
+        {/* =================================================
+            HEADING
+        ================================================= */}
 
-                        scrollTrigger:{
-                            trigger:element,
-                            start:"top 85%",
-                            once:true,
-                        },
+        <div className="technologies-stats__heading">
 
-                        onUpdate:function(){
+          <span className="technologies-stats__tag">
+            OUR IMPACT
+          </span>
 
-                            element.innerHTML =
+          <h2 id="technologies-stats-title">
+            Technology Excellence
+            <br />
+            In Numbers
+          </h2>
 
-                                Math.floor(
+          <p>
+            Our commitment to innovation,
+            engineering excellence and modern
+            technologies enables us to deliver
+            scalable digital solutions for
+            businesses across industries.
+          </p>
 
-                                    this.targets()[0].innerText
+        </div>
 
-                                ) +
 
-                                statistics[index].suffix;
+        {/* =================================================
+            STATS GRID
+        ================================================= */}
 
-                        }
+        <div className="technologies-stats__grid">
 
-                    }
+          {statistics.map(
+            (item, index) => {
+              const Icon = item.icon;
 
-                );
+              return (
+                <article
+                  className="technologies-stats__card"
+                  key={item.id}
+                >
 
-            });
+                  <div
+                    className="technologies-stats__icon"
+                    aria-hidden="true"
+                  >
+                    <Icon />
+                  </div>
 
-            ScrollTrigger.refresh();
 
-        },sectionRef);
+                  <h3
+                    className="technologies-stats__number"
+                    ref={(element) => {
+                      numberRefs.current[index] =
+                        element;
+                    }}
+                  >
+                    0{item.suffix}
+                  </h3>
 
-        return ()=>ctx.revert();
 
-    },[]);
+                  <h4 className="technologies-stats__title">
+                    {item.title}
+                  </h4>
 
-        return (
 
-        <section
+                  <p className="technologies-stats__text">
+                    {item.description}
+                  </p>
 
-            className="ts-section"
+                </article>
+              );
+            }
+          )}
 
-            ref={sectionRef}
+        </div>
 
-        >
-
-            <div className="ts-container">
-
-
-                <div className="ts-heading">
-
-                    <span>
-
-                        OUR IMPACT
-
-                    </span>
-
-                    <h2>
-
-                        Technology Excellence
-
-                        <br />
-
-                        In Numbers
-
-                    </h2>
-
-                    <p>
-
-                        Our commitment to innovation,
-
-                        engineering excellence and modern
-
-                        technologies enables us to deliver
-
-                        scalable digital solutions for
-
-                        businesses across industries.
-
-                    </p>
-
-                </div>
-
-
-                <div className="ts-grid">
-
-                    {statistics.map((item,index)=>(
-
-                        <div
-
-                            className="ts-card"
-
-                            key={index}
-
-                        >
-
-                            <div className="ts-icon">
-
-                                {item.icon}
-
-                            </div>
-
-                            <h3
-
-                                className="ts-number"
-
-                                ref={(el)=>
-
-                                    numberRefs.current[index]=el
-
-                                }
-
-                            >
-
-                                0{item.suffix}
-
-                            </h3>
-
-                            <h4 className="ts-title">
-
-                                {item.title}
-
-                            </h4>
-
-                            <p className="ts-text">
-
-                                {item.description}
-
-                            </p>
-
-                        </div>
-
-                    ))}
-
-                </div>
-
-            </div>
-
-        </section>
-
-    );
-
+      </div>
+    </section>
+  );
 }
+
 
 export default TechnologyStats;

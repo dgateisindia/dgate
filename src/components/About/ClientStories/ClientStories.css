@@ -1,0 +1,182 @@
+.about-stories {
+  width: 100%;
+
+  padding:
+    72px
+    0;
+
+  background: var(--section);
+}
+
+
+.about-stories__heading {
+  max-width: 700px;
+
+  margin:
+    0 auto
+    38px;
+
+  text-align: center;
+}
+
+
+.about-stories__heading > span {
+  color: var(--primary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+
+.about-stories__heading h2 {
+  margin:
+    8px
+    0
+    10px;
+
+  color: var(--black);
+
+  font-size:
+    clamp(2rem, 3vw, 3rem);
+}
+
+
+.about-stories__heading h2 strong {
+  color: var(--primary);
+}
+
+
+.about-stories__heading p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.82rem;
+
+  line-height: 1.7;
+}
+
+
+.about-stories__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.about-stories__card {
+  min-height: 270px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 27px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--white);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.about-stories__card:hover {
+  border-color:
+    rgba(253, 185, 19, 0.4);
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.06);
+}
+
+
+.about-stories__quote {
+  color: var(--primary);
+
+  font-size: 1.35rem;
+}
+
+
+.about-stories__stars {
+  display: flex;
+
+  gap: 3px;
+
+  margin:
+    16px
+    0;
+
+  color: var(--primary);
+
+  font-size: 0.7rem;
+}
+
+
+.about-stories__card > p {
+  flex: 1;
+
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.82rem;
+
+  line-height: 1.72;
+}
+
+
+.about-stories__author {
+  margin-top: 24px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    var(--border);
+}
+
+
+.about-stories__author strong {
+  display: block;
+
+  color: var(--black);
+
+  font-size: 0.82rem;
+}
+
+
+.about-stories__author span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #777777;
+
+  font-size: 0.7rem;
+}
+
+
+@media (max-width: 768px) {
+
+  .about-stories__grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .about-stories__card {
+    min-height: auto;
+  }
+
+}

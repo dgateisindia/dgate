@@ -1,6 +1,9 @@
 import "./ExploreTopics.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,200 +18,209 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
-function ExploreTopics() {
 
+/* =========================================================
+   TOPIC DATA
+========================================================= */
+
+const topics = [
+  {
+    id: "ai-machine-learning",
+    title: "AI & Machine Learning",
+    articles: "12 Articles",
+    Icon: FaMicrochip,
+  },
+
+  {
+    id: "cloud-devops",
+    title: "Cloud & DevOps",
+    articles: "15 Articles",
+    Icon: FaCloud,
+  },
+
+  {
+    id: "cyber-security",
+    title: "Cyber Security",
+    articles: "10 Articles",
+    Icon: FaShieldAlt,
+  },
+
+  {
+    id: "data-analytics",
+    title: "Data & Analytics",
+    articles: "14 Articles",
+    Icon: FaChartBar,
+  },
+
+  {
+    id: "engineering-trends",
+    title: "Engineering Trends",
+    articles: "20 Articles",
+    Icon: FaRobot,
+  },
+
+  {
+    id: "sustainability",
+    title: "Sustainability",
+    articles: "8 Articles",
+    Icon: FaLeaf,
+  },
+];
+
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
+function ExploreTopics() {
   const sectionRef = useRef(null);
 
-  const topics = [
-    {
-      id: 1,
-      title: "AI & Machine Learning",
-      articles: "12 Articles",
-      icon: <FaMicrochip />,
-    },
-    {
-      id: 2,
-      title: "Cloud & DevOps",
-      articles: "15 Articles",
-      icon: <FaCloud />,
-    },
-    {
-      id: 3,
-      title: "Cyber Security",
-      articles: "10 Articles",
-      icon: <FaShieldAlt />,
-    },
-    {
-      id: 4,
-      title: "Data & Analytics",
-      articles: "14 Articles",
-      icon: <FaChartBar />,
-    },
-    {
-      id: 5,
-      title: "Engineering Trends",
-      articles: "20 Articles",
-      icon: <FaRobot />,
-    },
-    {
-      id: 6,
-      title: "Sustainability",
-      articles: "8 Articles",
-      icon: <FaLeaf />,
-    },
-  ];
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
-
-      gsap.from(".explore-topics-heading", {
-
-        y: 20,
-
-        opacity: 0,
-
-        duration: 0.6,
-
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
-
           trigger: sectionRef.current,
-
-          start: "top 88%",
-
+          start: "top 86%",
           once: true,
-
         },
-
       });
 
-      gsap.from(".explore-topic-card", {
 
-        y: 30,
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE / ROTATE
+      =============================================== */
 
-        opacity: 0,
+      timeline
+        .from(
+          ".insights-topics__heading",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-        duration: 0.65,
-
-        stagger: 0.1,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-          trigger: ".explore-topics-grid",
-
-          start: "top 90%",
-
-          once: true,
-
-        },
-
-      });
+        .from(
+          ".insights-topics__card",
+          {
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.06,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        );
 
     }, sectionRef);
 
 
-    return () => {
-
-      ctx.revert();
-
-    };
+    return () => ctx.revert();
 
   }, []);
 
 
   return (
-
     <section
-
       id="explore-topics"
-
-      className="explore-topics-section"
-
+      className="insights-topics"
       ref={sectionRef}
-
+      aria-labelledby="insights-topics-title"
     >
+      <div className="container">
 
-      <div className="explore-topics-container">
 
-        <div className="explore-topics-heading">
+        {/* ==========================================
+            HEADING
+        ========================================== */}
 
-          <h2>
+        <div className="insights-topics__heading">
 
+          <h2 id="insights-topics-title">
             Explore by Topic
-
           </h2>
 
-          <div className="explore-topics-line" />
+
+          <div
+            className="insights-topics__line"
+            aria-hidden="true"
+          />
 
         </div>
 
-        <div className="explore-topics-grid">
 
-          {topics.map((topic) => (
+        {/* ==========================================
+            TOPIC GRID
+        ========================================== */}
 
-            <article
+        <div className="insights-topics__grid">
 
-              className="explore-topic-card"
+          {topics.map((topic) => {
 
-              key={topic.id}
+            const Icon = topic.Icon;
 
-            >
+            return (
+              <article
+                className="insights-topics__card"
+                key={topic.id}
+              >
 
-              <div className="explore-topic-icon">
-
-                {topic.icon}
-
-              </div>
-
-              <h3>
-
-                {topic.title}
-
-              </h3>
-
-              <div className="explore-topic-bottom">
-
-                <span>
-
-                  {topic.articles}
-
-                </span>
-
-
-                <button
-
-                  type="button"
-
-                  className="explore-topic-arrow"
-
-                  aria-label={`Explore ${topic.title}`}
-
+                <div
+                  className="insights-topics__icon"
+                  aria-hidden="true"
                 >
+                  <Icon />
+                </div>
 
-                  <FaArrowRight />
 
-                </button>
+                <h3>
+                  {topic.title}
+                </h3>
 
-              </div>
 
-            </article>
+                <div className="insights-topics__bottom">
 
-          ))}
+                  <span>
+                    {topic.articles}
+                  </span>
+
+
+                  <span
+                    className="insights-topics__arrow"
+                    aria-hidden="true"
+                  >
+                    <FaArrowRight />
+                  </span>
+
+                </div>
+
+              </article>
+            );
+
+          })}
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default ExploreTopics;

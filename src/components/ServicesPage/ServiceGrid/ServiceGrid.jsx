@@ -6,182 +6,176 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-  FaLaptopCode,
-  FaCogs,
-  FaCheckCircle,
-  FaCloud,
+  FaPalette,
+  FaCode,
+  FaShoppingCart,
+  FaBullhorn,
+  FaChartLine,
   FaRobot,
-  FaDatabase,
-  FaShieldAlt,
-  FaProjectDiagram,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* =========================================================
+   DGATE SERVICES
+========================================================= */
+
 const services = [
   {
-    icon: <FaLaptopCode />,
-    title: "Digital Engineering",
+    id: "branding-creative",
+    icon: FaPalette,
+    title: "Branding & Creative Design",
     description:
-      "Accelerate digital transformation through innovative engineering solutions.",
+      "Build a powerful brand identity through strategic design, visual storytelling, UI/UX and creative assets.",
   },
   {
-    icon: <FaCogs />,
-    title: "Product Engineering",
+    id: "website-development",
+    icon: FaCode,
+    title: "Website Development",
     description:
-      "Design and develop reliable products from concept to deployment.",
+      "High-performance, responsive and scalable websites designed to strengthen your digital presence and drive conversions.",
   },
   {
-    icon: <FaCheckCircle />,
-    title: "Quality Engineering",
+    id: "ecommerce-solutions",
+    icon: FaShoppingCart,
+    title: "E-Commerce Solutions",
     description:
-      "Deliver software with high quality using modern testing strategies.",
+      "Complete Shopify and e-commerce solutions including store development, payment integration and performance optimization.",
   },
   {
-    icon: <FaCloud />,
-    title: "Cloud Engineering",
+    id: "digital-marketing",
+    icon: FaBullhorn,
+    title: "Digital Marketing & Performance",
     description:
-      "Build scalable and secure cloud-native applications and platforms.",
+      "ROI-focused digital marketing through Google Ads, Meta Ads, social media marketing and performance campaigns.",
   },
   {
-    icon: <FaRobot />,
-    title: "AI Solutions",
+    id: "seo-analytics",
+    icon: FaChartLine,
+    title: "SEO, Data & Analytics",
     description:
-      "Leverage AI and automation to improve business efficiency.",
+      "Improve search visibility, track customer behaviour and turn digital performance data into actionable business insights.",
   },
   {
-    icon: <FaDatabase />,
-    title: "Data Engineering",
+    id: "ai-automation",
+    icon: FaRobot,
+    title: "AI & Business Automation",
     description:
-      "Transform raw data into meaningful business insights.",
-  },
-  {
-    icon: <FaShieldAlt />,
-    title: "Cyber Security",
-    description:
-      "Protect enterprise systems through modern security practices.",
-  },
-  {
-    icon: <FaProjectDiagram />,
-    title: "IT Consulting",
-    description:
-      "Expert guidance for technology strategy and digital transformation.",
+      "Transform business operations using AI-powered automation, intelligent workflows, CRM integrations and smart digital solutions.",
   },
 ];
 
 function ServiceGrid() {
-
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
 
     const ctx = gsap.context(() => {
-
-      gsap.from(".service-heading", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-
+      const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 80%",
+          once: true,
         },
       });
 
-      gsap.fromTo(
-        ".service-card",
-
-        {
+      timeline
+        .from(".services-grid-page__heading", {
+          y: 30,
           opacity: 0,
-          y: 50,
-        },
+          duration: 0.55,
+          ease: "power2.out",
+        })
 
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          clearProps: "opacity,transform",
-
-          scrollTrigger: {
-            trigger: ".services-grid",
-            start: "top 80%",
-            toggleActions: "play none none none",
-            once: true,
+        .from(
+          ".services-grid-page__card",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.45,
+            stagger: 0.08,
+            ease: "power2.out",
           },
-        }
-      );
-
+          "-=0.25"
+        );
     }, sectionRef);
 
     return () => ctx.revert();
-
   }, []);
 
   return (
-
     <section
-      className="service-grid-section"
+      className="services-grid-page"
       ref={sectionRef}
+      aria-labelledby="services-grid-title"
     >
+      <div className="container">
 
-      <div className="service-container">
+        {/* SECTION HEADING */}
+        <div className="services-grid-page__heading">
 
-        <div className="service-heading">
-
-          <span className="section-tag">
+          <span className="services-grid-page__tag">
             OUR SERVICES
           </span>
 
-          <h2>
-            Engineering Excellence
+          <h2 id="services-grid-title">
+            Digital Solutions
             <br />
-            Across Every Domain
+            Built for Business Growth
           </h2>
 
           <p>
-            We provide end-to-end engineering and technology
-            services that empower businesses to innovate,
-            modernize and grow with confidence.
+            From branding and web development to digital marketing,
+            e-commerce and intelligent automation, DGATE delivers
+            end-to-end digital solutions designed to help businesses
+            build, grow and scale.
           </p>
 
         </div>
 
-        <div className="services-grid">
+        {/* SERVICE CARDS */}
+        <div className="services-grid-page__grid">
 
-          {services.map((service, index) => (
+          {services.map((service) => {
+            const Icon = service.icon;
 
-            <div
-              className="service-card"
-              key={index}
-            >
+            return (
+              <article
+                className="services-grid-page__card"
+                key={service.id}
+              >
 
-              <div className="service-icon">
-                {service.icon}
-              </div>
+                <div
+                  className="services-grid-page__icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
+                </div>
 
-              <h3>
-                {service.title}
-              </h3>
+                <h3>
+                  {service.title}
+                </h3>
 
-              <p>
-                {service.description}
-              </p>
+                <p>
+                  {service.description}
+                </p>
 
-            </div>
-
-          ))}
+              </article>
+            );
+          })}
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
 
 export default ServiceGrid;

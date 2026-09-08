@@ -1,7 +1,7 @@
 import "./Stats.css";
-import { useEffect, useRef } from "react";
 
-import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
@@ -16,31 +16,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 const statsData = [
   {
-    icon: <FaBriefcase className="stat-icon" />,
+    id: "experience",
+    icon: FaBriefcase,
     value: 20,
     suffix: "+",
     title: "Years Experience",
   },
   {
-    icon: <FaUsers className="stat-icon" />,
+    id: "experts",
+    icon: FaUsers,
     value: 2500,
     suffix: "+",
     title: "Engineering Experts",
   },
   {
-    icon: <FaBuilding className="stat-icon" />,
+    id: "clients",
+    icon: FaBuilding,
     value: 500,
     suffix: "+",
     title: "Global Clients",
   },
   {
-    icon: <FaGlobe className="stat-icon" />,
+    id: "countries",
+    icon: FaGlobe,
     value: 25,
     suffix: "+",
     title: "Countries Served",
   },
   {
-    icon: <FaAward className="stat-icon" />,
+    id: "retention",
+    icon: FaAward,
     value: 98,
     suffix: "%",
     title: "Client Retention",
@@ -51,54 +56,119 @@ function Stats() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const counters =
-      sectionRef.current.querySelectorAll(".counter");
+    if (!sectionRef.current) return;
 
-    counters.forEach((counter) => {
-      const target = Number(counter.dataset.value);
-      const suffix = counter.dataset.suffix;
+    const ctx = gsap.context(() => {
+      const counters =
+        sectionRef.current.querySelectorAll(
+          ".home-stats__counter"
+        );
 
-      const obj = { value: 0 };
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-      gsap.to(obj, {
-        value: target,
-        duration: 2,
-        ease: "power2.out",
-
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-
-        onUpdate: () => {
+      if (reduceMotion) {
+        counters.forEach((counter) => {
           counter.textContent =
-            Math.floor(obj.value) + suffix;
+            counter.dataset.value +
+            counter.dataset.suffix;
+        });
+
+        return;
+      }
+
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 85%",
+        once: true,
+
+        onEnter: () => {
+          counters.forEach((counter) => {
+            const target = Number(
+              counter.dataset.value
+            );
+
+            const suffix =
+              counter.dataset.suffix || "";
+
+            const counterObject = {
+              value: 0,
+            };
+
+            gsap.to(counterObject, {
+              value: target,
+              duration: 1.8,
+              ease: "power2.out",
+
+              onUpdate: () => {
+                counter.textContent =
+                  Math.floor(
+                    counterObject.value
+                  ).toLocaleString() +
+                  suffix;
+              },
+
+              onComplete: () => {
+                counter.textContent =
+                  target.toLocaleString() +
+                  suffix;
+              },
+            });
+          });
         },
       });
-    });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="stats" ref={sectionRef}>
-      <div className="stats-container">
-        {statsData.map((item, index) => (
-          <div className="stat-card" key={index}>
-            {item.icon}
+    <section
+      className="home-stats"
+      ref={sectionRef}
+      aria-label="D-GATE company statistics"
+    >
+      <div className="container">
 
-            <div>
-              <h3
-                className="counter"
-                data-value={item.value}
-                data-suffix={item.suffix}
+        <div className="home-stats__grid">
+
+          {statsData.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <article
+                className="home-stats__card"
+                key={item.id}
               >
-                0{item.suffix}
-              </h3>
+                <div
+                  className="home-stats__icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
+                </div>
 
-              <p>{item.title}</p>
-            </div>
-          </div>
-        ))}
+                <div className="home-stats__content">
+
+                  <h3
+                    className="home-stats__counter"
+                    data-value={item.value}
+                    data-suffix={item.suffix}
+                  >
+                    0{item.suffix}
+                  </h3>
+
+                  <p>
+                    {item.title}
+                  </p>
+
+                </div>
+              </article>
+            );
+          })}
+
+        </div>
+
       </div>
     </section>
   );

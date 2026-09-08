@@ -1,0 +1,260 @@
+.home-achievements {
+  width: 100%;
+
+  padding:
+    74px
+    0;
+
+  background: var(--section);
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.home-achievements__top {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 38px;
+}
+
+
+.home-achievements__top > div {
+  max-width: 680px;
+}
+
+
+.home-achievements__top span {
+  color: var(--primary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+
+.home-achievements__top h2 {
+  margin:
+    8px
+    0
+    0;
+
+  color: var(--black);
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3rem
+    );
+
+  line-height: 1.2;
+}
+
+
+.home-achievements__top h2 strong {
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.home-achievements__link {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    0
+    18px;
+
+  border:
+    1px solid
+    var(--black);
+
+  border-radius: var(--radius-sm);
+
+  color: var(--black);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+
+.home-achievements__link:hover {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  color: var(--black);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.home-achievements__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.home-achievements__card {
+  min-height: 230px;
+
+  padding: 25px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--white);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.home-achievements__card:hover {
+  border-color:
+    rgba(253, 185, 19, 0.45);
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.055);
+}
+
+
+.home-achievements__number {
+  display: block;
+
+  color:
+    rgba(17, 17, 17, 0.18);
+
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+
+.home-achievements__icon {
+  margin:
+    18px
+    0
+    14px;
+
+  color: var(--primary);
+
+  font-size: 1.25rem;
+}
+
+
+.home-achievements__card h3 {
+  margin:
+    0
+    0
+    9px;
+
+  color: var(--black);
+
+  font-size: 0.9rem;
+
+  line-height: 1.45;
+}
+
+
+.home-achievements__card p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.74rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-achievements__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .home-achievements__top {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}
+
+
+@media (max-width: 425px) {
+
+  .home-achievements {
+    padding:
+      55px
+      0;
+  }
+
+
+  .home-achievements__grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .home-achievements__card {
+    min-height: auto;
+  }
+
+
+  .home-achievements__link {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}

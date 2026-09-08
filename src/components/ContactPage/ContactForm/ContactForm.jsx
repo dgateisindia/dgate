@@ -1,5 +1,15 @@
-import { useState } from "react";
+import "./ContactForm.css";
+
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
 import emailjs from "@emailjs/browser";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   FaPaperPlane,
@@ -9,35 +19,126 @@ import {
   FaExclamationCircle,
 } from "react-icons/fa";
 
-import "./ContactForm.css";
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+/* =========================================================
+   SERVICE OPTIONS
+========================================================= */
+
+const services = [
+  "Digital Engineering",
+  "Cloud Solutions",
+  "Data & Analytics",
+  "AI & Automation",
+  "Cyber Security",
+  "Engineering Services",
+  "Other",
+];
+
+
+const initialFormData = {
+  name: "",
+  email: "",
+  company: "",
+  phone: "",
+  service: "",
+  message: "",
+};
+
+
+/* =========================================================
+   COMPONENT
+========================================================= */
 
 function ContactForm() {
+  const sectionRef = useRef(null);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
+  const [formData, setFormData] =
+    useState(initialFormData);
 
-  const [isSending, setIsSending] = useState(false);
+  const [isSending, setIsSending] =
+    useState(false);
 
   const [status, setStatus] = useState({
     type: "",
     message: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
 
-    setFormData((prevData) => ({
-      ...prevData,
+  /* =========================================================
+     FADE-ONLY SCROLL ANIMATION
+  ========================================================= */
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    if (reduceMotion) return;
+
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 86%",
+          once: true,
+        },
+      });
+
+
+      timeline
+        .from(
+          ".contact-page-form__header",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
+
+        .from(
+          ".contact-page-form__form",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        );
+
+    }, sectionRef);
+
+
+    return () => ctx.revert();
+
+  }, []);
+
+
+  /* =========================================================
+     INPUT CHANGE
+  ========================================================= */
+
+  const handleChange = (event) => {
+    const {
+      name,
+      value,
+    } = event.target;
+
+
+    setFormData((previousData) => ({
+      ...previousData,
       [name]: value,
     }));
 
-    // Clear previous success/error message
+
     if (status.message) {
       setStatus({
         type: "",
@@ -47,22 +148,45 @@ function ContactForm() {
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  /* =========================================================
+     FORM SUBMIT
+  ========================================================= */
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+
+    const name =
+      formData.name.trim();
+
+    const email =
+      formData.email.trim();
+
+    const company =
+      formData.company.trim();
+
+    const phone =
+      formData.phone.trim();
+
+    const message =
+      formData.message.trim();
+
 
     if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
+      !name ||
+      !email ||
       !formData.service ||
-      !formData.message.trim()
+      !message
     ) {
       setStatus({
         type: "error",
-        message: "Please fill in all required fields.",
+        message:
+          "Please fill in all required fields.",
       });
 
       return;
     }
+
 
     const serviceId =
       import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -73,25 +197,21 @@ function ContactForm() {
     const publicKey =
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    console.log("EmailJS configuration:", {
-      serviceId,
-      templateId,
-      publicKeyLoaded: Boolean(publicKey),
-    });
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error(
-        "EmailJS configuration is missing. Check your .env file."
-      );
-
+    if (
+      !serviceId ||
+      !templateId ||
+      !publicKey
+    ) {
       setStatus({
         type: "error",
         message:
-          "Email configuration is missing. Please check the EmailJS settings.",
+          "The contact form is temporarily unavailable. Please try again later.",
       });
 
       return;
     }
+
 
     setIsSending(true);
 
@@ -100,39 +220,34 @@ function ContactForm() {
       message: "",
     });
 
+
     const templateParams = {
-      name: formData.name.trim(),
+      name,
+      email,
 
-      email: formData.email.trim(),
+      company:
+        company ||
+        "Not provided",
 
-      company: formData.company.trim()
-        ? formData.company.trim()
-        : "Not provided",
+      phone:
+        phone ||
+        "Not provided",
 
-      phone: formData.phone.trim()
-        ? formData.phone.trim()
-        : "Not provided",
+      service:
+        formData.service,
 
-      service: formData.service,
-
-      message: formData.message.trim(),
+      message,
     };
 
-    try {
 
-      const response = await emailjs.send(
+    try {
+      await emailjs.send(
         serviceId,
         templateId,
         templateParams,
         {
-          publicKey: publicKey,
+          publicKey,
         }
-      );
-
-      console.log(
-        "Email sent successfully:",
-        response.status,
-        response.text
       );
 
 
@@ -143,280 +258,302 @@ function ContactForm() {
       });
 
 
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
-    } catch (error) {
+      setFormData(initialFormData);
 
-      console.error("FULL EMAILJS ERROR:", error);
-      console.error("EMAILJS STATUS:", error?.status);
-      console.error("EMAILJS TEXT:", error?.text);
-
+    } catch {
       setStatus({
         type: "error",
         message:
-          error?.text ||
-          "Something went wrong. Please try again later.",
+          "We couldn't send your message right now. Please try again shortly.",
       });
+
     } finally {
       setIsSending(false);
     }
   };
 
+
   return (
     <section
-      className="contact-form-section"
       id="contact-form"
+      className="contact-page-form"
+      ref={sectionRef}
+      aria-labelledby="contact-page-form-title"
     >
-      <div className="contact-form-container">
+      <div className="container">
 
-        <div className="contact-form-header">
-
-          <div className="contact-form-header-icon">
-            <FaPaperPlane />
-          </div>
-
-          <div className="contact-form-header-text">
-
-            <h2>
-              Send Us a Message
-            </h2>
-
-            <p>
-              Fill out the form and our team will get back
-              to you shortly.
-            </p>
-
-          </div>
-
-        </div>
-
-        <form
-          className="contact-form"
-          onSubmit={handleSubmit}
-        >
-
-          <div className="contact-form-row">
-
-            <div className="contact-input-group">
-
-              <label htmlFor="name">
-                Full Name
-                <span> *</span>
-              </label>
-
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
-
-            <div className="contact-input-group">
-
-              <label htmlFor="email">
-                Email Address
-                <span> *</span>
-              </label>
-
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
-
-          </div>
-
-          <div className="contact-form-row">
-
-            {/* COMPANY */}
-
-            <div className="contact-input-group">
-
-              <label htmlFor="company">
-                Company Name
-              </label>
-
-              <input
-                type="text"
-                id="company"
-                name="company"
-                placeholder="Company Name"
-                value={formData.company}
-                onChange={handleChange}
-              />
-
-            </div>
+        <div className="contact-page-form__card">
 
 
-            <div className="contact-input-group">
+          {/* ==========================================
+              HEADER
+          ========================================== */}
 
-              <label htmlFor="phone">
-                Phone Number
-              </label>
-
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-
-            </div>
-
-          </div>
-
-          <div className="contact-input-group contact-full-width">
-
-            <label htmlFor="service">
-              Select Service
-              <span> *</span>
-            </label>
-
-            <select
-              id="service"
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
-              required
-            >
-
-              <option value="">
-                Select Service
-              </option>
-
-              <option value="Digital Engineering">
-                Digital Engineering
-              </option>
-
-              <option value="Cloud Solutions">
-                Cloud Solutions
-              </option>
-
-              <option value="Data & Analytics">
-                Data & Analytics
-              </option>
-
-              <option value="AI & Automation">
-                AI & Automation
-              </option>
-
-              <option value="Cyber Security">
-                Cyber Security
-              </option>
-
-              <option value="Engineering Services">
-                Engineering Services
-              </option>
-
-              <option value="Other">
-                Other
-              </option>
-
-            </select>
-
-          </div>
-
-          <div className="contact-input-group contact-full-width">
-
-            <label htmlFor="message">
-              Tell us about your project or requirement
-              <span> *</span>
-            </label>
-
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Tell us about your project or requirement"
-              rows="6"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-
-          </div>
-
-
-          {status.message && (
+          <div className="contact-page-form__header">
 
             <div
-              className={`contact-form-status ${
-                status.type === "success"
-                  ? "contact-form-success"
-                  : "contact-form-error"
-              }`}
+              className="contact-page-form__header-icon"
+              aria-hidden="true"
             >
-
-              {status.type === "success" ? (
-                <FaCheckCircle />
-              ) : (
-                <FaExclamationCircle />
-              )}
-
-              <span>
-                {status.message}
-              </span>
-
+              <FaPaperPlane />
             </div>
 
-          )}
 
-          <div className="contact-form-bottom">
+            <div className="contact-page-form__header-text">
 
-            <button
-              type="submit"
-              className="contact-submit-btn"
-              disabled={isSending}
-            >
+              <h2 id="contact-page-form-title">
+                Send Us a Message
+              </h2>
 
-              <span>
-                {isSending
-                  ? "SENDING..."
-                  : "SEND MESSAGE"}
-              </span>
-
-              {!isSending && (
-                <FaArrowRight />
-              )}
-
-            </button>
-
-            <div className="contact-privacy">
-
-              <FaLock />
-
-              <span>
-                We respect your privacy. Your data is safe
-                with us.
-              </span>
+              <p>
+                Fill out the form and our team will get
+                back to you shortly.
+              </p>
 
             </div>
 
           </div>
 
-        </form>
+
+          {/* ==========================================
+              FORM
+          ========================================== */}
+
+          <form
+            className="contact-page-form__form"
+            onSubmit={handleSubmit}
+            noValidate={false}
+          >
+
+
+            {/* NAME + EMAIL */}
+
+            <div className="contact-page-form__row">
+
+              <div className="contact-page-form__field">
+
+                <label htmlFor="contact-name">
+                  Full Name
+                  <span> *</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Enter your full name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  autoComplete="name"
+                  required
+                />
+
+              </div>
+
+
+              <div className="contact-page-form__field">
+
+                <label htmlFor="contact-email">
+                  Email Address
+                  <span> *</span>
+                </label>
+
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  autoComplete="email"
+                  required
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* COMPANY + PHONE */}
+
+            <div className="contact-page-form__row">
+
+              <div className="contact-page-form__field">
+
+                <label htmlFor="contact-company">
+                  Company Name
+                </label>
+
+                <input
+                  type="text"
+                  id="contact-company"
+                  name="company"
+                  placeholder="Enter company name"
+                  value={formData.company}
+                  onChange={handleChange}
+                  autoComplete="organization"
+                />
+
+              </div>
+
+
+              <div className="contact-page-form__field">
+
+                <label htmlFor="contact-phone">
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  placeholder="Enter phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  autoComplete="tel"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* SERVICE */}
+
+            <div className="contact-page-form__field contact-page-form__field--full">
+
+              <label htmlFor="contact-service">
+                Select Service
+                <span> *</span>
+              </label>
+
+              <select
+                id="contact-service"
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              >
+
+                <option value="">
+                  Select Service
+                </option>
+
+                {services.map((service) => (
+                  <option
+                    value={service}
+                    key={service}
+                  >
+                    {service}
+                  </option>
+                ))}
+
+              </select>
+
+            </div>
+
+
+            {/* MESSAGE */}
+
+            <div className="contact-page-form__field contact-page-form__field--full">
+
+              <label htmlFor="contact-message">
+                Tell us about your project or requirement
+                <span> *</span>
+              </label>
+
+              <textarea
+                id="contact-message"
+                name="message"
+                placeholder="Tell us about your project or requirement"
+                rows="6"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+
+            </div>
+
+
+            {/* ==========================================
+                STATUS
+            ========================================== */}
+
+            {status.message && (
+
+              <div
+                className={`contact-page-form__status contact-page-form__status--${status.type}`}
+                role={
+                  status.type === "error"
+                    ? "alert"
+                    : "status"
+                }
+                aria-live="polite"
+              >
+
+                {status.type === "success" ? (
+                  <FaCheckCircle aria-hidden="true" />
+                ) : (
+                  <FaExclamationCircle aria-hidden="true" />
+                )}
+
+
+                <span>
+                  {status.message}
+                </span>
+
+              </div>
+
+            )}
+
+
+            {/* ==========================================
+                BOTTOM
+            ========================================== */}
+
+            <div className="contact-page-form__bottom">
+
+              <button
+                type="submit"
+                className="contact-page-form__submit"
+                disabled={isSending}
+              >
+
+                <span>
+                  {isSending
+                    ? "SENDING..."
+                    : "SEND MESSAGE"}
+                </span>
+
+
+                {!isSending && (
+                  <FaArrowRight aria-hidden="true" />
+                )}
+
+              </button>
+
+
+              <div className="contact-page-form__privacy">
+
+                <FaLock aria-hidden="true" />
+
+                <span>
+                  We respect your privacy. Your data is
+                  safe with us.
+                </span>
+
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
 
       </div>
     </section>
   );
 }
+
 
 export default ContactForm;

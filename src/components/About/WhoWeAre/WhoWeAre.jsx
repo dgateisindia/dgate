@@ -11,141 +11,135 @@ import { office } from "../../../assets/images/about";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const features = [
+  "Innovation at the Core",
+  "Long-term Partnerships",
+  "Commitment to Quality",
+  "Empowering Businesses",
+];
+
 function WhoWeAre() {
+  const sectionRef = useRef(null);
 
-    const sectionRef = useRef(null);
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-    useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-        const ctx = gsap.context(() => {
+    if (reduceMotion) return;
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 75%",
-                    toggleActions: "play none none none",
-                    once: true,
-                },
-            });
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
 
-            // Left Image
-            tl.from(".who-image", {
-                x: -60,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out",
-            })
+      timeline
+        .from(".about-who__image", {
+          x: -50,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power2.out",
+        })
 
-            // Right Content
-            .from(".who-content", {
-                x: 60,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out",
-            }, "-=0.45")
+        .from(
+          ".about-who__content",
+          {
+            x: 50,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
 
-            // Features
-            .from(".who-feature", {
-                y: 20,
-                opacity: 0,
-                duration: 0.45,
-                stagger: 0.08,
-                ease: "power2.out",
-            }, "-=0.3");
+        .from(
+          ".about-who__feature",
+          {
+            y: 18,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "power2.out",
+          },
+          "-=0.25"
+        );
+    }, sectionRef);
 
-        }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
-        return () => ctx.revert();
+  return (
+    <section
+      id="our-story"
+      className="about-who"
+      ref={sectionRef}
+      aria-labelledby="about-who-title"
+    >
+      <div className="container">
 
-    }, []);
+        <div className="about-who__layout">
 
-    return (
+          <div className="about-who__image">
+            <img
+              src={office}
+              alt="D-GATE office workspace"
+              loading="lazy"
+            />
+          </div>
 
-        <section
-            id="our-story"
-            className="who-we-are"
-            ref={sectionRef}
-        >
+          <div className="about-who__content">
 
-            <div className="who-container">
+            <span className="about-who__tag">
+              WHO WE ARE
+            </span>
 
-                {/* Left Image */}
+            <h2 id="about-who-title">
+              Building Innovation.
+              <br />
+              Delivering Excellence.
+            </h2>
 
-                <div className="who-image">
+            <p>
+              Established in 2003, D-GATE Integrated Services has
+              grown into a global technology company, delivering
+              innovative engineering solutions to clients across
+              industries.
+            </p>
 
-                    <img
-                        src={office}
-                        alt="D-GATE Office"
-                    />
+            <p>
+              Our journey is built on a foundation of trust,
+              innovation, and a relentless focus on creating value
+              for our clients.
+            </p>
 
+            <div className="about-who__features">
+
+              {features.map((feature) => (
+                <div
+                  className="about-who__feature"
+                  key={feature}
+                >
+                  <FaCheckCircle aria-hidden="true" />
+
+                  <span>{feature}</span>
                 </div>
-
-                {/* Right Content */}
-
-                <div className="who-content">
-
-                    <span className="section-tag">
-                        WHO WE ARE
-                    </span>
-
-                    <h2>
-                        Building Innovation.
-                        <br />
-                        Delivering Excellence.
-                    </h2>
-
-                    <p>
-                        Established in 2003, D-GATE Integrated Services has
-                        grown into a global technology company, delivering
-                        innovative engineering solutions to clients across
-                        industries.
-                    </p>
-
-                    <p>
-                        Our journey is built on a foundation of trust,
-                        innovation, and a relentless focus on creating value
-                        for our clients.
-                    </p>
-
-                    <div className="who-feature-list">
-
-                        <div className="who-feature">
-                            <FaCheckCircle />
-                            <span>
-                                Innovation at the Core
-                            </span>
-                        </div>
-
-                        <div className="who-feature">
-                            <FaCheckCircle />
-                            <span>
-                                Long-term Partnerships
-                            </span>
-                        </div>
-
-                        <div className="who-feature">
-                            <FaCheckCircle />
-                            <span>
-                                Commitment to Quality
-                            </span>
-                        </div>
-
-                        <div className="who-feature">
-                            <FaCheckCircle />
-                            <span>
-                                Empowering Businesses
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
+              ))}
 
             </div>
 
-        </section>
+          </div>
 
-    );
+        </div>
+
+      </div>
+    </section>
+  );
 }
 
 export default WhoWeAre;

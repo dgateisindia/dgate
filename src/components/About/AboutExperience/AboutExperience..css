@@ -1,0 +1,202 @@
+.about-experience {
+  width: 100%;
+
+  padding:
+    30px
+    0
+    72px;
+
+  background: var(--white);
+}
+
+
+.about-experience__box {
+  display: grid;
+
+  grid-template-columns:
+    240px
+    1px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 45px;
+
+  padding:
+    38px
+    45px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      110deg,
+      #fffaf0,
+      var(--white)
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.045);
+}
+
+
+.about-experience__number {
+  text-align: center;
+}
+
+
+.about-experience__number strong {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 4.8rem;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+
+.about-experience__number span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--black);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+.about-experience__divider {
+  width: 1px;
+  height: 120px;
+
+  background: var(--border);
+}
+
+
+.about-experience__eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--primary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.about-experience__content h2 {
+  margin: 0;
+
+  color: var(--black);
+
+  font-size: 2rem;
+
+  line-height: 1.25;
+}
+
+
+.about-experience__content h2 span {
+  color: var(--primary);
+}
+
+
+.about-experience__content p {
+  max-width: 720px;
+
+  margin:
+    12px
+    0
+    0;
+
+  color: var(--text);
+
+  font-size: 0.84rem;
+
+  line-height: 1.7;
+}
+
+
+.about-experience__features {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 18px;
+}
+
+
+.about-experience__features span {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--black);
+
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+
+.about-experience__features svg {
+  color: var(--primary);
+}
+
+
+@media (max-width: 768px) {
+
+  .about-experience__box {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding: 30px;
+  }
+
+
+  .about-experience__divider {
+    width: 100%;
+    height: 1px;
+  }
+
+
+  .about-experience__number {
+    text-align: left;
+  }
+
+}
+
+
+@media (max-width: 425px) {
+
+  .about-experience__box {
+    padding:
+      25px
+      20px;
+  }
+
+
+  .about-experience__number strong {
+    font-size: 4rem;
+  }
+
+
+  .about-experience__content h2 {
+    font-size: 1.55rem;
+  }
+
+}

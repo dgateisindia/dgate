@@ -14,32 +14,38 @@ import {
 
 const services = [
   {
-    icon: <MdEngineering />,
+    id: "digital-engineering",
+    icon: MdEngineering,
     title: "Digital Engineering",
     desc: "Advanced solutions for digital transformation.",
   },
   {
-    icon: <FaCogs />,
+    id: "product-engineering",
+    icon: FaCogs,
     title: "Product Engineering",
     desc: "End-to-end product development from concept to reality.",
   },
   {
-    icon: <FaShieldAlt />,
+    id: "quality-engineering",
+    icon: FaShieldAlt,
     title: "Quality Engineering",
     desc: "Ensure quality and reliability at every stage.",
   },
   {
-    icon: <MdOutlineLightbulb />,
+    id: "it-consulting",
+    icon: MdOutlineLightbulb,
     title: "IT Consulting",
     desc: "Strategic consulting to accelerate business growth.",
   },
   {
-    icon: <FaCloud />,
+    id: "cloud-engineering",
+    icon: FaCloud,
     title: "Cloud Engineering",
     desc: "Scalable cloud solutions for your business.",
   },
   {
-    icon: <FaChartLine />,
+    id: "data-engineering",
+    icon: FaChartLine,
     title: "Data Engineering",
     desc: "Transform data into valuable business insights.",
   },
@@ -47,37 +53,52 @@ const services = [
 
 function Services() {
   return (
-    <section className="home-services">
+    <section
+      className="home-services"
+      aria-labelledby="home-services-title"
+    >
+      <div className="container">
 
-      <h2>
-        Our Core <span>Services</span>
-      </h2>
+        <h2
+          id="home-services-title"
+          className="home-services__title"
+        >
+          Our Core Services
+        </h2>
 
-      <div className="home-title-line"></div>
+        <div className="home-services__title-line" />
 
-      <div className="home-services-grid">
+        <div className="home-services__grid">
 
-        {services.map((item, index) => (
+          {services.map((item) => {
+            const Icon = item.icon;
 
-          <div
-            className="home-service-card"
-            key={index}
-          >
+            return (
+              <article
+                className="home-services__card"
+                key={item.id}
+              >
+                <div
+                  className="home-services__icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
+                </div>
 
-            <div className="home-service-icon">
-              {item.icon}
-            </div>
+                <h3>
+                  {item.title}
+                </h3>
 
-            <h3>{item.title}</h3>
+                <p>
+                  {item.desc}
+                </p>
+              </article>
+            );
+          })}
 
-            <p>{item.desc}</p>
-
-          </div>
-
-        ))}
+        </div>
 
       </div>
-
     </section>
   );
 }

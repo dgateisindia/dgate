@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { FaHandshake, FaArrowRight } from "react-icons/fa";
+import {
+  FaHandshake,
+  FaArrowRight,
+} from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,13 +19,13 @@ function AboutCTA() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
     const ctx = gsap.context(() => {
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      if (reduceMotion) return;
-
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -33,9 +36,9 @@ function AboutCTA() {
 
       timeline
         .from(".about-cta__box", {
-          y: 40,
+          y: 35,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.7,
           ease: "power3.out",
         })
 
@@ -47,24 +50,22 @@ function AboutCTA() {
             duration: 0.5,
             ease: "back.out(1.7)",
           },
-          "-=0.4"
+          "-=0.35"
         )
 
         .from(
           ".about-cta__button",
           {
-            x: 30,
+            y: 15,
             opacity: 0,
-            duration: 0.6,
+            duration: 0.5,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.3"
         );
     }, sectionRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -73,41 +74,45 @@ function AboutCTA() {
       ref={sectionRef}
       aria-labelledby="about-cta-title"
     >
-      <div className="about-cta__box">
+      <div className="container">
 
-        <div className="about-cta__left">
+        <div className="about-cta__box">
 
-          <div
-            className="about-cta__icon"
-            aria-hidden="true"
+          <div className="about-cta__left">
+
+            <div
+              className="about-cta__icon"
+              aria-hidden="true"
+            >
+              <FaHandshake />
+            </div>
+
+            <div className="about-cta__content">
+
+              <h2 id="about-cta-title">
+                Let's Build Something Great Together
+              </h2>
+
+              <p>
+                Partner with D-GATE to accelerate your digital
+                transformation journey.
+              </p>
+
+            </div>
+
+          </div>
+
+          <Link
+            to="/contact"
+            className="about-cta__button"
+            aria-label="Get in touch with D-GATE"
           >
-            <FaHandshake />
-          </div>
+            <span>GET IN TOUCH</span>
 
-          <div className="about-cta__content">
-
-            <h2 id="about-cta-title">
-              Let's Build Something Great Together
-            </h2>
-
-            <p>
-              Partner with D-GATE to accelerate your digital
-              transformation journey.
-            </p>
-
-          </div>
+            <FaArrowRight aria-hidden="true" />
+          </Link>
 
         </div>
-
-        <Link
-          to="/contact"
-          className="about-cta__button"
-          aria-label="Get in touch with D-GATE"
-        >
-          <span>GET IN TOUCH</span>
-
-          <FaArrowRight aria-hidden="true" />
-        </Link>
 
       </div>
     </section>

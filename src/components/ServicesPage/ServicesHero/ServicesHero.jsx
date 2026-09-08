@@ -1,148 +1,170 @@
 import "./ServicesHero.css";
 
-import { useEffect, useRef } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+} from "react";
+
 import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
-import ServicesCanvas from "./ServicesCanvas";
-import { servicesHeroBg } from "../../../assets/images/Services/hero";
+import {
+  servicesHeroBg,
+} from "../../../assets/images/Services/hero";
+
+const ServicesCanvas = lazy(
+  () => import("./ServicesCanvas")
+);
 
 function ServicesHero() {
-
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
 
     const ctx = gsap.context(() => {
+      const timeline = gsap.timeline();
 
-      const tl = gsap.timeline();
+      timeline
+        .from(
+          ".services-page-hero__breadcrumb",
+          {
+            x: -25,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          }
+        )
 
-      tl.from(".services-breadcrumb", {
+        .from(
+          ".services-page-hero__title",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.65,
+            ease: "power3.out",
+          },
+          "-=0.2"
+        )
 
-        x: -30,
+        .from(
+          ".services-page-hero__line",
+          {
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.4,
+          },
+          "-=0.25"
+        )
 
-        opacity: 0,
+        .from(
+          ".services-page-hero__text",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        )
 
-        duration: .6,
-
-        ease: "power3.out",
-
-      })
-
-      .from(".services-title", {
-
-        y: 40,
-
-        opacity: 0,
-
-        duration: .8,
-
-        ease: "power3.out",
-
-      }, "-=.2")
-
-      .from(".services-line", {
-
-        width: 0,
-
-        duration: .5,
-
-      })
-
-      .from(".services-text", {
-
-        y: 30,
-
-        opacity: 0,
-
-        duration: .7,
-
-        ease: "power3.out",
-
-      }, "-=.2")
-
-      .from(".services-canvas-wrapper", {
-
-        x: 80,
-
-        opacity: 0,
-
-        duration: 1,
-
-        ease: "power3.out",
-
-      }, "-=.5");
-
+        .from(
+          ".services-page-hero__visual",
+          {
+            x: 40,
+            opacity: 0,
+            duration: 0.75,
+            ease: "power3.out",
+          },
+          "-=0.5"
+        );
     }, sectionRef);
 
     return () => ctx.revert();
-
   }, []);
 
   return (
-
     <section
-      className="services-hero"
+      className="services-page-hero"
       ref={sectionRef}
+      aria-labelledby="services-page-hero-title"
     >
+      <div className="services-page-hero__container">
 
-      <div className="services-hero-container">
+        {/* CONTENT */}
+        <div className="services-page-hero__content">
 
-        {/* LEFT */}
+          <nav
+            className="services-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
+            <Link to="/">
+              Home
+            </Link>
 
-        <div className="services-left">
+            <span aria-hidden="true">
+              ›
+            </span>
 
-          <div className="services-breadcrumb">
+            <span aria-current="page">
+              Services
+            </span>
+          </nav>
 
-            <Link to="/">Home</Link>
-
-            <span>›</span>
-
-            <span>Services</span>
-
-          </div>
-
-          <h1 className="services-title">
-
+          <h1
+            id="services-page-hero-title"
+            className="services-page-hero__title"
+          >
             Our Services
-
           </h1>
 
-          <div className="services-line"></div>
+          <div
+            className="services-page-hero__line"
+            aria-hidden="true"
+          />
 
-          <p className="services-text">
-
-            Comprehensive engineering solutions designed to accelerate
-            digital transformation, enhance innovation, and deliver
-            sustainable business growth through cutting-edge technology.
-
+          <p className="services-page-hero__text">
+            Comprehensive engineering solutions designed
+            to accelerate digital transformation, enhance
+            innovation, and deliver sustainable business
+            growth through cutting-edge technology.
           </p>
 
         </div>
 
-        {/* RIGHT */}
 
-        <div className="services-canvas-wrapper">
+        {/* VISUAL */}
+        <div className="services-page-hero__visual">
 
-            <img
-                src={servicesHeroBg}
-                alt="Engineering"
-                className="services-bg-image"
-            />
+          <img
+            src={servicesHeroBg}
+            alt="Engineering and digital technology solutions"
+            className="services-page-hero__image"
+          />
 
-            <div className="services-overlay"></div>
+          <div
+            className="services-page-hero__overlay"
+            aria-hidden="true"
+          />
 
+          <Suspense fallback={null}>
             <ServicesCanvas />
+          </Suspense>
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
 
 export default ServicesHero;

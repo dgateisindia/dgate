@@ -1,9 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
 
-import ScrollToAnchor from "./components/ScrollToAnchor";
+import ScrollToAnchor from "./components/ScrollToAnchor.jsx";
+
+import Portfolio from "./pages/Portfolio/Portfolio";
+import Blog from "./pages/Blog/Blog";
+import Achievements from "./pages/Achievements/Achievements";
+import Gallery from "./pages/Gallery/Gallery";
+
 
 import Home from "./pages/Home/Home.jsx";
-import About from "./pages/About/About";
+import About from "./pages/About/About.jsx";
 import Services from "./pages/Services/Services.jsx";
 import Industries from "./pages/Industries/Industries.jsx";
 import Technologies from "./pages/Technologies/Technologies.jsx";
@@ -11,11 +20,11 @@ import Careers from "./pages/Careers/Careers.jsx";
 import Insights from "./pages/Insights/Insights.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 
-function App() {
 
+
+function App() {
   return (
     <>
-
       <ScrollToAnchor />
 
       <Routes>
@@ -26,13 +35,13 @@ function App() {
         />
 
         <Route
-          path="/services"
-          element={<Services />}
+          path="/about"
+          element={<About />}
         />
 
         <Route
-          path="/about"
-          element={<About />}
+          path="/services"
+          element={<Services />}
         />
 
         <Route
@@ -46,21 +55,46 @@ function App() {
         />
 
         <Route
-         path="/careers" 
-         element={<Careers />} />
+          path="/careers"
+          element={<Careers />}
+        />
 
-         <Route 
-          path="/insights" 
-          element={<Insights />} />
+        <Route
+          path="/insights"
+          element={<Insights />}
+        />
 
-          <Route
+        <Route
           path="/contact"
-          element={<Contact />} />
+          element={<Contact />}
+        />
+
+        <Route
+          path="/portfolio"
+          element={<Portfolio />}
+        />
+
+        <Route
+          path="/blog"
+          element={<Blog />}
+        />
+
+        <Route
+          path="/achievements"
+          element={<Achievements />}
+        />
+
+        <Route
+          path="/gallery"
+          element={<Gallery />}
+        />
+
+
 
       </Routes>
-
     </>
   );
 }
+
 
 export default App;

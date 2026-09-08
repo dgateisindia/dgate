@@ -1,290 +1,240 @@
 import "./CareersHero.css";
 
-import { useEffect, useRef } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+} from "react";
+
 import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 
 import { FaArrowRight } from "react-icons/fa";
 
-import CareersCanvas from "./CareersCanvas";
+import {
+  careersHero,
+} from "../../../assets/images/Careers/hero";
 
-import { careersHero } from "../../../assets/images/Careers/hero";
+
+const CareersCanvas = lazy(
+  () => import("./CareersCanvas")
+);
 
 
 function CareersHero() {
+  const heroRef = useRef(null);
+
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline();
+
+
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE
+      =============================================== */
+
+      timeline
+        .from(
+          ".careers-page-hero__breadcrumb",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
+
+        .from(
+          ".careers-page-hero__title",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".careers-page-hero__line",
+          {
+            opacity: 0,
+            duration: 0.35,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
+
+        .from(
+          ".careers-page-hero__description",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
+
+        .from(
+          ".careers-page-hero__button",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
+
+        .from(
+          ".careers-page-hero__visual",
+          {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.35"
+        );
+
+    }, heroRef);
+
+
+    return () => ctx.revert();
+
+  }, []);
+
+
+  const scrollToPositions = () => {
+    const section =
+      document.getElementById("open-positions");
+
+    if (!section) return;
 
-    const heroRef = useRef(null);
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
 
-    useEffect(() => {
+  return (
+    <section
+      className="careers-page-hero"
+      ref={heroRef}
+      aria-labelledby="careers-page-hero-title"
+    >
+      <div className="careers-page-hero__container">
 
-        const ctx = gsap.context(() => {
 
-            const tl = gsap.timeline({
+        {/* ==========================================
+            CONTENT
+        ========================================== */}
 
-                defaults: {
-                    ease: "power3.out",
-                },
+        <div className="careers-page-hero__content">
 
-            });
+          <nav
+            className="careers-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
+            <Link to="/">
+              Home
+            </Link>
 
+            <span aria-hidden="true">
+              ›
+            </span>
 
-            /* Breadcrumb */
+            <span aria-current="page">
+              Careers
+            </span>
+          </nav>
 
-            tl.from(".careers-breadcrumb", {
 
-                x: -30,
+          <h1
+            id="careers-page-hero-title"
+            className="careers-page-hero__title"
+          >
+            Build Your Future
 
-                opacity: 0,
+            <span>
+              With DGATE
+            </span>
+          </h1>
 
-                duration: 0.6,
 
-            })
+          <div
+            className="careers-page-hero__line"
+            aria-hidden="true"
+          />
 
 
-            /* Title */
+          <p className="careers-page-hero__description">
+            At DGATE, we believe our people are our
+            greatest strength. Join a team that inspires
+            you to innovate, grow and make a meaningful
+            impact.
+          </p>
 
-            .from(".careers-title", {
 
-                y: 40,
+          <button
+            type="button"
+            className="careers-page-hero__button"
+            onClick={scrollToPositions}
+          >
+            <span>
+              Explore Opportunities
+            </span>
 
-                opacity: 0,
+            <FaArrowRight aria-hidden="true" />
+          </button>
 
-                duration: 0.8,
+        </div>
 
-            }, "-=.2")
 
+        {/* ==========================================
+            VISUAL
+        ========================================== */}
 
-            /* Yellow Line */
+        <div className="careers-page-hero__visual">
 
-            .from(".careers-line", {
+          <img
+            src={careersHero}
+            alt="DGATE team collaborating at work"
+            className="careers-page-hero__image"
+          />
 
-                width: 0,
 
-                duration: 0.5,
+          <div
+            className="careers-page-hero__overlay"
+            aria-hidden="true"
+          />
 
-                ease: "power2.out",
 
-            }, "-=.2")
+          <Suspense fallback={null}>
+            <CareersCanvas />
+          </Suspense>
 
+        </div>
 
-            /* Description */
-
-            .from(".careers-description", {
-
-                y: 30,
-
-                opacity: 0,
-
-                duration: 0.7,
-
-            }, "-=.2")
-
-
-            /* Button */
-
-            .from(".careers-hero-btn", {
-
-                y: 20,
-
-                opacity: 0,
-
-                duration: 0.6,
-
-            }, "-=.3")
-
-
-            /* Image */
-
-            .from(".careers-image-wrapper", {
-
-                x: 60,
-
-                opacity: 0,
-
-                duration: 1,
-
-            }, "-=.6");
-
-
-        }, heroRef);
-
-
-        return () => ctx.revert();
-
-    }, []);
-
-
-
-    /* =========================================
-       SCROLL TO OPEN POSITIONS
-    ========================================= */
-
-    const scrollToPositions = () => {
-
-        const section =
-            document.getElementById("open-positions");
-
-
-        if (section) {
-
-            section.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "start",
-
-            });
-
-        }
-
-    };
-
-
-    return (
-
-        <section
-
-            className="careers-hero"
-
-            ref={heroRef}
-
-        >
-
-            <div className="careers-hero-container">
-
-
-                {/* =====================================
-                    LEFT CONTENT
-                ===================================== */}
-
-                <div className="careers-left">
-
-
-                    {/* Breadcrumb */}
-
-                    <div className="careers-breadcrumb">
-
-                        <Link to="/">
-
-                            Home
-
-                        </Link>
-
-
-                        <span>
-
-                            ›
-
-                        </span>
-
-
-                        <span>
-
-                            Careers
-
-                        </span>
-
-                    </div>
-
-
-
-                    {/* Title */}
-
-                    <h1 className="careers-title">
-
-                        Build Your Future
-
-                        <span>
-
-                            With DGATE
-
-                        </span>
-
-                    </h1>
-
-
-
-                    {/* Yellow Line */}
-
-                    <div className="careers-line"></div>
-
-
-
-                    {/* Description */}
-
-                    <p className="careers-description">
-
-                        At DGATE, we believe our people are our
-                        greatest strength. Join a team that inspires
-                        you to innovate, grow and make a meaningful
-                        impact.
-
-                    </p>
-
-
-
-                    {/* Button */}
-
-                    <button
-
-                        className="careers-hero-btn"
-
-                        onClick={scrollToPositions}
-
-                    >
-
-                        Explore Opportunities
-
-                        <FaArrowRight />
-
-                    </button>
-
-
-                </div>
-
-
-
-                {/* =====================================
-                    RIGHT IMAGE
-                ===================================== */}
-
-                <div className="careers-image-wrapper">
-
-
-                    {/* Image */}
-
-                    <img
-
-                        src={careersHero}
-
-                        alt="DGATE team collaborating at work"
-
-                        className="careers-hero-image"
-
-                    />
-
-
-                    {/* Subtle Overlay */}
-
-                    <div className="careers-image-overlay"></div>
-
-
-                    {/* Three JS */}
-
-                    <CareersCanvas />
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-    );
-
+      </div>
+    </section>
+  );
 }
 
 

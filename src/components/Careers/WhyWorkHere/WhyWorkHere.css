@@ -1,26 +1,13 @@
 /* =========================================================
-   WHY WORK HERE SECTION
+   CAREERS PAGE - WHY WORK HERE
 ========================================================= */
 
-.why-work-section {
-    width: 100%;
-    background: var(--white);
+.careers-why-work {
+  width: 100%;
 
-    /*
-       top: 38px
-       left/right: 5%
-       bottom: 42px
+  padding: 42px 0 48px;
 
-       Bottom padding gives proper separation
-       before the LifeAtDgate section.
-    */
-    padding: 38px 5% 45px;
-}
-
-.why-work-container {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
+  background: var(--white);
 }
 
 
@@ -28,110 +15,107 @@
    HEADING
 ========================================================= */
 
-.why-work-heading {
-    margin: 0 0 2px;
-    padding: 0;
-}
-
-.why-work-heading h2 {
-    margin: 0;
-
-    font-size: 1.65rem;
-    font-weight: 750;
-    line-height: 1.25;
-
-    color: var(--black);
-}
-
-.why-work-line {
-    width: 38px;
-    height: 3px;
-
-    margin-top: 10px;
-
-    border-radius: 10px;
-
-    background: var(--primary);
+.careers-why-work__heading {
+  margin-bottom: 24px;
 }
 
 
-/* =========================================================
-   BENEFITS LIST
-========================================================= */
+.careers-why-work__heading h2 {
+  margin: 0;
 
-.why-work-list {
-    width: 100%;
+  color: var(--black);
 
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+  font-size: 1.7rem;
+  font-weight: 750;
 
-    align-items: stretch;
+  line-height: 1.25;
+}
 
-    margin: 0;
-    padding: 0;
+
+.careers-why-work__line {
+  width: 40px;
+  height: 3px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: var(--primary);
 }
 
 
 /* =========================================================
-   INDIVIDUAL BENEFIT
+   BENEFITS GRID
 ========================================================= */
 
-.why-work-item {
-    min-width: 0;
+.careers-why-work__list {
+  width: 100%;
 
-    display: flex;
-    align-items: center;
+  display: grid;
 
-    gap: 16px;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
 
-    position: relative;
+  align-items: stretch;
 
-    /*
-       Equal vertical padding keeps
-       content vertically balanced.
-    */
-    padding: 12px 24px;
+  margin: 0;
 
-    transition:
-        transform 0.3s ease;
+  padding: 0;
 }
 
 
-/* First Item */
+/* =========================================================
+   BENEFIT ITEM
+========================================================= */
 
-.why-work-item:first-child {
-    padding-left: 0;
+.careers-why-work__item {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 14px 24px;
+
+  transition:
+    background-color var(--transition);
 }
 
 
-/* Last Item */
+/* FIRST ITEM */
 
-.why-work-item:last-child {
-    padding-right: 0;
+.careers-why-work__item:first-child {
+  padding-left: 0;
 }
 
 
-/* Vertical Separators */
+/* LAST ITEM */
 
-.why-work-item:not(:last-child)::after {
-    content: "";
-
-    position: absolute;
-
-    top: 8%;
-    right: 0;
-
-    width: 1px;
-    height: 84%;
-
-    background: #dddddd;
+.careers-why-work__item:last-child {
+  padding-right: 0;
 }
 
 
-/* Subtle Hover */
+/* =========================================================
+   DESKTOP SEPARATORS
+========================================================= */
 
-.why-work-item:hover {
-    transform: translateY(-3px);
+.careers-why-work__item:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 10%;
+  right: 0;
+
+  width: 1px;
+  height: 80%;
+
+  background: var(--border);
 }
 
 
@@ -139,28 +123,28 @@
    ICON
 ========================================================= */
 
-.why-work-icon {
-    flex: 0 0 48px;
+.careers-why-work__icon {
+  width: 48px;
+  height: 48px;
 
-    width: 48px;
-    height: 48px;
+  flex: 0 0 48px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
 
-    color: var(--primary);
+  align-items: center;
+  justify-content: center;
 
-    font-size: 2rem;
+  color: var(--primary);
 
-    transition:
-        transform 0.35s ease;
+  font-size: 2rem;
+
+  transition:
+    color var(--transition);
 }
 
-.why-work-item:hover .why-work-icon {
-    transform:
-        translateY(-3px)
-        scale(1.06);
+
+.careers-why-work__icon svg {
+  display: block;
 }
 
 
@@ -168,390 +152,540 @@
    CONTENT
 ========================================================= */
 
-.why-work-content {
-    min-width: 0;
+.careers-why-work__content {
+  min-width: 0;
 }
 
-.why-work-content h3 {
-    margin: 0 0 5px;
 
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.3;
+.careers-why-work__content h3 {
+  margin: 0 0 5px;
 
-    color: var(--black);
+  color: var(--black);
 
-    transition:
-        color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  transition:
+    color var(--transition);
 }
 
-.why-work-item:hover .why-work-content h3 {
-    color: var(--primary);
-}
 
-.why-work-content p {
-    margin: 0;
+.careers-why-work__content p {
+  width: 100%;
+  max-width: 185px;
 
-    max-width: 180px;
+  margin: 0;
 
-    font-size: 0.72rem;
-    line-height: 1.5;
+  color: var(--text);
 
-    color: var(--text);
+  font-size: 0.78rem;
+
+  line-height: 1.5;
 }
 
 
 /* =========================================================
-   1024PX
+   HOVER
+   NO TRANSLATE / SCALE / ROTATE
+========================================================= */
+
+@media (hover: hover) {
+
+  .careers-why-work__item:hover
+  .careers-why-work__content h3 {
+    color: #c89000;
+  }
+
+
+  .careers-why-work__item:hover
+  .careers-why-work__icon {
+    color: #c89000;
+  }
+
+}
+
+
+/* =========================================================
+   1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .careers-why-work__item {
+    gap: 12px;
+
+    padding:
+      14px
+      17px;
+  }
+
+
+  .careers-why-work__icon {
+    width: 44px;
+    height: 44px;
+
+    flex-basis: 44px;
+
+    font-size: 1.8rem;
+  }
+
+
+  .careers-why-work__content h3 {
+    font-size: 0.9rem;
+  }
+
+
+  .careers-why-work__content p {
+    font-size: 0.76rem;
+  }
+
+}
+
+
+/* =========================================================
+   1024px
 ========================================================= */
 
 @media (max-width: 1024px) {
 
-    .why-work-section {
-        padding: 34px 5% 38px;
-    }
+  .careers-why-work {
+    padding:
+      40px
+      0
+      44px;
+  }
 
-    .why-work-heading {
-        margin-bottom: 30px;
-    }
 
-    .why-work-heading h2 {
-        font-size: 1.5rem;
-    }
+  .careers-why-work__heading {
+    margin-bottom: 28px;
+  }
 
-    .why-work-line {
-        margin-top: 9px;
-    }
 
-    .why-work-item {
-        gap: 10px;
+  .careers-why-work__heading h2 {
+    font-size: 1.55rem;
+  }
 
-        padding: 11px 14px;
-    }
 
-    .why-work-item:first-child {
-        padding-left: 0;
-    }
+  .careers-why-work__list {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
 
-    .why-work-item:last-child {
-        padding-right: 0;
-    }
 
-    .why-work-icon {
-        flex: 0 0 40px;
+  .careers-why-work__item {
+    min-height: 100px;
 
-        width: 40px;
-        height: 40px;
+    padding: 16px 18px;
 
-        font-size: 1.65rem;
-    }
+    border-bottom:
+      1px solid
+      var(--border);
+  }
 
-    .why-work-content h3 {
-        font-size: 0.82rem;
-    }
 
-    .why-work-content p {
-        font-size: 0.65rem;
-        line-height: 1.5;
-    }
+  .careers-why-work__item:first-child {
+    padding-left: 18px;
+  }
+
+
+  .careers-why-work__item:last-child {
+    padding-right: 18px;
+  }
+
+
+  /* Remove desktop vertical separators */
+
+  .careers-why-work__item:not(:last-child)::after {
+    display: none;
+  }
+
+
+  /* Column separators */
+
+  .careers-why-work__item:not(:nth-child(3n)) {
+    border-right:
+      1px solid
+      var(--border);
+  }
+
+
+  .careers-why-work__item:nth-child(4),
+  .careers-why-work__item:nth-child(5) {
+    border-bottom: none;
+  }
+
+
+  .careers-why-work__icon {
+    width: 45px;
+    height: 45px;
+
+    flex-basis: 45px;
+
+    font-size: 1.8rem;
+  }
+
+
+  .careers-why-work__content h3 {
+    font-size: 0.9rem;
+  }
+
+
+  .careers-why-work__content p {
+    max-width: 190px;
+
+    font-size: 0.78rem;
+  }
 
 }
 
 
 /* =========================================================
-   768PX
+   768px
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    .why-work-section {
-        padding: 32px 5% 36px;
-    }
-
-    .why-work-heading {
-        text-align: center;
-
-        margin-bottom: 26px;
-    }
-
-    .why-work-heading h2 {
-        font-size: 1.4rem;
-    }
-
-    .why-work-line {
-        margin: 9px auto 0;
-    }
+  .careers-why-work {
+    padding:
+      38px
+      0
+      42px;
+  }
 
 
-    /* Two-column layout */
+  .careers-why-work__heading {
+    margin-bottom: 26px;
 
-    .why-work-list {
-        grid-template-columns: repeat(2, 1fr);
-
-        align-items: stretch;
-    }
-
-    .why-work-item {
-        min-height: 95px;
-
-        padding: 15px 18px;
-
-        gap: 14px;
-
-        border-bottom: 1px solid #eeeeee;
-    }
-
-    .why-work-item:first-child {
-        padding-left: 18px;
-    }
-
-    .why-work-item:last-child {
-        padding-right: 18px;
-    }
+    text-align: center;
+  }
 
 
-    /* Remove desktop separators */
-
-    .why-work-item:not(:last-child)::after {
-        display: none;
-    }
+  .careers-why-work__heading h2 {
+    font-size: 1.45rem;
+  }
 
 
-    /* Separator between columns */
+  .careers-why-work__line {
+    margin:
+      9px
+      auto
+      0;
+  }
 
-    .why-work-item:nth-child(odd) {
-        border-right: 1px solid #eeeeee;
-    }
+
+  .careers-why-work__list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
 
 
-    /*
-       There are 5 items, so the 5th item
-       remains on the final row.
-    */
+  .careers-why-work__item {
+    min-height: 100px;
 
-    .why-work-item:last-child {
-        border-bottom: none;
-    }
+    padding: 16px 18px;
 
-    .why-work-icon {
-        flex: 0 0 45px;
+    gap: 14px;
 
-        width: 45px;
-        height: 45px;
+    border-bottom:
+      1px solid
+      var(--border);
+  }
 
-        font-size: 1.8rem;
-    }
 
-    .why-work-content h3 {
-        font-size: 0.9rem;
-    }
+  .careers-why-work__item:nth-child(3n) {
+    border-right:
+      1px solid
+      var(--border);
+  }
 
-    .why-work-content p {
-        max-width: 190px;
 
-        font-size: 0.7rem;
-    }
+  .careers-why-work__item:nth-child(odd) {
+    border-right:
+      1px solid
+      var(--border);
+  }
+
+
+  .careers-why-work__item:nth-child(even) {
+    border-right: none;
+  }
+
+
+  .careers-why-work__item:nth-child(4) {
+    border-bottom:
+      1px solid
+      var(--border);
+  }
+
+
+  .careers-why-work__item:last-child {
+    border-right: none;
+
+    border-bottom: none;
+  }
+
+
+  .careers-why-work__content p {
+    max-width: 210px;
+
+    font-size: 0.78rem;
+  }
 
 }
 
 
 /* =========================================================
-   425PX
+   MOBILE - 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .careers-why-work {
+    padding:
+      35px
+      0
+      38px;
+  }
+
+
+  .careers-why-work__heading {
+    margin-bottom: 20px;
+
+    text-align: left;
+  }
+
+
+  .careers-why-work__heading h2 {
+    font-size: 1.35rem;
+  }
+
+
+  .careers-why-work__line {
+    width: 36px;
+
+    margin:
+      8px
+      0
+      0;
+  }
+
+
+  .careers-why-work__list {
+    grid-template-columns: 1fr;
+  }
+
+
+  .careers-why-work__item,
+  .careers-why-work__item:first-child,
+  .careers-why-work__item:last-child {
+    min-height: auto;
+
+    padding: 16px 8px;
+
+    gap: 15px;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      var(--border);
+  }
+
+
+  .careers-why-work__item:last-child {
+    border-bottom: none;
+  }
+
+
+  .careers-why-work__icon {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
+
+    font-size: 1.7rem;
+  }
+
+
+  .careers-why-work__content h3 {
+    margin-bottom: 4px;
+
+    font-size: 0.95rem;
+  }
+
+
+  .careers-why-work__content p {
+    max-width: 320px;
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+  }
+
+}
+
+
+/* =========================================================
+   425px
 ========================================================= */
 
 @media (max-width: 425px) {
 
-    .why-work-section {
-        padding: 30px 5% 34px;
-    }
-
-    .why-work-heading {
-        margin-bottom: 20px;
-
-        text-align: left;
-    }
-
-    .why-work-heading h2 {
-        font-size: 1.3rem;
-    }
-
-    .why-work-line {
-        width: 35px;
-        height: 3px;
-
-        margin: 8px 0 0;
-    }
+  .careers-why-work {
+    padding:
+      32px
+      0
+      36px;
+  }
 
 
-    /* Single-column layout */
+  .careers-why-work__heading h2 {
+    font-size: 1.3rem;
+  }
 
-    .why-work-list {
-        grid-template-columns: 1fr;
-    }
 
-    .why-work-item {
-        min-height: auto;
+  .careers-why-work__item,
+  .careers-why-work__item:first-child,
+  .careers-why-work__item:last-child {
+    padding:
+      15px
+      6px;
+  }
 
-        padding: 15px 8px;
 
-        gap: 15px;
+  .careers-why-work__icon {
+    width: 44px;
+    height: 44px;
 
-        border-right: none !important;
+    flex-basis: 44px;
 
-        border-bottom: 1px solid #eeeeee;
-    }
+    font-size: 1.6rem;
+  }
 
-    .why-work-item:first-child {
-        padding-left: 8px;
-    }
 
-    .why-work-item:last-child {
-        padding-right: 8px;
+  .careers-why-work__content h3 {
+    font-size: 0.92rem;
+  }
 
-        border-bottom: none;
-    }
 
-    .why-work-item:not(:last-child)::after {
-        display: none;
-    }
-
-    .why-work-icon {
-        flex: 0 0 46px;
-
-        width: 46px;
-        height: 46px;
-
-        font-size: 1.8rem;
-    }
-
-    .why-work-content h3 {
-        margin-bottom: 4px;
-
-        font-size: 0.9rem;
-    }
-
-    .why-work-content p {
-        max-width: 280px;
-
-        font-size: 0.72rem;
-        line-height: 1.5;
-    }
+  .careers-why-work__content p {
+    font-size: 0.82rem;
+  }
 
 }
 
 
 /* =========================================================
-   375PX
+   375px
 ========================================================= */
 
 @media (max-width: 375px) {
 
-    .why-work-section {
-        padding: 28px 5% 32px;
-    }
+  .careers-why-work__heading h2 {
+    font-size: 1.25rem;
+  }
 
-    .why-work-heading {
-        margin-bottom: 18px;
-    }
 
-    .why-work-heading h2 {
-        font-size: 1.2rem;
-    }
+  .careers-why-work__icon {
+    width: 42px;
+    height: 42px;
 
-    .why-work-item {
-        padding: 14px 7px;
+    flex-basis: 42px;
 
-        gap: 13px;
-    }
+    font-size: 1.5rem;
+  }
 
-    .why-work-item:first-child {
-        padding-left: 7px;
-    }
 
-    .why-work-item:last-child {
-        padding-right: 7px;
-    }
+  .careers-why-work__content h3 {
+    font-size: 0.9rem;
+  }
 
-    .why-work-icon {
-        flex: 0 0 43px;
 
-        width: 43px;
-        height: 43px;
-
-        font-size: 1.65rem;
-    }
-
-    .why-work-content h3 {
-        font-size: 0.85rem;
-    }
-
-    .why-work-content p {
-        font-size: 0.68rem;
-    }
+  .careers-why-work__content p {
+    font-size: 0.81rem;
+  }
 
 }
 
 
 /* =========================================================
-   320PX
+   VERY SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 320px) {
+@media (max-width: 340px) {
 
-    .why-work-section {
-        padding: 26px 4% 30px;
-    }
+  .careers-why-work {
+    padding:
+      30px
+      0
+      34px;
+  }
 
-    .why-work-heading {
-        margin-bottom: 16px;
-    }
 
-    .why-work-heading h2 {
-        font-size: 1.08rem;
-        line-height: 1.3;
-    }
+  .careers-why-work__heading {
+    margin-bottom: 18px;
+  }
 
-    .why-work-line {
-        width: 30px;
-        height: 3px;
 
-        margin-top: 7px;
-    }
+  .careers-why-work__heading h2 {
+    font-size: 1.18rem;
+  }
 
-    .why-work-item {
-        padding: 12px 6px;
 
-        gap: 11px;
-    }
+  .careers-why-work__line {
+    width: 32px;
+  }
 
-    .why-work-item:first-child {
-        padding-left: 6px;
-    }
 
-    .why-work-item:last-child {
-        padding-right: 6px;
-    }
+  .careers-why-work__item,
+  .careers-why-work__item:first-child,
+  .careers-why-work__item:last-child {
+    padding:
+      14px
+      5px;
 
-    .why-work-icon {
-        flex: 0 0 39px;
+    gap: 12px;
+  }
 
-        width: 39px;
-        height: 39px;
 
-        font-size: 1.45rem;
-    }
+  .careers-why-work__icon {
+    width: 40px;
+    height: 40px;
 
-    .why-work-content h3 {
-        margin-bottom: 3px;
+    flex-basis: 40px;
 
-        font-size: 0.8rem;
-    }
+    font-size: 1.4rem;
+  }
 
-    .why-work-content p {
-        max-width: 220px;
 
-        font-size: 0.64rem;
-        line-height: 1.45;
-    }
+  .careers-why-work__content h3 {
+    font-size: 0.88rem;
+  }
+
+
+  .careers-why-work__content p {
+    max-width: 240px;
+
+    font-size: 0.8rem;
+
+    line-height: 1.5;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .careers-why-work__item,
+  .careers-why-work__icon,
+  .careers-why-work__content h3 {
+    transition: none;
+  }
 
 }

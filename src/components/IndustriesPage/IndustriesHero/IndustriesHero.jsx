@@ -1,172 +1,178 @@
 import "./IndustriesHero.css";
 
-import { useEffect, useRef } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+} from "react";
+
 import { Link } from "react-router-dom";
 
 import gsap from "gsap";
-
-import IndustriesCanvas from "./IndustriesCanvas";
 
 import {
   industriesHeroBg,
 } from "../../../assets/images/Industries/hero";
 
-function IndustriesHero() {
+const IndustriesCanvas = lazy(
+  () => import("./IndustriesCanvas")
+);
 
+function IndustriesHero() {
   const heroRef = useRef(null);
 
   useEffect(() => {
+    if (!heroRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
 
     const ctx = gsap.context(() => {
+      const timeline = gsap.timeline();
 
-      const tl = gsap.timeline();
+      timeline
+        .from(
+          ".industries-page-hero__breadcrumb",
+          {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-      tl
+        .from(
+          ".industries-page-hero__title",
+          {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-      .from(".industries-breadcrumb", {
+        .from(
+          ".industries-page-hero__line",
+          {
+            opacity: 0,
+            duration: 0.35,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-        x: -40,
+        .from(
+          ".industries-page-hero__text",
+          {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.2"
+        )
 
-        opacity: 0,
-
-        duration: .6,
-
-        ease: "power3.out",
-
-      })
-
-      .from(".industries-title", {
-
-        y: 50,
-
-        opacity: 0,
-
-        duration: .8,
-
-        ease: "power3.out",
-
-      }, "-=.2")
-
-      .from(".industries-line", {
-
-        width: 0,
-
-        duration: .45,
-
-        ease: "power2.out",
-
-      })
-
-      .from(".industries-text", {
-
-        y: 30,
-
-        opacity: 0,
-
-        duration: .7,
-
-        ease: "power3.out",
-
-      }, "-=.2")
-
-      .from(".industries-right", {
-
-        x: 80,
-
-        opacity: 0,
-
-        duration: 1,
-
-        ease: "power3.out",
-
-      }, "-=.5");
-
+        .from(
+          ".industries-page-hero__visual",
+          {
+            opacity: 0,
+            duration: 0.65,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.35"
+        );
     }, heroRef);
 
     return () => ctx.revert();
-
   }, []);
 
   return (
-
     <section
-      className="industries-hero"
+      className="industries-page-hero"
       ref={heroRef}
+      aria-labelledby="industries-page-hero-title"
     >
+      <div className="industries-page-hero__container">
 
-      <div className="industries-container">
+        {/* CONTENT */}
+        <div className="industries-page-hero__content">
 
-        {/* ================= LEFT ================= */}
-
-        <div className="industries-left">
-
-          <div className="industries-breadcrumb">
-
+          <nav
+            className="industries-page-hero__breadcrumb"
+            aria-label="Breadcrumb"
+          >
             <Link to="/">
               Home
             </Link>
 
-            <span>›</span>
+            <span aria-hidden="true">
+              ›
+            </span>
 
-            <span>Industries</span>
+            <span aria-current="page">
+              Industries
+            </span>
+          </nav>
 
-          </div>
-
-          <h1 className="industries-title">
-
+          <h1
+            id="industries-page-hero-title"
+            className="industries-page-hero__title"
+          >
             Empowering
 
             <span>
               Industries Worldwide
             </span>
-
           </h1>
 
-          <div className="industries-line"></div>
+          <div
+            className="industries-page-hero__line"
+            aria-hidden="true"
+          />
 
-          <p className="industries-text">
-
-            We partner with organizations across
-            diverse industries to deliver innovative
-            engineering solutions that accelerate
-            digital transformation, improve operational
-            efficiency, and create sustainable
-            business value.
-
+          <p className="industries-page-hero__text">
+            We partner with organizations across diverse
+            industries to deliver innovative engineering
+            solutions that accelerate digital transformation,
+            improve operational efficiency, and create
+            sustainable business value.
           </p>
 
         </div>
 
-        {/* ================= RIGHT ================= */}
 
-        <div className="industries-right">
+        {/* VISUAL */}
+        <div className="industries-page-hero__visual">
 
           <img
             src={industriesHeroBg}
-            alt="Industries"
-            className="industries-bg"
+            alt="Digital engineering across global industries"
+            className="industries-page-hero__image"
           />
 
-          {/* White Gradient */}
+          <div
+            className="industries-page-hero__overlay"
+            aria-hidden="true"
+          />
 
-          <div className="industries-overlay"></div>
-
-          {/* Three.js Canvas */}
-
-          <div className="industries-canvas">
-
-            <IndustriesCanvas />
-
-          </div>
+          <Suspense fallback={null}>
+            <div className="industries-page-hero__canvas">
+              <IndustriesCanvas />
+            </div>
+          </Suspense>
 
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
 
 export default IndustriesHero;

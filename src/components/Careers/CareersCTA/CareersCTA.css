@@ -1,26 +1,13 @@
 /* =========================================================
-   CAREER CTA SECTION
+   CAREERS PAGE CTA
 ========================================================= */
 
-.career-cta-section {
+.careers-cta {
+  width: 100%;
 
-    width: 100%;
+  padding: 25px 0 40px;
 
-    padding: 20px 5% 35px;
-
-    background: #f7f8f9;
-
-}
-
-
-.career-cta-container {
-
-    width: 100%;
-
-    max-width: 1500px;
-
-    margin: 0 auto;
-
+  background: #f7f8f9;
 }
 
 
@@ -28,51 +15,36 @@
    CTA BOX
 ========================================================= */
 
-.career-cta-box {
+.careers-cta__box {
+  width: 100%;
 
-    width: 100%;
+  min-height: 115px;
 
-    min-height: 115px;
+  display: flex;
 
+  align-items: center;
+  justify-content: space-between;
 
-    display: flex;
+  gap: 30px;
 
-    align-items: center;
+  padding: 24px 34px;
 
-    justify-content: space-between;
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.2);
 
+  border-radius: var(--radius-md);
 
-    gap: 30px;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(253, 185, 19, 0.12),
+      rgba(255, 255, 255, 0.92)
+    );
 
-
-    padding: 24px 34px;
-
-
-    border: 1px solid
-        rgba(255, 177, 0, 0.18);
-
-    border-radius: 12px;
-
-
-    background:
-
-        linear-gradient(
-
-            110deg,
-
-            rgba(255, 177, 0, 0.12),
-
-            rgba(255, 255, 255, 0.9)
-
-        );
-
-
-    box-shadow:
-
-        0 8px 28px
-
-        rgba(0, 0, 0, 0.04);
-
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.04);
 }
 
 
@@ -80,14 +52,14 @@
    LEFT SIDE
 ========================================================= */
 
-.career-cta-left {
+.careers-cta__left {
+  min-width: 0;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 20px;
-
+  gap: 20px;
 }
 
 
@@ -95,100 +67,70 @@
    ICON
 ========================================================= */
 
-.career-cta-icon {
+.careers-cta__icon {
+  width: 58px;
+  height: 58px;
 
-    flex: 0 0 58px;
+  flex: 0 0 58px;
 
+  display: flex;
 
-    width: 58px;
+  align-items: center;
+  justify-content: center;
 
-    height: 58px;
+  border-radius: 50%;
 
+  background: var(--primary);
 
-    display: flex;
+  color: var(--black);
 
-    align-items: center;
+  font-size: 1.4rem;
 
-    justify-content: center;
+  box-shadow:
+    0 8px 18px
+    rgba(253, 185, 19, 0.22);
 
-
-    border-radius: 50%;
-
-
-    background: var(--primary);
-
-
-    color: var(--white);
-
-
-    font-size: 1.45rem;
-
-
-    box-shadow:
-
-        0 8px 18px
-
-        rgba(255, 177, 0, 0.22);
-
-
-    transition:
-
-        transform 0.35s ease;
-
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition);
 }
 
 
-.career-cta-box:hover
-.career-cta-icon {
-
-    transform:
-
-        translateY(-3px)
-
-        rotate(-8deg);
-
+.careers-cta__icon svg {
+  display: block;
 }
 
 
 /* =========================================================
-   TEXT
+   CONTENT
 ========================================================= */
 
-.career-cta-content h3 {
-
-    margin:
-
-        0
-
-        0
-
-        6px;
-
-
-    font-size: 1.15rem;
-
-    font-weight: 750;
-
-    line-height: 1.3;
-
-
-    color: var(--black);
-
+.careers-cta__content {
+  min-width: 0;
 }
 
 
-.career-cta-content p {
+.careers-cta__content h3 {
+  margin: 0 0 6px;
 
-    margin: 0;
+  color: var(--black);
+
+  font-size: 1.15rem;
+  font-weight: 750;
+
+  line-height: 1.3;
+}
 
 
-    font-size: 0.82rem;
+.careers-cta__content p {
+  margin: 0;
 
-    line-height: 1.6;
+  color: var(--text);
 
+  font-size: 0.84rem;
 
-    color: var(--text);
-
+  line-height: 1.6;
 }
 
 
@@ -196,528 +138,418 @@
    BUTTON
 ========================================================= */
 
-.career-cta-btn {
+.careers-cta__button {
+  flex-shrink: 0;
 
-    flex-shrink: 0;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 22px;
+
+  border:
+    1px solid
+    var(--primary);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--primary);
+
+  color: var(--black);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px
+    rgba(253, 185, 19, 0.18);
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition);
+}
 
 
-    display: inline-flex;
+.careers-cta__button svg {
+  flex-shrink: 0;
 
-    align-items: center;
-
-    justify-content: center;
-
-
-    gap: 12px;
+  font-size: 0.75rem;
+}
 
 
-    padding:
+/* =========================================================
+   HOVER
+   NO TRANSLATE / SCALE / ROTATE
+========================================================= */
 
-        14px
+@media (hover: hover) {
 
-        22px;
+  .careers-cta__box:hover
+  .careers-cta__icon {
+    background: var(--black);
 
-
-    border: none;
-
-    border-radius: 5px;
-
-
-    background: var(--primary);
-
-
-    color: var(--black);
-
-
-    font-size: 0.78rem;
-
-    font-weight: 750;
-
-    text-transform: uppercase;
-
-
-    cursor: pointer;
-
+    color: var(--primary);
 
     box-shadow:
-
-        0 7px 18px
-
-        rgba(255, 177, 0, 0.18);
-
-
-    transition:
-
-        transform 0.3s ease,
-
-        box-shadow 0.3s ease;
-
-}
+      0 10px 22px
+      rgba(0, 0, 0, 0.12);
+  }
 
 
-.career-cta-btn svg {
+  .careers-cta__button:hover {
+    border-color: var(--black);
 
-    font-size: 0.75rem;
+    background: var(--black);
 
-
-    transition:
-
-        transform 0.3s ease;
-
-}
-
-
-.career-cta-btn:hover {
-
-    transform:
-
-        translateY(-3px);
-
+    color: var(--primary);
 
     box-shadow:
-
-        0 11px 24px
-
-        rgba(255, 177, 0, 0.28);
-
-}
-
-
-.career-cta-btn:hover svg {
-
-    transform:
-
-        translateX(5px);
+      0 11px 24px
+      rgba(0, 0, 0, 0.14);
+  }
 
 }
 
 
 /* =========================================================
-   1024PX
+   1024px
 ========================================================= */
 
 @media (max-width: 1024px) {
 
-    .career-cta-section {
-
-        padding:
-
-            27px
-
-            5%
-
-            40px;
-
-    }
+  .careers-cta {
+    padding: 27px 0 40px;
+  }
 
 
-    .career-cta-box {
+  .careers-cta__box {
+    min-height: 105px;
 
-        min-height: 105px;
-
-
-        padding:
-
-            21px
-
-            27px;
-
-    }
+    padding: 21px 27px;
+  }
 
 
-    .career-cta-icon {
+  .careers-cta__icon {
+    width: 52px;
+    height: 52px;
 
-        flex-basis: 52px;
+    flex-basis: 52px;
 
-
-        width: 52px;
-
-        height: 52px;
-
-
-        font-size: 1.3rem;
-
-    }
+    font-size: 1.25rem;
+  }
 
 
-    .career-cta-content h3 {
-
-        font-size: 1.05rem;
-
-    }
+  .careers-cta__content h3 {
+    font-size: 1.05rem;
+  }
 
 
-    .career-cta-content p {
-
-        font-size: 0.76rem;
-
-    }
+  .careers-cta__content p {
+    font-size: 0.82rem;
+  }
 
 
-    .career-cta-btn {
+  .careers-cta__button {
+    padding: 13px 18px;
 
-        padding:
-
-            13px
-
-            18px;
-
-
-        font-size: 0.72rem;
-
-    }
+    font-size: 0.74rem;
+  }
 
 }
 
 
 /* =========================================================
-   768PX
+   768px
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    .career-cta-section {
-
-        padding:
-
-            25px
-
-            5%
-
-            36px;
-
-    }
+  .careers-cta {
+    padding: 25px 0 36px;
+  }
 
 
-    .career-cta-box {
+  .careers-cta__box {
+    gap: 22px;
 
-        padding:
-
-            22px
-
-            24px;
+    padding: 22px 24px;
+  }
 
 
-        gap: 22px;
-
-    }
-
-
-    .career-cta-left {
-
-        gap: 15px;
-
-    }
+  .careers-cta__left {
+    gap: 15px;
+  }
 
 
-    .career-cta-icon {
+  .careers-cta__icon {
+    width: 48px;
+    height: 48px;
 
-        flex-basis: 48px;
+    flex-basis: 48px;
 
-
-        width: 48px;
-
-        height: 48px;
-
-
-        font-size: 1.2rem;
-
-    }
+    font-size: 1.15rem;
+  }
 
 
-    .career-cta-content h3 {
-
-        font-size: 0.95rem;
-
-    }
+  .careers-cta__content h3 {
+    font-size: 0.98rem;
+  }
 
 
-    .career-cta-content p {
-
-        font-size: 0.7rem;
-
-    }
+  .careers-cta__content p {
+    font-size: 0.8rem;
+  }
 
 
-    .career-cta-btn {
+  .careers-cta__button {
+    padding: 12px 16px;
 
-        padding:
-
-            12px
-
-            16px;
-
-
-        font-size: 0.67rem;
-
-    }
+    font-size: 0.72rem;
+  }
 
 }
 
 
 /* =========================================================
-   425PX
+   MOBILE - 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .careers-cta {
+    padding: 24px 0 34px;
+  }
+
+
+  .careers-cta__box {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+
+    min-height: auto;
+
+    padding: 23px 20px;
+  }
+
+
+  .careers-cta__left {
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+
+  .careers-cta__icon {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
+
+    font-size: 1.1rem;
+  }
+
+
+  .careers-cta__content h3 {
+    margin-bottom: 5px;
+
+    font-size: 0.95rem;
+  }
+
+
+  .careers-cta__content p {
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+  }
+
+
+  .careers-cta__button {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    font-size: 0.72rem;
+  }
+
+}
+
+
+/* =========================================================
+   425px
 ========================================================= */
 
 @media (max-width: 425px) {
 
-    .career-cta-section {
-
-        padding:
-
-            22px
-
-            5%
-
-            32px;
-
-    }
+  .careers-cta {
+    padding: 22px 0 32px;
+  }
 
 
-    .career-cta-box {
+  .careers-cta__box {
+    padding: 22px 18px;
 
-        min-height: auto;
-
-
-        flex-direction: column;
-
-        align-items: flex-start;
+    border-radius: 10px;
+  }
 
 
-        gap: 20px;
+  .careers-cta__left {
+    gap: 13px;
+  }
 
 
-        padding:
+  .careers-cta__icon {
+    width: 44px;
+    height: 44px;
 
-            23px
+    flex-basis: 44px;
 
-            20px;
-
-    }
-
-
-    .career-cta-left {
-
-        align-items: flex-start;
-
-        gap: 14px;
-
-    }
+    font-size: 1.05rem;
+  }
 
 
-    .career-cta-icon {
-
-        flex: 0 0 45px;
-
-
-        width: 45px;
-
-        height: 45px;
+  .careers-cta__content h3 {
+    font-size: 0.92rem;
+  }
 
 
-        font-size: 1.1rem;
-
-    }
-
-
-    .career-cta-content h3 {
-
-        margin-bottom: 5px;
+  .careers-cta__content p {
+    font-size: 0.82rem;
+  }
 
 
-        font-size: 0.9rem;
-
-    }
-
-
-    .career-cta-content p {
-
-        font-size: 0.68rem;
-
-        line-height: 1.55;
-
-    }
-
-
-    .career-cta-btn {
-
-        width: 100%;
-
-
-        padding:
-
-            12px
-
-            16px;
-
-
-        font-size: 0.68rem;
-
-    }
+  .careers-cta__button {
+    font-size: 0.7rem;
+  }
 
 }
 
 
 /* =========================================================
-   375PX
+   375px
 ========================================================= */
 
 @media (max-width: 375px) {
 
-    .career-cta-section {
-
-        padding:
-
-            20px
-
-            5%
-
-            30px;
-
-    }
+  .careers-cta {
+    padding: 20px 0 30px;
+  }
 
 
-    .career-cta-box {
-
-        padding:
-
-            21px
-
-            18px;
-
-    }
+  .careers-cta__box {
+    padding: 21px 17px;
+  }
 
 
-    .career-cta-left {
-
-        gap: 12px;
-
-    }
+  .careers-cta__left {
+    gap: 12px;
+  }
 
 
-    .career-cta-icon {
+  .careers-cta__icon {
+    width: 42px;
+    height: 42px;
 
-        flex-basis: 42px;
+    flex-basis: 42px;
 
-
-        width: 42px;
-
-        height: 42px;
-
-
-        font-size: 1rem;
-
-    }
+    font-size: 1rem;
+  }
 
 
-    .career-cta-content h3 {
-
-        font-size: 0.84rem;
-
-    }
+  .careers-cta__content h3 {
+    font-size: 0.9rem;
+  }
 
 
-    .career-cta-content p {
-
-        font-size: 0.64rem;
-
-    }
+  .careers-cta__content p {
+    font-size: 0.81rem;
+  }
 
 
-    .career-cta-btn {
-
-        font-size: 0.65rem;
-
-    }
+  .careers-cta__button {
+    font-size: 0.69rem;
+  }
 
 }
 
 
 /* =========================================================
-   320PX
+   VERY SMALL MOBILE - 340px
 ========================================================= */
 
-@media (max-width: 320px) {
+@media (max-width: 340px) {
 
-    .career-cta-section {
-
-        padding:
-
-            18px
-
-            4%
-
-            27px;
-
-    }
+  .careers-cta {
+    padding: 18px 0 28px;
+  }
 
 
-    .career-cta-box {
+  .careers-cta__box {
+    gap: 17px;
 
-        gap: 17px;
+    padding: 19px 15px;
 
-
-        padding:
-
-            19px
-
-            15px;
+    border-radius: 9px;
+  }
 
 
-        border-radius: 9px;
-
-    }
-
-
-    .career-cta-left {
-
-        gap: 10px;
-
-    }
+  .careers-cta__left {
+    gap: 10px;
+  }
 
 
-    .career-cta-icon {
+  .careers-cta__icon {
+    width: 40px;
+    height: 40px;
 
-        flex-basis: 38px;
+    flex-basis: 40px;
 
-
-        width: 38px;
-
-        height: 38px;
-
-
-        font-size: 0.9rem;
-
-    }
+    font-size: 0.95rem;
+  }
 
 
-    .career-cta-content h3 {
-
-        font-size: 0.78rem;
-
-    }
+  .careers-cta__content h3 {
+    font-size: 0.88rem;
+  }
 
 
-    .career-cta-content p {
+  .careers-cta__content p {
+    font-size: 0.8rem;
 
-        font-size: 0.6rem;
-
-        line-height: 1.5;
-
-    }
+    line-height: 1.5;
+  }
 
 
-    .career-cta-btn {
+  .careers-cta__button {
+    padding: 12px 13px;
 
-        padding:
+    font-size: 0.68rem;
+  }
 
-            11px
-
-            13px;
+}
 
 
-        font-size: 0.61rem;
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-    }
+@media (prefers-reduced-motion: reduce) {
+
+  .careers-cta__icon,
+  .careers-cta__button {
+    transition: none;
+  }
 
 }

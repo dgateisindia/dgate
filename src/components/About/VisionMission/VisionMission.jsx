@@ -1,154 +1,104 @@
 import "./VisionMission.css";
 
-import { useEffect, useRef } from "react";
+import {
+  FaBullseye,
+  FaEye,
+  FaGem,
+} from "react-icons/fa";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { FaEye } from "react-icons/fa";
-import { GiArcheryTarget } from "react-icons/gi";
+const items = [
+  {
+    id: "mission",
+    Icon: FaBullseye,
+    title: "Our Mission",
+    text:
+      "To build impactful brands, high-performing websites, and result-driven digital marketing solutions that help businesses grow with clarity, consistency, and measurable success.",
+  },
 
-gsap.registerPlugin(ScrollTrigger);
+  {
+    id: "vision",
+    Icon: FaEye,
+    title: "Our Vision",
+    text:
+      "To become a trusted digital growth partner, uniting branding, technology, and marketing to help businesses stand out and scale globally.",
+  },
+
+  {
+    id: "values",
+    Icon: FaGem,
+    title: "Our Values",
+    text:
+      "We believe in strategic thinking, transparency, and collaboration — aligning branding, web, and marketing efforts with real business goals and long-term value.",
+  },
+];
+
 
 function VisionMission() {
 
-    const sectionRef = useRef(null);
+  return (
+    <section
+      className="about-principles"
+      aria-labelledby="about-principles-title"
+    >
 
-    useEffect(() => {
+      <div className="container">
 
-        const ctx = gsap.context(() => {
+        <div className="about-principles__heading">
 
-            gsap.from(".vm-title", {
-                y: 35,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 75%",
-                    once: true,
-                },
-            });
+          <span>
+            WHAT DRIVES DGATE
+          </span>
 
-            gsap.from(".vision-card", {
-                x: -60,
-                opacity: 0,
-                duration: 0.9,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".vm-cards",
-                    start: "top 80%",
-                    once: true,
-                },
-            });
+          <h2 id="about-principles-title">
+            Mission Vision
+            <strong>
+              {" "}Values
+            </strong>
+          </h2>
 
-            gsap.from(".mission-card", {
-                x: 60,
-                opacity: 0,
-                duration: 0.9,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".vm-cards",
-                    start: "top 80%",
-                    once: true,
-                },
-            });
+        </div>
 
-        }, sectionRef);
 
-        return () => ctx.revert();
+        <div className="about-principles__grid">
 
-    }, []);
+          {items.map((item) => {
 
-    return (
+            const Icon = item.Icon;
 
-        <section
-            className="vision-mission"
-            ref={sectionRef}
-        >
+            return (
+              <article
+                className="about-principles__card"
+                key={item.id}
+              >
 
-            <div className="vm-container">
-
-                <div className="vm-wrapper">
-
-                    {/* Heading */}
-
-                    <div className="vm-title">
-
-                        <h2>
-                            OUR VISION & MISSION
-                        </h2>
-
-                        <div className="vm-line"></div>
-
-                    </div>
-
-                    {/* Cards */}
-
-                    <div className="vm-cards">
-
-                        {/* Vision */}
-
-                        <div className="vm-card vision-card">
-
-                            <div className="vm-icon">
-                                <FaEye />
-                            </div>
-
-                            <div className="vm-content">
-
-                                <h3>
-                                    OUR VISION
-                                </h3>
-
-                                <p>
-                                    To be a global leader in engineering
-                                    services, delivering innovative and
-                                    sustainable solutions that create
-                                    lasting value for clients and
-                                    communities.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        {/* Mission */}
-
-                        <div className="vm-card mission-card">
-
-                            <div className="vm-icon">
-                                <GiArcheryTarget />
-                            </div>
-
-                            <div className="vm-content">
-
-                                <h3>
-                                    OUR MISSION
-                                </h3>
-
-                                <p>
-                                    To deliver exceptional engineering
-                                    solutions through innovation,
-                                    collaboration and commitment to
-                                    excellence while accelerating digital
-                                    transformation.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <div
+                  className="about-principles__icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
                 </div>
 
-            </div>
+                <h3>
+                  {item.title}
+                </h3>
 
-        </section>
+                <p>
+                  {item.text}
+                </p>
 
-    );
+              </article>
+            );
 
+          })}
+
+        </div>
+
+      </div>
+
+    </section>
+  );
 }
+
 
 export default VisionMission;

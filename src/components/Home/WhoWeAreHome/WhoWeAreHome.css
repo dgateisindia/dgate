@@ -1,0 +1,325 @@
+/* =========================================================
+   HOME - WHO WE ARE
+========================================================= */
+
+.home-about-intro {
+  width: 100%;
+
+  padding:
+    80px
+    0;
+
+  background: var(--white);
+}
+
+
+.home-about-intro__grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: 75px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.home-about-intro__eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+
+.home-about-intro__heading h2 {
+  margin: 0;
+
+  color: var(--black);
+
+  font-size:
+    clamp(
+      2.2rem,
+      3.4vw,
+      3.5rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.13;
+
+  letter-spacing: -1px;
+}
+
+
+.home-about-intro__heading h2 span {
+  color: var(--primary);
+}
+
+
+.home-about-intro__line {
+  width: 52px;
+  height: 3px;
+
+  margin-top: 20px;
+
+  border-radius: 5px;
+
+  background: var(--primary);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.home-about-intro__content > p {
+  max-width: 720px;
+
+  margin:
+    0
+    0
+    13px;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+
+  line-height: 1.75;
+}
+
+
+.home-about-intro__content
+.home-about-intro__lead {
+  color: var(--black);
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.home-about-intro__capabilities {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+
+.home-about-intro__capability {
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding:
+    0
+    16px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--section);
+}
+
+
+.home-about-intro__capability svg {
+  flex-shrink: 0;
+
+  color: var(--primary);
+
+  font-size: 1rem;
+}
+
+
+.home-about-intro__capability span {
+  color: var(--black);
+
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.home-about-intro__bottom {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 28px;
+}
+
+
+.home-about-intro__stat {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.home-about-intro__stat strong {
+  color: var(--primary);
+
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+
+.home-about-intro__stat span {
+  margin-top: 2px;
+
+  color: var(--text);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.home-about-intro__button {
+  min-height: 46px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-left: auto;
+
+  padding:
+    0
+    20px;
+
+  border:
+    1px solid
+    var(--primary);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--primary);
+
+  color: var(--black);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+
+.home-about-intro__button:hover {
+  border-color: var(--black);
+
+  background: var(--black);
+
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-about-intro__grid {
+    gap: 45px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .home-about-intro {
+    padding:
+      60px
+      0;
+  }
+
+
+  .home-about-intro__grid {
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .home-about-intro__bottom {
+    flex-wrap: wrap;
+  }
+
+
+  .home-about-intro__button {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+}
+
+
+@media (max-width: 425px) {
+
+  .home-about-intro {
+    padding:
+      48px
+      0;
+  }
+
+
+  .home-about-intro__heading h2 {
+    font-size: 1.9rem;
+  }
+
+
+  .home-about-intro__capabilities {
+    grid-template-columns: 1fr;
+  }
+
+}

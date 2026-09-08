@@ -1,429 +1,251 @@
-.about-stats{
+/* =========================================================
+   ABOUT STATS
+========================================================= */
 
-    position:relative;
+.about-stats {
+  position: relative;
 
-    z-index:20;
+  z-index: 20;
 
-    background:transparent;
+  width: 100%;
 
-    margin-top:-55px;
+  margin-top: -55px;
 
-    margin-bottom:0;
+  padding-bottom: 55px;
 
-    padding:0 5% 55px;
-
+  background: transparent;
 }
 
-.about-stats-container{
 
-    max-width:1320px;
+/* GRID */
 
-    margin:0 auto;
+.about-stats__grid {
+  display: grid;
 
-    display:grid;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
 
-    grid-template-columns:repeat(5,1fr);
+  overflow: hidden;
 
-    background:var(--white);
+  border-radius: var(--radius-lg);
 
-    border-radius:var(--radius-lg);
+  background: var(--white);
 
-    overflow:hidden;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.08),
+    0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+/* CARD */
+
+.about-stats__card {
+  min-width: 0;
+  min-height: 155px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 26px 18px;
+
+  border-right:
+    1px solid var(--border);
+
+  transition:
+    transform var(--transition),
+    background-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.about-stats__card:last-child {
+  border-right: 0;
+}
+
+
+/* ICON */
+
+.about-stats__icon {
+  width: 66px;
+  height: 66px;
+
+  flex: 0 0 66px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+
+  color: var(--black);
+
+  font-size: 1.65rem;
+
+  transition:
+    transform var(--transition),
+    background-color var(--transition);
+}
+
+
+/* INFO */
+
+.about-stats__info {
+  min-width: 0;
+}
+
+
+.about-stats__counter {
+  margin: 0 0 7px;
+
+  color: var(--black);
+
+  font-size:
+    clamp(1.8rem, 2.5vw, 2.5rem);
+
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+
+.about-stats__info p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 0.88rem;
+
+  line-height: 1.5;
+}
+
+
+/* HOVER */
+
+@media (hover: hover) {
+
+  .about-stats__card:hover {
+    background: #fcfcfc;
+
+    transform: translateY(-6px);
 
     box-shadow:
-        0 18px 45px rgba(0,0,0,.08),
-        0 3px 10px rgba(0,0,0,.05);
+      inset 0 4px 0 var(--primary);
+  }
 
-}
+  .about-stats__card:hover
+  .about-stats__icon {
+    background: var(--primary);
 
-.about-stat-card{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    min-height:155px;
-
-    padding:28px 20px;
-
-    border-right:1px solid var(--border);
-
-    transition:var(--transition);
-
-}
-
-.about-stat-card:last-child{
-
-    border-right:none;
-
-}
-
-.about-stat-card:hover{
-
-    background:#fcfcfc;
-
-    transform:translateY(-8px);
-
-    box-shadow:inset 0 4px 0 var(--primary);
-
-}
-
-.about-stat-icon{
-
-    width:72px;
-
-    height:72px;
-
-    flex-shrink:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border:2px solid var(--primary);
-
-    border-radius:50%;
-
-    color:var(--black);
-
-    font-size:1.8rem;
-
-    transition:var(--transition);
-
-}
-
-.about-stat-card:hover .about-stat-icon{
-
-    background:var(--primary);
-
-    color:var(--black);
-
-    transform:scale(1.08);
-
-}
-
-.about-stat-info h3{
-
-    margin:0 0 8px;
-
-    color:var(--black);
-
-    font-size:2.6rem;
-
-    font-weight:800;
-
-    line-height:1;
-
-}
-
-.about-stat-info p{
-
-    margin:0;
-
-    color:var(--text);
-
-    font-size:.95rem;
-
-    line-height:1.55;
+    transform: scale(1.07);
+  }
 
 }
 
 
-.vm-card{
+/* =========================================================
+   1024px
+========================================================= */
 
-    position:relative;
+@media (max-width: 1024px) {
 
-    overflow:hidden;
+  .about-stats {
+    margin-top: -40px;
 
-}
+    padding-bottom: 45px;
+  }
 
-.vm-card::before{
+  .about-stats__grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
 
-    content:"";
+  .about-stats__card {
+    min-height: 135px;
 
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:6px;
-
-    height:100%;
-
-    background:var(--primary);
-
-    border-radius:6px 0 0 6px;
+    border-bottom:
+      1px solid var(--border);
+  }
 
 }
 
-/* ==================== 1024px ====================== */
 
-@media(max-width:1024px){
+/* =========================================================
+   768px
+========================================================= */
 
-.about-stats{
+@media (max-width: 768px) {
 
-    margin-top:-45px;
+  .about-stats {
+    margin-top: -30px;
 
-    padding:0 4% 40px;
+    padding-bottom: 40px;
+  }
 
-}
+  .about-stats__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
 
-.about-stats-container{
-
-    grid-template-columns:repeat(3,1fr);
-
-}
-
-.about-stat-card{
-
-    min-height:145px;
-
-    padding:24px 18px;
-
-    border-right:1px solid var(--border);
-
-    border-bottom:1px solid var(--border);
+  .about-stats__card {
+    min-height: 125px;
+  }
 
 }
 
-.about-stat-card:nth-child(3){
 
-    border-right:none;
+/* =========================================================
+   MOBILE
+========================================================= */
 
-}
+@media (max-width: 480px) {
 
-.about-stat-card:nth-child(4),
-.about-stat-card:nth-child(5){
+  .about-stats {
+    margin-top: -20px;
 
-    border-bottom:none;
+    padding-bottom: 35px;
+  }
 
-}
+  .about-stats__grid {
+    grid-template-columns: 1fr;
+  }
 
-.about-stat-card:last-child{
+  .about-stats__card {
+    min-height: 100px;
 
-    border-right:none;
+    gap: 15px;
 
-}
+    padding: 18px;
 
-.about-stat-icon{
+    border-right: 0;
 
-    width:66px;
+    border-bottom:
+      1px solid var(--border);
+  }
 
-    height:66px;
+  .about-stats__card:last-child {
+    border-bottom: 0;
+  }
 
-    font-size:1.6rem;
+  .about-stats__icon {
+    width: 54px;
+    height: 54px;
 
-}
+    flex-basis: 54px;
 
-.about-stat-info h3{
+    font-size: 1.3rem;
+  }
 
-    font-size:2.2rem;
+  .about-stats__counter {
+    font-size: 1.7rem;
+  }
 
-}
-
-.about-stat-info p{
-
-    font-size:.9rem;
-
-}
-
-}
-
-/* ===================== 768px ====================== */
-
-@media(max-width:768px){
-
-.about-stats{
-
-    margin-top:-35px;
-
-    padding:0 4% 40px;
-
-}
-
-.about-stats-container{
-
-    grid-template-columns:repeat(2,1fr);
-
-}
-
-.about-stat-card{
-
-    min-height:130px;
-
-    padding:22px 18px;
-
-}
-
-.about-stat-icon{
-
-    width:60px;
-
-    height:60px;
-
-    font-size:1.5rem;
-
-}
-
-.about-stat-info h3{
-
-    font-size:2rem;
-
-}
-
-.about-stat-info p{
-
-    font-size:.9rem;
-
-}
-
-}
-
-/* ===================== 425px ====================== */
-
-@media(max-width:425px){
-
-.about-stats{
-
-    margin-top:-20px;
-
-    padding:0 4% 40px;
-
-}
-
-.about-stats-container{
-
-    grid-template-columns:1fr;
-
-}
-
-.about-stat-card{
-
-    min-height:105px;
-
-    padding:18px;
-
-    border-right:none;
-
-    border-bottom:1px solid var(--border);
-
-}
-
-.about-stat-card:last-child{
-
-    border-bottom:none;
-
-}
-
-.about-stat-icon{
-
-    width:54px;
-
-    height:54px;
-
-    font-size:1.3rem;
-
-}
-
-.about-stat-info h3{
-
-    font-size:1.7rem;
-
-}
-
-.about-stat-info p{
-
-    font-size:.86rem;
-
-}
-
-}
-
-/* ===================== 375px ====================== */
-
-@media(max-width:375px){
-
-.about-stats{
-
-    padding:0 3.5% 30px;
-
-}
-
-.about-stat-card{
-
-    padding:16px;
-
-    gap:13px;
-
-}
-
-.about-stat-icon{
-
-    width:50px;
-
-    height:50px;
-
-    font-size:1.2rem;
-
-}
-
-.about-stat-info h3{
-
-    font-size:1.55rem;
-
-}
-
-.about-stat-info p{
-
-    font-size:.82rem;
-
-}
-
-}
-
-/* ===================== 320px ====================== */
-
-@media(max-width:320px){
-
-.about-stats{
-
-    padding:0 3% 20px;
-
-}
-
-.about-stat-card{
-
-    gap:14px;
-
-    padding:15px;
-
-}
-
-.about-stat-icon{
-
-    width:46px;
-
-    height:46px;
-
-    font-size:1.1rem;
-
-}
-
-.about-stat-info h3{
-
-    font-size:1.35rem;
-
-}
-
-.about-stat-info p{
-
-    font-size:.75rem;
-
-}
+  .about-stats__info p {
+    font-size: 0.85rem;
+  }
 
 }

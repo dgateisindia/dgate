@@ -1,6 +1,9 @@
 import "./LatestArticles.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +12,7 @@ import {
   FaCalendarAlt,
   FaClock,
 } from "react-icons/fa";
+
 
 /* =========================================================
    IMAGES
@@ -33,82 +37,55 @@ gsap.registerPlugin(ScrollTrigger);
 ========================================================= */
 
 const articles = [
-
   {
-    id: 1,
-
+    id: "cloud-engineering",
     image: cloudEngineering,
-
     category: "Cloud & DevOps",
-
     title:
       "Cloud Engineering Best Practices for Scalable Applications",
-
     date: "April 28, 2024",
-
     readTime: "5 min read",
   },
 
   {
-    id: 2,
-
+    id: "cyber-security",
     image: cyberSecurity,
-
     category: "Cyber Security",
-
     title:
       "Cybersecurity in the Digital Era: Challenges & Opportunities",
-
     date: "April 20, 2024",
-
     readTime: "4 min read",
   },
 
   {
-    id: 3,
-
+    id: "sustainable-engineering",
     image: sustainableEngineering,
-
     category: "Sustainability",
-
     title:
       "Sustainable Engineering: Building a Greener Tomorrow",
-
     date: "April 15, 2024",
-
     readTime: "6 min read",
   },
 
   {
-    id: 4,
-
+    id: "data-analytics",
     image: dataAnalytics,
-
     category: "Data & Analytics",
-
     title:
       "Data Analytics Driving Smarter Business Decisions",
-
     date: "April 10, 2024",
-
     readTime: "5 min read",
   },
 
   {
-    id: 5,
-
+    id: "automation-manufacturing",
     image: automationManufacturing,
-
     category: "Engineering Trends",
-
     title:
       "The Future of Automation in Manufacturing",
-
     date: "April 5, 2024",
-
     readTime: "4 min read",
   },
-
 ];
 
 
@@ -117,189 +94,150 @@ const articles = [
 ========================================================= */
 
 function LatestArticles() {
-
   const sectionRef = useRef(null);
 
 
-  /* =======================================================
-     GSAP SCROLL ANIMATION
-  ======================================================= */
-
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
 
     const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 86%",
+          once: true,
+        },
+      });
 
-      /* Heading */
 
-      gsap.from(
-        ".latest-heading-group",
-        {
-          y: 25,
+      /* ===============================================
+         FADE ONLY
+         NO X / Y / SCALE / ROTATE
+      =============================================== */
 
-          opacity: 0,
+      timeline
+        .from(
+          ".insights-latest__heading",
+          {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        )
 
-          duration: 0.65,
-
-          ease: "power3.out",
-
-          scrollTrigger: {
-
-            trigger: sectionRef.current,
-
-            start: "top 88%",
-
-            once: true,
-
+        .from(
+          ".insights-latest__card",
+          {
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "opacity",
           },
-        }
-      );
-
-
-      /* Article Cards */
-
-      gsap.from(
-        ".latest-article-card",
-        {
-          y: 35,
-
-          opacity: 0,
-
-          duration: 0.7,
-
-          stagger: 0.1,
-
-          ease: "power3.out",
-
-          scrollTrigger: {
-
-            trigger: ".latest-articles-grid",
-
-            start: "top 88%",
-
-            once: true,
-
-          },
-        }
-      );
+          "-=0.15"
+        );
 
     }, sectionRef);
 
 
-    return () => {
-
-      ctx.revert();
-
-    };
+    return () => ctx.revert();
 
   }, []);
 
 
   return (
-
     <section
-      className="latest-articles-section"
+      className="insights-latest"
       ref={sectionRef}
+      aria-labelledby="insights-latest-title"
     >
+      <div className="container">
 
-      <div className="latest-articles-container">
 
-
-        {/* =================================================
+        {/* ==========================================
             HEADING
-        ================================================= */}
+        ========================================== */}
 
-        <div className="latest-articles-header">
+        <div className="insights-latest__header">
 
-          <div className="latest-heading-group">
+          <div className="insights-latest__heading">
 
-            <h2>
+            <h2 id="insights-latest-title">
               Latest Articles
             </h2>
 
-            <div className="latest-heading-line" />
+
+            <div
+              className="insights-latest__line"
+              aria-hidden="true"
+            />
 
           </div>
 
         </div>
 
 
-        {/* =================================================
+        {/* ==========================================
             ARTICLES GRID
-        ================================================= */}
+        ========================================== */}
 
-        <div className="latest-articles-grid">
+        <div className="insights-latest__grid">
 
           {articles.map((article) => (
 
             <article
-              className="latest-article-card"
+              className="insights-latest__card"
               key={article.id}
             >
 
 
-              {/* ===========================================
-                  IMAGE
-              =========================================== */}
+              {/* IMAGE */}
 
-              <div className="latest-article-image-wrapper">
+              <div className="insights-latest__image-wrapper">
 
                 <img
-
                   src={article.image}
-
                   alt={article.title}
-
-                  className="latest-article-image"
-
+                  className="insights-latest__image"
+                  loading="lazy"
                 />
 
               </div>
 
 
-              {/* ===========================================
-                  CONTENT
-              =========================================== */}
+              {/* CONTENT */}
 
-              <div className="latest-article-content">
+              <div className="insights-latest__content">
 
-
-                {/* CATEGORY */}
-
-                <span className="latest-article-category">
-
+                <span className="insights-latest__category">
                   {article.category}
-
                 </span>
 
 
-                {/* TITLE */}
-
                 <h3>
-
                   {article.title}
-
                 </h3>
 
 
-                {/* META */}
-
-                <div className="latest-article-meta">
+                <div className="insights-latest__meta">
 
                   <span>
-
-                    <FaCalendarAlt />
-
+                    <FaCalendarAlt aria-hidden="true" />
                     {article.date}
-
                   </span>
 
 
                   <span>
-
-                    <FaClock />
-
+                    <FaClock aria-hidden="true" />
                     {article.readTime}
-
                   </span>
 
                 </div>
@@ -313,11 +251,9 @@ function LatestArticles() {
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
+
 
 export default LatestArticles;
