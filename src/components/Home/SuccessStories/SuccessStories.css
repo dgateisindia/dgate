@@ -44,12 +44,8 @@
     "Oswald",
     sans-serif;
 
-  font-size:
-    clamp(
-      3.8rem,
-      7.1vw,
-      7.2rem
-    );
+  font-size: 55px;
+    
 
   font-weight: 700;
 
@@ -59,7 +55,7 @@
 
   text-align: center;
 
-  text-transform: uppercase;
+  
 
   white-space: nowrap;
 }
@@ -87,18 +83,6 @@
    DECORATIVE LINE
 ========================================================= */
 
-.home-success__decorative-line {
-  position: relative;
-
-  width: 138px;
-  height: 10px;
-
-  flex: 0 0 138px;
-
-  display: flex;
-
-  align-items: center;
-}
 
 
 .home-success__decorative-line::before {

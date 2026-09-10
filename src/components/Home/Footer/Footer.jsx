@@ -69,23 +69,23 @@ const companyLinks = [
 const solutionLinks = [
   {
     label: "Brand Strategy & Identity",
-    to: "/portfolio",
+    to: "/BrandingDesign.jsx",
   },
   {
     label: "Website & App Development",
-    to: "/blog",
+    to: "/TechStackWeb.jsx",
   },
   {
     label: "E-Commerce Solutions",
-    to: "/achievements",
+    to: "/DevelopmentEcommerce.jsx",
   },
   {
     label: "Performance Marketing",
-    to: "/gallery",
+    to: "/DataAnalyticsPerformance.jsx",
   },
   {
     label: "AI Automations",
-    to: "/gallery",
+    to: "/SmartAIBusinessAutomation.jsx",
   },
 ];
 

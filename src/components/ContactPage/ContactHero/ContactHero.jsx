@@ -5,7 +5,9 @@ import {
   useRef,
 } from "react";
 
-import { Link } from "react-router-dom";
+import {
+  Link,
+} from "react-router-dom";
 
 import gsap from "gsap";
 
@@ -26,49 +28,56 @@ const features = [
   {
     id: "quick-response",
     title: "Quick Response",
-    description: "We get back to you within 24 hours",
+    description: "We respond to your enquiry within 24 hours.",
     Icon: FaHeadset,
   },
+
   {
     id: "expert-guidance",
     title: "Expert Guidance",
-    description: "Connect with our technology experts",
+    description: "Connect directly with our digital specialists.",
     Icon: FaUsers,
   },
+
   {
     id: "secure-confidential",
     title: "Secure & Confidential",
-    description: "Your information is safe with us",
+    description: "Your business information stays protected.",
     Icon: FaShieldAlt,
   },
 ];
 
-
-/* =========================================================
-   COMPONENT
-========================================================= */
 
 function ContactHero() {
   const heroRef = useRef(null);
 
 
   /* =========================================================
-     HERO ENTRANCE
-     FADE ONLY
+     HERO ENTRANCE ANIMATION
   ========================================================= */
 
   useEffect(() => {
-    if (!heroRef.current) return;
+    if (!heroRef.current) return undefined;
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
 
-    if (reduceMotion) return;
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    if (reduceMotion) {
+      return undefined;
+    }
 
 
     const ctx = gsap.context(() => {
-      const timeline = gsap.timeline();
+
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
 
 
       timeline
@@ -76,9 +85,8 @@ function ContactHero() {
           ".contact-page-hero__breadcrumb",
           {
             opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 12,
+            duration: 0.45,
           }
         )
 
@@ -86,62 +94,59 @@ function ContactHero() {
           ".contact-page-hero__title",
           {
             opacity: 0,
-            duration: 0.55,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 18,
+            duration: 0.65,
           },
-          "-=0.15"
+          "-=0.22"
         )
 
         .from(
           ".contact-page-hero__line",
           {
             opacity: 0,
-            duration: 0.3,
-            ease: "power2.out",
-            clearProps: "opacity",
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.45,
           },
-          "-=0.2"
+          "-=0.3"
         )
 
         .from(
           ".contact-page-hero__description",
           {
             opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 14,
+            duration: 0.5,
           },
-          "-=0.15"
+          "-=0.2"
         )
 
         .from(
           ".contact-page-hero__feature",
           {
             opacity: 0,
-            duration: 0.35,
-            stagger: 0.07,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 18,
+            duration: 0.48,
+            stagger: 0.09,
           },
-          "-=0.15"
+          "-=0.2"
         )
 
         .from(
           ".contact-page-hero__visual",
           {
             opacity: 0,
-            duration: 0.55,
-            ease: "power2.out",
-            clearProps: "opacity",
+            duration: 0.7,
           },
-          "-=0.35"
+          "-=0.55"
         );
 
     }, heroRef);
 
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
 
   }, []);
 
@@ -152,12 +157,13 @@ function ContactHero() {
       ref={heroRef}
       aria-labelledby="contact-page-hero-title"
     >
+
       <div className="contact-page-hero__container">
 
 
-        {/* ==========================================
+        {/* =================================================
             LEFT CONTENT
-        ========================================== */}
+        ================================================= */}
 
         <div className="contact-page-hero__content">
 
@@ -168,17 +174,21 @@ function ContactHero() {
             className="contact-page-hero__breadcrumb"
             aria-label="Breadcrumb"
           >
+
             <Link to="/">
               Home
             </Link>
+
 
             <span aria-hidden="true">
               ›
             </span>
 
+
             <span aria-current="page">
               Contact Us
             </span>
+
           </nav>
 
 
@@ -188,6 +198,7 @@ function ContactHero() {
             id="contact-page-hero-title"
             className="contact-page-hero__title"
           >
+
             Let&apos;s Build Something
             <br />
 
@@ -196,10 +207,11 @@ function ContactHero() {
             <span>
               Together
             </span>
+
           </h1>
 
 
-          {/* YELLOW LINE */}
+          {/* ACCENT LINE */}
 
           <div
             className="contact-page-hero__line"
@@ -210,32 +222,44 @@ function ContactHero() {
           {/* DESCRIPTION */}
 
           <p className="contact-page-hero__description">
-            Have a project in mind or want to learn more about
-            how we can help your business grow? We&apos;d love
-            to hear from you.
+
+            Have a project in mind or want to learn
+            more about how we can help your business
+            grow? We&apos;d love to hear from you.
+
           </p>
 
 
-          {/* ==========================================
-              FEATURES
-          ========================================== */}
+          {/* =================================================
+              TRUST FEATURES
+          ================================================= */}
 
-          <div className="contact-page-hero__features">
+          <div
+            className="contact-page-hero__features"
+            role="list"
+            aria-label="Why contact DGATE"
+          >
 
             {features.map((feature) => {
+
               const Icon = feature.Icon;
 
+
               return (
-                <div
+
+                <article
                   className="contact-page-hero__feature"
                   key={feature.id}
+                  role="listitem"
                 >
 
                   <div
                     className="contact-page-hero__feature-icon"
                     aria-hidden="true"
                   >
+
                     <Icon />
+
                   </div>
 
 
@@ -245,14 +269,23 @@ function ContactHero() {
                       {feature.title}
                     </h3>
 
+
                     <p>
                       {feature.description}
                     </p>
 
                   </div>
 
-                </div>
+
+                  <span
+                    className="contact-page-hero__feature-accent"
+                    aria-hidden="true"
+                  />
+
+                </article>
+
               );
+
             })}
 
           </div>
@@ -260,16 +293,18 @@ function ContactHero() {
         </div>
 
 
-        {/* ==========================================
-            RIGHT IMAGE
-        ========================================== */}
+        {/* =================================================
+            RIGHT VISUAL
+        ================================================= */}
 
         <div className="contact-page-hero__visual">
 
           <img
             src={contactHero}
-            alt="DGATE global offices and corporate headquarters"
+            alt="DGATE Integrated Services corporate workspace"
             className="contact-page-hero__image"
+            loading="eager"
+            decoding="async"
             fetchPriority="high"
           />
 
@@ -279,9 +314,28 @@ function ContactHero() {
             aria-hidden="true"
           />
 
+
+          {/* SMALL IMAGE LABEL */}
+
+          <div
+            className="contact-page-hero__visual-badge"
+            aria-hidden="true"
+          >
+
+            <span>
+              DGATE
+            </span>
+
+            <strong>
+              LET&apos;S BUILD
+            </strong>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
   );
 }

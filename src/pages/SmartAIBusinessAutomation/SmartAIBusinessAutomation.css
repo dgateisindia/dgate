@@ -1,0 +1,1486 @@
+/* =========================================================
+   SMART AI & BUSINESS AUTOMATION PAGE
+========================================================= */
+
+.automation-page {
+  width: 100%;
+
+  overflow-x: hidden;
+
+  background: #ffffff;
+
+  color: #101010;
+}
+
+
+.automation-page * {
+  box-sizing: border-box;
+}
+
+
+.automation-container {
+  width:
+    min(
+      1200px,
+      calc(100% - 48px)
+    );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.automation-hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    85px
+    0;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(253, 185, 19, 0.08),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8f4 0%,
+      #fff0e9 60%,
+      #fff8f4 100%
+    );
+}
+
+
+.automation-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -130px;
+  top: -190px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.38);
+
+  border-radius: 50%;
+}
+
+
+.automation-hero__grid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+.automation-hero__content {
+  max-width: 680px;
+}
+
+
+.automation-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+
+.automation-hero h1 {
+  margin: 0;
+
+  max-width: 700px;
+
+  color: #101010;
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      67px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+
+.automation-hero h1 span {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+.automation-hero p {
+  max-width: 660px;
+
+  margin:
+    24px
+    0
+    0;
+
+  color: #606060;
+
+  font-size: 17px;
+
+  line-height: 1.75;
+}
+
+
+.automation-hero__actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.automation-hero__visual {
+  position: relative;
+
+  min-height: 390px;
+}
+
+
+.automation-hero__visual img {
+  width: 100%;
+  height: 390px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border:
+    7px solid
+    #ffffff;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 24px 60px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+.automation-hero__card {
+  position: absolute;
+
+  left: -25px;
+  bottom: 25px;
+
+  max-width: 270px;
+
+  padding:
+    17px
+    20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.4);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.1);
+}
+
+
+.automation-hero__card > svg {
+  flex-shrink: 0;
+
+  color: #25d366;
+
+  font-size: 30px;
+}
+
+
+.automation-hero__card strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #101010;
+
+  font-size: 13px;
+}
+
+
+.automation-hero__card span {
+  display: block;
+
+  color: #777777;
+
+  font-size: 11.5px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.automation-btn {
+  min-height: 52px;
+
+  padding:
+    0
+    22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.automation-btn--primary,
+.automation-btn--yellow {
+  border:
+    1px solid
+    var(--primary, #fdb913);
+
+  background:
+    var(--primary, #fdb913);
+
+  color: #101010;
+}
+
+
+.automation-btn--primary:hover,
+.automation-btn--yellow:hover {
+  border-color: #101010;
+
+  background: #101010;
+
+  color:
+    var(--primary, #fdb913);
+
+  transform:
+    translateY(-2px);
+}
+
+
+.automation-btn--secondary {
+  border:
+    1px solid
+    #101010;
+
+  background:
+    transparent;
+
+  color: #101010;
+}
+
+
+.automation-btn--secondary:hover {
+  background:
+    #101010;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.automation-section {
+  padding:
+    90px
+    0;
+}
+
+
+.automation-section--light {
+  background:
+    #f7f7f7;
+}
+
+
+.automation-section--dark {
+  background:
+    #101010;
+
+  color:
+    #ffffff;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.automation-heading {
+  max-width: 780px;
+
+  margin-bottom: 48px;
+}
+
+
+.automation-heading--center {
+  margin:
+    0
+    auto
+    48px;
+
+  text-align: center;
+}
+
+
+.automation-heading > span,
+.automation-small-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+
+.automation-heading h2,
+.automation-two-column h2,
+.automation-calling-section h2 {
+  margin: 0;
+
+  color: #101010;
+
+  font-size:
+    clamp(
+      30px,
+      3.5vw,
+      47px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.12;
+
+  letter-spacing: -1px;
+}
+
+
+.automation-heading p,
+.automation-two-column p,
+.automation-calling-section p {
+  margin:
+    17px
+    0
+    0;
+
+  color: #666666;
+
+  font-size: 15.5px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
+
+.automation-services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+.automation-service-card {
+  padding: 30px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 16px;
+
+  background:
+    #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.automation-service-card:hover {
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(253, 185, 19, 0.7);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+.automation-service-card__icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    rgba(253, 185, 19, 0.14);
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+
+.automation-service-card h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #101010;
+
+  font-size: 19px;
+}
+
+
+.automation-service-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   TWO COLUMN
+========================================================= */
+
+.automation-two-column {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.automation-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+}
+
+
+.automation-feature-item {
+  min-height: 54px;
+
+  padding:
+    13px
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border:
+    1px solid
+    #e5e5e5;
+
+  border-radius: 10px;
+
+  background:
+    #ffffff;
+
+  color: #333333;
+
+  font-size: 13.5px;
+
+  font-weight: 600;
+}
+
+
+.automation-feature-item svg {
+  flex-shrink: 0;
+
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   TEXT LINK
+========================================================= */
+
+.automation-text-link {
+  margin-top: 23px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #101010;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+
+.automation-text-link svg {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   AI CALLING SECTION
+========================================================= */
+
+.automation-calling-section {
+  padding:
+    90px
+    0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f0,
+      #fff0e9
+    );
+}
+
+
+.automation-calling-grid {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+.automation-calling-visual {
+  min-height: 330px;
+
+  padding: 45px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.35);
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.88);
+}
+
+
+.automation-call-circle {
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary, #fdb913);
+
+  color:
+    #101010;
+
+  font-size: 35px;
+
+  box-shadow:
+    0 15px 35px
+    rgba(253, 185, 19, 0.25);
+}
+
+
+.automation-call-flow {
+  margin-top: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+
+.automation-call-flow div {
+  padding:
+    10px
+    14px;
+
+  border:
+    1px solid
+    #dddddd;
+
+  border-radius: 8px;
+
+  background:
+    #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.automation-call-flow > span {
+  color:
+    var(--primary, #fdb913);
+
+  font-weight: 800;
+}
+
+
+.automation-mini-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+
+.automation-mini-list > div {
+  padding:
+    13px
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.35);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.automation-mini-list svg {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   SMALL BUSINESS
+========================================================= */
+
+.automation-small-business-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+.automation-small-business-grid article {
+  padding: 26px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 14px;
+
+  background:
+    #ffffff;
+}
+
+
+.automation-small-business-grid svg {
+  margin-bottom: 15px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+
+.automation-small-business-grid h3 {
+  margin:
+    0
+    0
+    7px;
+
+  font-size: 17px;
+}
+
+
+.automation-small-business-grid p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PACKAGES
+========================================================= */
+
+.automation-package-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 24px;
+}
+
+
+.automation-package {
+  padding: 34px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 18px;
+
+  background:
+    #ffffff;
+}
+
+
+.automation-package--featured {
+  border-color:
+    var(--primary, #fdb913);
+
+  box-shadow:
+    0 18px 45px
+    rgba(253, 185, 19, 0.15);
+}
+
+
+.automation-package__label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.automation-package h3 {
+  margin:
+    0
+    0
+    11px;
+
+  color: #101010;
+
+  font-size: 22px;
+}
+
+
+.automation-package > p {
+  margin:
+    0
+    0
+    22px;
+
+  color: #666666;
+
+  font-size: 13.5px;
+
+  line-height: 1.65;
+}
+
+
+.automation-package ul {
+  margin:
+    0
+    0
+    26px;
+
+  padding-left: 18px;
+}
+
+
+.automation-package li {
+  margin-bottom: 10px;
+
+  color: #5f5f5f;
+
+  font-size: 13.5px;
+
+  line-height: 1.5;
+}
+
+
+.automation-package__link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #101010;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+
+.automation-package__link svg {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   DARK BENEFITS
+========================================================= */
+
+.automation-section--dark
+.automation-heading > span {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+.automation-section--dark
+.automation-heading h2 {
+  color:
+    #ffffff;
+}
+
+
+.automation-section--dark
+.automation-heading p {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+}
+
+
+.automation-benefit-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+.automation-benefit-grid article {
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+
+.automation-benefit-grid svg {
+  margin-bottom: 15px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 24px;
+}
+
+
+.automation-benefit-grid strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    #ffffff;
+
+  font-size: 19px;
+}
+
+
+.automation-benefit-grid span {
+  color:
+    rgba(255, 255, 255, 0.7);
+
+  font-size: 12.5px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.automation-process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+.automation-process-card {
+  padding: 28px;
+
+  border:
+    1px solid
+    #e5e5e5;
+
+  border-radius: 15px;
+
+  background:
+    #ffffff;
+}
+
+
+.automation-process-card > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+
+.automation-process-card h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #101010;
+
+  font-size: 18px;
+}
+
+
+.automation-process-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.automation-faq {
+  max-width: 900px;
+}
+
+
+.automation-faq details {
+  padding:
+    20px
+    0;
+
+  border-bottom:
+    1px solid
+    #e5e5e5;
+}
+
+
+.automation-faq summary {
+  color: #101010;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1.45;
+
+  cursor: pointer;
+}
+
+
+.automation-faq details p {
+  max-width: 780px;
+
+  margin:
+    14px
+    0
+    0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.automation-cta {
+  padding:
+    20px
+    0
+    80px;
+}
+
+
+.automation-cta__box {
+  padding:
+    45px
+    50px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 40px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.7);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f0,
+      #fff0ea
+    );
+}
+
+
+.automation-cta__box > div > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.automation-cta__box h2 {
+  margin: 0;
+
+  color: #101010;
+
+  font-size:
+    clamp(
+      28px,
+      3vw,
+      42px
+    );
+
+  line-height: 1.15;
+}
+
+
+.automation-cta__box p {
+  max-width: 700px;
+
+  margin:
+    12px
+    0
+    0;
+
+  color: #666666;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .automation-services-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .automation-package-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .automation-benefit-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .automation-process-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .automation-cta__box {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .automation-container {
+    width:
+      calc(
+        100% - 36px
+      );
+  }
+
+
+  .automation-hero__grid,
+  .automation-two-column,
+  .automation-calling-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 40px;
+  }
+
+
+  .automation-hero {
+    padding:
+      60px
+      0;
+  }
+
+
+  .automation-section,
+  .automation-calling-section {
+    padding:
+      70px
+      0;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .automation-services-grid,
+  .automation-feature-grid,
+  .automation-mini-list,
+  .automation-small-business-grid,
+  .automation-benefit-grid,
+  .automation-process-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .automation-hero__actions {
+    flex-direction:
+      column;
+  }
+
+
+  .automation-btn {
+    width:
+      100%;
+  }
+
+
+  .automation-call-flow {
+    flex-wrap:
+      wrap;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .automation-container {
+    width:
+      calc(
+        100% - 30px
+      );
+  }
+
+
+  .automation-hero {
+    padding:
+      48px
+      0
+      60px;
+  }
+
+
+  .automation-hero h1 {
+    font-size:
+      39px;
+  }
+
+
+  .automation-hero p {
+    font-size:
+      15px;
+  }
+
+
+  .automation-hero__visual {
+    min-height:
+      315px;
+  }
+
+
+  .automation-hero__visual img {
+    height:
+      300px;
+  }
+
+
+  .automation-hero__card {
+    left: 10px;
+    right: 10px;
+
+    bottom: -5px;
+
+    max-width:
+      none;
+  }
+
+
+  .automation-calling-visual {
+    min-height:
+      280px;
+
+    padding:
+      30px
+      20px;
+  }
+
+
+  .automation-service-card,
+  .automation-package,
+  .automation-process-card {
+    padding:
+      25px;
+  }
+
+
+  .automation-cta__box {
+    padding:
+      30px
+      24px;
+  }
+
+}

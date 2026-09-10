@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import {
+  useEffect,
+} from "react";
+
+import {
+  Link,
+} from "react-router-dom";
 
 import {
   FaArrowRight,
   FaClock,
-  FaRocket,
-  FaShieldAlt,
-  FaChartLine,
 } from "react-icons/fa";
 
 import Navbar from "../../components/Home/Navbar/Navbar";
@@ -27,6 +30,7 @@ const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85",
   },
+
   {
     id: 2,
     category: "Web Development",
@@ -39,6 +43,7 @@ const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=85",
   },
+
   {
     id: 3,
     category: "E-Commerce",
@@ -51,6 +56,7 @@ const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
   },
+
   {
     id: 4,
     category: "Marketing",
@@ -63,6 +69,7 @@ const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1000&q=85",
   },
+
   {
     id: 5,
     category: "Technology",
@@ -75,6 +82,7 @@ const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85",
   },
+
   {
     id: 6,
     category: "SEO",
@@ -91,47 +99,232 @@ const blogPosts = [
 
 
 function Blog() {
-
-  const featuredPost = blogPosts[0];
+  const featuredPost =
+    blogPosts[0];
 
   const remainingPosts =
     blogPosts.slice(1);
+
+
+  useEffect(() => {
+    document.title =
+      "Digital Marketing & Technology Insights | DGATE IS";
+
+
+    const description =
+      "Explore DGATE IS insights covering digital marketing, web development, ecommerce, SEO, automation and digital transformation.";
+
+
+    let meta =
+      document.querySelector(
+        'meta[name="description"]'
+      );
+
+
+    if (!meta) {
+      meta =
+        document.createElement("meta");
+
+      meta.setAttribute(
+        "name",
+        "description"
+      );
+
+      document.head.appendChild(meta);
+    }
+
+
+    meta.setAttribute(
+      "content",
+      description
+    );
+
+  }, []);
 
 
   return (
     <>
       <Navbar />
 
+
       <main className="dgate-page">
 
-        {/* HERO */}
 
-        <section className="dgate-inner-hero">
+        {/* PREMIUM BLOG HERO */}
+
+        <section
+          className="
+            dgate-inner-hero
+            dgate-inner-hero--premium
+            dgate-inner-hero--blog
+          "
+        >
+
+          <div
+            className="dgate-inner-hero__pattern"
+            aria-hidden="true"
+          />
+
 
           <div className="dgate-container">
 
-            <div className="dgate-inner-hero__content">
+            <div className="dgate-inner-hero__layout">
 
-              <div className="dgate-eyebrow">
-                <span className="dgate-eyebrow__dot" />
-                DGATE Insights
+
+              <div className="dgate-inner-hero__content">
+
+                <nav
+                  className="dgate-inner-hero__breadcrumb"
+                  aria-label="Breadcrumb"
+                >
+
+                  <Link to="/">
+                    Home
+                  </Link>
+
+                  <span aria-hidden="true">
+                    ›
+                  </span>
+
+                  <span aria-current="page">
+                    Blog
+                  </span>
+
+                </nav>
+
+
+                <div className="dgate-eyebrow">
+
+                  <span className="dgate-eyebrow__dot" />
+
+                  DGATE INSIGHTS
+
+                </div>
+
+
+                <h1>
+
+                  Ideas, technology &{" "}
+
+                  <span>
+                    digital insights.
+                  </span>
+
+                </h1>
+
+
+                <div
+                  className="dgate-inner-hero__line"
+                  aria-hidden="true"
+                />
+
+
+                <p>
+
+                  Practical perspectives on
+                  strategy, technology, marketing,
+                  development and digital
+                  transformation for modern
+                  businesses.
+
+                </p>
+
+
+                <a
+                  href="#latest-insights"
+                  className="dgate-inner-hero__button"
+                >
+
+                  Explore Insights
+
+                  <FaArrowRight />
+
+                </a>
+
               </div>
 
-              <h1>
-                Ideas, technology &
-                {" "}
-                <span>
-                  digital insights.
-                </span>
-              </h1>
 
-              <p>
-                Practical perspectives on
-                technology, marketing,
-                development and digital
-                transformation for modern
-                businesses.
-              </p>
+              {/* RIGHT VISUAL */}
+
+              <div
+                className="dgate-inner-hero__scene"
+                aria-hidden="true"
+              >
+
+                <div className="dgate-hero-orbit dgate-hero-orbit--one" />
+
+                <div className="dgate-hero-orbit dgate-hero-orbit--two" />
+
+
+                <div className="dgate-hero-panel">
+
+                  <div className="dgate-hero-panel__top">
+
+                    <div>
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+
+
+                    <small>
+                      DGATE / INSIGHTS
+                    </small>
+
+                  </div>
+
+
+                  <div className="dgate-hero-panel__body">
+
+                    <span className="dgate-hero-panel__label">
+
+                      LATEST THINKING
+
+                    </span>
+
+
+                    <strong>
+
+                      Learn.
+                      <br />
+
+                      Adapt.
+                      <br />
+
+                      Grow.
+
+                    </strong>
+
+
+                    <div className="dgate-article-lines">
+
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--one">
+                  Strategy
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--two">
+                  Technology
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--three">
+                  Marketing
+                </div>
+
+              </div>
 
             </div>
 
@@ -142,7 +335,10 @@ function Blog() {
 
         {/* ARTICLES */}
 
-        <section className="dgate-section dgate-section--light">
+        <section
+          id="latest-insights"
+          className="dgate-section dgate-section--light"
+        >
 
           <div className="dgate-container">
 
@@ -152,15 +348,18 @@ function Blog() {
                 Latest Insights
               </div>
 
+
               <h2>
+
                 Knowledge designed to
                 move businesses forward.
+
               </h2>
 
             </div>
 
 
-            {/* FEATURED ARTICLE */}
+            {/* FEATURED */}
 
             <article className="blog-featured">
 
@@ -177,7 +376,9 @@ function Blog() {
               <div className="blog-featured__content">
 
                 <span className="blog-category">
+
                   {featuredPost.category}
+
                 </span>
 
 
@@ -187,11 +388,16 @@ function Blog() {
                     {featuredPost.date}
                   </span>
 
-                  <span>•</span>
+                  <span>
+                    •
+                  </span>
 
                   <span>
-                    <FaClock />{" "}
+
+                    <FaClock />
+
                     {featuredPost.readTime}
+
                   </span>
 
                 </div>
@@ -201,16 +407,21 @@ function Blog() {
                   {featuredPost.title}
                 </h2>
 
+
                 <p>
                   {featuredPost.description}
                 </p>
+
 
                 <Link
                   to="/contact"
                   className="dgate-link"
                 >
+
                   Read Article
+
                   <FaArrowRight />
+
                 </Link>
 
               </div>
@@ -222,67 +433,78 @@ function Blog() {
 
             <div className="blog-grid">
 
-              {remainingPosts.map((post) => (
+              {remainingPosts.map(
+                (post) => (
 
-                <article
-                  className="blog-card"
-                  key={post.id}
-                >
+                  <article
+                    className="blog-card"
+                    key={post.id}
+                  >
 
-                  <div className="blog-card__image">
+                    <div className="blog-card__image">
 
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                    />
-
-                  </div>
-
-
-                  <div className="blog-card__body">
-
-                    <span className="blog-category">
-                      {post.category}
-                    </span>
-
-
-                    <div className="blog-meta">
-
-                      <span>
-                        {post.date}
-                      </span>
-
-                      <span>•</span>
-
-                      <span>
-                        {post.readTime}
-                      </span>
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        loading="lazy"
+                      />
 
                     </div>
 
 
-                    <h3>
-                      {post.title}
-                    </h3>
+                    <div className="blog-card__body">
 
-                    <p>
-                      {post.description}
-                    </p>
+                      <span className="blog-category">
+
+                        {post.category}
+
+                      </span>
 
 
-                    <Link
-                      to="/contact"
-                      className="dgate-link"
-                    >
-                      Read More
-                      <FaArrowRight />
-                    </Link>
+                      <div className="blog-meta">
 
-                  </div>
+                        <span>
+                          {post.date}
+                        </span>
 
-                </article>
+                        <span>
+                          •
+                        </span>
 
-              ))}
+                        <span>
+                          {post.readTime}
+                        </span>
+
+                      </div>
+
+
+                      <h3>
+                        {post.title}
+                      </h3>
+
+
+                      <p>
+                        {post.description}
+                      </p>
+
+
+                      <Link
+                        to="/contact"
+                        className="dgate-link"
+                      >
+
+                        Read More
+
+                        <FaArrowRight />
+
+                      </Link>
+
+                    </div>
+
+                  </article>
+
+                )
+              )}
 
             </div>
 
@@ -302,25 +524,34 @@ function Blog() {
               <div>
 
                 <h2>
+
                   Need digital guidance
                   for your business?
+
                 </h2>
 
+
                 <p>
+
                   Connect with DGATE to discuss
                   your digital goals and the
                   technology required to achieve
                   them.
+
                 </p>
 
               </div>
+
 
               <Link
                 to="/contact"
                 className="dgate-page-cta__button"
               >
+
                 Talk to Our Team
+
                 <FaArrowRight />
+
               </Link>
 
             </div>
@@ -330,6 +561,7 @@ function Blog() {
         </section>
 
       </main>
+
 
       <Footer />
     </>

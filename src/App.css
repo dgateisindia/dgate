@@ -1,0 +1,316 @@
+/* =========================================================
+   FLOATING WHATSAPP BUTTON
+========================================================= */
+
+.floating-whatsapp {
+  position: fixed;
+
+  right: 24px;
+  bottom: 24px;
+
+  z-index: 9999;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  color: #ffffff;
+
+  font-size: 30px;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   WHATSAPP ICON
+========================================================= */
+
+.floating-whatsapp > svg {
+  position: relative;
+
+  z-index: 3;
+
+  width: 30px;
+  height: 30px;
+
+  display: block;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PULSE RING
+========================================================= */
+
+.floating-whatsapp::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  z-index: 1;
+
+  border:
+    2px solid
+    rgba(37, 211, 102, 0.45);
+
+  border-radius: 50%;
+
+  animation:
+    whatsappPulse
+    2s
+    infinite;
+}
+
+
+@keyframes whatsappPulse {
+
+  0% {
+    transform: scale(0.9);
+
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.25);
+
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.25);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+.floating-whatsapp__tooltip {
+  position: absolute;
+
+  right: calc(100% + 12px);
+
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    translateX(6px);
+
+  padding:
+    9px
+    13px;
+
+  border-radius: 8px;
+
+  background: #101010;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 6px 18px
+    rgba(0, 0, 0, 0.15);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* SMALL TOOLTIP ARROW */
+
+.floating-whatsapp__tooltip::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  right: -5px;
+
+  transform:
+    translateY(-50%);
+
+  border-top:
+    5px solid transparent;
+
+  border-bottom:
+    5px solid transparent;
+
+  border-left:
+    5px solid #101010;
+}
+
+
+/* =========================================================
+   DESKTOP HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .floating-whatsapp:hover {
+    background: #128c7e;
+
+    color: #ffffff;
+
+    transform:
+      translateY(-4px);
+
+    box-shadow:
+      0 12px 28px
+      rgba(0, 0, 0, 0.28);
+  }
+
+
+  .floating-whatsapp:hover
+  .floating-whatsapp__tooltip {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+      translateY(-50%)
+      translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .floating-whatsapp {
+    right: 20px;
+    bottom: 20px;
+
+    width: 55px;
+    height: 55px;
+  }
+
+
+  .floating-whatsapp > svg {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .floating-whatsapp__tooltip {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+
+    width: 52px;
+    height: 52px;
+
+    box-shadow:
+      0 7px 20px
+      rgba(0, 0, 0, 0.2);
+  }
+
+
+  .floating-whatsapp > svg {
+    width: 26px;
+    height: 26px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .floating-whatsapp {
+    right: 12px;
+    bottom: 12px;
+
+    width: 48px;
+    height: 48px;
+  }
+
+
+  .floating-whatsapp > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floating-whatsapp {
+    transition: none;
+  }
+
+
+  .floating-whatsapp::before {
+    animation: none;
+  }
+
+
+  .floating-whatsapp__tooltip {
+    transition: none;
+  }
+
+}

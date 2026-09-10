@@ -120,12 +120,14 @@ function ServicesHero() {
             </span>
           </nav>
 
-          <h1
+          <h3
             id="services-page-hero-title"
             className="services-page-hero__title"
           >
-            Our Services
-          </h1>
+            DGATE IS 
+            <br /> 
+            Digital Marketing Services in Bangalore 
+          </h3>
 
           <div
             className="services-page-hero__line"
@@ -133,10 +135,8 @@ function ServicesHero() {
           />
 
           <p className="services-page-hero__text">
-            Comprehensive engineering solutions designed
-            to accelerate digital transformation, enhance
-            innovation, and deliver sustainable business
-            growth through cutting-edge technology.
+            Branding, web & ecommerce development, SEO & analytics, and
+            AI automation — all in one Bangalore agency. 250+ brands scaled.
           </p>
 
         </div>

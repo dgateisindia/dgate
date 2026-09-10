@@ -1,0 +1,695 @@
+/* =========================================================
+   ANALYTICS PAGE
+========================================================= */
+
+.analytics-page {
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #101010;
+}
+
+.analytics-page * {
+  box-sizing: border-box;
+}
+
+.analytics-container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.analytics-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 85px 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(253, 185, 19, 0.08),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8f4,
+      #fff0e9
+    );
+}
+
+.analytics-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -120px;
+  top: -180px;
+
+  border: 1px solid rgba(253, 185, 19, 0.38);
+  border-radius: 50%;
+}
+
+.analytics-hero__grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr 0.95fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.analytics-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+.analytics-hero h1 {
+  margin: 0;
+
+  max-width: 700px;
+
+  font-size: clamp(42px, 5vw, 67px);
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+.analytics-hero h1 span {
+  color: var(--primary, #fdb913);
+}
+
+.analytics-hero p {
+  max-width: 660px;
+
+  margin: 24px 0 0;
+
+  color: #606060;
+
+  font-size: 17px;
+
+  line-height: 1.75;
+}
+
+.analytics-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.analytics-hero__visual {
+  position: relative;
+
+  min-height: 390px;
+}
+
+.analytics-hero__visual img {
+  width: 100%;
+  height: 390px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border: 7px solid #ffffff;
+  border-radius: 26px;
+
+  box-shadow:
+    0 24px 60px
+    rgba(0, 0, 0, 0.15);
+}
+
+.analytics-hero__card {
+  position: absolute;
+
+  left: -25px;
+  bottom: 25px;
+
+  padding: 17px 20px;
+
+  max-width: 245px;
+
+  border: 1px solid rgba(253, 185, 19, 0.4);
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.1);
+}
+
+.analytics-hero__card strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.analytics-hero__card span {
+  color: #777777;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.analytics-btn {
+  min-height: 52px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.analytics-btn--primary,
+.analytics-btn--yellow {
+  border: 1px solid var(--primary, #fdb913);
+  background: var(--primary, #fdb913);
+  color: #101010;
+}
+
+.analytics-btn--primary:hover,
+.analytics-btn--yellow:hover {
+  border-color: #101010;
+  background: #101010;
+  color: var(--primary, #fdb913);
+}
+
+.analytics-btn--secondary {
+  border: 1px solid #101010;
+  background: transparent;
+  color: #101010;
+}
+
+.analytics-btn--secondary:hover {
+  background: #101010;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.analytics-section {
+  padding: 90px 0;
+}
+
+.analytics-section--light {
+  background: #f7f7f7;
+}
+
+.analytics-section--dark {
+  background: #101010;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.analytics-heading {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+
+.analytics-heading--center {
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.analytics-heading > span,
+.analytics-small-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+.analytics-heading h2,
+.analytics-two-column h2 {
+  margin: 0;
+
+  font-size: clamp(30px, 3.5vw, 47px);
+
+  line-height: 1.12;
+
+  letter-spacing: -1px;
+}
+
+.analytics-heading p,
+.analytics-two-column p {
+  margin: 17px 0 0;
+
+  color: #666666;
+
+  font-size: 15.5px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SERVICE GRID
+========================================================= */
+
+.analytics-services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.analytics-service-card {
+  padding: 30px;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.analytics-service-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(253, 185, 19, 0.7);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.08);
+}
+
+.analytics-service-card__icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: rgba(253, 185, 19, 0.14);
+
+  color: var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+.analytics-service-card h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.analytics-service-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   TWO COLUMN
+========================================================= */
+
+.analytics-two-column {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   CHECKS
+========================================================= */
+
+.analytics-check-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.analytics-check-list > div,
+.analytics-feature-item {
+  min-height: 54px;
+
+  padding: 13px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.analytics-check-list svg,
+.analytics-feature-item svg {
+  flex-shrink: 0;
+
+  color: var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   FEATURE GRID
+========================================================= */
+
+.analytics-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   DARK
+========================================================= */
+
+.analytics-section--dark .analytics-small-label {
+  color: var(--primary, #fdb913);
+}
+
+.analytics-section--dark h2 {
+  color: #ffffff;
+}
+
+.analytics-section--dark p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.analytics-process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.analytics-process-grid article {
+  padding: 28px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+
+  background: #ffffff;
+}
+
+.analytics-process-grid article > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--primary, #fdb913);
+
+  font-weight: 800;
+}
+
+.analytics-process-grid h3 {
+  margin: 0 0 10px;
+}
+
+.analytics-process-grid p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.analytics-faq {
+  max-width: 900px;
+}
+
+.analytics-faq details {
+  padding: 20px 0;
+
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.analytics-faq summary {
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.analytics-faq p {
+  max-width: 780px;
+
+  margin: 14px 0 0;
+
+  color: #666666;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.analytics-cta {
+  padding: 20px 0 80px;
+}
+
+.analytics-cta__box {
+  padding: 45px 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap: 40px;
+
+  align-items: center;
+
+  border: 1px solid rgba(253, 185, 19, 0.7);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f0,
+      #fff0ea
+    );
+}
+
+.analytics-cta__box > div > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.analytics-cta__box h2 {
+  margin: 0;
+
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.analytics-cta__box p {
+  max-width: 700px;
+
+  margin: 12px 0 0;
+
+  color: #666666;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .analytics-services-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .analytics-process-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .analytics-cta__box {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .analytics-container {
+    width: calc(100% - 36px);
+  }
+
+  .analytics-hero__grid,
+  .analytics-two-column {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .analytics-hero {
+    padding: 60px 0;
+  }
+
+  .analytics-section {
+    padding: 70px 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .analytics-services-grid,
+  .analytics-check-list,
+  .analytics-feature-grid,
+  .analytics-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-hero__actions {
+    flex-direction: column;
+  }
+
+  .analytics-btn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 520px) {
+
+  .analytics-container {
+    width: calc(100% - 30px);
+  }
+
+  .analytics-hero h1 {
+    font-size: 39px;
+  }
+
+  .analytics-hero__visual {
+    min-height: 315px;
+  }
+
+  .analytics-hero__visual img {
+    height: 300px;
+  }
+
+  .analytics-hero__card {
+    left: 10px;
+    right: 10px;
+
+    max-width: none;
+  }
+
+  .analytics-cta__box {
+    padding: 30px 24px;
+  }
+}

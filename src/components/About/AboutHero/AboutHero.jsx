@@ -47,7 +47,7 @@ function AboutHero() {
 
           <h1 id="about-page-hero-title">
             ABOUT{" "}
-            <span>D-GATE</span>
+            <span>D-GATE IS</span>
           </h1>
 
           <div
@@ -55,14 +55,13 @@ function AboutHero() {
             aria-hidden="true"
           />
 
-          <h2>
-            Engineering a Better Tomorrow
-          </h2>
+          <h1>
+             Bangalore Branding & Digital Agency
+          </h1><br></br>
 
           <p>
-            We design, build and support innovative engineering
-            solutions that empower businesses through technology,
-            product development and digital transformation.
+            Meet the team behind DGATE IS: strategists, designers & marketers
+            driving branding, web development, and performance marketing in Bangalore.
           </p>
 
           <button

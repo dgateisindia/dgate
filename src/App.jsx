@@ -3,6 +3,9 @@ import {
   Route,
 } from "react-router-dom";
 
+import { FaWhatsapp } from "react-icons/fa";
+import "./App.css";
+
 import ScrollToAnchor from "./components/ScrollToAnchor.jsx";
 
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -19,6 +22,13 @@ import Technologies from "./pages/Technologies/Technologies.jsx";
 import Careers from "./pages/Careers/Careers.jsx";
 import Insights from "./pages/Insights/Insights.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
+
+import BrandingDesign from "./pages/BrandingDesign/BrandingDesign";
+import DevelopmentEcommerce from "./pages/DevelopmentEcommerce/DevelopmentEcommerce";
+import TechStackWeb from "./pages/TechStackWeb/TechStackWeb";
+import DataAnalyticsPerformance from "./pages/DataAnalyticsPerformance/DataAnalyticsPerformance";
+import SocialMediaMarketing from "./pages/SocialMediaMarketing/SocialMediaMarketing";
+import SmartAIBusinessAutomation from "./pages/SmartAIBusinessAutomation/SmartAIBusinessAutomation";
 
 
 
@@ -89,9 +99,56 @@ function App() {
           element={<Gallery />}
         />
 
+        <Route
+          path="/BrandingDesign.jsx"
+          element={<BrandingDesign />}
+        />
+
+        <Route
+          path="/DevelopmentEcommerce.jsx"
+          element={<DevelopmentEcommerce />}
+        />
+
+        <Route
+          path="/TechStackWeb.jsx"
+          element={<TechStackWeb />}
+        />
+
+        <Route
+          path="/DataAnalyticsPerformance.jsx"
+          element={<DataAnalyticsPerformance />}
+        />
+
+        <Route
+          path="/SocialMediaMarketing.jsx"
+          element={<SocialMediaMarketing />}
+        />
+
+        <Route
+          path="/SmartAIBusinessAutomation.jsx"
+          element={<SmartAIBusinessAutomation />}
+        />
+
 
 
       </Routes>
+      {/* =====================================================
+    FLOATING WHATSAPP BUTTON
+===================================================== */}
+
+    <a
+      href="https://wa.me/91XXXXXXXXXX?text=Hello%20DGATE%20Integrated%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="floating-whatsapp"
+      aria-label="Chat with DGATE on WhatsApp"
+    >
+      <FaWhatsapp />
+      
+      <span className="floating-whatsapp__tooltip">
+        Chat with us
+      </span>
+    </a>
     </>
   );
 }

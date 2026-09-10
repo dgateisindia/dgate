@@ -1,0 +1,1258 @@
+/* =========================================================
+   WEBSITE DEVELOPMENT PAGE
+========================================================= */
+
+.webdev-page {
+  width: 100%;
+  overflow-x: hidden;
+
+  background: #ffffff;
+
+  color: #101010;
+}
+
+
+.webdev-page * {
+  box-sizing: border-box;
+}
+
+
+.webdev-container {
+  width:
+    min(
+      1200px,
+      calc(100% - 48px)
+    );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.webdev-hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 85px 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(253, 185, 19, 0.08),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8f4,
+      #fff0e9
+    );
+}
+
+
+.webdev-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: -180px;
+  right: -120px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.38);
+
+  border-radius: 50%;
+}
+
+
+.webdev-hero__grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+.webdev-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+
+.webdev-hero h1 {
+  margin: 0;
+
+  max-width: 700px;
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      67px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+
+.webdev-hero h1 span {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+.webdev-hero p {
+  max-width: 660px;
+
+  margin: 24px 0 0;
+
+  color: #606060;
+
+  font-size: 17px;
+
+  line-height: 1.75;
+}
+
+
+.webdev-hero__actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.webdev-hero__visual {
+  position: relative;
+
+  min-height: 390px;
+}
+
+
+.webdev-hero__visual img {
+  width: 100%;
+  height: 390px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border:
+    7px solid
+    #ffffff;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 24px 60px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+.webdev-hero__card {
+  position: absolute;
+
+  left: -25px;
+  bottom: 25px;
+
+  max-width: 250px;
+
+  padding: 17px 20px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.4);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.1);
+}
+
+
+.webdev-hero__card strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 14px;
+}
+
+
+.webdev-hero__card span {
+  color: #777777;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.webdev-btn {
+  min-height: 52px;
+
+  padding:
+    0
+    22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    0.25s ease;
+}
+
+
+.webdev-btn--primary {
+  border:
+    1px solid
+    var(--primary, #fdb913);
+
+  background:
+    var(--primary, #fdb913);
+
+  color: #101010;
+}
+
+
+.webdev-btn--primary:hover {
+  border-color: #101010;
+
+  background: #101010;
+
+  color:
+    var(--primary, #fdb913);
+}
+
+
+.webdev-btn--secondary {
+  border:
+    1px solid
+    #101010;
+
+  color: #101010;
+
+  background: transparent;
+}
+
+
+.webdev-btn--secondary:hover {
+  background: #101010;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.webdev-section {
+  padding: 90px 0;
+}
+
+
+.webdev-section--light {
+  background: #f7f7f7;
+}
+
+
+.webdev-section--dark {
+  background: #101010;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.webdev-heading {
+  max-width: 780px;
+
+  margin-bottom: 48px;
+}
+
+
+.webdev-heading--center {
+  margin:
+    0 auto
+    48px;
+
+  text-align: center;
+}
+
+
+.webdev-heading > span,
+.webdev-small-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.45px;
+}
+
+
+.webdev-heading h2,
+.webdev-two-column h2,
+.webdev-responsive-section h2 {
+  margin: 0;
+
+  color: #101010;
+
+  font-size:
+    clamp(
+      30px,
+      3.5vw,
+      47px
+    );
+
+  line-height: 1.12;
+
+  letter-spacing: -1px;
+}
+
+
+.webdev-heading p,
+.webdev-two-column p,
+.webdev-responsive-section p {
+  margin: 17px 0 0;
+
+  color: #666666;
+
+  font-size: 15.5px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.webdev-services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+.webdev-service-card {
+  padding: 30px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.webdev-service-card:hover {
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(253, 185, 19, 0.7);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+.webdev-service-card__icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    rgba(253, 185, 19, 0.14);
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+
+.webdev-service-card h3 {
+  margin: 0 0 10px;
+
+  font-size: 19px;
+}
+
+
+.webdev-service-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   TWO COLUMN
+========================================================= */
+
+.webdev-two-column {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   FEATURE LIST
+========================================================= */
+
+.webdev-feature-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.webdev-feature-list > div {
+  padding: 15px 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border:
+    1px solid
+    #e5e5e5;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.webdev-feature-list svg,
+.webdev-feature-item svg {
+  flex-shrink: 0;
+
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   FEATURES GRID
+========================================================= */
+
+.webdev-features-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+}
+
+
+.webdev-feature-item {
+  padding: 14px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  font-size: 13.5px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RESPONSIVE WEBSITE SECTION
+========================================================= */
+
+.webdev-responsive-section {
+  padding: 90px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f0,
+      #fff0e9
+    );
+}
+
+
+.webdev-responsive-grid {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+.webdev-responsive-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+.webdev-responsive-cards article {
+  padding: 26px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.35);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+.webdev-responsive-cards svg {
+  margin-bottom: 15px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+
+.webdev-responsive-cards h3 {
+  margin: 0 0 7px;
+
+  font-size: 16px;
+}
+
+
+.webdev-responsive-cards p {
+  margin: 0;
+
+  font-size: 12.5px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TECH STACK
+========================================================= */
+
+.webdev-section--dark
+.webdev-heading > span {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+.webdev-section--dark
+.webdev-heading h2 {
+  color: #ffffff;
+}
+
+
+.webdev-section--dark
+.webdev-heading p {
+  color:
+    rgba(255, 255, 255, 0.7);
+}
+
+
+.webdev-tech-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+.webdev-tech-grid > div {
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+
+.webdev-tech-grid strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 22px;
+}
+
+
+.webdev-tech-grid span {
+  color:
+    rgba(255, 255, 255, 0.7);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SMALL BUSINESS
+========================================================= */
+
+.webdev-small-business-card {
+  padding: 34px;
+
+  border:
+    1px solid
+    #e5e5e5;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+}
+
+
+.webdev-small-business-card > svg {
+  margin-bottom: 18px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 26px;
+}
+
+
+.webdev-small-business-card h3 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+}
+
+
+.webdev-small-business-card p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   TEXT LINK
+========================================================= */
+
+.webdev-text-link {
+  margin-top: 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #101010;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+
+.webdev-text-link svg {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   PACKAGES
+========================================================= */
+
+.webdev-package-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 24px;
+}
+
+
+.webdev-package {
+  padding: 34px;
+
+  border:
+    1px solid
+    #e6e6e6;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+}
+
+
+.webdev-package--featured {
+  border-color:
+    var(--primary, #fdb913);
+
+  box-shadow:
+    0 18px 45px
+    rgba(253, 185, 19, 0.15);
+}
+
+
+.webdev-package__label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.webdev-package h3 {
+  margin: 0 0 11px;
+
+  font-size: 22px;
+}
+
+
+.webdev-package > p {
+  margin: 0 0 22px;
+
+  color: #666666;
+
+  font-size: 13.5px;
+
+  line-height: 1.65;
+}
+
+
+.webdev-package ul {
+  margin: 0 0 26px;
+
+  padding-left: 18px;
+}
+
+
+.webdev-package li {
+  margin-bottom: 10px;
+
+  color: #5f5f5f;
+
+  font-size: 13.5px;
+}
+
+
+.webdev-package__link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #101010;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+
+.webdev-package__link svg {
+  color:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.webdev-process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+.webdev-process-card {
+  padding: 28px;
+
+  border:
+    1px solid
+    #e5e5e5;
+
+  border-radius: 15px;
+
+  background: #ffffff;
+}
+
+
+.webdev-process-card > span {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+
+.webdev-process-card h3 {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+}
+
+
+.webdev-process-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.webdev-faq {
+  max-width: 900px;
+}
+
+
+.webdev-faq details {
+  padding: 20px 0;
+
+  border-bottom:
+    1px solid
+    #e5e5e5;
+}
+
+
+.webdev-faq summary {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1.45;
+
+  cursor: pointer;
+}
+
+
+.webdev-faq details p {
+  max-width: 780px;
+
+  margin: 14px 0 0;
+
+  color: #666666;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.webdev-cta {
+  padding:
+    20px
+    0
+    80px;
+}
+
+
+.webdev-cta__box {
+  padding: 45px 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 40px;
+
+  border:
+    1px solid
+    rgba(253, 185, 19, 0.7);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f0,
+      #fff0ea
+    );
+}
+
+
+.webdev-cta__box > div > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #a66f00;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.webdev-cta__box h2 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      28px,
+      3vw,
+      42px
+    );
+}
+
+
+.webdev-cta__box p {
+  max-width: 700px;
+
+  margin: 12px 0 0;
+
+  color: #666666;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .webdev-services-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .webdev-tech-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .webdev-package-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .webdev-process-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+
+  .webdev-cta__box {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .webdev-container {
+    width:
+      calc(
+        100% - 36px
+      );
+  }
+
+
+  .webdev-hero__grid,
+  .webdev-two-column,
+  .webdev-responsive-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  .webdev-hero {
+    padding: 60px 0;
+  }
+
+
+  .webdev-section,
+  .webdev-responsive-section {
+    padding: 70px 0;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .webdev-services-grid,
+  .webdev-features-grid,
+  .webdev-responsive-cards,
+  .webdev-tech-grid,
+  .webdev-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .webdev-hero__actions {
+    flex-direction: column;
+  }
+
+
+  .webdev-btn {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .webdev-container {
+    width:
+      calc(
+        100% - 30px
+      );
+  }
+
+
+  .webdev-hero {
+    padding:
+      48px
+      0
+      60px;
+  }
+
+
+  .webdev-hero h1 {
+    font-size: 39px;
+  }
+
+
+  .webdev-hero p {
+    font-size: 15px;
+  }
+
+
+  .webdev-hero__visual {
+    min-height: 315px;
+  }
+
+
+  .webdev-hero__visual img {
+    height: 300px;
+  }
+
+
+  .webdev-hero__card {
+    left: 10px;
+    right: 10px;
+
+    bottom: -5px;
+
+    max-width: none;
+  }
+
+
+  .webdev-service-card,
+  .webdev-package,
+  .webdev-process-card {
+    padding: 25px;
+  }
+
+
+  .webdev-cta__box {
+    padding:
+      30px
+      24px;
+  }
+
+}

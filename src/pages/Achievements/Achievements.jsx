@@ -1,4 +1,10 @@
-import { Link } from "react-router-dom";
+import {
+  useEffect,
+} from "react";
+
+import {
+  Link,
+} from "react-router-dom";
 
 import {
   FaArrowRight,
@@ -8,9 +14,6 @@ import {
   FaStar,
   FaTrophy,
   FaUsers,
-  FaRocket,
-  FaShieldAlt,
-  FaChartLine,
 } from "react-icons/fa";
 
 import Navbar from "../../components/Home/Navbar/Navbar";
@@ -27,6 +30,7 @@ const achievements = [
     description:
       "Continuously building stronger expertise across development, digital solutions, branding and business technology.",
   },
+
   {
     id: 2,
     icon: <FaUsers />,
@@ -34,6 +38,7 @@ const achievements = [
     description:
       "Our work is built around understanding real business requirements and developing solutions that create practical value.",
   },
+
   {
     id: 3,
     icon: <FaLightbulb />,
@@ -41,6 +46,7 @@ const achievements = [
     description:
       "We continuously explore new technologies, smarter workflows and digital strategies to improve the solutions we deliver.",
   },
+
   {
     id: 4,
     icon: <FaHandshake />,
@@ -48,6 +54,7 @@ const achievements = [
     description:
       "Building trusted and long-term relationships through communication, transparency and reliable execution.",
   },
+
   {
     id: 5,
     icon: <FaAward />,
@@ -55,6 +62,7 @@ const achievements = [
     description:
       "Every project is approached with attention to performance, user experience, scalability and professional delivery.",
   },
+
   {
     id: 6,
     icon: <FaStar />,
@@ -72,18 +80,21 @@ const timeline = [
     description:
       "DGATE was established with a vision to help businesses adopt modern digital solutions and technology.",
   },
+
   {
     year: "Growth",
     title: "Expanding Digital Services",
     description:
       "Our capabilities expanded across web development, digital marketing, software solutions, mobile applications and business technology.",
   },
+
   {
     year: "Innovation",
     title: "Building Integrated Solutions",
     description:
       "DGATE began focusing on integrated solutions that connect technology, marketing, customer experience and business operations.",
   },
+
   {
     year: "Today",
     title: "Moving Businesses Forward",
@@ -94,39 +105,199 @@ const timeline = [
 
 
 function Achievements() {
+
+  useEffect(() => {
+
+    document.title =
+      "DGATE Achievements & Digital Growth | DGATE IS";
+
+
+    let meta =
+      document.querySelector(
+        'meta[name="description"]'
+      );
+
+
+    if (!meta) {
+
+      meta =
+        document.createElement("meta");
+
+      meta.setAttribute(
+        "name",
+        "description"
+      );
+
+      document.head.appendChild(meta);
+
+    }
+
+
+    meta.setAttribute(
+      "content",
+      "Discover DGATE Integrated Services achievements, growth journey, digital capabilities, innovation and commitment to client-focused delivery."
+    );
+
+  }, []);
+
+
   return (
     <>
       <Navbar />
 
+
       <main className="dgate-page">
 
-        {/* HERO */}
 
-        <section className="dgate-inner-hero">
+        {/* PREMIUM ACHIEVEMENTS HERO */}
+
+        <section
+          className="
+            dgate-inner-hero
+            dgate-inner-hero--premium
+            dgate-inner-hero--achievements
+          "
+        >
+
+          <div
+            className="dgate-inner-hero__pattern"
+            aria-hidden="true"
+          />
+
 
           <div className="dgate-container">
 
-            <div className="dgate-inner-hero__content">
+            <div className="dgate-inner-hero__layout">
 
-              <div className="dgate-eyebrow">
-                <span className="dgate-eyebrow__dot" />
-                Our Achievements
+
+              <div className="dgate-inner-hero__content">
+
+                <nav
+                  className="dgate-inner-hero__breadcrumb"
+                  aria-label="Breadcrumb"
+                >
+
+                  <Link to="/">
+                    Home
+                  </Link>
+
+                  <span aria-hidden="true">
+                    ›
+                  </span>
+
+                  <span aria-current="page">
+                    Achievements
+                  </span>
+
+                </nav>
+
+
+                <div className="dgate-eyebrow">
+
+                  <span className="dgate-eyebrow__dot" />
+
+                  OUR ACHIEVEMENTS
+
+                </div>
+
+
+                <h1>
+
+                  Progress powered by{" "}
+
+                  <span>
+                    people & innovation.
+                  </span>
+
+                </h1>
+
+
+                <div
+                  className="dgate-inner-hero__line"
+                  aria-hidden="true"
+                />
+
+
+                <p>
+
+                  Every milestone reflects our
+                  commitment to technology,
+                  collaboration, customer success
+                  and continuous improvement.
+
+                </p>
+
+
+                <a
+                  href="#achievement-highlights"
+                  className="dgate-inner-hero__button"
+                >
+
+                  Explore Milestones
+
+                  <FaArrowRight />
+
+                </a>
+
               </div>
 
-              <h1>
-                Progress powered by
-                {" "}
-                <span>
-                  people and innovation.
-                </span>
-              </h1>
 
-              <p>
-                Every milestone reflects our
-                commitment to technology,
-                collaboration, customer success
-                and continuous improvement.
-              </p>
+              {/* TROPHY VISUAL */}
+
+              <div
+                className="dgate-inner-hero__scene"
+                aria-hidden="true"
+              >
+
+                <div className="dgate-hero-orbit dgate-hero-orbit--one" />
+
+                <div className="dgate-hero-orbit dgate-hero-orbit--two" />
+
+
+                <div className="dgate-achievement-core">
+
+                  <div className="dgate-achievement-core__ring" />
+
+                  <div className="dgate-achievement-core__ring dgate-achievement-core__ring--two" />
+
+
+                  <div className="dgate-achievement-core__icon">
+
+                    <FaTrophy />
+
+                  </div>
+
+
+                  <div className="dgate-achievement-core__text">
+
+                    <span>
+                      DGATE
+                    </span>
+
+                    <strong>
+                      PROGRESS
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--one">
+                  Innovation
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--two">
+                  Partnerships
+                </div>
+
+
+                <div className="dgate-hero-chip dgate-hero-chip--three">
+                  Quality
+                </div>
+
+              </div>
 
             </div>
 
@@ -135,9 +306,12 @@ function Achievements() {
         </section>
 
 
-        {/* ACHIEVEMENT CARDS */}
+        {/* ACHIEVEMENTS */}
 
-        <section className="dgate-section">
+        <section
+          id="achievement-highlights"
+          className="dgate-section"
+        >
 
           <div className="dgate-container">
 
@@ -147,16 +321,22 @@ function Achievements() {
                 What Defines Us
               </div>
 
+
               <h2>
+
                 More than milestones.
                 A culture of progress.
+
               </h2>
 
+
               <p>
+
                 We measure achievement through
                 the quality of our work,
                 relationships we build and
                 value we create.
+
               </p>
 
             </div>
@@ -173,12 +353,16 @@ function Achievements() {
                   >
 
                     <div className="achievement-card__icon">
+
                       {achievement.icon}
+
                     </div>
+
 
                     <h3>
                       {achievement.title}
                     </h3>
+
 
                     <p>
                       {achievement.description}
@@ -208,9 +392,12 @@ function Achievements() {
                 DGATE
               </div>
 
+
               <h2>
+
                 Built around integrated
                 digital capabilities.
+
               </h2>
 
             </div>
@@ -219,31 +406,54 @@ function Achievements() {
             <div className="dgate-stats-grid">
 
               <div className="dgate-stat">
-                <strong>360°</strong>
+
+                <strong>
+                  360°
+                </strong>
+
                 <span>
                   Digital Approach
                 </span>
+
               </div>
 
+
               <div className="dgate-stat">
-                <strong>100%</strong>
+
+                <strong>
+                  100%
+                </strong>
+
                 <span>
                   Client Focus
                 </span>
+
               </div>
 
+
               <div className="dgate-stat">
-                <strong>Multi</strong>
+
+                <strong>
+                  Multi
+                </strong>
+
                 <span>
                   Service Expertise
                 </span>
+
               </div>
 
+
               <div className="dgate-stat">
-                <strong>∞</strong>
+
+                <strong>
+                  ∞
+                </strong>
+
                 <span>
                   Growth Mindset
                 </span>
+
               </div>
 
             </div>
@@ -265,9 +475,12 @@ function Achievements() {
                 Our Journey
               </div>
 
+
               <h2>
+
                 Growing with every
                 challenge we solve.
+
               </h2>
 
             </div>
@@ -289,12 +502,16 @@ function Achievements() {
                     <div className="timeline-content">
 
                       <span className="timeline-year">
+
                         {item.year}
+
                       </span>
+
 
                       <h3>
                         {item.title}
                       </h3>
+
 
                       <p>
                         {item.description}
@@ -325,24 +542,33 @@ function Achievements() {
               <div>
 
                 <h2>
+
                   Let your next milestone
                   start with DGATE.
+
                 </h2>
 
+
                 <p>
+
                   Partner with us to create
                   digital solutions built for
                   your next stage of growth.
+
                 </p>
 
               </div>
+
 
               <Link
                 to="/contact"
                 className="dgate-page-cta__button"
               >
+
                 Work With Us
+
                 <FaArrowRight />
+
               </Link>
 
             </div>
@@ -352,6 +578,7 @@ function Achievements() {
         </section>
 
       </main>
+
 
       <Footer />
     </>

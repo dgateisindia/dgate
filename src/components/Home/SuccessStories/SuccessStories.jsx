@@ -192,12 +192,12 @@ function SuccessStories() {
 
         <div className="home-success__header">
 
-          <h2
+          <h1
             id="home-success-title"
             className="home-success__title"
           >
-            DIGITAL SUCCESS STORIES
-          </h2>
+            Digital Success Stories 
+          </h1>
 
 
           {/* ===============================================
@@ -206,12 +206,6 @@ function SuccessStories() {
 
           <div className="home-success__navigation">
 
-            <div
-              className="home-success__decorative-line"
-              aria-hidden="true"
-            >
-              <span />
-            </div>
 
 
             <div

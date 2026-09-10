@@ -89,21 +89,19 @@ function Hero() {
           id="home-hero-title"
           className="home-hero__title"
         >
-          Engineering
+          DGATE IS 
           <br />
-          Solutions That
-          <br />
-          Drive
           <span className="home-hero__title-accent">
-            Innovation
+          Digital Marketing
+          <br />
+          Agency
           </span>
+          in Bangalore
         </h1>
 
         <p className="home-hero__description">
-          D-GATE Integrated Services delivers engineering,
-          product development, software, cloud and digital
-          solutions that help businesses innovate faster,
-          operate smarter and achieve sustainable growth.
+          Bangalore-based digital agency for branding, web development, eCommerce,
+          SEO & AI automation. 250+ brands scaled. Get a free consult.
         </p>
 
         <div className="home-hero__actions">

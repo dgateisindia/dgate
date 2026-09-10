@@ -17,6 +17,7 @@ import {
   FaArrowRight,
   FaCheckCircle,
   FaExclamationCircle,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 
@@ -46,6 +47,20 @@ const initialFormData = {
   service: "",
   message: "",
 };
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+  const whatsappNumber = "91XXXXXXXXXX";
+
+  const whatsappMessage =
+    "Hello DGATE Integrated Services, I would like to discuss a project with your team.";
+
+  const whatsappLink =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
 
 
 /* =========================================================
@@ -511,40 +526,66 @@ function ContactForm() {
                 BOTTOM
             ========================================== */}
 
-            <div className="contact-page-form__bottom">
+           {/* ==========================================
+    BOTTOM ACTIONS
+========================================== */}
 
-              <button
-                type="submit"
-                className="contact-page-form__submit"
-                disabled={isSending}
-              >
+        <div className="contact-page-form__bottom">
 
-                <span>
-                  {isSending
-                    ? "SENDING..."
-                    : "SEND MESSAGE"}
-                </span>
+          <div className="contact-page-form__actions">
+
+            {/* SEND MESSAGE */}
+
+            <button
+              type="submit"
+              className="contact-page-form__submit"
+              disabled={isSending}
+            >
+              <span>
+                {isSending
+                  ? "SENDING..."
+                  : "SEND MESSAGE"}
+              </span>
+
+              {!isSending && (
+                <FaArrowRight aria-hidden="true" />
+              )}
+            </button>
 
 
-                {!isSending && (
-                  <FaArrowRight aria-hidden="true" />
-                )}
+            {/* WHATSAPP */}
 
-              </button>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-page-form__whatsapp"
+              aria-label="Chat with DGATE on WhatsApp"
+            >
+              <FaWhatsapp aria-hidden="true" />
+
+              <span>
+                CHAT ON WHATSAPP
+              </span>
+            </a>
+
+          </div>
 
 
-              <div className="contact-page-form__privacy">
+          {/* PRIVACY */}
 
-                <FaLock aria-hidden="true" />
+          <div className="contact-page-form__privacy">
 
-                <span>
-                  We respect your privacy. Your data is
-                  safe with us.
-                </span>
+            <FaLock aria-hidden="true" />
 
-              </div>
+            <span>
+              We respect your privacy. Your data is
+              safe with us.
+            </span>
 
-            </div>
+          </div>
+
+        </div>
 
           </form>
 

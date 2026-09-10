@@ -9,9 +9,12 @@
 
   width: 100%;
 
-  background: var(--white);
+  background:
+    var(--white, #ffffff);
 
-  border-bottom: 1px solid var(--border);
+  border-bottom:
+    1px solid
+    var(--border, #e7e7e7);
 }
 
 
@@ -29,7 +32,9 @@
 
   margin: 0 auto;
 
-  padding: 0 44px;
+  padding:
+    0
+    44px;
 
   display: flex;
 
@@ -46,7 +51,10 @@
 ========================================================= */
 
 .site-navbar__logo {
-  flex: 0 0 auto;
+  flex:
+    0
+    0
+    auto;
 
   display: block;
 
@@ -78,7 +86,7 @@
 
 
 /* =========================================================
-   NAVIGATION LINKS
+   NAVIGATION LIST
 ========================================================= */
 
 .site-navbar__links {
@@ -86,8 +94,6 @@
 
   margin: 0;
   padding: 0;
-
-  list-style: none;
 
   display: flex;
 
@@ -97,23 +103,29 @@
 
   flex-wrap: nowrap;
 
-  gap: clamp(
-    20px,
-    1.65vw,
-    30px
-  );
+  gap:
+    clamp(
+      20px,
+      1.65vw,
+      30px
+    );
+
+  list-style: none;
 }
 
 
-.site-navbar__links li {
+.site-navbar__links > li {
   position: relative;
 
-  flex: 0 0 auto;
+  flex:
+    0
+    0
+    auto;
 }
 
 
 /* =========================================================
-   STANDARD LINKS
+   STANDARD NAV LINK
 ========================================================= */
 
 .site-navbar__link {
@@ -121,19 +133,23 @@
 
   min-height: 48px;
 
-  padding: 0 2px;
+  padding:
+    0
+    2px;
 
   display: inline-flex;
 
   align-items: center;
 
-  color: var(--black);
+  color:
+    var(--black, #101010);
 
-  font-size: clamp(
-    14px,
-    0.95vw,
-    15.5px
-  );
+  font-size:
+    clamp(
+      14px,
+      0.95vw,
+      15.5px
+    );
 
   font-weight: 600;
 
@@ -145,16 +161,19 @@
 
   white-space: nowrap;
 
-  transition: color var(--transition);
+  transition:
+    color
+    var(--transition, 0.25s ease);
 }
 
 
 /* =========================================================
-   HOVER
+   NAV HOVER
 ========================================================= */
 
 .site-navbar__link:hover {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
@@ -163,7 +182,8 @@
 ========================================================= */
 
 .site-navbar__link.active {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
@@ -180,7 +200,330 @@
 
   border-radius: 2px;
 
-  background: var(--primary);
+  background:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   SERVICES ITEM
+========================================================= */
+
+.site-navbar__services-item {
+  position: relative;
+}
+
+
+/* =========================================================
+   SERVICES BUTTON
+========================================================= */
+
+.site-navbar__services-trigger {
+  gap: 7px;
+
+  margin: 0;
+
+  border: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+/* =========================================================
+   CHEVRON
+========================================================= */
+
+.site-navbar__services-chevron {
+  flex:
+    0
+    0
+    auto;
+
+  font-size: 9px;
+
+  transition:
+    transform
+    0.22s ease;
+}
+
+
+.site-navbar__services-item--open
+.site-navbar__services-chevron {
+  transform:
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   DROPDOWN WRAPPER
+========================================================= */
+
+.site-navbar__services-dropdown {
+  position: absolute;
+
+  top:
+    calc(100% + 10px);
+
+  left: -42px;
+
+  z-index: 3000;
+
+  width: 420px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translateY(8px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   OPEN DROPDOWN
+========================================================= */
+
+.site-navbar__services-item--open
+.site-navbar__services-dropdown {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   DROPDOWN PANEL
+========================================================= */
+
+.site-navbar__services-menu {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    20px
+    24px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #e8e8e8;
+
+  border-radius: 8px;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0
+    20px
+    50px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+/* YELLOW TOP ACCENT */
+
+.site-navbar__services-menu::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    var(--primary, #fdb913);
+}
+
+
+/* =========================================================
+   SERVICES LIST
+========================================================= */
+
+.site-navbar__services-list {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: stretch;
+
+  gap: 3px;
+
+  padding-left: 16px;
+}
+
+
+/* =========================================================
+   VERTICAL LINE
+========================================================= */
+
+.site-navbar__services-list::before {
+  content: "";
+
+  position: absolute;
+
+  top: 6px;
+  bottom: 6px;
+
+  left: 0;
+
+  width: 1px;
+
+  background:
+    #e5e5e5;
+}
+
+
+/* =========================================================
+   SERVICE OPTION
+========================================================= */
+
+.site-navbar__service-option {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 50px;
+
+  padding:
+    10px
+    12px
+    10px
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-radius: 7px;
+
+  color:
+    #555555;
+
+  font-size: 13.5px;
+
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+.site-navbar__service-option span {
+  display: block;
+
+  max-width: 325px;
+}
+
+
+/* =========================================================
+   YELLOW LEFT MARKER
+========================================================= */
+
+.site-navbar__service-option::before {
+  content: "";
+
+  position: absolute;
+
+  left: -19px;
+  top: 50%;
+
+  width: 5px;
+  height: 0;
+
+  opacity: 0;
+
+  border-radius: 20px;
+
+  background:
+    var(--primary, #fdb913);
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    height 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   SERVICE HOVER
+========================================================= */
+
+.site-navbar__service-option:hover {
+  padding-left: 20px;
+
+  background:
+    #fff8e8;
+
+  color:
+    #101010;
+}
+
+
+.site-navbar__service-option:hover::before {
+  height: 28px;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ACTIVE SERVICE
+========================================================= */
+
+.site-navbar__service-option--active {
+  padding-left: 20px;
+
+  background:
+    #fff8e8;
+
+  color:
+    #101010;
+
+  font-weight: 700;
+}
+
+
+.site-navbar__service-option--active::before {
+  height: 28px;
+
+  opacity: 1;
 }
 
 
@@ -200,7 +543,9 @@
 .site-navbar__contact {
   min-height: 48px;
 
-  padding: 0 22px;
+  padding:
+    0
+    22px;
 
   display: inline-flex;
 
@@ -208,13 +553,18 @@
 
   justify-content: center;
 
-  border: 1px solid var(--primary);
+  border:
+    1px solid
+    var(--primary, #fdb913);
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 8px);
 
-  background: var(--primary);
+  background:
+    var(--primary, #fdb913);
 
-  color: var(--black);
+  color:
+    var(--black, #101010);
 
   font-size: 14px;
 
@@ -227,10 +577,14 @@
   white-space: nowrap;
 
   transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    color var(--transition),
-    box-shadow var(--transition);
+    background-color
+    var(--transition, 0.25s ease),
+    border-color
+    var(--transition, 0.25s ease),
+    color
+    var(--transition, 0.25s ease),
+    box-shadow
+    var(--transition, 0.25s ease);
 }
 
 
@@ -241,14 +595,19 @@
 @media (hover: hover) {
 
   .site-navbar__contact:hover {
-    border-color: var(--black);
+    border-color:
+      var(--black, #101010);
 
-    background: var(--black);
+    background:
+      var(--black, #101010);
 
-    color: var(--primary);
+    color:
+      var(--primary, #fdb913);
 
     box-shadow:
-      0 7px 18px
+      0
+      7px
+      18px
       rgba(0, 0, 0, 0.12);
   }
 
@@ -260,11 +619,14 @@
 ========================================================= */
 
 .site-navbar__contact--active {
-  border-color: var(--black);
+  border-color:
+    var(--black, #101010);
 
-  background: var(--black);
+  background:
+    var(--black, #101010);
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
@@ -275,7 +637,10 @@
 .site-navbar__toggle {
   display: none;
 
-  flex: 0 0 auto;
+  flex:
+    0
+    0
+    auto;
 
   width: 42px;
   height: 42px;
@@ -286,22 +651,30 @@
 
   justify-content: center;
 
-  border: 1px solid transparent;
+  border:
+    1px solid
+    transparent;
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 8px);
 
-  background: transparent;
+  background:
+    transparent;
 
-  color: var(--black);
+  color:
+    var(--black, #101010);
 
   font-size: 23px;
 
   cursor: pointer;
 
   transition:
-    border-color var(--transition),
-    background-color var(--transition),
-    color var(--transition);
+    border-color
+    var(--transition, 0.25s ease),
+    background-color
+    var(--transition, 0.25s ease),
+    color
+    var(--transition, 0.25s ease);
 }
 
 
@@ -314,12 +687,23 @@
 
   .site-navbar__toggle:hover {
     border-color:
-      rgba(253, 185, 19, 0.35);
+      rgba(
+        253,
+        185,
+        19,
+        0.35
+      );
 
     background:
-      rgba(253, 185, 19, 0.07);
+      rgba(
+        253,
+        185,
+        19,
+        0.07
+      );
 
-    color: var(--primary);
+    color:
+      var(--primary, #fdb913);
   }
 
 }
@@ -334,7 +718,9 @@
   .site-navbar__container {
     min-height: 84px;
 
-    padding: 0 60px;
+    padding:
+      0
+      60px;
 
     gap: 56px;
   }
@@ -358,9 +744,21 @@
   .site-navbar__contact {
     min-height: 50px;
 
-    padding: 0 24px;
+    padding:
+      0
+      24px;
 
     font-size: 14.5px;
+  }
+
+
+  .site-navbar__services-dropdown {
+    width: 450px;
+  }
+
+
+  .site-navbar__service-option {
+    font-size: 14px;
   }
 
 }
@@ -379,7 +777,9 @@
   .site-navbar__container {
     min-height: 78px;
 
-    padding: 0 32px;
+    padding:
+      0
+      32px;
 
     gap: 32px;
   }
@@ -391,20 +791,22 @@
 
 
   .site-navbar__links {
-    gap: clamp(
-      16px,
-      1.35vw,
-      22px
-    );
+    gap:
+      clamp(
+        16px,
+        1.35vw,
+        22px
+      );
   }
 
 
   .site-navbar__link {
-    font-size: clamp(
-      13px,
-      0.92vw,
-      14.5px
-    );
+    font-size:
+      clamp(
+        13px,
+        0.92vw,
+        14.5px
+      );
 
     letter-spacing: 0.1px;
   }
@@ -413,7 +815,9 @@
   .site-navbar__contact {
     min-height: 46px;
 
-    padding: 0 18px;
+    padding:
+      0
+      18px;
 
     font-size: 13px;
   }
@@ -422,7 +826,7 @@
 
 
 /* =========================================================
-   TABLET / MOBILE NAVIGATION
+   TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 1180px) {
@@ -432,9 +836,12 @@
 
     min-height: 72px;
 
-    padding: 0 24px;
+    padding:
+      0
+      24px;
 
-    justify-content: space-between;
+    justify-content:
+      space-between;
 
     gap: 24px;
   }
@@ -445,14 +852,14 @@
   }
 
 
-  /* SHOW MOBILE BUTTON */
+  /* MOBILE MENU BUTTON */
 
   .site-navbar__toggle {
     display: inline-flex;
   }
 
 
-  /* MOBILE NAVIGATION PANEL */
+  /* MAIN MOBILE NAV */
 
   .site-navbar__nav {
     position: absolute;
@@ -463,7 +870,9 @@
     width: 100%;
 
     max-height:
-      calc(100vh - 72px);
+      calc(
+        100vh - 72px
+      );
 
     margin: 0;
 
@@ -471,18 +880,21 @@
 
     overflow-y: auto;
 
-    background: var(--white);
+    background:
+      var(--white, #ffffff);
 
     border-top:
       1px solid
-      var(--border);
+      var(--border, #e7e7e7);
 
     border-bottom:
       1px solid
-      var(--border);
+      var(--border, #e7e7e7);
 
     box-shadow:
-      0 12px 28px
+      0
+      12px
+      28px
       rgba(0, 0, 0, 0.08);
   }
 
@@ -492,7 +904,7 @@
   }
 
 
-  /* MOBILE LINKS */
+  /* MOBILE MAIN LINKS */
 
   .site-navbar__links {
     width: 100%;
@@ -510,7 +922,7 @@
   }
 
 
-  .site-navbar__links li {
+  .site-navbar__links > li {
     width: 100%;
   }
 
@@ -520,7 +932,9 @@
 
     min-height: 50px;
 
-    padding: 0 6px;
+    padding:
+      0
+      6px;
 
     display: flex;
 
@@ -528,7 +942,7 @@
 
     border-bottom:
       1px solid
-      var(--border);
+      var(--border, #e7e7e7);
 
     font-size: 14.5px;
 
@@ -542,9 +956,105 @@
 
 
   .site-navbar__link.active {
-    color: var(--primary);
+    color:
+      var(--primary, #fdb913);
 
     font-weight: 700;
+  }
+
+
+  /* =======================================================
+     SERVICES MOBILE
+  ======================================================= */
+
+  .site-navbar__services-trigger {
+    justify-content:
+      space-between;
+  }
+
+
+  .site-navbar__services-dropdown {
+    position: static;
+
+    width: 100%;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    display: none;
+
+    transform: none;
+
+    transition: none;
+  }
+
+
+  .site-navbar__services-item--open
+  .site-navbar__services-dropdown {
+    display: block;
+  }
+
+
+  .site-navbar__services-menu {
+    padding:
+      16px
+      14px
+      18px;
+
+    border: 0;
+
+    border-left:
+      3px solid
+      var(--primary, #fdb913);
+
+    border-radius: 0;
+
+    background:
+      #f8f8f8;
+
+    box-shadow: none;
+  }
+
+
+  .site-navbar__services-menu::before {
+    display: none;
+  }
+
+
+  .site-navbar__services-list {
+    padding-left: 15px;
+  }
+
+
+  .site-navbar__services-list::before {
+    background:
+      #dddddd;
+  }
+
+
+  .site-navbar__service-option {
+    min-height: 44px;
+
+    padding:
+      8px
+      10px
+      8px
+      13px;
+
+    font-size: 13px;
+  }
+
+
+  .site-navbar__service-option:hover {
+    padding-left: 17px;
+  }
+
+
+  .site-navbar__service-option--active {
+    padding-left: 17px;
   }
 
 
@@ -562,7 +1072,9 @@
 
     margin-top: 16px;
 
-    padding: 0 20px;
+    padding:
+      0
+      20px;
 
     font-size: 14px;
   }
@@ -579,7 +1091,9 @@
   .site-navbar__container {
     min-height: 64px;
 
-    padding: 0 18px;
+    padding:
+      0
+      18px;
   }
 
 
@@ -598,7 +1112,9 @@
 
   .site-navbar__nav {
     max-height:
-      calc(100vh - 64px);
+      calc(
+        100vh - 64px
+      );
   }
 
 
@@ -614,6 +1130,11 @@
     min-height: 48px;
 
     font-size: 14px;
+  }
+
+
+  .site-navbar__service-option {
+    font-size: 12.8px;
   }
 
 
@@ -635,7 +1156,9 @@
   .site-navbar__container {
     min-height: 60px;
 
-    padding: 0 16px;
+    padding:
+      0
+      16px;
   }
 
 
@@ -654,7 +1177,9 @@
 
   .site-navbar__nav {
     max-height:
-      calc(100vh - 60px);
+      calc(
+        100vh - 60px
+      );
   }
 
 
@@ -670,6 +1195,21 @@
     min-height: 46px;
 
     font-size: 13.5px;
+  }
+
+
+  .site-navbar__services-menu {
+    padding:
+      14px
+      11px
+      16px;
+  }
+
+
+  .site-navbar__service-option {
+    min-height: 42px;
+
+    font-size: 12.5px;
   }
 
 
@@ -689,7 +1229,9 @@
 @media (max-width: 340px) {
 
   .site-navbar__container {
-    padding: 0 14px;
+    padding:
+      0
+      14px;
   }
 
 
@@ -710,6 +1252,11 @@
     font-size: 13px;
   }
 
+
+  .site-navbar__service-option {
+    font-size: 12px;
+  }
+
 }
 
 
@@ -721,7 +1268,11 @@
 
   .site-navbar__link,
   .site-navbar__contact,
-  .site-navbar__toggle {
+  .site-navbar__toggle,
+  .site-navbar__services-chevron,
+  .site-navbar__services-dropdown,
+  .site-navbar__service-option,
+  .site-navbar__service-option::before {
     transition: none;
   }
 
