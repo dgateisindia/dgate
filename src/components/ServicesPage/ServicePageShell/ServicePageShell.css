@@ -1,0 +1,1613 @@
+/* =========================================================
+   DGATE SERVICE PAGE SHELL
+   COMMON DESIGN SYSTEM FOR ALL SERVICE PAGES
+========================================================= */
+
+.service-shell {
+  --service-yellow: #fdb913;
+  --service-yellow-hover: #ffc936;
+
+  --service-black: #080b0f;
+  --service-dark: #101216;
+
+  --service-white: #ffffff;
+
+  --service-text: #666b72;
+
+  --service-border: #e9e9e9;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   GLOBAL BOX SIZING
+========================================================= */
+
+.service-shell *,
+.service-shell *::before,
+.service-shell *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.service-shell__container {
+  width:
+    min(
+      calc(100% - 48px),
+      1200px
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.service-shell__hero {
+  position: relative;
+
+  min-height: 620px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 78% 38%,
+      rgba(253, 185, 19, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      #05070a 0%,
+      #10151c 55%,
+      #06080b 100%
+    );
+}
+
+
+/* =========================================================
+   HERO GRID PATTERN
+========================================================= */
+
+.service-shell__grid {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  opacity: 0.17;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    55px 55px;
+}
+
+
+/* =========================================================
+   HERO LAYOUT
+========================================================= */
+
+.service-shell__hero-layout {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(370px, 0.92fr);
+
+  align-items: center;
+
+  gap: 80px;
+
+  padding:
+    85px 0;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.service-shell__hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.service-shell__breadcrumb {
+  margin-bottom: 28px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+.service-shell__breadcrumb a,
+.service-shell__breadcrumb span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  text-decoration: none;
+}
+
+
+.service-shell__breadcrumb a {
+  transition:
+    color 0.22s ease;
+}
+
+
+.service-shell__breadcrumb a:hover {
+  color:
+    var(--service-yellow);
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+========================================================= */
+
+.service-shell__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 17px;
+
+  color:
+    var(--service-yellow);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO HEADING
+   IMPORTANT:
+   Explicit white prevents global H1 rules making it black.
+========================================================= */
+
+.service-shell
+.service-shell__hero
+.service-shell__hero-content
+h1 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #ffffff !important;
+
+  font-size:
+    clamp(
+      48px,
+      5vw,
+      72px
+    );
+
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: -2.5px;
+
+  text-shadow:
+    0 5px 30px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   HERO YELLOW ACCENT
+========================================================= */
+
+.service-shell
+.service-shell__hero
+.service-shell__hero-content
+h1 span {
+  color:
+    var(
+      --service-yellow,
+      #fdb913
+    ) !important;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.service-shell__hero-content > p {
+  max-width: 620px;
+
+  margin:
+    25px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+========================================================= */
+
+.service-shell__hero-actions {
+  margin-top: 32px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.service-shell__primary-button,
+.service-shell__secondary-button {
+  min-height: 51px;
+
+  padding:
+    0 21px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: 0.2px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.service-shell__primary-button {
+  border:
+    1px solid
+    var(--service-yellow);
+
+  background:
+    var(--service-yellow);
+
+  color:
+    #101010;
+}
+
+
+.service-shell__primary-button:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    var(--service-yellow-hover);
+
+  background:
+    var(--service-yellow-hover);
+
+  color:
+    #101010;
+
+  box-shadow:
+    0 14px 32px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.service-shell__secondary-button {
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.23
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.01
+    );
+
+  color:
+    #ffffff;
+}
+
+
+.service-shell__secondary-button:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    #ffffff;
+
+  background:
+    #ffffff;
+
+  color:
+    #101010;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.service-shell__visual {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+
+  min-height: 410px;
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.service-shell__orbit {
+  position: absolute;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.2
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.service-shell__orbit--one {
+  width: 390px;
+  height: 390px;
+
+  top: 10px;
+  right: 0;
+
+  animation:
+    serviceOrbit
+    22s
+    linear
+    infinite;
+}
+
+
+.service-shell__orbit--two {
+  width: 270px;
+  height: 270px;
+
+  top: 70px;
+  right: 60px;
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  animation:
+    serviceOrbit
+    17s
+    linear
+    infinite
+    reverse;
+}
+
+
+@keyframes serviceOrbit {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   VISUAL CARD
+========================================================= */
+
+.service-shell__visual-card {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 50%;
+  right: 35px;
+
+  width: 310px;
+
+  min-height: 290px;
+
+  padding: 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      14,
+      18,
+      24,
+      0.92
+    );
+
+  box-shadow:
+    0 30px 80px
+    rgba(
+      0,
+      0,
+      0,
+      0.4
+    );
+
+  -webkit-backdrop-filter:
+    blur(16px);
+
+  backdrop-filter:
+    blur(16px);
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* =========================================================
+   VISUAL CARD LABEL
+========================================================= */
+
+.service-shell__visual-card > span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   VISUAL ICON
+========================================================= */
+
+.service-shell__visual-icon {
+  width: 110px;
+  height: 110px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.38
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      253,
+      185,
+      19,
+      0.08
+    );
+
+  color:
+    var(--service-yellow);
+
+  font-size: 43px;
+
+  box-shadow:
+    0 0 45px
+    rgba(
+      253,
+      185,
+      19,
+      0.07
+    );
+}
+
+
+/* =========================================================
+   VISUAL CARD TAGLINE
+========================================================= */
+
+.service-shell__visual-card strong {
+  max-width: 235px;
+
+  color: #ffffff !important;
+
+  font-size: 17px;
+
+  font-weight: 750;
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.service-shell__intro {
+  padding:
+    90px 0;
+
+  border-bottom:
+    1px solid
+    var(--service-border);
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================================
+   INTRO LAYOUT
+========================================================= */
+
+.service-shell__intro-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 100px;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.service-shell__section-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #a36d00;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 1.7px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.service-shell__intro h2,
+.service-shell__heading h2,
+.service-shell__process h2 {
+  margin: 0;
+
+  color: #111111;
+
+  font-size:
+    clamp(
+      34px,
+      4vw,
+      52px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================================
+   INTRO COPY
+========================================================= */
+
+.service-shell__intro-copy p {
+  margin:
+    0 0 20px;
+
+  color:
+    var(--service-text);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+.service-shell__intro-copy strong {
+  display: block;
+
+  color: #111111;
+
+  font-size: 18px;
+
+  font-weight: 750;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.service-shell__capabilities {
+  padding:
+    95px 0;
+
+  background:
+    #f7f7f7;
+}
+
+
+/* =========================================================
+   CAPABILITY HEADING
+========================================================= */
+
+.service-shell__heading {
+  max-width: 720px;
+
+  margin-bottom: 48px;
+}
+
+
+/* =========================================================
+   CAPABILITY GRID
+========================================================= */
+
+.service-shell__services {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   CAPABILITY CARD
+========================================================= */
+
+.service-shell__service-card {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #e7e7e7;
+
+  border-radius: 12px;
+
+  background:
+    #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.service-shell__service-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(
+      253,
+      185,
+      19,
+      0.45
+    );
+
+  box-shadow:
+    0 15px 35px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+}
+
+
+/* =========================================================
+   CAPABILITY NUMBER
+========================================================= */
+
+.service-shell__number {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  color: #dddddd;
+
+  font-size: 11px;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   CHECK ICON
+========================================================= */
+
+.service-shell__check {
+  width: 37px;
+  height: 37px;
+
+  margin-bottom: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    #fff7df;
+
+  color:
+    #9f6a00;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   CAPABILITY TITLE
+========================================================= */
+
+.service-shell__service-card h3 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.service-shell__process {
+  padding:
+    100px 0;
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================================
+   PROCESS LAYOUT
+========================================================= */
+
+.service-shell__process-layout {
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    1.2fr;
+
+  align-items: start;
+
+  gap: 100px;
+}
+
+
+/* =========================================================
+   PROCESS LIST
+========================================================= */
+
+.service-shell__process-list {
+  border-top:
+    1px solid
+    #dedede;
+}
+
+
+/* =========================================================
+   PROCESS ITEM
+========================================================= */
+
+.service-shell__process-list article {
+  padding:
+    25px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    55px
+    minmax(0, 1fr);
+
+  gap: 20px;
+
+  border-bottom:
+    1px solid
+    #dedede;
+}
+
+
+/* =========================================================
+   PROCESS NUMBER
+========================================================= */
+
+.service-shell__process-list article > span {
+  color:
+    var(--service-yellow);
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   PROCESS TITLE
+========================================================= */
+
+.service-shell__process-list h3 {
+  margin:
+    0 0 7px;
+
+  color: #111111;
+
+  font-size: 18px;
+
+  font-weight: 750;
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   PROCESS DESCRIPTION
+========================================================= */
+
+.service-shell__process-list p {
+  margin: 0;
+
+  color:
+    var(--service-text);
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.service-shell__cta {
+  padding:
+    0 0 95px;
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================================
+   CTA BOX
+========================================================= */
+
+.service-shell__cta-box {
+  padding:
+    50px 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  border-radius: 18px;
+
+  background:
+    #101216;
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 20px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+}
+
+
+/* =========================================================
+   CTA LABEL
+========================================================= */
+
+.service-shell__cta-box > div > span {
+  color:
+    var(--service-yellow);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CTA HEADING
+========================================================= */
+
+.service-shell__cta-box h2 {
+  max-width: 650px;
+
+  margin:
+    10px 0 0;
+
+  color: #ffffff !important;
+
+  font-size:
+    clamp(
+      31px,
+      4vw,
+      48px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.25px;
+}
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.service-shell__cta-button {
+  min-height: 52px;
+
+  padding:
+    0 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    var(--service-yellow);
+
+  border-radius: 7px;
+
+  background:
+    var(--service-yellow);
+
+  color: #101010;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.service-shell__cta-button:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    var(--service-yellow-hover);
+
+  color:
+    #101010;
+
+  box-shadow:
+    0 12px 30px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+.service-shell__primary-button:focus-visible,
+.service-shell__secondary-button:focus-visible,
+.service-shell__cta-button:focus-visible,
+.service-shell__breadcrumb a:focus-visible {
+  outline:
+    3px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.45
+    );
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .service-shell__hero-layout {
+    grid-template-columns:
+      1fr;
+
+    gap: 35px;
+
+    padding:
+      70px 0;
+  }
+
+
+  .service-shell__hero-content {
+    max-width: 760px;
+  }
+
+
+  .service-shell__visual {
+    width:
+      min(
+        100%,
+        580px
+      );
+
+    min-height: 370px;
+
+    margin:
+      0 auto;
+  }
+
+
+  .service-shell__visual-card {
+    left: 50%;
+    right: auto;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      );
+  }
+
+
+  .service-shell__orbit--one {
+    left: 50%;
+    right: auto;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .service-shell__orbit--two {
+    left: 50%;
+    right: auto;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  .service-shell__intro-layout,
+  .service-shell__process-layout {
+    grid-template-columns:
+      1fr;
+
+    gap: 45px;
+  }
+
+
+  .service-shell__services {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .service-shell__cta-box {
+    padding:
+      45px 40px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .service-shell__container {
+    width:
+      calc(
+        100% - 30px
+      );
+  }
+
+
+  /* HERO */
+
+  .service-shell__hero {
+    min-height: auto;
+  }
+
+
+  .service-shell__hero-layout {
+    gap: 38px;
+
+    padding:
+      55px 0 65px;
+  }
+
+
+  .service-shell__breadcrumb {
+    margin-bottom: 22px;
+
+    font-size: 10px;
+  }
+
+
+  .service-shell__eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 9px;
+  }
+
+
+  .service-shell
+  .service-shell__hero
+  .service-shell__hero-content
+  h1 {
+    font-size: 41px;
+
+    line-height: 1.04;
+
+    letter-spacing: -1.4px;
+
+    color: #ffffff !important;
+  }
+
+
+  .service-shell__hero-content > p {
+    margin-top: 21px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  /* HERO BUTTONS */
+
+  .service-shell__hero-actions {
+    margin-top: 27px;
+
+    flex-direction: column;
+  }
+
+
+  .service-shell__primary-button,
+  .service-shell__secondary-button {
+    width: 100%;
+
+    min-height: 49px;
+  }
+
+
+  /* HERO VISUAL */
+
+  .service-shell__visual {
+    min-height: 320px;
+  }
+
+
+  .service-shell__visual-card {
+    width:
+      calc(
+        100% - 20px
+      );
+
+    min-height: 250px;
+
+    padding: 24px;
+  }
+
+
+  .service-shell__visual-icon {
+    width: 94px;
+    height: 94px;
+
+    font-size: 37px;
+  }
+
+
+  .service-shell__orbit--one {
+    width: 290px;
+    height: 290px;
+
+    top: 16px;
+  }
+
+
+  .service-shell__orbit--two {
+    display: none;
+  }
+
+
+  /* SECTIONS */
+
+  .service-shell__intro,
+  .service-shell__capabilities,
+  .service-shell__process {
+    padding:
+      70px 0;
+  }
+
+
+  .service-shell__intro h2,
+  .service-shell__heading h2,
+  .service-shell__process h2 {
+    font-size:
+      34px;
+
+    letter-spacing:
+      -1px;
+  }
+
+
+  /* CAPABILITIES */
+
+  .service-shell__heading {
+    margin-bottom: 34px;
+  }
+
+
+  .service-shell__services {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .service-shell__service-card {
+    min-height: 160px;
+
+    padding: 21px;
+  }
+
+
+  /* PROCESS */
+
+  .service-shell__process-layout {
+    gap: 35px;
+  }
+
+
+  .service-shell__process-list article {
+    grid-template-columns:
+      42px
+      minmax(0, 1fr);
+
+    gap: 14px;
+  }
+
+
+  /* CTA */
+
+  .service-shell__cta {
+    padding:
+      0 0 70px;
+  }
+
+
+  .service-shell__cta-box {
+    padding:
+      35px 24px;
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .service-shell__cta-box h2 {
+    font-size:
+      32px;
+  }
+
+
+  .service-shell__cta-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .service-shell
+  .service-shell__hero
+  .service-shell__hero-content
+  h1 {
+    font-size: 36px;
+  }
+
+
+  .service-shell__visual {
+    min-height: 300px;
+  }
+
+
+  .service-shell__visual-card {
+    min-height: 230px;
+  }
+
+
+  .service-shell__intro h2,
+  .service-shell__heading h2,
+  .service-shell__process h2 {
+    font-size: 31px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .service-shell *,
+  .service-shell *::before,
+  .service-shell *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}

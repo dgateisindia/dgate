@@ -1,0 +1,1226 @@
+/* =========================================================
+   SMART AI BUSINESS AUTOMATION
+========================================================= */
+
+.smartai-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: #ffffff;
+  color: #050505;
+
+  font-family: inherit;
+}
+
+.smartai-container {
+  width: min(1115px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.smartai-hero {
+  position: relative;
+
+  padding: 58px 0 70px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.smartai-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -120px;
+  bottom: -175px;
+
+  width: 360px;
+  height: 360px;
+
+  border: 82px solid #f0f0f0;
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.smartai-hero__grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(320px, 0.85fr);
+
+  align-items: center;
+
+  gap: 78px;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.smartai-hero__title {
+  position: relative;
+
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+}
+
+.smartai-hero__title h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #050505;
+
+  font-size: clamp(48px, 5vw, 66px);
+  line-height: 1.17;
+
+  font-weight: 800;
+
+  letter-spacing: -2.8px;
+}
+
+
+/* =========================================================
+   DECORATIVE HERO SHAPE
+========================================================= */
+
+.smartai-hero__shape {
+  position: absolute;
+
+  top: -30px;
+  left: -68px;
+
+  width: 180px;
+  height: 180px;
+
+  opacity: 0.065;
+}
+
+.smartai-hero__shape::before,
+.smartai-hero__shape::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border: 26px dashed #000000;
+  border-radius: 50%;
+}
+
+.smartai-hero__shape::after {
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.smartai-hero__description {
+  position: relative;
+  z-index: 2;
+}
+
+.smartai-hero__description p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #3c3c3c;
+
+  font-size: 17px;
+  line-height: 1.65;
+
+  font-weight: 500;
+}
+
+.smartai-hero__description strong {
+  color: #3a3a3a;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.smartai-breadcrumb-section {
+  background: #ffffff;
+
+  border-bottom: 1px solid #ededed;
+}
+
+.smartai-breadcrumb {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  font-size: 14px;
+}
+
+.smartai-breadcrumb a {
+  color: #333333;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.smartai-breadcrumb a:hover {
+  color: #000000;
+}
+
+.smartai-breadcrumb strong {
+  color: #050505;
+
+  font-weight: 600;
+}
+
+.smartai-breadcrumb__dot {
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #555555;
+}
+
+
+/* =========================================================
+   LARGE AI IMAGE
+========================================================= */
+
+.smartai-main-image {
+  width: 100%;
+  height: 475px;
+
+  overflow: hidden;
+
+  background: #eeeeee;
+}
+
+.smartai-main-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center 45%;
+}
+
+
+/* =========================================================
+   SERVICE OVERVIEW
+========================================================= */
+
+.smartai-overview {
+  padding: 62px 0 20px;
+
+  background: #ffffff;
+}
+
+.smartai-section-title {
+  margin: 0;
+
+  color: #050505;
+
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -1.7px;
+}
+
+.smartai-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0 56px;
+
+  background: #e5e5e5;
+}
+
+.smartai-overview__grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: start;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   OVERVIEW LEFT
+========================================================= */
+
+.smartai-overview__text p {
+  margin: 0 0 22px;
+
+  color: #3e3e3e;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  font-weight: 500;
+}
+
+.smartai-overview__text strong {
+  color: #353535;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   APPROACH RIGHT
+========================================================= */
+
+.smartai-approach h3 {
+  margin: 0 0 25px;
+
+  color: #050505;
+
+  font-size: 22px;
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+.smartai-approach__list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.smartai-approach__item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.smartai-approach__item > svg {
+  flex: 0 0 auto;
+
+  margin-top: 4px;
+
+  color: #555555;
+
+  font-size: 16px;
+}
+
+.smartai-approach__item p {
+  margin: 0;
+
+  color: #4b4b4b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.smartai-approach__item strong {
+  color: #050505;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   WHAT WE OFFER
+========================================================= */
+
+.smartai-offer {
+  padding: 35px 0 75px;
+
+  background: #ffffff;
+}
+
+.smartai-offer__heading {
+  margin: 0 0 48px;
+
+  color: #050505;
+
+  font-size: clamp(40px, 4.5vw, 52px);
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+}
+
+.smartai-offer__grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   OFFER CARD
+========================================================= */
+
+.smartai-offer__card {
+  min-height: 455px;
+
+  padding: 48px 40px 35px;
+
+  background: #f0f0f0;
+
+  border: 0;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.smartai-offer__card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   OFFER ICON
+========================================================= */
+
+.smartai-offer__icon {
+  height: 62px;
+
+  display: flex;
+  align-items: flex-start;
+
+  color: #050505;
+
+  font-size: 42px;
+}
+
+
+/* =========================================================
+   OFFER TITLE
+========================================================= */
+
+.smartai-offer__card h3 {
+  min-height: 125px;
+
+  margin: 20px 0 0;
+
+  color: #050505;
+
+  font-size: 31px;
+  line-height: 1.25;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+.smartai-offer__line {
+  width: 100%;
+  height: 1px;
+
+  margin: 20px 0 30px;
+
+  background: #d1d1d1;
+}
+
+
+/* =========================================================
+   OFFER LIST
+========================================================= */
+
+.smartai-offer__card ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.smartai-offer__card li {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 5px;
+
+  margin-bottom: 12px;
+
+  color: #080808;
+
+  font-size: 14px;
+  line-height: 1.55;
+
+  font-weight: 600;
+}
+
+.smartai-offer__card li > span:first-child {
+  flex: 0 0 auto;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   IMAGE STRIP
+========================================================= */
+
+.smartai-image-strip {
+  padding: 36px 0 82px;
+
+  background: #ffffff;
+}
+
+.smartai-image-strip__grid {
+  width: min(1195px, calc(100% - 80px));
+
+  height: 355px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1.1fr;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+}
+
+.smartai-image-strip__item {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.smartai-image-strip__item img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.smartai-image-strip__item:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   AI AUTOMATION PROCESS
+========================================================= */
+
+.smartai-process {
+  position: relative;
+
+  padding: 68px 0 65px;
+
+  overflow: hidden;
+
+  background: #050505;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BLACK GRID BACKGROUND
+========================================================= */
+
+.smartai-process__grid-background {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    );
+
+  background-size: 8px 8px;
+
+  pointer-events: none;
+}
+
+.smartai-process__content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PROCESS LABEL
+========================================================= */
+
+.smartai-process__label {
+  width: fit-content;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #333333;
+  border-radius: 30px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.smartai-process__label span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   PROCESS HEADING
+========================================================= */
+
+.smartai-process h2 {
+  max-width: 1040px;
+
+  margin: 27px auto 60px;
+
+  color: #ffffff;
+
+  font-size: clamp(45px, 5.2vw, 68px);
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -2.5px;
+}
+
+
+/* =========================================================
+   PROCESS STEPS
+========================================================= */
+
+.smartai-process__steps {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+.smartai-process__line {
+  position: absolute;
+
+  top: 19px;
+
+  left: 1%;
+  right: 1%;
+
+  height: 1px;
+
+  background: #292929;
+}
+
+.smartai-process__step {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+.smartai-process__number {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 38px;
+
+  border-radius: 50%;
+
+  background: #ff9d00;
+
+  color: #050505;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.smartai-process__step h3 {
+  min-height: 58px;
+
+  margin: 0 0 16px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.smartai-process__step p {
+  max-width: 235px;
+
+  margin: 0 auto;
+
+  color: #bdbdbd;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.smartai-faq {
+  padding: 76px 0 95px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FAQ LABEL
+========================================================= */
+
+.smartai-faq__label {
+  width: fit-content;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+
+  color: #050505;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.smartai-faq__label span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #050505;
+}
+
+
+/* =========================================================
+   FAQ HEADING
+========================================================= */
+
+.smartai-faq h2 {
+  max-width: 800px;
+
+  margin: 25px auto 48px;
+
+  color: #050505;
+
+  font-size: clamp(44px, 5vw, 62px);
+  line-height: 1.07;
+
+  font-weight: 700;
+
+  letter-spacing: -2.2px;
+}
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+.smartai-faq__accordion {
+  width: min(735px, 100%);
+
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+.smartai-faq__item {
+  margin-bottom: 24px;
+
+  border: 1px solid #e4e4e4;
+
+  background: #ffffff;
+}
+
+.smartai-faq__item--active {
+  background: #f0f0f0;
+}
+
+
+/* =========================================================
+   FAQ BUTTON
+========================================================= */
+
+.smartai-faq__button {
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 28px;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #050505;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.smartai-faq__button svg {
+  flex: 0 0 auto;
+
+  color: #cecece;
+
+  font-size: 10px;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.smartai-faq__item--active
+.smartai-faq__button svg {
+  color: #050505;
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   FAQ ANSWER
+========================================================= */
+
+.smartai-faq__answer {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  transition: grid-template-rows 0.3s ease;
+}
+
+.smartai-faq__answer > div {
+  overflow: hidden;
+}
+
+.smartai-faq__item--active
+.smartai-faq__answer {
+  grid-template-rows: 1fr;
+}
+
+.smartai-faq__answer p {
+  margin: 0;
+
+  padding: 0 28px 22px;
+
+  color: #4c4c4c;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   1100PX
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .smartai-hero__grid {
+    gap: 48px;
+  }
+
+  .smartai-hero__title h1 {
+    font-size: 54px;
+  }
+
+  .smartai-overview__grid {
+    gap: 45px;
+  }
+
+  .smartai-offer__card {
+    padding: 40px 28px 32px;
+  }
+
+  .smartai-offer__card h3 {
+    font-size: 27px;
+  }
+
+  .smartai-process__steps {
+    gap: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .smartai-container {
+    width: min(100% - 34px, 700px);
+  }
+
+
+  /* HERO */
+
+  .smartai-hero {
+    padding: 48px 0 55px;
+  }
+
+  .smartai-hero__grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .smartai-hero__title {
+    min-height: auto;
+  }
+
+  .smartai-hero__title h1 {
+    font-size: 48px;
+  }
+
+  .smartai-hero__description p {
+    max-width: 620px;
+  }
+
+
+  /* MAIN IMAGE */
+
+  .smartai-main-image {
+    height: 350px;
+  }
+
+
+  /* OVERVIEW */
+
+  .smartai-overview__grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  /* OFFER */
+
+  .smartai-offer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .smartai-offer__card {
+    min-height: 0;
+  }
+
+  .smartai-offer__card h3 {
+    min-height: auto;
+
+    margin-bottom: 25px;
+  }
+
+
+  /* IMAGE STRIP */
+
+  .smartai-image-strip__grid {
+    width: calc(100% - 34px);
+
+    height: auto;
+
+    grid-template-columns: 1fr;
+  }
+
+  .smartai-image-strip__item {
+    height: 300px;
+  }
+
+
+  /* PROCESS */
+
+  .smartai-process__steps {
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 50px;
+  }
+
+  .smartai-process__line {
+    display: none;
+  }
+
+  .smartai-process__number {
+    margin-bottom: 22px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .smartai-container {
+    width: calc(100% - 28px);
+  }
+
+
+  /* HERO */
+
+  .smartai-hero {
+    padding: 38px 0 44px;
+  }
+
+  .smartai-hero__title h1 {
+    font-size: 38px;
+    line-height: 1.14;
+
+    letter-spacing: -1.6px;
+  }
+
+  .smartai-hero__description p {
+    font-size: 15px;
+  }
+
+
+  /* BREADCRUMB */
+
+  .smartai-breadcrumb {
+    min-height: 58px;
+
+    gap: 8px;
+
+    font-size: 12px;
+  }
+
+
+  /* MAIN IMAGE */
+
+  .smartai-main-image {
+    height: 250px;
+  }
+
+
+  /* OVERVIEW */
+
+  .smartai-overview {
+    padding-top: 45px;
+  }
+
+  .smartai-section-title {
+    font-size: 35px;
+  }
+
+  .smartai-divider {
+    margin: 20px 0 35px;
+  }
+
+
+  /* WHAT WE OFFER */
+
+  .smartai-offer {
+    padding-bottom: 55px;
+  }
+
+  .smartai-offer__heading {
+    margin-bottom: 35px;
+
+    font-size: 40px;
+  }
+
+  .smartai-offer__card {
+    padding: 32px 25px;
+  }
+
+  .smartai-offer__card h3 {
+    font-size: 27px;
+  }
+
+
+  /* IMAGE STRIP */
+
+  .smartai-image-strip {
+    padding-bottom: 55px;
+  }
+
+  .smartai-image-strip__grid {
+    width: calc(100% - 28px);
+  }
+
+  .smartai-image-strip__item {
+    height: 230px;
+  }
+
+
+  /* PROCESS */
+
+  .smartai-process {
+    padding: 55px 0;
+  }
+
+  .smartai-process h2 {
+    margin-bottom: 45px;
+
+    font-size: 39px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .smartai-process__steps {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .smartai-process__step h3 {
+    min-height: auto;
+  }
+
+
+  /* FAQ */
+
+  .smartai-faq {
+    padding: 60px 0 70px;
+  }
+
+  .smartai-faq h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .smartai-faq__button {
+    padding: 14px 18px;
+
+    font-size: 13px;
+  }
+
+  .smartai-faq__answer p {
+    padding: 0 18px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .smartai-hero__title h1 {
+    font-size: 34px;
+  }
+
+  .smartai-section-title {
+    font-size: 31px;
+  }
+
+  .smartai-offer__heading {
+    font-size: 35px;
+  }
+
+  .smartai-process h2 {
+    font-size: 34px;
+  }
+
+  .smartai-faq h2 {
+    font-size: 34px;
+  }
+
+} 

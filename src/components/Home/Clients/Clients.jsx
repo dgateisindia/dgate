@@ -1,96 +1,147 @@
 import "./Clients.css";
 
-import {
-  bosch,
-  siemens,
-  philips,
-  samsung,
-  honeywell,
-  denso,
-  deloitte,
-  lt,
-  tata,
-  capgemini,
-} from "../../../assets/images/home/clients";
+
+/* =========================================================
+   CLIENT LOGOS
+========================================================= */
+
+import ykc
+  from "../../../assets/images/home/clients/ykc.png";
+
+import forbes
+  from "../../../assets/images/home/clients/forbes.png";
+
+import hiyath
+  from "../../../assets/images/home/clients/hiyath.png";
+
+import uniheal
+  from "../../../assets/images/home/clients/uniheal.png";
+
+import deloitte
+  from "../../../assets/images/home/clients/deloitte.png";
+
+import honda
+  from "../../../assets/images/home/clients/honda.png";
+
+import kia
+  from "../../../assets/images/home/clients/kia.png";
+
+import tv18
+  from "../../../assets/images/home/clients/tv18.png";
+
+
+/* =========================================================
+   CLIENT DATA
+========================================================= */
 
 const clients = [
   {
-    id: "bosch",
-    name: "Bosch",
-    logo: bosch,
+    id: "ykc",
+    name: "Bangalore YKC",
+    logo: ykc,
   },
+
   {
-    id: "siemens",
-    name: "Siemens",
-    logo: siemens,
+    id: "forbes",
+    name: "Forbes",
+    logo: forbes,
   },
+
   {
-    id: "philips",
-    name: "Philips",
-    logo: philips,
+    id: "hiyath",
+    name: "Hiyath",
+    logo: hiyath,
   },
+
   {
-    id: "samsung",
-    name: "Samsung",
-    logo: samsung,
+    id: "uniheal",
+    name: "Uniheal",
+    logo: uniheal,
   },
-  {
-    id: "honeywell",
-    name: "Honeywell",
-    logo: honeywell,
-  },
-  {
-    id: "denso",
-    name: "Denso",
-    logo: denso,
-  },
+
   {
     id: "deloitte",
     name: "Deloitte",
     logo: deloitte,
   },
+
   {
-    id: "lt",
-    name: "L&T",
-    logo: lt,
+    id: "honda",
+    name: "Honda",
+    logo: honda,
   },
+
   {
-    id: "tata",
-    name: "Tata",
-    logo: tata,
+    id: "kia",
+    name: "KIA",
+    logo: kia,
   },
+
   {
-    id: "capgemini",
-    name: "Capgemini",
-    logo: capgemini,
+    id: "tv18",
+    name: "TV18",
+    logo: tv18,
   },
 ];
 
-function LogoGroup({ duplicate = false }) {
+
+/* =========================================================
+   LOGO GROUP
+
+   Two identical groups are rendered so the marquee can
+   continuously loop without any visible jump.
+========================================================= */
+
+function LogoGroup({
+  duplicate = false,
+}) {
   return (
     <div
       className="home-clients__group"
-      aria-hidden={duplicate ? "true" : undefined}
+      aria-hidden={
+        duplicate
+          ? "true"
+          : undefined
+      }
     >
-      {clients.map((client) => (
-        <div
-          className="home-clients__logo"
-          key={
-            duplicate
-              ? `${client.id}-duplicate`
-              : client.id
-          }
-        >
-          <img
-            src={client.logo}
-            alt={duplicate ? "" : `${client.name} logo`}
-            loading="lazy"
-          />
-        </div>
-      ))}
+
+      {clients.map(
+        (client) => (
+
+          <div
+            className="home-clients__logo"
+            key={
+              duplicate
+                ? `${client.id}-duplicate`
+                : client.id
+            }
+            title={client.name}
+          >
+
+            <img
+              src={client.logo}
+              alt={
+                duplicate
+                  ? ""
+                  : `${client.name} logo`
+              }
+              loading="lazy"
+              decoding="async"
+            />
+
+          </div>
+
+        )
+      )}
+
     </div>
   );
 }
+
+
+/* =========================================================
+   CLIENTS
+========================================================= */
 
 function Clients() {
   return (
@@ -98,34 +149,73 @@ function Clients() {
       className="home-clients"
       aria-labelledby="home-clients-title"
     >
+
       <div className="container">
 
-        <h2
-          id="home-clients-title"
-          className="home-clients__title"
+
+        {/* =================================================
+            HEADING
+        ================================================= */}
+
+        <header className="home-clients__header">
+
+          <span className="home-clients__eyebrow">
+
+            BRANDS WE WORK WITH
+
+          </span>
+
+
+          <h2
+            id="home-clients-title"
+            className="home-clients__title"
+          >
+
+            Trusted by{" "}
+
+            <span>
+              Leading Brands
+            </span>
+
+          </h2>
+
+
+          <p className="home-clients__subtitle">
+
+            From growing businesses to established
+            organizations, we collaborate with brands
+            across industries to create meaningful
+            digital experiences and measurable growth.
+
+          </p>
+
+        </header>
+
+
+        {/* =================================================
+            LOGO MARQUEE
+        ================================================= */}
+
+        <div
+          className="home-clients__slider"
+          aria-label="Companies and brands we work with"
         >
-          Trusted By{" "}
-          <span>Global Leaders</span>
-        </h2>
-
-        <p className="home-clients__subtitle">
-          We partner with industry-leading organizations
-          worldwide to deliver innovative engineering and
-          technology solutions.
-        </p>
-
-        <div className="home-clients__slider">
 
           <div className="home-clients__track">
+
             <LogoGroup />
+
             <LogoGroup duplicate />
+
           </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }
+
 
 export default Clients;

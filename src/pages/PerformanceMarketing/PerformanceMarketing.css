@@ -1,0 +1,20 @@
+.performance-marketing-page
+.service-shell__hero {
+  background:
+    radial-gradient(
+      circle at 78% 40%,
+      rgba(253, 185, 19, 0.18),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 20% 70%,
+      rgba(54, 215, 151, 0.045),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      #05080a,
+      #0b1514 55%,
+      #060809
+    );
+}

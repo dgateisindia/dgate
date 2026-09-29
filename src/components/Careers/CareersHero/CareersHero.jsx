@@ -148,25 +148,6 @@ function CareersHero() {
 
         <div className="careers-page-hero__content">
 
-          <nav
-            className="careers-page-hero__breadcrumb"
-            aria-label="Breadcrumb"
-          >
-            <Link to="/">
-              Home
-            </Link>
-
-            <span aria-hidden="true">
-              
-              ›
-            </span>
-
-            <span aria-current="page">
-              Careers
-            </span>
-          </nav>
-
-
           <h1
             id="careers-page-hero-title"
             className="careers-page-hero__title"

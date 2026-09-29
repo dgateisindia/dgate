@@ -12,7 +12,7 @@ const testimonials = [
     quote:
       "From branding to leads, every detail of DGATE was strategic and performance-driven.",
     name: "Amit Verma",
-    role: "Founder, GrowthX Solutions",
+   
   },
 
   {
@@ -20,7 +20,7 @@ const testimonials = [
     quote:
       "Our website conversions and ad performance improved within weeks. DGATE feels more like a growth partner than an agency.",
     name: "Neha Sharma",
-    role: "Marketing Head, UrbanCart",
+   
   },
 
   {
@@ -28,7 +28,7 @@ const testimonials = [
     quote:
       "From brand identity to digital campaigns, DGATE delivered clarity, consistency and measurable business growth.",
     name: "Rahul Mehta",
-    role: "Co-Founder, ScaleHive",
+    
   },
 ];
 

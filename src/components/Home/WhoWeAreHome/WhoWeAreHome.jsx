@@ -115,7 +115,7 @@ function WhoWeAreHome() {
 
               <div className="home-about-intro__stat">
                 <strong>20+</strong>
-                <span>Years Experience</span>
+                <span>Years team Experience</span>
               </div>
 
               <div className="home-about-intro__stat">

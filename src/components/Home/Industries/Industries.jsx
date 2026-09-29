@@ -1,48 +1,74 @@
 import "./Industries.css";
 
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import {
+  Link,
+} from "react-router-dom";
 
 import {
   FaArrowLeft,
   FaArrowRight,
 } from "react-icons/fa";
 
-import {
-  automotive,
-  banking,
-  healthcare,
-  manufacturing,
-  retail,
-  telecom,
-} from "../../../assets/images/home/industries";
+import realestate
+  from "../../../assets/images/home/industries/realestate.png";
+
+import healthcare
+  from "../../../assets/images/home/industries/healthcare.png";
+
+import fmcg
+  from "../../../assets/images/home/industries/fmcg.png";
+
+import banking
+  from "../../../assets/images/home/industries/banking.png";
+
+import retail
+  from "../../../assets/images/home/industries/retail.png";
+
+import telecom
+  from "../../../assets/images/home/industries/telecom.png";
+
+
+/* =========================================================
+   INDUSTRIES DATA
+========================================================= */
 
 const industries = [
   {
-    id: "automotive",
-    title: "Automotive",
-    image: automotive,
+    id: "real-estate",
+    title: "Real Estate",
+    image: realestate,
   },
+
   {
     id: "healthcare",
     title: "Healthcare",
     image: healthcare,
   },
+
   {
-    id: "manufacturing",
-    title: "Manufacturing",
-    image: manufacturing,
+    id: "fmcg",
+    title: "FMCG",
+    image: fmcg,
   },
+
   {
     id: "banking",
     title: "Banking & Finance",
     image: banking,
   },
+
   {
     id: "retail",
     title: "Retail & E-Commerce",
     image: retail,
   },
+
   {
     id: "telecom",
     title: "Telecom",
@@ -50,143 +76,335 @@ const industries = [
   },
 ];
 
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 function Industries() {
-  const [startIndex, setStartIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
+
+  const railRef = useRef(null);
+
+  const [
+    canScrollLeft,
+    setCanScrollLeft,
+  ] = useState(false);
+
+  const [
+    canScrollRight,
+    setCanScrollRight,
+  ] = useState(true);
+
+
+  /* =========================================================
+     REDUCED MOTION
+  ========================================================= */
+
+  const prefersReducedMotion = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+  /* =========================================================
+     UPDATE SCROLL STATE
+  ========================================================= */
+
+  const updateScrollState = () => {
+
+    const rail =
+      railRef.current;
+
+    if (!rail) {
+      return;
+    }
+
+    const maxScroll =
+      rail.scrollWidth -
+      rail.clientWidth;
+
+    setCanScrollLeft(
+      rail.scrollLeft > 2
+    );
+
+    setCanScrollRight(
+      rail.scrollLeft <
+        maxScroll - 2
+    );
+  };
+
+
+  /* =========================================================
+     SCROLL LISTENERS
+  ========================================================= */
 
   useEffect(() => {
-    const updateVisibleCount = () => {
-      if (window.innerWidth <= 700) {
-        setVisibleCount(1);
-      } else if (window.innerWidth <= 1100) {
-        setVisibleCount(2);
-      } else {
-        setVisibleCount(3);
-      }
-    };
 
-    updateVisibleCount();
+    const rail =
+      railRef.current;
+
+    if (!rail) {
+      return undefined;
+    }
+
+    updateScrollState();
+
+    rail.addEventListener(
+      "scroll",
+      updateScrollState,
+      {
+        passive: true,
+      }
+    );
 
     window.addEventListener(
       "resize",
-      updateVisibleCount
+      updateScrollState
     );
 
     return () => {
+
+      rail.removeEventListener(
+        "scroll",
+        updateScrollState
+      );
+
       window.removeEventListener(
         "resize",
-        updateVisibleCount
+        updateScrollState
       );
     };
+
   }, []);
 
-  const nextSlide = () => {
-    setStartIndex(
-      (current) =>
-        (current + visibleCount) %
-        industries.length
-    );
+
+  /* =========================================================
+     SCROLL INDUSTRIES
+  ========================================================= */
+
+  const scrollIndustries = (
+    direction
+  ) => {
+
+    const rail =
+      railRef.current;
+
+    if (!rail) {
+      return;
+    }
+
+    const card =
+      rail.querySelector(
+        ".home-industries__card"
+      );
+
+    if (!card) {
+      return;
+    }
+
+    const cardWidth =
+      card.getBoundingClientRect()
+        .width;
+
+    const railStyles =
+      getComputedStyle(rail);
+
+    const gap =
+      parseFloat(
+        railStyles.columnGap ||
+        railStyles.gap
+      ) || 20;
+
+    rail.scrollBy({
+      left:
+        direction *
+        (cardWidth + gap),
+
+      behavior:
+        prefersReducedMotion()
+          ? "auto"
+          : "smooth",
+    });
   };
 
-  const prevSlide = () => {
-    setStartIndex(
-      (current) =>
-        (
-          current -
-          visibleCount +
-          industries.length
-        ) % industries.length
-    );
-  };
 
-  const visibleIndustries =
-    Array.from(
-      { length: visibleCount },
-      (_, index) =>
-        industries[
-          (startIndex + index) %
-          industries.length
-        ]
-    );
+  /* =========================================================
+     JSX
+  ========================================================= */
 
   return (
-    <section className="home-industries">
 
-      <div className="container">
+    <section
+      className="home-industries"
+    >
 
-        <div className="home-industries__layout">
+      <div
+        className="home-industries__container"
+      >
 
-          <div className="home-industries__content">
 
-            <span className="home-industries__tag">
+        {/* ===============================================
+            HEADER
+        =============================================== */}
+
+        <div
+          className="home-industries__header"
+        >
+
+          <div
+            className="home-industries__heading"
+          >
+
+            <span
+              className="home-industries__eyebrow"
+            >
               INDUSTRIES
             </span>
 
+
             <h2>
-              Industries
-              <br />
-              We Serve
+              Industries We Serve
             </h2>
 
+
             <p>
-              Tailored solutions for diverse
-              industry challenges.
+              Tailored digital solutions
+              designed for the unique
+              challenges of every industry.
             </p>
 
-            <Link
-              to="/industries#industries-grid"
-              className="home-industries__button"
-            >
-              VIEW ALL INDUSTRIES
-              <span aria-hidden="true">→</span>
-            </Link>
-
           </div>
 
-          <div className="home-industries__slider">
 
-            <button
-              type="button"
-              className="home-industries__nav home-industries__nav--prev"
-              onClick={prevSlide}
-              aria-label="Previous industries"
-            >
-              <FaArrowLeft />
-            </button>
+          <Link
+            to="/industries#industries-grid"
+            className="home-industries__view-all"
+          >
 
-            <div className="home-industries__cards">
+            VIEW ALL INDUSTRIES
 
-              {visibleIndustries.map((item) => (
-                <article
+            <FaArrowRight />
+
+          </Link>
+
+        </div>
+
+
+        {/* ===============================================
+            SLIDER
+        =============================================== */}
+
+        <div
+          className="home-industries__slider"
+        >
+
+
+          {/* LEFT NAVIGATION */}
+
+          <button
+            type="button"
+            className="
+              home-industries__nav
+              home-industries__nav--left
+            "
+            onClick={() =>
+              scrollIndustries(-1)
+            }
+            disabled={
+              !canScrollLeft
+            }
+            aria-label="Scroll industries left"
+          >
+
+            <FaArrowLeft />
+
+          </button>
+
+
+          {/* =============================================
+              INDUSTRY CARDS
+          ============================================= */}
+
+          <div
+            ref={railRef}
+            className="home-industries__rail"
+          >
+
+            {industries.map(
+              (industry) => (
+
+                <Link
+                  key={industry.id}
+                  to={`/industries/${industry.id}`}
                   className="home-industries__card"
-                  key={item.id}
                 >
+
                   <img
-                    src={item.image}
-                    alt={`${item.title} industry`}
+                    src={industry.image}
+                    alt={`${industry.title} industry`}
                     loading="lazy"
+                    decoding="async"
+                    draggable="false"
                   />
 
-                  <div className="home-industries__overlay">
-                    <h3>
-                      {item.title}
-                    </h3>
+
+                  <div
+                    className="home-industries__overlay"
+                    aria-hidden="true"
+                  />
+
+
+                  <div
+                    className="home-industries__card-content"
+                  >
+
+                    <span>
+                      INDUSTRY
+                    </span>
+
+
+                    <div
+                      className="home-industries__card-bottom"
+                    >
+
+                      <h3>
+                        {industry.title}
+                      </h3>
+
+                    </div>
+
                   </div>
-                </article>
-              ))}
 
-            </div>
+                </Link>
 
-            <button
-              type="button"
-              className="home-industries__nav home-industries__nav--next"
-              onClick={nextSlide}
-              aria-label="Next industries"
-            >
-              <FaArrowRight />
-            </button>
+              )
+            )}
 
           </div>
+
+
+          {/* RIGHT NAVIGATION */}
+
+          <button
+            type="button"
+            className="
+              home-industries__nav
+              home-industries__nav--right
+            "
+            onClick={() =>
+              scrollIndustries(1)
+            }
+            disabled={
+              !canScrollRight
+            }
+            aria-label="Scroll industries right"
+          >
+
+            <FaArrowRight />
+
+          </button>
+
 
         </div>
 
@@ -195,5 +413,6 @@ function Industries() {
     </section>
   );
 }
+
 
 export default Industries;

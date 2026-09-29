@@ -1,98 +1,351 @@
-import { useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
+
+import {
+  useFrame,
+} from "@react-three/fiber";
+
 import * as THREE from "three";
 
-const COUNT = 320;
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+const COUNT = 360;
+
+const MIN_Y = -2.5;
+const MAX_Y = 2.5;
+
+const HEIGHT =
+  MAX_Y - MIN_Y;
+
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
 
 export default function FloatingParticles() {
-  const pointsRef = useRef();
+  const pointsRef =
+    useRef(null);
+
+
+  /* =========================================================
+     PARTICLE DATA
+
+     Store only the values required for animation.
+
+     We do not mutate Vector3 objects every frame.
+     This is lighter and more predictable.
+  ========================================================= */
 
   const particles = useMemo(() => {
-    const arr = [];
 
-    for (let i = 0; i < COUNT; i++) {
-      const left = Math.random() < 0.8;
+    return Array.from(
+      {
+        length: COUNT,
+      },
+      (_, index) => {
 
-      arr.push({
-        position: new THREE.Vector3(
-          left
-            ? -4 + Math.random() * 4
-            : Math.random() * 1.8,
+        /*
+         * Most particles stay on the left/middle area
+         * so they don't overpower the marketing visual.
+         */
 
-          -2.2 + Math.random() * 4.5,
+        const leftSide =
+          Math.random() < 0.78;
 
-          (Math.random() - 0.5) * 0.6
-        ),
 
-        speed:
-          0.0003 +
-          Math.random() * 0.0008,
+        const x = leftSide
+          ? -4.4 + Math.random() * 4.7
+          : -0.1 + Math.random() * 2.3;
 
-        offset:
-          Math.random() * 100,
-      });
-    }
 
-    return arr;
+        const y =
+          MIN_Y +
+          Math.random() * HEIGHT;
+
+
+        const z =
+          -0.45 +
+          Math.random() * 0.9;
+
+
+        return {
+          id: index,
+
+          baseX: x,
+
+          startY: y,
+
+          z,
+
+          /*
+           * Continuous upward speed.
+           *
+           * This is based on elapsed time,
+           * not frame count.
+           */
+          speed:
+            0.065 +
+            Math.random() * 0.1,
+
+          /*
+           * Different phases prevent particles
+           * from moving together.
+           */
+          phase:
+            Math.random() *
+            Math.PI *
+            2,
+
+          /*
+           * Horizontal floating amount.
+           */
+          drift:
+            0.025 +
+            Math.random() * 0.055,
+
+          /*
+           * Slightly different wave speeds.
+           */
+          waveSpeed:
+            0.28 +
+            Math.random() * 0.3,
+        };
+      }
+    );
+
   }, []);
 
-  const positions = useMemo(
-    () => new Float32Array(COUNT * 3),
-    []
-  );
+
+  /* =========================================================
+     POSITION BUFFER
+
+     Initialize it immediately so Three.js does not first
+     render 360 particles at position [0, 0, 0].
+  ========================================================= */
+
+  const positions =
+    useMemo(() => {
+
+      const buffer =
+        new Float32Array(
+          COUNT * 3
+        );
+
+
+      particles.forEach(
+        (particle, index) => {
+
+          const i =
+            index * 3;
+
+
+          buffer[i] =
+            particle.baseX;
+
+          buffer[i + 1] =
+            particle.startY;
+
+          buffer[i + 2] =
+            particle.z;
+
+        }
+      );
+
+
+      return buffer;
+
+    }, [particles]);
+
+
+  /* =========================================================
+     OPTIMIZE DYNAMIC BUFFER
+  ========================================================= */
+
+  useEffect(() => {
+
+    if (!pointsRef.current) {
+      return;
+    }
+
+
+    const geometry =
+      pointsRef.current.geometry;
+
+
+    const positionAttribute =
+      geometry.attributes.position;
+
+
+    /*
+     * Tell Three.js this buffer changes frequently.
+     */
+
+    positionAttribute.setUsage(
+      THREE.DynamicDrawUsage
+    );
+
+
+    /*
+     * Dynamic point positions can make a stale bounding
+     * sphere unreliable. We also disable frustum culling
+     * below, which prevents the whole particle system from
+     * unexpectedly disappearing.
+     */
+
+    geometry.computeBoundingSphere();
+
+  }, []);
+
+
+  /* =========================================================
+     CONTINUOUS ANIMATION
+  ========================================================= */
 
   useFrame(({ clock }) => {
-    if (!pointsRef.current) return;
 
-    const t = clock.elapsedTime;
+    if (!pointsRef.current) {
+      return;
+    }
 
-    particles.forEach((particle, i) => {
-      particle.position.y +=
-        particle.speed;
 
-      particle.position.x +=
-        Math.sin(
-          t * 0.25 +
-          particle.offset
-        ) * 0.0007;
+    const time =
+      clock.getElapsedTime();
 
-      if (particle.position.y > 2.4) {
-        particle.position.y = -2.4;
+
+    const geometry =
+      pointsRef.current.geometry;
+
+
+    const positionAttribute =
+      geometry.attributes.position;
+
+
+    const positionArray =
+      positionAttribute.array;
+
+
+    particles.forEach(
+      (particle, index) => {
+
+        const i =
+          index * 3;
+
+
+        /* -----------------------------------------------
+           CONTINUOUS VERTICAL LOOP
+
+           modulo means every particle returns from
+           the bottom forever without stopping.
+        ----------------------------------------------- */
+
+        const travelled =
+          time *
+          particle.speed;
+
+
+        const y =
+          MIN_Y +
+          (
+            (
+              particle.startY -
+              MIN_Y +
+              travelled
+            ) %
+            HEIGHT
+          );
+
+
+        /* -----------------------------------------------
+           SOFT HORIZONTAL FLOAT
+        ----------------------------------------------- */
+
+        const x =
+          particle.baseX +
+          Math.sin(
+            time *
+              particle.waveSpeed +
+              particle.phase
+          ) *
+            particle.drift;
+
+
+        /* -----------------------------------------------
+           WRITE POSITION
+        ----------------------------------------------- */
+
+        positionArray[i] =
+          x;
+
+        positionArray[i + 1] =
+          y;
+
+        positionArray[i + 2] =
+          particle.z;
+
       }
+    );
 
-      positions[i * 3] =
-        particle.position.x;
 
-      positions[i * 3 + 1] =
-        particle.position.y;
-
-      positions[i * 3 + 2] =
-        particle.position.z;
-    });
-
-    pointsRef.current.geometry.attributes.position.needsUpdate =
+    positionAttribute.needsUpdate =
       true;
+
   });
 
+
   return (
-    <points ref={pointsRef}>
+
+    <points
+      ref={pointsRef}
+
+      /*
+       * IMPORTANT:
+       *
+       * Prevent Three.js from hiding this dynamic
+       * particle cloud because of an outdated
+       * geometry bounding sphere.
+       */
+      frustumCulled={false}
+    >
+
       <bufferGeometry>
+
         <bufferAttribute
           attach="attributes-position"
           array={positions}
           count={COUNT}
           itemSize={3}
         />
+
       </bufferGeometry>
 
+
       <pointsMaterial
-        color="#FFF3B0"
-        size={0.022}
+
+        color="#FFF0A8"
+
+        size={0.025}
+
         transparent
-        opacity={0.65}
+
+        opacity={0.72}
+
         sizeAttenuation
+
         depthWrite={false}
+
+        blending={
+          THREE.AdditiveBlending
+        }
+
       />
+
     </points>
+
   );
 }

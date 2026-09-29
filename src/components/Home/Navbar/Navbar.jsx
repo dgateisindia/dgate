@@ -30,9 +30,22 @@ const beforeServiceLinks = [
   {
     id: "home",
     label: "HOME",
-    path: "/",
+
+    /*
+      HOME FIRST OPENS TRANSITION.
+
+      /home-transition
+            ↓
+      PageTransition
+            ↓
+          /home
+    */
+
+    path: "/home-transition",
+
     end: true,
   },
+
   {
     id: "about",
     label: "ABOUT US",
@@ -47,34 +60,39 @@ const beforeServiceLinks = [
 
 const serviceLinks = [
   {
-    id: "branding",
+    id: "branding-design",
     label: "Branding Design",
-    path: "/BrandingDesign.jsx",
+    path: "/BrandingDesign",
   },
+
   {
-    id: "development",
+    id: "development-ecommerce",
     label: "Development & E-Commerce Solutions",
-    path: "/DevelopmentEcommerce.jsx",
+    path: "/DevelopmentEcommerce",
   },
+
   {
-    id: "technology",
-    label: "Tech Stack & Web Experience",
-    path: "/TechStackWeb.jsx",
+    id: "tech-stack-web",
+    label: "Technology Stack & Web Experience",
+    path: "/TechStackWeb",
   },
+
   {
-    id: "analytics",
+    id: "data-analytics-performance",
     label: "Data Analytics & Performance Growth",
-    path: "/DataAnalyticsPerformance.jsx",
+    path: "/DataAnalyticsPerformance",
   },
+
   {
-    id: "social",
-    label: "Social Media Marketing",
-    path: "/SocialMediaMarketing.jsx",
+    id: "smart-ai-business-automation",
+    label: "Smart AI & Business",
+    path: "/SmartAIBusinessAutomation",
   },
+
   {
-    id: "automation",
-    label: "Smart AI & Business Automation",
-    path: "/SmartAIBusinessAutomation.jsx",
+    id: "digital-marketing-courses",
+    label: "Digital Marketing Courses [Offline/Online]",
+    path: "/DigitalMarketingCourse",
   },
 ];
 
@@ -84,48 +102,52 @@ const serviceLinks = [
 ========================================================= */
 
 const afterServiceLinks = [
+
   {
     id: "portfolio",
     label: "PORTFOLIO",
     path: "/portfolio",
   },
-  {
-    id: "blog",
-    label: "BLOG",
-    path: "/blog",
-  },
+
   {
     id: "achievements",
-    label: "ACHIEVEMENTS",
+    label: "CERTIFICATES",
     path: "/achievements",
   },
+
   {
     id: "gallery",
     label: "GALLERY",
     path: "/gallery",
   },
+
   {
     id: "careers",
     label: "CAREERS",
     path: "/careers",
   },
+
   {
     id: "insights",
     label: "INSIGHTS",
     path: "/insights",
   },
+
 ];
 
 
 function Navbar() {
+
   const [menuOpen, setMenuOpen] =
     useState(false);
 
   const [servicesOpen, setServicesOpen] =
     useState(false);
 
+
   const location =
     useLocation();
+
 
   const servicesRef =
     useRef(null);
@@ -137,9 +159,11 @@ function Navbar() {
 
   const servicesActive =
     location.pathname === "/services" ||
+
     serviceLinks.some(
       (service) =>
-        service.path === location.pathname
+        service.path ===
+        location.pathname
     );
 
 
@@ -147,134 +171,205 @@ function Navbar() {
      CLOSE NAVIGATION
   ========================================================= */
 
-  const closeNavigation = () => {
-    setMenuOpen(false);
-    setServicesOpen(false);
-  };
+  const closeNavigation =
+    () => {
+
+      setMenuOpen(false);
+
+      setServicesOpen(false);
+
+    };
 
 
   /* =========================================================
      CLOSE AFTER ROUTE CHANGE
   ========================================================= */
 
-  useEffect(() => {
-    setMenuOpen(false);
-    setServicesOpen(false);
-  }, [location.pathname]);
+  useEffect(
+    () => {
+
+      setMenuOpen(false);
+
+      setServicesOpen(false);
+
+    },
+    [
+      location.pathname,
+    ]
+  );
 
 
   /* =========================================================
      ESCAPE KEY
   ========================================================= */
 
-  useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === "Escape") {
-        setMenuOpen(false);
-        setServicesOpen(false);
-      }
-    };
+  useEffect(
+    () => {
+
+      const handleEscape =
+        (event) => {
+
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            setMenuOpen(false);
+
+            setServicesOpen(false);
+
+          }
+
+        };
 
 
-    window.addEventListener(
-      "keydown",
-      handleEscape
-    );
-
-
-    return () => {
-      window.removeEventListener(
+      window.addEventListener(
         "keydown",
         handleEscape
       );
-    };
-  }, []);
+
+
+      return () => {
+
+        window.removeEventListener(
+          "keydown",
+          handleEscape
+        );
+
+      };
+
+    },
+    []
+  );
 
 
   /* =========================================================
      CLICK OUTSIDE SERVICES
   ========================================================= */
 
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(
-          event.target
-        )
-      ) {
-        setServicesOpen(false);
-      }
-    };
+  useEffect(
+    () => {
+
+      const handleOutsideClick =
+        (event) => {
+
+          if (
+            servicesRef.current &&
+            !servicesRef.current.contains(
+              event.target
+            )
+          ) {
+
+            setServicesOpen(false);
+
+          }
+
+        };
 
 
-    document.addEventListener(
-      "mousedown",
-      handleOutsideClick
-    );
-
-
-    return () => {
-      document.removeEventListener(
+      document.addEventListener(
         "mousedown",
         handleOutsideClick
       );
-    };
-  }, []);
+
+
+      return () => {
+
+        document.removeEventListener(
+          "mousedown",
+          handleOutsideClick
+        );
+
+      };
+
+    },
+    []
+  );
 
 
   /* =========================================================
      WINDOW RESIZE
   ========================================================= */
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1180) {
-        setMenuOpen(false);
-        setServicesOpen(false);
-      }
-    };
+  useEffect(
+    () => {
+
+      const handleResize =
+        () => {
+
+          if (
+            window.innerWidth >
+            1180
+          ) {
+
+            setMenuOpen(false);
+
+            setServicesOpen(false);
+
+          }
+
+        };
 
 
-    window.addEventListener(
-      "resize",
-      handleResize
-    );
-
-
-    return () => {
-      window.removeEventListener(
+      window.addEventListener(
         "resize",
         handleResize
       );
-    };
-  }, []);
+
+
+      return () => {
+
+        window.removeEventListener(
+          "resize",
+          handleResize
+        );
+
+      };
+
+    },
+    []
+  );
 
 
   /* =========================================================
      SERVICES TOGGLE
   ========================================================= */
 
-  const toggleServices = () => {
-    setServicesOpen(
-      (current) => !current
-    );
-  };
+  const toggleServices =
+    () => {
 
+      setServicesOpen(
+        (current) =>
+          !current
+      );
+
+    };
+
+
+  /* =========================================================
+     UI
+  ========================================================= */
 
   return (
+
     <header className="site-navbar">
+
 
       <div className="container site-navbar__container">
 
+
         {/* =================================================
             LOGO
+
+            LOGO ALSO USES HOME TRANSITION
         ================================================= */}
 
         <NavLink
-          to="/"
+          to="/home-transition"
           className="site-navbar__logo"
-          onClick={closeNavigation}
+          onClick={
+            closeNavigation
+          }
           aria-label="DGATE Integrated Services Home"
         >
 
@@ -292,15 +387,22 @@ function Navbar() {
 
         <nav
           id="main-navigation"
-          className={`site-navbar__nav ${
-            menuOpen
-              ? "site-navbar__nav--open"
-              : ""
-          }`}
+
+          className={`
+            site-navbar__nav
+            ${
+              menuOpen
+                ? "site-navbar__nav--open"
+                : ""
+            }
+          `}
+
           aria-label="Main navigation"
         >
 
+
           <ul className="site-navbar__links">
+
 
             {/* =============================================
                 HOME + ABOUT
@@ -309,24 +411,64 @@ function Navbar() {
             {beforeServiceLinks.map(
               (link) => (
 
-                <li key={link.id}>
+                <li
+                  key={
+                    link.id
+                  }
+                >
+
 
                   <NavLink
-                    to={link.path}
-                    end={link.end}
-                    onClick={closeNavigation}
+                    to={
+                      link.path
+                    }
+
+                    end={
+                      link.end
+                    }
+
+                    onClick={
+                      closeNavigation
+                    }
+
                     className={({
                       isActive,
-                    }) =>
-                      isActive
-                        ? "site-navbar__link active"
-                        : "site-navbar__link"
-                    }
+                    }) => {
+
+                      const homeIsActive =
+                        link.id ===
+                          "home" &&
+
+                        (
+                          location.pathname ===
+                            "/home" ||
+
+                          location.pathname ===
+                            "/home-transition"
+                        );
+
+
+                      if (
+                        isActive ||
+                        homeIsActive
+                      ) {
+
+                        return "site-navbar__link active";
+
+                      }
+
+
+                      return "site-navbar__link";
+
+                    }}
                   >
 
-                    {link.label}
+                    {
+                      link.label
+                    }
 
                   </NavLink>
+
 
                 </li>
 
@@ -339,24 +481,44 @@ function Navbar() {
             ============================================= */}
 
             <li
-              ref={servicesRef}
-              className={`site-navbar__services-item ${
-                servicesOpen
-                  ? "site-navbar__services-item--open"
-                  : ""
-              }`}
+              ref={
+                servicesRef
+              }
+
+              className={`
+                site-navbar__services-item
+                ${
+                  servicesOpen
+                    ? "site-navbar__services-item--open"
+                    : ""
+                }
+              `}
             >
+
 
               <button
                 type="button"
-                className={`site-navbar__link site-navbar__services-trigger ${
-                  servicesActive
-                    ? "active"
-                    : ""
-                }`}
-                onClick={toggleServices}
-                aria-expanded={servicesOpen}
+
+                className={`
+                  site-navbar__link
+                  site-navbar__services-trigger
+                  ${
+                    servicesActive
+                      ? "active"
+                      : ""
+                  }
+                `}
+
+                onClick={
+                  toggleServices
+                }
+
+                aria-expanded={
+                  servicesOpen
+                }
+
                 aria-controls="services-dropdown"
+
                 aria-haspopup="true"
               >
 
@@ -370,13 +532,12 @@ function Navbar() {
                   aria-hidden="true"
                 />
 
+
               </button>
 
 
               {/* ===========================================
                   DROPDOWN
-
-                  No inner SERVICES / PORTFOLIO header.
               =========================================== */}
 
               <div
@@ -384,31 +545,51 @@ function Navbar() {
                 className="site-navbar__services-dropdown"
               >
 
+
                 <div className="site-navbar__services-menu">
+
 
                   <nav
                     className="site-navbar__services-list"
                     aria-label="Services navigation"
                   >
 
+
                     {serviceLinks.map(
                       (service) => (
 
                         <NavLink
-                          key={service.id}
-                          to={service.path}
-                          onClick={closeNavigation}
+                          key={
+                            service.id
+                          }
+
+                          to={
+                            service.path
+                          }
+
+                          onClick={
+                            closeNavigation
+                          }
+
                           className={({
                             isActive,
                           }) =>
+
                             isActive
+
                               ? "site-navbar__service-option site-navbar__service-option--active"
+
                               : "site-navbar__service-option"
+
                           }
                         >
 
                           <span>
-                            {service.label}
+
+                            {
+                              service.label
+                            }
+
                           </span>
 
                         </NavLink>
@@ -416,11 +597,15 @@ function Navbar() {
                       )
                     )}
 
+
                   </nav>
+
 
                 </div>
 
+
               </div>
+
 
             </li>
 
@@ -432,21 +617,37 @@ function Navbar() {
             {afterServiceLinks.map(
               (link) => (
 
-                <li key={link.id}>
+                <li
+                  key={
+                    link.id
+                  }
+                >
 
                   <NavLink
-                    to={link.path}
-                    onClick={closeNavigation}
+                    to={
+                      link.path
+                    }
+
+                    onClick={
+                      closeNavigation
+                    }
+
                     className={({
                       isActive,
                     }) =>
+
                       isActive
+
                         ? "site-navbar__link active"
+
                         : "site-navbar__link"
+
                     }
                   >
 
-                    {link.label}
+                    {
+                      link.label
+                    }
 
                   </NavLink>
 
@@ -462,15 +663,24 @@ function Navbar() {
 
             <li className="site-navbar__contact-item">
 
+
               <NavLink
                 to="/contact"
-                onClick={closeNavigation}
+
+                onClick={
+                  closeNavigation
+                }
+
                 className={({
                   isActive,
                 }) =>
+
                   isActive
+
                     ? "site-navbar__contact site-navbar__contact--active"
+
                     : "site-navbar__contact"
+
                 }
               >
 
@@ -478,9 +688,12 @@ function Navbar() {
 
               </NavLink>
 
+
             </li>
 
+
           </ul>
+
 
         </nav>
 
@@ -491,39 +704,66 @@ function Navbar() {
 
         <button
           type="button"
-          className="site-navbar__toggle"
-          onClick={() => {
-            setMenuOpen(
-              (current) => !current
-            );
 
-            setServicesOpen(false);
-          }}
+          className="site-navbar__toggle"
+
+          onClick={
+            () => {
+
+              setMenuOpen(
+                (current) =>
+                  !current
+              );
+
+
+              setServicesOpen(
+                false
+              );
+
+            }
+          }
+
           aria-label={
             menuOpen
+
               ? "Close navigation menu"
+
               : "Open navigation menu"
           }
-          aria-expanded={menuOpen}
+
+          aria-expanded={
+            menuOpen
+          }
+
           aria-controls="main-navigation"
         >
 
+
           {menuOpen ? (
 
-            <FaTimes aria-hidden="true" />
+            <FaTimes
+              aria-hidden="true"
+            />
 
           ) : (
 
-            <FaBars aria-hidden="true" />
+            <FaBars
+              aria-hidden="true"
+            />
 
           )}
 
+
         </button>
+
 
       </div>
 
+
     </header>
+
   );
+
 }
 
 

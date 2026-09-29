@@ -1,0 +1,177 @@
+/* =========================================
+   PAGE LOADER
+========================================= */
+
+.page-loader {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #111;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  z-index: 999999;
+
+  color: white;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.loader-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 35px;
+}
+
+
+.loader-logo-box {
+  width: 55px;
+  height: 45px;
+
+  border: 3px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.loader-logo-name {
+  font-size: 25px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================================
+   D-GATE TITLE
+========================================= */
+
+.loader-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  font-size: clamp(80px, 14vw, 220px);
+
+  line-height: 0.8;
+
+  font-weight: 900;
+
+  letter-spacing: -8px;
+
+  white-space: nowrap;
+}
+
+
+.loader-letter {
+  display: inline-block;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   LINE
+========================================= */
+
+.loader-line {
+  width: min(500px, 65vw);
+
+  height: 2px;
+
+  margin-top: 40px;
+
+  background: white;
+
+  transform-origin: center;
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.loader-subtitle {
+  margin-top: 22px;
+
+  font-size: 12px;
+
+  letter-spacing: 5px;
+
+  font-weight: 500;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .loader-logo {
+    margin-bottom: 25px;
+  }
+
+  .loader-logo-box {
+    width: 42px;
+    height: 35px;
+
+    font-size: 13px;
+  }
+
+  .loader-logo-name {
+    font-size: 18px;
+
+    letter-spacing: 2px;
+  }
+
+  .loader-title {
+    font-size: 65px;
+
+    letter-spacing: -4px;
+  }
+
+  .loader-line {
+    width: 70%;
+
+    margin-top: 30px;
+  }
+
+  .loader-subtitle {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+}

@@ -1,33 +1,19 @@
 import Navbar from "../../components/Home/Navbar/Navbar";
-
-import ServiceGrid from "../../components/ServicesPage/ServiceGrid/ServiceGrid";
-
-import ServicesCTA from "../../components/ServicesPage/ServicesCTA/ServicesCTA";
-
-import ServicesHero from "../../components/ServicesPage/ServicesHero/ServicesHero";
-
-import WhyChoose from "../../components/ServicesPage/WhyChoose/WhyChoose";
-
+import HomeServices from "../../components/Home/Services/Services";
 import Footer from "../../components/Home/Footer/Footer";
 
-
-function Services() {
+function ServicesPage() {
   return (
     <>
       <Navbar />
 
-      <ServicesHero />
-
-      <ServiceGrid />
-
-      <WhyChoose />
-
-      <ServicesCTA />
+      <main>
+        <HomeServices />
+      </main>
 
       <Footer />
     </>
   );
 }
 
-
-export default Services;
+export default ServicesPage;

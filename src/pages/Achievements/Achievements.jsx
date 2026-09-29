@@ -170,27 +170,7 @@ function Achievements() {
             <div className="dgate-inner-hero__layout">
 
 
-              <div className="dgate-inner-hero__content">
-
-                <nav
-                  className="dgate-inner-hero__breadcrumb"
-                  aria-label="Breadcrumb"
-                >
-
-                  <Link to="/">
-                    Home
-                  </Link>
-
-                  <span aria-hidden="true">
-                    ›
-                  </span>
-
-                  <span aria-current="page">
-                    Achievements
-                  </span>
-
-                </nav>
-
+              <div className="dgate-inner-hero__content"> 
 
                 <div className="dgate-eyebrow">
 
@@ -198,7 +178,7 @@ function Achievements() {
 
                   OUR ACHIEVEMENTS
 
-                </div>
+                </div>   
 
 
                 <h1>
@@ -226,6 +206,7 @@ function Achievements() {
                   and continuous improvement.
 
                 </p>
+                <br></br>
 
 
                 <a
@@ -239,7 +220,7 @@ function Achievements() {
 
                 </a>
 
-              </div>
+              </div> 
 
 
               {/* TROPHY VISUAL */}
@@ -303,7 +284,7 @@ function Achievements() {
 
           </div>
 
-        </section>
+        </section>    
 
 
         {/* ACHIEVEMENTS */}
@@ -463,7 +444,7 @@ function Achievements() {
         </section>
 
 
-        {/* JOURNEY */}
+        {/* JOURNEY 
 
         <section className="dgate-section dgate-section--light">
 
@@ -528,10 +509,10 @@ function Achievements() {
 
           </div>
 
-        </section>
+        </section>       */}
 
 
-        {/* CTA */}
+        {/* CTA 
 
         <section className="dgate-page-cta">
 
@@ -575,7 +556,7 @@ function Achievements() {
 
           </div>
 
-        </section>
+        </section>  */}
 
       </main>
 

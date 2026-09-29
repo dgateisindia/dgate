@@ -2615,7 +2615,7 @@
     14px;
 
   color:
-    #a97000;
+   var(--primary);
 
   font-size:
     12px;
@@ -3607,7 +3607,7 @@
     );
 
   color:
-    #c78d00;
+    var(--primary);
 
   font-size:
     25px;
@@ -5520,6 +5520,302 @@
 
     scroll-behavior:
       auto !important;
+  }
+
+}
+
+/* =========================================================
+   ACHIEVEMENTS HERO — ALIGNMENT / SPACING FIX
+   Scoped only to Achievements so Portfolio / Blog / Gallery
+   keep their existing premium hero spacing.
+========================================================= */
+
+.dgate-inner-hero--achievements {
+  min-height: 540px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__layout {
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(370px, 0.92fr);
+
+  align-items: center;
+
+  gap: 58px;
+
+  padding:
+    44px
+    0
+    50px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__content {
+  align-self: center;
+}
+
+.dgate-inner-hero--achievements
+.dgate-eyebrow {
+  margin-bottom: 16px;
+}
+
+.dgate-inner-hero--achievements h1 {
+  max-width: 720px;
+
+  font-size:
+    clamp(
+      44px,
+      4.7vw,
+      66px
+    );
+
+  line-height: 1.03;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__line {
+  margin:
+    20px
+    0;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__content > p {
+  max-width: 620px;
+
+  line-height: 1.7;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__actions {
+  margin-top: 26px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__button {
+  min-height: 50px;
+}
+
+/* Right visual: vertically aligned with the left content */
+
+.dgate-inner-hero--achievements
+.dgate-inner-hero__scene {
+  min-height: 360px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-achievement-core {
+  width: 300px;
+  height: 300px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-achievement-core__icon {
+  width: 102px;
+  height: 102px;
+
+  font-size: 42px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-achievement-core__text {
+  bottom: 16px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-hero-orbit--one {
+  width: 340px;
+  height: 340px;
+
+  top: 10px;
+  right: 20px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-hero-orbit--two {
+  width: 235px;
+  height: 235px;
+
+  top: 62px;
+  right: 73px;
+}
+
+/* Keep the chips inside the viewport and aligned with the visual */
+
+.dgate-inner-hero--achievements
+.dgate-hero-chip--one {
+  top: 32px;
+  left: 10px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-hero-chip--two {
+  top: 49%;
+  right: 4px;
+}
+
+.dgate-inner-hero--achievements
+.dgate-hero-chip--three {
+  left: 20px;
+  bottom: 28px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS HERO — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(340px, 0.82fr);
+
+    gap: 40px;
+  }
+
+}
+
+
+@media (max-width: 950px) {
+
+  .dgate-inner-hero--achievements {
+    min-height: auto;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__layout {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding:
+      42px
+      0
+      55px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__content {
+    max-width: 720px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__scene {
+    width:
+      min(
+        100%,
+        540px
+      );
+
+    min-height: 350px;
+
+    margin:
+      0 auto;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__layout {
+    gap: 24px;
+
+    padding:
+      34px
+      0
+      44px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .dgate-inner-hero--achievements h1 {
+    font-size: 38px;
+
+    line-height: 1.04;
+
+    letter-spacing: -1.2px;
+  }
+ 
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__line {
+    width: 52px;
+
+    margin:
+      18px
+      0;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__actions {
+    margin-top: 22px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__scene {
+    min-height: 300px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-achievement-core {
+    width: 250px;
+    height: 250px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-achievement-core__icon {
+    width: 88px;
+    height: 88px;
+
+    font-size: 34px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-hero-orbit--one {
+    width: 270px;
+    height: 270px;
+
+    top: 15px;
+    left: 50%;
+    right: auto;
+
+    margin-left: -135px;
+  }
+
+}
+
+
+@media (max-width: 380px) {
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__layout {
+    padding:
+      30px
+      0
+      40px;
+  }
+
+  .dgate-inner-hero--achievements h1 {
+    font-size: 34px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-inner-hero__scene {
+    min-height: 275px;
+  }
+
+  .dgate-inner-hero--achievements
+  .dgate-achievement-core {
+    width: 230px;
+    height: 230px;
   }
 
 }

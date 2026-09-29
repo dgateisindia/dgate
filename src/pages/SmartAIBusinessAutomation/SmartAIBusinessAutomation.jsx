@@ -1,17 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
-  FaArrowRight,
-  FaRobot,
-  FaWhatsapp,
-  FaPhoneAlt,
-  FaCogs,
   FaCheckCircle,
-  FaChartLine,
-  FaHeadset,
-  FaBolt,
-  FaShieldAlt,
+  FaChevronDown,
+  FaObjectGroup,
+  FaBezierCurve,
+  FaExpandArrowsAlt,
 } from "react-icons/fa";
 
 import Navbar from "../../components/Home/Navbar/Navbar";
@@ -21,972 +16,516 @@ import "./SmartAIBusinessAutomation.css";
 
 
 /* =========================================================
-   SERVICES
+   SERVICE APPROACH
 ========================================================= */
 
-const automationServices = [
+const approachItems = [
   {
-    icon: <FaWhatsapp />,
-    title: "WhatsApp Chatbot Development",
+    title: "Process & Workflow Analysis",
     description:
-      "Automated WhatsApp conversations for enquiries, lead capture, support, order updates, FAQs and business workflows.",
+      "Identify tasks ideal for automation across sales, support, and operations.",
   },
   {
-    icon: <FaPhoneAlt />,
-    title: "AI Calling Bots",
+    title: "Bot Strategy & Use-Case Design",
     description:
-      "AI-powered calling workflows for lead qualification, reminders, follow-ups, customer assistance and repetitive business calls.",
+      "Define calling bots, WhatsApp bots, chat bots, and sales automation flows.",
   },
   {
-    icon: <FaRobot />,
-    title: "AI Business Automation",
+    title: "AI Bot Development & Integrations",
     description:
-      "Automate repetitive workflows across customer communication, lead handling, internal processes and service operations.",
+      "Connect CRMs, APIs, databases, and messaging platforms seamlessly.",
   },
   {
-    icon: <FaCogs />,
-    title: "WhatsApp API Integrations",
+    title: "Testing, Deployment & Optimization",
     description:
-      "Connect WhatsApp Business API with your CRM, website, lead forms, support workflows and other business systems.",
+      "Train AI models, refine responses, and optimize performance continuously.",
   },
 ];
 
 
 /* =========================================================
-   AUTOMATION FEATURES
+   WHAT WE OFFER
 ========================================================= */
 
-const automationFeatures = [
-  "WhatsApp Business API integration",
-  "Lead capture automation",
-  "FAQ chatbot automation",
-  "Customer support workflows",
-  "Appointment reminders",
-  "Order status notifications",
-  "CRM integration",
-  "Lead qualification workflows",
-  "AI calling bot integration",
-  "Follow-up automation",
-  "Campaign response automation",
-  "Analytics and reporting",
+const offerCards = [
+  {
+    icon: <FaObjectGroup />,
+    title: "AI Automation Strategy & Architecture",
+    items: [
+      "Business workflow & automation discovery",
+      "AI bot use-case planning & logic design",
+      "Scalable automation architecture",
+    ],
+  },
+  {
+    icon: <FaBezierCurve />,
+    title: "AI Bots & Smart Assistants",
+    items: [
+      "AI calling bots & voice assistants",
+      "WhatsApp, chat & messaging bots",
+      "Sales, support & lead qualification bots",
+    ],
+  },
+  {
+    icon: <FaExpandArrowsAlt />,
+    title: "Integrations & Workflow Automation",
+    items: [
+      "CRM, ERP & database integrations",
+      "Automated follow-up workflows",
+      "Analytics, reporting & optimization",
+    ],
+  },
 ];
 
 
 /* =========================================================
-   PROCESS
+   AI AUTOMATION PROCESS
 ========================================================= */
 
 const processSteps = [
   {
     number: "01",
-    title: "Workflow Discovery",
+    title: "Business Intelligence",
     description:
-      "We identify repetitive communication and business processes that can be automated effectively.",
+      "We analyze your workflows, sales funnels, support journeys, and customer touchpoints to identify automation opportunities.",
   },
   {
     number: "02",
-    title: "Conversation & Logic Design",
+    title: "AI Bot Design",
     description:
-      "We map chatbot flows, automation rules, lead journeys and required integrations.",
+      "Designing smart Calling Bots, Sales Bots, WhatsApp Bots, and AI Assistants aligned with your brand voice.",
   },
   {
     number: "03",
-    title: "Development & Integration",
+    title: "Automation Build",
     description:
-      "We build the WhatsApp chatbot, AI automation or calling workflow and connect it with your business tools.",
+      "We develop AI-powered workflows integrating CRM, WhatsApp, voice, email, APIs, and internal systems.",
   },
   {
     number: "04",
-    title: "Testing & Optimisation",
+    title: "Deploy & Scale",
     description:
-      "We test real user scenarios, automation logic, integrations and response flows before deployment.",
+      "Go live with continuous AI learning, analytics, optimization, and scalable automation across your business.",
+  },
+];
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+const faqItems = [
+  {
+    question: "What is AI business automation?",
+    answer:
+      "AI business automation uses intelligent software and AI-powered bots to automate repetitive processes, customer communication, sales follow-ups, support tasks, lead qualification, and operational workflows.",
+  },
+  {
+    question: "What types of AI bots do you build?",
+    answer:
+      "We build AI calling bots, sales bots, WhatsApp bots, customer-support bots, lead qualification bots, messaging assistants, and custom AI workflow automation solutions.",
+  },
+  {
+    question: "Can AI replace human agents?",
+    answer:
+      "AI is most effective when it handles repetitive and high-volume tasks while human teams focus on conversations, decisions, exceptions, and situations that require personal attention.",
+  },
+  {
+    question: "Can AI bots integrate with my CRM & tools?",
+    answer:
+      "Yes. AI automation can be connected with CRMs, APIs, databases, messaging platforms, WhatsApp workflows, internal applications, and other compatible business systems.",
+  },
+  {
+    question: "Is AI automation secure?",
+    answer:
+      "Security depends on the architecture and integrations used. We design automation workflows with controlled access, secure integrations, appropriate data handling, and reliable system architecture.",
+  },
+  {
+    question: "How fast can AI automation go live?",
+    answer:
+      "The implementation timeline depends on the use case, integrations, workflow complexity, testing requirements, and the amount of customization required for the business.",
   },
 ];
 
 
 function SmartAIBusinessAutomation() {
+  const [activeFaq, setActiveFaq] = useState(0);
+
+
+  /* =========================================================
+     SEO
+  ========================================================= */
 
   useEffect(() => {
-
-    /* =====================================================
-       SEO TITLE
-    ===================================================== */
-
     document.title =
       "WhatsApp Chatbot Development Company Bangalore | AI Automation | DGATE IS";
 
-
-    /* =====================================================
-       META DESCRIPTION
-    ===================================================== */
-
     const description =
-      "DGATE IS is a WhatsApp chatbot development company and AI automation agency in Bangalore offering WhatsApp Business API solutions, AI calling bots and business automation for startups and small businesses.";
+      "DGATE IS provides AI business automation, WhatsApp bots, AI calling bots, sales bots, smart assistants and workflow automation solutions in Bangalore.";
 
-    let metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      );
-
-
-    if (!metaDescription) {
-
-      metaDescription =
-        document.createElement("meta");
-
-      metaDescription.setAttribute(
-        "name",
-        "description"
-      );
-
-      document.head.appendChild(
-        metaDescription
-      );
-
-    }
-
-
-    metaDescription.setAttribute(
-      "content",
-      description
+    let metaDescription = document.querySelector(
+      'meta[name="description"]'
     );
 
-
-    /* =====================================================
-       CANONICAL
-    ===================================================== */
-
-    let canonical =
-      document.querySelector(
-        'link[rel="canonical"]'
-      );
-
-
-    if (!canonical) {
-
-      canonical =
-        document.createElement("link");
-
-      canonical.setAttribute(
-        "rel",
-        "canonical"
-      );
-
-      document.head.appendChild(
-        canonical
-      );
-
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
     }
 
+    metaDescription.setAttribute("content", description);
+
+
+    let canonical = document.querySelector(
+      'link[rel="canonical"]'
+    );
+
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
 
     canonical.setAttribute(
       "href",
       `${window.location.origin}/smart-ai-business-automation.html`
     );
-
   }, []);
+
+
+  const toggleFaq = (index) => {
+    setActiveFaq((current) =>
+      current === index ? null : index
+    );
+  };
 
 
   return (
     <>
       <Navbar />
 
-
-      <main className="automation-page">
+      <main className="smartai-page">
 
         {/* =====================================================
             HERO
         ===================================================== */}
 
-        <section className="automation-hero">
+        <section className="smartai-hero">
 
-          <div className="automation-container automation-hero__grid">
+          <div className="smartai-container smartai-hero__grid">
 
-            {/* LEFT */}
+            <div className="smartai-hero__title">
 
-            <div className="automation-hero__content">
-
-              <span className="automation-eyebrow">
-                WHATSAPP CHATBOT DEVELOPMENT COMPANY BANGALORE
-              </span>
-
+              <div className="smartai-hero__shape" />
 
               <h1>
                 Smart AI Business
-                Automation Solutions
-                
+                <br />
+                Automation
+                <br />
+                Solutions
               </h1>
 
+            </div>
+
+
+            <div className="smartai-hero__description">
 
               <p>
-                Automate your business with powerful AI Calling Bots, Sales Bots, WhatsApp Bots, and intelligent Message Bots that work 24/7. From lead generation and customer support to follow-ups and conversions, 
-                our AI automation solutions help you scale faster with less manual effort.
+                Automate your business with powerful{" "}
+                <strong>AI Calling Bots, Sales Bots, WhatsApp Bots,</strong>{" "}
+                and intelligent <strong>Message Bots</strong> that work
+                24/7. From lead generation and customer support to
+                follow-ups and conversions, our AI automation
+                solutions help you scale faster with less manual effort.
               </p>
 
+            </div>
 
-              <div className="automation-hero__actions">
+          </div>
 
-                <Link
-                  to="/contact"
-                  className="automation-btn automation-btn--primary"
-                >
-                  Automate Your Business
-
-                  <FaArrowRight />
-                </Link>
+        </section>
 
 
-                <a
-                  href="#automation-cost"
-                  className="automation-btn automation-btn--secondary"
-                >
-                  View Automation Options
-                </a>
+        {/* =====================================================
+            BREADCRUMB
+        ===================================================== */}
+
+        <section className="smartai-breadcrumb-section">
+
+          <div className="smartai-container">
+
+            <nav
+              className="smartai-breadcrumb"
+              aria-label="Breadcrumb"
+            >
+
+              <Link to="/">
+                Home
+              </Link>
+
+              <span className="smartai-breadcrumb__dot" />
+
+              <Link to="/services">
+                Services
+              </Link>
+
+              <span className="smartai-breadcrumb__dot" />
+
+              <strong>
+                Smart AI Business Automation
+              </strong>
+
+            </nav>
+
+          </div>
+
+        </section>
+
+
+        {/* =====================================================
+            HERO IMAGE
+        ===================================================== */}
+
+        <section className="smartai-main-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1800&q=90"
+            alt="AI robot representing smart business automation"
+          />
+
+        </section>
+
+
+        {/* =====================================================
+            SERVICE OVERVIEW
+        ===================================================== */}
+
+        <section className="smartai-overview">
+
+          <div className="smartai-container">
+
+            <h2 className="smartai-section-title">
+              Service Overview
+            </h2>
+
+            <div className="smartai-divider" />
+
+
+            <div className="smartai-overview__grid">
+
+              <div className="smartai-overview__text">
+
+                <p>
+                  AI automation transforms how businesses communicate,
+                  sell, and support customers. By deploying intelligent{" "}
+                  <strong>
+                    AI Calling Bots, Sales Bots, WhatsApp Bots, and
+                    Message Bots
+                  </strong>
+                  , businesses can automate repetitive tasks, respond
+                  instantly, and engage customers 24/7 without human
+                  intervention.
+                </p>
+
+
+                <p>
+                  At <strong>Dgateis</strong>, we build smart AI
+                  automation systems that handle lead qualification,
+                  follow-ups, customer support, appointment booking and
+                  sales conversations — helping you reduce costs,
+                  increase efficiency, and scale operations faster.
+                </p>
+
+              </div>
+
+
+              <div className="smartai-approach">
+
+                <h3>
+                  Our Approach to AI Automation
+                </h3>
+
+
+                <div className="smartai-approach__list">
+
+                  {approachItems.map((item) => (
+
+                    <div
+                      className="smartai-approach__item"
+                      key={item.title}
+                    >
+
+                      <FaCheckCircle />
+
+                      <p>
+                        <strong>{item.title}</strong>
+                        {" – "}
+                        {item.description}
+                      </p>
+
+                    </div>
+
+                  ))}
+
+                </div>
 
               </div>
 
             </div>
 
+          </div>
 
-            {/* RIGHT */}
+        </section>
 
-            <div className="automation-hero__visual">
+
+        {/* =====================================================
+            WHAT WE OFFER
+        ===================================================== */}
+
+        <section className="smartai-offer">
+
+          <div className="smartai-container">
+
+            <h2 className="smartai-offer__heading">
+              What We Offer
+            </h2>
+
+
+            <div className="smartai-offer__grid">
+
+              {offerCards.map((card) => (
+
+                <article
+                  className="smartai-offer__card"
+                  key={card.title}
+                >
+
+                  <div className="smartai-offer__icon">
+                    {card.icon}
+                  </div>
+
+
+                  <h3>
+                    {card.title}
+                  </h3>
+
+
+                  <div className="smartai-offer__line" />
+
+
+                  <ul>
+
+                    {card.items.map((item) => (
+
+                      <li key={item}>
+                        <span>+</span>
+                        <span>{item}</span>
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </article>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* =====================================================
+            AI IMAGE STRIP
+        ===================================================== */}
+
+        <section className="smartai-image-strip">
+
+          <div className="smartai-image-strip__grid">
+
+            <div className="smartai-image-strip__item">
+
+              <img
+                src="https://xcelacore.com/wp-content/uploads/2022/04/robotic-process-automation.jpg"
+                alt="Connected intelligent business automation technology"
+              />
+
+            </div>
+
+
+            <div className="smartai-image-strip__item">
 
               <img
                 src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1200&q=85"
-                alt="WhatsApp chatbot and AI automation agency in Bangalore"
+                alt="AI assistant and chatbot automation"
               />
 
+            </div>
 
-              <div className="automation-hero__card">
+          </div>
 
-                <FaWhatsapp />
+        </section>
 
 
-                <div>
+        {/* =====================================================
+            AI AUTOMATION WORKFLOW
+        ===================================================== */}
 
-                  <strong>
-                    AI + WhatsApp + Automation
-                  </strong>
+        <section className="smartai-process">
 
-                  <span>
-                    Faster responses. Smarter workflows.
+          <div className="smartai-process__grid-background" />
+
+
+          <div className="smartai-container smartai-process__content">
+
+            <div className="smartai-process__label">
+
+              <span />
+
+              AI Automation Workflow
+
+            </div>
+
+
+            <h2>
+              Our AI Automation Process
+              <br />
+              From Idea to Intelligent Execution
+            </h2>
+
+
+            <div className="smartai-process__steps">
+
+              <div className="smartai-process__line" />
+
+
+              {processSteps.map((step) => (
+
+                <article
+                  className="smartai-process__step"
+                  key={step.number}
+                >
+
+                  <span className="smartai-process__number">
+                    {step.number}
                   </span>
 
-                </div>
 
-              </div>
+                  <h3>
+                    {step.title}
+                  </h3>
 
-            </div>
 
-          </div>
+                  <p>
+                    {step.description}
+                  </p>
 
-        </section>
+                </article>
 
-
-        {/* =====================================================
-            SERVICES
-        ===================================================== */}
-
-        <section className="automation-section">
-
-          <div className="automation-container">
-
-            <div className="automation-heading">
-
-              <span>
-                AI AUTOMATION AGENCY BANGALORE
-              </span>
-
-
-              <h2>
-                Intelligent Automation
-                for Everyday Business Workflows.
-              </h2>
-
-
-              <p>
-                Automation can reduce repetitive work, improve
-                response times and help your team manage more
-                customer interactions without manually handling
-                every step.
-              </p>
-
-            </div>
-
-
-            <div className="automation-services-grid">
-
-              {automationServices.map(
-                (service) => (
-
-                  <article
-                    className="automation-service-card"
-                    key={service.title}
-                  >
-
-                    <div className="automation-service-card__icon">
-                      {service.icon}
-                    </div>
-
-
-                    <h3>
-                      {service.title}
-                    </h3>
-
-
-                    <p>
-                      {service.description}
-                    </p>
-
-                  </article>
-
-                )
-              )}
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            WHATSAPP BUSINESS API
-        ===================================================== */}
-
-        <section className="automation-section automation-section--light">
-
-          <div className="automation-container automation-two-column">
-
-            <div>
-
-              <span className="automation-small-label">
-                WHATSAPP API BUSINESS SOLUTIONS BANGALORE
-              </span>
-
-
-              <h2>
-                Turn WhatsApp Into
-                a Business Automation Channel.
-              </h2>
-
-
-              <p>
-                WhatsApp Business API can help your team manage
-                enquiries, customer notifications, support requests
-                and automated conversations at scale.
-              </p>
-
-
-              <p>
-                DGATE IS can design workflows that connect WhatsApp
-                with your website, CRM or internal processes based
-                on your business requirements.
-              </p>
-
-
-              <Link
-                to="/contact"
-                className="automation-text-link"
-              >
-                Discuss WhatsApp API Integration
-
-                <FaArrowRight />
-              </Link>
-
-            </div>
-
-
-            <div className="automation-feature-grid">
-
-              {automationFeatures.map(
-                (feature) => (
-
-                  <div
-                    className="automation-feature-item"
-                    key={feature}
-                  >
-
-                    <FaCheckCircle />
-
-                    <span>
-                      {feature}
-                    </span>
-
-                  </div>
-
-                )
-              )}
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            AI CALLING BOT
-        ===================================================== */}
-
-        <section className="automation-calling-section">
-
-          <div className="automation-container automation-calling-grid">
-
-            <div className="automation-calling-visual">
-
-              <div className="automation-call-circle">
-
-                <FaPhoneAlt />
-
-              </div>
-
-
-              <div className="automation-call-flow">
-
-                <div>
-                  Lead
-                </div>
-
-                <span>
-                  →
-                </span>
-
-                <div>
-                  AI Call
-                </div>
-
-                <span>
-                  →
-                </span>
-
-                <div>
-                  Qualified
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div>
-
-              <span className="automation-small-label">
-                AI CALLING BOT FOR BUSINESS BANGALORE
-              </span>
-
-
-              <h2>
-                Automate Repetitive
-                Business Calls.
-              </h2>
-
-
-              <p>
-                AI calling bots can support repetitive call
-                scenarios such as lead qualification, reminders,
-                follow-ups and basic customer interactions.
-              </p>
-
-
-              <div className="automation-mini-list">
-
-                <div>
-                  <FaCheckCircle />
-                  Lead qualification
-                </div>
-
-                <div>
-                  <FaCheckCircle />
-                  Appointment reminders
-                </div>
-
-                <div>
-                  <FaCheckCircle />
-                  Follow-up calls
-                </div>
-
-                <div>
-                  <FaCheckCircle />
-                  Customer notifications
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            SMALL BUSINESS
-        ===================================================== */}
-
-        <section className="automation-section">
-
-          <div className="automation-container automation-two-column">
-
-            <div>
-
-              <span className="automation-small-label">
-                AI CHATBOT FOR SMALL BUSINESS BANGALORE
-              </span>
-
-
-              <h2>
-                Automation Is Not Only
-                for Large Companies.
-              </h2>
-
-
-              <p>
-                Small businesses can use AI chatbots and WhatsApp
-                automation to respond faster, qualify enquiries and
-                reduce manual follow-up work without building a large
-                customer service team.
-              </p>
-
-            </div>
-
-
-            <div className="automation-small-business-grid">
-
-              <article>
-
-                <FaBolt />
-
-                <h3>
-                  Faster Responses
-                </h3>
-
-                <p>
-                  Respond automatically to common customer
-                  enquiries and basic requests.
-                </p>
-
-              </article>
-
-
-              <article>
-
-                <FaHeadset />
-
-                <h3>
-                  Better Support
-                </h3>
-
-                <p>
-                  Handle frequently asked questions before
-                  routing complex issues to your team.
-                </p>
-
-              </article>
-
-
-              <article>
-
-                <FaChartLine />
-
-                <h3>
-                  Better Follow-Up
-                </h3>
-
-                <p>
-                  Automate repetitive lead and customer
-                  follow-up workflows.
-                </p>
-
-              </article>
-
-
-              <article>
-
-                <FaCogs />
-
-                <h3>
-                  Connected Systems
-                </h3>
-
-                <p>
-                  Connect automation with CRM, websites
-                  and other business tools where required.
-                </p>
-
-              </article>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            COST
-        ===================================================== */}
-
-        <section
-          className="automation-section automation-section--light"
-          id="automation-cost"
-        >
-
-          <div className="automation-container">
-
-            <div className="automation-heading automation-heading--center">
-
-              <span>
-                WHATSAPP BUSINESS AUTOMATION COST BANGALORE
-              </span>
-
-
-              <h2>
-                How Much Does WhatsApp
-                Business Automation Cost?
-              </h2>
-
-
-              <p>
-                Automation cost depends on the chatbot complexity,
-                WhatsApp API requirements, number of workflows,
-                CRM integrations, AI features and ongoing support.
-                We recommend a solution after understanding your
-                exact business process.
-              </p>
-
-            </div>
-
-
-            <div className="automation-package-grid">
-
-              {/* STARTER */}
-
-              <article className="automation-package">
-
-                <span className="automation-package__label">
-                  STARTER
-                </span>
-
-
-                <h3>
-                  Basic WhatsApp Automation
-                </h3>
-
-
-                <p>
-                  Suitable for small businesses that want to automate
-                  common customer enquiries and lead capture.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    Basic chatbot flow
-                  </li>
-
-                  <li>
-                    FAQ automation
-                  </li>
-
-                  <li>
-                    Lead capture
-                  </li>
-
-                  <li>
-                    Basic notification flow
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="automation-package__link"
-                >
-                  Get Cost Estimate
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-
-              {/* GROWTH */}
-
-              <article className="automation-package automation-package--featured">
-
-                <span className="automation-package__label">
-                  GROWTH
-                </span>
-
-
-                <h3>
-                  WhatsApp + CRM Automation
-                </h3>
-
-
-                <p>
-                  Suitable for businesses that need connected lead,
-                  sales and customer communication workflows.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    WhatsApp Business API
-                  </li>
-
-                  <li>
-                    Advanced conversation flows
-                  </li>
-
-                  <li>
-                    CRM integration
-                  </li>
-
-                  <li>
-                    Automated follow-ups
-                  </li>
-
-                  <li>
-                    Lead qualification
-                  </li>
-
-                  <li>
-                    Reporting support
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="automation-package__link"
-                >
-                  Discuss Your Workflow
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-
-              {/* CUSTOM */}
-
-              <article className="automation-package">
-
-                <span className="automation-package__label">
-                  CUSTOM AI
-                </span>
-
-
-                <h3>
-                  Advanced AI Automation
-                </h3>
-
-
-                <p>
-                  For businesses requiring AI conversations,
-                  calling workflows or more complex integrations.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    AI chatbot workflows
-                  </li>
-
-                  <li>
-                    AI calling bot
-                  </li>
-
-                  <li>
-                    Custom integrations
-                  </li>
-
-                  <li>
-                    Business workflow automation
-                  </li>
-
-                  <li>
-                    Custom logic
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="automation-package__link"
-                >
-                  Request Custom Quote
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            WHY AUTOMATE
-        ===================================================== */}
-
-        <section className="automation-section automation-section--dark">
-
-          <div className="automation-container">
-
-            <div className="automation-heading automation-heading--center">
-
-              <span>
-                SMART BUSINESS AUTOMATION
-              </span>
-
-
-              <h2>
-                Give Your Team More Time
-                for Higher-Value Work.
-              </h2>
-
-
-              <p>
-                Automation is most valuable when it removes
-                repetitive work while keeping important customer
-                interactions connected to your team.
-              </p>
-
-            </div>
-
-
-            <div className="automation-benefit-grid">
-
-              <article>
-
-                <FaBolt />
-
-                <strong>
-                  Faster
-                </strong>
-
-                <span>
-                  Reduce repetitive manual response time.
-                </span>
-
-              </article>
-
-
-              <article>
-
-                <FaCogs />
-
-                <strong>
-                  Consistent
-                </strong>
-
-                <span>
-                  Standardise common business workflows.
-                </span>
-
-              </article>
-
-
-              <article>
-
-                <FaChartLine />
-
-                <strong>
-                  Scalable
-                </strong>
-
-                <span>
-                  Handle more interactions as your business grows.
-                </span>
-
-              </article>
-
-
-              <article>
-
-                <FaShieldAlt />
-
-                <strong>
-                  Controlled
-                </strong>
-
-                <span>
-                  Define clear rules for automated business processes.
-                </span>
-
-              </article>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            PROCESS
-        ===================================================== */}
-
-        <section className="automation-section automation-section--light">
-
-          <div className="automation-container">
-
-            <div className="automation-heading automation-heading--center">
-
-              <span>
-                OUR AUTOMATION PROCESS
-              </span>
-
-
-              <h2>
-                From Manual Workflow
-                to Smart Automation.
-              </h2>
-
-            </div>
-
-
-            <div className="automation-process-grid">
-
-              {processSteps.map(
-                (step) => (
-
-                  <article
-                    className="automation-process-card"
-                    key={step.number}
-                  >
-
-                    <span>
-                      {step.number}
-                    </span>
-
-
-                    <h3>
-                      {step.title}
-                    </h3>
-
-
-                    <p>
-                      {step.description}
-                    </p>
-
-                  </article>
-
-                )
-              )}
+              ))}
 
             </div>
 
@@ -999,173 +538,75 @@ function SmartAIBusinessAutomation() {
             FAQ
         ===================================================== */}
 
-        <section className="automation-section">
+        <section className="smartai-faq">
 
-          <div className="automation-container">
+          <div className="smartai-container">
 
-            <div className="automation-heading">
+            <div className="smartai-faq__label">
 
-              <span>
-                AI AUTOMATION FAQs
-              </span>
+              <span />
 
-
-              <h2>
-                Common Questions About
-                WhatsApp & AI Automation.
-              </h2>
+              AI Automation FAQs
 
             </div>
 
 
-            <div className="automation-faq">
-
-              <details>
-
-                <summary>
-                  How much does WhatsApp business automation
-                  cost in Bangalore?
-                </summary>
+            <h2>
+              Common Questions About
+              <br />
+              AI Business Automation
+            </h2>
 
 
-                <p>
-                  The cost depends on the chatbot complexity,
-                  WhatsApp API requirements, number of automated
-                  workflows, integrations and level of AI required.
-                  DGATE IS can provide a scope-based estimate after
-                  reviewing your use case.
-                </p>
+            <div className="smartai-faq__accordion">
 
-              </details>
+              {faqItems.map((item, index) => {
 
+                const isOpen = activeFaq === index;
 
-              <details>
+                return (
 
-                <summary>
-                  Do you develop WhatsApp chatbots in Bangalore?
-                </summary>
+                  <div
+                    className={`smartai-faq__item ${
+                      isOpen
+                        ? "smartai-faq__item--active"
+                        : ""
+                    }`}
+                    key={item.question}
+                  >
 
+                    <button
+                      type="button"
+                      className="smartai-faq__button"
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={isOpen}
+                    >
 
-                <p>
-                  Yes. DGATE IS develops WhatsApp chatbot workflows
-                  for enquiries, lead capture, customer support,
-                  notifications and other business requirements.
-                </p>
+                      <span>
+                        {item.question}
+                      </span>
 
-              </details>
+                      <FaChevronDown />
 
-
-              <details>
-
-                <summary>
-                  Can WhatsApp automation connect with my CRM?
-                </summary>
-
-
-                <p>
-                  Depending on the CRM and available integrations,
-                  WhatsApp workflows can be connected with lead,
-                  sales and customer management systems.
-                </p>
-
-              </details>
+                    </button>
 
 
-              <details>
+                    <div className="smartai-faq__answer">
 
-                <summary>
-                  Do you build AI chatbots for small businesses?
-                </summary>
+                      <div>
 
+                        <p>
+                          {item.answer}
+                        </p>
 
-                <p>
-                  Yes. Automation can be structured around smaller
-                  workflows such as answering common questions,
-                  collecting leads and managing basic follow-ups.
-                </p>
+                      </div>
 
-              </details>
+                    </div>
 
+                  </div>
 
-              <details>
-
-                <summary>
-                  Can you develop an AI calling bot for business?
-                </summary>
-
-
-                <p>
-                  Yes. AI calling workflows can be designed for
-                  appropriate repetitive business scenarios such
-                  as reminders, qualification and follow-up calls.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  Are you a WhatsApp automation agency near me
-                  in Bangalore?
-                </summary>
-
-
-                <p>
-                  DGATE IS is based in Bangalore and can support
-                  businesses looking for WhatsApp Business API,
-                  chatbot and AI automation solutions.
-                </p>
-
-              </details>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            CTA
-        ===================================================== */}
-
-        <section className="automation-cta">
-
-          <div className="automation-container">
-
-            <div className="automation-cta__box">
-
-              <div>
-
-                <span>
-                  AUTOMATE YOUR BUSINESS
-                </span>
-
-
-                <h2>
-                  Looking for a WhatsApp Automation
-                  Agency in Bangalore?
-                </h2>
-
-
-                <p>
-                  Tell us which business process you want to
-                  automate and our team will recommend the right
-                  WhatsApp, chatbot or AI workflow.
-                </p>
-
-              </div>
-
-
-              <Link
-                to="/contact"
-                className="automation-btn automation-btn--primary"
-              >
-                Get a Free Consultation
-
-                <FaArrowRight />
-              </Link>
+                );
+              })}
 
             </div>
 
@@ -1175,11 +616,9 @@ function SmartAIBusinessAutomation() {
 
       </main>
 
-
       <Footer />
     </>
   );
 }
-
 
 export default SmartAIBusinessAutomation;

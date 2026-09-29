@@ -81,30 +81,30 @@ function Hero() {
       <HeroCanvas />
 
       <div className="home-hero__content">
+
         <span className="home-hero__tag">
-          ENGINEERING • DIGITAL • INNOVATION
+          IDEATE | INNOVATE | INITIATE
         </span>
 
         <h1
           id="home-hero-title"
           className="home-hero__title"
         >
-          DGATE IS 
+          DGATE
           <br />
-          <span className="home-hero__title-accent">
-          Digital Marketing
+          Transformative Marketing
           <br />
-          Agency
-          </span>
-          in Bangalore
+          Agency in Bangalore
         </h1>
 
         <p className="home-hero__description">
-          Bangalore-based digital agency for branding, web development, eCommerce,
-          SEO & AI automation. 250+ brands scaled. Get a free consult.
+          Bangalore-based digital agency for branding, web development,
+          eCommerce, SEO &amp; AI automation. 250+ brands scaled. Get a
+          free consult.
         </p>
 
         <div className="home-hero__actions">
+
           <Link
             to="/services"
             className="home-hero__button home-hero__button--primary"
@@ -118,7 +118,9 @@ function Hero() {
           >
             Contact Us
           </Link>
+
         </div>
+
       </div>
     </section>
   );

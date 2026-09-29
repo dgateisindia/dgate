@@ -1,0 +1,330 @@
+/* =========================================================
+   PAGE TRANSITION
+========================================================= */
+
+.page-transition {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+  height: 100dvh;
+
+  z-index: 2147483647;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  visibility: visible;
+
+  opacity: 1;
+
+  pointer-events: all;
+
+  background: #101010;
+
+  isolation: isolate;
+
+  transform: translateZ(0);
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.transition-panel {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 50%;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #191919 0%,
+      #101010 100%
+    );
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  will-change:
+    transform;
+
+  backface-visibility:
+    hidden;
+}
+
+
+.transition-top {
+  top: 0;
+}
+
+
+.transition-bottom {
+  bottom: 0;
+}
+
+
+/* =========================================================
+   D-GATE WRAPPER
+========================================================= */
+
+.transition-title {
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  z-index: 10;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  width:
+    max-content;
+
+  max-width:
+    calc(
+      100vw - 40px
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: nowrap;
+
+  gap: 0;
+
+  overflow: visible;
+
+  white-space: nowrap;
+
+  color: #ffffff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      64px,
+      10vw,
+      150px
+    );
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing:
+    -0.055em;
+
+  text-align: center;
+
+  user-select: none;
+
+  pointer-events: none;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.transition-letter {
+  position: relative;
+
+  display: inline-block;
+
+  flex:
+    0 0 auto;
+
+  color: #ffffff;
+
+  transform-origin:
+    center center;
+
+  text-shadow:
+    0 5px 22px
+    rgba(
+      0,
+      0,
+      0,
+      0.35
+    );
+
+  will-change:
+    transform,
+    opacity,
+    color;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  -moz-osx-font-smoothing:
+    grayscale;
+}
+
+
+/* =========================================================
+   HYPHEN
+========================================================= */
+
+.transition-hyphen {
+  margin-left:
+    0.03em;
+
+  margin-right:
+    0.06em;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .transition-title {
+    font-size:
+      clamp(
+        60px,
+        11vw,
+        125px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 768px
+) {
+
+  .transition-title {
+    max-width:
+      calc(
+        100vw - 30px
+      );
+
+    font-size:
+      clamp(
+        50px,
+        14vw,
+        90px
+      );
+
+    letter-spacing:
+      -0.06em;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 480px
+) {
+
+  .transition-title {
+    max-width:
+      calc(
+        100vw - 20px
+      );
+
+    font-size:
+      14vw;
+
+    letter-spacing:
+      -0.065em;
+  }
+
+
+  .transition-hyphen {
+    margin-left:
+      0.02em;
+
+    margin-right:
+      0.04em;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 340px
+) {
+
+  .transition-title {
+    font-size:
+      13.5vw;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .transition-panel,
+  .transition-letter,
+  .transition-title {
+    will-change:
+      auto;
+  }
+
+}

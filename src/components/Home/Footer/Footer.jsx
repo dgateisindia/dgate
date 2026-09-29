@@ -17,7 +17,6 @@ import {
 
 /* =========================================================
    COMPANY LINKS
-   Industries and Technologies removed
 ========================================================= */
 
 const companyLinks = [
@@ -34,11 +33,7 @@ const companyLinks = [
     to: "/portfolio",
   },
   {
-    label: "Blog",
-    to: "/blog",
-  },
-  {
-    label: "Achievements",
+    label: "CERTIFICATES",
     to: "/achievements",
   },
   {
@@ -56,36 +51,6 @@ const companyLinks = [
   {
     label: "Contact Us",
     to: "/contact",
-
-  },
-];
-
-
-/* =========================================================
-   SOLUTIONS LINKS
-   Old data removed
-========================================================= */
-
-const solutionLinks = [
-  {
-    label: "Brand Strategy & Identity",
-    to: "/BrandingDesign.jsx",
-  },
-  {
-    label: "Website & App Development",
-    to: "/TechStackWeb.jsx",
-  },
-  {
-    label: "E-Commerce Solutions",
-    to: "/DevelopmentEcommerce.jsx",
-  },
-  {
-    label: "Performance Marketing",
-    to: "/DataAnalyticsPerformance.jsx",
-  },
-  {
-    label: "AI Automations",
-    to: "/SmartAIBusinessAutomation.jsx",
   },
 ];
 
@@ -94,12 +59,16 @@ function Footer() {
   return (
     <footer className="site-footer">
 
+      {/* =====================================================
+          MAIN FOOTER
+      ===================================================== */}
+
       <div className="container">
 
         <div className="site-footer__grid">
 
           {/* =================================================
-              COMPANY INFORMATION
+              COMPANY INFORMATION - LEFT
           ================================================= */}
 
           <div className="site-footer__company">
@@ -116,7 +85,7 @@ function Footer() {
             </Link>
 
 
-            <p>
+            <p className="site-footer__description">
               D-GATE Integrated Services is a growth-focused
               engineering solutions company helping businesses
               innovate, transform and scale through cutting-edge
@@ -125,17 +94,13 @@ function Footer() {
 
 
             <p className="site-footer__company-info">
-              <strong>
-                GST:
-              </strong>{" "}
+              <strong>GST:</strong>{" "}
               29AAJCD5329F1ZI
             </p>
 
 
             <p className="site-footer__company-info">
-              <strong>
-                CIN:
-              </strong>{" "}
+              <strong>CIN:</strong>{" "}
               U74999KA2022PTC165544
             </p>
 
@@ -143,14 +108,16 @@ function Footer() {
 
 
           {/* =================================================
-              COMPANY LINKS
+              COMPANY LINKS - CENTER
           ================================================= */}
 
-          <div className="site-footer__column">
+          <div className="site-footer__column site-footer__company-links">
 
             <h3>
               Company
             </h3>
+
+            <div className="footer-heading-line"></div>
 
 
             <ul>
@@ -173,44 +140,16 @@ function Footer() {
 
 
           {/* =================================================
-              SOLUTIONS LINKS
-          ================================================= */}
-
-          <div className="site-footer__column">
-
-            <h3>
-              Solutions
-            </h3>
-
-
-            <ul>
-
-              {solutionLinks.map((item) => (
-
-                <li key={item.to}>
-
-                  <Link to={item.to}>
-                    {item.label}
-                  </Link>
-
-                </li>
-
-              ))}
-
-            </ul>
-
-          </div>
-
-
-          {/* =================================================
-              ADDRESS & SOCIALS
+              ADDRESS & SOCIALS - RIGHT
           ================================================= */}
 
           <div className="site-footer__column site-footer__contact">
 
             <h3>
-              Address & Socials
+              Address &amp; Socials
             </h3>
+
+            <div className="footer-heading-line"></div>
 
 
             {/* ADDRESS */}
@@ -221,7 +160,6 @@ function Footer() {
                 className="site-footer__contact-icon"
                 aria-hidden="true"
               />
-
 
               <a
                 href="https://maps.app.goo.gl/WkxFxd7u8LUEDW756"
@@ -252,9 +190,8 @@ function Footer() {
                 aria-hidden="true"
               />
 
-
-              <a href="tel:+918040907113">
-                080-40907113
+              <a href="tel:+919538562600">
+                9538562600
               </a>
 
             </div>
@@ -269,7 +206,6 @@ function Footer() {
                 aria-hidden="true"
               />
 
-
               <a href="mailto:info@dgateis.com">
                 info@dgateis.com
               </a>
@@ -282,7 +218,6 @@ function Footer() {
             ================================================= */}
 
             <div className="site-footer__socials">
-
 
               {/* INSTAGRAM */}
 

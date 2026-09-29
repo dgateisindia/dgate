@@ -452,7 +452,7 @@
     );
 
   color:
-    #e5a800;
+    var(--primary);
 
   font-size:
     1rem;

@@ -3,287 +3,315 @@ import "./SuccessStories.css";
 import {
   useEffect,
   useRef,
-  useState,
 } from "react";
 
+import {
+  Link,
+} from "react-router-dom";
+
+import {
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
+
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import {
+  ScrollTrigger,
+} from "gsap/ScrollTrigger";
+
+import {
+  successStories,
+} from "./successStoriesData";
 
 
-/* =========================================================
-   PROJECT IMAGES
-========================================================= */
-import kanaja from "../../../assets/images/home/success-stories/kanaja_foods.png";
-import hexad from "../../../assets/images/home/success-stories/hexad_website.png";
-import uniheal from "../../../assets/images/home/success-stories/uniheal_website.png";
-import hiyath from "../../../assets/images/home/success-stories/hiyath_website.png";
+gsap.registerPlugin(
+  ScrollTrigger
+);
 
-
-gsap.registerPlugin(ScrollTrigger);
-
-
-/* =========================================================
-   PROJECT DATA
-========================================================= */
-
-const projects = [
-  {
-    id: "kanaja-foods",
-    title: "Kanaja Foods",
-    category: "UI/UX Design",
-    image: kanaja,
-  },
-
-  {
-    id: "hexad",
-    title: "Hexad",
-    category: "Web Development",
-    image: hexad,
-  },
-
-  {
-    id: "uniheal",
-    title: "Uniheal",
-    category: "Digital Marketing",
-    image: uniheal,
-  },
-
-  {
-    id: "hiyath",
-    title: "Hiyath",
-    category: "Performance Optimization",
-    image: hiyath,
-  },
-];
-
-
-const categories = [
-  "UI/UX Design",
-  "Web Development",
-  "Digital Marketing",
-  "Performance Optimization",
-];
-
-
-/* =========================================================
-   COMPONENT
-========================================================= */
 
 function SuccessStories() {
   const sectionRef = useRef(null);
-
-  const [activeCategory, setActiveCategory] =
-    useState("All");
+  const listRef = useRef(null);
 
 
   /* =========================================================
-     INITIAL SCROLL ANIMATION
-     FADE ONLY
+     GSAP ANIMATION
   ========================================================= */
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
+    if (!sectionRef.current) {
+      return undefined;
+    }
 
     const reduceMotion =
       window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
+    if (reduceMotion) {
+      return undefined;
+    }
 
-    if (reduceMotion) return;
+    const ctx =
+      gsap.context(() => {
 
-
-    const ctx = gsap.context(() => {
-
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 84%",
-          once: true,
-        },
-      });
-
-
-      timeline
-        .from(
-          ".home-success__title",
-          {
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            clearProps: "opacity",
-          }
-        )
-
-        .from(
-          ".home-success__filters",
-          {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.2"
-        )
-
-        .from(
+        gsap.from(
           ".home-success__card",
           {
             opacity: 0,
-            duration: 0.45,
-            stagger: 0.08,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.15"
+            y: 35,
+
+            duration: 0.7,
+
+            stagger: 0.12,
+
+            ease:
+              "power3.out",
+
+            scrollTrigger: {
+              trigger:
+                sectionRef.current,
+
+              start:
+                "top 80%",
+
+              once:
+                true,
+            },
+          }
         );
 
-    }, sectionRef);
+      }, sectionRef);
 
-
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
 
   }, []);
 
 
   /* =========================================================
-     FILTER PROJECTS
+     SCROLL LEFT / RIGHT
   ========================================================= */
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter(
-          (project) =>
-            project.category === activeCategory
-        );
+  const scrollStories = (direction) => {
+    const list = listRef.current;
 
+    if (!list) return;
 
-  /* =========================================================
-     CATEGORY CLICK
-     CLICK ACTIVE CATEGORY AGAIN = SHOW ALL
-  ========================================================= */
+    const firstCard =
+      list.querySelector(
+        ".home-success__card"
+      );
 
-  const handleCategoryClick = (category) => {
+    if (!firstCard) return;
 
-    setActiveCategory(
-      (currentCategory) =>
-        currentCategory === category
-          ? "All"
-          : category
-    );
+    const cardWidth =
+      firstCard.getBoundingClientRect().width;
 
+    const styles =
+      window.getComputedStyle(list);
+
+    const gap =
+      parseFloat(styles.columnGap) ||
+      parseFloat(styles.gap) ||
+      20;
+
+    const scrollAmount =
+      cardWidth + gap;
+
+    list.scrollBy({
+      left:
+        direction === "left"
+          ? -scrollAmount
+          : scrollAmount,
+
+      behavior: "smooth",
+    });
   };
 
 
   return (
     <section
+      id="success-stories"
       className="home-success"
       ref={sectionRef}
-      aria-labelledby="home-success-title"
+      aria-labelledby="success-title"
     >
+
       <div className="container">
 
 
-        {/* =================================================
-            TITLE
-        ================================================= */}
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
 
-        <div className="home-success__header">
+        <header className="home-success__header">
 
-          <h1
-            id="home-success-title"
+          <h2
+            id="success-title"
             className="home-success__title"
           >
-            Digital Success Stories 
-          </h1>
+            Digital{" "}
+
+            <span>
+              Success Stories
+            </span>
+
+          </h2>
 
 
-          {/* ===============================================
-              CATEGORY ROW
-          =============================================== */}
+          <p>
+            Explore selected brand,
+            development and growth projects
+            created around real business
+            objectives.
+          </p>
 
-          <div className="home-success__navigation">
+        </header>
 
 
+        {/* =====================================================
+            CAROUSEL
+        ===================================================== */}
 
-            <div
-              className="home-success__filters"
-              aria-label="Success story categories"
-            >
+        <div className="home-success__carousel">
 
-              {categories.map((category) => (
 
-                <button
-                  type="button"
-                  key={category}
-                  className={`home-success__filter ${
-                    activeCategory === category
-                      ? "home-success__filter--active"
-                      : ""
-                  }`}
-                  aria-pressed={
-                    activeCategory === category
-                  }
-                  onClick={() =>
-                    handleCategoryClick(category)
-                  }
+          {/* LEFT ARROW */}
+
+          <button
+            type="button"
+            className="
+              home-success__nav
+              home-success__nav--left
+            "
+            onClick={() =>
+              scrollStories("left")
+            }
+            aria-label="Previous success stories"
+          >
+            <FaChevronLeft />
+          </button>
+
+
+          {/* STORIES LIST */}
+
+          <div
+            className="home-success__list"
+            ref={listRef}
+          >
+
+            {successStories.map(
+              (project) => (
+
+                <article
+                  className="home-success__card"
+                  key={project.id}
                 >
-                  {category}
-                </button>
 
-              ))}
+                  <Link
+                    to={`/success-stories/${project.slug}`}
+                    className="home-success__card-link"
+                    aria-label={`View ${project.brand} case study`}
+                  >
 
-            </div>
+                    <img
+                      src={project.image}
+                      alt={`${project.brand} ${project.cardTitle}`}
+                      className="home-success__image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+
+                    <div
+                      className="home-success__overlay"
+                      aria-hidden="true"
+                    />
+
+
+                    <div className="home-success__top">
+
+                      <div className="home-success__tags">
+
+                        {project.categories.map(
+                          (category) => (
+
+                            <span key={category}>
+                              {category}
+                            </span>
+
+                          )
+                        )}
+
+                      </div>
+
+
+                      <span className="home-success__year">
+                        {project.year}
+                      </span>
+
+                    </div>
+
+
+                    <div className="home-success__project-copy">
+
+                      <span className="home-success__brand">
+                        {project.brand}
+                      </span>
+
+
+                      <h3>
+                        {project.cardTitle}
+                      </h3>
+
+                    </div>
+
+
+                    <div className="home-success__view-project">
+
+                      View Project
+
+                      <span>
+                        <FaArrowRight />
+                      </span>
+
+                    </div>
+
+                  </Link>
+
+                </article>
+
+              )
+            )}
 
           </div>
 
-        </div>
 
+          {/* RIGHT ARROW */}
 
-        {/* =================================================
-            PROJECT GRID
-        ================================================= */}
+          <button
+            type="button"
+            className="
+              home-success__nav
+              home-success__nav--right
+            "
+            onClick={() =>
+              scrollStories("right")
+            }
+            aria-label="Next success stories"
+          >
+            <FaChevronRight />
+          </button>
 
-        <div className="home-success__grid">
-
-          {filteredProjects.map((project) => (
-
-            <article
-              className="home-success__card"
-              key={project.id}
-            >
-
-              <img
-                src={project.image}
-                alt={`${project.title} - ${project.category} project by DGATE Integrated Services`}
-                className="home-success__image"
-                loading="lazy"
-              />
-
-
-              {/* ACCESSIBLE HIDDEN PROJECT INFORMATION */}
-
-              <div className="home-success__sr-content">
-
-                <h3>
-                  {project.title}
-                </h3>
-
-                <p>
-                  {project.category}
-                </p>
-
-              </div>
-
-            </article>
-
-          ))}
 
         </div>
 
       </div>
+
     </section>
   );
 }

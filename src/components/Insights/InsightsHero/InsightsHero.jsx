@@ -154,24 +154,6 @@ function InsightsHero() {
 
         <div className="insights-page-hero__content">
 
-          <nav
-            className="insights-page-hero__breadcrumb"
-            aria-label="Breadcrumb"
-          >
-            <Link to="/">
-              Home
-            </Link>
-
-            <span aria-hidden="true">
-              ›
-            </span>
-
-            <span aria-current="page">
-              Insights
-            </span>
-          </nav>
-
-
           <h1
             id="insights-page-hero-title"
             className="insights-page-hero__title"

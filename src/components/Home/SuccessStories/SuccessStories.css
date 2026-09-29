@@ -1,20 +1,20 @@
 /* =========================================================
-   HOME - DIGITAL SUCCESS STORIES
+   SUCCESS STORIES
 ========================================================= */
 
 .home-success {
-  position: relative;
+  --success-yellow: var(--primary, #fdb913);
+  --success-yellow-dark: #e3a400;
+  --success-black: #101010;
+  --success-text: #666666;
 
   width: 100%;
 
-  padding:
-    82px
-    0
-    88px;
+  padding: 80px 0 90px;
 
   overflow: hidden;
 
-  background: var(--white);
+  background: #ffffff;
 }
 
 
@@ -24,8 +24,29 @@
 
 .home-success__header {
   width: 100%;
+  max-width: 760px;
 
-  margin-bottom: 58px;
+  margin: 0 auto 42px;
+
+  text-align: center;
+}
+
+
+.home-success__eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #9e6c00;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 1.7px;
+
+  text-transform: uppercase;
 }
 
 
@@ -34,266 +55,321 @@
 ========================================================= */
 
 .home-success__title {
+  margin: 0;
+
+  color: var(--success-black);
+
+  font-size: clamp(
+    42px,
+    5vw,
+    68px
+  );
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -1.5px;
+}
+
+
+.home-success__title span {
+  color: var(--success-yellow);
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
+
+.home-success__header p {
+  max-width: 630px;
+
+  margin: 18px auto 0;
+
+  color: var(--success-text);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CAROUSEL WRAPPER
+========================================================= */
+
+.home-success__carousel {
+  position: relative;
+
   width: 100%;
 
   margin: 0;
-
-  color: var(--black);
-
-  font-family:
-    "Oswald",
-    sans-serif;
-
-  font-size: 55px;
-    
-
-  font-weight: 700;
-
-  line-height: 0.96;
-
-  letter-spacing: -2px;
-
-  text-align: center;
-
-  
-
-  white-space: nowrap;
 }
 
 
 /* =========================================================
-   NAVIGATION / FILTER ROW
+   HORIZONTAL PROJECT CAROUSEL
 ========================================================= */
 
-.home-success__navigation {
+.home-success__list {
   width: 100%;
 
   display: flex;
 
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 
-  gap: 30px;
+  align-items: flex-start;
 
-  margin-top: 38px;
-}
+  gap: 20px;
 
+  margin: 0;
 
-/* =========================================================
-   DECORATIVE LINE
-========================================================= */
+  padding: 4px 2px 18px;
 
+  overflow-x: auto;
+  overflow-y: hidden;
 
+  scroll-behavior: smooth;
 
-.home-success__decorative-line::before {
-  content: "";
+  scroll-snap-type: x mandatory;
 
-  width: 100%;
-  height: 1px;
+  overscroll-behavior-x: contain;
 
-  background: var(--black);
-}
+  -webkit-overflow-scrolling: touch;
 
+  scrollbar-width: thin;
 
-.home-success__decorative-line::after {
-  content: "";
-
-  position: absolute;
-
-  right: -1px;
-
-  width: 5px;
-  height: 5px;
-
-  background: var(--black);
-
-  border-radius: 50%;
-}
-
-
-.home-success__decorative-line span {
-  position: absolute;
-
-  left: -1px;
-
-  width: 5px;
-  height: 5px;
-
-  background: var(--black);
-
-  border-radius: 50%;
-}
-
-
-/* =========================================================
-   FILTERS
-========================================================= */
-
-.home-success__filters {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 14px;
-}
-
-
-/* =========================================================
-   FILTER BUTTON
-========================================================= */
-
-.home-success__filter {
-  min-height: 30px;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding:
-    5px
-    17px;
-
-  border:
-    1px solid
+  scrollbar-color:
+    var(--success-yellow)
     #e6e6e6;
+}
 
-  border-radius: 999px;
 
-  background: var(--white);
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 
-  color: #555555;
+.home-success__list::-webkit-scrollbar {
+  height: 6px;
+}
 
-  font-family: inherit;
 
-  font-size: 0.78rem;
-  font-weight: 600;
+.home-success__list::-webkit-scrollbar-track {
+  border-radius: 50px;
 
-  line-height: 1.2;
+  background: #e6e6e6;
+}
 
-  white-space: nowrap;
+
+.home-success__list::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+
+  background: var(--success-yellow);
+}
+
+
+.home-success__list::-webkit-scrollbar-thumb:hover {
+  background: var(--success-yellow-dark);
+}
+
+
+/* =========================================================
+   LEFT / RIGHT ARROWS
+========================================================= */
+
+.home-success__nav {
+  position: absolute;
+
+  z-index: 30;
+
+  top: 50%;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: var(--success-black);
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.16);
+
+  font-size: 16px;
 
   cursor: pointer;
 
+  transform: translateY(-50%);
+
   transition:
-    border-color 0.25s ease,
     background-color 0.25s ease,
     color 0.25s ease,
-    box-shadow 0.25s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.home-success__nav svg {
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  pointer-events: none;
+}
+
+
+/* LEFT */
+
+.home-success__nav--left {
+  left: -24px;
+}
+
+
+/* RIGHT */
+
+.home-success__nav--right {
+  right: -24px;
 }
 
 
 /* =========================================================
-   FILTER HOVER
+   ARROW HOVER
 ========================================================= */
 
 @media (hover: hover) {
 
-  .home-success__filter:hover {
-    border-color:
-      rgba(253, 185, 19, 0.65);
+  .home-success__nav:hover {
+    border-color: var(--success-yellow);
 
-    background:
-      rgba(253, 185, 19, 0.08);
+    background: var(--success-yellow);
 
-    color: var(--black);
+    color: #101010;
+
+    box-shadow:
+      0 10px 30px
+      rgba(0, 0, 0, 0.2);
+
+    transform:
+      translateY(-50%)
+      scale(1.08);
   }
 
 }
 
 
 /* =========================================================
-   ACTIVE FILTER
+   ARROW ACTIVE
 ========================================================= */
 
-.home-success__filter--active {
-  border-color: var(--primary);
-
-  background: var(--primary);
-
-  color: var(--black);
-
-  box-shadow:
-    0 4px 14px
-    rgba(253, 185, 19, 0.17);
+.home-success__nav:active {
+  transform:
+    translateY(-50%)
+    scale(0.94);
 }
 
 
 /* =========================================================
-   PROJECT GRID
+   ARROW KEYBOARD FOCUS
 ========================================================= */
 
-.home-success__grid {
-  width: 100%;
+.home-success__nav:focus-visible {
+  outline:
+    3px solid
+    rgba(253, 185, 19, 0.4);
 
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap:
-    30px
-    22px;
+  outline-offset: 3px;
 }
 
 
 /* =========================================================
-   PROJECT CARD
+   CARD
 ========================================================= */
 
 .home-success__card {
   position: relative;
 
-  width: 100%;
+  /*
+    3 equal cards visible on desktop.
+    Additional cards continue horizontally.
+  */
+
+  flex:
+    0 0
+    calc(
+      (100% - 40px) / 3
+    );
+
+  width:
+    calc(
+      (100% - 40px) / 3
+    );
+
+  min-width: 390px;
+
+  height: 280px;
+
+  margin: 0 !important;
 
   overflow: hidden;
 
-  border:
-    1px solid
-    rgba(17, 17, 17, 0.04);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  border: 0;
 
   border-radius: 14px;
 
-  background: var(--gray);
+  background: #111111;
 
   box-shadow:
-    0 5px 20px
-    rgba(0, 0, 0, 0.035);
+    0 8px 24px
+    rgba(0, 0, 0, 0.09);
+
+  /*
+    GSAP applies translateY during animation.
+    Keep final card alignment horizontal.
+  */
+
+  transform: none !important;
 
   transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
+    box-shadow 0.3s ease;
 }
 
 
 /* =========================================================
-   CARD HOVER
-   NO TRANSLATE / SCALE
+   CARD LINK
 ========================================================= */
 
-@media (hover: hover) {
+.home-success__card-link {
+  position: relative;
 
-  .home-success__card:hover {
-    border-color:
-      rgba(253, 185, 19, 0.35);
+  width: 100%;
+  height: 100%;
 
-    box-shadow:
-      0 14px 34px
-      rgba(0, 0, 0, 0.09);
-  }
+  display: block;
 
+  overflow: hidden;
 
-  .home-success__card:hover
-  .home-success__image {
-    filter:
-      brightness(1.03)
-      saturate(1.04);
-  }
+  border-radius: inherit;
 
+  color: #ffffff;
+
+  text-decoration: none;
 }
 
 
@@ -302,383 +378,871 @@
 ========================================================= */
 
 .home-success__image {
-  display: block;
+  position: absolute;
+
+  inset: 0;
 
   width: 100%;
+  height: 100%;
 
-  aspect-ratio:
-    2.02 / 1;
+  display: block;
 
   object-fit: cover;
-
   object-position: center;
 
   transition:
-    filter 0.3s ease;
+    transform 0.5s ease;
 }
 
 
 /* =========================================================
-   SCREEN READER CONTENT
+   IMAGE OVERLAY
 ========================================================= */
 
-.home-success__sr-content {
+.home-success__overlay {
   position: absolute;
 
-  width: 1px;
-  height: 1px;
+  inset: 0;
 
-  padding: 0;
-  margin: -1px;
+  z-index: 2;
 
-  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0.12) 32%,
+      rgba(0, 0, 0, 0.35) 65%,
+      rgba(0, 0, 0, 0.82) 100%
+    );
 
-  clip: rect(0, 0, 0, 0);
-
-  white-space: nowrap;
-
-  border: 0;
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   1200PX
+   CARD TOP SECTION
 ========================================================= */
 
-@media (max-width: 1200px) {
+.home-success__top {
+  position: absolute;
 
-  .home-success {
-    padding:
-      70px
-      0
-      76px;
+  z-index: 5;
+
+  top: 16px;
+  left: 16px;
+  right: 16px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.home-success__tags {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: nowrap;
+
+  gap: 5px;
+}
+
+
+.home-success__tags span,
+.home-success__year {
+  flex-shrink: 0;
+
+  padding:
+    5px
+    9px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+
+  border-radius: 999px;
+
+  background:
+    rgba(20, 20, 20, 0.42);
+
+  color: #ffffff;
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  backdrop-filter:
+    blur(8px);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.home-success__year {
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   CENTER PROJECT CONTENT
+========================================================= */
+
+.home-success__project-copy {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 52%;
+  left: 50%;
+
+  width:
+    calc(
+      100% - 40px
+    );
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.home-success__brand {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--success-yellow);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.7px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.home-success__project-copy h3 {
+  width: 100%;
+
+  max-width: 355px;
+
+  margin: 0 auto;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      27px,
+      2.4vw,
+      38px
+    );
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -1px;
+
+  text-align: center;
+
+  text-wrap: balance;
+
+  text-shadow:
+    0 6px 18px
+    rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   VIEW PROJECT
+========================================================= */
+
+.home-success__view-project {
+  position: absolute;
+
+  z-index: 6;
+
+  right: 15px;
+  bottom: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #ffffff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform:
+    translateY(7px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================================================
+   VIEW PROJECT BUTTON
+========================================================= */
+
+.home-success__view-project span {
+  width: 32px;
+  height: 32px;
+
+  flex:
+    0 0
+    32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--success-yellow);
+
+  color: #101010;
+}
+
+
+.home-success__view-project svg {
+  display: block;
+
+  width: 11px;
+  height: 11px;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-success__card:hover {
+    transform: none !important;
+
+    box-shadow:
+      0 15px 35px
+      rgba(0, 0, 0, 0.16);
   }
 
 
-  .home-success__title {
-    font-size:
-      clamp(
-        3.5rem,
-        7vw,
-        6rem
+  .home-success__card:hover
+  .home-success__image {
+    transform:
+      scale(1.045);
+  }
+
+
+  .home-success__card:hover
+  .home-success__view-project {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   CARD KEYBOARD FOCUS
+========================================================= */
+
+.home-success__card-link:focus-visible {
+  outline:
+    3px solid
+    var(--success-yellow);
+
+  outline-offset: -3px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+
+  .home-success__list {
+    gap: 22px;
+  }
+
+
+  .home-success__card {
+    flex:
+      0 0
+      calc(
+        (100% - 44px) / 3
       );
+
+    width:
+      calc(
+        (100% - 44px) / 3
+      );
+
+    min-width: 420px;
+
+    height: 290px;
+  }
+
+
+  .home-success__project-copy h3 {
+    max-width: 380px;
+
+    font-size: 39px;
+  }
+
+
+  .home-success__nav {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .home-success__nav--left {
+    left: -25px;
+  }
+
+
+  .home-success__nav--right {
+    right: -25px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  min-width: 1001px
+) and (
+  max-width: 1300px
+) {
+
+  .home-success__list {
+    gap: 18px;
+  }
+
+
+  .home-success__card {
+    flex:
+      0 0
+      385px;
+
+    width: 385px;
+
+    min-width: 385px;
+
+    height: 260px;
+  }
+
+
+  .home-success__project-copy h3 {
+    max-width: 330px;
+
+    font-size: 32px;
+  }
+
+
+  .home-success__nav {
+    width: 44px;
+    height: 44px;
+  }
+
+
+  .home-success__nav--left {
+    left: -12px;
+  }
+
+
+  .home-success__nav--right {
+    right: -12px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .home-success {
+    padding:
+      65px
+      0
+      70px;
   }
 
 
   .home-success__header {
-    margin-bottom: 48px;
+    margin-bottom: 36px;
   }
 
 
-  .home-success__navigation {
-    margin-top: 32px;
-
-    gap: 24px;
+  .home-success__list {
+    gap: 16px;
   }
 
 
-  .home-success__decorative-line {
-    width: 110px;
+  .home-success__card {
+    flex:
+      0 0
+      360px;
 
-    flex-basis: 110px;
+    width: 360px;
+
+    min-width: 360px;
+
+    height: 245px;
   }
 
 
-  .home-success__filters {
-    gap: 11px;
+  .home-success__top {
+    top: 14px;
+    left: 14px;
+    right: 14px;
   }
 
 
-  .home-success__filter {
-    padding:
-      5px
-      14px;
-
-    font-size: 0.74rem;
-  }
-
-
-  .home-success__grid {
-    gap:
-      24px
-      20px;
-  }
-
-}
-
-
-/* =========================================================
-   1024PX
-========================================================= */
-
-@media (max-width: 1024px) {
-
-  .home-success {
-    padding:
-      62px
-      0
-      68px;
-  }
-
-
-  .home-success__title {
-    font-size:
-      clamp(
-        3.1rem,
-        7.4vw,
-        5rem
+  .home-success__project-copy {
+    width:
+      calc(
+        100% - 30px
       );
-
-    letter-spacing: -1.5px;
   }
 
 
-  .home-success__navigation {
-    flex-direction: column;
+  .home-success__project-copy h3 {
+    max-width: 315px;
 
-    gap: 18px;
+    font-size: 30px;
 
-    margin-top: 28px;
+    letter-spacing: -0.7px;
   }
 
 
-  .home-success__decorative-line {
-    width: 130px;
+  .home-success__brand {
+    font-size: 8px;
+  }
 
-    flex-basis: auto;
+
+  .home-success__view-project {
+    right: 13px;
+    bottom: 12px;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  /* ARROWS */
+
+  .home-success__nav {
+    width: 42px;
+    height: 42px;
+
+    font-size: 14px;
+  }
+
+
+  .home-success__nav--left {
+    left: -8px;
+  }
+
+
+  .home-success__nav--right {
+    right: -8px;
   }
 
 }
 
 
 /* =========================================================
-   768PX
+   TABLET SMALL
 ========================================================= */
 
 @media (max-width: 768px) {
 
   .home-success {
     padding:
-      52px
+      58px
       0
-      58px;
-  }
-
-
-  .home-success__header {
-    margin-bottom: 38px;
+      62px;
   }
 
 
   .home-success__title {
     font-size:
       clamp(
-        2.7rem,
-        9vw,
-        4.2rem
+        38px,
+        8vw,
+        52px
       );
-
-    line-height: 1;
-
-    letter-spacing: -1px;
-
-    white-space: normal;
   }
 
 
-  .home-success__navigation {
-    margin-top: 24px;
+  .home-success__card {
+    flex:
+      0 0
+      330px;
+
+    width: 330px;
+
+    min-width: 330px;
+
+    height: 230px;
   }
 
 
-  .home-success__filters {
-    gap: 9px;
+  .home-success__project-copy h3 {
+    max-width: 290px;
+
+    font-size: 28px;
   }
 
 
-  .home-success__filter {
-    min-height: 31px;
-
-    padding:
-      6px
-      13px;
-
-    font-size: 0.72rem;
+  .home-success__nav {
+    width: 40px;
+    height: 40px;
   }
 
 
-  .home-success__grid {
-    grid-template-columns: 1fr;
-
-    gap: 20px;
+  .home-success__nav--left {
+    left: 4px;
   }
 
 
-  .home-success__image {
-    aspect-ratio:
-      16 / 8.3;
+  .home-success__nav--right {
+    right: 4px;
   }
 
 }
 
 
 /* =========================================================
-   600PX
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
   .home-success {
     padding:
-      46px
+      50px
       0
-      52px;
-  }
-
-
-  .home-success__title {
-    font-size: 2.9rem;
+      55px;
   }
 
 
   .home-success__header {
-    margin-bottom: 32px;
-  }
-
-
-  .home-success__filters {
-    width: 100%;
-  }
-
-
-  .home-success__filter {
-    font-size: 0.7rem;
-  }
-
-
-  .home-success__card {
-    border-radius: 11px;
-  }
-
-}
-
-
-/* =========================================================
-   425PX
-========================================================= */
-
-@media (max-width: 425px) {
-
-  .home-success {
-    padding:
-      42px
-      0
-      48px;
+    margin-bottom: 28px;
   }
 
 
   .home-success__title {
-    font-size: 2.45rem;
+    font-size:
+      clamp(
+        34px,
+        11vw,
+        44px
+      );
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .home-success__header p {
+    margin-top: 14px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+
+  .home-success__list {
+    gap: 14px;
+
+    padding:
+      4px
+      2px
+      15px;
+  }
+
+
+  /*
+    One complete card with a small portion
+    of the next card visible.
+  */
+
+  .home-success__card {
+    flex:
+      0 0
+      min(
+        82vw,
+        315px
+      );
+
+    width:
+      min(
+        82vw,
+        315px
+      );
+
+    min-width:
+      min(
+        82vw,
+        315px
+      );
+
+    height: 215px;
+
+    border-radius: 12px;
+  }
+
+
+  .home-success__top {
+    top: 11px;
+    left: 11px;
+    right: 11px;
+
+    gap: 6px;
+  }
+
+
+  .home-success__tags {
+    gap: 3px;
+  }
+
+
+  .home-success__tags span,
+  .home-success__year {
+    padding:
+      4px
+      6px;
+
+    font-size: 6px;
+  }
+
+
+  .home-success__project-copy {
+    top: 52%;
+
+    width:
+      calc(
+        100% - 24px
+      );
+  }
+
+
+  .home-success__brand {
+    margin-bottom: 6px;
+
+    font-size: 7.5px;
+
+    letter-spacing: 1.3px;
+  }
+
+
+  .home-success__project-copy h3 {
+    max-width: 270px;
+
+    font-size: 25px;
+
+    line-height: 1.05;
 
     letter-spacing: -0.6px;
   }
 
 
-  .home-success__navigation {
-    margin-top: 21px;
+  .home-success__view-project {
+    right: 10px;
+    bottom: 10px;
+
+    opacity: 1;
+
+    transform: none;
+
+    font-size: 0;
   }
 
 
-  .home-success__decorative-line {
-    width: 90px;
+  .home-success__view-project span {
+    width: 30px;
+    height: 30px;
+
+    flex-basis: 30px;
   }
 
 
-  .home-success__filters {
-    gap: 8px;
+  .home-success__view-project svg {
+    width: 10px;
+    height: 10px;
   }
 
 
-  .home-success__filter {
-    min-height: 30px;
+  /* MOBILE ARROWS */
 
-    padding:
-      6px
-      11px;
+  .home-success__nav {
+    width: 38px;
+    height: 38px;
 
-    font-size: 0.68rem;
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.95
+      );
+
+    font-size: 13px;
+
+    box-shadow:
+      0 6px 18px
+      rgba(0, 0, 0, 0.18);
   }
 
 
-  .home-success__grid {
-    gap: 16px;
+  .home-success__nav svg {
+    width: 12px;
+    height: 12px;
   }
 
 
-  .home-success__image {
-    aspect-ratio:
-      16 / 9;
+  .home-success__nav--left {
+    left: 5px;
+  }
+
+
+  .home-success__nav--right {
+    right: 5px;
   }
 
 }
 
 
 /* =========================================================
-   375PX
+   EXTRA SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 375px) {
-
-  .home-success__title {
-    font-size: 2.2rem;
-  }
-
-
-  .home-success__filter {
-    padding:
-      6px
-      10px;
-
-    font-size: 0.66rem;
-  }
-
-}
-
-
-/* =========================================================
-   340PX
-========================================================= */
-
-@media (max-width: 340px) {
+@media (max-width: 380px) {
 
   .home-success {
     padding:
-      38px
+      45px
       0
-      44px;
+      50px;
   }
 
 
   .home-success__title {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
 
-  .home-success__filters {
-    flex-direction: column;
+  .home-success__card {
+    flex-basis: 82vw;
 
-    align-items: stretch;
+    width: 82vw;
 
-    width: 100%;
+    min-width: 82vw;
+
+    height: 205px;
   }
 
 
-  .home-success__filter {
-    width: 100%;
+  .home-success__project-copy h3 {
+    max-width: 245px;
 
-    min-height: 34px;
+    font-size: 23px;
+  }
 
-    font-size: 0.68rem;
+
+  .home-success__brand {
+    font-size: 7px;
+  }
+
+
+  .home-success__tags span,
+  .home-success__year {
+    padding:
+      4px
+      5px;
+
+    font-size: 5.8px;
+  }
+
+
+  .home-success__nav {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  .home-success__nav--left {
+    left: 4px;
+  }
+
+
+  .home-success__nav--right {
+    right: 4px;
   }
 
 }
@@ -690,10 +1254,17 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .home-success__filter,
-  .home-success__card,
-  .home-success__image {
-    transition: none;
+  .home-success *,
+  .home-success *::before,
+  .home-success *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+
+    scroll-behavior:
+      auto !important;
   }
 
 }

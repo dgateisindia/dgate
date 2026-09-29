@@ -2,16 +2,17 @@ import Navbar from "../../components/Home/Navbar/Navbar";
 import Footer from "../../components/Home/Footer/Footer";
 
 import AboutHero from "../../components/About/AboutHero/AboutHero.jsx";
-import WhoWeAre from "../../components/About/WhoWeAre/WhoWeAre.jsx";
+import StrategicExpertise from "../../components/Home/StrategicExpertise/StrategicExpertise";
+{/*  import WhoWeAre from "../../components/About/WhoWeAre/WhoWeAre.jsx";*/}
 import AboutExperience from "../../components/About/AboutExperience/AboutExperience.jsx";
 import FounderMessage from "../../components/About/FounderMessage/FounderMessage.jsx";
 import Leadership from "../../components/About/Leadership/Leadership.jsx";
 import TrustedBrands from "../../components/About/TrustedBrands/TrustedBrands.jsx";
 import VisionMission from "../../components/About/VisionMission/VisionMission.jsx";
 import Journey from "../../components/About/Journey/Journey.jsx";
-import AboutStats from "../../components/About/AboutStats/AboutStats.jsx";
+{/*import AboutStats from "../../components/About/AboutStats/AboutStats.jsx";*/}
 import ClientStories from "../../components/About/ClientStories/ClientStories.jsx";
-import AboutCTA from "../../components/About/AboutCTA/AboutCTA.jsx";
+{/* import AboutCTA from "../../components/About/AboutCTA/AboutCTA.jsx";  */}
 
 
 function About() {
@@ -33,11 +34,11 @@ function About() {
         ===================================================== */}
         <AboutHero />
 
-
+        <StrategicExpertise />
         {/* =====================================================
             2. WHO WE ARE
-        ===================================================== */}
-        <WhoWeAre />
+        ===================================================== 
+        <WhoWeAre />          */}
 
 
         {/* =====================================================
@@ -78,8 +79,8 @@ function About() {
 
         {/* =====================================================
             9. COMPANY STATS
-        ===================================================== */}
-        <AboutStats />
+        ===================================================== 
+        <AboutStats />*/}
 
 
         {/* =====================================================
@@ -90,8 +91,8 @@ function About() {
 
         {/* =====================================================
             11. ABOUT CTA
-        ===================================================== */}
-        <AboutCTA />
+        ===================================================== 
+        <AboutCTA />     */}
 
       </main>
 

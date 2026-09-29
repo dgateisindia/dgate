@@ -20,7 +20,7 @@ const statsData = [
     icon: FaBriefcase,
     value: 20,
     suffix: "+",
-    title: "Years Experience",
+    title: "Years Team Experience",
   },
   {
     id: "experts",

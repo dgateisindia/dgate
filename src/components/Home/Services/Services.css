@@ -1,187 +1,1118 @@
 /* =========================================================
    HOME SERVICES
+   DGATE HORIZONTAL SERVICES CAROUSEL
 ========================================================= */
 
 .home-services {
+  --services-yellow:
+    var(--primary, #fdb913);
+
+  --services-yellow-dark:
+    #e3a400;
+
+  --services-black:
+    var(--black, #101010);
+
+  --services-text:
+    var(--text, #626262);
+
+  --services-border:
+    #e7e7e7;
+
+  --services-soft:
+    #fff9e9;
+
+
+  position: relative;
+
   width: 100%;
 
-  padding: 70px 0;
+  padding:
+    76px 0 68px;
 
-  background: var(--white);
+  overflow: hidden;
+
+  background:
+    #ffffff;
 }
 
 
-/* TITLE */
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.home-services::before {
+  content: "";
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  top: -260px;
+  right: -165px;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.13
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.home-services::after {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  left: -175px;
+  bottom: -130px;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.08
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-services__header {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(400px, 0.7fr);
+
+  align-items: end;
+
+  gap: 60px;
+}
+
+
+/* =========================================================
+   HEADER COPY
+========================================================= */
+
+.home-services__header-copy {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.home-services__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 11px;
+
+  color:
+    var(--primary);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    800;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    1.7px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 .home-services__title {
   margin: 0;
 
-  text-align: center;
+  color:
+    var(--services-black);
 
-  color: var(--black);
+  font-size:
+    clamp(
+      2.3rem,
+      3.6vw,
+      3.6rem
+    );
 
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-weight:
+    800;
 
-  line-height: 1.2;
+  line-height:
+    1.05;
+
+  letter-spacing:
+    -1.4px;
 }
 
+
+.home-services__title span {
+  color:
+    var(--services-yellow);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.home-services__intro {
+  max-width: 540px;
+
+  margin: 0;
+
+  color:
+    var(--services-text);
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.72;
+}
+
+
+/* =========================================================
+   TITLE LINE
+========================================================= */
 
 .home-services__title-line {
-  width: 70px;
+  width: 65px;
   height: 4px;
 
-  margin: 14px auto 50px;
+  margin:
+    20px 0 34px;
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    100px;
 
-  background: var(--primary);
+  background:
+    var(--services-yellow);
 }
 
 
-/* GRID */
+/* =========================================================
+   CAROUSEL SHELL
+========================================================= */
+
+.home-services__slider-shell {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   SERVICES TRACK
+========================================================= */
 
 .home-services__grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(6, minmax(0, 1fr));
-
-  gap: 22px;
-}
-
-
-/* CARD */
-
-.home-services__card {
-  min-width: 0;
-
-  padding: 28px 18px;
-
-  text-align: center;
-
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-
-  background: var(--white);
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.06);
-
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-
-/* ICON */
-
-.home-services__icon {
-  width: 46px;
-  height: 46px;
-
-  margin: 0 auto 20px;
+  width: 100%;
 
   display: flex;
+
+  flex-wrap: nowrap;
+
+  align-items: stretch;
+
+  gap: 18px;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  padding:
+    6px 5px 18px;
+
+  scroll-behavior:
+    smooth;
+
+  scroll-snap-type:
+    x mandatory;
+
+  overscroll-behavior-inline:
+    contain;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    var(--services-yellow)
+    #ededed;
+}
+
+
+/* =========================================================
+   CHROME / EDGE SCROLLBAR
+========================================================= */
+
+.home-services__grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+
+.home-services__grid::-webkit-scrollbar-track {
+  border-radius:
+    100px;
+
+  background:
+    #ededed;
+}
+
+
+.home-services__grid::-webkit-scrollbar-thumb {
+  border-radius:
+    100px;
+
+  background:
+    var(--services-yellow);
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.home-services__card {
+  position: relative;
+
+  flex:
+    0 0
+    clamp(
+      270px,
+      23vw,
+      305px
+    );
+
+  min-width: 0;
+
+  min-height:
+    415px;
+
+  overflow:
+    hidden;
+
+  padding:
+    21px 19px 19px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  scroll-snap-align:
+    start;
+
+  scroll-snap-stop:
+    always;
+
+  border:
+    1px solid
+    var(--services-border);
+
+  border-radius:
+    15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fdfdfd 100%
+    );
+
+  box-shadow:
+    0 6px 20px
+    rgba(
+      0,
+      0,
+      0,
+      0.04
+    );
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.home-services__card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--services-yellow),
+      #ff9500
+    );
+
+  transform:
+    scaleX(0.25);
+
+  transform-origin:
+    left center;
+
+  transition:
+    opacity 0.28s ease,
+    transform 0.32s ease;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.home-services__card-header {
+  display: flex;
+
   align-items: center;
+
+  gap: 12px;
+
+  margin-bottom:
+    15px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.home-services__icon {
+  width: 45px;
+  height: 45px;
+
+  flex:
+    0 0 45px;
+
+  display: flex;
+
+  align-items: center;
+
   justify-content: center;
 
-  color: var(--primary);
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.38
+    );
 
-  font-size: 2.6rem;
+  border-radius:
+    12px;
+
+  background:
+    var(--services-soft);
+
+  color:
+    var(--services-yellow-dark);
+
+  font-size:
+    1.2rem;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 
 .home-services__icon svg {
   display: block;
-
-  width: 100%;
-  height: 100%;
 }
 
 
-/* TEXT */
+/* =========================================================
+   HEADING
+========================================================= */
+
+.home-services__heading {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.home-services__number {
+  display: block;
+
+  margin-bottom:
+    3px;
+
+  color:
+    #a9a39b;
+
+  font-size:
+    0.56rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    1.3px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
 .home-services__card h3 {
-  margin: 0 0 12px;
-
-  color: var(--black);
-
-  font-size: 1.05rem;
-  font-weight: 600;
-
-  line-height: 1.35;
-}
-
-
-.home-services__card p {
   margin: 0;
 
-  color: var(--text);
+  color:
+    var(--services-black);
 
-  font-size: 0.88rem;
+  font-size:
+    0.98rem;
 
-  line-height: 1.65;
+  font-weight:
+    750;
+
+  line-height:
+    1.28;
 }
 
 
-/* HOVER */
+/* =========================================================
+   SERVICE INTRO
+========================================================= */
+
+.home-services__service-intro {
+  margin:
+    0 0 12px;
+
+  color:
+    #686868;
+
+  font-size:
+    0.72rem;
+
+  line-height:
+    1.48;
+}
+
+
+/* =========================================================
+   SERVICE LIST
+========================================================= */
+
+.home-services__list {
+  margin: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  list-style: none;
+}
+
+
+/* =========================================================
+   LIST ITEM
+========================================================= */
+
+.home-services__list li {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  color:
+    #505050;
+
+  font-size:
+    0.7rem;
+
+  line-height:
+    1.43;
+}
+
+
+/* =========================================================
+   BULLET
+========================================================= */
+
+.home-services__bullet {
+  width: 4px;
+  height: 4px;
+
+  flex:
+    0 0 4px;
+
+  margin-top:
+    6px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--services-yellow);
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.home-services__tagline {
+  margin: auto 0 0;
+
+  padding-top: 15px;
+
+  min-height: 47px;
+
+  box-sizing: border-box;
+
+  color: var(--services-black);
+
+  font-size: 0.67rem;
+
+  font-weight: 750;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   CORNER DECORATION
+========================================================= */
+
+.home-services__corner {
+  position: absolute;
+
+  right: -25px;
+  bottom: -25px;
+
+  width: 54px;
+  height: 54px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      253,
+      185,
+      19,
+      0.07
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
 @media (hover: hover) {
 
   .home-services__card:hover {
-    transform: translateY(-7px);
+    transform:
+      translateY(-5px);
 
-    border-color: var(--primary);
+    border-color:
+      rgba(
+        253,
+        185,
+        19,
+        0.58
+      );
 
-    box-shadow: var(--shadow);
+    box-shadow:
+      0 18px 42px
+      rgba(
+        0,
+        0,
+        0,
+        0.085
+      );
+  }
+
+
+  .home-services__card:hover::before {
+    opacity: 1;
+
+    transform:
+      scaleX(1);
+  }
+
+
+  .home-services__card:hover
+  .home-services__icon {
+    transform:
+      translateY(-2px);
+
+    border-color:
+      var(--services-yellow);
+
+    background:
+      var(--services-yellow);
+
+    color:
+      var(--services-black);
   }
 
 }
 
 
 /* =========================================================
-   1200px
+   LEFT / RIGHT CAROUSEL ARROWS
 ========================================================= */
 
-@media (max-width: 1200px) {
+.home-services__slider-arrow {
+  position: absolute;
 
-  .home-services__grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+  z-index: 20;
+
+  top: 50%;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.55
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  color:
+    var(--services-black);
+
+  box-shadow:
+    0 10px 28px
+    rgba(
+      0,
+      0,
+      0,
+      0.16
+    );
+
+  -webkit-backdrop-filter:
+    blur(10px);
+
+  backdrop-filter:
+    blur(10px);
+
+  transform:
+    translateY(-55%);
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   ARROW ICON
+========================================================= */
+
+.home-services__slider-arrow svg {
+  width: 13px;
+  height: 13px;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   LEFT ARROW
+========================================================= */
+
+.home-services__slider-arrow--left {
+  left: 10px;
+}
+
+
+/* =========================================================
+   RIGHT ARROW
+========================================================= */
+
+.home-services__slider-arrow--right {
+  right: 10px;
+}
+
+
+/* =========================================================
+   ARROW HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-services__slider-arrow:not(:disabled):hover {
+    border-color:
+      var(--services-yellow);
+
+    background:
+      var(--services-yellow);
+
+    color:
+      var(--services-black);
+
+    box-shadow:
+      0 12px 30px
+      rgba(
+        253,
+        185,
+        19,
+        0.25
+      );
+  }
+
+
+  .home-services__slider-arrow--left:not(:disabled):hover {
+    transform:
+      translateY(-55%)
+      translateX(-3px);
+  }
+
+
+  .home-services__slider-arrow--right:not(:disabled):hover {
+    transform:
+      translateY(-55%)
+      translateX(3px);
   }
 
 }
 
 
 /* =========================================================
-   768px
+   DISABLED ARROW
 ========================================================= */
 
-@media (max-width: 768px) {
+.home-services__slider-arrow:disabled {
+  opacity: 0.3;
+
+  border-color:
+    #dcdcdc;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+
+  color:
+    #aaaaaa;
+
+  box-shadow:
+    0 5px 15px
+    rgba(
+      0,
+      0,
+      0,
+      0.06
+    );
+
+  cursor:
+    default;
+}
+
+
+/* =========================================================
+   CAROUSEL FOOTER
+========================================================= */
+
+.home-services__carousel-footer {
+  margin-top:
+    9px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+}
+
+
+/* =========================================================
+   SCROLL NOTE
+========================================================= */
+
+.home-services__scroll-note {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color:
+    #898989;
+
+  font-size:
+    0.67rem;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.2px;
+}
+
+
+/* =========================================================
+   SCROLL LINE
+========================================================= */
+
+.home-services__scroll-line {
+  position: relative;
+
+  width: 36px;
+  height: 1px;
+
+  background:
+    #cfcfcf;
+}
+
+
+.home-services__scroll-line::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  top: 50%;
+  right: 0;
+
+  border-top:
+    1px solid
+    #999999;
+
+  border-right:
+    1px solid
+    #999999;
+
+  transform:
+    translateY(-50%)
+    rotate(45deg);
+}
+
+
+/* =========================================================
+   SIMPLE PROGRESS INDICATOR
+========================================================= */
+
+.home-services__progress {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.home-services__progress span {
+  width: 18px;
+  height: 3px;
+
+  border-radius:
+    20px;
+
+  background:
+    #dddddd;
+
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+.home-services__progress span.active {
+  width: 30px;
+
+  background:
+    var(--services-yellow);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.home-services__grid:focus-visible {
+  outline:
+    2px solid
+    var(--services-yellow);
+
+  outline-offset:
+    4px;
+
+  border-radius:
+    10px;
+}
+
+
+.home-services__slider-arrow:focus-visible {
+  outline:
+    3px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.32
+    );
+
+  outline-offset:
+    3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
 
   .home-services {
-    padding: 50px 0;
+    padding:
+      62px 0 58px;
   }
 
-  .home-services__title {
-    font-size: 2rem;
+
+  .home-services__header {
+    grid-template-columns:
+      1fr;
+
+    gap: 17px;
   }
+
+
+  .home-services__intro {
+    max-width:
+      700px;
+  }
+
 
   .home-services__title-line {
-    margin-bottom: 36px;
+    margin-bottom:
+      29px;
   }
 
-  .home-services__grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 16px;
-  }
 
   .home-services__card {
-    padding: 24px 16px;
+    flex:
+      0 0 285px;
+
+    min-height:
+      405px;
+  }
+
+
+  .home-services__slider-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .home-services__slider-arrow--left {
+    left: 7px;
+  }
+
+
+  .home-services__slider-arrow--right {
+    right: 7px;
   }
 
 }
@@ -191,47 +1122,233 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
 
   .home-services {
-    padding: 45px 0;
+    padding:
+      50px 0 46px;
   }
 
-  .home-services__title {
-    font-size: 1.75rem;
+
+  .home-services__eyebrow {
+    font-size:
+      0.62rem;
   }
+
+
+  .home-services__title {
+    font-size:
+      2.1rem;
+
+    letter-spacing:
+      -0.8px;
+  }
+
+
+  .home-services__intro {
+    font-size:
+      0.84rem;
+
+    line-height:
+      1.62;
+  }
+
 
   .home-services__title-line {
     width: 55px;
+    height: 3px;
 
     margin:
-      12px auto
-      30px;
+      18px 0 25px;
   }
 
-  .home-services__grid {
-    grid-template-columns: 1fr;
 
-    gap: 14px;
-  }
+  /*
+   * Part of next card remains visible,
+   * showing the user that the area scrolls.
+   */
 
   .home-services__card {
-    padding: 22px 18px;
+    flex:
+      0 0
+      min(
+        80vw,
+        278px
+      );
+
+    min-height:
+      395px;
+
+    padding:
+      19px 17px 18px;
   }
+
+
+  .home-services__grid {
+    gap: 13px;
+
+    padding:
+      5px 4px 15px;
+  }
+
+
+  .home-services__card-header {
+    margin-bottom:
+      14px;
+  }
+
 
   .home-services__icon {
     width: 42px;
     height: 42px;
 
-    margin-bottom: 16px;
+    flex-basis:
+      42px;
+
+    border-radius:
+      10px;
+
+    font-size:
+      1.05rem;
   }
+
 
   .home-services__card h3 {
-    font-size: 1rem;
+    font-size:
+      0.92rem;
   }
 
-  .home-services__card p {
-    font-size: 0.86rem;
+
+  .home-services__list {
+    gap: 6px;
+  }
+
+
+  .home-services__list li {
+    font-size:
+      0.68rem;
+  }
+
+
+  .home-services__tagline {
+    font-size:
+      0.64rem;
+  }
+
+
+  /* -----------------------------------------------
+     MOBILE ARROWS
+  ----------------------------------------------- */
+
+  .home-services__slider-arrow {
+    width: 38px;
+    height: 38px;
+
+    top: 47%;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.97
+      );
+
+    box-shadow:
+      0 7px 20px
+      rgba(
+        0,
+        0,
+        0,
+        0.15
+      );
+  }
+
+
+  .home-services__slider-arrow svg {
+    width: 10px;
+    height: 10px;
+  }
+
+
+  .home-services__slider-arrow--left {
+    left: 4px;
+  }
+
+
+  .home-services__slider-arrow--right {
+    right: 4px;
+  }
+
+
+  .home-services__carousel-footer {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap: 10px;
+  }
+
+
+  .home-services__scroll-note {
+    font-size:
+      0.62rem;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .home-services__title {
+    font-size:
+      1.95rem;
+  }
+
+
+  .home-services__card {
+    flex-basis:
+      78vw;
+
+    min-height:
+      390px;
+
+    padding:
+      18px 15px 17px;
+  }
+
+
+  .home-services__slider-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY - REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-services *,
+  .home-services *::before,
+  .home-services *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+
+    scroll-behavior:
+      auto !important;
   }
 
 }

@@ -39,7 +39,7 @@ const contactDetails = [
     id: "phone",
     Icon: FaPhoneAlt,
     title: "Call Us",
-    value: "+91 80 1234 5678",
+    value: "+91 9538562600",
     subText:
       "Speak directly with our team",
     type: "phone",
@@ -49,7 +49,7 @@ const contactDetails = [
     id: "whatsapp",
     Icon: FaWhatsapp,
     title: "WhatsApp",
-    value: "+91 98765 43210",
+    value: "+91 9538562600",
     subText:
       "Connect with us for quick assistance",
     type: "whatsapp",
@@ -59,7 +59,7 @@ const contactDetails = [
     id: "hours",
     Icon: FaClock,
     title: "Business Hours",
-    value: "Mon – Fri : 9:30 AM – 6:30 PM",
+    value: "Mon – Sat : 9:30 AM – 6:30 PM",
     subText:
       "Our team will respond during business hours",
     type: "hours",

@@ -1,77 +1,175 @@
+import "./DataAnalyticsPerformance.css";
+
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import {
-  FaArrowRight,
   FaChartBar,
   FaChartLine,
+  FaBullseye,
   FaCheckCircle,
-  FaGoogle,
-  FaSearch,
-  FaShoppingCart,
-  FaTachometerAlt,
 } from "react-icons/fa";
 
-import Navbar from "../../components/Home/Navbar/Navbar";
-import Footer from "../../components/Home/Footer/Footer";
+import Navbar
+  from "../../components/Home/Navbar/Navbar";
 
-import "./DataAnalyticsPerformance.css";
+import Footer
+  from "../../components/Home/Footer/Footer";
 
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
 
 const analyticsServices = [
   {
-    icon: <FaGoogle />,
-    title: "GA4 Setup & Configuration",
-    description:
-      "Google Analytics 4 setup, event configuration and reporting for websites and e-commerce businesses.",
+    id: "tracking",
+    icon: <FaBullseye />,
+    title:
+      "Social Media Analytics & Tracking Setup",
+
+    items: [
+      "GA4 & Google Tag Manager implementation",
+      "Meta Pixel, Google Ads & LinkedIn tracking",
+      "Event, funnel & conversion tracking for social campaigns",
+      "E-Commerce & lead attribution setup",
+    ],
   },
+
   {
-    icon: <FaShoppingCart />,
-    title: "E-Commerce Tracking",
-    description:
-      "Track product views, add-to-cart activity, checkout behaviour and purchases across your online store.",
-  },
-  {
-    icon: <FaChartBar />,
-    title: "Marketing Dashboards",
-    description:
-      "Clear dashboards that combine marketing and website performance data into useful business insights.",
-  },
-  {
+    id: "dashboard",
     icon: <FaChartLine />,
-    title: "Conversion Rate Optimisation",
-    description:
-      "Analyse customer behaviour and website performance to identify opportunities to improve conversions.",
+    title:
+      "Social Media Performance Dashboards & Reporting",
+
+    items: [
+      "Custom social media KPI dashboards",
+      "Campaign performance & ROI reporting",
+      "Paid vs organic social insights",
+      "Clear data visualization for decision-makers",
+    ],
+  },
+
+  {
+    id: "growth",
+    icon: <FaChartBar />,
+    title:
+      "Social Media Optimization & Growth Marketing",
+
+    items: [
+      "Ad creative & audience performance analysis",
+      "Funnel & landing page optimization",
+      "A/B testing for ads, creatives & CTAs",
+      "Performance-driven growth experiments",
+    ],
   },
 ];
 
 
-const analyticsFeatures = [
-  "GA4 account setup",
-  "Google Tag Manager configuration",
-  "Conversion event tracking",
-  "E-commerce tracking",
-  "Lead form tracking",
-  "Campaign attribution",
-  "Marketing dashboards",
-  "Traffic analysis",
-  "Funnel analysis",
-  "Conversion optimisation",
-  "Performance reporting",
-  "Ongoing analytics support",
+/* =========================================================
+   PROCESS
+========================================================= */
+
+const analyticsProcess = [
+  {
+    number: "01",
+    title:
+      "Audit & Analytics Setup",
+
+    description:
+      "Audit social media accounts, ad platforms, GA4, pixels, events and conversions to ensure accurate performance tracking.",
+  },
+
+  {
+    number: "02",
+    title:
+      "Social Media Data Analysis",
+
+    description:
+      "Analyze audience behavior, content engagement, ad performance, traffic quality and funnel drop-offs across platforms.",
+  },
+
+  {
+    number: "03",
+    title:
+      "Optimization & Growth Testing",
+
+    description:
+      "Optimize ads, creatives, targeting, landing pages and messaging using performance data and structured A/B testing.",
+  },
+
+  {
+    number: "04",
+    title:
+      "Reporting & Scaling Growth",
+
+    description:
+      "Deliver actionable dashboards, ROI insights and continuously scale high-performing social media campaigns.",
+  },
+];
+
+
+/* =========================================================
+   FAQs
+========================================================= */
+
+const faqs = [
+  {
+    question:
+      "What is social media performance marketing and why does it matter?",
+
+    answer:
+      "Social media performance marketing uses campaign data, audience behaviour and conversion tracking to improve advertising results. It helps businesses understand what is generating engagement, leads, sales and measurable return on investment.",
+  },
+
+  {
+    question:
+      "Which tools do you use for social media analytics and tracking?",
+
+    answer:
+      "Depending on the business, we can work with GA4, Google Tag Manager, Meta Pixel, Meta Ads Manager, Google Ads, LinkedIn Campaign Manager and custom reporting dashboards.",
+  },
+
+  {
+    question:
+      "Can you help improve ROI from social media ads?",
+
+    answer:
+      "Yes. We analyse audiences, campaign structure, creatives, landing pages, conversion tracking and funnel performance to identify opportunities for improving efficiency and return on ad spend.",
+  },
+
+  {
+    question:
+      "Do you provide custom social media dashboards and reports?",
+
+    answer:
+      "Yes. Reporting can be structured around the KPIs that matter to your business including reach, engagement, traffic, leads, conversions, revenue, customer acquisition cost and campaign ROI.",
+  },
+
+  {
+    question:
+      "Is social media marketing a one-time setup or ongoing service?",
+
+    answer:
+      "Analytics setup can be completed as a defined project, but performance marketing works best as an ongoing process of measurement, testing, optimisation and scaling.",
+  },
 ];
 
 
 function DataAnalyticsPerformance() {
 
-  useEffect(() => {
+  /* =========================================================
+     SEO
+  ========================================================= */
 
+  useEffect(() => {
     document.title =
-      "GA4 Setup Agency Bangalore | Conversion Rate Optimization | DGATE IS";
+      "Social Media Analytics & Performance Growth | DGATE IS";
 
 
     const description =
-      "DGATE IS is a GA4 setup agency in Bangalore offering Google Analytics consulting, ecommerce tracking, marketing dashboards and conversion rate optimization services.";
+      "DGATE Integrated Services provides social media marketing analytics, campaign tracking, performance dashboards, conversion optimization and ROI-focused growth marketing services.";
+
 
     let metaDescription =
       document.querySelector(
@@ -80,7 +178,6 @@ function DataAnalyticsPerformance() {
 
 
     if (!metaDescription) {
-
       metaDescription =
         document.createElement("meta");
 
@@ -108,7 +205,6 @@ function DataAnalyticsPerformance() {
 
 
     if (!canonical) {
-
       canonical =
         document.createElement("link");
 
@@ -125,7 +221,7 @@ function DataAnalyticsPerformance() {
 
     canonical.setAttribute(
       "href",
-      `${window.location.origin}/data-analytics-performance-growth.html`
+      `${window.location.origin}/DataAnalyticsPerformance`
     );
 
   }, []);
@@ -136,78 +232,55 @@ function DataAnalyticsPerformance() {
       <Navbar />
 
 
-      <main className="analytics-page">
+      <main className="performance-page">
+
 
         {/* =====================================================
-            HERO
+            TOP EDITORIAL INTRO
         ===================================================== */}
 
-        <section className="analytics-hero">
+        <section className="performance-intro">
 
-          <div className="analytics-container analytics-hero__grid">
+          <div
+            className="performance-intro__burst"
+            aria-hidden="true"
+          />
 
-            <div className="analytics-hero__content">
+          <div
+            className="performance-intro__arc"
+            aria-hidden="true"
+          />
 
-              <span className="analytics-eyebrow">
-                GA4 SETUP AGENCY BANGALORE
-              </span>
 
+          <div className="performance-container performance-intro__layout">
+
+            <div className="performance-intro__heading">
 
               <h1>
-                GA4 & Analytics Setup Agency 
-                <span>   DGATE IS Bangalore.</span>
+                Social Media
+                <br />
+
+                Marketing, Analytics &amp;
+                <br />
+
+                Performance Growth
               </h1>
 
-
-              <p>
-                GA4, conversion tracking, dashboards & CRO for
-                 data-driven growth. DGATE IS turns your marketing data into results.
-              </p>
-
-
-              <div className="analytics-hero__actions">
-
-                <Link
-                  to="/contact"
-                  className="analytics-btn analytics-btn--primary"
-                >
-                  Set Up Your Analytics
-
-                  <FaArrowRight />
-                </Link>
-
-
-                <a
-                  href="#ga4-ecommerce"
-                  className="analytics-btn analytics-btn--secondary"
-                >
-                  Explore GA4 Setup
-                </a>
-
-              </div>
-
             </div>
 
 
-            <div className="analytics-hero__visual">
+            <div className="performance-intro__copy">
 
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85"
-                alt="GA4 setup and analytics dashboard agency in Bangalore"
-              />
-
-
-              <div className="analytics-hero__card">
-
-                <strong>
-                  Track. Analyse. Improve.
-                </strong>
-
-                <span>
-                  Analytics built around real business outcomes.
-                </span>
-
-              </div>
+              <p>
+                We help brands grow faster on social
+                platforms using data-driven social
+                media marketing strategies. From
+                analytics setup and conversion tracking
+                to paid social optimization, content
+                performance insights, and ROI-focused
+                growth — we turn social engagement into
+                measurable revenue.
+              </p>
 
             </div>
 
@@ -217,250 +290,297 @@ function DataAnalyticsPerformance() {
 
 
         {/* =====================================================
-            SERVICES
+            BREADCRUMB
         ===================================================== */}
 
-        <section className="analytics-section">
+        <div className="performance-breadcrumb">
 
-          <div className="analytics-container">
+          <div className="performance-container">
 
-            <div className="analytics-heading">
+            <nav aria-label="Breadcrumb">
+
+              <Link to="/">
+                Home
+              </Link>
 
               <span>
-                GOOGLE ANALYTICS CONSULTANT BANGALORE
+                ●
               </span>
 
 
-              <h2>
-                Measure What Matters
-                to Your Business.
-              </h2>
+              <Link to="/services">
+                Services
+              </Link>
+
+              <span>
+                ●
+              </span>
 
 
-              <p>
-                Analytics should do more than show traffic.
-                We help you understand where customers come from,
-                what actions they take and where opportunities for
-                improvement exist.
-              </p>
+              <strong>
+                Data Analytics &amp; Performance Growth
+              </strong>
 
-            </div>
-
-
-            <div className="analytics-services-grid">
-
-              {analyticsServices.map(
-                (service) => (
-
-                  <article
-                    className="analytics-service-card"
-                    key={service.title}
-                  >
-
-                    <div className="analytics-service-card__icon">
-                      {service.icon}
-                    </div>
-
-
-                    <h3>
-                      {service.title}
-                    </h3>
-
-
-                    <p>
-                      {service.description}
-                    </p>
-
-                  </article>
-
-                )
-              )}
-
-            </div>
+            </nav>
 
           </div>
+
+        </div>
+
+
+        {/* =====================================================
+            HERO VISUAL
+        ===================================================== */}
+
+        <section className="performance-visual">
+
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=90"
+            alt="Digital marketing analytics and performance growth dashboard"
+            loading="eager"
+            fetchPriority="high"
+          />
+
+          <div
+            className="performance-visual__overlay"
+            aria-hidden="true"
+          />
 
         </section>
 
 
         {/* =====================================================
-            GA4 ECOMMERCE
+            SERVICE OVERVIEW
         ===================================================== */}
 
-        <section
-          className="analytics-section analytics-section--light"
-          id="ga4-ecommerce"
-        >
+        <section className="performance-overview">
 
-          <div className="analytics-container analytics-two-column">
+          <div className="performance-container">
 
-            <div>
-
-              <span className="analytics-small-label">
-                HOW TO SET UP GA4 FOR ECOMMERCE
-              </span>
+            <h2 className="performance-overview__title">
+              Service Overview
+            </h2>
 
 
-              <h2>
-                GA4 Setup for
-                E-Commerce Websites.
-              </h2>
+            <div className="performance-divider" />
 
 
-              <p>
-                Correct e-commerce tracking helps you understand
-                which products customers view, add to cart,
-                begin checkout with and ultimately purchase.
-              </p>
+            <div className="performance-overview__grid">
 
 
-              <p>
-                DGATE IS can configure GA4 and Google Tag Manager
-                so important e-commerce interactions are tracked
-                consistently.
-              </p>
+              {/* LEFT */}
 
-            </div>
+              <div className="performance-overview__copy">
+
+                <p>
+                  Social media marketing and
+                  performance analytics are the
+                  backbone of modern digital growth.
+                  At DGATE Integrated Services, we
+                  help businesses build, track, and
+                  scale high-performing social media
+                  campaigns across platforms like
+                  Instagram, Facebook, LinkedIn,
+                  YouTube, and Google Ads — powered
+                  by accurate analytics and
+                  actionable insights.
+                </p>
 
 
-            <div className="analytics-check-list">
+                <p>
+                  Our social-first approach ensures
+                  every campaign is measurable and
+                  optimized for results. From social
+                  media analytics setup and ad
+                  conversion tracking to audience
+                  insights, funnel optimization, and
+                  performance reporting — we
+                  transform marketing data into
+                  strategies that drive engagement,
+                  leads, and sales.
+                </p>
 
-              <div>
-                <FaCheckCircle />
-                Product view tracking
               </div>
 
-              <div>
-                <FaCheckCircle />
-                Add-to-cart tracking
-              </div>
 
-              <div>
-                <FaCheckCircle />
-                Checkout tracking
-              </div>
+              {/* RIGHT */}
 
-              <div>
-                <FaCheckCircle />
-                Purchase tracking
-              </div>
+              <div className="performance-approach">
 
-              <div>
-                <FaCheckCircle />
-                Revenue reporting
-              </div>
-
-              <div>
-                <FaCheckCircle />
-                Campaign attribution
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
+                <h3>
+                  Our Approach to Data &amp;
+                  Performance Growth
+                </h3>
 
 
-        {/* =====================================================
-            DASHBOARDS
-        ===================================================== */}
+                <div className="performance-approach__item">
 
-        <section className="analytics-section">
+                  <FaCheckCircle />
 
-          <div className="analytics-container analytics-two-column">
-
-            <div>
-
-              <span className="analytics-small-label">
-                MARKETING DASHBOARD REPORTING AGENCY BANGALORE
-              </span>
-
-
-              <h2>
-                Dashboards Your Team
-                Can Actually Understand.
-              </h2>
-
-
-              <p>
-                Instead of switching between multiple tools,
-                we help organise important marketing metrics into
-                dashboards that make performance easier to review.
-              </p>
-
-            </div>
-
-
-            <div className="analytics-feature-grid">
-
-              {analyticsFeatures.map(
-                (feature) => (
-
-                  <div
-                    className="analytics-feature-item"
-                    key={feature}
-                  >
-
-                    <FaCheckCircle />
+                  <p>
+                    <strong>
+                      Analytics &amp; Tracking Setup
+                    </strong>
 
                     <span>
-                      {feature}
+                      Setting up GA4, GTM, Meta Pixel,
+                      Google Ads, LinkedIn and
+                      conversion APIs for accurate
+                      social tracking.
                     </span>
+                  </p>
 
-                  </div>
+                </div>
 
-                )
-              )}
+
+                <div className="performance-approach__item">
+
+                  <FaCheckCircle />
+
+                  <p>
+                    <strong>
+                      Social Media Insights &amp;
+                      Analysis
+                    </strong>
+
+                    <span>
+                      Understanding audience behavior,
+                      content performance, engagement
+                      metrics, and campaign
+                      effectiveness.
+                    </span>
+                  </p>
+
+                </div>
+
+
+                <div className="performance-approach__item">
+
+                  <FaCheckCircle />
+
+                  <p>
+                    <strong>
+                      Optimization &amp; Growth
+                      Marketing
+                    </strong>
+
+                    <span>
+                      Improving creatives, targeting,
+                      funnels, and landing pages for
+                      higher ROI.
+                    </span>
+                  </p>
+
+                </div>
+
+
+                <div className="performance-approach__item">
+
+                  <FaCheckCircle />
+
+                  <p>
+                    <strong>
+                      Performance Scaling
+                    </strong>
+
+                    <span>
+                      Continuous testing, reporting,
+                      and optimization to scale
+                      winning social media campaigns.
+                    </span>
+                  </p>
+
+                </div>
+
+              </div>
 
             </div>
 
-          </div>
 
-        </section>
+            {/* =================================================
+                WHAT WE OFFER
+            ================================================= */}
 
-
-        {/* =====================================================
-            CRO
-        ===================================================== */}
-
-        <section className="analytics-section analytics-section--dark">
-
-          <div className="analytics-container analytics-two-column">
-
-            <div>
-
-              <span className="analytics-small-label">
-                CONVERSION RATE OPTIMIZATION AGENCY BANGALORE
-              </span>
-
+            <section className="performance-offer">
 
               <h2>
-                More Traffic Is Not Always
-                the Answer.
+                What We Offer
               </h2>
 
-            </div>
+
+              <div className="performance-offer__grid">
+
+                {analyticsServices.map(
+                  (service) => (
+
+                    <article
+                      key={service.id}
+                      className="performance-offer__card"
+                    >
+
+                      <div className="performance-offer__icon">
+                        {service.icon}
+                      </div>
 
 
-            <div>
-
-              <p>
-                Conversion rate optimisation focuses on helping
-                more existing visitors take meaningful actions,
-                such as submitting enquiries, completing checkout
-                or making purchases.
-              </p>
+                      <h3>
+                        {service.title}
+                      </h3>
 
 
-              <Link
-                to="/contact"
-                className="analytics-btn analytics-btn--yellow"
-              >
-                Improve Your Conversions
+                      <div className="performance-offer__line" />
 
-                <FaArrowRight />
-              </Link>
+
+                      <ul>
+
+                        {service.items.map(
+                          (item) => (
+
+                            <li key={item}>
+                              {item}
+                            </li>
+
+                          )
+                        )}
+
+                      </ul>
+
+                    </article>
+
+                  )
+                )}
+
+              </div>
+
+            </section>
+
+
+            {/* =================================================
+                SUPPORTING VISUALS
+            ================================================= */}
+
+            <div className="performance-gallery">
+
+              <figure>
+
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90"
+                  alt="Digital marketing growth analytics"
+                  loading="lazy"
+                />
+
+              </figure>
+
+
+              <figure>
+
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90"
+                  alt="Social media performance reporting dashboard"
+                  loading="lazy"
+                />
+
+              </figure>
 
             </div>
 
@@ -473,99 +593,64 @@ function DataAnalyticsPerformance() {
             PROCESS
         ===================================================== */}
 
-        <section className="analytics-section analytics-section--light">
+        <section className="performance-process">
 
-          <div className="analytics-container">
+          <div
+            className="performance-process__background"
+            aria-hidden="true"
+          />
 
-            <div className="analytics-heading analytics-heading--center">
 
-              <span>
-                OUR ANALYTICS APPROACH
+          <div className="performance-container">
+
+            <header className="performance-process__header">
+
+              <span className="performance-pill">
+                ●&nbsp; Our Methodology
               </span>
 
 
               <h2>
-                From Tracking Setup
-                to Actionable Insights.
+                Performance Analytics Process
+                <br />
+
+                From Data to Growth
               </h2>
 
-            </div>
+            </header>
 
 
-            <div className="analytics-process-grid">
+            <div className="performance-process__timeline">
 
-              <article>
+              {analyticsProcess.map(
+                (step) => (
 
-                <span>
-                  01
-                </span>
+                  <article
+                    key={step.number}
+                    className="performance-process__step"
+                  >
 
-                <h3>
-                  Audit
-                </h3>
-
-                <p>
-                  Review your current tracking,
-                  website and marketing setup.
-                </p>
-
-              </article>
+                    <span className="performance-process__number">
+                      {step.number}
+                    </span>
 
 
-              <article>
-
-                <span>
-                  02
-                </span>
-
-                <h3>
-                  Configure
-                </h3>
-
-                <p>
-                  Set up GA4, events, conversions
-                  and necessary tracking.
-                </p>
-
-              </article>
+                    <h3>
+                      {step.title}
+                    </h3>
 
 
-              <article>
+                    <p>
+                      {step.description}
+                    </p>
 
-                <span>
-                  03
-                </span>
+                  </article>
 
-                <h3>
-                  Report
-                </h3>
-
-                <p>
-                  Organise meaningful metrics
-                  into clear dashboards.
-                </p>
-
-              </article>
-
-
-              <article>
-
-                <span>
-                  04
-                </span>
-
-                <h3>
-                  Optimise
-                </h3>
-
-                <p>
-                  Use the data to identify
-                  conversion and growth opportunities.
-                </p>
-
-              </article>
+                )
+              )}
 
             </div>
+
 
           </div>
 
@@ -576,88 +661,62 @@ function DataAnalyticsPerformance() {
             FAQ
         ===================================================== */}
 
-        <section className="analytics-section">
+        <section className="performance-faq-section">
 
-          <div className="analytics-container">
+          <div className="performance-container performance-faq-section__inner">
 
-            <div className="analytics-heading">
+            <header className="performance-faq-header">
 
-              <span>
-                ANALYTICS FAQs
+              <span className="performance-pill performance-pill--light">
+                ●&nbsp; Social Media Marketing FAQs
               </span>
 
 
               <h2>
-                Common GA4 & Analytics Questions.
+                Digital Marketing &amp;
+                <br />
+
+                Analytics Questions
               </h2>
 
-            </div>
+            </header>
 
 
-            <div className="analytics-faq">
+            <div className="performance-faq-list">
 
-              <details>
+              {faqs.map(
+                (faq, index) => (
 
-                <summary>
-                  How do I set up GA4 for an ecommerce website?
-                </summary>
+                  <details
+                    key={faq.question}
+                    open={index === 0}
+                  >
 
-                <p>
-                  GA4 e-commerce setup normally requires a GA4
-                  property, Google Tag Manager configuration and
-                  events for actions such as product views,
-                  add-to-cart, checkout and purchases.
-                  DGATE IS can configure and test this tracking
-                  for your website.
-                </p>
+                    <summary>
 
-              </details>
+                      <span>
+                        {faq.question}
+                      </span>
 
 
-              <details>
+                      <span
+                        className="performance-faq-list__toggle"
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
 
-                <summary>
-                  Do you provide GA4 setup services in Bangalore?
-                </summary>
-
-                <p>
-                  Yes. DGATE IS provides GA4 configuration,
-                  conversion tracking and analytics support
-                  for Bangalore businesses.
-                </p>
-
-              </details>
+                    </summary>
 
 
-              <details>
+                    <p>
+                      {faq.answer}
+                    </p>
 
-                <summary>
-                  Can you create marketing dashboards?
-                </summary>
+                  </details>
 
-                <p>
-                  Yes. We can create dashboards focused on
-                  website traffic, marketing campaigns,
-                  conversions and other relevant business KPIs.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  What is conversion rate optimisation?
-                </summary>
-
-                <p>
-                  Conversion rate optimisation uses behavioural
-                  and performance data to identify changes that
-                  may help more visitors complete meaningful
-                  actions on your website.
-                </p>
-
-              </details>
+                )
+              )}
 
             </div>
 
@@ -665,53 +724,6 @@ function DataAnalyticsPerformance() {
 
         </section>
 
-
-        {/* =====================================================
-            CTA
-        ===================================================== */}
-
-        <section className="analytics-cta">
-
-          <div className="analytics-container">
-
-            <div className="analytics-cta__box">
-
-              <div>
-
-                <span>
-                  MEASURE WHAT MATTERS
-                </span>
-
-
-                <h2>
-                  Need GA4 Setup or Better
-                  Marketing Reporting?
-                </h2>
-
-
-                <p>
-                  Tell us what you need to measure and our team
-                  will help build a cleaner analytics and reporting
-                  setup.
-                </p>
-
-              </div>
-
-
-              <Link
-                to="/contact"
-                className="analytics-btn analytics-btn--primary"
-              >
-                Talk to Our Analytics Team
-
-                <FaArrowRight />
-              </Link>
-
-            </div>
-
-          </div>
-
-        </section>
 
       </main>
 

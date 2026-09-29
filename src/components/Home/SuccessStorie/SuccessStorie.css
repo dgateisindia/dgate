@@ -1,0 +1,871 @@
+/* =========================================================
+   DGATE SUCCESS STORIES
+   DESKTOP: 2 CARDS PER ROW
+   MOBILE: 1 CARD PER ROW
+========================================================= */
+
+.home-success {
+  --success-yellow:
+    var(--primary, #fdb913);
+
+  --success-black:
+    #101010;
+
+  width: 100%;
+
+  padding:
+    80px 0 90px;
+
+  overflow: hidden;
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-success__header {
+  max-width:
+    760px;
+
+  margin:
+    0 auto 45px;
+
+  text-align:
+    center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.home-success__eyebrow {
+  display: block;
+
+  margin-bottom:
+    12px;
+
+  color:
+    #9e6c00;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    1.7px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.home-success__title {
+  margin: 0;
+
+  color:
+    #101010;
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      68px
+    );
+
+  font-weight:
+    800;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -2px;
+}
+
+
+.home-success__title span {
+  color:
+    var(--success-yellow);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.home-success__header p {
+  max-width:
+    620px;
+
+  margin:
+    18px auto 0;
+
+  color:
+    #666666;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+   IMPORTANT: TWO CARDS PER ROW
+========================================================= */
+
+.home-success__list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    22px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.home-success__card {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius:
+    16px;
+
+  background:
+    #111111;
+
+  box-shadow:
+    0 10px 30px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD LINK
+========================================================= */
+
+.home-success__card-link {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    clamp(
+      280px,
+      31vw,
+      400px
+    );
+
+  display: block;
+
+  overflow: hidden;
+
+  color:
+    #ffffff;
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.home-success__image {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center;
+
+  transform:
+    scale(1.001);
+
+  transition:
+    transform
+    0.65s
+    cubic-bezier(
+      0.2,
+      0.7,
+      0.2,
+      1
+    );
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.home-success__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        0,
+        0,
+        0,
+        0.04
+      ) 0%,
+      rgba(
+        0,
+        0,
+        0,
+        0.12
+      ) 45%,
+      rgba(
+        0,
+        0,
+        0,
+        0.84
+      ) 100%
+    );
+}
+
+
+/* =========================================================
+   TOP AREA
+========================================================= */
+
+.home-success__top {
+  position: absolute;
+
+  z-index: 5;
+
+  top:
+    18px;
+
+  left:
+    18px;
+
+  right:
+    18px;
+
+  display: flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.home-success__tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    5px;
+}
+
+
+.home-success__tags span,
+.home-success__year {
+  padding:
+    5px 8px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.18
+    );
+
+  color:
+    #ffffff;
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  backdrop-filter:
+    blur(8px);
+
+  font-size:
+    7px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1;
+
+  white-space:
+    nowrap;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   PROJECT COPY
+========================================================= */
+
+.home-success__project-copy {
+  position: absolute;
+
+  z-index: 5;
+
+  left:
+    24px;
+
+  right:
+    24px;
+
+  bottom:
+    52px;
+
+  text-align:
+    left;
+}
+
+
+/* =========================================================
+   BRAND NAME
+========================================================= */
+
+.home-success__brand {
+  display: block;
+
+  margin-bottom:
+    8px;
+
+  color:
+    var(--success-yellow);
+
+  font-size:
+    9px;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    1.6px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.home-success__project-copy h3 {
+  max-width:
+    520px;
+
+  margin: 0;
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      29px,
+      3.2vw,
+      46px
+    );
+
+  font-weight:
+    750;
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -1.5px;
+
+  text-shadow:
+    0 6px 22px
+    rgba(
+      0,
+      0,
+      0,
+      0.42
+    );
+}
+
+
+/* =========================================================
+   VIEW PROJECT
+========================================================= */
+
+.home-success__view-project {
+  position: absolute;
+
+  z-index: 6;
+
+  right:
+    18px;
+
+  bottom:
+    16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    8px;
+
+  color:
+    #ffffff;
+
+  opacity: 0;
+
+  transform:
+    translateY(
+      8px
+    );
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   VIEW PROJECT TEXT
+========================================================= */
+
+.home-success__view-text {
+  color:
+    #ffffff;
+
+  font-size:
+    8px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.3px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   VIEW PROJECT ICON
+========================================================= */
+
+.home-success__view-icon {
+  width:
+    34px;
+
+  height:
+    34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--success-yellow);
+
+  color:
+    #101010;
+
+  font-size:
+    10px;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-success__card:hover {
+    transform:
+      translateY(-5px);
+
+    box-shadow:
+      0 18px 42px
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
+  }
+
+
+  .home-success__card:hover
+  .home-success__image {
+    transform:
+      scale(1.055);
+  }
+
+
+  .home-success__card:hover
+  .home-success__view-project {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+
+  .home-success__card:hover
+  .home-success__view-icon {
+    transform:
+      translateX(2px);
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .home-success__card-link {
+    height:
+      340px;
+  }
+
+
+  .home-success__project-copy h3 {
+    font-size:
+      35px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .home-success {
+    padding:
+      65px 0 75px;
+  }
+
+
+  .home-success__list {
+    gap:
+      16px;
+  }
+
+
+  .home-success__card-link {
+    height:
+      300px;
+  }
+
+
+  .home-success__project-copy {
+    left:
+      18px;
+
+    right:
+      18px;
+
+    bottom:
+      42px;
+  }
+
+
+  .home-success__project-copy h3 {
+    font-size:
+      29px;
+
+    letter-spacing:
+      -1px;
+  }
+
+
+  .home-success__top {
+    top:
+      14px;
+
+    left:
+      14px;
+
+    right:
+      14px;
+  }
+
+
+  .home-success__view-project {
+    right:
+      14px;
+
+    bottom:
+      12px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ONE CARD PER ROW
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .home-success {
+    padding:
+      52px 0 60px;
+  }
+
+
+  .home-success__header {
+    margin-bottom:
+      30px;
+  }
+
+
+  .home-success__title {
+    font-size:
+      40px;
+
+    letter-spacing:
+      -1.2px;
+  }
+
+
+  .home-success__header p {
+    font-size:
+      13px;
+  }
+
+
+  .home-success__list {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      16px;
+  }
+
+
+  .home-success__card-link {
+    height:
+      275px;
+  }
+
+
+  .home-success__top {
+    top:
+      13px;
+
+    left:
+      13px;
+
+    right:
+      13px;
+  }
+
+
+  .home-success__tags span,
+  .home-success__year {
+    padding:
+      5px 7px;
+
+    font-size:
+      6.5px;
+  }
+
+
+  .home-success__project-copy {
+    left:
+      17px;
+
+    right:
+      17px;
+
+    bottom:
+      42px;
+  }
+
+
+  .home-success__brand {
+    font-size:
+      8px;
+  }
+
+
+  .home-success__project-copy h3 {
+    font-size:
+      30px;
+
+    line-height:
+      1;
+  }
+
+
+  .home-success__view-project {
+    right:
+      13px;
+
+    bottom:
+      12px;
+
+    opacity:
+      1;
+
+    transform:
+      none;
+  }
+
+
+  .home-success__view-text {
+    display:
+      none;
+  }
+
+
+  .home-success__view-icon {
+    width:
+      32px;
+
+    height:
+      32px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .home-success__title {
+    font-size:
+      35px;
+  }
+
+
+  .home-success__card-link {
+    height:
+      245px;
+  }
+
+
+  .home-success__project-copy h3 {
+    font-size:
+      27px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-success__card,
+  .home-success__image,
+  .home-success__view-project,
+  .home-success__view-icon {
+    transition:
+      none !important;
+  }
+
+}

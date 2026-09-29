@@ -1,197 +1,361 @@
 import "./IndustryGrid.css";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+} from "react";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-  automotive,
-  banking,
-  healthcare,
-  manufacturing,
-  retail,
-  telecom,
-  energy,
-  logistics,
-} from "../../../assets/images/Industries/industries";
+  ScrollTrigger,
+} from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
+/* =========================================================
+   INDUSTRY IMAGES
+   USE DIRECT IMPORTS
+========================================================= */
+
+import realestate
+  from "../../../assets/images/home/industries/realestate.png";
+
+import healthcare
+  from "../../../assets/images/home/industries/healthcare.png";
+
+import fmcg
+  from "../../../assets/images/home/industries/fmcg.png";
+
+import banking
+  from "../../../assets/images/home/industries/banking.png";
+
+import retail
+  from "../../../assets/images/home/industries/retail.png";
+
+import telecom
+  from "../../../assets/images/home/industries/telecom.png";
+
+
+gsap.registerPlugin(
+  ScrollTrigger
+);
+
+
+/* =========================================================
+   INDUSTRIES DATA
+========================================================= */
 
 const industries = [
   {
-    id: "automotive",
-    title: "Automotive",
-    image: automotive,
+    id: "real-estate",
+
+    title:
+      "Real Estate",
+
+    image:
+      realestate,
+
     description:
-      "Accelerating next-generation mobility through digital engineering, connected systems and intelligent manufacturing.",
+      "Helping real estate businesses strengthen digital presence, showcase properties effectively and generate qualified leads through modern web and marketing solutions.",
   },
+
   {
     id: "healthcare",
-    title: "Healthcare",
-    image: healthcare,
+
+    title:
+      "Healthcare",
+
+    image:
+      healthcare,
+
     description:
-      "Delivering secure, compliant and patient-centric healthcare solutions powered by innovation and technology.",
+      "Creating trustworthy and user-focused digital experiences for healthcare organizations through modern websites, branding and performance-driven marketing.",
   },
+
   {
-    id: "manufacturing",
-    title: "Manufacturing",
-    image: manufacturing,
+    id: "fmcg",
+
+    title:
+      "FMCG",
+
+    image:
+      fmcg,
+
     description:
-      "Transforming factories with Industry 4.0, automation and smart manufacturing solutions.",
+      "Helping FMCG brands improve visibility, strengthen product positioning and connect with customers through branding, digital campaigns and eCommerce experiences.",
   },
+
   {
     id: "banking-finance",
-    title: "Banking & Finance",
-    image: banking,
+
+    title:
+      "Banking & Finance",
+
+    image:
+      banking,
+
     description:
-      "Building secure digital banking platforms and intelligent financial technology solutions.",
+      "Supporting finance businesses with secure, professional and conversion-focused digital experiences designed to build credibility and customer confidence.",
   },
+
   {
     id: "retail-ecommerce",
-    title: "Retail & E-Commerce",
-    image: retail,
+
+    title:
+      "Retail & E-Commerce",
+
+    image:
+      retail,
+
     description:
-      "Creating personalized customer experiences through scalable commerce and retail technologies.",
+      "Building engaging eCommerce and retail experiences that improve product discovery, customer journeys, conversions and long-term digital growth.",
   },
+
   {
-    id: "telecommunications",
-    title: "Telecommunications",
-    image: telecom,
+    id: "telecom",
+
+    title:
+      "Telecom",
+
+    image:
+      telecom,
+
     description:
-      "Empowering connected enterprises with next-generation communication and networking solutions.",
-  },
-  {
-    id: "energy-utilities",
-    title: "Energy & Utilities",
-    image: energy,
-    description:
-      "Supporting sustainable energy transformation with modern engineering and digital innovation.",
-  },
-  {
-    id: "logistics-transportation",
-    title: "Logistics & Transportation",
-    image: logistics,
-    description:
-      "Optimizing supply chains with intelligent logistics, automation and real-time visibility.",
+      "Helping telecom and connectivity businesses communicate complex services clearly through modern websites, digital campaigns and customer-focused experiences.",
   },
 ];
 
+
+/* =========================================================
+   INDUSTRY GRID
+========================================================= */
+
 function IndustriesGrid() {
-  const sectionRef = useRef(null);
+  const sectionRef =
+    useRef(null);
+
+
+  /* =========================================================
+     GSAP ANIMATION
+  ========================================================= */
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) {
+      return undefined;
+    }
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
 
-    if (reduceMotion) return;
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
+
+    if (reduceMotion) {
+      return undefined;
+    }
+
+
+    const ctx =
+      gsap.context(
+        () => {
+
+          /* ===============================================
+             HEADING
+          =============================================== */
+
+          gsap.from(
+            ".industries-heading",
+            {
+              y: 35,
+
+              opacity: 0,
+
+              duration: 0.8,
+
+              ease:
+                "power3.out",
+
+              scrollTrigger: {
+                trigger:
+                  sectionRef.current,
+
+                start:
+                  "top 78%",
+
+                once:
+                  true,
+              },
+            }
+          );
+
+
+          /* ===============================================
+             CARDS
+          =============================================== */
+
+          gsap.fromTo(
+            ".industry-card",
+
+            {
+              opacity: 0,
+
+              y: 45,
+            },
+
+            {
+              opacity: 1,
+
+              y: 0,
+
+              duration:
+                0.7,
+
+              stagger:
+                0.1,
+
+              ease:
+                "power3.out",
+
+              clearProps:
+                "opacity,transform",
+
+              scrollTrigger: {
+                trigger:
+                  ".industries-grid",
+
+                start:
+                  "top 82%",
+
+                once:
+                  true,
+              },
+            }
+          );
+
         },
-      });
 
-      timeline
-        .from(".industries-page-grid__heading", {
-          opacity: 0,
-          duration: 0.55,
-          ease: "power2.out",
-          clearProps: "opacity",
-        })
+        sectionRef
+      );
 
-        .from(
-          ".industries-page-grid__card",
-          {
-            opacity: 0,
-            duration: 0.45,
-            stagger: 0.08,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.25"
-        );
-    }, sectionRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
+
   }, []);
+
 
   return (
     <section
       id="industries-grid"
-      className="industries-page-grid"
+      className="industries-grid-section"
       ref={sectionRef}
       aria-labelledby="industries-grid-title"
     >
-      <div className="container">
 
-        <div className="industries-page-grid__heading">
+      <div className="industries-grid-container">
 
-          <span className="industries-page-grid__tag">
+
+        {/* =================================================
+            HEADING
+        ================================================= */}
+
+        <div className="industries-heading">
+
+          <span className="section-tag">
+
             OUR INDUSTRIES
+
           </span>
 
+
           <h2 id="industries-grid-title">
-            Engineering Excellence
+
+            Digital Solutions
             <br />
+
             Across Every Industry
+
           </h2>
 
+
           <p>
-            D-GATE partners with organizations across diverse
-            industries to deliver innovative engineering
-            solutions that improve efficiency, accelerate
-            digital transformation and create sustainable
-            business growth.
+
+            DGATE Integrated Services works
+            across diverse industries to
+            deliver branding, web development,
+            digital marketing, performance
+            growth and technology solutions
+            tailored to real business needs.
+
           </p>
 
         </div>
 
 
-        <div className="industries-page-grid__grid">
+        {/* =================================================
+            GRID
+        ================================================= */}
 
-          {industries.map((industry) => (
-            <article
-              className="industries-page-grid__card"
-              key={industry.id}
-            >
+        <div className="industries-grid">
 
-              <div className="industries-page-grid__image">
+          {industries.map(
+            (industry) => (
 
-                <img
-                  src={industry.image}
-                  alt={industry.title}
-                  loading="lazy"
-                />
+              <article
+                className="industry-card"
+                key={industry.id}
+              >
 
-              </div>
+                {/* IMAGE */}
 
-              <div className="industries-page-grid__content">
+                <div className="industry-image">
 
-                <h3>
-                  {industry.title}
-                </h3>
+                  <img
+                    src={industry.image}
+                    alt={`${industry.title} industry`}
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                  />
 
-                <p>
-                  {industry.description}
-                </p>
+                </div>
 
-              </div>
 
-            </article>
-          ))}
+                {/* CONTENT */}
+
+                <div className="industry-content">
+
+                  <h3>
+
+                    {industry.title}
+
+                  </h3>
+
+
+                  <p>
+
+                    {
+                      industry.description
+                    }
+
+                  </p>
+
+                </div>
+
+              </article>
+
+            )
+          )}
 
         </div>
 
       </div>
+
     </section>
   );
 }
+
 
 export default IndustriesGrid;

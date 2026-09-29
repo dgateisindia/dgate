@@ -1,174 +1,339 @@
 /* =========================================================
    HOME CLIENTS
+   DGATE PREMIUM BRAND MARQUEE
 ========================================================= */
 
 .home-clients {
+  --clients-yellow:
+    var(--primary, #fdb913);
+
+  --clients-black:
+    var(--black, #101010);
+
+  --clients-text:
+    var(--text, #656565);
+
+  --clients-white:
+    #ffffff;
+
+
+  position: relative;
+
   width: 100%;
 
-  padding: 65px 0 40px;
-
-  background: var(--white);
+  padding:
+    72px 0 54px;
 
   overflow: hidden;
-}
 
-
-/* TITLE */
-
-.home-clients__title {
-  margin: 0 0 12px;
-
-  text-align: center;
-
-  color: var(--black);
-
-  font-size: 2.3rem;
-  font-weight: 800;
-
-  line-height: 1.2;
-}
-
-
-.home-clients__title span {
-  color: var(--primary);
-}
-
-
-/* SUBTITLE */
-
-.home-clients__subtitle {
-  max-width: 720px;
-
-  margin: 0 auto 45px;
-
-  text-align: center;
-
-  color: var(--text);
-
-  font-size: 1rem;
-
-  line-height: 1.7;
+  background:
+    var(--clients-white);
 }
 
 
 /* =========================================================
-   LOGO SLIDER
+   SUBTLE BACKGROUND
+========================================================= */
+
+.home-clients::before {
+  content: "";
+
+  position: absolute;
+
+  width: 340px;
+  height: 340px;
+
+  top: -260px;
+  right: -150px;
+
+  border:
+    1px solid
+    rgba(
+      253,
+      185,
+      19,
+      0.12
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-clients__header {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 760px;
+
+  margin:
+    0 auto 48px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.home-clients__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 11px;
+
+  color: var(--primary);
+
+  font-size:
+    0.65rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing:
+    1.7px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.home-clients__title {
+  margin: 0;
+
+  color:
+    var(--clients-black);
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing:
+    -1px;
+}
+
+
+.home-clients__title span {
+  color:
+    var(--clients-yellow);
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.home-clients__subtitle {
+  max-width: 660px;
+
+  margin:
+    16px auto 0;
+
+  color:
+    var(--clients-text);
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   SLIDER
 ========================================================= */
 
 .home-clients__slider {
   position: relative;
 
+  z-index: 2;
+
   width: 100%;
 
   overflow: hidden;
 
-  padding: 12px 0;
+  padding:
+    15px 0 17px;
+
+  border-top:
+    1px solid
+    rgba(
+      0,
+      0,
+      0,
+      0.045
+    );
+
+  border-bottom:
+    1px solid
+    rgba(
+      0,
+      0,
+      0,
+      0.045
+    );
+
+  background:
+    #ffffff;
 }
 
 
-/* LEFT FADE */
+/* =========================================================
+   LEFT FADE
+========================================================= */
 
 .home-clients__slider::before {
   content: "";
 
   position: absolute;
 
+  z-index: 5;
+
   top: 0;
   bottom: 0;
   left: 0;
 
-  width: 70px;
-
-  z-index: 2;
+  width: 90px;
 
   pointer-events: none;
 
   background:
     linear-gradient(
-      to right,
-      var(--white),
-      transparent
+      90deg,
+      #ffffff 0%,
+      rgba(
+        255,
+        255,
+        255,
+        0.94
+      ) 25%,
+      transparent 100%
     );
 }
 
 
-/* RIGHT FADE */
+/* =========================================================
+   RIGHT FADE
+========================================================= */
 
 .home-clients__slider::after {
   content: "";
 
   position: absolute;
 
+  z-index: 5;
+
   top: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
 
-  width: 70px;
-
-  z-index: 2;
+  width: 90px;
 
   pointer-events: none;
 
   background:
     linear-gradient(
-      to left,
-      var(--white),
-      transparent
+      270deg,
+      #ffffff 0%,
+      rgba(
+        255,
+        255,
+        255,
+        0.94
+      ) 25%,
+      transparent 100%
     );
 }
 
 
-/* TRACK */
+/* =========================================================
+   MARQUEE TRACK
+========================================================= */
 
 .home-clients__track {
   width: max-content;
 
   display: flex;
 
-  gap: 40px;
+  align-items: center;
+
+  will-change: transform;
 
   animation:
-    homeClientsScroll
-    28s
+    homeClientsMarquee
+    30s
     linear
     infinite;
 }
 
 
-/* GROUP */
+/* =========================================================
+   LOGO GROUP
+========================================================= */
 
 .home-clients__group {
+  flex-shrink: 0;
+
   display: flex;
 
   align-items: center;
 
-  gap: 40px;
+  gap: 72px;
 
-  flex-shrink: 0;
+  padding-right: 72px;
 }
 
 
-/* LOGO */
+/* =========================================================
+   LOGO HOLDER
+========================================================= */
 
 .home-clients__logo {
-  width: 150px;
-  height: 85px;
+  width: 155px;
+  height: 82px;
 
-  flex: 0 0 150px;
+  flex:
+    0 0 155px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  border-radius: var(--radius-md);
+  position: relative;
+
+  background:
+    transparent;
 
   transition:
-    transform var(--transition),
-    background-color var(--transition),
-    box-shadow var(--transition);
+    transform 0.3s ease;
 }
 
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
 
 .home-clients__logo img {
   display: block;
@@ -176,55 +341,150 @@
   width: auto;
   height: auto;
 
-  max-width: 125px;
-  max-height: 60px;
+  max-width: 128px;
+  max-height: 55px;
 
   object-fit: contain;
 
+  object-position: center;
+
+  opacity: 0.82;
+
+  transform:
+    translateZ(0);
+
   transition:
-    transform var(--transition);
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 
-/* HOVER */
+/* =========================================================
+   DIFFERENT LOGOS NEED SLIGHT SIZE CONTROL
+========================================================= */
+
+.home-clients__logo:nth-child(1) img {
+  max-width: 92px;
+}
+
+
+.home-clients__logo:nth-child(2) img {
+  max-width: 112px;
+}
+
+
+.home-clients__logo:nth-child(3) img {
+  max-width: 105px;
+}
+
+
+.home-clients__logo:nth-child(4) img {
+  max-width: 120px;
+}
+
+
+.home-clients__logo:nth-child(5) img {
+  max-width: 118px;
+}
+
+
+.home-clients__logo:nth-child(6) img {
+  max-width: 118px;
+}
+
+
+.home-clients__logo:nth-child(7) img {
+  max-width: 102px;
+}
+
+
+.home-clients__logo:nth-child(8) img {
+  max-width: 110px;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
 
 @media (hover: hover) {
 
   .home-clients__slider:hover
   .home-clients__track {
-    animation-play-state: paused;
+    animation-play-state:
+      paused;
   }
+
 
   .home-clients__logo:hover {
-    transform: translateY(-4px);
-
-    background: #fffcf5;
-
-    box-shadow: var(--shadow);
+    transform:
+      translateY(-3px);
   }
 
+
   .home-clients__logo:hover img {
-    transform: scale(1.05);
+    opacity: 1;
+
+    transform:
+      scale(1.06);
   }
 
 }
 
 
 /* =========================================================
-   ANIMATION
+   MARQUEE ANIMATION
 ========================================================= */
 
-@keyframes homeClientsScroll {
+@keyframes homeClientsMarquee {
 
   from {
-    transform: translateX(0);
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
+
 
   to {
     transform:
-      translateX(
-        calc(-50% - 20px)
+      translate3d(
+        -50%,
+        0,
+        0
       );
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .home-clients__group {
+    gap: 55px;
+
+    padding-right: 55px;
+  }
+
+
+  .home-clients__logo {
+    width: 140px;
+    height: 76px;
+
+    flex-basis: 140px;
+  }
+
+
+  .home-clients__logo img {
+    max-width: 115px;
+    max-height: 50px;
   }
 
 }
@@ -237,41 +497,62 @@
 @media (max-width: 768px) {
 
   .home-clients {
-    padding: 50px 0 30px;
+    padding:
+      58px 0 40px;
   }
+
+
+  .home-clients__header {
+    margin-bottom:
+      35px;
+  }
+
 
   .home-clients__title {
-    font-size: 1.9rem;
+    font-size:
+      2.1rem;
   }
+
 
   .home-clients__subtitle {
-    max-width: 600px;
+    max-width:
+      580px;
 
-    margin-bottom: 35px;
-
-    font-size: 0.92rem;
+    font-size:
+      0.85rem;
   }
 
-  .home-clients__track,
-  .home-clients__group {
-    gap: 28px;
-  }
-
-  .home-clients__logo {
-    width: 125px;
-    height: 72px;
-
-    flex-basis: 125px;
-  }
-
-  .home-clients__logo img {
-    max-width: 100px;
-    max-height: 52px;
-  }
 
   .home-clients__slider::before,
   .home-clients__slider::after {
-    width: 35px;
+    width: 45px;
+  }
+
+
+  .home-clients__group {
+    gap: 40px;
+
+    padding-right: 40px;
+  }
+
+
+  .home-clients__logo {
+    width: 120px;
+    height: 70px;
+
+    flex-basis: 120px;
+  }
+
+
+  .home-clients__logo img {
+    max-width: 98px;
+    max-height: 45px;
+  }
+
+
+  .home-clients__track {
+    animation-duration:
+      27s;
   }
 
 }
@@ -284,45 +565,77 @@
 @media (max-width: 480px) {
 
   .home-clients {
-    padding: 42px 0 25px;
+    padding:
+      48px 0 34px;
   }
+
+
+  .home-clients__header {
+    margin-bottom:
+      28px;
+  }
+
+
+  .home-clients__eyebrow {
+    font-size:
+      0.58rem;
+
+    letter-spacing:
+      1.4px;
+  }
+
 
   .home-clients__title {
-    font-size: 1.7rem;
+    font-size:
+      1.85rem;
   }
+
 
   .home-clients__subtitle {
-    margin-bottom: 28px;
+    font-size:
+      0.8rem;
 
-    font-size: 0.86rem;
-
-    line-height: 1.6;
+    line-height:
+      1.6;
   }
 
-  .home-clients__track,
-  .home-clients__group {
-    gap: 20px;
+
+  .home-clients__slider {
+    padding:
+      10px 0;
   }
 
-  .home-clients__track {
-    animation-duration: 24s;
-  }
-
-  .home-clients__logo {
-    width: 105px;
-    height: 65px;
-
-    flex-basis: 105px;
-  }
-
-  .home-clients__logo img {
-    max-width: 82px;
-    max-height: 45px;
-  }
 
   .home-clients__slider::before,
   .home-clients__slider::after {
-    width: 20px;
+    width: 24px;
+  }
+
+
+  .home-clients__group {
+    gap: 28px;
+
+    padding-right: 28px;
+  }
+
+
+  .home-clients__logo {
+    width: 98px;
+    height: 62px;
+
+    flex-basis: 98px;
+  }
+
+
+  .home-clients__logo img {
+    max-width: 80px;
+    max-height: 38px;
+  }
+
+
+  .home-clients__track {
+    animation-duration:
+      23s;
   }
 
 }
@@ -332,10 +645,24 @@
    REDUCED MOTION
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+  prefers-reduced-motion: reduce
+) {
 
   .home-clients__track {
     animation: none;
+  }
+
+
+  .home-clients__slider {
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+
+  .home-clients__slider::-webkit-scrollbar {
+    display: none;
   }
 
 }

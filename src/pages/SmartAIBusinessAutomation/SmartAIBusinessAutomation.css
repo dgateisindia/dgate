@@ -1,30 +1,20 @@
 /* =========================================================
-   SMART AI & BUSINESS AUTOMATION PAGE
+   SMART AI BUSINESS AUTOMATION
 ========================================================= */
 
-.automation-page {
+.smartai-page {
   width: 100%;
-
+  min-height: 100vh;
   overflow-x: hidden;
 
   background: #ffffff;
+  color: #050505;
 
-  color: #101010;
+  font-family: inherit;
 }
 
-
-.automation-page * {
-  box-sizing: border-box;
-}
-
-
-.automation-container {
-  width:
-    min(
-      1200px,
-      calc(100% - 48px)
-    );
-
+.smartai-container {
+  width: min(1115px, calc(100% - 48px));
   margin: 0 auto;
 }
 
@@ -33,1123 +23,711 @@
    HERO
 ========================================================= */
 
-.automation-hero {
+.smartai-hero {
   position: relative;
+
+  padding: 58px 0 70px;
 
   overflow: hidden;
 
-  padding:
-    85px
-    0;
+  background: #ffffff;
 
-  background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(253, 185, 19, 0.08),
-      transparent 25%
-    ),
-    linear-gradient(
-      135deg,
-      #fff8f4 0%,
-      #fff0e9 60%,
-      #fff8f4 100%
-    );
+  border-bottom: 1px solid #e9e9e9;
 }
 
-
-.automation-hero::before {
+.smartai-hero::after {
   content: "";
 
   position: absolute;
 
-  width: 430px;
-  height: 430px;
+  right: -120px;
+  bottom: -175px;
 
-  right: -130px;
-  top: -190px;
+  width: 360px;
+  height: 360px;
 
-  border:
-    1px solid
-    rgba(253, 185, 19, 0.38);
-
+  border: 82px solid #f0f0f0;
   border-radius: 50%;
+
+  pointer-events: none;
 }
 
-
-.automation-hero__grid {
+.smartai-hero__grid {
   position: relative;
-
   z-index: 2;
 
   display: grid;
 
   grid-template-columns:
-    1.05fr
-    0.95fr;
+    minmax(0, 1.25fr)
+    minmax(320px, 0.85fr);
 
   align-items: center;
 
-  gap: 70px;
-}
-
-
-.automation-hero__content {
-  max-width: 680px;
-}
-
-
-.automation-eyebrow {
-  display: inline-block;
-
-  margin-bottom: 20px;
-
-  color: #a66f00;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.45px;
-}
-
-
-.automation-hero h1 {
-  margin: 0;
-
-  max-width: 700px;
-
-  color: #101010;
-
-  font-size:
-    clamp(
-      42px,
-      5vw,
-      67px
-    );
-
-  font-weight: 800;
-
-  line-height: 1.05;
-
-  letter-spacing: -2px;
-}
-
-
-.automation-hero h1 span {
-  color:
-    var(--primary, #fdb913);
-}
-
-
-.automation-hero p {
-  max-width: 660px;
-
-  margin:
-    24px
-    0
-    0;
-
-  color: #606060;
-
-  font-size: 17px;
-
-  line-height: 1.75;
-}
-
-
-.automation-hero__actions {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 12px;
-
-  margin-top: 30px;
+  gap: 78px;
 }
 
 
 /* =========================================================
-   HERO VISUAL
+   HERO TITLE
 ========================================================= */
 
-.automation-hero__visual {
+.smartai-hero__title {
   position: relative;
 
-  min-height: 390px;
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+}
+
+.smartai-hero__title h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #050505;
+
+  font-size: clamp(48px, 5vw, 66px);
+  line-height: 1.17;
+
+  font-weight: 800;
+
+  letter-spacing: -2.8px;
 }
 
 
-.automation-hero__visual img {
+/* =========================================================
+   DECORATIVE HERO SHAPE
+========================================================= */
+
+.smartai-hero__shape {
+  position: absolute;
+
+  top: -30px;
+  left: -68px;
+
+  width: 180px;
+  height: 180px;
+
+  opacity: 0.065;
+}
+
+.smartai-hero__shape::before,
+.smartai-hero__shape::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border: 26px dashed #000000;
+  border-radius: 50%;
+}
+
+.smartai-hero__shape::after {
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.smartai-hero__description {
+  position: relative;
+  z-index: 2;
+}
+
+.smartai-hero__description p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #3c3c3c;
+
+  font-size: 17px;
+  line-height: 1.65;
+
+  font-weight: 500;
+}
+
+.smartai-hero__description strong {
+  color: #3a3a3a;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.smartai-breadcrumb-section {
+  background: #ffffff;
+
+  border-bottom: 1px solid #ededed;
+}
+
+.smartai-breadcrumb {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  font-size: 14px;
+}
+
+.smartai-breadcrumb a {
+  color: #333333;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.smartai-breadcrumb a:hover {
+  color: #000000;
+}
+
+.smartai-breadcrumb strong {
+  color: #050505;
+
+  font-weight: 600;
+}
+
+.smartai-breadcrumb__dot {
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #555555;
+}
+
+
+/* =========================================================
+   LARGE AI IMAGE
+========================================================= */
+
+.smartai-main-image {
   width: 100%;
-  height: 390px;
+  height: 475px;
+
+  overflow: hidden;
+
+  background: #eeeeee;
+}
+
+.smartai-main-image img {
+  width: 100%;
+  height: 100%;
 
   display: block;
 
   object-fit: cover;
 
-  border:
-    7px solid
-    #ffffff;
-
-  border-radius: 26px;
-
-  box-shadow:
-    0 24px 60px
-    rgba(0, 0, 0, 0.15);
-}
-
-
-.automation-hero__card {
-  position: absolute;
-
-  left: -25px;
-  bottom: 25px;
-
-  max-width: 270px;
-
-  padding:
-    17px
-    20px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 13px;
-
-  border:
-    1px solid
-    rgba(253, 185, 19, 0.4);
-
-  border-radius: 14px;
-
-  background: #ffffff;
-
-  box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.1);
-}
-
-
-.automation-hero__card > svg {
-  flex-shrink: 0;
-
-  color: #25d366;
-
-  font-size: 30px;
-}
-
-
-.automation-hero__card strong {
-  display: block;
-
-  margin-bottom: 4px;
-
-  color: #101010;
-
-  font-size: 13px;
-}
-
-
-.automation-hero__card span {
-  display: block;
-
-  color: #777777;
-
-  font-size: 11.5px;
-
-  line-height: 1.45;
+  object-position: center 45%;
 }
 
 
 /* =========================================================
-   BUTTONS
+   SERVICE OVERVIEW
 ========================================================= */
 
-.automation-btn {
-  min-height: 52px;
+.smartai-overview {
+  padding: 62px 0 20px;
 
-  padding:
-    0
-    22px;
+  background: #ffffff;
+}
 
-  display: inline-flex;
+.smartai-section-title {
+  margin: 0;
 
-  align-items: center;
+  color: #050505;
 
-  justify-content: center;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.1;
 
-  gap: 10px;
+  font-weight: 700;
 
-  border-radius: 9px;
+  letter-spacing: -1.7px;
+}
 
-  font-size: 13px;
+.smartai-divider {
+  width: 100%;
+  height: 1px;
 
-  font-weight: 750;
+  margin: 22px 0 56px;
 
-  text-decoration: none;
+  background: #e5e5e5;
+}
+
+.smartai-overview__grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: start;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   OVERVIEW LEFT
+========================================================= */
+
+.smartai-overview__text p {
+  margin: 0 0 22px;
+
+  color: #3e3e3e;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  font-weight: 500;
+}
+
+.smartai-overview__text strong {
+  color: #353535;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   APPROACH RIGHT
+========================================================= */
+
+.smartai-approach h3 {
+  margin: 0 0 25px;
+
+  color: #050505;
+
+  font-size: 22px;
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+.smartai-approach__list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.smartai-approach__item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.smartai-approach__item > svg {
+  flex: 0 0 auto;
+
+  margin-top: 4px;
+
+  color: #555555;
+
+  font-size: 16px;
+}
+
+.smartai-approach__item p {
+  margin: 0;
+
+  color: #4b4b4b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.smartai-approach__item strong {
+  color: #050505;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   WHAT WE OFFER
+========================================================= */
+
+.smartai-offer {
+  padding: 35px 0 75px;
+
+  background: #ffffff;
+}
+
+.smartai-offer__heading {
+  margin: 0 0 48px;
+
+  color: #050505;
+
+  font-size: clamp(40px, 4.5vw, 52px);
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+}
+
+.smartai-offer__grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   OFFER CARD
+========================================================= */
+
+.smartai-offer__card {
+  min-height: 455px;
+
+  padding: 48px 40px 35px;
+
+  background: #f0f0f0;
+
+  border: 0;
 
   transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.smartai-offer__card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.08);
 }
 
 
-.automation-btn--primary,
-.automation-btn--yellow {
-  border:
-    1px solid
-    var(--primary, #fdb913);
+/* =========================================================
+   OFFER ICON
+========================================================= */
 
-  background:
-    var(--primary, #fdb913);
+.smartai-offer__icon {
+  height: 62px;
 
-  color: #101010;
+  display: flex;
+  align-items: flex-start;
+
+  color: #050505;
+
+  font-size: 42px;
 }
 
 
-.automation-btn--primary:hover,
-.automation-btn--yellow:hover {
-  border-color: #101010;
+/* =========================================================
+   OFFER TITLE
+========================================================= */
 
-  background: #101010;
+.smartai-offer__card h3 {
+  min-height: 125px;
 
-  color:
-    var(--primary, #fdb913);
+  margin: 20px 0 0;
 
-  transform:
-    translateY(-2px);
+  color: #050505;
+
+  font-size: 31px;
+  line-height: 1.25;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+.smartai-offer__line {
+  width: 100%;
+  height: 1px;
+
+  margin: 20px 0 30px;
+
+  background: #d1d1d1;
 }
 
 
-.automation-btn--secondary {
-  border:
-    1px solid
-    #101010;
+/* =========================================================
+   OFFER LIST
+========================================================= */
 
-  background:
-    transparent;
+.smartai-offer__card ul {
+  margin: 0;
+  padding: 0;
 
-  color: #101010;
+  list-style: none;
+}
+
+.smartai-offer__card li {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 5px;
+
+  margin-bottom: 12px;
+
+  color: #080808;
+
+  font-size: 14px;
+  line-height: 1.55;
+
+  font-weight: 600;
+}
+
+.smartai-offer__card li > span:first-child {
+  flex: 0 0 auto;
+
+  font-weight: 800;
 }
 
 
-.automation-btn--secondary:hover {
-  background:
-    #101010;
+/* =========================================================
+   IMAGE STRIP
+========================================================= */
+
+.smartai-image-strip {
+  padding: 36px 0 82px;
+
+  background: #ffffff;
+}
+
+.smartai-image-strip__grid {
+  width: min(1195px, calc(100% - 80px));
+
+  height: 355px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1.1fr;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+}
+
+.smartai-image-strip__item {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.smartai-image-strip__item img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.smartai-image-strip__item:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   AI AUTOMATION PROCESS
+========================================================= */
+
+.smartai-process {
+  position: relative;
+
+  padding: 68px 0 65px;
+
+  overflow: hidden;
+
+  background: #050505;
 
   color: #ffffff;
 }
 
 
 /* =========================================================
-   SECTIONS
+   BLACK GRID BACKGROUND
 ========================================================= */
 
-.automation-section {
-  padding:
-    90px
-    0;
+.smartai-process__grid-background {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    );
+
+  background-size: 8px 8px;
+
+  pointer-events: none;
 }
 
-
-.automation-section--light {
-  background:
-    #f7f7f7;
-}
-
-
-.automation-section--dark {
-  background:
-    #101010;
-
-  color:
-    #ffffff;
-}
-
-
-/* =========================================================
-   HEADINGS
-========================================================= */
-
-.automation-heading {
-  max-width: 780px;
-
-  margin-bottom: 48px;
-}
-
-
-.automation-heading--center {
-  margin:
-    0
-    auto
-    48px;
+.smartai-process__content {
+  position: relative;
+  z-index: 2;
 
   text-align: center;
 }
 
 
-.automation-heading > span,
-.automation-small-label {
-  display: block;
-
-  margin-bottom: 12px;
-
-  color: #a66f00;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.45px;
-}
-
-
-.automation-heading h2,
-.automation-two-column h2,
-.automation-calling-section h2 {
-  margin: 0;
-
-  color: #101010;
-
-  font-size:
-    clamp(
-      30px,
-      3.5vw,
-      47px
-    );
-
-  font-weight: 800;
-
-  line-height: 1.12;
-
-  letter-spacing: -1px;
-}
-
-
-.automation-heading p,
-.automation-two-column p,
-.automation-calling-section p {
-  margin:
-    17px
-    0
-    0;
-
-  color: #666666;
-
-  font-size: 15.5px;
-
-  line-height: 1.75;
-}
-
-
 /* =========================================================
-   SERVICE CARDS
+   PROCESS LABEL
 ========================================================= */
 
-.automation-services-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap: 20px;
-}
-
-
-.automation-service-card {
-  padding: 30px;
-
-  border:
-    1px solid
-    #e6e6e6;
-
-  border-radius: 16px;
-
-  background:
-    #ffffff;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-.automation-service-card:hover {
-  transform:
-    translateY(-6px);
-
-  border-color:
-    rgba(253, 185, 19, 0.7);
-
-  box-shadow:
-    0 16px 35px
-    rgba(0, 0, 0, 0.08);
-}
-
-
-.automation-service-card__icon {
-  width: 52px;
-  height: 52px;
-
-  margin-bottom: 20px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 13px;
-
-  background:
-    rgba(253, 185, 19, 0.14);
-
-  color:
-    var(--primary, #fdb913);
-
-  font-size: 22px;
-}
-
-
-.automation-service-card h3 {
-  margin:
-    0
-    0
-    10px;
-
-  color: #101010;
-
-  font-size: 19px;
-}
-
-
-.automation-service-card p {
-  margin: 0;
-
-  color: #666666;
-
-  font-size: 14px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   TWO COLUMN
-========================================================= */
-
-.automation-two-column {
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
-  align-items: center;
-
-  gap: 70px;
-}
-
-
-/* =========================================================
-   FEATURES
-========================================================= */
-
-.automation-feature-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap: 12px;
-}
-
-
-.automation-feature-item {
-  min-height: 54px;
-
-  padding:
-    13px
-    15px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-  border:
-    1px solid
-    #e5e5e5;
-
-  border-radius: 10px;
-
-  background:
-    #ffffff;
-
-  color: #333333;
-
-  font-size: 13.5px;
-
-  font-weight: 600;
-}
-
-
-.automation-feature-item svg {
-  flex-shrink: 0;
-
-  color:
-    var(--primary, #fdb913);
-}
-
-
-/* =========================================================
-   TEXT LINK
-========================================================= */
-
-.automation-text-link {
-  margin-top: 23px;
+.smartai-process__label {
+  width: fit-content;
 
   display: inline-flex;
 
   align-items: center;
 
-  gap: 9px;
+  gap: 8px;
 
-  color: #101010;
+  padding: 10px 18px;
+
+  border: 1px solid #333333;
+  border-radius: 30px;
+
+  color: #ffffff;
 
   font-size: 13px;
-
-  font-weight: 750;
-
-  text-decoration: none;
+  font-weight: 600;
 }
 
+.smartai-process__label span {
+  width: 9px;
+  height: 9px;
 
-.automation-text-link svg {
-  color:
-    var(--primary, #fdb913);
+  border-radius: 50%;
+
+  background: #ffffff;
 }
 
 
 /* =========================================================
-   AI CALLING SECTION
+   PROCESS HEADING
 ========================================================= */
 
-.automation-calling-section {
-  padding:
-    90px
-    0;
+.smartai-process h2 {
+  max-width: 1040px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #fff5f0,
-      #fff0e9
-    );
+  margin: 27px auto 60px;
+
+  color: #ffffff;
+
+  font-size: clamp(45px, 5.2vw, 68px);
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -2.5px;
 }
 
 
-.automation-calling-grid {
+/* =========================================================
+   PROCESS STEPS
+========================================================= */
+
+.smartai-process__steps {
+  position: relative;
+
   display: grid;
 
-  grid-template-columns:
-    0.9fr
-    1.1fr;
+  grid-template-columns: repeat(4, 1fr);
 
-  gap: 70px;
-
-  align-items: center;
+  gap: 30px;
 }
 
+.smartai-process__line {
+  position: absolute;
 
-.automation-calling-visual {
-  min-height: 330px;
+  top: 19px;
 
-  padding: 45px;
+  left: 1%;
+  right: 1%;
 
-  display: flex;
+  height: 1px;
 
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border:
-    1px solid
-    rgba(253, 185, 19, 0.35);
-
-  border-radius: 24px;
-
-  background:
-    rgba(255, 255, 255, 0.88);
+  background: #292929;
 }
 
+.smartai-process__step {
+  position: relative;
+  z-index: 2;
 
-.automation-call-circle {
-  width: 105px;
-  height: 105px;
+  text-align: center;
+}
+
+.smartai-process__number {
+  width: 40px;
+  height: 40px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
+
+  margin: 0 auto 38px;
 
   border-radius: 50%;
 
-  background:
-    var(--primary, #fdb913);
+  background: #ff9d00;
 
-  color:
-    #101010;
+  color: #050505;
 
-  font-size: 35px;
-
-  box-shadow:
-    0 15px 35px
-    rgba(253, 185, 19, 0.25);
+  font-size: 13px;
+  font-weight: 800;
 }
 
+.smartai-process__step h3 {
+  min-height: 58px;
 
-.automation-call-flow {
-  margin-top: 34px;
+  margin: 0 0 16px;
 
-  display: flex;
+  color: #ffffff;
 
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 12px;
-}
-
-
-.automation-call-flow div {
-  padding:
-    10px
-    14px;
-
-  border:
-    1px solid
-    #dddddd;
-
-  border-radius: 8px;
-
-  background:
-    #ffffff;
-
-  font-size: 12px;
+  font-size: 21px;
+  line-height: 1.35;
 
   font-weight: 700;
 }
 
+.smartai-process__step p {
+  max-width: 235px;
 
-.automation-call-flow > span {
-  color:
-    var(--primary, #fdb913);
+  margin: 0 auto;
 
-  font-weight: 800;
-}
-
-
-.automation-mini-list {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap: 12px;
-
-  margin-top: 25px;
-}
-
-
-.automation-mini-list > div {
-  padding:
-    13px
-    15px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  border:
-    1px solid
-    rgba(253, 185, 19, 0.35);
-
-  border-radius: 9px;
-
-  background:
-    rgba(255, 255, 255, 0.8);
-
-  font-size: 13px;
-
-  font-weight: 600;
-}
-
-
-.automation-mini-list svg {
-  color:
-    var(--primary, #fdb913);
-}
-
-
-/* =========================================================
-   SMALL BUSINESS
-========================================================= */
-
-.automation-small-business-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap: 16px;
-}
-
-
-.automation-small-business-grid article {
-  padding: 26px;
-
-  border:
-    1px solid
-    #e6e6e6;
-
-  border-radius: 14px;
-
-  background:
-    #ffffff;
-}
-
-
-.automation-small-business-grid svg {
-  margin-bottom: 15px;
-
-  color:
-    var(--primary, #fdb913);
-
-  font-size: 22px;
-}
-
-
-.automation-small-business-grid h3 {
-  margin:
-    0
-    0
-    7px;
-
-  font-size: 17px;
-}
-
-
-.automation-small-business-grid p {
-  margin: 0;
-
-  font-size: 13px;
-
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   PACKAGES
-========================================================= */
-
-.automation-package-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: 24px;
-}
-
-
-.automation-package {
-  padding: 34px;
-
-  border:
-    1px solid
-    #e6e6e6;
-
-  border-radius: 18px;
-
-  background:
-    #ffffff;
-}
-
-
-.automation-package--featured {
-  border-color:
-    var(--primary, #fdb913);
-
-  box-shadow:
-    0 18px 45px
-    rgba(253, 185, 19, 0.15);
-}
-
-
-.automation-package__label {
-  display: block;
-
-  margin-bottom: 14px;
-
-  color: #a66f00;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.4px;
-}
-
-
-.automation-package h3 {
-  margin:
-    0
-    0
-    11px;
-
-  color: #101010;
-
-  font-size: 22px;
-}
-
-
-.automation-package > p {
-  margin:
-    0
-    0
-    22px;
-
-  color: #666666;
-
-  font-size: 13.5px;
-
-  line-height: 1.65;
-}
-
-
-.automation-package ul {
-  margin:
-    0
-    0
-    26px;
-
-  padding-left: 18px;
-}
-
-
-.automation-package li {
-  margin-bottom: 10px;
-
-  color: #5f5f5f;
-
-  font-size: 13.5px;
-
-  line-height: 1.5;
-}
-
-
-.automation-package__link {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  color: #101010;
-
-  font-size: 13px;
-
-  font-weight: 750;
-
-  text-decoration: none;
-}
-
-
-.automation-package__link svg {
-  color:
-    var(--primary, #fdb913);
-}
-
-
-/* =========================================================
-   DARK BENEFITS
-========================================================= */
-
-.automation-section--dark
-.automation-heading > span {
-  color:
-    var(--primary, #fdb913);
-}
-
-
-.automation-section--dark
-.automation-heading h2 {
-  color:
-    #ffffff;
-}
-
-
-.automation-section--dark
-.automation-heading p {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.7
-    );
-}
-
-
-.automation-benefit-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap: 18px;
-}
-
-
-.automation-benefit-grid article {
-  padding: 30px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.12);
-
-  border-radius: 14px;
-
-  text-align: center;
-}
-
-
-.automation-benefit-grid svg {
-  margin-bottom: 15px;
-
-  color:
-    var(--primary, #fdb913);
-
-  font-size: 24px;
-}
-
-
-.automation-benefit-grid strong {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color:
-    #ffffff;
-
-  font-size: 19px;
-}
-
-
-.automation-benefit-grid span {
-  color:
-    rgba(255, 255, 255, 0.7);
-
-  font-size: 12.5px;
-
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.automation-process-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  gap: 20px;
-}
-
-
-.automation-process-card {
-  padding: 28px;
-
-  border:
-    1px solid
-    #e5e5e5;
-
-  border-radius: 15px;
-
-  background:
-    #ffffff;
-}
-
-
-.automation-process-card > span {
-  display: block;
-
-  margin-bottom: 18px;
-
-  color:
-    var(--primary, #fdb913);
+  color: #bdbdbd;
 
   font-size: 14px;
-
-  font-weight: 800;
-}
-
-
-.automation-process-card h3 {
-  margin:
-    0
-    0
-    10px;
-
-  color: #101010;
-
-  font-size: 18px;
-}
-
-
-.automation-process-card p {
-  margin: 0;
-
-  color: #666666;
-
-  font-size: 13px;
-
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 
@@ -1157,330 +735,492 @@
    FAQ
 ========================================================= */
 
-.automation-faq {
-  max-width: 900px;
+.smartai-faq {
+  padding: 76px 0 95px;
+
+  background: #ffffff;
+
+  text-align: center;
 }
 
 
-.automation-faq details {
-  padding:
-    20px
-    0;
+/* =========================================================
+   FAQ LABEL
+========================================================= */
 
-  border-bottom:
-    1px solid
-    #e5e5e5;
+.smartai-faq__label {
+  width: fit-content;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+
+  color: #050505;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.smartai-faq__label span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #050505;
 }
 
 
-.automation-faq summary {
-  color: #101010;
+/* =========================================================
+   FAQ HEADING
+========================================================= */
 
-  font-size: 17px;
+.smartai-faq h2 {
+  max-width: 800px;
+
+  margin: 25px auto 48px;
+
+  color: #050505;
+
+  font-size: clamp(44px, 5vw, 62px);
+  line-height: 1.07;
 
   font-weight: 700;
 
-  line-height: 1.45;
+  letter-spacing: -2.2px;
+}
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+.smartai-faq__accordion {
+  width: min(735px, 100%);
+
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+.smartai-faq__item {
+  margin-bottom: 24px;
+
+  border: 1px solid #e4e4e4;
+
+  background: #ffffff;
+}
+
+.smartai-faq__item--active {
+  background: #f0f0f0;
+}
+
+
+/* =========================================================
+   FAQ BUTTON
+========================================================= */
+
+.smartai-faq__button {
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 28px;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #050505;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  text-align: left;
 
   cursor: pointer;
 }
 
+.smartai-faq__button svg {
+  flex: 0 0 auto;
 
-.automation-faq details p {
-  max-width: 780px;
+  color: #cecece;
 
-  margin:
-    14px
-    0
-    0;
+  font-size: 10px;
 
-  color: #666666;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
 
-  font-size: 14px;
+.smartai-faq__item--active
+.smartai-faq__button svg {
+  color: #050505;
 
-  line-height: 1.7;
+  transform: rotate(180deg);
 }
 
 
 /* =========================================================
-   CTA
+   FAQ ANSWER
 ========================================================= */
 
-.automation-cta {
-  padding:
-    20px
-    0
-    80px;
-}
-
-
-.automation-cta__box {
-  padding:
-    45px
-    50px;
-
+.smartai-faq__answer {
   display: grid;
 
-  grid-template-columns:
-    1fr
-    auto;
+  grid-template-rows: 0fr;
 
-  align-items: center;
-
-  gap: 40px;
-
-  border:
-    1px solid
-    rgba(253, 185, 19, 0.7);
-
-  border-radius: 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff5f0,
-      #fff0ea
-    );
+  transition: grid-template-rows 0.3s ease;
 }
 
-
-.automation-cta__box > div > span {
-  display: block;
-
-  margin-bottom: 10px;
-
-  color: #a66f00;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.5px;
+.smartai-faq__answer > div {
+  overflow: hidden;
 }
 
+.smartai-faq__item--active
+.smartai-faq__answer {
+  grid-template-rows: 1fr;
+}
 
-.automation-cta__box h2 {
+.smartai-faq__answer p {
   margin: 0;
 
-  color: #101010;
+  padding: 0 28px 22px;
 
-  font-size:
-    clamp(
-      28px,
-      3vw,
-      42px
-    );
+  color: #4c4c4c;
 
-  line-height: 1.15;
-}
-
-
-.automation-cta__box p {
-  max-width: 700px;
-
-  margin:
-    12px
-    0
-    0;
-
-  color: #666666;
-
+  font-size: 13px;
   line-height: 1.7;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   1100PX
 ========================================================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
 
-  .automation-services-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
+  .smartai-hero__grid {
+    gap: 48px;
   }
 
-
-  .automation-package-grid {
-    grid-template-columns:
-      1fr;
+  .smartai-hero__title h1 {
+    font-size: 54px;
   }
 
-
-  .automation-benefit-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
+  .smartai-overview__grid {
+    gap: 45px;
   }
 
-
-  .automation-process-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
+  .smartai-offer__card {
+    padding: 40px 28px 32px;
   }
 
+  .smartai-offer__card h3 {
+    font-size: 27px;
+  }
 
-  .automation-cta__box {
-    grid-template-columns:
-      1fr;
+  .smartai-process__steps {
+    gap: 15px;
   }
 
 }
 
 
-@media (max-width: 800px) {
+/* =========================================================
+   TABLET
+========================================================= */
 
-  .automation-container {
-    width:
-      calc(
-        100% - 36px
-      );
+@media (max-width: 850px) {
+
+  .smartai-container {
+    width: min(100% - 34px, 700px);
   }
 
 
-  .automation-hero__grid,
-  .automation-two-column,
-  .automation-calling-grid {
-    grid-template-columns:
-      1fr;
+  /* HERO */
+
+  .smartai-hero {
+    padding: 48px 0 55px;
+  }
+
+  .smartai-hero__grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .smartai-hero__title {
+    min-height: auto;
+  }
+
+  .smartai-hero__title h1 {
+    font-size: 48px;
+  }
+
+  .smartai-hero__description p {
+    max-width: 620px;
+  }
+
+
+  /* MAIN IMAGE */
+
+  .smartai-main-image {
+    height: 350px;
+  }
+
+
+  /* OVERVIEW */
+
+  .smartai-overview__grid {
+    grid-template-columns: 1fr;
 
     gap: 40px;
   }
 
 
-  .automation-hero {
-    padding:
-      60px
-      0;
+  /* OFFER */
+
+  .smartai-offer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .smartai-offer__card {
+    min-height: 0;
+  }
+
+  .smartai-offer__card h3 {
+    min-height: auto;
+
+    margin-bottom: 25px;
   }
 
 
-  .automation-section,
-  .automation-calling-section {
-    padding:
-      70px
-      0;
+  /* IMAGE STRIP */
+
+  .smartai-image-strip__grid {
+    width: calc(100% - 34px);
+
+    height: auto;
+
+    grid-template-columns: 1fr;
+  }
+
+  .smartai-image-strip__item {
+    height: 300px;
+  }
+
+
+  /* PROCESS */
+
+  .smartai-process__steps {
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 50px;
+  }
+
+  .smartai-process__line {
+    display: none;
+  }
+
+  .smartai-process__number {
+    margin-bottom: 22px;
   }
 
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-  .automation-services-grid,
-  .automation-feature-grid,
-  .automation-mini-list,
-  .automation-small-business-grid,
-  .automation-benefit-grid,
-  .automation-process-grid {
-    grid-template-columns:
-      1fr;
+@media (max-width: 560px) {
+
+  .smartai-container {
+    width: calc(100% - 28px);
   }
 
 
-  .automation-hero__actions {
-    flex-direction:
-      column;
+  /* HERO */
+
+  .smartai-hero {
+    padding: 38px 0 44px;
+  }
+
+  .smartai-hero__title h1 {
+    font-size: 38px;
+    line-height: 1.14;
+
+    letter-spacing: -1.6px;
+  }
+
+  .smartai-hero__description p {
+    font-size: 15px;
   }
 
 
-  .automation-btn {
-    width:
-      100%;
+  /* BREADCRUMB */
+
+  .smartai-breadcrumb {
+    min-height: 58px;
+
+    gap: 8px;
+
+    font-size: 12px;
   }
 
 
-  .automation-call-flow {
-    flex-wrap:
-      wrap;
+  /* MAIN IMAGE */
+
+  .smartai-main-image {
+    height: 250px;
+  }
+
+
+  /* OVERVIEW */
+
+  .smartai-overview {
+    padding-top: 45px;
+  }
+
+  .smartai-section-title {
+    font-size: 35px;
+  }
+
+  .smartai-divider {
+    margin: 20px 0 35px;
+  }
+
+
+  /* WHAT WE OFFER */
+
+  .smartai-offer {
+    padding-bottom: 55px;
+  }
+
+  .smartai-offer__heading {
+    margin-bottom: 35px;
+
+    font-size: 40px;
+  }
+
+  .smartai-offer__card {
+    padding: 32px 25px;
+  }
+
+  .smartai-offer__card h3 {
+    font-size: 27px;
+  }
+
+
+  /* IMAGE STRIP */
+
+  .smartai-image-strip {
+    padding-bottom: 55px;
+  }
+
+  .smartai-image-strip__grid {
+    width: calc(100% - 28px);
+  }
+
+  .smartai-image-strip__item {
+    height: 230px;
+  }
+
+
+  /* PROCESS */
+
+  .smartai-process {
+    padding: 55px 0;
+  }
+
+  .smartai-process h2 {
+    margin-bottom: 45px;
+
+    font-size: 39px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .smartai-process__steps {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .smartai-process__step h3 {
+    min-height: auto;
+  }
+
+
+  /* FAQ */
+
+  .smartai-faq {
+    padding: 60px 0 70px;
+  }
+
+  .smartai-faq h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .smartai-faq__button {
+    padding: 14px 18px;
+
+    font-size: 13px;
+  }
+
+  .smartai-faq__answer p {
+    padding: 0 18px 18px;
   }
 
 }
 
 
-@media (max-width: 520px) {
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
 
-  .automation-container {
-    width:
-      calc(
-        100% - 30px
-      );
+@media (max-width: 390px) {
+
+  .smartai-hero__title h1 {
+    font-size: 34px;
   }
 
-
-  .automation-hero {
-    padding:
-      48px
-      0
-      60px;
+  .smartai-section-title {
+    font-size: 31px;
   }
 
-
-  .automation-hero h1 {
-    font-size:
-      39px;
+  .smartai-offer__heading {
+    font-size: 35px;
   }
 
-
-  .automation-hero p {
-    font-size:
-      15px;
+  .smartai-process h2 {
+    font-size: 34px;
   }
 
-
-  .automation-hero__visual {
-    min-height:
-      315px;
-  }
-
-
-  .automation-hero__visual img {
-    height:
-      300px;
-  }
-
-
-  .automation-hero__card {
-    left: 10px;
-    right: 10px;
-
-    bottom: -5px;
-
-    max-width:
-      none;
-  }
-
-
-  .automation-calling-visual {
-    min-height:
-      280px;
-
-    padding:
-      30px
-      20px;
-  }
-
-
-  .automation-service-card,
-  .automation-package,
-  .automation-process-card {
-    padding:
-      25px;
-  }
-
-
-  .automation-cta__box {
-    padding:
-      30px
-      24px;
+  .smartai-faq h2 {
+    font-size: 34px;
   }
 
 }

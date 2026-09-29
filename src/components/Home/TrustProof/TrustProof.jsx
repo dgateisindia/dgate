@@ -34,7 +34,7 @@ const trustData = [
     id: "experience",
     Icon: FaAward,
     value: "20+",
-    label: "Years Experience",
+    label: "Years Team Experience",
   },
 ];
 

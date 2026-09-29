@@ -167,31 +167,6 @@ function ContactHero() {
 
         <div className="contact-page-hero__content">
 
-
-          {/* BREADCRUMB */}
-
-          <nav
-            className="contact-page-hero__breadcrumb"
-            aria-label="Breadcrumb"
-          >
-
-            <Link to="/">
-              Home
-            </Link>
-
-
-            <span aria-hidden="true">
-              ›
-            </span>
-
-
-            <span aria-current="page">
-              Contact Us
-            </span>
-
-          </nav>
-
-
           {/* TITLE */}
 
           <h1

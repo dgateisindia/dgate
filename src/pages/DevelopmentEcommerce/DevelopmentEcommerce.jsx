@@ -1,19 +1,12 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import {
-  FaArrowRight,
   FaCheckCircle,
+  FaChevronDown,
   FaShoppingCart,
-  FaShopify,
-  FaWordpress,
-  FaMobileAlt,
+  FaCode,
   FaCreditCard,
-  FaRocket,
-  FaSearch,
-  FaChartLine,
 } from "react-icons/fa";
-
 import Navbar from "../../components/Home/Navbar/Navbar";
 import Footer from "../../components/Home/Footer/Footer";
 
@@ -21,54 +14,89 @@ import "./DevelopmentEcommerce.css";
 
 
 /* =========================================================
-   E-COMMERCE SERVICES
+   IMAGES
 ========================================================= */
 
-const ecommerceServices = [
+const heroImage =
+  "https://www.dgateis.com/assets/img/breadcrumb/thumb-4.jpg";
+
+const showcaseImageOne =
+  "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=90";
+
+const showcaseImageTwo =
+  "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=90";
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+const faqs = [
   {
-    icon: <FaShopify />,
-    title: "Shopify Development",
-    description:
-      "Custom Shopify stores designed for performance, conversions, mobile users and simple day-to-day product management.",
+    question: "What is e-commerce development?",
+    answer:
+      "E-commerce development involves designing and building an online store where customers can discover products, add them to a cart, make secure payments and complete purchases. We combine user experience, technology, integrations and performance optimization to create scalable stores.",
   },
   {
-    icon: <FaWordpress />,
-    title: "WooCommerce Development",
-    description:
-      "Flexible WooCommerce development for businesses that need greater control over content, products and integrations.",
+    question: "Which e-commerce platforms do you work with?",
+    answer:
+      "We work with platforms such as Shopify and WooCommerce and can also build custom e-commerce solutions when the business requires greater flexibility, custom workflows or specialized integrations.",
   },
   {
-    icon: <FaShoppingCart />,
-    title: "Custom E-Commerce Development",
-    description:
-      "Tailored e-commerce experiences built around your products, customers, operations and growth requirements.",
+    question: "How long does e-commerce development take?",
+    answer:
+      "The timeline depends on the number of products, design requirements, integrations and platform. A focused store can be launched relatively quickly, while larger custom implementations require additional planning, development and testing.",
   },
   {
-    icon: <FaMobileAlt />,
-    title: "Mobile-First Commerce",
-    description:
-      "Responsive online stores designed to provide a fast and frictionless shopping experience across mobile devices.",
+    question: "Will my store be mobile-friendly?",
+    answer:
+      "Yes. Every store is designed with responsive layouts and mobile-first considerations so customers can browse, search, purchase and complete checkout comfortably across phones, tablets and desktops.",
+  },
+  {
+    question: "Can you integrate payments and shipping?",
+    answer:
+      "Yes. We can integrate payment gateways, shipping providers, tax rules, inventory systems, CRM tools and other business services depending on the requirements of your store.",
+  },
+  {
+    question: "Do you offer post-launch support?",
+    answer:
+      "Yes. We can provide ongoing maintenance, performance optimization, conversion improvements, analytics support and technical assistance after launch.",
   },
 ];
 
 
 /* =========================================================
-   FEATURES
+   WHAT WE OFFER
 ========================================================= */
 
-const ecommerceFeatures = [
-  "Custom storefront design",
-  "Shopify theme development",
-  "WooCommerce store development",
-  "Payment gateway integration",
-  "Product and inventory setup",
-  "Mobile-first responsive design",
-  "Conversion-focused checkout",
-  "SEO-friendly store structure",
-  "Speed and performance optimisation",
-  "Analytics and conversion tracking",
-  "Third-party integrations",
-  "Post-launch support",
+const offers = [
+  {
+    icon: <FaShoppingCart />,
+    title: "E-commerce Strategy & Architecture",
+    points: [
+      "Business & product discovery",
+      "Platform selection & technology roadmap",
+      "Conversion-focused store architecture",
+    ],
+  },
+  {
+    icon: <FaCode />,
+    title: "Custom E-commerce Development",
+    points: [
+      "Shopify / WooCommerce development",
+      "Custom features & third-party integrations",
+      "Scalable, secure & high-performance builds",
+    ],
+  },
+  {
+    icon: <FaCreditCard />,
+    title: "Payment, Logistics & Integrations",
+    points: [
+      "Payment gateway & checkout integration",
+      "Shipping, tax & inventory management",
+      "ERP, CRM & marketplace integrations",
+    ],
+  },
 ];
 
 
@@ -79,60 +107,52 @@ const ecommerceFeatures = [
 const processSteps = [
   {
     number: "01",
-    title: "Discovery",
+    title: "Discovery & Strategy",
     description:
-      "We understand your products, customers, competitors, business model and technical requirements.",
+      "Understand business goals, products, audience and choose the right e-commerce platform.",
   },
   {
     number: "02",
-    title: "UX & Store Planning",
+    title: "UX/UI & Store Design",
     description:
-      "We plan navigation, product discovery, collections, checkout flow and customer experience.",
+      "Design conversion-focused layouts, product journeys and mobile-first shopping experiences.",
   },
   {
     number: "03",
-    title: "Design & Development",
+    title: "Development & Integrations",
     description:
-      "Our team develops a responsive and conversion-focused Shopify, WooCommerce or custom store.",
+      "Build the store, integrate payments, shipping, inventory and third-party tools.",
   },
   {
     number: "04",
-    title: "Testing & Launch",
+    title: "Launch & Optimization",
     description:
-      "We test responsiveness, payments, checkout, product flows, integrations and performance before launch.",
+      "Go live, test performance, optimize speed, SEO and conversions for sustainable growth.",
   },
 ];
 
 
 function DevelopmentEcommerce() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+
+  /* =========================================================
+     SEO
+  ========================================================= */
 
   useEffect(() => {
-
-    /* =====================================================
-       SEO TITLE
-    ===================================================== */
-
     document.title =
-      "Ecommerce Website Development Company Bangalore | Shopify Agency | DGATE IS";
-
-
-    /* =====================================================
-       META DESCRIPTION
-    ===================================================== */
+      "E-commerce Website Development Company Bangalore | Shopify Agency | DGATE IS";
 
     const description =
-      "DGATE IS is an ecommerce website development company in Bangalore offering Shopify development, WooCommerce services and custom ecommerce website design for startups, small businesses and growing brands.";
+      "DGATE IS provides e-commerce website development in Bangalore using Shopify, WooCommerce and custom technologies to build scalable, high-converting online stores.";
 
-    let metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      );
-
+    let metaDescription = document.querySelector(
+      'meta[name="description"]'
+    );
 
     if (!metaDescription) {
-
-      metaDescription =
-        document.createElement("meta");
+      metaDescription = document.createElement("meta");
 
       metaDescription.setAttribute(
         "name",
@@ -142,9 +162,7 @@ function DevelopmentEcommerce() {
       document.head.appendChild(
         metaDescription
       );
-
     }
-
 
     metaDescription.setAttribute(
       "content",
@@ -152,20 +170,12 @@ function DevelopmentEcommerce() {
     );
 
 
-    /* =====================================================
-       CANONICAL
-    ===================================================== */
-
-    let canonical =
-      document.querySelector(
-        'link[rel="canonical"]'
-      );
-
+    let canonical = document.querySelector(
+      'link[rel="canonical"]'
+    );
 
     if (!canonical) {
-
-      canonical =
-        document.createElement("link");
+      canonical = document.createElement("link");
 
       canonical.setAttribute(
         "rel",
@@ -175,9 +185,7 @@ function DevelopmentEcommerce() {
       document.head.appendChild(
         canonical
       );
-
     }
-
 
     canonical.setAttribute(
       "href",
@@ -185,93 +193,236 @@ function DevelopmentEcommerce() {
     );
 
 
-    /* =====================================================
-       CLEANUP NOT REQUIRED
-       Metadata changes on next page using useEffect
-    ===================================================== */
-
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
   }, []);
 
 
+  {/*const scrollToContact = () => {
+    window.location.href = "/contact";
+  }; */}
+
+
   return (
-    <>
+    <div className="development-page">
+
       <Navbar />
 
 
-      <main className="ecommerce-page">
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
-        {/* =====================================================
-            HERO
-        ===================================================== */}
+      <section className="dev-hero">
 
-        <section className="ecommerce-hero">
+        <div
+          className="
+            dev-hero__background-shape
+            dev-hero__background-shape--one
+          "
+          aria-hidden="true"
+        />
 
-          <div className="ecommerce-container ecommerce-hero__grid">
+        <div
+          className="
+            dev-hero__background-shape
+            dev-hero__background-shape--two
+          "
+          aria-hidden="true"
+        />
+
+
+        <div className="dev-container">
+
+          <div className="dev-hero__content">
+
+            <div className="dev-hero__title-area">
+
+              <span className="dev-eyebrow">
+                E-COMMERCE DEVELOPMENT
+              </span>
+
+              <h1>
+                E-commerce Development Solutions
+              </h1>
+
+            </div>
+
+
+            <div className="dev-hero__description">
+
+              <p>
+                We build scalable, high-converting
+                e-commerce websites using Shopify,
+                WooCommerce, and custom frameworks.
+                From seamless checkout experiences
+                to performance optimization, our
+                e-commerce solutions are designed
+                to drive sales and sustainable growth.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          BREADCRUMB
+      ===================================================== */}
+
+      <div className="dev-breadcrumb">
+
+        <div className="dev-container">
+
+          <span>Home</span>
+
+          <b>•</b>
+
+          <span>Services</span>
+
+          <b>•</b>
+
+          <strong>
+            E-commerce Development Solutions
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      {/* =====================================================
+          MAIN IMAGE
+      ===================================================== */}
+
+      <section className="dev-main-image">
+
+        <img
+          src={heroImage}
+          alt="E-commerce development and online shopping"
+          loading="eager"
+        />
+
+      </section>
+
+
+      {/* =====================================================
+          SERVICE OVERVIEW
+      ===================================================== */}
+
+      <section className="dev-overview">
+
+        <div className="dev-container">
+
+          <div className="dev-section-heading">
+
+            <h2>
+              Service Overview
+            </h2>
+
+          </div>
+
+
+          <div className="dev-overview__grid">
+
 
             {/* LEFT */}
 
-            <div className="ecommerce-hero__content">
-
-              <span className="ecommerce-eyebrow">
-                ECOMMERCE WEBSITE DEVELOPMENT COMPANY BANGALORE
-              </span>
-
-
-              <h1>
-                Shopify & WooCommerce
-                <span> Development Agency in Bangalore</span>
-              </h1>
-
+            <div className="dev-overview__text">
 
               <p>
-                Custom Shopify & WooCommerce stores built for conversions. 
-                Payment gateways, speed & mobile-first design by DGATE IS, Bangalore
+                E-commerce development is the process
+                of building high-performance online
+                stores that convert visitors into
+                customers. It combines strategic UX,
+                secure payment systems, fast-loading
+                architecture, and scalable technology
+                to support business growth.
               </p>
 
-
-              <div className="ecommerce-hero__actions">
-
-                <Link
-                  to="/contact"
-                  className="ecommerce-btn ecommerce-btn--primary"
-                >
-                  Start Your E-Commerce Project
-
-                  <FaArrowRight />
-                </Link>
-
-
-                <a
-                  href="#ecommerce-cost"
-                  className="ecommerce-btn ecommerce-btn--secondary"
-                >
-                  View Development Options
-                </a>
-
-              </div>
+              <p>
+                At DGATE IS, we create e-commerce
+                solutions using platforms like Shopify
+                and WooCommerce, optimized for speed,
+                SEO, mobile commerce, and seamless
+                checkout experiences that increase
+                conversions and customer retention.
+              </p>
 
             </div>
 
 
             {/* RIGHT */}
 
-            <div className="ecommerce-hero__visual">
+            <div className="dev-approach">
 
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
-                alt="Custom ecommerce website development company in Bangalore"
-              />
+              <h3>
+                Our Approach to E-commerce Development
+              </h3>
 
 
-              <div className="ecommerce-hero__card">
+              <div className="dev-approach__item">
 
-                <strong>
-                  Shopify + WooCommerce + Custom
-                </strong>
+                <FaCheckCircle />
 
-                <span>
-                  Commerce experiences built for growth.
-                </span>
+                <p>
+                  <strong>
+                    Business & Market Analysis
+                  </strong>
+                  {" "}– Understanding your products,
+                  audience, market and competitors.
+                </p>
+
+              </div>
+
+
+              <div className="dev-approach__item">
+
+                <FaCheckCircle />
+
+                <p>
+                  <strong>
+                    UX-Focused Store Design
+                  </strong>
+                  {" "}– Designing intuitive layouts
+                  and optimized customer journeys.
+                </p>
+
+              </div>
+
+
+              <div className="dev-approach__item">
+
+                <FaCheckCircle />
+
+                <p>
+                  <strong>
+                    Secure Development & Integrations
+                  </strong>
+                  {" "}– Payment gateways, shipping,
+                  CRM and automation.
+                </p>
+
+              </div>
+
+
+              <div className="dev-approach__item">
+
+                <FaCheckCircle />
+
+                <p>
+                  <strong>
+                    Testing, Launch & Optimization
+                  </strong>
+                  {" "}– Speed, security, CRO and
+                  continuous performance improvements.
+                </p>
 
               </div>
 
@@ -279,906 +430,260 @@ function DevelopmentEcommerce() {
 
           </div>
 
-        </section>
+
+          {/* =================================================
+              WHAT WE OFFER
+          ================================================= */}
+
+          <div className="dev-offer">
+
+            <h2>
+              What We Offer
+            </h2>
 
 
-        {/* =====================================================
-            INTRO
-        ===================================================== */}
+            <div className="dev-offer__grid">
 
-        <section className="ecommerce-section">
+              {offers.map((offer) => (
 
-          <div className="ecommerce-container">
+                <article
+                  className="dev-offer-card"
+                  key={offer.title}
+                >
 
-            <div className="ecommerce-heading">
+                  <div className="dev-offer-card__icon">
+                    {offer.icon}
+                  </div>
 
-              <span>
-                SHOPIFY DEVELOPMENT AGENCY BANGALORE
-              </span>
+                  <h3>
+                    {offer.title}
+                  </h3>
 
-
-              <h2>
-                E-Commerce Development Built Around
-                Your Customers and Business.
-              </h2>
-
-
-              <p>
-                A successful e-commerce website needs more than
-                attractive product pages. It needs fast performance,
-                simple navigation, secure payments, mobile usability
-                and a checkout experience designed to reduce friction.
-              </p>
-
-            </div>
+                  <div className="dev-offer-card__line" />
 
 
-            <div className="ecommerce-services-grid">
+                  <ul>
 
-              {ecommerceServices.map(
-                (service) => (
+                    {offer.points.map((point) => (
 
-                  <article
-                    className="ecommerce-service-card"
-                    key={service.title}
-                  >
+                      <li key={point}>
+                        + {point}
+                      </li>
 
-                    <div className="ecommerce-service-card__icon">
-                      {service.icon}
-                    </div>
+                    ))}
 
+                  </ul>
 
-                    <h3>
-                      {service.title}
-                    </h3>
+                </article>
 
-
-                    <p>
-                      {service.description}
-                    </p>
-
-                  </article>
-
-                )
-              )}
+              ))}
 
             </div>
 
           </div>
 
-        </section>
+        </div>
+
+      </section>
 
 
-        {/* =====================================================
-            SHOPIFY / WOOCOMMERCE
-        ===================================================== */}
+      {/* =====================================================
+          SHOWCASE
+      ===================================================== */}
 
-        <section className="ecommerce-section ecommerce-section--light">
+      <section className="dev-showcase">
 
-          <div className="ecommerce-container ecommerce-two-column">
-
-            <div className="ecommerce-platform-content">
-
-              <span className="ecommerce-small-label">
-                SHOPIFY & WOOCOMMERCE DEVELOPMENT
-              </span>
+        <div className="dev-showcase__grid">
 
 
-              <h2>
-                Choose the Right Commerce Platform
-                for Your Business.
-              </h2>
+          <div className="dev-showcase__image">
+
+            <img
+              src={showcaseImageOne}
+              alt="E-commerce website interface"
+              loading="lazy"
+            />
+
+          </div>
 
 
-              <p>
-                Whether you need an easy-to-manage Shopify store
-                or flexible WooCommerce development, we help you
-                choose a platform that fits your products,
-                operations and growth plans.
-              </p>
+          <div className="dev-showcase__image">
+
+            <img
+              src={showcaseImageTwo}
+              alt="E-commerce technology and shopping workflow"
+              loading="lazy"
+            />
+
+          </div>
+
+        </div>
+
+      </section>
 
 
-              <Link
-                to="/contact"
-                className="ecommerce-text-link"
+      {/* =====================================================
+          PROCESS
+      ===================================================== */}
+
+      <section className="dev-process">
+
+        <div
+          className="dev-process__grid"
+          aria-hidden="true"
+        />
+
+
+        <div className="dev-container dev-process__inner">
+
+          <div className="dev-process__badge">
+
+            <span />
+
+            E-commerce Process
+
+          </div>
+
+
+          <h2>
+            Our E-commerce Development Process
+            <br />
+            From Store to Scale
+          </h2>
+
+
+          <div className="dev-process__steps">
+
+            {processSteps.map((step) => (
+
+              <article
+                className="dev-process-step"
+                key={step.number}
               >
-                Discuss Your Store Requirements
 
-                <FaArrowRight />
-              </Link>
-
-            </div>
-
-
-            <div className="ecommerce-platform-grid">
-
-              <article className="ecommerce-platform-card">
-
-                <div className="ecommerce-platform-card__icon">
-                  <FaShopify />
+                <div className="dev-process-step__number">
+                  {step.number}
                 </div>
 
-
                 <h3>
-                  Shopify Development
+                  {step.title}
                 </h3>
 
-
                 <p>
-                  Ideal for businesses looking for a reliable,
-                  scalable and easy-to-manage commerce platform.
+                  {step.description}
                 </p>
-
-
-                <ul>
-
-                  <li>
-                    Custom Shopify theme setup
-                  </li>
-
-                  <li>
-                    Product and collection setup
-                  </li>
-
-                  <li>
-                    Payment integrations
-                  </li>
-
-                  <li>
-                    App integrations
-                  </li>
-
-                </ul>
 
               </article>
 
-
-              <article className="ecommerce-platform-card">
-
-                <div className="ecommerce-platform-card__icon">
-                  <FaWordpress />
-                </div>
-
-
-                <h3>
-                  WooCommerce Development
-                </h3>
-
-
-                <p>
-                  Flexible WordPress-based e-commerce development
-                  for businesses requiring greater customisation.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    WooCommerce configuration
-                  </li>
-
-                  <li>
-                    Custom storefront development
-                  </li>
-
-                  <li>
-                    Payment gateway setup
-                  </li>
-
-                  <li>
-                    Plugin integrations
-                  </li>
-
-                </ul>
-
-              </article>
-
-            </div>
+            ))}
 
           </div>
 
-        </section>
+         {/*}
+          <button
+            type="button"
+            className="dev-process__cta"
+            onClick={scrollToContact}
+          >
+
+            Ready to build your online store?
+
+            <FaArrowRight />
+
+          </button>*/}
+
+        </div>
+
+      </section>
 
 
-        {/* =====================================================
-            CUSTOM ECOMMERCE
-        ===================================================== */}
+      {/* =====================================================
+          FAQ
+      ===================================================== */}
 
-        <section className="ecommerce-section">
+      <section className="dev-faq">
 
-          <div className="ecommerce-container ecommerce-two-column">
+        <div className="dev-container">
 
-            <div>
+          <div className="dev-faq__badge">
 
-              <span className="ecommerce-small-label">
-                CUSTOM ECOMMERCE WEBSITE DESIGN BANGALORE
-              </span>
+            <span />
 
+            E-commerce FAQs
 
-              <h2>
-                Custom E-Commerce Experiences,
-                Not Generic Templates.
-              </h2>
+          </div>
 
 
-              <p>
-                Your online store should match your brand,
-                customer journey and operational requirements.
-                DGATE IS creates custom e-commerce website designs
-                focused on usability, credibility and conversions.
-              </p>
-
-            </div>
+          <h2>
+            Common Questions About
+            <br />
+            E-commerce Development
+          </h2>
 
 
-            <div className="ecommerce-feature-list">
+          <div className="dev-faq__list">
 
-              {ecommerceFeatures.map(
-                (feature) => (
+            {faqs.map((faq, index) => {
 
-                  <div
-                    key={feature}
-                    className="ecommerce-feature-item"
+              const isOpen =
+                openFaq === index;
+
+              return (
+
+                <div
+                  className={`dev-faq-item ${
+                    isOpen
+                      ? "dev-faq-item--open"
+                      : ""
+                  }`}
+                  key={faq.question}
+                >
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenFaq(
+                        isOpen ? -1 : index
+                      )
+                    }
+                    aria-expanded={isOpen}
                   >
-
-                    <FaCheckCircle />
 
                     <span>
-                      {feature}
+                      {faq.question}
                     </span>
+
+                    <FaChevronDown />
+
+                  </button>
+
+
+                  <div className="dev-faq-answer">
+
+                    <p>
+                      {faq.answer}
+                    </p>
 
                   </div>
 
-                )
-              )}
+                </div>
 
-            </div>
+              );
 
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            SMALL BUSINESS
-        ===================================================== */}
-
-        <section className="ecommerce-small-business">
-
-          <div className="ecommerce-container ecommerce-small-business__grid">
-
-            <div>
-
-              <span className="ecommerce-small-label">
-                ECOMMERCE DEVELOPMENT FOR SMALL BUSINESS
-              </span>
-
-
-              <h2>
-                Launching Your First Online Store?
-              </h2>
-
-
-              <p>
-                We work with small businesses and growing brands
-                that need a professional e-commerce website without
-                unnecessary complexity.
-              </p>
-
-
-              <p>
-                Our team can help with store design, product setup,
-                payments, mobile optimisation and launch support
-                so you can focus on your products and customers.
-              </p>
-
-            </div>
-
-
-            <div className="ecommerce-small-business__cards">
-
-              <div>
-                <FaRocket />
-
-                <strong>
-                  Fast Launch
-                </strong>
-
-                <span>
-                  Practical development for businesses ready
-                  to start selling online.
-                </span>
-              </div>
-
-
-              <div>
-                <FaMobileAlt />
-
-                <strong>
-                  Mobile First
-                </strong>
-
-                <span>
-                  Shopping experiences optimised for mobile
-                  customers.
-                </span>
-              </div>
-
-
-              <div>
-                <FaCreditCard />
-
-                <strong>
-                  Secure Payments
-                </strong>
-
-                <span>
-                  Reliable payment gateway and checkout
-                  integrations.
-                </span>
-              </div>
-
-
-              <div>
-                <FaChartLine />
-
-                <strong>
-                  Growth Ready
-                </strong>
-
-                <span>
-                  Built to support campaigns, analytics and
-                  future business growth.
-                </span>
-              </div>
-
-            </div>
+            })}
 
           </div>
 
-        </section>
+        </div>
 
+      </section>
 
-        {/* =====================================================
-            COST SECTION
-        ===================================================== */}
 
-        <section
-          className="ecommerce-section"
-          id="ecommerce-cost"
-        >
-
-          <div className="ecommerce-container">
-
-            <div className="ecommerce-heading ecommerce-heading--center">
-
-              <span>
-                ECOMMERCE WEBSITE DEVELOPMENT COST BANGALORE
-              </span>
-
-
-              <h2>
-                How Much Does It Cost to Build an
-                E-Commerce Website in Bangalore?
-              </h2>
-
-
-              <p>
-                E-commerce development cost depends on the
-                platform, number of products, custom design,
-                integrations, payment requirements and level
-                of automation needed. We recommend the right
-                scope after understanding your business.
-              </p>
-
-            </div>
-
-
-            <div className="ecommerce-package-grid">
-
-              {/* STARTER */}
-
-              <article className="ecommerce-package">
-
-                <span className="ecommerce-package__label">
-                  STARTER
-                </span>
-
-
-                <h3>
-                  Small Business Store
-                </h3>
-
-
-                <p>
-                  Suitable for businesses launching a focused
-                  online product catalogue.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    Responsive storefront
-                  </li>
-
-                  <li>
-                    Product setup
-                  </li>
-
-                  <li>
-                    Payment gateway
-                  </li>
-
-                  <li>
-                    Basic shipping setup
-                  </li>
-
-                  <li>
-                    Mobile optimisation
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="ecommerce-package__link"
-                >
-                  Get a Cost Estimate
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-
-              {/* GROWTH */}
-
-              <article className="ecommerce-package ecommerce-package--featured">
-
-                <span className="ecommerce-package__label">
-                  GROWTH
-                </span>
-
-
-                <h3>
-                  Shopify / WooCommerce Store
-                </h3>
-
-
-                <p>
-                  Suitable for businesses that need a stronger
-                  branded and conversion-focused e-commerce
-                  experience.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    Custom store design
-                  </li>
-
-                  <li>
-                    Product and collection structure
-                  </li>
-
-                  <li>
-                    Payment integrations
-                  </li>
-
-                  <li>
-                    Analytics setup
-                  </li>
-
-                  <li>
-                    SEO-ready structure
-                  </li>
-
-                  <li>
-                    Third-party integrations
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="ecommerce-package__link"
-                >
-                  Discuss Your Requirements
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-
-              {/* CUSTOM */}
-
-              <article className="ecommerce-package">
-
-                <span className="ecommerce-package__label">
-                  CUSTOM
-                </span>
-
-
-                <h3>
-                  Advanced Commerce Solution
-                </h3>
-
-
-                <p>
-                  For businesses requiring custom workflows,
-                  integrations or advanced commerce functionality.
-                </p>
-
-
-                <ul>
-
-                  <li>
-                    Custom development
-                  </li>
-
-                  <li>
-                    Advanced integrations
-                  </li>
-
-                  <li>
-                    Custom business workflows
-                  </li>
-
-                  <li>
-                    Performance optimisation
-                  </li>
-
-                  <li>
-                    Scalable architecture
-                  </li>
-
-                </ul>
-
-
-                <Link
-                  to="/contact"
-                  className="ecommerce-package__link"
-                >
-                  Request Custom Quote
-
-                  <FaArrowRight />
-                </Link>
-
-              </article>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            CONVERSION / SEO
-        ===================================================== */}
-
-        <section className="ecommerce-section ecommerce-section--dark">
-
-          <div className="ecommerce-container ecommerce-two-column">
-
-            <div>
-
-              <span className="ecommerce-small-label">
-                BUILT FOR PERFORMANCE
-              </span>
-
-
-              <h2>
-                Your Store Should Do More Than
-                Display Products.
-              </h2>
-
-            </div>
-
-
-            <div className="ecommerce-dark-features">
-
-              <div>
-                <FaSearch />
-
-                <span>
-                  SEO-ready architecture
-                </span>
-              </div>
-
-
-              <div>
-                <FaRocket />
-
-                <span>
-                  Fast-loading storefront
-                </span>
-              </div>
-
-
-              <div>
-                <FaMobileAlt />
-
-                <span>
-                  Mobile-first experience
-                </span>
-              </div>
-
-
-              <div>
-                <FaChartLine />
-
-                <span>
-                  Conversion and analytics ready
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            PROCESS
-        ===================================================== */}
-
-        <section className="ecommerce-section ecommerce-section--light">
-
-          <div className="ecommerce-container">
-
-            <div className="ecommerce-heading ecommerce-heading--center">
-
-              <span>
-                OUR DEVELOPMENT PROCESS
-              </span>
-
-
-              <h2>
-                From E-Commerce Idea to Launch.
-              </h2>
-
-
-              <p>
-                A clear development process keeps your project
-                focused, transparent and aligned with your
-                business objectives.
-              </p>
-
-            </div>
-
-
-            <div className="ecommerce-process-grid">
-
-              {processSteps.map(
-                (step) => (
-
-                  <article
-                    className="ecommerce-process-card"
-                    key={step.number}
-                  >
-
-                    <span>
-                      {step.number}
-                    </span>
-
-
-                    <h3>
-                      {step.title}
-                    </h3>
-
-
-                    <p>
-                      {step.description}
-                    </p>
-
-                  </article>
-
-                )
-              )}
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            FAQ
-        ===================================================== */}
-
-        <section className="ecommerce-section">
-
-          <div className="ecommerce-container">
-
-            <div className="ecommerce-heading">
-
-              <span>
-                E-COMMERCE DEVELOPMENT FAQs
-              </span>
-
-
-              <h2>
-                Common Questions About Building
-                an Online Store in Bangalore.
-              </h2>
-
-            </div>
-
-
-            <div className="ecommerce-faq">
-
-
-              <details>
-
-                <summary>
-                  How much does it cost to build an e-commerce
-                  website in Bangalore?
-                </summary>
-
-
-                <p>
-                  The cost varies depending on whether you use
-                  Shopify, WooCommerce or custom development,
-                  along with product count, design requirements,
-                  payment integrations and additional features.
-                  Contact DGATE IS for a project-specific estimate.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  Do you provide Shopify development in Bangalore?
-                </summary>
-
-
-                <p>
-                  Yes. DGATE IS provides Shopify development
-                  services in Bangalore, including storefront
-                  design, theme configuration, product setup,
-                  payment integration and third-party app
-                  integrations.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  Do you offer WooCommerce development services
-                  in Bangalore?
-                </summary>
-
-
-                <p>
-                  Yes. We develop WooCommerce stores for businesses
-                  that want a flexible WordPress-based commerce
-                  solution with greater customisation options.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  Can you create a custom e-commerce website?
-                </summary>
-
-
-                <p>
-                  Yes. We provide custom e-commerce website design
-                  and development based on your products, branding,
-                  customer journey and operational requirements.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  Do you build e-commerce websites for small
-                  businesses?
-                </summary>
-
-
-                <p>
-                  Yes. DGATE IS works with startups and small
-                  businesses that need practical, professional
-                  and scalable online stores.
-                </p>
-
-              </details>
-
-
-              <details>
-
-                <summary>
-                  I am looking for a Shopify developer near me
-                  in Bangalore. Can DGATE IS help?
-                </summary>
-
-
-                <p>
-                  Yes. DGATE IS is based in Bangalore and can
-                  support local businesses with Shopify store
-                  development, optimisation, integrations and
-                  ongoing digital requirements.
-                </p>
-
-              </details>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            CTA
-        ===================================================== */}
-
-        <section className="ecommerce-cta">
-
-          <div className="ecommerce-container">
-
-            <div className="ecommerce-cta__box">
-
-              <div>
-
-                <span>
-                  START SELLING ONLINE
-                </span>
-
-
-                <h2>
-                  Looking for an E-Commerce Website
-                  Development Company in Bangalore?
-                </h2>
-
-
-                <p>
-                  Tell us what you want to sell and our team
-                  will help you choose the right technology,
-                  design and development approach.
-                </p>
-
-              </div>
-
-
-              <Link
-                to="/contact"
-                className="ecommerce-btn ecommerce-btn--primary"
-              >
-                Get a Free Consultation
-
-                <FaArrowRight />
-              </Link>
-
-            </div>
-
-          </div>
-
-        </section>
-
-      </main>
-
+      
 
       <Footer />
-    </>
+
+    </div>
   );
 }
 
