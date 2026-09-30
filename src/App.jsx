@@ -2,12 +2,12 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation,
   useNavigate,
 } from "react-router-dom";
 
 import {
   FaWhatsapp,
+  FaComments,
 } from "react-icons/fa";
 
 import "./App.css";
@@ -119,32 +119,25 @@ import SuccessStoryDetails
 
 function App() {
 
-  const location =
-    useLocation();
-
   const navigate =
     useNavigate();
 
 
-  const currentPath =
-    location.pathname.toLowerCase();
-
-
   /* =======================================================
-     FIRST WEBSITE ANIMATION COMPLETE
+     INITIAL ANIMATION COMPLETE
 
      /
      ↓
-     Animation
+     animation
      ↓
-     Production
+     /home
   ======================================================= */
 
   const handleInitialAnimationComplete =
     () => {
 
       navigate(
-        "/production",
+        "/home",
         {
           replace: true,
         }
@@ -154,20 +147,15 @@ function App() {
 
 
   /* =======================================================
-     FLOATING WHATSAPP
+     LET'S CONNECT CLICK
   ======================================================= */
 
-  const hideFloatingActions =
+  const handleLetsConnect =
+    () => {
 
-    currentPath === "/" ||
+      navigate("/contact");
 
-    currentPath === "/production" ||
-
-    currentPath === "/api/visiter_data" ||
-
-    currentPath === "/details" ||
-
-    currentPath === "/server-down";
+    };
 
 
   /* =======================================================
@@ -185,13 +173,7 @@ function App() {
 
 
         {/* =================================================
-            WEBSITE OPEN
-
-            /
-            ↓
-            D-GATE ANIMATION
-            ↓
-            /production
+            INITIAL ANIMATION
         ================================================= */}
 
         <Route
@@ -207,17 +189,247 @@ function App() {
 
 
         {/* =================================================
-            PRODUCTION FORM
+            HOME
+        ================================================= */}
 
-            Form
-            ↓
-            Submit
-            ↓
-            Thank You
-            ↓
-            Cancel
-            ↓
-            Form
+        <Route
+          path="/home"
+          element={
+            <Home />
+          }
+        />
+
+
+        {/* =================================================
+            ABOUT
+        ================================================= */}
+
+        <Route
+          path="/about"
+          element={
+            <About />
+          }
+        />
+
+
+        {/* =================================================
+            SERVICES
+        ================================================= */}
+
+        <Route
+          path="/services"
+          element={
+            <Services />
+          }
+        />
+
+
+        {/* =================================================
+            INDUSTRIES
+        ================================================= */}
+
+        <Route
+          path="/industries"
+          element={
+            <Industries />
+          }
+        />
+
+
+        {/* =================================================
+            TECHNOLOGIES
+        ================================================= */}
+
+        <Route
+          path="/technologies"
+          element={
+            <Technologies />
+          }
+        />
+
+
+        {/* =================================================
+            CAREERS
+        ================================================= */}
+
+        <Route
+          path="/careers"
+          element={
+            <Careers />
+          }
+        />
+
+
+        {/* =================================================
+            INSIGHTS
+        ================================================= */}
+
+        <Route
+          path="/insights"
+          element={
+            <Insights />
+          }
+        />
+
+
+        {/* =================================================
+            CONTACT
+        ================================================= */}
+
+        <Route
+          path="/contact"
+          element={
+            <Contact />
+          }
+        />
+
+
+        {/* =================================================
+            PORTFOLIO
+        ================================================= */}
+
+        <Route
+          path="/portfolio"
+          element={
+            <Portfolio />
+          }
+        />
+
+
+        {/* =================================================
+            BLOG
+        ================================================= */}
+
+        <Route
+          path="/blog"
+          element={
+            <Blog />
+          }
+        />
+
+
+        {/* =================================================
+            ACHIEVEMENTS
+        ================================================= */}
+
+        <Route
+          path="/achievements"
+          element={
+            <Achievements />
+          }
+        />
+
+
+        {/* =================================================
+            GALLERY
+        ================================================= */}
+
+        <Route
+          path="/gallery"
+          element={
+            <Gallery />
+          }
+        />
+
+
+        {/* =================================================
+            PROPERTY TYPE
+        ================================================= */}
+
+        <Route
+          path="/property-type"
+          element={
+            <PropertyType />
+          }
+        />
+
+
+        {/* =================================================
+            BRANDING & DESIGN
+        ================================================= */}
+
+        <Route
+          path="/branding-design"
+          element={
+            <BrandingDesign />
+          }
+        />
+
+
+        {/* =================================================
+            DEVELOPMENT & ECOMMERCE
+        ================================================= */}
+
+        <Route
+          path="/development-ecommerce"
+          element={
+            <DevelopmentEcommerce />
+          }
+        />
+
+
+        {/* =================================================
+            TECH STACK WEB
+        ================================================= */}
+
+        <Route
+          path="/tech-stack-web"
+          element={
+            <TechStackWeb />
+          }
+        />
+
+
+        {/* =================================================
+            DATA ANALYTICS
+        ================================================= */}
+
+        <Route
+          path="/data-analytics-performance"
+          element={
+            <DataAnalyticsPerformance />
+          }
+        />
+
+
+        {/* =================================================
+            SMART AI BUSINESS AUTOMATION
+        ================================================= */}
+
+        <Route
+          path="/smart-ai-business-automation"
+          element={
+            <SmartAIBusinessAutomation />
+          }
+        />
+
+
+        {/* =================================================
+            DIGITAL MARKETING COURSE
+        ================================================= */}
+
+        <Route
+          path="/digital-marketing-course"
+          element={
+            <DigitalMarketingCourse />
+          }
+        />
+
+
+        {/* =================================================
+            SUCCESS STORY
+        ================================================= */}
+
+        <Route
+          path="/success-story/:id"
+          element={
+            <SuccessStoryDetails />
+          }
+        />
+
+
+        {/* =================================================
+            PRODUCTION FORM
         ================================================= */}
 
         <Route
@@ -229,11 +441,7 @@ function App() {
 
 
         {/* =================================================
-            DETAILS PAGE
-
-            This page still exists,
-            but Production does NOT
-            automatically redirect here.
+            VISITOR DATA
         ================================================= */}
 
         <Route
@@ -244,8 +452,12 @@ function App() {
         />
 
 
+        {/* =================================================
+            OLD DETAILS URL
+        ================================================= */}
+
         <Route
-          path="/api/visiter_data"
+          path="/details"
           element={
             <Navigate
               to="/api/visiter_data"
@@ -256,10 +468,15 @@ function App() {
 
 
         {/* =================================================
-            D-GATE WEBSITE
+            SERVER DOWN
         ================================================= */}
 
-        
+        <Route
+          path="/server-down"
+          element={
+            <ServerDown />
+          }
+        />
 
 
         {/* =================================================
@@ -281,30 +498,66 @@ function App() {
 
 
       {/* ===================================================
-          GLOBAL WHATSAPP
+          GLOBAL FLOATING ACTIONS
+
+          IMPORTANT:
+          This is OUTSIDE Routes,
+          therefore visible on EVERY page.
       =================================================== */}
 
-      {!hideFloatingActions && (
+      <div
+        className="floating-contact-actions"
+      >
 
-        <div
-          className="floating-contact-actions"
+
+        {/* =================================================
+            LET'S CONNECT
+        ================================================= */}
+
+        <button
+          type="button"
+          className="floating-connect"
+          onClick={
+            handleLetsConnect
+          }
+          aria-label="Let's Connect"
         >
 
-          <a
-            href="https://wa.me/919538562600?text=Hello%20DGATE%20Integrated%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="floating-whatsapp"
-            aria-label="Chat with DGATE on WhatsApp"
+          <span
+            className="floating-connect__icon"
           >
+            <FaComments />
+          </span>
 
-            <FaWhatsapp />
 
-          </a>
+          <span
+            className="floating-connect__text"
+          >
+            LET'S CONNECT
+          </span>
 
-        </div>
+        </button>
 
-      )}
+
+        {/* =================================================
+            WHATSAPP
+        ================================================= */}
+
+        <a
+          href="https://wa.me/919538562600?text=Hello%20DGATE%20Integrated%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-whatsapp"
+          aria-label="Chat with DGATE on WhatsApp"
+        >
+
+          <FaWhatsapp />
+
+        </a>
+
+
+      </div>
+
 
     </>
 
