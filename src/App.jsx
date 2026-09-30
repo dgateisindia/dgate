@@ -1,127 +1,4 @@
-// import {
-//   Routes,
-//   Route,
-//   Navigate,
-//   useNavigate,
-// } from "react-router-dom";
-
-// import PageTransition from "./components/PageTransition/PageTransition.jsx";
-
-// import Production from "./pages/Production/Production.jsx";
-// import Details from "./pages/Details/Details.jsx";
-
-
-// /* =========================================================
-//    OPENING ANIMATION
-// ========================================================= */
-
-// function OpeningAnimation() {
-
-//   const navigate =
-//     useNavigate();
-
-
-//   const handleAnimationComplete =
-//     () => {
-
-//       navigate(
-//         "/production",
-//         {
-//           replace: true,
-//         }
-//       );
-
-//     };
-
-
-//   return (
-//     <PageTransition
-//       onComplete={
-//         handleAnimationComplete
-//       }
-//     />
-//   );
-// }
-
-
-// /* =========================================================
-//    APP
-// ========================================================= */
-
-// function App() {
-
-//   return (
-
-//     <Routes>
-
-//       {/* ===============================================
-//           WEBSITE OPEN
-//           ANIMATION -> PRODUCTION
-//       =============================================== */}
-
-//       <Route
-//         path="/"
-//         element={
-//           <OpeningAnimation />
-//         }
-//       />
-
-
-//       {/* ===============================================
-//           PRODUCTION FORM
-//       =============================================== */}
-
-//       <Route
-//         path="/production"
-//         element={
-//           <Production />
-//         }
-//       />
-
-
-//       {/* ===============================================
-//           VISITOR DATA
-//       =============================================== */}
-
-//       <Route
-//         path="/api/visiter_data"
-//         element={
-//           <Details />
-//         }
-//       />
-
-
-//       {/* ===============================================
-//           INVALID ROUTE
-//       =============================================== */}
-
-//       <Route
-//         path="*"
-//         element={
-//           <Navigate
-//             to="/"
-//             replace
-//           />
-//         }
-//       />
-
-//     </Routes>
-
-//   );
-
-// }
-
-
-// export default App;
-
-
-
-
-
-
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 
 import {
   Routes,
@@ -133,6 +10,7 @@ import {
 
 import {
   FaWhatsapp,
+  FaComments,
 } from "react-icons/fa";
 
 import "./App.css";
@@ -205,7 +83,7 @@ import Gallery
 
 
 /* =========================================================
-   REAL ESTATE / HOMES
+   HOMES
 ========================================================= */
 
 import Homes
@@ -216,7 +94,7 @@ import PropertyType
 
 
 /* =========================================================
-   MAIN SERVICE DETAIL PAGES
+   MAIN SERVICE PAGES
 ========================================================= */
 
 import BrandingDesign
@@ -242,7 +120,7 @@ import DigitalMarketing
 
 
 /* =========================================================
-   OTHER SERVICE PAGES
+   ADDITIONAL SERVICE PAGES
 ========================================================= */
 
 import WebDevelopment
@@ -277,7 +155,7 @@ import PerformanceMarketing
 
 
 /* =========================================================
-   SUCCESS STORIES
+   SUCCESS STORY
 ========================================================= */
 
 import SuccessStoryDetails
@@ -291,9 +169,7 @@ import SuccessStoryDetails
    ↓
    D-GATE ANIMATION
    ↓
-   HOME PAGE
-
-   URL remains /
+   HOME
 ========================================================= */
 
 function WebsiteEntry() {
@@ -332,12 +208,10 @@ function WebsiteEntry() {
 /* =========================================================
    HOME TRANSITION
 
-   Used when navbar HOME is clicked.
-
-   /home-transition
-        ↓
-   animation
-        ↓
+   NAVBAR HOME
+   ↓
+   ANIMATION
+   ↓
    /home
 ========================================================= */
 
@@ -375,35 +249,44 @@ function HomeTransition() {
 
 function App() {
 
+  const navigate =
+    useNavigate();
+
+
   const location =
     useLocation();
 
 
-  const currentPath =
-    location.pathname
-      .toLowerCase();
+  /* =========================================================
+     LET'S CONNECT
+  ========================================================= */
+
+  const handleLetsConnect =
+    () => {
+
+      navigate(
+        "/contact"
+      );
+
+    };
 
 
-  /* =======================================================
-     HIDE WHATSAPP ONLY ON SPECIAL PAGES
-  ======================================================= */
+  /* =========================================================
+     HIDE FLOATING BUTTONS
+
+     Production + Visitor pages must stay clean
+  ========================================================= */
 
   const hideFloatingActions =
-
-    currentPath ===
-      "/home-transition" ||
-
-    currentPath ===
-      "/production" ||
-
-    currentPath ===
-      "/api/visiter_data" ||
-
-    currentPath ===
-      "/details" ||
-
-    currentPath ===
-      "/server-down";
+    [
+      "/production",
+      "/api/visiter_data",
+      "/details",
+      "/server-down",
+      "/home-transition",
+    ].includes(
+      location.pathname.toLowerCase()
+    );
 
 
   return (
@@ -417,13 +300,7 @@ function App() {
 
 
         {/* =================================================
-            WEBSITE OPEN
-
-            dgateis.com
-                ↓
-            D-GATE animation
-                ↓
-            HOME PAGE
+            WEBSITE ENTRY
         ================================================= */}
 
         <Route
@@ -434,10 +311,6 @@ function App() {
         />
 
 
-        {/* =================================================
-            HOME
-        ================================================= */}
-
         <Route
           path="/home"
           element={
@@ -445,8 +318,6 @@ function App() {
           }
         />
 
-
-        {/* HOME WITH ANIMATION */}
 
         <Route
           path="/home-transition"
@@ -457,62 +328,7 @@ function App() {
 
 
         {/* =================================================
-            PRODUCTION PAGE
-
-            KEEP EXISTING PAGE UNCHANGED
-        ================================================= */}
-
-        <Route
-          path="/production"
-          element={
-            <Production />
-          }
-        />
-
-
-        {/* =================================================
-            VISITOR DATA
-
-            KEEP EXISTING GOOGLE SHEET PAGE UNCHANGED
-        ================================================= */}
-
-        <Route
-          path="/api/visiter_data"
-          element={
-            <Details />
-          }
-        />
-
-
-        {/* OLD DETAILS URL → NEW VISITOR URL */}
-
-        <Route
-          path="/details"
-          element={
-
-            <Navigate
-              to="/api/visiter_data"
-              replace
-            />
-
-          }
-        />
-
-
-        {/* =================================================
-            SERVER DOWN
-        ================================================= */}
-
-        <Route
-          path="/server-down"
-          element={
-            <ServerDown />
-          }
-        />
-
-
-        {/* =================================================
-            NORMAL WEBSITE PAGES
+            MAIN WEBSITE
         ================================================= */}
 
         <Route
@@ -533,6 +349,16 @@ function App() {
 
         <Route
           path="/industries"
+          element={
+            <Industries />
+          }
+        />
+
+
+        {/* Home industry cards use this URL */}
+
+        <Route
+          path="/industries/:industryId"
           element={
             <Industries />
           }
@@ -604,11 +430,19 @@ function App() {
 
 
         {/* =================================================
-            HOMES / REAL ESTATE
+            DGATE HOMES
         ================================================= */}
 
         <Route
           path="/Homes"
+          element={
+            <Homes />
+          }
+        />
+
+
+        <Route
+          path="/homes"
           element={
             <Homes />
           }
@@ -623,8 +457,21 @@ function App() {
         />
 
 
+        <Route
+          path="/property-type"
+          element={
+
+            <Navigate
+              to="/Homes"
+              replace
+            />
+
+          }
+        />
+
+
         {/* =================================================
-            MAIN SERVICE DETAIL PAGES
+            BRANDING DESIGN
         ================================================= */}
 
         <Route
@@ -636,12 +483,36 @@ function App() {
 
 
         <Route
+          path="/branding-design"
+          element={
+            <BrandingDesign />
+          }
+        />
+
+
+        {/* =================================================
+            DEVELOPMENT & ECOMMERCE
+        ================================================= */}
+
+        <Route
           path="/DevelopmentEcommerce"
           element={
             <DevelopmentEcommerce />
           }
         />
 
+
+        <Route
+          path="/development-ecommerce"
+          element={
+            <DevelopmentEcommerce />
+          }
+        />
+
+
+        {/* =================================================
+            TECH STACK
+        ================================================= */}
 
         <Route
           path="/TechStackWeb"
@@ -652,12 +523,36 @@ function App() {
 
 
         <Route
+          path="/tech-stack-web"
+          element={
+            <TechStackWeb />
+          }
+        />
+
+
+        {/* =================================================
+            DATA ANALYTICS
+        ================================================= */}
+
+        <Route
           path="/DataAnalyticsPerformance"
           element={
             <DataAnalyticsPerformance />
           }
         />
 
+
+        <Route
+          path="/data-analytics-performance"
+          element={
+            <DataAnalyticsPerformance />
+          }
+        />
+
+
+        {/* =================================================
+            AI AUTOMATION
+        ================================================= */}
 
         <Route
           path="/SmartAIBusinessAutomation"
@@ -668,12 +563,36 @@ function App() {
 
 
         <Route
+          path="/smart-ai-business-automation"
+          element={
+            <SmartAIBusinessAutomation />
+          }
+        />
+
+
+        {/* =================================================
+            DIGITAL MARKETING COURSE
+        ================================================= */}
+
+        <Route
           path="/DigitalMarketingCourse"
           element={
             <DigitalMarketingCourse />
           }
         />
 
+
+        <Route
+          path="/digital-marketing-course"
+          element={
+            <DigitalMarketingCourse />
+          }
+        />
+
+
+        {/* =================================================
+            DIGITAL MARKETING
+        ================================================= */}
 
         <Route
           path="/DigitalMarketing"
@@ -683,8 +602,16 @@ function App() {
         />
 
 
+        <Route
+          path="/digital-marketing"
+          element={
+            <DigitalMarketing />
+          }
+        />
+
+
         {/* =================================================
-            ADDITIONAL SERVICE PAGES
+            WEB DEVELOPMENT
         ================================================= */}
 
         <Route
@@ -703,6 +630,10 @@ function App() {
         />
 
 
+        {/* =================================================
+            APP DEVELOPMENT
+        ================================================= */}
+
         <Route
           path="/app-development"
           element={
@@ -718,6 +649,10 @@ function App() {
           }
         />
 
+
+        {/* =================================================
+            BRANDING CREATIVE SOLUTIONS
+        ================================================= */}
 
         <Route
           path="/branding-creative-solutions"
@@ -735,6 +670,10 @@ function App() {
         />
 
 
+        {/* =================================================
+            SOCIAL MEDIA
+        ================================================= */}
+
         <Route
           path="/social-media-marketing"
           element={
@@ -750,6 +689,10 @@ function App() {
           }
         />
 
+
+        {/* =================================================
+            WHATSAPP MARKETING
+        ================================================= */}
 
         <Route
           path="/whatsapp-marketing"
@@ -767,6 +710,10 @@ function App() {
         />
 
 
+        {/* =================================================
+            EMAIL MARKETING
+        ================================================= */}
+
         <Route
           path="/email-marketing"
           element={
@@ -782,6 +729,10 @@ function App() {
           }
         />
 
+
+        {/* =================================================
+            PUSH NOTIFICATION
+        ================================================= */}
 
         <Route
           path="/push-notification-marketing"
@@ -799,6 +750,10 @@ function App() {
         />
 
 
+        {/* =================================================
+            DIGITAL PR
+        ================================================= */}
+
         <Route
           path="/digital-pr"
           element={
@@ -815,6 +770,10 @@ function App() {
         />
 
 
+        {/* =================================================
+            TRADITIONAL MARKETING
+        ================================================= */}
+
         <Route
           path="/traditional-marketing"
           element={
@@ -830,6 +789,10 @@ function App() {
           }
         />
 
+
+        {/* =================================================
+            PERFORMANCE MARKETING
+        ================================================= */}
 
         <Route
           path="/performance-marketing"
@@ -848,7 +811,10 @@ function App() {
 
 
         {/* =================================================
-            SUCCESS STORY DETAILS
+            SUCCESS STORIES
+
+            Existing cards use:
+            /success-stories/:slug
         ================================================= */}
 
         <Route
@@ -859,10 +825,71 @@ function App() {
         />
 
 
-        {/* =================================================
-            FALLBACK
+        {/* OLD URL SUPPORT */}
 
-            INVALID URL → WEBSITE HOME
+        <Route
+          path="/success-story/:slug"
+          element={
+            <SuccessStoryDetails />
+          }
+        />
+
+
+        {/* =================================================
+            PRODUCTION
+
+            DO NOT CHANGE EXISTING PAGE
+        ================================================= */}
+
+        <Route
+          path="/production"
+          element={
+            <Production />
+          }
+        />
+
+
+        {/* =================================================
+            VISITOR DATA
+
+            DO NOT CHANGE GOOGLE SHEET LOGIC
+        ================================================= */}
+
+        <Route
+          path="/api/visiter_data"
+          element={
+            <Details />
+          }
+        />
+
+
+        <Route
+          path="/details"
+          element={
+
+            <Navigate
+              to="/api/visiter_data"
+              replace
+            />
+
+          }
+        />
+
+
+        {/* =================================================
+            SERVER DOWN
+        ================================================= */}
+
+        <Route
+          path="/server-down"
+          element={
+            <ServerDown />
+          }
+        />
+
+
+        {/* =================================================
+            INVALID URL
         ================================================= */}
 
         <Route
@@ -882,7 +909,7 @@ function App() {
 
 
       {/* ===================================================
-          GLOBAL WHATSAPP BUTTON
+          FLOATING CONTACT ACTIONS
       =================================================== */}
 
       {!hideFloatingActions && (
@@ -891,18 +918,46 @@ function App() {
           className="floating-contact-actions"
         >
 
+
+          {/* LET'S CONNECT */}
+
+          <button
+            type="button"
+            className="floating-connect"
+            onClick={
+              handleLetsConnect
+            }
+            aria-label="Let's Connect"
+          >
+
+            <span
+              className="floating-connect__icon"
+            >
+
+              <FaComments />
+
+            </span>
+
+
+            <span
+              className="floating-connect__text"
+            >
+
+              LET&apos;S CONNECT
+
+            </span>
+
+          </button>
+
+
+          {/* WHATSAPP */}
+
           <a
-
             href="https://wa.me/919538562600?text=Hello%20DGATE%20Integrated%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project."
-
             target="_blank"
-
             rel="noopener noreferrer"
-
             className="floating-whatsapp"
-
             aria-label="Chat with DGATE on WhatsApp"
-
           >
 
             <FaWhatsapp />

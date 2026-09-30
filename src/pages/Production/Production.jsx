@@ -192,10 +192,6 @@ const getGoogleVisitors =
    LOCAL STORAGE
 ========================================================= */
 
-const LOCAL_STORAGE_KEY =
-  "dgateProductionLeads";
-
-
 function Production() {
 
   const [formData, setFormData] =
@@ -239,6 +235,7 @@ function Production() {
     } = event.target;
 
 
+
     setFormData(
       (previous) => ({
         ...previous,
@@ -265,7 +262,9 @@ function Production() {
 
   const validateForm = () => {
 
+
     const nextErrors = {};
+
 
 
     if (!formData.name.trim()) {
@@ -276,12 +275,14 @@ function Production() {
     }
 
 
+
     if (!formData.phone.trim()) {
 
       nextErrors.phone =
         "Phone is required";
 
     }
+
 
     else if (
       !/^[0-9+\-\s()]{8,15}$/.test(
@@ -301,6 +302,7 @@ function Production() {
         "Email is required";
 
     }
+
 
     else if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
@@ -322,67 +324,13 @@ function Production() {
     }
 
 
+
     setErrors(nextErrors);
 
 
     return (
       Object.keys(nextErrors).length === 0
     );
-  };
-
-
-  /* =========================================================
-     LOCAL BACKUP
-  ========================================================= */
-
-  const saveLocalBackup = (lead) => {
-
-    try {
-
-      const saved =
-        localStorage.getItem(
-          LOCAL_STORAGE_KEY
-        );
-
-
-      let previousData = [];
-
-
-      if (saved) {
-
-        const parsed =
-          JSON.parse(saved);
-
-
-        if (Array.isArray(parsed)) {
-
-          previousData =
-            parsed;
-
-        }
-
-      }
-
-
-      localStorage.setItem(
-        LOCAL_STORAGE_KEY,
-        JSON.stringify([
-          ...previousData,
-          lead,
-        ])
-      );
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "Local storage error:",
-        error
-      );
-
-    }
-
   };
 
 
@@ -739,6 +687,9 @@ function Production() {
                       value={formData.name}
                       onChange={handleChange}
                       autoComplete="name"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -783,6 +734,10 @@ function Production() {
                       value={formData.phone}
                       onChange={handleChange}
                       autoComplete="tel"
+                      inputMode="tel"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -827,6 +782,10 @@ function Production() {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="email"
+                      inputMode="email"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -871,6 +830,9 @@ function Production() {
                       value={formData.company}
                       onChange={handleChange}
                       autoComplete="organization"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -918,7 +880,6 @@ function Production() {
 
                   We&apos;ll let you know as soon
                   as we&apos;re live.
-
                 </p>
 
               </form>
@@ -934,6 +895,5 @@ function Production() {
     </main>
   );
 }
-
 
 export default Production;
