@@ -18,33 +18,41 @@ import dgateLogo
 
 
 /* =========================================================
-   GOOGLE APPS SCRIPT WEB APP
+   GOOGLE SHEET API
 ========================================================= */
 
 const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbzjLZCU7xRrIHIko2g9utTcgpmf2QrPhSpev7HUEoppAxdmT7_vWQ4hxjl3gkLYYxrung/exec";
+  "https://script.google.com/macros/s/AKfycbwNZTIAtXSHMMQ5CtUnqmpG9MmQCTUWa0wc-MtLYM0U2QQzyi4u75_VX6sSlQsiDAxv5g/exec";
 
 
 /* =========================================================
-   PRODUCTION
+   INITIAL FORM DATA
+========================================================= */
+
+const INITIAL_FORM_DATA = {
+  name: "",
+  phone: "",
+  email: "",
+  company: "",
+};
+
+
+/* =========================================================
+   PRODUCTION PAGE
 ========================================================= */
 
 function Production() {
 
+  /* =========================================================
+     STATE
+  ========================================================= */
+
   const [
     formData,
     setFormData,
-  ] = useState({
-
-    name: "",
-
-    phone: "",
-
-    email: "",
-
-    company: "",
-
-  });
+  ] = useState(
+    INITIAL_FORM_DATA
+  );
 
 
   const [
@@ -81,84 +89,99 @@ function Production() {
      INPUT CHANGE
   ========================================================= */
 
-  const handleChange =
-    (event) => {
+  const handleChange = (
+    event
+  ) => {
 
-      const {
-        name,
-        value,
-      } = event.target;
-
-
-      setFormData(
-        (previous) => ({
-
-          ...previous,
-
-          [name]:
-            value,
-
-        })
-      );
+    const {
+      name,
+      value,
+    } = event.target;
 
 
-      setErrors(
-        (previous) => ({
+    setFormData(
+      (previous) => ({
+        ...previous,
 
-          ...previous,
-
-          [name]:
-            "",
-
-        })
-      );
+        [name]:
+          value,
+      })
+    );
 
 
-      setSubmitError("");
+    setErrors(
+      (previous) => ({
+        ...previous,
 
-    };
+        [name]:
+          "",
+      })
+    );
+
+
+    setSubmitError("");
+
+  };
 
 
   /* =========================================================
      VALIDATION
   ========================================================= */
 
-  const validateForm =
-    () => {
+  const validateForm = () => {
 
-      const nextErrors =
-        {};
+    const nextErrors = {};
 
 
-      /* NAME */
+    /* NAME */
+
+    if (
+      !formData.name.trim()
+    ) {
+
+      nextErrors.name =
+        "Name is required";
+
+    }
+
+    else if (
+      formData.name
+        .trim()
+        .length < 2
+    ) {
+
+      nextErrors.name =
+        "Enter a valid name";
+
+    }
+
+
+    /* PHONE */
+
+    if (
+      !formData.phone.trim()
+    ) {
+
+      nextErrors.phone =
+        "Phone is required";
+
+    }
+
+    else {
+
+      const cleanedPhone =
+        formData.phone
+          .replace(
+            /[\s\-()]/g,
+            ""
+          );
+
 
       if (
-        !formData.name.trim()
-      ) {
-
-        nextErrors.name =
-          "Name is required";
-
-      }
-
-
-      /* PHONE */
-
-      if (
-        !formData.phone.trim()
-      ) {
-
-        nextErrors.phone =
-          "Phone is required";
-
-      }
-
-      else if (
-
-        !/^[0-9+\-\s()]{8,15}$/.test(
-          formData.phone.trim()
-        )
-
+        !/^\+?[0-9]{8,15}$/
+          .test(
+            cleanedPhone
+          )
       ) {
 
         nextErrors.phone =
@@ -166,164 +189,167 @@ function Production() {
 
       }
 
+    }
 
-      /* EMAIL */
 
-      if (
-        !formData.email.trim()
-      ) {
+    /* EMAIL */
 
-        nextErrors.email =
-          "Email is required";
+    if (
+      !formData.email.trim()
+    ) {
 
-      }
+      nextErrors.email =
+        "Email is required";
 
-      else if (
+    }
 
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+    else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(
           formData.email.trim()
         )
+    ) {
 
-      ) {
+      nextErrors.email =
+        "Enter a valid email";
 
-        nextErrors.email =
-          "Enter a valid email";
-
-      }
-
-
-      /* COMPANY */
-
-      if (
-        !formData.company.trim()
-      ) {
-
-        nextErrors.company =
-          "Company is required";
-
-      }
+    }
 
 
-      setErrors(
+    /* COMPANY */
+
+    if (
+      !formData.company.trim()
+    ) {
+
+      nextErrors.company =
+        "Company is required";
+
+    }
+
+
+    setErrors(
+      nextErrors
+    );
+
+
+    return (
+      Object.keys(
         nextErrors
-      );
+      ).length === 0
+    );
 
-
-      return (
-        Object.keys(
-          nextErrors
-        ).length === 0
-      );
-
-    };
+  };
 
 
   /* =========================================================
      LOCAL STORAGE BACKUP
   ========================================================= */
 
-  const saveLocalBackup =
-    () => {
+  const saveLocalBackup = (
+    submittedData
+  ) => {
 
-      try {
+    try {
 
-        const newLead = {
+      const newLead = {
 
-          id:
-            Date.now(),
+        id:
+          Date.now(),
 
-          name:
-            formData.name.trim(),
+        name:
+          submittedData.name,
 
-          phone:
-            formData.phone.trim(),
+        phone:
+          submittedData.phone,
 
-          email:
-            formData.email
-              .trim()
-              .toLowerCase(),
+        email:
+          submittedData.email,
 
-          company:
-            formData.company.trim(),
+        company:
+          submittedData.company,
 
-          createdAt:
-            new Date()
-              .toISOString(),
+        createdAt:
+          new Date()
+            .toISOString(),
 
-        };
-
-
-        let existingLeads =
-          [];
+      };
 
 
-        const savedData =
-          localStorage.getItem(
-            "dgateProductionLeads"
-          );
+      const savedData =
+        localStorage.getItem(
+          "dgateProductionLeads"
+        );
 
 
-        if (savedData) {
-
-          try {
-
-            const parsedData =
-              JSON.parse(
-                savedData
-              );
+      let existingLeads =
+        [];
 
 
-            if (
-              Array.isArray(
-                parsedData
-              )
-            ) {
+      if (
+        savedData
+      ) {
 
-              existingLeads =
-                parsedData;
+        try {
 
-            }
-
-          }
-
-          catch (error) {
-
-            console.warn(
-              "Unable to read local backup:",
-              error
+          const parsedData =
+            JSON.parse(
+              savedData
             );
+
+
+          if (
+            Array.isArray(
+              parsedData
+            )
+          ) {
+
+            existingLeads =
+              parsedData;
 
           }
 
         }
 
-
-        localStorage.setItem(
-
-          "dgateProductionLeads",
-
-          JSON.stringify([
-
-            ...existingLeads,
-
-            newLead,
-
-          ])
-
-        );
-
-      }
-
-      catch (error) {
-
-        console.warn(
-          "Unable to save local backup:",
+        catch (
           error
-        );
+        ) {
+
+          console.warn(
+            "Unable to read local backup:",
+            error
+          );
+
+        }
 
       }
 
-    };
+
+      localStorage.setItem(
+
+        "dgateProductionLeads",
+
+        JSON.stringify([
+          ...existingLeads,
+          newLead,
+        ])
+
+      );
+
+    }
+
+    catch (
+      error
+    ) {
+
+      console.warn(
+        "Unable to save local backup:",
+        error
+      );
+
+    }
+
+  };
 
 
   /* =========================================================
@@ -331,7 +357,9 @@ function Production() {
   ========================================================= */
 
   const handleSubmit =
-    async (event) => {
+    async (
+      event
+    ) => {
 
       event.preventDefault();
 
@@ -354,6 +382,23 @@ function Production() {
       }
 
 
+      /* =====================================================
+         INTERNET CHECK
+      ===================================================== */
+
+      if (
+        !navigator.onLine
+      ) {
+
+        setSubmitError(
+          "No internet connection. Please check your connection and try again."
+        );
+
+        return;
+
+      }
+
+
       try {
 
         setSubmitting(
@@ -366,13 +411,39 @@ function Production() {
         );
 
 
+        /* ===================================================
+           CLEAN FORM DATA
+        =================================================== */
+
+        const submittedData = {
+
+          name:
+            formData.name
+              .trim(),
+
+          phone:
+            formData.phone
+              .trim(),
+
+          email:
+            formData.email
+              .trim()
+              .toLowerCase(),
+
+          company:
+            formData.company
+              .trim(),
+
+        };
+
+
         const currentName =
-          formData.name.trim();
+          submittedData.name;
 
 
-        /* =================================================
-           GOOGLE SHEET DATA
-        ================================================= */
+        /* ===================================================
+           CREATE GOOGLE SHEET BODY
+        =================================================== */
 
         const body =
           new URLSearchParams();
@@ -380,92 +451,138 @@ function Production() {
 
         body.append(
           "name",
-          formData.name.trim()
+          submittedData.name
         );
 
 
         body.append(
           "phone",
-          formData.phone.trim()
+          submittedData.phone
         );
 
 
         body.append(
           "email",
-          formData.email
-            .trim()
-            .toLowerCase()
+          submittedData.email
         );
 
 
         body.append(
           "company",
-          formData.company.trim()
+          submittedData.company
         );
 
 
-        /* =================================================
+        body.append(
+          "source",
+          window.location.hostname
+        );
+
+
+        body.append(
+          "submittedAt",
+          new Date()
+            .toISOString()
+        );
+
+
+        /* ===================================================
+           REQUEST TIMEOUT
+        =================================================== */
+
+        const controller =
+          new AbortController();
+
+
+        const timeoutId =
+          window.setTimeout(
+            () => {
+
+              controller.abort();
+
+            },
+            15000
+          );
+
+
+        /* ===================================================
            SEND TO GOOGLE SHEET
-        ================================================= */
+        =================================================== */
 
-        await fetch(
-          GOOGLE_SHEET_URL,
-          {
+        try {
 
-            method:
-              "POST",
+          await fetch(
+            GOOGLE_SHEET_URL,
+            {
 
-            mode:
-              "no-cors",
+              method:
+                "POST",
 
-            body,
+              mode:
+                "no-cors",
 
-          }
+              headers: {
+
+                "Content-Type":
+                  "application/x-www-form-urlencoded;charset=UTF-8",
+
+              },
+
+              body:
+                body.toString(),
+
+              signal:
+                controller.signal,
+
+            }
+          );
+
+        }
+
+        finally {
+
+          window.clearTimeout(
+            timeoutId
+          );
+
+        }
+
+
+        /* ===================================================
+           LOCAL BACKUP
+        =================================================== */
+
+        saveLocalBackup(
+          submittedData
         );
 
 
-        /* =================================================
-           LOCAL BACKUP
-        ================================================= */
-
-        saveLocalBackup();
-
-
-        /* =================================================
-           STORE NAME FOR THANK YOU
-        ================================================= */
+        /* ===================================================
+           STORE NAME
+        =================================================== */
 
         setSubmittedName(
           currentName
         );
 
 
-        /* =================================================
-           CLEAR FORM DATA
-        ================================================= */
+        /* ===================================================
+           CLEAR FORM
+        =================================================== */
 
-        setFormData({
-
-          name: "",
-
-          phone: "",
-
-          email: "",
-
-          company: "",
-
-        });
+        setFormData(
+          INITIAL_FORM_DATA
+        );
 
 
-        /* =================================================
+        setErrors(
+          {}
+        );
+
+
+        /* ===================================================
            SHOW THANK YOU
-
-           IMPORTANT:
-
-           There is NO timer.
-           There is NO redirect.
-           There is NO animation.
-        ================================================= */
+        =================================================== */
 
         setSubmitted(
           true
@@ -473,7 +590,9 @@ function Production() {
 
       }
 
-      catch (error) {
+      catch (
+        error
+      ) {
 
         console.error(
           "Google Sheet submission error:",
@@ -481,9 +600,24 @@ function Production() {
         );
 
 
-        setSubmitError(
-          "Unable to submit right now. Please try again."
-        );
+        if (
+          error.name ===
+          "AbortError"
+        ) {
+
+          setSubmitError(
+            "Request took too long. Please try again."
+          );
+
+        }
+
+        else {
+
+          setSubmitError(
+            "Unable to submit right now. Please try again."
+          );
+
+        }
 
       }
 
@@ -500,12 +634,6 @@ function Production() {
 
   /* =========================================================
      CANCEL
-
-     Thank You
-         ↓
-     Cancel
-         ↓
-     Form
   ========================================================= */
 
   const handleCancel =
@@ -531,13 +659,9 @@ function Production() {
       );
 
 
-      /*
-        Form was already cleared
-        after successful submission.
-
-        Cancel simply switches back
-        to the empty form.
-      */
+      setFormData(
+        INITIAL_FORM_DATA
+      );
 
     };
 
@@ -564,7 +688,6 @@ function Production() {
           }`}
         >
 
-
           {/* =================================================
               LOGO
           ================================================= */}
@@ -585,7 +708,7 @@ function Production() {
 
 
           {/* =================================================
-              THANK YOU
+              SUCCESS SCREEN
           ================================================= */}
 
           {submitted ? (
@@ -593,8 +716,6 @@ function Production() {
             <div
               className="production-success"
             >
-
-              {/* SUCCESS ICON */}
 
               <div
                 className="production-success-icon"
@@ -604,8 +725,6 @@ function Production() {
 
               </div>
 
-
-              {/* THANK YOU */}
 
               <h1>
 
@@ -618,8 +737,6 @@ function Production() {
               </h1>
 
 
-              {/* MESSAGE */}
-
               <p
                 className="production-success-message"
               >
@@ -629,8 +746,6 @@ function Production() {
 
               </p>
 
-
-              {/* CANCEL */}
 
               <button
                 type="button"
@@ -649,7 +764,6 @@ function Production() {
           ) : (
 
             <>
-
 
               {/* =================================================
                   HEADING
@@ -693,7 +807,6 @@ function Production() {
                 noValidate
               >
 
-
                 {/* NAME */}
 
                 <div
@@ -732,6 +845,9 @@ function Production() {
                         handleChange
                       }
                       autoComplete="name"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -790,6 +906,10 @@ function Production() {
                         handleChange
                       }
                       autoComplete="tel"
+                      inputMode="tel"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -848,6 +968,10 @@ function Production() {
                         handleChange
                       }
                       autoComplete="email"
+                      inputMode="email"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -906,6 +1030,9 @@ function Production() {
                         handleChange
                       }
                       autoComplete="organization"
+                      disabled={
+                        submitting
+                      }
                     />
 
                   </div>
@@ -927,13 +1054,14 @@ function Production() {
 
 
                 {/* =================================================
-                    SUBMIT ERROR
+                    ERROR
                 ================================================= */}
 
                 {submitError && (
 
                   <div
                     className="production-submit-error"
+                    role="alert"
                   >
 
                     {submitError}
@@ -944,7 +1072,7 @@ function Production() {
 
 
                 {/* =================================================
-                    SUBMIT
+                    SUBMIT BUTTON
                 ================================================= */}
 
                 <button
@@ -980,8 +1108,10 @@ function Production() {
                   We&apos;ll let you know as soon
                   as we&apos;re live.
 
-                </p>
 
+
+
+                </p>
 
               </form>
 
@@ -998,6 +1128,5 @@ function Production() {
   );
 
 }
-
 
 export default Production;
