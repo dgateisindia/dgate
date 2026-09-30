@@ -1,6 +1,4 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 
 import {
   FaUser,
@@ -13,548 +11,614 @@ import {
 
 import "./Production.css";
 
-import dgateLogo
-  from "../../assets/images/dgate-logo.png";
+import dgateLogo from "../../assets/images/dgate-logo.png";
 
 
 /* =========================================================
-   GOOGLE APPS SCRIPT WEB APP
+   GOOGLE APPS SCRIPT URL
 ========================================================= */
 
 const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbzjLZCU7xRrIHIko2g9utTcgpmf2QrPhSpev7HUEoppAxdmT7_vWQ4hxjl3gkLYYxrung/exec";
+  "https://script.google.com/macros/s/AKfycbzFRMRflBsXts2_4WP_BWGYaJScQSEBpLHEStpOaqe_oKoNKFygyEqr4ZAr9OllRKfLkQ/exec";
+
 
 
 /* =========================================================
-   PRODUCTION
+   WAIT
 ========================================================= */
+
+const wait = (milliseconds) =>
+  new Promise(
+    (resolve) =>
+      setTimeout(
+        resolve,
+        milliseconds
+      )
+  );
+
+
+/* =========================================================
+   READ GOOGLE SHEET USING JSONP
+========================================================= */
+
+const getGoogleVisitors =
+  () => {
+
+    return new Promise(
+      (
+        resolve,
+        reject
+      ) => {
+
+        const callbackName =
+          `dgateCallback_${Date.now()}`;
+
+
+        const script =
+          document.createElement(
+            "script"
+          );
+
+
+        const timeout =
+          setTimeout(
+            () => {
+
+              cleanup();
+
+              reject(
+                new Error(
+                  "Google Sheet connection timeout."
+                )
+              );
+
+            },
+            15000
+          );
+
+
+        const cleanup =
+          () => {
+
+            clearTimeout(
+              timeout
+            );
+
+
+            if (
+              script.parentNode
+            ) {
+
+              script.parentNode
+                .removeChild(
+                  script
+                );
+
+            }
+
+
+            try {
+
+              delete window[
+                callbackName
+              ];
+
+            }
+
+            catch {
+
+              window[
+                callbackName
+              ] = undefined;
+
+            }
+
+          };
+
+
+        window[
+          callbackName
+        ] = (
+          response
+        ) => {
+
+          cleanup();
+
+
+          if (
+            !response ||
+            response.success !== true
+          ) {
+
+            reject(
+              new Error(
+                response?.message ||
+                "Unable to read Google Sheet."
+              )
+            );
+
+
+            return;
+
+          }
+
+
+          resolve(
+            Array.isArray(
+              response.visitors
+            )
+              ? response.visitors
+              : []
+          );
+
+        };
+
+
+        script.onerror =
+          () => {
+
+            cleanup();
+
+
+            reject(
+              new Error(
+                "Unable to connect to Google Sheet."
+              )
+            );
+
+          };
+
+
+        script.src =
+          `${GOOGLE_SHEET_URL}?callback=${callbackName}&t=${Date.now()}`;
+
+
+        script.async =
+          true;
+
+
+        document.body
+          .appendChild(
+            script
+          );
+
+      }
+    );
+
+  };
+
+
+/* =========================================================
+   LOCAL STORAGE
+========================================================= */
+
+const LOCAL_STORAGE_KEY =
+  "dgateProductionLeads";
+
 
 function Production() {
 
-  const [
-    formData,
-    setFormData,
-  ] = useState({
-
-    name: "",
-
-    phone: "",
-
-    email: "",
-
-    company: "",
-
-  });
+  const [formData, setFormData] =
+    useState({
+      name: "",
+      phone: "",
+      email: "",
+      company: "",
+    });
 
 
-  const [
-    errors,
-    setErrors,
-  ] = useState({});
+  const [errors, setErrors] =
+    useState({});
 
 
-  const [
-    submitting,
-    setSubmitting,
-  ] = useState(false);
+  const [submitting, setSubmitting] =
+    useState(false);
 
 
-  const [
-    submitError,
-    setSubmitError,
-  ] = useState("");
+  const [submitError, setSubmitError] =
+    useState("");
 
 
-  const [
-    submitted,
-    setSubmitted,
-  ] = useState(false);
+  const [submitted, setSubmitted] =
+    useState(false);
 
 
-  const [
-    submittedName,
-    setSubmittedName,
-  ] = useState("");
+  const [submittedName, setSubmittedName] =
+    useState("");
 
 
   /* =========================================================
      INPUT CHANGE
   ========================================================= */
 
-  const handleChange =
-    (event) => {
+  const handleChange = (event) => {
 
-      const {
-        name,
-        value,
-      } = event.target;
-
-
-      setFormData(
-        (previous) => ({
-
-          ...previous,
-
-          [name]:
-            value,
-
-        })
-      );
+    const {
+      name,
+      value,
+    } = event.target;
 
 
-      setErrors(
-        (previous) => ({
-
-          ...previous,
-
-          [name]:
-            "",
-
-        })
-      );
+    setFormData(
+      (previous) => ({
+        ...previous,
+        [name]: value,
+      })
+    );
 
 
-      setSubmitError("");
+    setErrors(
+      (previous) => ({
+        ...previous,
+        [name]: "",
+      })
+    );
 
-    };
+
+    setSubmitError("");
+  };
 
 
   /* =========================================================
      VALIDATION
   ========================================================= */
 
-  const validateForm =
-    () => {
+  const validateForm = () => {
 
-      const nextErrors =
-        {};
+    const nextErrors = {};
 
 
-      /* NAME */
+    if (!formData.name.trim()) {
 
-      if (
-        !formData.name.trim()
-      ) {
+      nextErrors.name =
+        "Name is required";
 
-        nextErrors.name =
-          "Name is required";
-
-      }
+    }
 
 
-      /* PHONE */
+    if (!formData.phone.trim()) {
 
-      if (
-        !formData.phone.trim()
-      ) {
+      nextErrors.phone =
+        "Phone is required";
 
-        nextErrors.phone =
-          "Phone is required";
+    }
 
-      }
+    else if (
+      !/^[0-9+\-\s()]{8,15}$/.test(
+        formData.phone.trim()
+      )
+    ) {
 
-      else if (
+      nextErrors.phone =
+        "Enter a valid phone number";
 
-        !/^[0-9+\-\s()]{8,15}$/.test(
-          formData.phone.trim()
-        )
-
-      ) {
-
-        nextErrors.phone =
-          "Enter a valid phone number";
-
-      }
+    }
 
 
-      /* EMAIL */
+    if (!formData.email.trim()) {
 
-      if (
-        !formData.email.trim()
-      ) {
+      nextErrors.email =
+        "Email is required";
 
-        nextErrors.email =
-          "Email is required";
+    }
 
-      }
+    else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.email.trim()
+      )
+    ) {
 
-      else if (
+      nextErrors.email =
+        "Enter a valid email";
 
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-          formData.email.trim()
-        )
-
-      ) {
-
-        nextErrors.email =
-          "Enter a valid email";
-
-      }
+    }
 
 
-      /* COMPANY */
+    if (!formData.company.trim()) {
 
-      if (
-        !formData.company.trim()
-      ) {
+      nextErrors.company =
+        "Company is required";
 
-        nextErrors.company =
-          "Company is required";
-
-      }
+    }
 
 
-      setErrors(
-        nextErrors
-      );
+    setErrors(nextErrors);
 
 
-      return (
-        Object.keys(
-          nextErrors
-        ).length === 0
-      );
-
-    };
+    return (
+      Object.keys(nextErrors).length === 0
+    );
+  };
 
 
   /* =========================================================
-     LOCAL STORAGE BACKUP
+     LOCAL BACKUP
   ========================================================= */
 
-  const saveLocalBackup =
-    () => {
+  const saveLocalBackup = (lead) => {
 
-      try {
+    try {
 
-        const newLead = {
-
-          id:
-            Date.now(),
-
-          name:
-            formData.name.trim(),
-
-          phone:
-            formData.phone.trim(),
-
-          email:
-            formData.email
-              .trim()
-              .toLowerCase(),
-
-          company:
-            formData.company.trim(),
-
-          createdAt:
-            new Date()
-              .toISOString(),
-
-        };
+      const saved =
+        localStorage.getItem(
+          LOCAL_STORAGE_KEY
+        );
 
 
-        let existingLeads =
-          [];
+      let previousData = [];
 
 
-        const savedData =
-          localStorage.getItem(
-            "dgateProductionLeads"
-          );
+      if (saved) {
+
+        const parsed =
+          JSON.parse(saved);
 
 
-        if (savedData) {
+        if (Array.isArray(parsed)) {
 
-          try {
-
-            const parsedData =
-              JSON.parse(
-                savedData
-              );
-
-
-            if (
-              Array.isArray(
-                parsedData
-              )
-            ) {
-
-              existingLeads =
-                parsedData;
-
-            }
-
-          }
-
-          catch (error) {
-
-            console.warn(
-              "Unable to read local backup:",
-              error
-            );
-
-          }
+          previousData =
+            parsed;
 
         }
 
-
-        localStorage.setItem(
-
-          "dgateProductionLeads",
-
-          JSON.stringify([
-
-            ...existingLeads,
-
-            newLead,
-
-          ])
-
-        );
-
       }
 
-      catch (error) {
 
-        console.warn(
-          "Unable to save local backup:",
-          error
-        );
+      localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify([
+          ...previousData,
+          lead,
+        ])
+      );
 
-      }
+    }
 
-    };
+    catch (error) {
+
+      console.error(
+        "Local storage error:",
+        error
+      );
+
+    }
+
+  };
 
 
   /* =========================================================
-     SUBMIT FORM
+     SUBMIT
   ========================================================= */
 
   const handleSubmit =
-    async (event) => {
+  async (event) => {
 
-      event.preventDefault();
-
-
-      if (
-        submitting
-      ) {
-
-        return;
-
-      }
+    event.preventDefault();
 
 
-      if (
-        !validateForm()
-      ) {
-
-        return;
-
-      }
+    if (submitting) {
+      return;
+    }
 
 
-      try {
-
-        setSubmitting(
-          true
-        );
+    if (!validateForm()) {
+      return;
+    }
 
 
-        setSubmitError(
-          ""
-        );
+    setSubmitting(true);
+
+    setSubmitError("");
 
 
-        const currentName =
-          formData.name.trim();
+    const newLead = {
 
+      name:
+        formData.name.trim(),
 
-        /* =================================================
-           GOOGLE SHEET DATA
-        ================================================= */
+      phone:
+        formData.phone.trim(),
 
-        const body =
-          new URLSearchParams();
+      email:
+        formData.email
+          .trim()
+          .toLowerCase(),
 
-
-        body.append(
-          "name",
-          formData.name.trim()
-        );
-
-
-        body.append(
-          "phone",
-          formData.phone.trim()
-        );
-
-
-        body.append(
-          "email",
-          formData.email
-            .trim()
-            .toLowerCase()
-        );
-
-
-        body.append(
-          "company",
-          formData.company.trim()
-        );
-
-
-        /* =================================================
-           SEND TO GOOGLE SHEET
-        ================================================= */
-
-        await fetch(
-          GOOGLE_SHEET_URL,
-          {
-
-            method:
-              "POST",
-
-            mode:
-              "no-cors",
-
-            body,
-
-          }
-        );
-
-
-        /* =================================================
-           LOCAL BACKUP
-        ================================================= */
-
-        saveLocalBackup();
-
-
-        /* =================================================
-           STORE NAME FOR THANK YOU
-        ================================================= */
-
-        setSubmittedName(
-          currentName
-        );
-
-
-        /* =================================================
-           CLEAR FORM DATA
-        ================================================= */
-
-        setFormData({
-
-          name: "",
-
-          phone: "",
-
-          email: "",
-
-          company: "",
-
-        });
-
-
-        /* =================================================
-           SHOW THANK YOU
-
-           IMPORTANT:
-
-           There is NO timer.
-           There is NO redirect.
-           There is NO animation.
-        ================================================= */
-
-        setSubmitted(
-          true
-        );
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Google Sheet submission error:",
-          error
-        );
-
-
-        setSubmitError(
-          "Unable to submit right now. Please try again."
-        );
-
-      }
-
-      finally {
-
-        setSubmitting(
-          false
-        );
-
-      }
+      company:
+        formData.company.trim(),
 
     };
 
 
-  /* =========================================================
-     CANCEL
+    try {
 
-     Thank You
-         ↓
-     Cancel
-         ↓
-     Form
-  ========================================================= */
+      const body =
+        new URLSearchParams();
 
-  const handleCancel =
-    () => {
 
-      setSubmitted(
-        false
+      body.append(
+        "name",
+        newLead.name
       );
 
 
+      body.append(
+        "phone",
+        newLead.phone
+      );
+
+
+      body.append(
+        "email",
+        newLead.email
+      );
+
+
+      body.append(
+        "company",
+        newLead.company
+      );
+
+
+      /* ===============================================
+         SEND TO GOOGLE SHEET
+      =============================================== */
+
+      await fetch(
+        GOOGLE_SHEET_URL,
+        {
+
+          method: "POST",
+
+          mode: "no-cors",
+
+          body:
+            body,
+
+        }
+      );
+
+
+      /* ===============================================
+         VERIFY THAT DATA REALLY EXISTS IN SHEET
+      =============================================== */
+
+      let saved =
+        false;
+
+
+      for (
+        let attempt = 0;
+        attempt < 4;
+        attempt++
+      ) {
+
+        await wait(
+          800
+        );
+
+
+        const visitors =
+          await getGoogleVisitors();
+
+
+        saved =
+          visitors.some(
+            (visitor) =>
+
+              String(
+                visitor.phone || ""
+              ).trim() ===
+                newLead.phone &&
+
+              String(
+                visitor.email || ""
+              )
+                .trim()
+                .toLowerCase() ===
+                newLead.email &&
+
+              String(
+                visitor.name || ""
+              )
+                .trim()
+                .toLowerCase() ===
+                newLead.name
+                  .toLowerCase()
+
+          );
+
+
+        if (saved) {
+          break;
+        }
+
+      }
+
+
+      if (!saved) {
+
+        throw new Error(
+          "Data was not saved in Google Sheet."
+        );
+
+      }
+
+
+      /* ===============================================
+         SUCCESS ONLY AFTER GOOGLE SHEET CONFIRMS
+      =============================================== */
+
       setSubmittedName(
-        ""
+        newLead.name
+      );
+
+
+      setFormData({
+
+        name: "",
+
+        phone: "",
+
+        email: "",
+
+        company: "",
+
+      });
+
+
+      setErrors({});
+
+
+      setSubmitted(true);
+
+    }
+
+    catch (error) {
+
+      console.error(
+        "Submission error:",
+        error
       );
 
 
       setSubmitError(
-        ""
+        "Data Google Sheet me save nahi hua. Please try again."
       );
 
+    }
 
-      setErrors(
-        {}
-      );
+    finally {
 
+      setSubmitting(false);
 
-      /*
-        Form was already cleared
-        after successful submission.
+    }
 
-        Cancel simply switches back
-        to the empty form.
-      */
-
-    };
+  };
 
 
   /* =========================================================
-     UI
+     CANCEL SUCCESS PAGE
   ========================================================= */
+
+  const handleCancel = () => {
+
+    setSubmitted(false);
+
+    setSubmittedName("");
+
+    setSubmitError("");
+
+    setErrors({});
+
+  };
+
 
   return (
 
-    <main
-      className="production-page"
-    >
+    <main className="production-page">
 
-      <div
-        className="production-wrapper"
-      >
+      <div className="production-wrapper">
 
         <section
           className={`production-card ${
@@ -564,19 +628,10 @@ function Production() {
           }`}
         >
 
-
-          {/* =================================================
-              LOGO
-          ================================================= */}
-
-          <div
-            className="production-logo-wrap"
-          >
+          <div className="production-logo-wrap">
 
             <img
-              src={
-                dgateLogo
-              }
+              src={dgateLogo}
               alt="D-GATE Integrated Services"
               className="production-logo"
             />
@@ -584,28 +639,14 @@ function Production() {
           </div>
 
 
-          {/* =================================================
-              THANK YOU
-          ================================================= */}
-
           {submitted ? (
 
-            <div
-              className="production-success"
-            >
+            <div className="production-success">
 
-              {/* SUCCESS ICON */}
-
-              <div
-                className="production-success-icon"
-              >
-
+              <div className="production-success-icon">
                 <FaCheck />
-
               </div>
 
-
-              {/* THANK YOU */}
 
               <h1>
 
@@ -618,11 +659,7 @@ function Production() {
               </h1>
 
 
-              {/* MESSAGE */}
-
-              <p
-                className="production-success-message"
-              >
+              <p className="production-success-message">
 
                 Your details have been
                 submitted successfully.
@@ -630,14 +667,10 @@ function Production() {
               </p>
 
 
-              {/* CANCEL */}
-
               <button
                 type="button"
                 className="production-cancel-button"
-                onClick={
-                  handleCancel
-                }
+                onClick={handleCancel}
               >
 
                 CANCEL
@@ -650,23 +683,14 @@ function Production() {
 
             <>
 
-
-              {/* =================================================
-                  HEADING
-              ================================================= */}
-
-              <div
-                className="production-heading"
-              >
+              <div className="production-heading">
 
                 <h1>
                   Something New Is Coming 👀
                 </h1>
 
 
-                <p
-                  className="production-highlight"
-                >
+                <p className="production-highlight">
 
                   Our website will be back soon —
                   better and ready for you.
@@ -681,31 +705,18 @@ function Production() {
               </div>
 
 
-              {/* =================================================
-                  FORM
-              ================================================= */}
-
               <form
                 className="production-form"
-                onSubmit={
-                  handleSubmit
-                }
+                onSubmit={handleSubmit}
                 noValidate
               >
 
-
                 {/* NAME */}
 
-                <div
-                  className="production-field"
-                >
+                <div className="production-field">
 
-                  <label
-                    htmlFor="name"
-                  >
-
+                  <label htmlFor="name">
                     Name
-
                   </label>
 
 
@@ -725,12 +736,8 @@ function Production() {
                       name="name"
                       type="text"
                       placeholder="Enter your name"
-                      value={
-                        formData.name
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.name}
+                      onChange={handleChange}
                       autoComplete="name"
                     />
 
@@ -739,12 +746,8 @@ function Production() {
 
                   {errors.name && (
 
-                    <small
-                      className="production-error"
-                    >
-
+                    <small className="production-error">
                       {errors.name}
-
                     </small>
 
                   )}
@@ -754,16 +757,10 @@ function Production() {
 
                 {/* PHONE */}
 
-                <div
-                  className="production-field"
-                >
+                <div className="production-field">
 
-                  <label
-                    htmlFor="phone"
-                  >
-
+                  <label htmlFor="phone">
                     Phone
-
                   </label>
 
 
@@ -783,12 +780,8 @@ function Production() {
                       name="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
-                      value={
-                        formData.phone
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.phone}
+                      onChange={handleChange}
                       autoComplete="tel"
                     />
 
@@ -797,12 +790,8 @@ function Production() {
 
                   {errors.phone && (
 
-                    <small
-                      className="production-error"
-                    >
-
+                    <small className="production-error">
                       {errors.phone}
-
                     </small>
 
                   )}
@@ -812,16 +801,10 @@ function Production() {
 
                 {/* EMAIL */}
 
-                <div
-                  className="production-field"
-                >
+                <div className="production-field">
 
-                  <label
-                    htmlFor="email"
-                  >
-
+                  <label htmlFor="email">
                     Email
-
                   </label>
 
 
@@ -841,12 +824,8 @@ function Production() {
                       name="email"
                       type="email"
                       placeholder="name@company.com"
-                      value={
-                        formData.email
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.email}
+                      onChange={handleChange}
                       autoComplete="email"
                     />
 
@@ -855,12 +834,8 @@ function Production() {
 
                   {errors.email && (
 
-                    <small
-                      className="production-error"
-                    >
-
+                    <small className="production-error">
                       {errors.email}
-
                     </small>
 
                   )}
@@ -870,16 +845,10 @@ function Production() {
 
                 {/* COMPANY */}
 
-                <div
-                  className="production-field"
-                >
+                <div className="production-field">
 
-                  <label
-                    htmlFor="company"
-                  >
-
+                  <label htmlFor="company">
                     Company
-
                   </label>
 
 
@@ -899,12 +868,8 @@ function Production() {
                       name="company"
                       type="text"
                       placeholder="Enter company name"
-                      value={
-                        formData.company
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.company}
+                      onChange={handleChange}
                       autoComplete="organization"
                     />
 
@@ -913,12 +878,8 @@ function Production() {
 
                   {errors.company && (
 
-                    <small
-                      className="production-error"
-                    >
-
+                    <small className="production-error">
                       {errors.company}
-
                     </small>
 
                   )}
@@ -926,33 +887,19 @@ function Production() {
                 </div>
 
 
-                {/* =================================================
-                    SUBMIT ERROR
-                ================================================= */}
-
                 {submitError && (
 
-                  <div
-                    className="production-submit-error"
-                  >
-
+                  <div className="production-submit-error">
                     {submitError}
-
                   </div>
 
                 )}
 
 
-                {/* =================================================
-                    SUBMIT
-                ================================================= */}
-
                 <button
                   type="submit"
                   className="production-submit"
-                  disabled={
-                    submitting
-                  }
+                  disabled={submitting}
                 >
 
                   {submitting
@@ -961,27 +908,18 @@ function Production() {
 
 
                   {!submitting && (
-
                     <FaArrowRight />
-
                   )}
 
                 </button>
 
 
-                {/* =================================================
-                    BOTTOM MESSAGE
-                ================================================= */}
-
-                <p
-                  className="production-final-message"
-                >
+                <p className="production-final-message">
 
                   We&apos;ll let you know as soon
                   as we&apos;re live.
 
                 </p>
-
 
               </form>
 
@@ -994,9 +932,7 @@ function Production() {
       </div>
 
     </main>
-
   );
-
 }
 
 
