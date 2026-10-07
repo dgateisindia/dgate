@@ -1,4 +1,740 @@
 /* =========================================================
+   DGATE GLOBAL DESIGN SYSTEM
+========================================================= */
+
+:root {
+  /* BRAND */
+  --dg-yellow: #fdb913;
+  --dg-black: #111111;
+  --dg-dark: #111318;
+  --dg-white: #ffffff;
+
+  /* TEXT */
+  --dg-text: #111111;
+  --dg-text-muted: #666666;
+
+  /* BACKGROUNDS */
+  --dg-bg: #ffffff;
+  --dg-bg-soft: #f7f7f7;
+
+  /* BORDER */
+  --dg-border: rgba(17, 17, 17, 0.1);
+
+  /* =======================================================
+     MASTER PAGE WIDTH
+  ======================================================= */
+
+  --dg-container-max: 1240px;
+
+  /* =======================================================
+     PAGE SIDE PADDING
+  ======================================================= */
+
+  --dg-page-padding-desktop: 40px;
+  --dg-page-padding-laptop: 32px;
+  --dg-page-padding-tablet: 24px;
+  --dg-page-padding-mobile: 18px;
+
+  /* =======================================================
+     SECTION VERTICAL SPACING
+  ======================================================= */
+
+  --dg-section-space-xl: 100px;
+  --dg-section-space-lg: 88px;
+  --dg-section-space-md: 72px;
+  --dg-section-space-sm: 56px;
+
+  /* =======================================================
+     CONTENT GAPS
+  ======================================================= */
+
+  --dg-gap-xxl: 64px;
+  --dg-gap-xl: 48px;
+  --dg-gap-lg: 36px;
+  --dg-gap-md: 28px;
+  --dg-gap-sm: 20px;
+  --dg-gap-xs: 12px;
+
+  /* =======================================================
+     RADIUS
+  ======================================================= */
+
+  --dg-radius-xl: 24px;
+  --dg-radius-lg: 18px;
+  --dg-radius-md: 14px;
+  --dg-radius-sm: 10px;
+
+  /* =======================================================
+     SHADOW
+  ======================================================= */
+
+  --dg-shadow-soft:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --dg-shadow-medium:
+    0 14px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+}
+
+
+body {
+  width: 100%;
+  min-width: 320px;
+
+  margin: 0;
+  padding: 0;
+
+  background:
+    var(--dg-bg);
+
+  color:
+    var(--dg-text);
+
+  /* clip, not hidden: "hidden" makes this element a scroll
+     container, which stops the sticky navbar from sticking */
+  overflow-x: hidden;
+  overflow-x: clip;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  /* clip, not hidden: "hidden" makes this element a scroll
+     container, which stops the sticky navbar from sticking */
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+
+/* =========================================================
+   GLOBAL MEDIA
+========================================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+
+img {
+  height: auto;
+}
+
+
+/* =========================================================
+   COMMON PAGE WRAPPER
+========================================================= */
+
+.dg-page {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   MASTER CONTAINER
+
+   USE THIS CLASS ON ALL PAGES:
+
+   <div className="dg-container">
+========================================================= */
+
+.dg-container {
+  width: 100%;
+  max-width: var(--dg-container-max);
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left:
+    var(--dg-page-padding-desktop);
+
+  padding-right:
+    var(--dg-page-padding-desktop);
+}
+
+
+/* =========================================================
+   FULL WIDTH SECTION
+========================================================= */
+
+.dg-section {
+  position: relative;
+
+  width: 100%;
+
+  padding-top:
+    var(--dg-section-space-lg);
+
+  padding-bottom:
+    var(--dg-section-space-lg);
+}
+
+
+/* =========================================================
+   SECTION WITH SMALLER GAP
+========================================================= */
+
+.dg-section--compact {
+  padding-top:
+    var(--dg-section-space-md);
+
+  padding-bottom:
+    var(--dg-section-space-md);
+}
+
+
+/* =========================================================
+   SECTION WITH LARGE GAP
+========================================================= */
+
+.dg-section--large {
+  padding-top:
+    var(--dg-section-space-xl);
+
+  padding-bottom:
+    var(--dg-section-space-xl);
+}
+
+
+/* =========================================================
+   REMOVE TOP / BOTTOM SPACE WHEN REQUIRED
+========================================================= */
+
+.dg-section--no-top {
+  padding-top: 0;
+}
+
+
+.dg-section--no-bottom {
+  padding-bottom: 0;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.dg-section-header {
+  width: 100%;
+  max-width: 760px;
+
+  margin-bottom:
+    var(--dg-gap-xl);
+}
+
+
+.dg-section-header--center {
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SECTION EYEBROW
+========================================================= */
+
+.dg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  margin: 0 0 14px;
+
+  color:
+    var(--dg-yellow);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   COMMON SECTION TITLE
+========================================================= */
+
+.dg-title {
+  margin: 0;
+
+  color:
+    var(--dg-black);
+
+  font-size:
+    clamp(34px, 4vw, 58px);
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================================
+   COMMON SECTION DESCRIPTION
+========================================================= */
+
+.dg-description {
+  max-width: 720px;
+
+  margin:
+    18px 0 0;
+
+  color:
+    var(--dg-text-muted);
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   STANDARD TWO COLUMN LAYOUT
+========================================================= */
+
+.dg-two-column {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: center;
+
+  gap:
+    var(--dg-gap-xl);
+}
+
+
+/* =========================================================
+   STANDARD THREE COLUMN GRID
+========================================================= */
+
+.dg-grid-3 {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap:
+    var(--dg-gap-md);
+}
+
+
+/* =========================================================
+   STANDARD FOUR COLUMN GRID
+========================================================= */
+
+.dg-grid-4 {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap:
+    var(--dg-gap-md);
+}
+
+
+/* =========================================================
+   STANDARD CARD
+========================================================= */
+
+.dg-card {
+  width: 100%;
+
+  padding: 28px;
+
+  border:
+    1px solid var(--dg-border);
+
+  border-radius:
+    var(--dg-radius-lg);
+
+  background:
+    var(--dg-white);
+}
+
+
+/* =========================================================
+   COMMON BUTTON ROW
+========================================================= */
+
+.dg-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap:
+    14px;
+
+  margin-top:
+    28px;
+}
+
+
+/* =========================================================
+   COMMON YELLOW BUTTON
+========================================================= */
+
+.dg-btn-primary {
+  min-height: 46px;
+
+  padding:
+    0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid var(--dg-yellow);
+
+  border-radius:
+    8px;
+
+  background:
+    var(--dg-yellow);
+
+  color:
+    var(--dg-black);
+
+  font: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+@media (hover: hover) {
+
+  .dg-btn-primary:hover {
+    transform:
+      translateY(-2px);
+
+    background:
+      var(--dg-dark);
+
+    border-color:
+      var(--dg-dark);
+
+    color:
+      var(--dg-yellow);
+  }
+
+}
+
+
+/* =========================================================
+   COMMON SECONDARY BUTTON
+========================================================= */
+
+.dg-btn-secondary {
+  min-height: 46px;
+
+  padding:
+    0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(17, 17, 17, 0.16);
+
+  border-radius:
+    8px;
+
+  background:
+    var(--dg-white);
+
+  color:
+    var(--dg-black);
+
+  font: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+@media (hover: hover) {
+
+  .dg-btn-secondary:hover {
+    transform:
+      translateY(-2px);
+
+    border-color:
+      var(--dg-yellow);
+
+    background:
+      #fffaf0;
+  }
+
+}
+
+
+/* =========================================================
+   STANDARD SECTION SEPARATOR
+========================================================= */
+
+.dg-divider {
+  width: 100%;
+  height: 1px;
+
+  border: 0;
+
+  margin: 0;
+
+  background:
+    var(--dg-border);
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .dg-container {
+    padding-left:
+      var(--dg-page-padding-laptop);
+
+    padding-right:
+      var(--dg-page-padding-laptop);
+  }
+
+
+  .dg-grid-4 {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .dg-container {
+    padding-left:
+      var(--dg-page-padding-tablet);
+
+    padding-right:
+      var(--dg-page-padding-tablet);
+  }
+
+
+  .dg-section {
+    padding-top:
+      var(--dg-section-space-md);
+
+    padding-bottom:
+      var(--dg-section-space-md);
+  }
+
+
+  .dg-section--compact {
+    padding-top:
+      var(--dg-section-space-sm);
+
+    padding-bottom:
+      var(--dg-section-space-sm);
+  }
+
+
+  .dg-section--large {
+    padding-top:
+      var(--dg-section-space-lg);
+
+    padding-bottom:
+      var(--dg-section-space-lg);
+  }
+
+
+  .dg-two-column {
+    grid-template-columns: 1fr;
+
+    gap:
+      var(--dg-gap-lg);
+  }
+
+
+  .dg-grid-3 {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .dg-container {
+    padding-left:
+      var(--dg-page-padding-mobile);
+
+    padding-right:
+      var(--dg-page-padding-mobile);
+  }
+
+
+  .dg-section {
+    padding-top:
+      var(--dg-section-space-sm);
+
+    padding-bottom:
+      var(--dg-section-space-sm);
+  }
+
+
+  .dg-section--compact {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+
+  .dg-section--large {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+
+  .dg-section-header {
+    margin-bottom:
+      var(--dg-gap-lg);
+  }
+
+
+  .dg-title {
+    font-size:
+      clamp(30px, 10vw, 42px);
+
+    letter-spacing:
+      -0.8px;
+  }
+
+
+  .dg-description {
+    margin-top: 14px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  .dg-grid-3,
+  .dg-grid-4 {
+    grid-template-columns: 1fr;
+
+    gap:
+      var(--dg-gap-sm);
+  }
+
+
+  .dg-card {
+    padding: 22px;
+  }
+
+
+  .dg-actions {
+    gap: 10px;
+
+    margin-top: 24px;
+  }
+
+
+  .dg-btn-primary,
+  .dg-btn-secondary {
+    min-height: 44px;
+
+    padding:
+      0 20px;
+  }
+
+}
+
+
+/* =========================================================
    GLOBAL FLOATING CONTACT ACTIONS
 ========================================================= */
 
@@ -387,7 +1123,7 @@
 
 
 /* =========================================================
-   TABLET
+   FLOATING ACTIONS - TABLET
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -455,7 +1191,7 @@
 
 
 /* =========================================================
-   MOBILE
+   FLOATING ACTIONS - MOBILE
 ========================================================= */
 
 @media (max-width: 480px) {
@@ -567,10 +1303,17 @@
 
 @media (prefers-reduced-motion: reduce) {
 
+  html {
+    scroll-behavior: auto;
+  }
+
+
   .floating-connect,
   .floating-connect__icon,
   .floating-connect__text,
-  .floating-whatsapp {
+  .floating-whatsapp,
+  .dg-btn-primary,
+  .dg-btn-secondary {
     transition: none;
   }
 

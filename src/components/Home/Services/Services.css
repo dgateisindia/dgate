@@ -1,44 +1,36 @@
 /* =========================================================
-   HOME SERVICES
-   DGATE HORIZONTAL SERVICES CAROUSEL
+   D-GATE HOME SERVICES
+   FINAL RESPONSIVE ALIGNMENT VERSION
 ========================================================= */
 
 .home-services {
-  --services-yellow:
-    var(--primary, #fdb913);
-
-  --services-yellow-dark:
-    #e3a400;
-
-  --services-black:
-    var(--black, #101010);
-
-  --services-text:
-    var(--text, #626262);
-
-  --services-border:
-    #e7e7e7;
-
-  --services-soft:
-    #fff9e9;
-
+  --services-yellow: var(--primary, #fdb913);
+  --services-yellow-dark: #e3a400;
+  --services-black: var(--black, #101010);
+  --services-text: var(--text, #626262);
+  --services-border: #e7e7e7;
+  --services-soft: #fff9e9;
 
   position: relative;
 
   width: 100%;
 
+  margin: 0;
+
   padding:
-    76px 0 68px;
+    72px
+    40px;
 
   overflow: hidden;
 
-  background:
-    #ffffff;
+  box-sizing: border-box;
+
+  background: #ffffff;
 }
 
 
 /* =========================================================
-   BACKGROUND DECORATION
+   DECORATION
 ========================================================= */
 
 .home-services::before {
@@ -46,20 +38,15 @@
 
   position: absolute;
 
-  width: 390px;
-  height: 390px;
-
   top: -260px;
   right: -165px;
 
+  width: 390px;
+  height: 390px;
+
   border:
     1px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.13
-    );
+    rgba(253, 185, 19, 0.13);
 
   border-radius: 50%;
 
@@ -72,20 +59,15 @@
 
   position: absolute;
 
-  width: 250px;
-  height: 250px;
-
   left: -175px;
   bottom: -130px;
 
+  width: 250px;
+  height: 250px;
+
   border:
     1px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.08
-    );
+    rgba(253, 185, 19, 0.08);
 
   border-radius: 50%;
 
@@ -102,24 +84,31 @@
 
   z-index: 2;
 
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 0.9fr)
-    minmax(400px, 0.7fr);
+    minmax(0, 1fr)
+    minmax(360px, 0.72fr);
 
   align-items: end;
 
-  gap: 60px;
+  gap: 56px;
 }
 
 
-/* =========================================================
-   HEADER COPY
-========================================================= */
+.home-services__header > * {
+  min-width: 0;
+}
+
 
 .home-services__header-copy {
-  min-width: 0;
+  max-width: 700px;
 }
 
 
@@ -130,25 +119,20 @@
 .home-services__eyebrow {
   display: inline-block;
 
-  margin-bottom: 11px;
+  margin: 0 0 12px;
 
   color:
-    var(--primary);
+    var(--services-yellow);
 
-  font-size:
-    0.68rem;
+  font-size: 0.7rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  letter-spacing:
-    1.7px;
+  letter-spacing: 1.7px;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 
@@ -157,7 +141,13 @@
 ========================================================= */
 
 .home-services__title {
+  width: 100%;
+
+  max-width: 680px;
+
   margin: 0;
+
+  padding: 0;
 
   color:
     var(--services-black);
@@ -165,18 +155,17 @@
   font-size:
     clamp(
       2.3rem,
-      3.6vw,
-      3.6rem
+      3.5vw,
+      3.5rem
     );
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  line-height:
-    1.05;
+  line-height: 1.06;
 
-  letter-spacing:
-    -1.4px;
+  letter-spacing: -1.4px;
+
+  text-wrap: balance;
 }
 
 
@@ -191,34 +180,35 @@
 ========================================================= */
 
 .home-services__intro {
-  max-width: 540px;
+  width: 100%;
+
+  max-width: 520px;
 
   margin: 0;
 
   color:
     var(--services-text);
 
-  font-size:
-    0.9rem;
+  font-size: 0.92rem;
 
-  line-height:
-    1.72;
+  line-height: 1.72;
 }
 
 
 /* =========================================================
-   TITLE LINE
+   ACCENT LINE
 ========================================================= */
 
 .home-services__title-line {
-  width: 65px;
-  height: 4px;
+  width: 62px;
+
+  height: 3px;
 
   margin:
-    20px 0 34px;
+    22px auto
+    32px;
 
-  border-radius:
-    100px;
+  border-radius: 100px;
 
   background:
     var(--services-yellow);
@@ -226,7 +216,7 @@
 
 
 /* =========================================================
-   CAROUSEL SHELL
+   SLIDER
 ========================================================= */
 
 .home-services__slider-shell {
@@ -235,81 +225,57 @@
   z-index: 3;
 
   width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
 }
 
-
-/* =========================================================
-   SERVICES TRACK
-========================================================= */
 
 .home-services__grid {
   width: 100%;
 
   display: flex;
 
-  flex-wrap: nowrap;
-
   align-items: stretch;
 
+  flex-wrap: nowrap;
+
   gap: 18px;
+
+  margin: 0;
+
+  padding:
+    6px 4px;
 
   overflow-x: auto;
 
   overflow-y: hidden;
 
-  padding:
-    6px 5px 18px;
-
-  scroll-behavior:
-    smooth;
+  scroll-behavior: smooth;
 
   scroll-snap-type:
     x mandatory;
 
-  overscroll-behavior-inline:
+  overscroll-behavior-x:
     contain;
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
 
   -webkit-overflow-scrolling:
     touch;
-
-  scrollbar-width:
-    thin;
-
-  scrollbar-color:
-    var(--services-yellow)
-    #ededed;
 }
 
-
-/* =========================================================
-   CHROME / EDGE SCROLLBAR
-========================================================= */
 
 .home-services__grid::-webkit-scrollbar {
-  height: 6px;
-}
-
-
-.home-services__grid::-webkit-scrollbar-track {
-  border-radius:
-    100px;
-
-  background:
-    #ededed;
-}
-
-
-.home-services__grid::-webkit-scrollbar-thumb {
-  border-radius:
-    100px;
-
-  background:
-    var(--services-yellow);
+  display: none;
 }
 
 
 /* =========================================================
-   SERVICE CARD
+   CARD
 ========================================================= */
 
 .home-services__card {
@@ -317,55 +283,45 @@
 
   flex:
     0 0
-    clamp(
-      270px,
-      23vw,
-      305px
+    calc(
+      (100% - 54px) / 4
     );
 
-  min-width: 0;
+  min-width: 270px;
 
-  min-height:
-    415px;
-
-  overflow:
-    hidden;
-
-  padding:
-    21px 19px 19px;
+  min-height: 410px;
 
   display: flex;
 
   flex-direction: column;
 
-  scroll-snap-align:
-    start;
+  margin: 0;
 
-  scroll-snap-stop:
-    always;
+  padding:
+    21px 19px 19px;
+
+  overflow: hidden;
+
+  scroll-snap-align: start;
 
   border:
     1px solid
     var(--services-border);
 
-  border-radius:
-    15px;
+  border-radius: 15px;
 
   background:
     linear-gradient(
       145deg,
-      #ffffff 0%,
-      #fdfdfd 100%
+      #ffffff,
+      #fdfdfd
     );
 
   box-shadow:
     0 6px 20px
-    rgba(
-      0,
-      0,
-      0,
-      0.04
-    );
+    rgba(0, 0, 0, 0.04);
+
+  box-sizing: border-box;
 
   transition:
     transform 0.28s ease,
@@ -373,10 +329,6 @@
     box-shadow 0.28s ease;
 }
 
-
-/* =========================================================
-   TOP ACCENT
-========================================================= */
 
 .home-services__card::before {
   content: "";
@@ -415,14 +367,16 @@
 ========================================================= */
 
 .home-services__card-header {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
 
   gap: 12px;
 
-  margin-bottom:
-    15px;
+  margin:
+    0 0 15px;
 }
 
 
@@ -445,15 +399,9 @@
 
   border:
     1px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.38
-    );
+    rgba(253, 185, 19, 0.38);
 
-  border-radius:
-    12px;
+  border-radius: 12px;
 
   background:
     var(--services-soft);
@@ -461,14 +409,7 @@
   color:
     var(--services-yellow-dark);
 
-  font-size:
-    1.2rem;
-
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease;
+  font-size: 1.2rem;
 }
 
 
@@ -486,33 +427,23 @@
 }
 
 
-/* =========================================================
-   NUMBER
-========================================================= */
-
 .home-services__number {
   display: block;
 
-  margin-bottom:
-    3px;
+  margin:
+    0 0 3px;
 
-  color:
-    #a9a39b;
+  color: #a9a39b;
 
-  font-size:
-    0.56rem;
+  font-size: 0.56rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    1.3px;
+  line-height: 1.2;
+
+  letter-spacing: 1.3px;
 }
 
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
 
 .home-services__card h3 {
   margin: 0;
@@ -520,41 +451,37 @@
   color:
     var(--services-black);
 
-  font-size:
-    0.98rem;
+  font-size: 0.98rem;
 
-  font-weight:
-    750;
+  font-weight: 750;
 
-  line-height:
-    1.28;
+  line-height: 1.28;
 }
 
 
 /* =========================================================
-   SERVICE INTRO
+   INTRO
 ========================================================= */
 
 .home-services__service-intro {
   margin:
     0 0 12px;
 
-  color:
-    #686868;
+  color: #686868;
 
-  font-size:
-    0.72rem;
+  font-size: 0.72rem;
 
-  line-height:
-    1.48;
+  line-height: 1.5;
 }
 
 
 /* =========================================================
-   SERVICE LIST
+   LIST
 ========================================================= */
 
 .home-services__list {
+  width: 100%;
+
   margin: 0;
 
   padding: 0;
@@ -569,33 +496,22 @@
 }
 
 
-/* =========================================================
-   LIST ITEM
-========================================================= */
-
 .home-services__list li {
-  min-width: 0;
-
   display: flex;
 
   align-items: flex-start;
 
   gap: 8px;
 
-  color:
-    #505050;
+  margin: 0;
 
-  font-size:
-    0.7rem;
+  color: #505050;
 
-  line-height:
-    1.43;
+  font-size: 12px;
+
+  line-height: 1.45;
 }
 
-
-/* =========================================================
-   BULLET
-========================================================= */
 
 .home-services__bullet {
   width: 4px;
@@ -604,11 +520,9 @@
   flex:
     0 0 4px;
 
-  margin-top:
-    6px;
+  margin-top: 6px;
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
   background:
     var(--services-yellow);
@@ -620,27 +534,23 @@
 ========================================================= */
 
 .home-services__tagline {
-  margin: auto 0 0;
+  min-height: 47px;
+
+  margin:
+    auto 0 0;
 
   padding-top: 15px;
 
-  min-height: 47px;
+  color:
+    var(--services-black);
 
-  box-sizing: border-box;
-
-  color: var(--services-black);
-
-  font-size: 0.67rem;
+  font-size: 12px;
 
   font-weight: 750;
 
   line-height: 1.45;
 }
 
-
-/* =========================================================
-   CORNER DECORATION
-========================================================= */
 
 .home-services__corner {
   position: absolute;
@@ -651,24 +561,17 @@
   width: 54px;
   height: 54px;
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
   background:
-    rgba(
-      253,
-      185,
-      19,
-      0.07
-    );
+    rgba(253, 185, 19, 0.07);
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   CARD HOVER
+   HOVER
 ========================================================= */
 
 @media (hover: hover) {
@@ -678,21 +581,11 @@
       translateY(-5px);
 
     border-color:
-      rgba(
-        253,
-        185,
-        19,
-        0.58
-      );
+      rgba(253, 185, 19, 0.58);
 
     box-shadow:
       0 18px 42px
-      rgba(
-        0,
-        0,
-        0,
-        0.085
-      );
+      rgba(0, 0, 0, 0.085);
   }
 
 
@@ -706,9 +599,6 @@
 
   .home-services__card:hover
   .home-services__icon {
-    transform:
-      translateY(-2px);
-
     border-color:
       var(--services-yellow);
 
@@ -718,12 +608,11 @@
     color:
       var(--services-black);
   }
-
 }
 
 
 /* =========================================================
-   LEFT / RIGHT CAROUSEL ARROWS
+   ARROWS
 ========================================================= */
 
 .home-services__slider-arrow {
@@ -733,8 +622,8 @@
 
   top: 50%;
 
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
 
   display: flex;
 
@@ -742,320 +631,83 @@
 
   justify-content: center;
 
+  padding: 0;
+
   border:
     1px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.55
-    );
+    rgba(253, 185, 19, 0.55);
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
   background:
-    rgba(
-      255,
-      255,
-      255,
-      0.96
-    );
+    rgba(255, 255, 255, 0.97);
 
   color:
     var(--services-black);
 
   box-shadow:
     0 10px 28px
-    rgba(
-      0,
-      0,
-      0,
-      0.16
-    );
-
-  -webkit-backdrop-filter:
-    blur(10px);
-
-  backdrop-filter:
-    blur(10px);
+    rgba(0, 0, 0, 0.16);
 
   transform:
-    translateY(-55%);
+    translateY(-50%);
 
-  cursor:
-    pointer;
-
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    opacity 0.25s ease;
+  cursor: pointer;
 }
 
-
-/* =========================================================
-   ARROW ICON
-========================================================= */
 
 .home-services__slider-arrow svg {
   width: 13px;
   height: 13px;
-
-  pointer-events:
-    none;
 }
 
-
-/* =========================================================
-   LEFT ARROW
-========================================================= */
 
 .home-services__slider-arrow--left {
-  left: 10px;
+  left: 8px;
 }
 
-
-/* =========================================================
-   RIGHT ARROW
-========================================================= */
 
 .home-services__slider-arrow--right {
-  right: 10px;
+  right: 8px;
 }
 
 
 /* =========================================================
-   ARROW HOVER
+   UNUSED FOOTER ELEMENTS
 ========================================================= */
 
-@media (hover: hover) {
+.home-services__carousel-footer,
+.home-services__progress,
+.home-services__scroll-line,
+.home-services__scroll-note {
+  display: none;
+}
 
-  .home-services__slider-arrow:not(:disabled):hover {
-    border-color:
-      var(--services-yellow);
 
-    background:
-      var(--services-yellow);
+/* =========================================================
+   LAPTOP
+========================================================= */
 
-    color:
-      var(--services-black);
+@media (max-width: 1200px) {
 
-    box-shadow:
-      0 12px 30px
-      rgba(
-        253,
-        185,
-        19,
-        0.25
+  .home-services {
+    padding:
+      64px
+      32px;
+  }
+
+
+  .home-services__header {
+    gap: 48px;
+  }
+
+
+  .home-services__card {
+    flex-basis:
+      calc(
+        (100% - 36px) / 3
       );
   }
-
-
-  .home-services__slider-arrow--left:not(:disabled):hover {
-    transform:
-      translateY(-55%)
-      translateX(-3px);
-  }
-
-
-  .home-services__slider-arrow--right:not(:disabled):hover {
-    transform:
-      translateY(-55%)
-      translateX(3px);
-  }
-
-}
-
-
-/* =========================================================
-   DISABLED ARROW
-========================================================= */
-
-.home-services__slider-arrow:disabled {
-  opacity: 0.3;
-
-  border-color:
-    #dcdcdc;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.88
-    );
-
-  color:
-    #aaaaaa;
-
-  box-shadow:
-    0 5px 15px
-    rgba(
-      0,
-      0,
-      0,
-      0.06
-    );
-
-  cursor:
-    default;
-}
-
-
-/* =========================================================
-   CAROUSEL FOOTER
-========================================================= */
-
-.home-services__carousel-footer {
-  margin-top:
-    9px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content:
-    space-between;
-
-  gap:
-    20px;
-}
-
-
-/* =========================================================
-   SCROLL NOTE
-========================================================= */
-
-.home-services__scroll-note {
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  color:
-    #898989;
-
-  font-size:
-    0.67rem;
-
-  font-weight:
-    600;
-
-  letter-spacing:
-    0.2px;
-}
-
-
-/* =========================================================
-   SCROLL LINE
-========================================================= */
-
-.home-services__scroll-line {
-  position: relative;
-
-  width: 36px;
-  height: 1px;
-
-  background:
-    #cfcfcf;
-}
-
-
-.home-services__scroll-line::after {
-  content: "";
-
-  position: absolute;
-
-  width: 5px;
-  height: 5px;
-
-  top: 50%;
-  right: 0;
-
-  border-top:
-    1px solid
-    #999999;
-
-  border-right:
-    1px solid
-    #999999;
-
-  transform:
-    translateY(-50%)
-    rotate(45deg);
-}
-
-
-/* =========================================================
-   SIMPLE PROGRESS INDICATOR
-========================================================= */
-
-.home-services__progress {
-  display: flex;
-
-  align-items: center;
-
-  gap: 6px;
-}
-
-
-.home-services__progress span {
-  width: 18px;
-  height: 3px;
-
-  border-radius:
-    20px;
-
-  background:
-    #dddddd;
-
-  transition:
-    width 0.25s ease,
-    background-color 0.25s ease;
-}
-
-
-.home-services__progress span.active {
-  width: 30px;
-
-  background:
-    var(--services-yellow);
-}
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
-.home-services__grid:focus-visible {
-  outline:
-    2px solid
-    var(--services-yellow);
-
-  outline-offset:
-    4px;
-
-  border-radius:
-    10px;
-}
-
-
-.home-services__slider-arrow:focus-visible {
-  outline:
-    3px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.32
-    );
-
-  outline-offset:
-    3px;
 }
 
 
@@ -1067,54 +719,48 @@
 
   .home-services {
     padding:
-      62px 0 58px;
+      56px
+      24px;
   }
 
 
   .home-services__header {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    gap: 17px;
+    align-items: start;
+
+    gap: 20px;
   }
 
 
   .home-services__intro {
-    max-width:
-      700px;
+    max-width: 680px;
+  }
+
+
+  .home-services__title {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
   }
 
 
   .home-services__title-line {
-    margin-bottom:
-      29px;
+    margin:
+      20px auto
+      28px;
   }
 
 
   .home-services__card {
-    flex:
-      0 0 285px;
-
-    min-height:
-      405px;
+    flex-basis:
+      calc(
+        (100% - 18px) / 2
+      );
   }
-
-
-  .home-services__slider-arrow {
-    width: 42px;
-    height: 42px;
-  }
-
-
-  .home-services__slider-arrow--left {
-    left: 7px;
-  }
-
-
-  .home-services__slider-arrow--right {
-    right: 7px;
-  }
-
 }
 
 
@@ -1122,233 +768,111 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
 
   .home-services {
     padding:
-      50px 0 46px;
+      48px
+      18px;
+  }
+
+
+  .home-services__header {
+    gap: 16px;
   }
 
 
   .home-services__eyebrow {
-    font-size:
-      0.62rem;
+    font-size: 0.62rem;
   }
 
 
   .home-services__title {
     font-size:
-      2.1rem;
-
-    letter-spacing:
-      -0.8px;
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
   }
 
 
   .home-services__intro {
-    font-size:
-      0.84rem;
+    font-size: 0.82rem;
 
-    line-height:
-      1.62;
+    line-height: 1.6;
   }
 
 
   .home-services__title-line {
-    width: 55px;
-    height: 3px;
+    width: 50px;
 
     margin:
-      18px 0 25px;
+      18px auto
+      24px;
   }
 
 
-  /*
-   * Part of next card remains visible,
-   * showing the user that the area scrolls.
-   */
+  .home-services__grid {
+    gap: 12px;
+  }
+
 
   .home-services__card {
     flex:
       0 0
       min(
-        80vw,
-        278px
+        84vw,
+        310px
       );
 
-    min-height:
-      395px;
-
-    padding:
-      19px 17px 18px;
+    min-height: 390px;
   }
 
-
-  .home-services__grid {
-    gap: 13px;
-
-    padding:
-      5px 4px 15px;
-  }
-
-
-  .home-services__card-header {
-    margin-bottom:
-      14px;
-  }
-
-
-  .home-services__icon {
-    width: 42px;
-    height: 42px;
-
-    flex-basis:
-      42px;
-
-    border-radius:
-      10px;
-
-    font-size:
-      1.05rem;
-  }
-
-
-  .home-services__card h3 {
-    font-size:
-      0.92rem;
-  }
-
-
-  .home-services__list {
-    gap: 6px;
-  }
-
-
-  .home-services__list li {
-    font-size:
-      0.68rem;
-  }
-
-
-  .home-services__tagline {
-    font-size:
-      0.64rem;
-  }
-
-
-  /* -----------------------------------------------
-     MOBILE ARROWS
-  ----------------------------------------------- */
 
   .home-services__slider-arrow {
-    width: 38px;
-    height: 38px;
-
-    top: 47%;
-
-    background:
-      rgba(
-        255,
-        255,
-        255,
-        0.97
-      );
-
-    box-shadow:
-      0 7px 20px
-      rgba(
-        0,
-        0,
-        0,
-        0.15
-      );
+    width: 40px;
+    height: 40px;
   }
-
-
-  .home-services__slider-arrow svg {
-    width: 10px;
-    height: 10px;
-  }
-
-
-  .home-services__slider-arrow--left {
-    left: 4px;
-  }
-
-
-  .home-services__slider-arrow--right {
-    right: 4px;
-  }
-
-
-  .home-services__carousel-footer {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap: 10px;
-  }
-
-
-  .home-services__scroll-note {
-    font-size:
-      0.62rem;
-  }
-
 }
 
 
 /* =========================================================
-   EXTRA SMALL MOBILE
+   SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
 
-  .home-services__title {
-    font-size:
-      1.95rem;
+  .home-services {
+    padding:
+      44px
+      16px;
   }
 
 
   .home-services__card {
-    flex-basis:
-      78vw;
+    flex-basis: 86vw;
 
-    min-height:
-      390px;
+    min-width: 250px;
 
     padding:
-      18px 15px 17px;
+      18px 16px;
   }
-
-
-  .home-services__slider-arrow {
-    width: 35px;
-    height: 35px;
-  }
-
 }
 
 
 /* =========================================================
-   ACCESSIBILITY - REDUCED MOTION
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-  .home-services *,
-  .home-services *::before,
-  .home-services *::after {
-    animation:
-      none !important;
-
-    transition:
-      none !important;
-
-    scroll-behavior:
-      auto !important;
+  .home-services__grid {
+    scroll-behavior: auto;
   }
 
+
+  .home-services__card {
+    transition: none;
+  }
 }

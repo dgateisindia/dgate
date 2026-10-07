@@ -4,11 +4,8 @@
 
 .explore-property-section {
   width: 100%;
-
-  padding: 90px 0;
-
+  padding: 80px 0;
   overflow: hidden;
-
   background: #f7fbfa;
 }
 
@@ -18,8 +15,7 @@
 ========================================================= */
 
 .explore-property-container {
-  width: min(1240px, 92%);
-
+  width: min(1180px, calc(100% - 64px));
   margin: 0 auto;
 }
 
@@ -32,21 +28,17 @@
   width: 100%;
 
   display: flex;
-
   align-items: flex-end;
-
   justify-content: space-between;
 
-  gap: 30px;
-
-  margin-bottom: 40px;
+  gap: 40px;
+  margin-bottom: 38px;
 }
 
-
 .explore-property-heading {
-  min-width: 0;
-
+  width: 100%;
   max-width: 720px;
+  min-width: 0;
 }
 
 
@@ -57,18 +49,15 @@
 .explore-property-subtitle {
   display: inline-block;
 
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 
   color: #087f73;
 
   font-size: 13px;
-
   font-weight: 700;
-
   line-height: 1;
 
   letter-spacing: 2px;
-
   text-transform: uppercase;
 }
 
@@ -83,9 +72,7 @@
   color: #123532;
 
   font-size: 42px;
-
   font-weight: 700;
-
   line-height: 1.15;
 }
 
@@ -95,6 +82,7 @@
 ========================================================= */
 
 .explore-property-description {
+  width: 100%;
   max-width: 650px;
 
   margin: 15px 0 0;
@@ -102,7 +90,6 @@
   color: #647572;
 
   font-size: 16px;
-
   line-height: 1.7;
 }
 
@@ -112,15 +99,14 @@
 ========================================================= */
 
 .explore-property-arrows {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   display: flex;
-
   align-items: center;
+  justify-content: flex-end;
 
   gap: 10px;
 }
-
 
 .explore-property-arrow {
   width: 48px;
@@ -128,18 +114,14 @@
 
   padding: 0;
 
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
-
   justify-content: center;
 
   border: 1px solid #d9e7e4;
-
   border-radius: 50%;
 
   background: #ffffff;
-
   color: #123532;
 
   cursor: pointer;
@@ -151,17 +133,13 @@
     transform 0.3s ease;
 }
 
-
 .explore-property-arrow svg {
   display: block;
 }
 
-
 .explore-property-arrow:hover {
   border-color: #087f73;
-
   background: #087f73;
-
   color: #ffffff;
 
   transform: translateY(-2px);
@@ -176,35 +154,27 @@
   width: 100%;
 
   display: flex;
-
   flex-direction: row;
-
   flex-wrap: nowrap;
-
   align-items: stretch;
 
   gap: 24px;
 
-  overflow-x: auto;
+  margin: 0;
 
+  padding: 5px 2px 16px;
+
+  overflow-x: auto;
   overflow-y: hidden;
 
-  padding:
-    5px
-    3px
-    20px;
-
   scroll-behavior: smooth;
-
   scroll-snap-type: x mandatory;
 
   overscroll-behavior-x: contain;
-
   -webkit-overflow-scrolling: touch;
 
   scrollbar-width: none;
 }
-
 
 .explore-property-slider::-webkit-scrollbar {
   display: none;
@@ -216,48 +186,32 @@
 ========================================================= */
 
 .property-type-card {
-  /*
-    336px card + 24px gap = 360px.
-    This also matches your JSX scrollBy(360).
-  */
   flex: 0 0 336px;
 
   width: 336px;
-
   min-width: 336px;
-
   height: 362px;
 
   box-sizing: border-box;
 
   display: flex;
-
   flex-direction: column;
 
   overflow: hidden;
 
   scroll-snap-align: start;
-
   scroll-snap-stop: always;
 
   border: 1px solid #e3eeeb;
-
   border-radius: 18px;
 
   background: #ffffff;
 
   color: inherit;
-
   text-decoration: none;
 
   box-shadow:
-    0 8px 30px
-    rgba(
-      18,
-      53,
-      50,
-      0.06
-    );
+    0 8px 30px rgba(18, 53, 50, 0.06);
 
   transition:
     transform 0.3s ease,
@@ -271,28 +225,14 @@
 ========================================================= */
 
 @media (hover: hover) {
-
   .property-type-card:hover {
-    border-color:
-      rgba(
-        8,
-        127,
-        115,
-        0.22
-      );
+    border-color: rgba(8, 127, 115, 0.22);
 
     transform: translateY(-6px);
 
     box-shadow:
-      0 18px 45px
-      rgba(
-        18,
-        53,
-        50,
-        0.13
-      );
+      0 18px 45px rgba(18, 53, 50, 0.13);
   }
-
 }
 
 
@@ -304,12 +244,9 @@
   position: relative;
 
   width: 100%;
-
   height: 235px;
 
-  flex:
-    0 0
-    235px;
+  flex: 0 0 235px;
 
   overflow: hidden;
 
@@ -328,21 +265,15 @@
   display: block;
 
   object-fit: cover;
-
   object-position: center;
 
-  transition:
-    transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
-
 @media (hover: hover) {
-
-  .property-type-card:hover
-  .property-type-image {
+  .property-type-card:hover .property-type-image {
     transform: scale(1.055);
   }
-
 }
 
 
@@ -358,35 +289,22 @@
   left: 15px;
   bottom: 15px;
 
-  padding:
-    7px
-    13px;
+  padding: 7px 13px;
 
   border-radius: 30px;
 
-  background:
-    rgba(
-      18,
-      53,
-      50,
-      0.9
-    );
+  background: rgba(18, 53, 50, 0.9);
 
   color: #ffffff;
 
   font-size: 12px;
-
   font-weight: 700;
-
   line-height: 1;
 
   white-space: nowrap;
 
-  -webkit-backdrop-filter:
-    blur(5px);
-
-  backdrop-filter:
-    blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 
@@ -396,29 +314,21 @@
 
 .property-type-content {
   width: 100%;
-
   height: 127px;
 
-  flex:
-    0 0
-    127px;
+  flex: 0 0 127px;
 
   box-sizing: border-box;
 
-  padding:
-    20px
-    20px
-    18px;
+  padding: 20px;
 
   display: grid;
 
-  grid-template-columns:
-    minmax(0, 1fr)
-    auto;
+  grid-template-columns: minmax(0, 1fr) auto;
 
   align-items: start;
 
-  column-gap: 14px;
+  column-gap: 16px;
 
   background: #ffffff;
 }
@@ -429,16 +339,13 @@
 ========================================================= */
 
 .property-type-content > div {
+  width: 100%;
   min-width: 0;
-
   height: 100%;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-
   justify-content: flex-start;
 }
 
@@ -450,17 +357,12 @@
 .property-type-content h3 {
   width: 100%;
 
-  margin:
-    0
-    0
-    7px;
+  margin: 0 0 7px;
 
   color: #123532;
 
   font-size: 21px;
-
   font-weight: 700;
-
   line-height: 1.2;
 }
 
@@ -477,7 +379,6 @@
   color: #758582;
 
   font-size: 13px;
-
   line-height: 1.45;
 }
 
@@ -487,14 +388,12 @@
 ========================================================= */
 
 .property-view-link {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   margin-top: 5px;
 
   display: inline-flex;
-
   align-items: center;
-
   justify-content: flex-end;
 
   gap: 7px;
@@ -502,35 +401,26 @@
   color: #087f73;
 
   font-size: 13px;
-
   font-weight: 700;
-
   line-height: 1;
 
   white-space: nowrap;
 }
 
-
 .property-view-link svg {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   display: block;
 
   font-size: 11px;
 
-  transition:
-    transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-
 @media (hover: hover) {
-
-  .property-type-card:hover
-  .property-view-link svg {
-    transform:
-      translateX(4px);
+  .property-type-card:hover .property-view-link svg {
+    transform: translateX(4px);
   }
-
 }
 
 
@@ -539,44 +429,8 @@
 ========================================================= */
 
 .property-type-card:focus-visible {
-  outline:
-    3px solid
-    rgba(
-      8,
-      127,
-      115,
-      0.35
-    );
-
+  outline: 3px solid rgba(8, 127, 115, 0.35);
   outline-offset: 3px;
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1450px) {
-
-  .explore-property-container {
-    width:
-      min(
-        1320px,
-        92%
-      );
-  }
-
-
-  .property-type-card {
-    flex-basis: 336px;
-
-    width: 336px;
-
-    min-width: 336px;
-
-    height: 362px;
-  }
-
 }
 
 
@@ -584,60 +438,47 @@
    LAPTOP
 ========================================================= */
 
-@media (
-  min-width: 901px
-) and (
-  max-width: 1200px
-) {
-
-  .explore-property-section {
-    padding:
-      78px
-      0;
+@media (max-width: 1200px) {
+  .explore-property-container {
+    width: min(1180px, calc(100% - 48px));
   }
 
+  .explore-property-section {
+    padding: 72px 0;
+  }
+
+  .explore-property-header {
+    gap: 30px;
+    margin-bottom: 34px;
+  }
 
   .explore-property-slider {
     gap: 20px;
   }
 
-
   .property-type-card {
-    flex:
-      0 0
-      310px;
+    flex: 0 0 310px;
 
     width: 310px;
-
     min-width: 310px;
-
     height: 352px;
   }
 
-
   .property-type-image-wrapper {
     height: 225px;
-
     flex-basis: 225px;
   }
 
-
   .property-type-content {
     height: 127px;
-
     flex-basis: 127px;
 
-    padding:
-      19px
-      18px
-      17px;
+    padding: 19px 18px 17px;
   }
-
 
   .property-type-content h3 {
     font-size: 20px;
   }
-
 }
 
 
@@ -646,79 +487,65 @@
 ========================================================= */
 
 @media (max-width: 900px) {
+  .explore-property-container {
+    width: calc(100% - 40px);
+  }
 
   .explore-property-section {
-    padding:
-      70px
-      0;
+    padding: 64px 0;
   }
-
 
   .explore-property-header {
-    margin-bottom: 34px;
-  }
+    align-items: flex-start;
 
+    gap: 25px;
+
+    margin-bottom: 30px;
+  }
 
   .explore-property-title {
     font-size: 34px;
   }
 
-
   .explore-property-description {
     font-size: 15px;
   }
-
 
   .explore-property-slider {
     gap: 18px;
   }
 
-
   .property-type-card {
-    flex:
-      0 0
-      290px;
+    flex: 0 0 290px;
 
     width: 290px;
-
     min-width: 290px;
-
     height: 345px;
   }
 
-
   .property-type-image-wrapper {
     height: 215px;
-
     flex-basis: 215px;
   }
 
-
   .property-type-content {
     height: 130px;
-
     flex-basis: 130px;
 
-    padding:
-      18px
-      17px;
+    padding: 18px 17px;
   }
-
 
   .property-type-content h3 {
     font-size: 19px;
   }
 
-
   .property-type-content p {
     font-size: 12.5px;
   }
 
-
   .property-view-link {
     font-size: 12px;
   }
-
 }
 
 
@@ -726,132 +553,98 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
-
+@media (max-width: 650px) {
   .explore-property-section {
-    padding:
-      55px
-      0;
+    padding: 56px 0;
   }
-
 
   .explore-property-container {
-    width: 90%;
+    width: calc(100% - 28px);
   }
-
 
   .explore-property-header {
-    margin-bottom: 28px;
-
     align-items: flex-start;
-
     flex-direction: column;
 
-    gap: 20px;
+    gap: 18px;
+
+    margin-bottom: 26px;
   }
 
+  .explore-property-heading {
+    max-width: 100%;
+  }
 
   .explore-property-subtitle {
+    margin-bottom: 8px;
+
     font-size: 11px;
 
     letter-spacing: 1.7px;
   }
 
-
   .explore-property-title {
     font-size: 29px;
+    line-height: 1.18;
   }
 
-
   .explore-property-description {
-    margin-top: 12px;
+    margin-top: 11px;
 
     font-size: 14px;
-
     line-height: 1.6;
   }
 
-
   .explore-property-arrows {
-    align-self: flex-end;
-  }
+    width: 100%;
 
+    justify-content: flex-end;
+  }
 
   .explore-property-arrow {
     width: 42px;
     height: 42px;
   }
 
-
   .explore-property-slider {
     gap: 14px;
 
-    padding:
-      4px
-      2px
-      15px;
+    padding: 3px 1px 14px;
   }
 
-
-  /*
-    One main card + part of next card visible.
-  */
-
   .property-type-card {
-    flex:
-      0 0
-      min(
-        82vw,
-        280px
-      );
+    flex: 0 0 min(82vw, 280px);
 
-    width:
-      min(
-        82vw,
-        280px
-      );
-
-    min-width:
-      min(
-        82vw,
-        280px
-      );
+    width: min(82vw, 280px);
+    min-width: min(82vw, 280px);
 
     height: 330px;
 
     border-radius: 15px;
   }
 
-
   .property-type-image-wrapper {
     height: 205px;
-
     flex-basis: 205px;
   }
-
 
   .property-type-overlay {
     left: 12px;
     bottom: 12px;
 
-    padding:
-      6px
-      11px;
+    padding: 6px 11px;
 
     font-size: 10px;
   }
 
-
   .property-type-content {
     height: 125px;
-
     flex-basis: 125px;
 
-    padding:
-      17px
-      15px;
-  }
+    padding: 17px 15px;
 
+    column-gap: 10px;
+  }
 
   .property-type-content h3 {
     margin-bottom: 6px;
@@ -859,13 +652,10 @@
     font-size: 18px;
   }
 
-
   .property-type-content p {
     font-size: 12px;
-
     line-height: 1.4;
   }
-
 
   .property-view-link {
     margin-top: 4px;
@@ -875,11 +665,9 @@
     font-size: 11px;
   }
 
-
   .property-view-link svg {
     font-size: 9px;
   }
-
 }
 
 
@@ -888,62 +676,46 @@
 ========================================================= */
 
 @media (max-width: 380px) {
-
   .explore-property-section {
-    padding:
-      48px
-      0;
+    padding: 48px 0;
   }
-
 
   .explore-property-title {
     font-size: 27px;
   }
 
-
   .property-type-card {
     flex-basis: 80vw;
 
     width: 80vw;
-
     min-width: 80vw;
 
     height: 315px;
   }
 
-
   .property-type-image-wrapper {
     height: 195px;
-
     flex-basis: 195px;
   }
 
-
   .property-type-content {
     height: 120px;
-
     flex-basis: 120px;
 
-    padding:
-      15px
-      14px;
+    padding: 15px 14px;
   }
-
 
   .property-type-content h3 {
     font-size: 17px;
   }
 
-
   .property-type-content p {
     font-size: 11.5px;
   }
 
-
   .property-view-link {
     font-size: 10px;
   }
-
 }
 
 
@@ -952,18 +724,11 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .explore-property-section *,
   .explore-property-section *::before,
   .explore-property-section *::after {
-    animation:
-      none !important;
-
-    transition:
-      none !important;
-
-    scroll-behavior:
-      auto !important;
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
-
 }

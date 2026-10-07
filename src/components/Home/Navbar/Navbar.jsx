@@ -27,22 +27,11 @@ import "./Navbar.css";
 ========================================================= */
 
 const beforeServiceLinks = [
+
   {
     id: "home",
     label: "HOME",
-
-    /*
-      HOME FIRST OPENS TRANSITION.
-
-      /home-transition
-            ↓
-      PageTransition
-            ↓
-          /home
-    */
-
-    path: "/home-transition",
-
+    path: "/home",
     end: true,
   },
 
@@ -51,54 +40,69 @@ const beforeServiceLinks = [
     label: "ABOUT US",
     path: "/about",
   },
+
+  {
+    id: "homes",
+    label: "HOMES",
+    path: "/homes",
+  },
+
 ];
 
 
 /* =========================================================
-   SERVICES DROPDOWN LINKS
+   SERVICES DROPDOWN
 ========================================================= */
 
 const serviceLinks = [
+
+  {
+    id: "all-services",
+    label: "All Services",
+    path: "/services",
+  },
+
   {
     id: "branding-design",
     label: "Branding Design",
-    path: "/BrandingDesign",
+    path: "/branding-design",
   },
 
   {
     id: "development-ecommerce",
     label: "Development & E-Commerce Solutions",
-    path: "/DevelopmentEcommerce",
+    path: "/development-ecommerce",
   },
 
   {
     id: "tech-stack-web",
     label: "Technology Stack & Web Experience",
-    path: "/TechStackWeb",
+    path: "/tech-stack-web",
   },
 
   {
     id: "data-analytics-performance",
     label: "Data Analytics & Performance Growth",
-    path: "/DataAnalyticsPerformance",
+    path: "/data-analytics-performance",
   },
 
   {
     id: "smart-ai-business-automation",
     label: "Smart AI & Business",
-    path: "/SmartAIBusinessAutomation",
+    path: "/smart-ai-business-automation",
   },
 
-  {
-    id: "digital-marketing-courses",
+  /*{
+    id: "digital-marketing-course",
     label: "Digital Marketing Courses [Offline/Online]",
-    path: "/DigitalMarketingCourse",
-  },
+    path: "/digital-marketing-course",
+  }, */
+
 ];
 
 
 /* =========================================================
-   NAVIGATION AFTER SERVICES
+   LINKS AFTER SERVICES
 ========================================================= */
 
 const afterServiceLinks = [
@@ -136,13 +140,22 @@ const afterServiceLinks = [
 ];
 
 
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 function Navbar() {
 
-  const [menuOpen, setMenuOpen] =
-    useState(false);
+  const [
+    menuOpen,
+    setMenuOpen,
+  ] = useState(false);
 
-  const [servicesOpen, setServicesOpen] =
-    useState(false);
+
+  const [
+    servicesOpen,
+    setServicesOpen,
+  ] = useState(false);
 
 
   const location =
@@ -154,16 +167,14 @@ function Navbar() {
 
 
   /* =========================================================
-     CHECK WHETHER SERVICES IS ACTIVE
+     SERVICES ACTIVE STATE
   ========================================================= */
 
   const servicesActive =
-    location.pathname === "/services" ||
-
     serviceLinks.some(
       (service) =>
-        service.path ===
-        location.pathname
+        location.pathname ===
+        service.path
     );
 
 
@@ -182,7 +193,7 @@ function Navbar() {
 
 
   /* =========================================================
-     CLOSE AFTER ROUTE CHANGE
+     CLOSE MENU AFTER ROUTE CHANGE
   ========================================================= */
 
   useEffect(
@@ -200,7 +211,7 @@ function Navbar() {
 
 
   /* =========================================================
-     ESCAPE KEY
+     ESC KEY
   ========================================================= */
 
   useEffect(
@@ -244,7 +255,7 @@ function Navbar() {
 
 
   /* =========================================================
-     CLICK OUTSIDE SERVICES
+     OUTSIDE CLICK
   ========================================================= */
 
   useEffect(
@@ -288,7 +299,7 @@ function Navbar() {
 
 
   /* =========================================================
-     WINDOW RESIZE
+     CLOSE MOBILE MENU ON DESKTOP
   ========================================================= */
 
   useEffect(
@@ -352,24 +363,29 @@ function Navbar() {
 
   return (
 
-    <header className="site-navbar">
+    <header
+      className="site-navbar"
+    >
 
 
-      <div className="container site-navbar__container">
+      <div
+        className="container site-navbar__container"
+      >
 
 
         {/* =================================================
             LOGO
-
-            LOGO ALSO USES HOME TRANSITION
         ================================================= */}
 
         <NavLink
-          to="/home-transition"
+          to="/home"
+
           className="site-navbar__logo"
+
           onClick={
             closeNavigation
           }
+
           aria-label="DGATE Integrated Services Home"
         >
 
@@ -401,11 +417,13 @@ function Navbar() {
         >
 
 
-          <ul className="site-navbar__links">
+          <ul
+            className="site-navbar__links"
+          >
 
 
             {/* =============================================
-                HOME + ABOUT
+                HOME / ABOUT / HOMES
             ============================================= */}
 
             {beforeServiceLinks.map(
@@ -416,7 +434,6 @@ function Navbar() {
                     link.id
                   }
                 >
-
 
                   <NavLink
                     to={
@@ -433,34 +450,15 @@ function Navbar() {
 
                     className={({
                       isActive,
-                    }) => {
+                    }) =>
 
-                      const homeIsActive =
-                        link.id ===
-                          "home" &&
+                      isActive
 
-                        (
-                          location.pathname ===
-                            "/home" ||
+                        ? "site-navbar__link active"
 
-                          location.pathname ===
-                            "/home-transition"
-                        );
+                        : "site-navbar__link"
 
-
-                      if (
-                        isActive ||
-                        homeIsActive
-                      ) {
-
-                        return "site-navbar__link active";
-
-                      }
-
-
-                      return "site-navbar__link";
-
-                    }}
+                    }
                   >
 
                     {
@@ -468,7 +466,6 @@ function Navbar() {
                     }
 
                   </NavLink>
-
 
                 </li>
 
@@ -532,25 +529,26 @@ function Navbar() {
                   aria-hidden="true"
                 />
 
-
               </button>
 
 
               {/* ===========================================
-                  DROPDOWN
+                  SERVICES DROPDOWN
               =========================================== */}
 
               <div
                 id="services-dropdown"
+
                 className="site-navbar__services-dropdown"
               >
 
-
-                <div className="site-navbar__services-menu">
-
+                <div
+                  className="site-navbar__services-menu"
+                >
 
                   <nav
                     className="site-navbar__services-list"
+
                     aria-label="Services navigation"
                   >
 
@@ -600,9 +598,7 @@ function Navbar() {
 
                   </nav>
 
-
                 </div>
-
 
               </div>
 
@@ -661,8 +657,9 @@ function Navbar() {
                 CONTACT
             ============================================= */}
 
-            <li className="site-navbar__contact-item">
-
+            <li
+              className="site-navbar__contact-item"
+            >
 
               <NavLink
                 to="/contact"
@@ -687,7 +684,6 @@ function Navbar() {
                 CONTACT US
 
               </NavLink>
-
 
             </li>
 
@@ -714,7 +710,6 @@ function Navbar() {
                 (current) =>
                   !current
               );
-
 
               setServicesOpen(
                 false

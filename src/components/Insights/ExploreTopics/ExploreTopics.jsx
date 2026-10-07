@@ -6,68 +6,137 @@ import {
 } from "react";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-  FaMicrochip,
-  FaCloud,
-  FaShieldAlt,
-  FaChartBar,
-  FaRobot,
-  FaLeaf,
+  ScrollTrigger,
+} from "gsap/ScrollTrigger";
+
+import {
+  FaLightbulb,
+  FaMobileAlt,
+  FaCode,
+  FaBullhorn,
+  FaChartLine,
+  FaEnvelopeOpenText,
+  FaNewspaper,
+  FaWhatsapp,
+  FaBell,
+  FaBroadcastTower,
   FaArrowRight,
 } from "react-icons/fa";
 
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(
+  ScrollTrigger
+);
 
 
 /* =========================================================
-   TOPIC DATA
+   DGATE SERVICE TOPICS
 ========================================================= */
 
 const topics = [
+
   {
-    id: "ai-machine-learning",
-    title: "AI & Machine Learning",
-    articles: "12 Articles",
-    Icon: FaMicrochip,
+    id: "branding-creative",
+    title:
+      "Branding & Creative",
+    label:
+      "Brand Insights",
+    Icon:
+      FaLightbulb,
   },
 
   {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
-    articles: "15 Articles",
-    Icon: FaCloud,
+    id: "app-development",
+    title:
+      "App Development",
+    label:
+      "App Insights",
+    Icon:
+      FaMobileAlt,
   },
 
   {
-    id: "cyber-security",
-    title: "Cyber Security",
-    articles: "10 Articles",
-    Icon: FaShieldAlt,
+    id: "web-development",
+    title:
+      "Web Development",
+    label:
+      "Web Insights",
+    Icon:
+      FaCode,
   },
 
   {
-    id: "data-analytics",
-    title: "Data & Analytics",
-    articles: "14 Articles",
-    Icon: FaChartBar,
+    id: "digital-marketing",
+    title:
+      "Digital Marketing",
+    label:
+      "Marketing Insights",
+    Icon:
+      FaBullhorn,
   },
 
   {
-    id: "engineering-trends",
-    title: "Engineering Trends",
-    articles: "20 Articles",
-    Icon: FaRobot,
+    id: "performance-marketing",
+    title:
+      "Performance Marketing",
+    label:
+      "Growth Insights",
+    Icon:
+      FaChartLine,
   },
 
   {
-    id: "sustainability",
-    title: "Sustainability",
-    articles: "8 Articles",
-    Icon: FaLeaf,
+    id: "email-marketing",
+    title:
+      "Email Marketing",
+    label:
+      "Email Insights",
+    Icon:
+      FaEnvelopeOpenText,
   },
+
+  {
+    id: "digital-pr",
+    title:
+      "Digital PR",
+    label:
+      "PR Insights",
+    Icon:
+      FaNewspaper,
+  },
+
+  {
+    id: "whatsapp-marketing",
+    title:
+      "WhatsApp Marketing",
+    label:
+      "Messaging Insights",
+    Icon:
+      FaWhatsapp,
+  },
+
+  {
+    id: "push-notification-marketing",
+    title:
+      "Push Notifications",
+    label:
+      "Retention Insights",
+    Icon:
+      FaBell,
+  },
+
+  {
+    id: "traditional-marketing",
+    title:
+      "Traditional Marketing",
+    label:
+      "Offline Insights",
+    Icon:
+      FaBroadcastTower,
+  },
+
 ];
 
 
@@ -76,84 +145,121 @@ const topics = [
 ========================================================= */
 
 function ExploreTopics() {
-  const sectionRef = useRef(null);
+
+  const sectionRef =
+    useRef(null);
 
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+
+    if (!sectionRef.current) {
+      return;
+    }
+
 
     const reduceMotion =
       window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-    if (reduceMotion) return;
+
+    if (reduceMotion) {
+      return;
+    }
 
 
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 86%",
-          once: true,
+    const ctx =
+      gsap.context(
+        () => {
+
+          const timeline =
+            gsap.timeline({
+              scrollTrigger: {
+                trigger:
+                  sectionRef.current,
+
+                start:
+                  "top 86%",
+
+                once:
+                  true,
+              },
+            });
+
+
+          timeline
+
+            .from(
+              ".insights-topics__heading",
+              {
+                opacity: 0,
+
+                duration:
+                  0.4,
+
+                ease:
+                  "power2.out",
+
+                clearProps:
+                  "opacity",
+              }
+            )
+
+            .from(
+              ".insights-topics__card",
+              {
+                opacity: 0,
+
+                duration:
+                  0.4,
+
+                stagger:
+                  0.06,
+
+                ease:
+                  "power2.out",
+
+                clearProps:
+                  "opacity",
+              },
+
+              "-=0.15"
+            );
+
         },
-      });
+
+        sectionRef
+      );
 
 
-      /* ===============================================
-         FADE ONLY
-         NO X / Y / SCALE / ROTATE
-      =============================================== */
-
-      timeline
-        .from(
-          ".insights-topics__heading",
-          {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
-          }
-        )
-
-        .from(
-          ".insights-topics__card",
-          {
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.06,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.15"
-        );
-
-    }, sectionRef);
-
-
-    return () => ctx.revert();
+    return () =>
+      ctx.revert();
 
   }, []);
 
 
   return (
+
     <section
       id="explore-topics"
       className="insights-topics"
       ref={sectionRef}
       aria-labelledby="insights-topics-title"
     >
+
       <div className="container">
 
 
-        {/* ==========================================
-            HEADING
-        ========================================== */}
+        {/* HEADING */}
 
-        <div className="insights-topics__heading">
+        <div
+          className="insights-topics__heading"
+        >
 
-          <h2 id="insights-topics-title">
-            Explore by Topic
+          <h2
+            id="insights-topics-title"
+          >
+            Explore by Service
           </h2>
 
 
@@ -165,61 +271,72 @@ function ExploreTopics() {
         </div>
 
 
-        {/* ==========================================
-            TOPIC GRID
-        ========================================== */}
+        {/* SERVICE GRID */}
 
-        <div className="insights-topics__grid">
+        <div
+          className="insights-topics__grid"
+        >
 
-          {topics.map((topic) => {
+          {topics.map(
+            (topic) => {
 
-            const Icon = topic.Icon;
+              const Icon =
+                topic.Icon;
 
-            return (
-              <article
-                className="insights-topics__card"
-                key={topic.id}
-              >
 
-                <div
-                  className="insights-topics__icon"
-                  aria-hidden="true"
+              return (
+
+                <article
+                  className="insights-topics__card"
+                  key={topic.id}
                 >
-                  <Icon />
-                </div>
 
-
-                <h3>
-                  {topic.title}
-                </h3>
-
-
-                <div className="insights-topics__bottom">
-
-                  <span>
-                    {topic.articles}
-                  </span>
-
-
-                  <span
-                    className="insights-topics__arrow"
+                  <div
+                    className="insights-topics__icon"
                     aria-hidden="true"
                   >
-                    <FaArrowRight />
-                  </span>
+                    <Icon />
+                  </div>
 
-                </div>
 
-              </article>
-            );
+                  <h3>
+                    {topic.title}
+                  </h3>
 
-          })}
+
+                  <div
+                    className="insights-topics__bottom"
+                  >
+
+                    <span>
+                      {topic.label}
+                    </span>
+
+
+                    <span
+                      className="insights-topics__arrow"
+                      aria-hidden="true"
+                    >
+                      <FaArrowRight />
+                    </span>
+
+                  </div>
+
+                </article>
+
+              );
+
+            }
+          )}
 
         </div>
 
       </div>
+
     </section>
+
   );
+
 }
 
 

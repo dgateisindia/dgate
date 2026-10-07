@@ -1,184 +1,1004 @@
+/* =========================================================
+   HOME TESTIMONIALS
+   PREMIUM AUTO SCROLL CAROUSEL
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 .home-testimonials {
+  position: relative;
+
   width: 100%;
 
-  padding:
-    74px
-    0;
+  margin: 0;
 
-  background: var(--white);
+  padding:
+    48px
+    var(--dg-page-padding-desktop, 40px)
+    48px;
+
+  overflow: hidden;
+
+  background:
+    var(--white, #ffffff);
 }
 
 
-.home-testimonials__heading {
-  max-width: 680px;
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.home-testimonials > .container {
+  width: 100%;
+
+  max-width:
+    var(--dg-content-max, 1200px);
 
   margin:
-    0 auto
-    38px;
+    0 auto;
+
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.home-testimonials__heading {
+  width: 100%;
+
+  max-width: 760px;
+
+  margin:
+    0 auto 36px;
+
+  padding: 0;
 
   text-align: center;
 }
 
 
+/* =========================================================
+   EYEBROW
+========================================================= */
+
 .home-testimonials__heading > span {
-  color: var(--primary);
+  display: inline-block;
 
-  font-size: 0.7rem;
-  font-weight: 700;
+  margin:
+    0 0 11px;
 
-  letter-spacing: 1.6px;
+  color:
+    var(--primary, #fdb913);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    800;
+
+  line-height: 1;
+
+  letter-spacing:
+    1.6px;
+
+  text-transform:
+    uppercase;
 }
 
 
+/* =========================================================
+   HEADING TITLE
+========================================================= */
+
 .home-testimonials__heading h2 {
   margin:
-    8px
-    0
-    10px;
+    0 0 12px;
 
-  color: var(--black);
+  padding: 0;
+
+  color:
+    var(--black, #101010);
 
   font-size:
     clamp(
-      2rem,
-      3vw,
-      3rem
+      2.25rem,
+      3.8vw,
+      3.5rem
     );
+
+  font-weight:
+    800;
+
+  line-height:
+    1.05;
+
+  letter-spacing:
+    -1.3px;
+
+  text-wrap:
+    balance;
 }
 
 
 .home-testimonials__heading h2 strong {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
+
+  font-weight:
+    inherit;
 }
 
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
 
 .home-testimonials__heading p {
-  margin: 0;
+  max-width: 650px;
 
-  color: var(--text);
+  margin:
+    0 auto;
 
-  font-size: 0.82rem;
+  padding: 0;
+
+  color:
+    var(--text, #656565);
+
+  font-size:
+    0.88rem;
+
+  line-height:
+    1.7;
 }
 
 
-.home-testimonials__grid {
-  display: grid;
+/* =========================================================
+   CAROUSEL
+========================================================= */
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+.home-testimonials__carousel {
+  position: relative;
 
-  gap: 18px;
+  width: 100%;
+
+  /*
+    Extra horizontal room allows
+    arrows to sit partly outside
+    the cards.
+  */
+  padding:
+    0 22px;
 }
 
+
+/* =========================================================
+   SCROLLING TRACK
+========================================================= */
+
+.home-testimonials__track {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 22px;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  padding:
+    4px 0 12px;
+
+  scroll-behavior:
+    smooth;
+
+  scroll-snap-type:
+    x mandatory;
+
+  overscroll-behavior-inline:
+    contain;
+
+  scrollbar-width:
+    none;
+
+  -ms-overflow-style:
+    none;
+
+  -webkit-overflow-scrolling:
+    touch;
+}
+
+
+.home-testimonials__track::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   TESTIMONIAL CARD
+========================================================= */
 
 .home-testimonials__card {
-  min-height: 260px;
+  /*
+    Around 2.5 cards visible on
+    desktop.
+
+    This intentionally exposes
+    part of the next card, making
+    the carousel visually obvious.
+  */
+
+  flex:
+    0 0
+    calc(
+      (100% - 44px) / 2.45
+    );
+
+  min-width: 0;
+
+  min-height:
+    305px;
 
   display: flex;
 
   flex-direction: column;
 
-  padding: 26px;
+  padding:
+    32px 30px 28px;
 
   border:
     1px solid
-    var(--border);
+    var(
+      --border,
+      rgba(17, 17, 17, 0.1)
+    );
 
-  border-radius: var(--radius-md);
+  border-radius:
+    16px;
 
-  background: var(--section);
-
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-
-.home-testimonials__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.45);
+  background:
+    var(
+      --section,
+      #f8f8f8
+    );
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.055);
+    0 6px 22px
+    rgba(0, 0, 0, 0.04);
+
+  scroll-snap-align:
+    start;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-testimonials__card:hover {
+    transform:
+      translateY(-5px);
+
+    border-color:
+      rgba(
+        253,
+        185,
+        19,
+        0.48
+      );
+
+    background:
+      #ffffff;
+
+    box-shadow:
+      0 18px 40px
+      rgba(0, 0, 0, 0.08);
+  }
+
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.home-testimonials__card-top {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  margin-bottom:
+    14px;
+}
+
+
+/* =========================================================
+   QUOTE ICON
+========================================================= */
 
 .home-testimonials__quote {
-  color: var(--primary);
+  color:
+    var(
+      --primary,
+      #fdb913
+    );
 
-  font-size: 1.3rem;
+  font-size:
+    1.5rem;
+
+  line-height:
+    1;
 }
 
+
+/* =========================================================
+   STARS
+========================================================= */
 
 .home-testimonials__stars {
   display: flex;
 
-  gap: 3px;
+  align-items: center;
+
+  gap: 4px;
 
   margin:
-    15px
-    0;
+    16px 0 0;
 
-  color: var(--primary);
+  color:
+    var(
+      --primary,
+      #fdb913
+    );
 
-  font-size: 0.68rem;
+  font-size:
+    0.72rem;
 }
 
 
-.home-testimonials__card > p {
+/* =========================================================
+   TESTIMONIAL TEXT
+========================================================= */
+
+.home-testimonials__text {
   flex: 1;
 
-  margin: 0;
+  margin:
+    0;
 
-  color: var(--text);
+  padding:
+    0;
 
-  font-size: 0.82rem;
+  color:
+    var(
+      --text,
+      #5f5f5f
+    );
 
-  line-height: 1.72;
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.75;
 }
 
 
-.home-testimonials__author {
-  margin-top: 22px;
+/* =========================================================
+   AUTHOR
+========================================================= */
 
-  padding-top: 17px;
+.home-testimonials__author {
+  width: 100%;
+
+  margin-top:
+    26px;
+
+  padding-top:
+    18px;
 
   border-top:
     1px solid
-    var(--border);
+    var(
+      --border,
+      rgba(
+        17,
+        17,
+        17,
+        0.1
+      )
+    );
 }
 
 
 .home-testimonials__author strong {
-  display: block;
+  display:
+    block;
 
-  color: var(--black);
+  margin:
+    0;
 
-  font-size: 0.82rem;
+  color:
+    var(
+      --black,
+      #101010
+    );
+
+  font-size:
+    0.86rem;
+
+  font-weight:
+    750;
+
+  line-height:
+    1.3;
 }
 
 
-.home-testimonials__author span {
-  display: block;
+/* =========================================================
+   ARROWS
+========================================================= */
 
-  margin-top: 3px;
+.home-testimonials__arrow {
+  position:
+    absolute;
 
-  color: #777777;
+  top:
+    50%;
 
-  font-size: 0.7rem;
+  z-index:
+    10;
+
+  width:
+    46px;
+
+  height:
+    46px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    0;
+
+  border:
+    1px solid
+    rgba(
+      17,
+      17,
+      17,
+      0.12
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    #ffffff;
+
+  color:
+    #101010;
+
+  font-size:
+    0.9rem;
+
+  cursor:
+    pointer;
+
+  box-shadow:
+    0 8px 24px
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 
-@media (max-width: 768px) {
+/* LEFT ARROW */
 
-  .home-testimonials__grid {
-    grid-template-columns: 1fr;
+.home-testimonials__arrow--left {
+  left:
+    -2px;
+}
+
+
+/* RIGHT ARROW */
+
+.home-testimonials__arrow--right {
+  right:
+    -2px;
+}
+
+
+/* =========================================================
+   ARROW HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-testimonials__arrow:hover {
+    background:
+      var(
+        --primary,
+        #fdb913
+      );
+
+    color:
+      #111111;
+
+    border-color:
+      var(
+        --primary,
+        #fdb913
+      );
+
+    box-shadow:
+      0 10px 26px
+      rgba(
+        253,
+        185,
+        19,
+        0.28
+      );
+  }
+
+
+  .home-testimonials__arrow--left:hover {
+    transform:
+      translateY(-50%)
+      translateX(-2px);
+  }
+
+
+  .home-testimonials__arrow--right:hover {
+    transform:
+      translateY(-50%)
+      translateX(2px);
+  }
+
+}
+
+
+/* =========================================================
+   ARROW ICON
+========================================================= */
+
+.home-testimonials__arrow svg {
+  display:
+    block;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .home-testimonials {
+    padding:
+      44px
+      var(
+        --dg-page-padding-laptop,
+        32px
+      )
+      44px;
+  }
+
+
+  .home-testimonials__heading {
+    margin-bottom:
+      32px;
+  }
+
+
+  .home-testimonials__track {
+    gap:
+      18px;
   }
 
 
   .home-testimonials__card {
-    min-height: auto;
+    flex-basis:
+      calc(
+        (100% - 36px) / 2.35
+      );
+
+    min-height:
+      295px;
+
+    padding:
+      28px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-testimonials {
+    padding:
+      40px
+      var(
+        --dg-page-padding-tablet,
+        24px
+      )
+      40px;
+  }
+
+
+  .home-testimonials__heading {
+    margin-bottom:
+      28px;
+  }
+
+
+  .home-testimonials__heading h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
+  }
+
+
+  .home-testimonials__heading p {
+    font-size:
+      0.84rem;
+  }
+
+
+  .home-testimonials__carousel {
+    padding:
+      0 18px;
+  }
+
+
+  .home-testimonials__track {
+    gap:
+      16px;
+  }
+
+
+  .home-testimonials__card {
+    /*
+      Approximately 1.6 cards
+      visible on tablet.
+    */
+    flex-basis:
+      62%;
+
+    min-height:
+      280px;
+
+    padding:
+      26px;
+  }
+
+
+  .home-testimonials__arrow {
+    width:
+      42px;
+
+    height:
+      42px;
+
+    font-size:
+      0.82rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-testimonials {
+    padding:
+      36px
+      var(
+        --dg-page-padding-mobile,
+        18px
+      )
+      36px;
+  }
+
+
+  .home-testimonials__heading {
+    margin-bottom:
+      25px;
+  }
+
+
+  .home-testimonials__heading > span {
+    margin-bottom:
+      10px;
+
+    font-size:
+      0.6rem;
+
+    letter-spacing:
+      1.4px;
+  }
+
+
+  .home-testimonials__heading h2 {
+    margin-bottom:
+      11px;
+
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
+
+    letter-spacing:
+      -0.8px;
+  }
+
+
+  .home-testimonials__heading p {
+    font-size:
+      0.81rem;
+
+    line-height:
+      1.62;
+  }
+
+
+  .home-testimonials__carousel {
+    padding:
+      0 12px;
+  }
+
+
+  .home-testimonials__track {
+    gap:
+      14px;
+
+    padding-bottom:
+      8px;
+  }
+
+
+  .home-testimonials__card {
+    /*
+      One main card + visible
+      portion of the next card.
+    */
+    flex-basis:
+      88%;
+
+    min-height:
+      260px;
+
+    padding:
+      24px;
+  }
+
+
+  .home-testimonials__text {
+    font-size:
+      0.83rem;
+
+    line-height:
+      1.68;
+  }
+
+
+  .home-testimonials__arrow {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    font-size:
+      0.72rem;
+  }
+
+
+  .home-testimonials__arrow--left {
+    left:
+      -6px;
+  }
+
+
+  .home-testimonials__arrow--right {
+    right:
+      -6px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .home-testimonials {
+    padding:
+      32px
+      var(
+        --dg-page-padding-mobile,
+        18px
+      )
+      32px;
+  }
+
+
+  .home-testimonials__heading {
+    margin-bottom:
+      22px;
+  }
+
+
+  .home-testimonials__heading h2 {
+    font-size:
+      1.85rem;
+  }
+
+
+  .home-testimonials__heading p {
+    font-size:
+      0.79rem;
+  }
+
+
+  .home-testimonials__card {
+    flex-basis:
+      91%;
+
+    min-height:
+      250px;
+
+    padding:
+      22px;
+  }
+
+
+  .home-testimonials__quote {
+    font-size:
+      1.35rem;
+  }
+
+
+  .home-testimonials__stars {
+    margin-top:
+      14px;
+
+    font-size:
+      0.68rem;
+  }
+
+
+  .home-testimonials__author {
+    margin-top:
+      22px;
+
+    padding-top:
+      16px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .home-testimonials {
+    padding:
+      30px
+      16px;
+  }
+
+
+  .home-testimonials__heading {
+    margin-bottom:
+      20px;
+  }
+
+
+  .home-testimonials__heading h2 {
+    font-size:
+      1.72rem;
+  }
+
+
+  .home-testimonials__card {
+    flex-basis:
+      94%;
+
+    padding:
+      20px;
+
+    min-height:
+      240px;
+  }
+
+
+  .home-testimonials__arrow {
+    width:
+      34px;
+
+    height:
+      34px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-testimonials__track {
+    scroll-behavior:
+      auto;
+  }
+
+
+  .home-testimonials__card,
+  .home-testimonials__arrow {
+    transition:
+      none;
   }
 
 }

@@ -1,5 +1,11 @@
 /* =========================================================
    CONTACT PAGE INFO
+   FINAL HOME-PAGE ALIGNMENT VERSION
+========================================================= */
+
+
+/* =========================================================
+   ROOT
 ========================================================= */
 
 .contact-page-info {
@@ -7,19 +13,21 @@
 
   width: 100%;
 
+  margin: 0;
+
   padding:
-    66px
-    0
-    76px;
+    48px
+    var(--dg-page-padding-desktop, 40px)
+    48px;
 
   overflow: hidden;
 
   background:
     linear-gradient(
       180deg,
-      var(--section) 0%,
-      var(--white) 48%,
-      var(--section) 100%
+      var(--section, #f8f8f8) 0%,
+      var(--white, #ffffff) 48%,
+      var(--section, #f8f8f8) 100%
     );
 }
 
@@ -31,9 +39,13 @@
 .contact-page-info__heading,
 .contact-page-info__offices-heading {
   width: 100%;
+
   max-width: 680px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
+
+  padding: 0;
 
   text-align: center;
 }
@@ -46,62 +58,86 @@
 .contact-page-info__eyebrow {
   display: inline-block;
 
-  margin-bottom: 9px;
+  margin:
+    0 0 10px;
 
-  color: var(--primary);
+  padding: 0;
 
-  font-size: 0.72rem;
-  font-weight: 700;
+  color:
+    var(--primary, #fdb913);
 
-  line-height: 1.3;
+  font-size:
+    0.68rem;
 
-  letter-spacing: 1.7px;
+  font-weight:
+    800;
 
-  text-transform: uppercase;
+  line-height:
+    1.2;
+
+  letter-spacing:
+    1.7px;
+
+  text-transform:
+    uppercase;
 }
 
 
 /* =========================================================
-   HEADINGS
+   TITLE
 ========================================================= */
 
 .contact-page-info__heading h2,
 .contact-page-info__offices-heading h2 {
   margin: 0;
 
-  color: var(--black);
+  padding: 0;
 
-  font-size: 2.1rem;
-  font-weight: 750;
+  color:
+    var(--black, #101010);
 
-  line-height: 1.2;
+  font-size:
+    clamp(
+      2.1rem,
+      3.5vw,
+      3rem
+    );
 
-  letter-spacing: -0.6px;
+  font-weight:
+    800;
+
+  line-height:
+    1.08;
+
+  letter-spacing:
+    -0.9px;
 }
 
 
 .contact-page-info__heading h2 span,
 .contact-page-info__offices-heading h2 span {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
 /* =========================================================
-   HEADING LINE
+   TITLE LINE
 ========================================================= */
 
 .contact-page-info__line {
   width: 48px;
+
   height: 3px;
 
   margin:
-    14px
-    auto
-    0;
+    13px auto 0;
 
-  border-radius: 10px;
+  border-radius:
+    999px;
 
-  background: var(--primary);
+  background:
+    var(--primary, #fdb913);
 }
 
 
@@ -112,36 +148,49 @@
 .contact-page-info__heading > p,
 .contact-page-info__offices-heading > p {
   width: 100%;
-  max-width: 610px;
+
+  max-width: 620px;
 
   margin:
-    15px
-    auto
-    0;
+    15px auto 0;
 
-  color: var(--text);
+  padding: 0;
 
-  font-size: 0.82rem;
+  color:
+    var(--text, #656565);
 
-  line-height: 1.75;
+  font-size:
+    0.84rem;
+
+  line-height:
+    1.7;
 }
 
 
 /* =========================================================
    CONTACT GRID
+   SAME 1200PX ALIGNMENT AS HOME PAGE
 ========================================================= */
 
 .contact-page-info__grid {
   width: 100%;
 
+  max-width:
+    var(--dg-content-max, 1200px);
+
+  margin:
+    32px auto 0;
+
   display: grid;
 
   grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
 
-  gap: 18px;
-
-  margin-top: 38px;
+  gap:
+    18px;
 }
 
 
@@ -153,19 +202,20 @@
   position: relative;
 
   min-width: 0;
-  min-height: 190px;
+
+  min-height:
+    190px;
 
   display: flex;
 
   flex-direction: column;
 
   align-items: center;
+
   justify-content: flex-start;
 
   padding:
-    25px
-    18px
-    22px;
+    24px 18px 21px;
 
   overflow: hidden;
 
@@ -173,11 +223,13 @@
 
   border:
     1px solid
-    var(--border);
+    var(--border, rgba(17, 17, 17, 0.1));
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 10px);
 
-  background: var(--white);
+  background:
+    var(--white, #ffffff);
 
   box-shadow:
     0 8px 25px
@@ -190,8 +242,7 @@
 
 
 /* =========================================================
-   CARD TOP ACCENT
-   NO TRANSFORM
+   CONTACT CARD ACCENT
 ========================================================= */
 
 .contact-page-info__card::before {
@@ -203,9 +254,11 @@
   left: 0;
 
   width: 0;
+
   height: 3px;
 
-  background: var(--primary);
+  background:
+    var(--primary, #fdb913);
 
   transition:
     width 0.3s ease;
@@ -213,8 +266,7 @@
 
 
 /* =========================================================
-   CARD HOVER
-   NO TRANSLATE / SCALE
+   CONTACT CARD HOVER
 ========================================================= */
 
 @media (hover: hover) {
@@ -244,27 +296,33 @@
   width: 50px;
   height: 50px;
 
-  flex: 0 0 50px;
+  flex:
+    0 0 50px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  margin-bottom: 15px;
+  margin-bottom:
+    14px;
 
   border:
     1px solid
     rgba(253, 185, 19, 0.38);
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
   background:
     rgba(253, 185, 19, 0.07);
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 
-  font-size: 1.05rem;
+  font-size:
+    1.05rem;
 
   transition:
     background-color 0.3s ease,
@@ -278,11 +336,14 @@
 
   .contact-page-info__card:hover
   .contact-page-info__icon {
-    border-color: var(--primary);
+    border-color:
+      var(--primary, #fdb913);
 
-    background: var(--primary);
+    background:
+      var(--primary, #fdb913);
 
-    color: var(--black);
+    color:
+      var(--black, #101010);
 
     box-shadow:
       0 7px 18px
@@ -298,22 +359,26 @@
 
 .contact-page-info__card-content {
   width: 100%;
+
   min-width: 0;
 }
 
 
 .contact-page-info__card-content h3 {
   margin:
-    0
-    0
-    7px;
+    0 0 7px;
 
-  color: var(--black);
+  color:
+    var(--black, #101010);
 
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size:
+    0.9rem;
 
-  line-height: 1.4;
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
 }
 
 
@@ -326,16 +391,23 @@
 
   margin: 0;
 
-  overflow-wrap: anywhere;
+  overflow-wrap:
+    anywhere;
 
-  color: #333333;
+  color:
+    #333333;
 
-  font-size: 0.76rem;
-  font-weight: 600;
+  font-size:
+    0.76rem;
 
-  line-height: 1.55;
+  font-weight:
+    600;
 
-  text-decoration: none;
+  line-height:
+    1.55;
+
+  text-decoration:
+    none;
 
   transition:
     color 0.25s ease;
@@ -343,42 +415,51 @@
 
 
 a.contact-page-info__value:hover {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
 /* =========================================================
-   CARD SUBTEXT
+   CARD DESCRIPTION
 ========================================================= */
 
 .contact-page-info__card-content p {
   width: 100%;
-  max-width: 220px;
+
+  max-width:
+    220px;
 
   margin:
-    7px
-    auto
-    0;
+    7px auto 0;
 
-  color: #777777;
+  color:
+    #777777;
 
-  font-size: 0.7rem;
+  font-size:
+    0.7rem;
 
-  line-height: 1.6;
+  line-height:
+    1.6;
 }
 
 
 /* =========================================================
    DIVIDER
+   SAME 1200PX WIDTH
 ========================================================= */
 
 .contact-page-info__divider {
   width: 100%;
-  height: 1px;
+
+  max-width:
+    var(--dg-content-max, 1200px);
+
+  height:
+    1px;
 
   margin:
-    58px
-    0;
+    48px auto;
 
   background:
     linear-gradient(
@@ -392,19 +473,28 @@ a.contact-page-info__value:hover {
 
 /* =========================================================
    OFFICES GRID
+   SAME EXACT ALIGNMENT AS CONTACT GRID
 ========================================================= */
 
 .contact-page-info__offices-grid {
   width: 100%;
 
+  max-width:
+    var(--dg-content-max, 1200px);
+
+  margin:
+    32px auto 0;
+
   display: grid;
 
   grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
 
-  gap: 18px;
-
-  margin-top: 38px;
+  gap:
+    18px;
 }
 
 
@@ -416,29 +506,32 @@ a.contact-page-info__value:hover {
   position: relative;
 
   min-width: 0;
-  min-height: 205px;
+
+  min-height:
+    205px;
 
   display: flex;
 
   flex-direction: column;
 
   align-items: flex-start;
+
   justify-content: flex-start;
 
   padding:
-    28px
-    23px
-    23px;
+    27px 22px 22px;
 
   overflow: hidden;
 
   border:
     1px solid
-    var(--border);
+    var(--border, rgba(17, 17, 17, 0.1));
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 10px);
 
-  background: var(--white);
+  background:
+    var(--white, #ffffff);
 
   box-shadow:
     0 8px 25px
@@ -449,10 +542,6 @@ a.contact-page-info__value:hover {
     box-shadow 0.3s ease;
 }
 
-
-/* =========================================================
-   OFFICE HOVER
-========================================================= */
 
 @media (hover: hover) {
 
@@ -479,13 +568,14 @@ a.contact-page-info__value:hover {
   left: 0;
 
   width: 100%;
+
   height: 4px;
 
   background:
     linear-gradient(
       90deg,
-      var(--primary) 0%,
-      var(--primary-light) 60%,
+      var(--primary, #fdb913) 0%,
+      var(--primary-light, #ffc83d) 60%,
       transparent 100%
     );
 }
@@ -502,18 +592,23 @@ a.contact-page-info__value:hover {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  margin-bottom: 16px;
+  margin-bottom:
+    15px;
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 10px);
 
   background:
     rgba(253, 185, 19, 0.1);
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 
-  font-size: 1rem;
+  font-size:
+    1rem;
 
   transition:
     background-color 0.3s ease,
@@ -525,9 +620,11 @@ a.contact-page-info__value:hover {
 
   .contact-page-info__office-card:hover
   .contact-page-info__office-icon {
-    background: var(--primary);
+    background:
+      var(--primary, #fdb913);
 
-    color: var(--black);
+    color:
+      var(--black, #101010);
   }
 
 }
@@ -540,494 +637,445 @@ a.contact-page-info__value:hover {
 .contact-page-info__office-card h3 {
   margin: 0;
 
-  color: var(--black);
+  color:
+    var(--black, #101010);
 
-  font-size: 1rem;
-  font-weight: 700;
+  font-size:
+    1rem;
 
-  line-height: 1.35;
+  font-weight:
+    700;
+
+  line-height:
+    1.35;
 }
 
 
 .contact-page-info__office-city {
   display: block;
 
-  margin-top: 5px;
+  margin-top:
+    5px;
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size:
+    0.72rem;
 
-  line-height: 1.4;
+  font-weight:
+    600;
+
+  line-height:
+    1.4;
 }
 
 
 .contact-page-info__office-card p {
   margin:
-    12px
-    0
-    0;
+    11px 0 0;
 
-  color: #6e6e6e;
+  color:
+    #6e6e6e;
 
-  font-size: 0.72rem;
+  font-size:
+    0.72rem;
 
-  line-height: 1.65;
+  line-height:
+    1.65;
 }
 
 
 /* =========================================================
-   1200PX
+   LAPTOP
 ========================================================= */
 
 @media (max-width: 1200px) {
 
+  .contact-page-info {
+    padding:
+      44px
+      var(--dg-page-padding-laptop, 32px)
+      44px;
+  }
+
+
   .contact-page-info__grid,
   .contact-page-info__offices-grid {
-    gap: 16px;
+    gap:
+      16px;
+
+    margin-top:
+      30px;
   }
 
 
   .contact-page-info__card {
     padding:
-      23px
-      16px
-      20px;
+      22px 16px 20px;
   }
 
 
   .contact-page-info__office-card {
     padding:
-      26px
-      20px
-      21px;
+      25px 20px 21px;
+  }
+
+
+  .contact-page-info__divider {
+    margin:
+      44px auto;
   }
 
 }
 
 
 /* =========================================================
-   1024PX
+   TABLET
 ========================================================= */
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
 
   .contact-page-info {
     padding:
-      58px
-      0
-      66px;
+      40px
+      var(--dg-page-padding-tablet, 24px)
+      40px;
   }
 
 
   .contact-page-info__grid,
   .contact-page-info__offices-grid {
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
 
-    gap: 17px;
+    gap:
+      16px;
   }
 
 
   .contact-page-info__card {
-    min-height: 175px;
+    min-height:
+      175px;
   }
 
 
   .contact-page-info__office-card {
-    min-height: 185px;
+    min-height:
+      185px;
+  }
+
+
+  .contact-page-info__divider {
+    margin:
+      40px auto;
   }
 
 }
 
 
 /* =========================================================
-   768PX
+   SMALL TABLET
 ========================================================= */
 
 @media (max-width: 768px) {
 
-  .contact-page-info {
-    padding:
-      50px
-      0
-      58px;
-  }
-
-
   .contact-page-info__heading h2,
   .contact-page-info__offices-heading h2 {
-    font-size: 1.9rem;
+    font-size:
+      clamp(
+        1.9rem,
+        6vw,
+        2.45rem
+      );
   }
 
 
   .contact-page-info__heading > p,
   .contact-page-info__offices-heading > p {
-    max-width: 530px;
+    max-width:
+      530px;
 
-    font-size: 0.8rem;
+    font-size:
+      0.8rem;
   }
 
 
   .contact-page-info__grid,
   .contact-page-info__offices-grid {
-    margin-top: 31px;
-  }
-
-
-  .contact-page-info__divider {
-    margin:
-      48px
-      0;
+    margin-top:
+      28px;
   }
 
 }
 
 
 /* =========================================================
-   600PX
+   MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
 
   .contact-page-info {
     padding:
-      46px
-      0
-      52px;
+      36px
+      var(--dg-page-padding-mobile, 18px)
+      36px;
   }
 
 
   .contact-page-info__grid,
   .contact-page-info__offices-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
+
+    gap:
+      14px;
+
+    margin-top:
+      26px;
   }
 
 
   .contact-page-info__card {
     min-height: auto;
 
-    flex-direction: row;
+    flex-direction:
+      row;
 
-    align-items: center;
+    align-items:
+      center;
 
-    gap: 15px;
+    gap:
+      15px;
 
-    padding: 20px;
+    padding:
+      19px;
 
-    text-align: left;
+    text-align:
+      left;
   }
 
 
   .contact-page-info__icon {
-    margin-bottom: 0;
-  }
-
-
-  .contact-page-info__card-content p {
-    max-width: none;
-
-    margin:
-      5px
-      0
+    margin-bottom:
       0;
   }
 
 
+  .contact-page-info__card-content p {
+    max-width:
+      none;
+
+    margin:
+      5px 0 0;
+  }
+
+
   .contact-page-info__office-card {
-    min-height: auto;
+    min-height:
+      auto;
+  }
+
+
+  .contact-page-info__divider {
+    margin:
+      36px auto;
   }
 
 }
 
 
 /* =========================================================
-   425PX
+   SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 425px) {
+@media (max-width: 480px) {
 
   .contact-page-info {
     padding:
-      42px
-      0
-      48px;
+      32px
+      var(--dg-page-padding-mobile, 18px)
+      32px;
   }
 
 
   .contact-page-info__eyebrow {
-    margin-bottom: 7px;
+    margin-bottom:
+      7px;
 
-    font-size: 0.68rem;
+    font-size:
+      0.62rem;
 
-    letter-spacing: 1.4px;
+    letter-spacing:
+      1.4px;
   }
 
 
   .contact-page-info__heading h2,
   .contact-page-info__offices-heading h2 {
-    font-size: 1.65rem;
-
-    letter-spacing: -0.4px;
+    font-size:
+      1.75rem;
   }
 
 
   .contact-page-info__line {
-    width: 42px;
+    width:
+      42px;
 
-    margin-top: 12px;
+    margin-top:
+      11px;
   }
 
 
   .contact-page-info__heading > p,
   .contact-page-info__offices-heading > p {
-    margin-top: 13px;
+    margin-top:
+      12px;
 
-    font-size: 0.78rem;
-
-    line-height: 1.7;
+    font-size:
+      0.78rem;
   }
 
 
   .contact-page-info__grid,
   .contact-page-info__offices-grid {
-    gap: 12px;
+    gap:
+      12px;
 
-    margin-top: 26px;
+    margin-top:
+      24px;
   }
 
 
   .contact-page-info__card {
-    gap: 13px;
+    gap:
+      13px;
 
-    padding: 17px;
+    padding:
+      16px;
   }
 
 
   .contact-page-info__icon {
-    width: 44px;
-    height: 44px;
+    width:
+      44px;
 
-    flex-basis: 44px;
+    height:
+      44px;
 
-    font-size: 0.95rem;
+    flex-basis:
+      44px;
+
+    font-size:
+      0.95rem;
   }
 
 
   .contact-page-info__card-content h3 {
-    margin-bottom: 5px;
+    margin-bottom:
+      5px;
 
-    font-size: 0.82rem;
+    font-size:
+      0.82rem;
   }
 
 
   .contact-page-info__value {
-    font-size: 0.74rem;
+    font-size:
+      0.74rem;
   }
 
 
   .contact-page-info__card-content p {
-    font-size: 0.7rem;
+    font-size:
+      0.7rem;
   }
 
 
   .contact-page-info__divider {
     margin:
-      39px
-      0;
+      32px auto;
   }
 
 
   .contact-page-info__office-card {
     padding:
-      23px
-      19px
-      20px;
+      22px 18px 19px;
   }
 
 
   .contact-page-info__office-icon {
-    width: 40px;
-    height: 40px;
+    width:
+      40px;
 
-    margin-bottom: 13px;
+    height:
+      40px;
 
-    font-size: 0.9rem;
+    margin-bottom:
+      13px;
+
+    font-size:
+      0.9rem;
   }
 
 
   .contact-page-info__office-card h3 {
-    font-size: 0.94rem;
+    font-size:
+      0.94rem;
   }
 
 
-  .contact-page-info__office-city {
-    font-size: 0.7rem;
-  }
-
-
+  .contact-page-info__office-city,
   .contact-page-info__office-card p {
-    margin-top: 9px;
-
-    font-size: 0.7rem;
+    font-size:
+      0.7rem;
   }
 
 }
 
 
 /* =========================================================
-   375PX
+   VERY SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 375px) {
+@media (max-width: 360px) {
 
   .contact-page-info {
     padding:
-      38px
-      0
-      43px;
-  }
-
-
-  .contact-page-info__heading h2,
-  .contact-page-info__offices-heading h2 {
-    font-size: 1.5rem;
-  }
-
-
-  .contact-page-info__heading > p,
-  .contact-page-info__offices-heading > p {
-    font-size: 0.76rem;
-  }
-
-
-  .contact-page-info__card {
-    padding: 15px;
-  }
-
-
-  .contact-page-info__icon {
-    width: 41px;
-    height: 41px;
-
-    flex-basis: 41px;
-  }
-
-
-  .contact-page-info__divider {
-    margin:
-      35px
-      0;
-  }
-
-}
-
-
-/* =========================================================
-   340PX
-========================================================= */
-
-@media (max-width: 340px) {
-
-  .contact-page-info {
-    padding:
-      34px
-      0
-      38px;
-  }
-
-
-  .contact-page-info__eyebrow {
-    font-size: 0.66rem;
-
-    letter-spacing: 1.2px;
-  }
-
-
-  .contact-page-info__heading h2,
-  .contact-page-info__offices-heading h2 {
-    font-size: 1.38rem;
-  }
-
-
-  .contact-page-info__heading > p,
-  .contact-page-info__offices-heading > p {
-    font-size: 0.74rem;
-  }
-
-
-  .contact-page-info__grid,
-  .contact-page-info__offices-grid {
-    margin-top: 22px;
-  }
-
-
-  .contact-page-info__card {
-    gap: 11px;
-
-    padding: 14px;
-  }
-
-
-  .contact-page-info__icon {
-    width: 38px;
-    height: 38px;
-
-    flex-basis: 38px;
-
-    font-size: 0.85rem;
-  }
-
-
-  .contact-page-info__card-content h3 {
-    font-size: 0.78rem;
-  }
-
-
-  .contact-page-info__value {
-    font-size: 0.72rem;
-  }
-
-
-  .contact-page-info__card-content p {
-    font-size: 0.68rem;
-  }
-
-
-  .contact-page-info__divider {
-    margin:
-      31px
-      0;
-  }
-
-
-  .contact-page-info__office-card {
-    padding:
-      20px
+      30px
       16px
-      18px;
+      30px;
   }
 
 
-  .contact-page-info__office-icon {
-    width: 38px;
-    height: 38px;
+  .contact-page-info__heading h2,
+  .contact-page-info__offices-heading h2 {
+    font-size:
+      1.55rem;
   }
 
 
-  .contact-page-info__office-card h3 {
-    font-size: 0.9rem;
+  .contact-page-info__heading > p,
+  .contact-page-info__offices-heading > p {
+    font-size:
+      0.75rem;
   }
 
 
-  .contact-page-info__office-city {
-    font-size: 0.68rem;
+  .contact-page-info__grid,
+  .contact-page-info__offices-grid {
+    margin-top:
+      22px;
   }
 
 
-  .contact-page-info__office-card p {
-    font-size: 0.68rem;
+  .contact-page-info__divider {
+    margin:
+      30px auto;
   }
 
 }
@@ -1045,7 +1093,8 @@ a.contact-page-info__value:hover {
   .contact-page-info__office-card,
   .contact-page-info__office-icon,
   .contact-page-info__card::before {
-    transition: none;
+    transition:
+      none;
   }
 
 }

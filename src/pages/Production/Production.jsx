@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useState,
 } from "react";
 
@@ -18,15 +19,15 @@ import dgateLogo
 
 
 /* =========================================================
-   GOOGLE SHEET API
+   GOOGLE APPS SCRIPT WEB APP URL
 ========================================================= */
 
 const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbwNZTIAtXSHMMQ5CtUnqmpG9MmQCTUWa0wc-MtLYM0U2QQzyi4u75_VX6sSlQsiDAxv5g/exec";
+  "https://script.google.com/macros/s/AKfycbzIgpv-unWwVP9xN48z5jnc_Uv-pmmkrZjlGnzfy4k-WfGbJ0zwJ2ESFLPaMho5NiPeow/exec";
 
 
 /* =========================================================
-   INITIAL FORM DATA
+   INITIAL FORM
 ========================================================= */
 
 const INITIAL_FORM_DATA = {
@@ -38,46 +39,46 @@ const INITIAL_FORM_DATA = {
 
 
 /* =========================================================
-   PRODUCTION PAGE
+   PRODUCTION
 ========================================================= */
 
 function Production() {
 
-  /* =========================================================
-     STATE
-  ========================================================= */
+  /* =======================================================
+     INTRO
+  ======================================================= */
 
-  const [
-    formData,
-    setFormData,
-  ] = useState(
-    INITIAL_FORM_DATA
-  );
+  const [showIntro, setShowIntro] =
+    useState(() => {
 
+      const introShown =
+        localStorage.getItem(
+          "dgateProductionIntroShown"
+        );
 
-  const [
-    errors,
-    setErrors,
-  ] = useState({});
+      return introShown !== "true";
 
-
-  const [
-    submitting,
-    setSubmitting,
-  ] = useState(false);
+    });
 
 
-  const [
-    submitError,
-    setSubmitError,
-  ] = useState("");
+  /* =======================================================
+     FORM
+  ======================================================= */
 
+  const [formData, setFormData] =
+    useState(INITIAL_FORM_DATA);
 
-  const [
-    submitted,
-    setSubmitted,
-  ] = useState(false);
+  const [errors, setErrors] =
+    useState({});
 
+  const [submitting, setSubmitting] =
+    useState(false);
+
+  const [submitError, setSubmitError] =
+    useState("");
+
+  const [submitted, setSubmitted] =
+    useState(false);
 
   const [
     submittedName,
@@ -85,13 +86,43 @@ function Production() {
   ] = useState("");
 
 
-  /* =========================================================
-     INPUT CHANGE
-  ========================================================= */
+  /* =======================================================
+     INTRO TIMER
+  ======================================================= */
 
-  const handleChange = (
-    event
-  ) => {
+  useEffect(() => {
+
+    if (!showIntro) {
+      return;
+    }
+
+    const timer =
+      window.setTimeout(() => {
+
+        localStorage.setItem(
+          "dgateProductionIntroShown",
+          "true"
+        );
+
+        setShowIntro(false);
+
+      }, 2500);
+
+
+    return () => {
+
+      window.clearTimeout(timer);
+
+    };
+
+  }, [showIntro]);
+
+
+  /* =======================================================
+     INPUT CHANGE
+  ======================================================= */
+
+  const handleChange = (event) => {
 
     const {
       name,
@@ -99,24 +130,16 @@ function Production() {
     } = event.target;
 
 
-    setFormData(
-      (previous) => ({
-        ...previous,
-
-        [name]:
-          value,
-      })
-    );
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
 
 
-    setErrors(
-      (previous) => ({
-        ...previous,
-
-        [name]:
-          "",
-      })
-    );
+    setErrors((previous) => ({
+      ...previous,
+      [name]: "",
+    }));
 
 
     setSubmitError("");
@@ -124,9 +147,9 @@ function Production() {
   };
 
 
-  /* =========================================================
+  /* =======================================================
      VALIDATION
-  ========================================================= */
+  ======================================================= */
 
   const validateForm = () => {
 
@@ -135,19 +158,13 @@ function Production() {
 
     /* NAME */
 
-    if (
-      !formData.name.trim()
-    ) {
+    if (!formData.name.trim()) {
 
       nextErrors.name =
         "Name is required";
 
-    }
-
-    else if (
-      formData.name
-        .trim()
-        .length < 2
+    } else if (
+      formData.name.trim().length < 2
     ) {
 
       nextErrors.name =
@@ -158,30 +175,24 @@ function Production() {
 
     /* PHONE */
 
-    if (
-      !formData.phone.trim()
-    ) {
+    if (!formData.phone.trim()) {
 
       nextErrors.phone =
         "Phone is required";
 
-    }
-
-    else {
+    } else {
 
       const cleanedPhone =
-        formData.phone
-          .replace(
-            /[\s\-()]/g,
-            ""
-          );
+        formData.phone.replace(
+          /[\s\-()]/g,
+          ""
+        );
 
 
       if (
-        !/^\+?[0-9]{8,15}$/
-          .test(
-            cleanedPhone
-          )
+        !/^\+?[0-9]{8,15}$/.test(
+          cleanedPhone
+        )
       ) {
 
         nextErrors.phone =
@@ -194,20 +205,15 @@ function Production() {
 
     /* EMAIL */
 
-    if (
-      !formData.email.trim()
-    ) {
+    if (!formData.email.trim()) {
 
       nextErrors.email =
         "Email is required";
 
-    }
-
-    else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        .test(
-          formData.email.trim()
-        )
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.email.trim()
+      )
     ) {
 
       nextErrors.email =
@@ -218,9 +224,7 @@ function Production() {
 
     /* COMPANY */
 
-    if (
-      !formData.company.trim()
-    ) {
+    if (!formData.company.trim()) {
 
       nextErrors.company =
         "Company is required";
@@ -228,23 +232,19 @@ function Production() {
     }
 
 
-    setErrors(
-      nextErrors
-    );
+    setErrors(nextErrors);
 
 
     return (
-      Object.keys(
-        nextErrors
-      ).length === 0
+      Object.keys(nextErrors).length === 0
     );
 
   };
 
 
-  /* =========================================================
-     LOCAL STORAGE BACKUP
-  ========================================================= */
+  /* =======================================================
+     LOCAL BACKUP
+  ======================================================= */
 
   const saveLocalBackup = (
     submittedData
@@ -254,8 +254,7 @@ function Production() {
 
       const newLead = {
 
-        id:
-          Date.now(),
+        id: Date.now(),
 
         name:
           submittedData.name,
@@ -270,8 +269,7 @@ function Production() {
           submittedData.company,
 
         createdAt:
-          new Date()
-            .toISOString(),
+          new Date().toISOString(),
 
       };
 
@@ -282,26 +280,19 @@ function Production() {
         );
 
 
-      let existingLeads =
-        [];
+      let existingLeads = [];
 
 
-      if (
-        savedData
-      ) {
+      if (savedData) {
 
         try {
 
           const parsedData =
-            JSON.parse(
-              savedData
-            );
+            JSON.parse(savedData);
 
 
           if (
-            Array.isArray(
-              parsedData
-            )
+            Array.isArray(parsedData)
           ) {
 
             existingLeads =
@@ -309,11 +300,7 @@ function Production() {
 
           }
 
-        }
-
-        catch (
-          error
-        ) {
+        } catch (error) {
 
           console.warn(
             "Unable to read local backup:",
@@ -336,11 +323,7 @@ function Production() {
 
       );
 
-    }
-
-    catch (
-      error
-    ) {
+    } catch (error) {
 
       console.warn(
         "Unable to save local backup:",
@@ -352,43 +335,33 @@ function Production() {
   };
 
 
-  /* =========================================================
+  /* =======================================================
      SUBMIT FORM
-  ========================================================= */
+  ======================================================= */
 
   const handleSubmit =
-    async (
-      event
-    ) => {
+    async (event) => {
 
       event.preventDefault();
 
 
-      if (
-        submitting
-      ) {
+      /* Prevent double submission */
 
+      if (submitting) {
         return;
-
       }
 
 
-      if (
-        !validateForm()
-      ) {
+      /* Validate */
 
+      if (!validateForm()) {
         return;
-
       }
 
 
-      /* =====================================================
-         INTERNET CHECK
-      ===================================================== */
+      /* Internet */
 
-      if (
-        !navigator.onLine
-      ) {
+      if (!navigator.onLine) {
 
         setSubmitError(
           "No internet connection. Please check your connection and try again."
@@ -401,29 +374,22 @@ function Production() {
 
       try {
 
-        setSubmitting(
-          true
-        );
+        setSubmitting(true);
+
+        setSubmitError("");
 
 
-        setSubmitError(
-          ""
-        );
-
-
-        /* ===================================================
-           CLEAN FORM DATA
-        =================================================== */
+        /* =================================================
+           CLEAN USER VALUES
+        ================================================= */
 
         const submittedData = {
 
           name:
-            formData.name
-              .trim(),
+            formData.name.trim(),
 
           phone:
-            formData.phone
-              .trim(),
+            formData.phone.trim(),
 
           email:
             formData.email
@@ -431,8 +397,7 @@ function Production() {
               .toLowerCase(),
 
           company:
-            formData.company
-              .trim(),
+            formData.company.trim(),
 
         };
 
@@ -441,54 +406,41 @@ function Production() {
           submittedData.name;
 
 
-        /* ===================================================
-           CREATE GOOGLE SHEET BODY
-        =================================================== */
+        /* =================================================
+           IMPORTANT:
+           SEND URLSearchParams DIRECTLY
+
+           Do NOT send body.toString()
+        ================================================= */
 
         const body =
           new URLSearchParams();
 
 
-        body.append(
+        body.set(
           "name",
           submittedData.name
         );
 
-
-        body.append(
+        body.set(
           "phone",
           submittedData.phone
         );
 
-
-        body.append(
+        body.set(
           "email",
           submittedData.email
         );
 
-
-        body.append(
+        body.set(
           "company",
           submittedData.company
         );
 
 
-        body.append(
-          "source",
-          window.location.hostname
-        );
-
-
-        body.append(
-          "submittedAt",
-          new Date()
-            .toISOString()
-        );
-
-
-        /* ===================================================
-           REQUEST TIMEOUT
-        =================================================== */
+        /* =================================================
+           GOOGLE APPS SCRIPT POST
+        ================================================= */
 
         const controller =
           new AbortController();
@@ -501,13 +453,9 @@ function Production() {
               controller.abort();
 
             },
-            15000
+            20000
           );
 
-
-        /* ===================================================
-           SEND TO GOOGLE SHEET
-        =================================================== */
 
         try {
 
@@ -515,21 +463,33 @@ function Production() {
             GOOGLE_SHEET_URL,
             {
 
-              method:
-                "POST",
+              method: "POST",
 
-              mode:
-                "no-cors",
+              /*
+               * Google Apps Script Web App.
+               *
+               * Keep no-cors because the Apps Script
+               * endpoint may redirect and browsers
+               * otherwise produce CORS errors.
+               */
+              mode: "no-cors",
 
-              headers: {
-
-                "Content-Type":
-                  "application/x-www-form-urlencoded;charset=UTF-8",
-
-              },
-
-              body:
-                body.toString(),
+              /*
+               * VERY IMPORTANT:
+               *
+               * Send URLSearchParams itself.
+               * Browser will send it as:
+               *
+               * application/x-www-form-urlencoded
+               *
+               * Apps Script can then read:
+               *
+               * e.parameter.name
+               * e.parameter.phone
+               * e.parameter.email
+               * e.parameter.company
+               */
+              body: body,
 
               signal:
                 controller.signal,
@@ -537,9 +497,7 @@ function Production() {
             }
           );
 
-        }
-
-        finally {
+        } finally {
 
           window.clearTimeout(
             timeoutId
@@ -548,51 +506,36 @@ function Production() {
         }
 
 
-        /* ===================================================
+        /* =================================================
            LOCAL BACKUP
-        =================================================== */
+        ================================================= */
 
         saveLocalBackup(
           submittedData
         );
 
 
-        /* ===================================================
-           STORE NAME
-        =================================================== */
+        /* =================================================
+           SUCCESS UI
+        ================================================= */
 
         setSubmittedName(
           currentName
         );
 
 
-        /* ===================================================
-           CLEAR FORM
-        =================================================== */
-
         setFormData(
           INITIAL_FORM_DATA
         );
 
 
-        setErrors(
-          {}
-        );
+        setErrors({});
 
 
-        /* ===================================================
-           SHOW THANK YOU
-        =================================================== */
+        setSubmitted(true);
 
-        setSubmitted(
-          true
-        );
 
-      }
-
-      catch (
-        error
-      ) {
+      } catch (error) {
 
         console.error(
           "Google Sheet submission error:",
@@ -609,9 +552,7 @@ function Production() {
             "Request took too long. Please try again."
           );
 
-        }
-
-        else {
+        } else {
 
           setSubmitError(
             "Unable to submit right now. Please try again."
@@ -619,87 +560,106 @@ function Production() {
 
         }
 
-      }
+      } finally {
 
-      finally {
-
-        setSubmitting(
-          false
-        );
+        setSubmitting(false);
 
       }
 
     };
 
 
-  /* =========================================================
+  /* =======================================================
      CANCEL
-  ========================================================= */
+  ======================================================= */
 
-  const handleCancel =
-    () => {
+  const handleCancel = () => {
 
-      setSubmitted(
-        false
-      );
+    setSubmitted(false);
 
+    setSubmittedName("");
 
-      setSubmittedName(
-        ""
-      );
+    setSubmitError("");
 
+    setErrors({});
 
-      setSubmitError(
-        ""
-      );
+    setFormData(
+      INITIAL_FORM_DATA
+    );
 
-
-      setErrors(
-        {}
-      );
+  };
 
 
-      setFormData(
-        INITIAL_FORM_DATA
-      );
+  /* =======================================================
+     INTRO PAGE
+  ======================================================= */
 
-    };
+  if (showIntro) {
+
+    return (
+
+      <main className="production-page">
+
+        <div className="production-intro">
+
+          <div
+            className="production-intro-logo"
+          >
+
+            <img
+              src={dgateLogo}
+              alt="D-GATE Integrated Services"
+            />
+
+          </div>
 
 
-  /* =========================================================
-     UI
-  ========================================================= */
+          <div
+            className="production-intro-line"
+          />
+
+
+          <p>
+            Something New Is Coming
+          </p>
+
+        </div>
+
+      </main>
+
+    );
+
+  }
+
+
+  /* =======================================================
+     MAIN PAGE
+  ======================================================= */
 
   return (
 
-    <main
-      className="production-page"
-    >
+    <main className="production-page">
 
-      <div
-        className="production-wrapper"
-      >
+      <div className="production-wrapper">
 
         <section
-          className={`production-card ${
-            submitted
-              ? "production-card--success"
-              : ""
-          }`}
+          className={
+            `production-card ${
+              submitted
+                ? "production-card--success"
+                : ""
+            }`
+          }
         >
 
-          {/* =================================================
-              LOGO
-          ================================================= */}
+          {/* LOGO */}
 
           <div
             className="production-logo-wrap"
           >
 
             <img
-              src={
-                dgateLogo
-              }
+              src={dgateLogo}
               alt="D-GATE Integrated Services"
               className="production-logo"
             />
@@ -708,7 +668,7 @@ function Production() {
 
 
           {/* =================================================
-              SUCCESS SCREEN
+              SUCCESS
           ================================================= */}
 
           {submitted ? (
@@ -720,9 +680,7 @@ function Production() {
               <div
                 className="production-success-icon"
               >
-
                 <FaCheck />
-
               </div>
 
 
@@ -740,23 +698,17 @@ function Production() {
               <p
                 className="production-success-message"
               >
-
                 Your details have been
                 submitted successfully.
-
               </p>
 
 
               <button
                 type="button"
                 className="production-cancel-button"
-                onClick={
-                  handleCancel
-                }
+                onClick={handleCancel}
               >
-
                 CANCEL
-
               </button>
 
             </div>
@@ -765,9 +717,9 @@ function Production() {
 
             <>
 
-              {/* =================================================
+              {/* =============================================
                   HEADING
-              ================================================= */}
+              ============================================= */}
 
               <div
                 className="production-heading"
@@ -781,10 +733,8 @@ function Production() {
                 <p
                   className="production-highlight"
                 >
-
                   Our website will be back soon —
                   better and ready for you.
-
                 </p>
 
 
@@ -795,15 +745,13 @@ function Production() {
               </div>
 
 
-              {/* =================================================
+              {/* =============================================
                   FORM
-              ================================================= */}
+              ============================================= */}
 
               <form
                 className="production-form"
-                onSubmit={
-                  handleSubmit
-                }
+                onSubmit={handleSubmit}
                 noValidate
               >
 
@@ -813,21 +761,19 @@ function Production() {
                   className="production-field"
                 >
 
-                  <label
-                    htmlFor="name"
-                  >
-
+                  <label htmlFor="name">
                     Name
-
                   </label>
 
 
                   <div
-                    className={`production-input ${
-                      errors.name
-                        ? "is-error"
-                        : ""
-                    }`}
+                    className={
+                      `production-input ${
+                        errors.name
+                          ? "is-error"
+                          : ""
+                      }`
+                    }
                   >
 
                     <FaUser />
@@ -838,16 +784,10 @@ function Production() {
                       name="name"
                       type="text"
                       placeholder="Enter your name"
-                      value={
-                        formData.name
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.name}
+                      onChange={handleChange}
                       autoComplete="name"
-                      disabled={
-                        submitting
-                      }
+                      disabled={submitting}
                     />
 
                   </div>
@@ -858,9 +798,7 @@ function Production() {
                     <small
                       className="production-error"
                     >
-
                       {errors.name}
-
                     </small>
 
                   )}
@@ -874,21 +812,19 @@ function Production() {
                   className="production-field"
                 >
 
-                  <label
-                    htmlFor="phone"
-                  >
-
+                  <label htmlFor="phone">
                     Phone
-
                   </label>
 
 
                   <div
-                    className={`production-input ${
-                      errors.phone
-                        ? "is-error"
-                        : ""
-                    }`}
+                    className={
+                      `production-input ${
+                        errors.phone
+                          ? "is-error"
+                          : ""
+                      }`
+                    }
                   >
 
                     <FaPhoneAlt />
@@ -899,17 +835,11 @@ function Production() {
                       name="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
-                      value={
-                        formData.phone
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.phone}
+                      onChange={handleChange}
                       autoComplete="tel"
                       inputMode="tel"
-                      disabled={
-                        submitting
-                      }
+                      disabled={submitting}
                     />
 
                   </div>
@@ -920,9 +850,7 @@ function Production() {
                     <small
                       className="production-error"
                     >
-
                       {errors.phone}
-
                     </small>
 
                   )}
@@ -936,21 +864,19 @@ function Production() {
                   className="production-field"
                 >
 
-                  <label
-                    htmlFor="email"
-                  >
-
+                  <label htmlFor="email">
                     Email
-
                   </label>
 
 
                   <div
-                    className={`production-input ${
-                      errors.email
-                        ? "is-error"
-                        : ""
-                    }`}
+                    className={
+                      `production-input ${
+                        errors.email
+                          ? "is-error"
+                          : ""
+                      }`
+                    }
                   >
 
                     <FaEnvelope />
@@ -961,17 +887,11 @@ function Production() {
                       name="email"
                       type="email"
                       placeholder="name@company.com"
-                      value={
-                        formData.email
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.email}
+                      onChange={handleChange}
                       autoComplete="email"
                       inputMode="email"
-                      disabled={
-                        submitting
-                      }
+                      disabled={submitting}
                     />
 
                   </div>
@@ -982,9 +902,7 @@ function Production() {
                     <small
                       className="production-error"
                     >
-
                       {errors.email}
-
                     </small>
 
                   )}
@@ -998,21 +916,19 @@ function Production() {
                   className="production-field"
                 >
 
-                  <label
-                    htmlFor="company"
-                  >
-
+                  <label htmlFor="company">
                     Company
-
                   </label>
 
 
                   <div
-                    className={`production-input ${
-                      errors.company
-                        ? "is-error"
-                        : ""
-                    }`}
+                    className={
+                      `production-input ${
+                        errors.company
+                          ? "is-error"
+                          : ""
+                      }`
+                    }
                   >
 
                     <FaBuilding />
@@ -1023,16 +939,10 @@ function Production() {
                       name="company"
                       type="text"
                       placeholder="Enter company name"
-                      value={
-                        formData.company
-                      }
-                      onChange={
-                        handleChange
-                      }
+                      value={formData.company}
+                      onChange={handleChange}
                       autoComplete="organization"
-                      disabled={
-                        submitting
-                      }
+                      disabled={submitting}
                     />
 
                   </div>
@@ -1043,9 +953,7 @@ function Production() {
                     <small
                       className="production-error"
                     >
-
                       {errors.company}
-
                     </small>
 
                   )}
@@ -1053,9 +961,7 @@ function Production() {
                 </div>
 
 
-                {/* =================================================
-                    ERROR
-                ================================================= */}
+                {/* ERROR */}
 
                 {submitError && (
 
@@ -1063,24 +969,18 @@ function Production() {
                     className="production-submit-error"
                     role="alert"
                   >
-
                     {submitError}
-
                   </div>
 
                 )}
 
 
-                {/* =================================================
-                    SUBMIT BUTTON
-                ================================================= */}
+                {/* BUTTON */}
 
                 <button
                   type="submit"
                   className="production-submit"
-                  disabled={
-                    submitting
-                  }
+                  disabled={submitting}
                 >
 
                   {submitting
@@ -1089,28 +989,17 @@ function Production() {
 
 
                   {!submitting && (
-
                     <FaArrowRight />
-
                   )}
 
                 </button>
 
 
-                {/* =================================================
-                    BOTTOM MESSAGE
-                ================================================= */}
-
                 <p
                   className="production-final-message"
                 >
-
-                  We&apos;ll let you know as soon
-                  as we&apos;re live.
-
-
-
-
+                  We&apos;ll let you know
+                  as soon as we&apos;re live.
                 </p>
 
               </form>
@@ -1128,5 +1017,6 @@ function Production() {
   );
 
 }
+
 
 export default Production;

@@ -1,128 +1,479 @@
-.about-trusted {
+/* =========================================================
+   ABOUT - LEADERSHIP & GLOBAL PRESENCE
+   Works with the current JSX (no wrapper needed)
+
+   Spacing:
+   - heading -> cards   : 18px
+   - cards   -> button  : 32px
+   - button  -> box end : 40px
+========================================================= */
+
+/* ---------- Section ---------- */
+.about-leadership {
   width: 100%;
-
-  padding:
-    25px
-    0
-    72px;
-
-  background: var(--white);
+  margin: 0;
+  padding: 56px 40px;
+  box-sizing: border-box;
+  background: var(--white, #ffffff);
 }
 
+.about-leadership > .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.about-trusted__box {
+/* ---------- Two main boxes ---------- */
+.about-leadership__layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.about-leadership__section {
+  width: 100%;
+  min-width: 0;
+  height: auto;
   display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 40px;
-
-  padding:
-    35px
-    42px;
-
-  border-radius: var(--radius-md);
-
-  background: var(--primary);
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 26px 26px 40px;
+  border: 1px solid var(--border, rgba(17, 17, 17, 0.1));
+  border-radius: 14px;
+  background: var(--white, #ffffff);
+  box-sizing: border-box;
+  overflow: visible;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
 }
 
+.about-leadership__section > * {
+  flex-shrink: 0;
+}
 
-.about-trusted__main {
+/* ---------- Heading ---------- */
+.about-leadership__heading {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-leadership__heading h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--black, #101010);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.about-leadership__line {
+  width: 54px;
+  height: 3px;
+  margin: 0 0 12px;
+  border-radius: 999px;
+  background: var(--primary, #fdb913);
+}
+
+.about-leadership__heading p {
+  margin: 0;
+  padding: 0;
+  color: var(--text, #626262);
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ---------- Leaders grid ---------- */
+.about-leadership .about-leadership__section .about-leadership__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  align-items: stretch;
+  align-content: start;
+  gap: 12px;
+  margin: 18px 0 0 !important;
+  padding: 0;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible;
+}
+
+/* ---------- Leader card ---------- */
+.about-leadership__card {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 14px 8px;
+  border: 1px solid var(--border, rgba(17, 17, 17, 0.1));
+  border-radius: 12px;
+  background: var(--white, #ffffff);
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.035);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.about-leadership__photo {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
   display: flex;
   align-items: center;
-
-  gap: 25px;
+  justify-content: center;
+  margin: 0 auto 10px;
+  padding: 0;
+  border: 3px solid var(--primary, #fdb913);
+  border-radius: 50%;
+  background: var(--gray, #f5f5f5);
+  color: var(--black, #101010);
+  font-size: 1.3rem;
+  box-sizing: border-box;
 }
 
-
-.about-trusted__main > strong {
-  color: var(--black);
-
-  font-size: 4.1rem;
-  font-weight: 800;
-
-  line-height: 1;
-}
-
-
-.about-trusted__main span {
-  color: var(--black);
-
-  font-size: 0.67rem;
-  font-weight: 800;
-
-  letter-spacing: 1.5px;
-}
-
-
-.about-trusted__main h2 {
-  margin:
-    5px
-    0
-    0;
-
-  color: var(--black);
-
-  font-size: 1.45rem;
-
+.about-leadership__card h3 {
+  width: 100%;
+  margin: 0 0 4px;
+  padding: 0;
+  color: var(--black, #101010);
+  font-size: 0.8rem;
+  font-weight: 750;
   line-height: 1.3;
+  text-align: center;
 }
 
-
-.about-trusted__points {
-  display: flex;
-
-  gap: 20px;
-
-  flex-wrap: wrap;
-
-  justify-content: flex-end;
+.about-leadership__role {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  color: var(--text, #626262);
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
 }
 
-
-.about-trusted__points span {
-  display: flex;
+.about-leadership__linkedin {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  display: inline-flex;
   align-items: center;
-
-  gap: 7px;
-
-  color: var(--black);
-
-  font-size: 0.72rem;
-  font-weight: 700;
+  justify-content: center;
+  margin: 8px auto 0;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--primary, #fdb913);
+  color: var(--black, #101010);
+  text-decoration: none;
+  transition: transform 0.22s ease, background-color 0.22s ease,
+    color 0.22s ease;
 }
 
+/* =========================================================
+   MEET THE TEAM BUTTON
+   Direct child of .about-leadership__section, after the grid.
+   margin-top = space under the cards
+   section padding-bottom = space under the button
+========================================================= */
+.about-leadership .about-leadership__section > .about-leadership__button {
+  position: static !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  translate: none !important;
+  transform: none !important;
+  z-index: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 0 0 auto;
+  width: fit-content;
+  min-width: 150px;
+  min-height: 42px;
+  margin: 32px auto 0 !important;
+  padding: 0 22px;
+  border: 1px solid var(--primary, #fdb913);
+  border-radius: 999px;
+  outline: none;
+  background: var(--primary, #fdb913);
+  color: var(--black, #101010);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.22s ease, border-color 0.22s ease,
+    color 0.22s ease;
+}
+
+/* ---------- Global map ---------- */
+.about-leadership__map {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 14px 0 0;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.about-leadership__map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ---------- Map pins ---------- */
+.about-leadership__pin {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: var(--white, #ffffff);
+  color: var(--black, #101010);
+  font-size: 0.62rem;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.13);
+}
+
+.about-leadership__pin svg {
+  flex: 0 0 auto;
+  color: var(--primary, #fdb913);
+  font-size: 0.72rem;
+}
+
+.about-leadership__pin--north-america { top: 16%; left: 4%; }
+.about-leadership__pin--south-america { top: 68%; left: 19%; }
+.about-leadership__pin--europe        { top: 14%; left: 54%; }
+.about-leadership__pin--middle-east   { top: 44%; left: 52%; }
+.about-leadership__pin--india         { top: 54%; left: 68%; }
+.about-leadership__pin--asia          { top: 70%; right: 0; }
+
+/* ---------- Hover ---------- */
+@media (hover: hover) {
+  .about-leadership__card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(253, 185, 19, 0.5);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+  }
+
+  .about-leadership__linkedin:hover {
+    transform: translateY(-2px);
+    background: var(--black, #101010);
+    color: var(--primary, #fdb913);
+  }
+
+  .about-leadership .about-leadership__section > .about-leadership__button:hover {
+    border-color: var(--black, #101010);
+    background: var(--black, #101010);
+    color: var(--primary, #fdb913);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+  .about-leadership {
+    padding: 52px 32px;
+  }
+
+  .about-leadership__layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .about-leadership__section {
+    padding: 24px 22px 38px;
+  }
+
+  .about-leadership .about-leadership__section .about-leadership__grid {
+    gap: 10px;
+    margin-top: 16px !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .about-leadership__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-leadership__map {
+    max-width: 620px;
+    margin: 18px auto 0;
+  }
+}
 
 @media (max-width: 900px) {
-
-  .about-trusted__box {
-    flex-direction: column;
-
-    align-items: flex-start;
+  .about-leadership {
+    padding: 48px 24px;
   }
-
-
-  .about-trusted__points {
-    justify-content: flex-start;
-  }
-
 }
 
-
-@media (max-width: 500px) {
-
-  .about-trusted__main {
-    flex-direction: column;
-
-    align-items: flex-start;
+@media (max-width: 768px) {
+  .about-leadership__section {
+    padding: 22px 20px 34px;
   }
 
-
-  .about-trusted__box {
-    padding:
-      28px
-      23px;
+  .about-leadership__heading h2 {
+    font-size: 1.45rem;
   }
 
+  .about-leadership .about-leadership__section .about-leadership__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px !important;
+  }
+
+  .about-leadership__card {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-leadership {
+    padding: 44px 18px;
+  }
+
+  .about-leadership__layout {
+    gap: 18px;
+  }
+
+  .about-leadership__section {
+    padding: 20px 16px 30px;
+  }
+
+  .about-leadership__heading h2 {
+    font-size: 1.3rem;
+  }
+
+  .about-leadership__heading p {
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .about-leadership .about-leadership__section .about-leadership__grid {
+    gap: 10px;
+    margin-top: 16px !important;
+  }
+
+  .about-leadership__card {
+    min-height: 130px;
+    padding: 12px 8px;
+  }
+
+  .about-leadership__photo {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+  }
+
+  .about-leadership__card h3 {
+    font-size: 0.74rem;
+  }
+
+  .about-leadership__role {
+    font-size: 0.66rem;
+  }
+
+  .about-leadership .about-leadership__section > .about-leadership__button {
+    min-width: 140px;
+    min-height: 40px;
+    margin-top: 26px !important;
+    padding: 0 18px;
+    font-size: 0.67rem;
+  }
+
+  .about-leadership__map {
+    max-width: 350px;
+    margin: 12px auto 0;
+  }
+
+  .about-leadership__pin {
+    width: 27px;
+    height: 27px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .about-leadership__pin span {
+    display: none;
+  }
+
+  .about-leadership__pin--north-america { top: 18%; left: 13%; }
+  .about-leadership__pin--south-america { top: 65%; left: 30%; }
+  .about-leadership__pin--europe        { top: 18%; left: 55%; }
+  .about-leadership__pin--middle-east   { top: 42%; left: 57%; }
+  .about-leadership__pin--india         { top: 51%; left: 67%; }
+  .about-leadership__pin--asia          { top: 67%; right: 8%; }
+}
+
+@media (max-width: 430px) {
+  .about-leadership .about-leadership__section .about-leadership__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about-leadership__card {
+    min-height: auto;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-leadership {
+    padding: 40px 16px;
+  }
+
+  .about-leadership__section {
+    padding: 18px 14px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-leadership__card,
+  .about-leadership__button,
+  .about-leadership__linkedin {
+    transition: none;
+  }
 }

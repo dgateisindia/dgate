@@ -1,5 +1,31 @@
 /* =========================================================
    SUCCESS STORY DETAILS
+   DGATE ABOUT-PAGE ALIGNMENT SYSTEM
+
+   CONTENT
+   ---------------------------------------------------------
+   Desktop content : 1200px
+
+   PAGE GUTTERS
+   ---------------------------------------------------------
+   Desktop         : 40px
+   Laptop          : 32px
+   Tablet          : 24px
+   Mobile          : 18px
+   Small mobile    : 16px
+
+   SECTION SPACING
+   ---------------------------------------------------------
+   Desktop         : 88px
+   Laptop          : 72px
+   Tablet          : 64px
+   Mobile          : 52px
+   Small mobile    : 44px
+========================================================= */
+
+
+/* =========================================================
+   ROOT
 ========================================================= */
 
 .case-study {
@@ -9,10 +35,33 @@
   --case-border: #e7e7e7;
   --case-light: #f5f5f5;
 
+  --case-content-max: 1200px;
+  --case-container-max: 1280px;
+
+  --case-edge: 40px;
+
+  --case-gap: 24px;
+
+  --case-col-gap:
+    clamp(
+      44px,
+      5vw,
+      64px
+    );
+
+  --case-space-sm: 32px;
+  --case-space-md: 56px;
+  --case-space-lg: 88px;
+
   width: 100%;
-  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
 
   background: #ffffff;
+
   color: var(--case-black);
 
   font-family:
@@ -22,16 +71,38 @@
 }
 
 
+.case-study,
+.case-study *,
+.case-study *::before,
+.case-study *::after {
+  box-sizing: border-box;
+}
+
+
 /* =========================================================
-   CONTAINERS
+   MASTER CONTAINERS
+
+   Same alignment logic as About / Home:
+   1200px actual content
+   + 40px gutter each side
+   = 1280px maximum wrapper
 ========================================================= */
 
 .case-study__container,
 .case-study__content-container {
-  width: min(calc(100% - 64px), 1115px);
+  width: 100%;
+
+  max-width:
+    var(--case-container-max);
 
   margin-left: auto;
   margin-right: auto;
+
+  padding-left:
+    var(--case-edge);
+
+  padding-right:
+    var(--case-edge);
 }
 
 
@@ -47,62 +118,76 @@
 
 
 /* =========================================================
+   IMAGE LINK
+========================================================= */
+
+.case-study__image-anchor {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
    INTRO / HERO
 ========================================================= */
 
 .case-study__intro {
   position: relative;
 
+  width: 100%;
+
   min-height: 470px;
 
   display: flex;
-
   align-items: center;
 
   overflow: hidden;
 
   background: #ffffff;
 
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
+  border-top:
+    1px solid #eeeeee;
+
+  border-bottom:
+    1px solid #eeeeee;
 }
 
-
-/* =========================================================
-   INTRO GRID
-========================================================= */
 
 .case-study__intro-grid {
   position: relative;
 
   z-index: 2;
 
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.45fr)
+    minmax(0, 1.35fr)
     minmax(330px, 0.8fr);
 
   align-items: center;
 
-  gap: 80px;
+  gap:
+    var(--case-col-gap);
 }
 
-
-/* =========================================================
-   INTRO HEADING
-========================================================= */
 
 .case-study__intro-heading {
   position: relative;
 
+  min-width: 0;
+
   min-height: 290px;
 
   display: flex;
-
   align-items: flex-start;
 
-  padding-top: 25px;
+  padding-top: 24px;
 }
 
 
@@ -111,24 +196,35 @@
 
   z-index: 3;
 
+  width: 100%;
+
   max-width: 720px;
 
   margin: 0;
 
+  padding: 0;
+
   color: #050505;
 
-  font-size: clamp(54px, 5.2vw, 72px);
+  font-size:
+    clamp(
+      52px,
+      5vw,
+      72px
+    );
 
   font-weight: 700;
 
   line-height: 1.08;
 
   letter-spacing: -2.8px;
+
+  text-wrap: balance;
 }
 
 
 /* =========================================================
-   HERO SUN SHAPE
+   INTRO DECORATION
 ========================================================= */
 
 .case-study__sun {
@@ -155,10 +251,6 @@
 }
 
 
-/* =========================================================
-   LARGE BACKGROUND SHAPE
-========================================================= */
-
 .case-study__shape {
   position: absolute;
 
@@ -172,7 +264,8 @@
 
   opacity: 0.045;
 
-  transform: rotate(45deg);
+  transform:
+    rotate(45deg);
 
   background:
     linear-gradient(
@@ -188,13 +281,17 @@
 
 
 /* =========================================================
-   HERO DESCRIPTION
+   INTRO DESCRIPTION
 ========================================================= */
 
 .case-study__intro-description {
+  width: 100%;
+
   max-width: 450px;
 
-  margin: 65px 0 0;
+  margin: 52px 0 0;
+
+  padding: 0;
 
   color: #3f3f3f;
 
@@ -202,50 +299,7 @@
 
   font-weight: 500;
 
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   DECORATIVE CURVED ARROW
-========================================================= 
-
-.case-study__intro-heading::after {
-  content: "↘";
-
-  position: absolute;
-
-  z-index: 4;
-
-  right: 30px;
-  bottom: 0;
-
-  color: #292929;
-
-  font-family:
-    Georgia,
-    serif;
-
-  font-size: 72px;
-
-  font-weight: 300;
-
-  line-height: 1;
-
-  transform: rotate(18deg);
-}    */
-
-
-/* =========================================================
-   BREADCRUMB SECTION
-========================================================= */
-
-.case-study__breadcrumb-section {
-  width: 100%;
-
-  background: #ffffff;
-
-  border-bottom: 1px solid #eeeeee;
+  line-height: 1.6;
 }
 
 
@@ -253,16 +307,32 @@
    BREADCRUMB
 ========================================================= */
 
+.case-study__breadcrumb-section {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-bottom:
+    1px solid #eeeeee;
+}
+
+
 .case-study__breadcrumb {
-  min-height: 74px;
+  width: 100%;
+
+  min-height: 68px;
 
   display: flex;
 
   align-items: center;
 
+  flex-wrap: wrap;
+
   gap: 10px;
 
-  font-size: 16px;
+  margin: 0;
+
+  font-size: 15px;
 }
 
 
@@ -271,7 +341,8 @@
 
   text-decoration: none;
 
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease;
 }
 
 
@@ -281,9 +352,9 @@
 
 
 .case-study__breadcrumb span {
-  color: #666666;
+  color: #888888;
 
-  font-size: 8px;
+  font-size: 7px;
 }
 
 
@@ -295,7 +366,7 @@
 
 
 /* =========================================================
-   HERO VISUAL SECTION
+   HERO VISUAL
 ========================================================= */
 
 .case-study__visual-section {
@@ -309,15 +380,18 @@
 }
 
 
-/* =========================================================
-   HERO VISUAL
-========================================================= */
-
 .case-study__visual {
   width: 100%;
+
   height: 620px;
 
   overflow: hidden;
+}
+
+
+.case-study__visual .case-study__image-anchor {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -340,28 +414,47 @@
 
   z-index: 5;
 
-  right: max(
-    32px,
-    calc((100vw - 1115px) / 2)
+  right:
+    max(
+      var(--case-edge),
+      calc(
+        (
+          100% -
+          var(--case-content-max)
+        ) / 2
+      )
+    );
+
+  bottom: 0;
+
+  width: min(
+    450px,
+    calc(
+      100% -
+      (
+        var(--case-edge) *
+        2
+      )
+    )
   );
 
-  bottom: -1px;
+  min-height: 330px;
 
-  width: 450px;
+  padding:
+    40px;
 
-  min-height: 335px;
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
 
-  padding: 42px 40px;
-
-  background: #ffffffEB;
-
-  border: 1px solid #e5e5e5;
+  border:
+    1px solid #e5e5e5;
 }
 
-
-/* =========================================================
-   PROJECT INFORMATION
-========================================================= */
 
 .case-study__info-card dl {
   display: flex;
@@ -380,10 +473,12 @@
   display: grid;
 
   grid-template-columns:
-    150px
+    140px
     minmax(0, 1fr);
 
-  gap: 30px;
+  align-items: start;
+
+  gap: 24px;
 }
 
 
@@ -393,24 +488,27 @@
 
   color: #111111;
 
-  font-size: 17px;
+  font-size: 16px;
 
-  line-height: 1.45;
+  font-weight: 500;
+
+  line-height: 1.5;
 }
 
 
 .case-study__info-card dt {
-  font-weight: 500;
+  color: #666666;
 }
 
 
 .case-study__info-card dd {
-  font-weight: 500;
+  overflow-wrap:
+    anywhere;
 }
 
 
 /* =========================================================
-   VIEW PROJECT BUTTON
+   PROJECT INFO BUTTON
 ========================================================= */
 
 .case-study__info-button {
@@ -423,69 +521,102 @@
 ========================================================= */
 
 .case-study__story {
+  width: 100%;
+
+  margin: 0;
+
   padding:
-    0
-    0
-    35px;
+    0 0
+    var(--case-space-lg);
 
   background: #ffffff;
 }
 
 
 /* =========================================================
-   MAIN SECTION HEADING
+   COMMON SECTION HEADING
 ========================================================= */
 
 .case-study__heading {
+  width: 100%;
+
   margin: 0;
 
   padding:
-    82px
+    var(--case-space-lg)
     0
-    25px;
+    24px;
 
   color: #050505;
 
-  font-size: clamp(46px, 4.4vw, 60px);
+  font-size:
+    clamp(
+      42px,
+      4vw,
+      58px
+    );
 
   font-weight: 400;
 
-  line-height: 1;
+  line-height: 1.06;
 
-  letter-spacing: -2px;
+  letter-spacing: -1.8px;
 
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom:
+    1px solid #e5e5e5;
 }
 
 
 /* =========================================================
-   SETTING THE STAGE GRID
+   TWO COLUMN GRIDS
 ========================================================= */
 
-.case-study__stage-grid {
+.case-study__stage-grid,
+.case-study__approach-grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
-  gap: 90px;
+  align-items: start;
 
+  gap:
+    var(--case-col-gap);
+}
+
+
+.case-study__stage-grid {
   padding:
-    65px
-    0
-    45px;
+    var(--case-space-md)
+    0;
+}
+
+
+.case-study__approach-grid {
+  padding:
+    0;
 }
 
 
 /* =========================================================
-   STORY TEXT
+   STAGE COPY
 ========================================================= */
 
+.case-study__stage-grid > div {
+  min-width: 0;
+}
+
+
 .case-study__stage-grid p {
+  max-width: 100%;
+
   margin:
-    0
-    0
-    22px;
+    0 0 20px;
 
   color: #636363;
 
@@ -493,65 +624,27 @@
 
   font-weight: 400;
 
-  line-height: 1.6;
+  line-height: 1.68;
 }
 
 
-.case-study__stage-grid h3 {
-  margin:
-    0
-    0
-    26px;
-
-  color: #080808;
-
-  font-size: 25px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
+.case-study__stage-grid p:last-child {
+  margin-bottom: 0;
 }
 
 
-/* =========================================================
-   APPROACH GRID
-========================================================= */
-
-.case-study__approach-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(400px, 1fr);
-
-  align-items: start;
-
-  gap: 75px;
-
-  padding:
-    0
-    0
-    40px;
-}
-
-
-/* =========================================================
-   APPROACH TITLE
-========================================================= */
-
+.case-study__stage-grid h3,
 .case-study__approach-grid h3 {
   margin:
-    0
-    0
-    28px;
+    0 0 22px;
 
   color: #080808;
 
-  font-size: 25px;
+  font-size: 24px;
 
   font-weight: 700;
 
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 
@@ -560,19 +653,19 @@
 ========================================================= */
 
 .case-study__approach-list {
+  width: 100%;
+
   display: flex;
 
   flex-direction: column;
 
-  gap: 14px;
+  gap: 16px;
 }
 
 
-/* =========================================================
-   APPROACH ITEM
-========================================================= */
-
 .case-study__approach-item {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
@@ -581,16 +674,16 @@
 
   align-items: flex-start;
 
-  gap: 10px;
+  gap: 12px;
 }
 
 
 .case-study__approach-item > svg {
-  margin-top: 4px;
+  margin-top: 5px;
 
   color: #666666;
 
-  font-size: 18px;
+  font-size: 17px;
 }
 
 
@@ -603,7 +696,7 @@
 
   font-weight: 400;
 
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
 
@@ -621,15 +714,13 @@
 .case-study__brand-assets {
   width: 100%;
 
-  padding-top: 10px;
+  min-width: 0;
 }
 
 
-/* =========================================================
-   BRAND ASSET TITLE
-========================================================= */
-
 .case-study__asset-title {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
@@ -638,7 +729,8 @@
 
   gap: 14px;
 
-  margin-bottom: 10px;
+  margin:
+    0 0 14px;
 
   color: #37674a;
 
@@ -659,20 +751,20 @@
 }
 
 
-/* =========================================================
-   ASSET BOX
-========================================================= */
-
 .case-study__asset-box {
   position: relative;
 
+  width: 100%;
+
   min-height: 310px;
 
-  display: flex;
+  display: grid;
 
-  align-items: center;
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(190px, 0.7fr);
 
-  justify-content: center;
+  align-items: stretch;
 
   overflow: hidden;
 
@@ -680,8 +772,26 @@
 }
 
 
-.case-study__asset-box > img {
-  width: 58%;
+.case-study__asset-box
+> .case-study__image-anchor {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+}
+
+
+.case-study__asset-box
+> .case-study__image-anchor
+> img {
+  width: 100%;
+
+  max-width: 330px;
 
   max-height: 260px;
 
@@ -696,7 +806,9 @@
 ========================================================= */
 
 .case-study__asset-info {
-  width: 42%;
+  width: 100%;
+
+  min-width: 0;
 
   min-height: 260px;
 
@@ -706,11 +818,12 @@
 
   justify-content: center;
 
-  gap: 14px;
+  align-items: flex-start;
+
+  gap: 12px;
 
   padding:
-    25px
-    20px;
+    26px 22px;
 
   color: #37674a;
 }
@@ -739,42 +852,84 @@
 
 
 /* =========================================================
-   BRAND COLOUR DOTS
+   PROJECT LOGO
 ========================================================= */
 
-.case-study__asset-info > div {
+.case-study__project-logo {
+  width: 100%;
+
+  max-width: 145px;
+
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+}
+
+
+.case-study__project-logo img {
+  width: auto;
+
+  max-width: 100%;
+
+  max-height: 54px;
+
+  object-fit: contain;
+
+  object-position:
+    left center;
+}
+
+
+/* =========================================================
+   ASSET COLORS
+========================================================= */
+
+.case-study__asset-colors {
   display: flex;
 
   align-items: center;
 
   gap: 8px;
 
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 
+.case-study__asset-colors i,
 .case-study__asset-info i {
   width: 20px;
   height: 20px;
 
   display: block;
 
+  flex: 0 0 20px;
+
   border-radius: 50%;
 }
 
 
+.case-study__asset-colors i:nth-child(1),
 .case-study__asset-info i:nth-child(1) {
   background: #2d683b;
 }
 
 
+.case-study__asset-colors i:nth-child(2),
 .case-study__asset-info i:nth-child(2) {
   background: #76a76b;
 }
 
 
+.case-study__asset-colors i:nth-child(3),
 .case-study__asset-info i:nth-child(3) {
   background: #efefdf;
+
+  border:
+    1px solid #ddddcf;
 }
 
 
@@ -783,39 +938,42 @@
 ========================================================= */
 
 .case-study__outcome {
+  width: 100%;
+
+  margin: 0;
+
   padding:
-    0
-    0
-    70px;
+    0 0
+    var(--case-space-lg);
 
   background: #ffffff;
 }
 
 
-/* =========================================================
-   OUTCOME GRID
-========================================================= */
-
 .case-study__outcome-grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.3fr)
-    minmax(0, 1.7fr);
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
 
   align-items: center;
 
-  gap: 50px;
+  gap:
+    var(--case-col-gap);
 
   padding:
-    70px
-    0
-    65px;
+    var(--case-space-md)
+    0;
 }
 
 
 .case-study__outcome-grid > p {
-  max-width: 460px;
+  width: 100%;
+
+  max-width: 500px;
 
   margin: 0;
 
@@ -823,7 +981,7 @@
 
   font-size: 17px;
 
-  line-height: 1.58;
+  line-height: 1.68;
 }
 
 
@@ -832,61 +990,63 @@
 ========================================================= */
 
 .case-study__metrics {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
-  gap: 22px;
+  gap:
+    var(--case-gap);
 }
 
 
-/* =========================================================
-   METRIC
-========================================================= */
-
 .case-study__metric {
-  min-height: 145px;
+  min-width: 0;
+
+  min-height: 140px;
 
   display: flex;
+
+  flex-direction: column;
 
   align-items: flex-start;
 
   justify-content: center;
 
-  flex-direction: column;
+  gap: 5px;
 
   padding:
-    22px
-    38px;
+    24px 32px;
 
-  border: 1px solid #e5e5e5;
+  border:
+    1px solid #e5e5e5;
 
-  border-radius: 75px;
+  border-radius: 70px;
 
   background: #ffffff;
 }
 
 
 .case-study__metric strong {
-  display: inline;
-
-  margin-right: 5px;
-
   color: #050505;
 
-  font-size: 26px;
+  font-size: 25px;
 
   font-weight: 700;
 
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 
 .case-study__metric span {
   color: #292929;
 
-  font-size: 25px;
+  font-size: 21px;
 
   font-weight: 400;
 
@@ -899,26 +1059,40 @@
 ========================================================= */
 
 .case-study__gallery {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
-  gap: 24px;
-
-  margin-bottom: 30px;
+  gap:
+    var(--case-gap);
 }
 
 
 .case-study__gallery > div {
+  width: 100%;
+
   height: 370px;
 
   overflow: hidden;
 
-  background: var(
-    --case-background,
-    #f4f4f4
-  );
+  background:
+    var(
+      --case-background,
+      #f4f4f4
+    );
+}
+
+
+.case-study__gallery
+.case-study__image-anchor {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -937,44 +1111,41 @@
 ========================================================= */
 
 .case-study__navigation-section {
+  width: 100%;
+
+  margin: 0;
+
   padding:
-    25px
-    0
-    70px;
+    0 0
+    var(--case-space-lg);
 
   background: #ffffff;
 }
 
 
-/* =========================================================
-   PREVIOUS / NEXT BOX
-========================================================= */
-
 .case-study__navigation {
-  min-height: 205px;
+  width: 100%;
+
+  min-height: 190px;
 
   display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
-    100px
+    90px
     minmax(0, 1fr);
 
   align-items: center;
 
-  gap: 20px;
+  gap: 24px;
 
   padding:
-    30px
-    40px;
+    28px 32px;
 
-  border: 1px solid #e4e4e4;
+  border:
+    1px solid #e4e4e4;
 }
 
-
-/* =========================================================
-   PROJECT LINK
-========================================================= */
 
 .case-study__navigation-project {
   min-width: 0;
@@ -983,7 +1154,7 @@
 
   align-items: center;
 
-  gap: 30px;
+  gap: 24px;
 
   color: #050505;
 
@@ -992,10 +1163,11 @@
 
 
 .case-study__navigation-project > img {
-  width: 100px;
-  height: 70px;
+  width: 96px;
 
-  flex: 0 0 auto;
+  height: 68px;
+
+  flex: 0 0 96px;
 
   object-fit: contain;
 }
@@ -1011,9 +1183,9 @@
 
   margin-bottom: 8px;
 
-  color: #333333;
+  color: #555555;
 
-  font-size: 15px;
+  font-size: 14px;
 
   font-weight: 400;
 }
@@ -1026,30 +1198,26 @@
 
   color: #050505;
 
-  font-size: 25px;
+  font-size: 23px;
 
-  font-weight: 500;
+  font-weight: 600;
 
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 
 .case-study__navigation-project small {
   display: block;
 
-  color: #050505;
+  color: #333333;
 
-  font-size: 20px;
+  font-size: 17px;
 
   font-weight: 500;
 
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
-
-/* =========================================================
-   NEXT PROJECT
-========================================================= */
 
 .case-study__navigation-project--next {
   justify-content: flex-end;
@@ -1068,13 +1236,17 @@
   display: grid;
 
   grid-template-columns:
-    repeat(3, 9px);
+    repeat(
+      3,
+      9px
+    );
 
   justify-content: center;
 
   gap: 6px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 }
 
 
@@ -1099,15 +1271,11 @@
 
   width: 100%;
 
-  height: 635px;
+  height: 620px;
 
   overflow: hidden;
 }
 
-
-/* =========================================================
-   LARGE SHOWCASE INNER
-========================================================= */
 
 .case-study__large-showcase-inner {
   width: 100%;
@@ -1118,6 +1286,13 @@
   align-items: center;
 
   justify-content: center;
+}
+
+
+.case-study__large-showcase-inner
+.case-study__image-anchor {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -1132,32 +1307,33 @@
 
 
 /* =========================================================
-   FAQ SECTION
+   FAQ
 ========================================================= */
 
 .case-study__faq {
+  width: 100%;
+
   padding:
-    95px
-    0
-    105px;
+    var(--case-space-lg)
+    0;
 
   background: #ffffff;
 }
 
 
-/* =========================================================
-   FAQ CONTAINER
-========================================================= */
-
 .case-study__faq-container {
-  width: min(
-    calc(100% - 40px),
-    740px
-  );
+  width: 100%;
+
+  max-width: 780px;
 
   margin:
-    0
-    auto;
+    0 auto;
+
+  padding-left:
+    var(--case-edge);
+
+  padding-right:
+    var(--case-edge);
 }
 
 
@@ -1175,29 +1351,28 @@
   gap: 8px;
 
   margin:
-    0
-    auto
-    25px;
+    0 auto 22px;
 
   padding:
-    9px
-    17px;
+    9px 17px;
 
-  border: 1px solid #e4e4e4;
+  border:
+    1px solid #e4e4e4;
 
   border-radius: 30px;
 
   color: #111111;
 
-  font-size: 15px;
+  font-size: 14px;
 
   font-weight: 600;
 }
 
 
 .case-study__faq-badge span {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+
+  height: 9px;
 
   border-radius: 50%;
 
@@ -1209,88 +1384,95 @@
    FAQ HEADING
 ========================================================= */
 
-.case-study__faq > .case-study__faq-container > h2 {
+.case-study__faq
+> .case-study__faq-container
+> h2 {
+  max-width: 700px;
+
   margin:
-    0
-    0
-    45px;
+    0 auto
+    48px;
 
   color: #050505;
 
   text-align: center;
 
-  font-size: clamp(48px, 5vw, 64px);
+  font-size:
+    clamp(
+      42px,
+      4.6vw,
+      60px
+    );
 
   font-weight: 700;
 
-  line-height: 1.04;
+  line-height: 1.08;
 
-  letter-spacing: -2px;
+  letter-spacing: -1.8px;
+
+  text-wrap: balance;
 }
 
 
 /* =========================================================
-   ACCORDION
+   FAQ ACCORDION
 ========================================================= */
 
 .case-study__accordion {
+  width: 100%;
+
   display: flex;
 
   flex-direction: column;
 
-  gap: 24px;
+  gap: 16px;
 }
 
-
-/* =========================================================
-   FAQ ITEM
-========================================================= */
 
 .case-study__faq-item {
   width: 100%;
 
   overflow: hidden;
 
-  border: 1px solid #e7e7e7;
+  border:
+    1px solid #e7e7e7;
 
   background: #ffffff;
 
   transition:
-    background-color 0.25s ease;
+    background-color
+    0.25s ease;
 }
 
 
 .case-study__faq-item--open {
-  background: #f1f1f1;
+  background: #f5f5f5;
 }
 
-
-/* =========================================================
-   FAQ BUTTON
-========================================================= */
 
 .case-study__faq-item > button {
   width: 100%;
 
-  min-height: 55px;
+  min-height: 60px;
 
   display: flex;
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
   gap: 20px;
 
   padding:
-    14px
-    28px;
+    16px 24px;
 
   border: 0;
 
   outline: 0;
 
-  background: transparent;
+  background:
+    transparent;
 
   color: #050505;
 
@@ -1300,7 +1482,7 @@
 
   font-weight: 700;
 
-  line-height: 1.35;
+  line-height: 1.4;
 
   text-align: left;
 
@@ -1308,22 +1490,25 @@
 }
 
 
-.case-study__faq-item > button svg {
-  flex: 0 0 auto;
+.case-study__faq-item
+> button svg {
+  flex:
+    0 0 auto;
 
   color: #111111;
 
   font-size: 10px;
 
   transition:
-    transform 0.25s ease;
+    transform
+    0.25s ease;
 }
 
 
 .case-study__faq-item--open
-  > button
-  svg {
-  transform: rotate(180deg);
+> button svg {
+  transform:
+    rotate(180deg);
 }
 
 
@@ -1334,12 +1519,14 @@
 .case-study__faq-answer {
   display: grid;
 
-  grid-template-rows: 0fr;
+  grid-template-rows:
+    0fr;
 
   overflow: hidden;
 
   transition:
-    grid-template-rows 0.3s ease;
+    grid-template-rows
+    0.3s ease;
 }
 
 
@@ -1351,8 +1538,9 @@
 
 
 .case-study__faq-item--open
-  .case-study__faq-answer {
-  grid-template-rows: 1fr;
+.case-study__faq-answer {
+  grid-template-rows:
+    1fr;
 }
 
 
@@ -1361,14 +1549,14 @@
 
   padding:
     0
-    28px
+    24px
     22px;
 
   color: #555555;
 
   font-size: 15px;
 
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 
@@ -1382,8 +1570,7 @@
   overflow: hidden;
 
   padding:
-    18px
-    0;
+    18px 0;
 
   background:
     var(
@@ -1392,10 +1579,6 @@
     );
 }
 
-
-/* =========================================================
-   TICKER TRACK
-========================================================= */
 
 .case-study__ticker-track {
   width: max-content;
@@ -1406,15 +1589,10 @@
 
   animation:
     caseTicker
-    35s
-    linear
+    35s linear
     infinite;
 }
 
-
-/* =========================================================
-   TICKER ITEM
-========================================================= */
 
 .case-study__ticker-item {
   display: flex;
@@ -1424,8 +1602,7 @@
   gap: 28px;
 
   padding:
-    0
-    24px;
+    0 24px;
 
   color: #050505;
 
@@ -1438,7 +1615,8 @@
 
   font-weight: 700;
 
-  letter-spacing: 0.4px;
+  letter-spacing:
+    0.4px;
 }
 
 
@@ -1449,6 +1627,7 @@
 
 .case-study__ticker-item i {
   width: 9px;
+
   height: 9px;
 
   display: block;
@@ -1458,10 +1637,6 @@
   background: #050505;
 }
 
-
-/* =========================================================
-   TICKER ANIMATION
-========================================================= */
 
 @keyframes caseTicker {
 
@@ -1480,65 +1655,67 @@
 
 /* =========================================================
    LAPTOP
+   1200px
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
-  .case-study__container,
-  .case-study__content-container {
-    width:
-      calc(100% - 50px);
-  }
+  .case-study {
+    --case-edge: 32px;
 
+    --case-col-gap:
+      48px;
 
-  .case-study__intro-grid {
-    gap: 45px;
+    --case-space-md:
+      48px;
+
+    --case-space-lg:
+      72px;
   }
 
 
   .case-study__intro-heading h1 {
-    font-size: 55px;
+    font-size:
+      clamp(
+        48px,
+        5.2vw,
+        64px
+      );
   }
 
 
   .case-study__visual-section,
   .case-study__visual {
-    height: 540px;
-
     min-height: 540px;
+
+    height: 540px;
   }
 
 
   .case-study__info-card {
-    right: 25px;
-
     width: 420px;
-  }
 
-
-  .case-study__stage-grid {
-    gap: 55px;
-  }
-
-
-  .case-study__approach-grid {
-    gap: 45px;
+    padding:
+      36px 32px;
   }
 
 
   .case-study__outcome-grid {
     grid-template-columns:
-      1.2fr
-      1.8fr;
-
-    gap: 35px;
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
   }
 
 
   .case-study__metric {
     padding:
-      20px
-      25px;
+      22px 26px;
+  }
+
+
+  .case-study__navigation {
+    padding:
+      26px;
   }
 
 
@@ -1548,38 +1725,48 @@
 
 
   .case-study__navigation-project small {
-    font-size: 17px;
+    font-size: 16px;
   }
 
 }
 
 
 /* =========================================================
-   TABLET
+   TABLET / SMALL LAPTOP
+   900px
 ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-  .case-study__container,
-  .case-study__content-container {
-    width:
-      calc(100% - 36px);
+  .case-study {
+    --case-edge: 24px;
+
+    --case-gap: 22px;
+
+    --case-col-gap: 36px;
+
+    --case-space-md: 44px;
+
+    --case-space-lg: 64px;
   }
 
 
-  /* HERO */
+  /* =======================================================
+     INTRO
+  ======================================================= */
 
   .case-study__intro {
     min-height: auto;
 
     padding:
-      70px
+      var(--case-space-lg)
       0;
   }
 
 
   .case-study__intro-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     gap: 30px;
   }
@@ -1593,42 +1780,41 @@
 
 
   .case-study__intro-heading h1 {
-    max-width: 700px;
+    max-width: 720px;
 
     font-size:
       clamp(
         44px,
-        8vw,
+        7vw,
         58px
       );
   }
 
 
-  .case-study__intro-heading::after {
-    display: none;
-  }
-
-
   .case-study__intro-description {
-    max-width: 650px;
+    max-width: 680px;
 
     margin: 0;
   }
 
 
-  /* VISUAL */
+  /* =======================================================
+     HERO VISUAL
+  ======================================================= */
 
   .case-study__visual-section {
-    min-height: auto;
+    height: auto;
+
+    min-height: 0;
 
     overflow: visible;
-
-    padding-bottom: 0;
   }
 
 
   .case-study__visual {
-    height: 420px;
+    height: 440px;
+
+    min-height: 0;
   }
 
 
@@ -1636,94 +1822,109 @@
     position: relative;
 
     right: auto;
+
     bottom: auto;
 
-    width:
-      calc(100% - 36px);
+    width: calc(
+      100% -
+      (
+        var(--case-edge) *
+        2
+      )
+    );
+
+    max-width: none;
 
     min-height: auto;
 
     margin:
-      -1px
-      auto
-      0;
+      -1px auto 0;
 
     padding:
       30px;
   }
 
 
-  /* STORY */
+  /* =======================================================
+     STORY
+  ======================================================= */
 
-  .case-study__heading {
-    padding-top: 55px;
+  .case-study__stage-grid,
+  .case-study__approach-grid {
+    grid-template-columns:
+      1fr;
   }
 
 
   .case-study__stage-grid {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-
-    padding:
-      45px
-      0;
+    gap: 36px;
   }
 
-
-  /* APPROACH */
 
   .case-study__approach-grid {
-    grid-template-columns: 1fr;
-
-    gap: 30px;
+    gap: 44px;
   }
 
+
+  /* =======================================================
+     BRAND ASSET
+  ======================================================= */
 
   .case-study__asset-box {
-    min-height: 300px;
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(180px, 0.8fr);
   }
 
 
-  /* OUTCOME */
+  /* =======================================================
+     OUTCOME
+  ======================================================= */
 
   .case-study__outcome-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
-    gap: 35px;
-
-    padding:
-      50px
-      0;
+    gap: 40px;
   }
 
 
   .case-study__outcome-grid > p {
-    max-width: 650px;
-  }
-
-
-  .case-study__metrics {
     max-width: 700px;
   }
 
 
-  .case-study__gallery > div {
-    height: 300px;
+  .case-study__metrics {
+    max-width: 720px;
   }
 
 
-  /* NAVIGATION */
+  /* =======================================================
+     GALLERY
+  ======================================================= */
+
+  .case-study__gallery > div {
+    height: 320px;
+  }
+
+
+  /* =======================================================
+     NAVIGATION
+  ======================================================= */
 
   .case-study__navigation {
     grid-template-columns:
-      1fr
+      minmax(0, 1fr)
       60px
-      1fr;
+      minmax(0, 1fr);
 
     padding:
-      25px
-      20px;
+      24px 20px;
+  }
+
+
+  .case-study__navigation-project {
+    gap: 16px;
   }
 
 
@@ -1732,10 +1933,12 @@
   }
 
 
-  /* LARGE SHOWCASE */
+  /* =======================================================
+     LARGE SHOWCASE
+  ======================================================= */
 
   .case-study__large-showcase {
-    height: 470px;
+    height: 480px;
   }
 
 }
@@ -1743,24 +1946,36 @@
 
 /* =========================================================
    MOBILE
+   640px
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
 
-  .case-study__container,
-  .case-study__content-container {
-    width:
-      calc(100% - 28px);
+  .case-study {
+    --case-edge: 18px;
+
+    --case-gap: 18px;
+
+    --case-col-gap: 28px;
+
+    --case-space-md: 38px;
+
+    --case-space-lg: 52px;
   }
 
 
-  /* HERO */
+  /* =======================================================
+     INTRO
+  ======================================================= */
 
   .case-study__intro {
     padding:
-      55px
-      0
-      45px;
+      48px 0;
+  }
+
+
+  .case-study__intro-grid {
+    gap: 24px;
   }
 
 
@@ -1768,27 +1983,30 @@
     font-size:
       clamp(
         38px,
-        12vw,
-        50px
+        11vw,
+        48px
       );
 
-    line-height: 1.05;
+    line-height: 1.06;
 
-    letter-spacing: -1.7px;
+    letter-spacing: -1.6px;
   }
 
 
   .case-study__sun {
     width: 110px;
+
     height: 110px;
 
-    top: -30px;
-    left: -25px;
+    top: -28px;
+
+    left: -24px;
   }
 
 
   .case-study__shape {
     width: 180px;
+
     height: 180px;
   }
 
@@ -1796,44 +2014,50 @@
   .case-study__intro-description {
     font-size: 16px;
 
-    line-height: 1.55;
+    line-height: 1.65;
   }
 
 
-  /* BREADCRUMB */
+  /* =======================================================
+     BREADCRUMB
+  ======================================================= */
 
   .case-study__breadcrumb {
-    min-height: 60px;
+    min-height: 58px;
+
+    gap: 8px;
 
     font-size: 14px;
   }
 
 
-  /* VISUAL */
+  /* =======================================================
+     HERO VISUAL
+  ======================================================= */
 
   .case-study__visual {
     height: 300px;
   }
 
 
-  /* INFO CARD */
-
   .case-study__info-card {
-    width:
-      calc(100% - 28px);
-
     padding:
-      25px
-      20px;
+      24px 20px;
   }
 
 
-  .case-study__info-card dl > div {
+  .case-study__info-card dl {
+    gap: 14px;
+  }
+
+
+  .case-study__info-card
+  dl > div {
     grid-template-columns:
       105px
       minmax(0, 1fr);
 
-    gap: 15px;
+    gap: 14px;
   }
 
 
@@ -1843,153 +2067,209 @@
   }
 
 
-  /* SECTION HEADING */
+  /* =======================================================
+     HEADINGS
+  ======================================================= */
 
   .case-study__heading {
     padding:
-      45px
+      var(--case-space-lg)
       0
       20px;
 
-    font-size: 39px;
+    font-size:
+      clamp(
+        34px,
+        10vw,
+        42px
+      );
 
-    letter-spacing: -1.3px;
+    letter-spacing: -1.2px;
   }
 
 
-  /* TEXT */
+  /* =======================================================
+     STORY
+  ======================================================= */
+
+  .case-study__stage-grid {
+    padding:
+      38px 0;
+  }
+
+
+  .case-study__stage-grid,
+  .case-study__approach-grid {
+    gap: 32px;
+  }
+
 
   .case-study__stage-grid p,
   .case-study__approach-item p,
   .case-study__outcome-grid > p {
     font-size: 15px;
 
-    line-height: 1.6;
+    line-height: 1.68;
   }
 
 
   .case-study__stage-grid h3,
   .case-study__approach-grid h3 {
-    font-size: 22px;
+    margin-bottom: 18px;
+
+    font-size: 21px;
   }
 
 
-  /* ASSET */
+  /* =======================================================
+     APPROACH
+  ======================================================= */
+
+  .case-study__approach-list {
+    gap: 14px;
+  }
+
+
+  /* =======================================================
+     BRAND ASSET
+  ======================================================= */
 
   .case-study__asset-box {
-    min-height: 240px;
+    min-height: auto;
+
+    grid-template-columns:
+      1fr;
   }
 
 
-  .case-study__asset-box > img {
-    width: 58%;
+  .case-study__asset-box
+  > .case-study__image-anchor {
+    min-height: 230px;
 
+    padding: 22px;
+  }
+
+
+  .case-study__asset-box
+  > .case-study__image-anchor
+  > img {
     max-height: 210px;
   }
 
 
   .case-study__asset-info {
-    width: 42%;
-
-    min-height: 210px;
+    min-height: auto;
 
     padding:
-      15px
-      10px;
+      22px 20px;
+
+    border-top:
+      1px solid #e7eadf;
   }
 
 
   .case-study__asset-info strong {
-    font-size: 16px;
+    font-size: 17px;
   }
 
 
   .case-study__asset-info > span {
-    font-size: 12px;
+    font-size: 13px;
   }
 
 
-  /* OUTCOME */
+  /* =======================================================
+     OUTCOME
+  ======================================================= */
 
   .case-study__outcome-grid {
+    gap: 32px;
+
     padding:
-      45px
-      0;
+      38px 0;
   }
 
 
   .case-study__metrics {
-    grid-template-columns: 1fr;
-  }
-
-
-  .case-study__metric {
-    min-height: 115px;
-
-    padding:
-      20px
-      30px;
-
-    border-radius: 60px;
-  }
-
-
-  .case-study__metric strong {
-    font-size: 23px;
-  }
-
-
-  .case-study__metric span {
-    font-size: 21px;
-  }
-
-
-  /* GALLERY */
-
-  .case-study__gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     gap: 16px;
   }
 
 
-  .case-study__gallery > div {
-    height: 270px;
-  }
-
-
-  /* NAVIGATION */
-
-  .case-study__navigation-section {
-    padding-bottom: 50px;
-  }
-
-
-  .case-study__navigation {
-    grid-template-columns: 1fr;
-
-    gap: 30px;
+  .case-study__metric {
+    min-height: 110px;
 
     padding:
-      28px
-      22px;
+      20px 28px;
+
+    border-radius: 56px;
+  }
+
+
+  .case-study__metric strong {
+    font-size: 22px;
+  }
+
+
+  .case-study__metric span {
+    font-size: 19px;
+  }
+
+
+  /* =======================================================
+     GALLERY
+  ======================================================= */
+
+  .case-study__gallery {
+    grid-template-columns:
+      1fr;
+
+    gap: 18px;
+  }
+
+
+  .case-study__gallery > div {
+    height: 280px;
+  }
+
+
+  /* =======================================================
+     PREVIOUS / NEXT
+  ======================================================= */
+
+  .case-study__navigation {
+    grid-template-columns:
+      1fr;
+
+    gap: 28px;
+
+    padding:
+      26px 22px;
   }
 
 
   .case-study__navigation-project {
+    width: 100%;
+
     order: 1;
   }
 
 
   .case-study__dots {
     order: 2;
+
+    margin:
+      0 auto;
   }
 
 
   .case-study__navigation-project--next {
     order: 3;
 
-    justify-content: flex-start;
+    justify-content:
+      flex-start;
 
     text-align: left;
   }
@@ -2001,38 +2281,41 @@
 
 
   .case-study__navigation-project small {
-    font-size: 16px;
+    font-size: 15px;
   }
 
 
-  /* LARGE SHOWCASE */
+  /* =======================================================
+     LARGE SHOWCASE
+  ======================================================= */
 
   .case-study__large-showcase {
-    height: 330px;
+    height: 340px;
   }
 
 
-  /* FAQ */
-
-  .case-study__faq {
-    padding:
-      70px
-      0;
-  }
-
+  /* =======================================================
+     FAQ
+  ======================================================= */
 
   .case-study__faq-container {
-    width:
-      calc(100% - 28px);
+    max-width: 100%;
   }
 
 
-  .case-study__faq > .case-study__faq-container > h2 {
-    margin-bottom: 35px;
+  .case-study__faq
+  > .case-study__faq-container
+  > h2 {
+    margin-bottom: 36px;
 
-    font-size: 40px;
+    font-size:
+      clamp(
+        36px,
+        10vw,
+        44px
+      );
 
-    letter-spacing: -1.3px;
+    letter-spacing: -1.2px;
   }
 
 
@@ -2045,8 +2328,7 @@
     min-height: 58px;
 
     padding:
-      14px
-      18px;
+      15px 18px;
 
     font-size: 14px;
   }
@@ -2054,20 +2336,19 @@
 
   .case-study__faq-answer p {
     padding:
-      0
-      18px
-      18px;
+      0 18px 18px;
 
     font-size: 14px;
   }
 
 
-  /* TICKER */
+  /* =======================================================
+     TICKER
+  ======================================================= */
 
   .case-study__ticker {
     padding:
-      15px
-      0;
+      15px 0;
   }
 
 
@@ -2075,8 +2356,7 @@
     gap: 20px;
 
     padding:
-      0
-      18px;
+      0 18px;
   }
 
 
@@ -2089,19 +2369,61 @@
 
 /* =========================================================
    SMALL MOBILE
+   390px
 ========================================================= */
 
 @media (max-width: 390px) {
+
+  .case-study {
+    --case-edge: 16px;
+
+    --case-gap: 16px;
+
+    --case-col-gap: 24px;
+
+    --case-space-md: 34px;
+
+    --case-space-lg: 44px;
+  }
+
+
+  .case-study__intro {
+    padding:
+      44px 0;
+  }
+
+
+  .case-study__intro-heading h1 {
+    font-size:
+      36px;
+
+    letter-spacing: -1.3px;
+  }
+
+
+  .case-study__intro-description {
+    font-size: 15px;
+  }
+
 
   .case-study__visual {
     height: 250px;
   }
 
 
-  .case-study__info-card dl > div {
+  .case-study__info-card {
+    padding:
+      22px 18px;
+  }
+
+
+  .case-study__info-card
+  dl > div {
     grid-template-columns:
       90px
       minmax(0, 1fr);
+
+    gap: 12px;
   }
 
 
@@ -2111,19 +2433,30 @@
   }
 
 
-  .case-study__asset-box {
-    min-height: 220px;
+  .case-study__heading {
+    font-size: 34px;
+  }
+
+
+  .case-study__asset-box
+  > .case-study__image-anchor {
+    min-height: 210px;
+  }
+
+
+  .case-study__gallery > div {
+    height: 250px;
   }
 
 
   .case-study__large-showcase {
-    height: 280px;
+    height: 285px;
   }
 
 
   .case-study__faq
-    > .case-study__faq-container
-    > h2 {
+  > .case-study__faq-container
+  > h2 {
     font-size: 34px;
   }
 
@@ -2134,7 +2467,10 @@
    REDUCED MOTION
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
 
   .case-study__ticker-track {
     animation: none;
@@ -2142,7 +2478,8 @@
 
 
   .case-study__faq-answer,
-  .case-study__faq-item > button svg {
+  .case-study__faq-item
+  > button svg {
     transition: none;
   }
 

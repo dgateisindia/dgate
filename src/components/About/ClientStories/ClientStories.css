@@ -1,135 +1,232 @@
+/* =========================================================
+   ABOUT - CLIENT STORIES
+   SAME TESTIMONIAL STYLE AS HOME PAGE
+========================================================= */
+
 .about-stories {
+  --stories-yellow:
+    var(--primary, #fdb913);
+
+  --stories-black:
+    var(--black, #101010);
+
+  --stories-text:
+    var(--text, #626262);
+
+  --stories-border:
+    var(--border, rgba(17, 17, 17, 0.1));
+
+  position: relative;
+
   width: 100%;
+
+  margin: 0;
 
   padding:
     72px
-    0;
+    40px;
 
-  background: var(--section);
+  box-sizing: border-box;
+
+  background:
+    var(--section, #f7f7f7);
 }
 
 
+.about-stories > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
 .about-stories__heading {
-  max-width: 700px;
+  width: 100%;
+
+  max-width: 720px;
 
   margin:
     0 auto
-    38px;
+    32px;
 
   text-align: center;
 }
 
 
 .about-stories__heading > span {
-  color: var(--primary);
+  display: inline-block;
 
-  font-size: 0.7rem;
-  font-weight: 700;
+  margin:
+    0 0 11px;
+
+  color:
+    var(--stories-yellow);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  line-height: 1;
 
   letter-spacing: 1.6px;
+
+  text-transform: uppercase;
 }
 
 
 .about-stories__heading h2 {
   margin:
-    8px
-    0
-    10px;
+    0 0 12px;
 
-  color: var(--black);
+  color:
+    var(--stories-black);
 
   font-size:
-    clamp(2rem, 3vw, 3rem);
+    clamp(
+      2.25rem,
+      3.8vw,
+      3.5rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.3px;
 }
 
 
 .about-stories__heading h2 strong {
-  color: var(--primary);
+  color:
+    var(--stories-yellow);
 }
 
 
 .about-stories__heading p {
-  margin: 0;
+  max-width: 640px;
 
-  color: var(--text);
+  margin:
+    0 auto;
 
-  font-size: 0.82rem;
+  color:
+    var(--stories-text);
+
+  font-size: 0.86rem;
 
   line-height: 1.7;
 }
 
 
+/* =========================================================
+   GRID
+========================================================= */
+
 .about-stories__grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
 
   gap: 18px;
 }
 
 
+/* =========================================================
+   CARD
+========================================================= */
+
 .about-stories__card {
+  min-width: 0;
+
   min-height: 270px;
 
   display: flex;
 
   flex-direction: column;
 
-  padding: 27px;
+  padding: 26px;
 
   border:
     1px solid
-    var(--border);
+    var(--stories-border);
 
-  border-radius: var(--radius-md);
+  border-radius: 14px;
 
-  background: var(--white);
+  background: #ffffff;
 
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-
-.about-stories__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.4);
+  box-sizing: border-box;
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.06);
+    0 5px 18px
+    rgba(0, 0, 0, 0.025);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+
+/* =========================================================
+   QUOTE
+========================================================= */
 
 .about-stories__quote {
-  color: var(--primary);
+  color:
+    var(--stories-yellow);
 
   font-size: 1.35rem;
+
+  line-height: 1;
 }
 
+
+/* =========================================================
+   STARS
+========================================================= */
 
 .about-stories__stars {
   display: flex;
 
+  align-items: center;
+
   gap: 3px;
 
   margin:
-    16px
-    0;
+    15px 0;
 
-  color: var(--primary);
+  color:
+    var(--stories-yellow);
 
-  font-size: 0.7rem;
+  font-size: 0.68rem;
 }
 
+
+/* =========================================================
+   TEXT
+========================================================= */
 
 .about-stories__card > p {
   flex: 1;
 
   margin: 0;
 
-  color: var(--text);
+  color:
+    var(--stories-text);
 
   font-size: 0.82rem;
 
@@ -137,23 +234,34 @@
 }
 
 
-.about-stories__author {
-  margin-top: 24px;
+/* =========================================================
+   AUTHOR
+========================================================= */
 
-  padding-top: 18px;
+.about-stories__author {
+  margin-top: 22px;
+
+  padding-top: 17px;
 
   border-top:
     1px solid
-    var(--border);
+    var(--stories-border);
 }
 
 
 .about-stories__author strong {
   display: block;
 
-  color: var(--black);
+  margin: 0;
+
+  color:
+    var(--stories-black);
 
   font-size: 0.82rem;
+
+  font-weight: 700;
+
+  line-height: 1.35;
 }
 
 
@@ -165,18 +273,142 @@
   color: #777777;
 
   font-size: 0.7rem;
+
+  line-height: 1.4;
 }
 
 
-@media (max-width: 768px) {
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .about-stories__card:hover {
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(253, 185, 19, 0.45);
+
+    box-shadow:
+      0 15px 32px
+      rgba(0, 0, 0, 0.06);
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .about-stories {
+    padding:
+      64px
+      32px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-stories {
+    padding:
+      56px
+      24px;
+  }
+
+
+  .about-stories__heading h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
+  }
+
+
+  .about-stories__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 16px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .about-stories {
+    padding:
+      48px
+      18px;
+  }
+
+
+  .about-stories__heading {
+    margin-bottom: 26px;
+  }
+
+
+  .about-stories__heading h2 {
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
+  }
+
+
+  .about-stories__heading p {
+    font-size: 0.81rem;
+  }
+
 
   .about-stories__grid {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
 
   .about-stories__card {
     min-height: auto;
+
+    padding: 22px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-stories {
+    padding:
+      44px
+      16px;
   }
 
+
+  .about-stories__card {
+    padding: 20px;
+  }
 }

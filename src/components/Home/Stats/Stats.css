@@ -1,249 +1,546 @@
 /* =========================================================
-   HOME STATS
+   D-GATE HOME STATS
+   FINAL RESPONSIVE ALIGNMENT VERSION
+========================================================= */
+
+
+/* =========================================================
+   SECTION ROOT
 ========================================================= */
 
 .home-stats {
   width: 100%;
 
-  padding: 36px 0;
+  margin: 0;
 
-  background: var(--black);
+  padding:
+    40px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--black, #111111);
 }
 
 
-/* GRID */
+/* =========================================================
+   MASTER 1200PX GRID
+========================================================= */
 
 .home-stats__grid {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
   display: grid;
 
   grid-template-columns:
-    repeat(5, minmax(0, 1fr));
+    repeat(
+      5,
+      minmax(0, 1fr)
+    );
 
-  gap: 20px;
+  gap: 16px;
 }
 
 
-/* CARD */
+.home-stats__grid > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
 
 .home-stats__card {
   min-width: 0;
 
+  min-height: 108px;
+
   display: flex;
+
   align-items: center;
 
-  gap: 16px;
+  justify-content: flex-start;
 
-  padding: 22px 20px;
+  gap: 14px;
 
-  border: 1px solid
+  padding:
+    20px
+    18px;
+
+  border:
+    1px solid
     rgba(255, 255, 255, 0.09);
 
-  border-radius: var(--radius-md);
+  border-radius:
+    var(--radius-md, 14px);
 
   background:
-    rgba(255, 255, 255, 0.035);
+    rgba(255, 255, 255, 0.04);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
 
   transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background-color 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 
-/* ICON */
+/* =========================================================
+   ICON
+========================================================= */
 
 .home-stats__icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
 
-  flex: 0 0 44px;
+  height: 42px;
+
+  flex:
+    0 0 42px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 
-  font-size: 2rem;
+  font-size: 1.8rem;
+
+  line-height: 1;
 
   transition:
-    transform var(--transition);
+    transform 0.24s ease;
 }
+
 
 .home-stats__icon svg {
-  display: block;
-
   width: 100%;
+
   height: 100%;
+
+  display: block;
 }
 
 
-/* CONTENT */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .home-stats__content {
   min-width: 0;
+
+  flex:
+    1 1 auto;
 }
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
 
 .home-stats__counter {
-  margin: 0 0 4px;
+  margin:
+    0 0 5px;
 
-  color: var(--white);
+  padding: 0;
 
-  font-size: clamp(
-    1.65rem,
-    2vw,
-    2.2rem
-  );
+  color:
+    var(--white, #ffffff);
 
-  font-weight: 700;
+  font-size:
+    clamp(
+      1.55rem,
+      1.8vw,
+      2rem
+    );
+
+  font-weight: 800;
 
   line-height: 1;
+
+  letter-spacing: -0.5px;
 }
+
+
+/* =========================================================
+   LABEL
+========================================================= */
 
 .home-stats__content p {
   margin: 0;
 
+  padding: 0;
+
   color: #d6d6d6;
 
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+
+  font-weight: 500;
 
   line-height: 1.4;
 }
 
 
-/* HOVER */
+/* =========================================================
+   HOVER
+========================================================= */
 
 @media (hover: hover) {
 
   .home-stats__card:hover {
-    transform: translateY(-6px);
+    transform:
+      translateY(-4px);
 
-    border-color: var(--primary);
+    border-color:
+      rgba(253, 185, 19, 0.55);
+
+    background:
+      rgba(255, 255, 255, 0.06);
 
     box-shadow:
       0 12px 30px
-      rgba(0, 0, 0, 0.25);
+      rgba(0, 0, 0, 0.24);
   }
+
 
   .home-stats__card:hover
   .home-stats__icon {
     transform:
-      scale(1.1)
-      rotate(8deg);
+      scale(1.08)
+      rotate(5deg);
   }
-
 }
 
 
 /* =========================================================
-   1200px
+   LAPTOP
+   <= 1200px
 ========================================================= */
 
 @media (max-width: 1200px) {
+
+  .home-stats {
+    padding:
+      38px
+      32px;
+  }
+
 
   .home-stats__grid {
     gap: 14px;
   }
 
+
   .home-stats__card {
+    min-height: 102px;
+
     gap: 12px;
 
-    padding: 20px 15px;
+    padding:
+      18px
+      14px;
   }
+
 
   .home-stats__icon {
     width: 38px;
+
     height: 38px;
 
     flex-basis: 38px;
 
-    font-size: 1.7rem;
+    font-size: 1.65rem;
   }
+
+
+  .home-stats__counter {
+    font-size:
+      clamp(
+        1.45rem,
+        1.9vw,
+        1.85rem
+      );
+  }
+
 
   .home-stats__content p {
-    font-size: 0.78rem;
+    font-size: 0.73rem;
   }
-
 }
 
 
 /* =========================================================
-   1024px
+   TABLET
+   <= 1024px
 ========================================================= */
 
 @media (max-width: 1024px) {
 
   .home-stats {
-    padding: 30px 0;
+    padding:
+      36px
+      24px;
   }
+
 
   .home-stats__grid {
     grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-
-}
-
-
-/* =========================================================
-   768px
-========================================================= */
-
-@media (max-width: 768px) {
-
-  .home-stats__grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
 
     gap: 14px;
   }
 
+
   .home-stats__card {
-    padding: 18px;
+    min-height: 96px;
+
+    padding:
+      18px
+      16px;
   }
 
+
+  .home-stats__content p {
+    font-size: 0.78rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   <= 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .home-stats {
+    padding:
+      34px
+      24px;
+  }
+
+
+  .home-stats__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 12px;
+  }
+
+
+  .home-stats__card {
+    min-height: 92px;
+
+    padding:
+      17px
+      16px;
+  }
+
+
+  .home-stats__icon {
+    width: 40px;
+
+    height: 40px;
+
+    flex-basis: 40px;
+
+    font-size: 1.72rem;
+  }
+
+
+  .home-stats__counter {
+    font-size: 1.62rem;
+  }
+
+
+  .home-stats__content p {
+    font-size: 0.78rem;
+  }
 }
 
 
 /* =========================================================
    MOBILE
+   <= 640px
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-stats {
+    padding:
+      30px
+      18px;
+  }
+
+
+  .home-stats__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 10px;
+  }
+
+
+  .home-stats__card {
+    min-height: 90px;
+
+    gap: 11px;
+
+    padding:
+      15px
+      13px;
+  }
+
+
+  .home-stats__icon {
+    width: 36px;
+
+    height: 36px;
+
+    flex-basis: 36px;
+
+    font-size: 1.55rem;
+  }
+
+
+  .home-stats__counter {
+    font-size: 1.45rem;
+  }
+
+
+  .home-stats__content p {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   <= 480px
 ========================================================= */
 
 @media (max-width: 480px) {
 
   .home-stats {
-    padding: 20px 0;
+    padding:
+      28px
+      18px;
   }
+
 
   .home-stats__grid {
     grid-template-columns: 1fr;
 
-    gap: 12px;
+    gap: 10px;
   }
+
 
   .home-stats__card {
-    gap: 18px;
+    min-height: 82px;
 
-    padding: 18px;
+    gap: 16px;
 
-    border-radius: var(--radius-md);
+    padding:
+      16px
+      17px;
   }
+
 
   .home-stats__icon {
-    width: 42px;
-    height: 42px;
+    width: 40px;
 
-    flex-basis: 42px;
+    height: 40px;
 
-    font-size: 1.9rem;
+    flex-basis: 40px;
+
+    font-size: 1.75rem;
   }
+
 
   .home-stats__counter {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
   }
+
 
   .home-stats__content p {
-    font-size: 0.85rem;
+    font-size: 0.79rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   <= 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .home-stats {
+    padding:
+      26px
+      16px;
   }
 
+
+  .home-stats__card {
+    min-height: 80px;
+
+    padding: 15px;
+  }
+
+
+  .home-stats__icon {
+    width: 38px;
+
+    height: 38px;
+
+    flex-basis: 38px;
+
+    font-size: 1.65rem;
+  }
+
+
+  .home-stats__counter {
+    font-size: 1.48rem;
+  }
+
+
+  .home-stats__content p {
+    font-size: 0.76rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-stats__card,
+  .home-stats__icon {
+    transition: none;
+  }
 }

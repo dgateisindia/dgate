@@ -2,6 +2,7 @@ import "./ExplorePropertyType.css";
 
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -13,32 +14,53 @@ import propertyTypes from "../../../data/propertyData";
 function ExplorePropertyType() {
   const sliderRef = useRef(null);
 
+  /* =========================================================
+     SLIDER - LEFT
+  ========================================================= */
+
   const scrollLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: -360,
-        behavior: "smooth",
-      });
-    }
+    if (!sliderRef.current) return;
+
+    sliderRef.current.scrollBy({
+      left: -360,
+      behavior: "smooth",
+    });
   };
 
+  /* =========================================================
+     SLIDER - RIGHT
+  ========================================================= */
+
   const scrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: 360,
-        behavior: "smooth",
-      });
-    }
+    if (!sliderRef.current) return;
+
+    sliderRef.current.scrollBy({
+      left: 360,
+      behavior: "smooth",
+    });
+  };
+
+  /* =========================================================
+     PROPERTY URL
+  ========================================================= */
+
+  const getPropertyUrl = (slug) => {
+    return `/property/${slug}`;
   };
 
   return (
     <section className="explore-property-section">
+
       <div className="explore-property-container">
 
-        {/* HEADER */}
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+
         <div className="explore-property-header">
 
           <div className="explore-property-heading">
+
             <span className="explore-property-subtitle">
               DGATE HOMES
             </span>
@@ -51,9 +73,14 @@ function ExplorePropertyType() {
               Discover properties that match your lifestyle,
               investment goals and requirements.
             </p>
+
           </div>
 
-          {/* ARROWS */}
+
+          {/* ===================================================
+              SLIDER ARROWS
+          =================================================== */}
+
           <div className="explore-property-arrows">
 
             <button
@@ -75,64 +102,118 @@ function ExplorePropertyType() {
             </button>
 
           </div>
+
         </div>
 
-        {/* PROPERTY CARDS */}
+
+        {/* =====================================================
+            PROPERTY SLIDER
+        ===================================================== */}
+
         <div
           ref={sliderRef}
           className="explore-property-slider"
         >
-          {propertyTypes.map((property) => (
 
-            <Link
-              key={property.slug}
-              to={`/property/${property.slug}`}
-              className="property-type-card"
-            >
+          {propertyTypes.map((property) => {
 
-              {/* IMAGE */}
-              <div className="property-type-image-wrapper">
+            const propertyCount =
+              property.properties?.length || 0;
 
-                <img
-                  src={property.image}
-                  alt={property.name}
-                  className="property-type-image"
-                  loading="lazy"
-                />
+            const propertyUrl =
+              getPropertyUrl(property.slug);
 
-                <div className="property-type-overlay">
-                  <span>
-                    {property.properties.length} Properties
-                  </span>
+            return (
+
+              <article
+                key={property.slug}
+                className="property-type-card"
+              >
+
+                {/* =================================================
+                    IMAGE
+                ================================================= */}
+
+                <Link
+                  to={propertyUrl}
+                  className="property-type-image-link"
+                  aria-label={`View ${property.name} properties`}
+                >
+
+                  <div className="property-type-image-wrapper">
+
+                    <img
+                      src={property.image}
+                      alt={property.name}
+                      className="property-type-image"
+                      loading="lazy"
+                    />
+
+                    <div className="property-type-overlay">
+
+                      <span>
+                        {propertyCount} Properties
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </Link>
+
+
+                {/* =================================================
+                    CONTENT
+                ================================================= */}
+
+                <div className="property-type-content">
+
+                  <div className="property-type-info">
+
+                    <h3>
+                      {property.name}
+                    </h3>
+
+                    <p>
+                      Explore {propertyCount}{" "}
+                      {property.name.toLowerCase()}{" "}
+                      {propertyCount === 1
+                        ? "property"
+                        : "properties"}
+                    </p>
+
+                  </div>
+
+
+                  {/* =================================================
+                      VIEW ALL
+                  ================================================= */}
+
+                  <Link
+                    to={propertyUrl}
+                    className="property-view-link"
+                    aria-label={`View all ${property.name} properties`}
+                  >
+
+                    <span>
+                      View All
+                    </span>
+
+                    <FaArrowRight />
+
+                  </Link>
+
                 </div>
 
-              </div>
+              </article>
 
-              {/* CONTENT */}
-              <div className="property-type-content">
+            );
+          })}
 
-                <div>
-                  <h3>{property.name}</h3>
-
-                  <p>
-                    Explore {property.properties.length}{" "}
-                    {property.name.toLowerCase()} properties
-                  </p>
-                </div>
-
-                <span className="property-view-link">
-                  View All
-                  <FaArrowRight />
-                </span>
-
-              </div>
-
-            </Link>
-
-          ))}
         </div>
 
       </div>
+
     </section>
   );
 }

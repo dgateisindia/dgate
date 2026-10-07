@@ -1,128 +1,170 @@
 /* =========================================================
+   DGATE
    SMART AI BUSINESS AUTOMATION
+   SAME ALIGNMENT + SAME GAP AS DATA ANALYTICS
+
+   Content width : 1200px (sides 40 / 32 / 24 / 18 / 16px)
+   --smart-gap   : 56px between sections
+   Hero -> image : 40px
+   Image -> overview : 56px
 ========================================================= */
 
+
+/* ---------- ROOT ---------- */
+
 .smartai-page {
+  --smart-yellow: #fdb913;
+  --smart-black: #101010;
+  --smart-text: #5f5f5f;
+  --smart-muted: #777777;
+
+  --smart-border: rgba(17, 17, 17, 0.1);
+  --smart-card: #f7f7f7;
+  --smart-white: #ffffff;
+
+  --smart-gap: 56px;
+
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-
-  background: #ffffff;
-  color: #050505;
-
+  background: var(--smart-white);
+  color: var(--smart-black);
   font-family: inherit;
 }
 
-.smartai-container {
-  width: min(1115px, calc(100% - 48px));
-  margin: 0 auto;
+.smartai-page *,
+.smartai-page *::before,
+.smartai-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* ---------- MASTER CONTAINER (1280 - 40 - 40 = 1200) ---------- */
+
+.smartai-page .smartai-container {
+  width: 100%;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
 }
 
 
 /* =========================================================
-   HERO
+   SECTION RESET
+   Stops any global section padding / border / min-height
+   from stacking on top of the spacing below.
 ========================================================= */
+
+.smartai-page .smartai-hero,
+.smartai-page .smartai-feature,
+.smartai-page .smartai-overview {
+  min-height: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.smartai-page .smartai-hero {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.smartai-page .smartai-feature {
+  padding: 40px 0 0 !important;
+  border: 0 !important;
+}
+
+.smartai-page .smartai-overview {
+  padding: var(--smart-gap) 0 0 !important;
+  border: 0 !important;
+}
+
+
+/* ---------- HERO ---------- */
 
 .smartai-hero {
   position: relative;
-
-  padding: 58px 0 70px;
-
+  width: 100%;
+  display: block;
   overflow: hidden;
-
-  background: #ffffff;
-
-  border-bottom: 1px solid #e9e9e9;
+  background: var(--smart-white);
 }
 
 .smartai-hero::after {
   content: "";
-
   position: absolute;
-
   right: -120px;
-  bottom: -175px;
-
+  bottom: -180px;
   width: 360px;
   height: 360px;
-
-  border: 82px solid #f0f0f0;
+  border: 80px solid #f2f2f2;
   border-radius: 50%;
-
   pointer-events: none;
 }
 
 .smartai-hero__grid {
   position: relative;
   z-index: 2;
-
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.25fr)
-    minmax(320px, 0.85fr);
-
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   align-items: center;
-
-  gap: 78px;
+  gap: 64px;
+  padding-top: 56px;
+  padding-bottom: 48px;
 }
 
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
-
 .smartai-hero__title {
-  position: relative;
+  position: static;
+  min-width: 0;
+}
 
-  min-height: 260px;
-
-  display: flex;
-  align-items: center;
+.smartai-eyebrow {
+  display: inline-block;
+  margin: 0 0 14px;
+  color: var(--smart-yellow);
+  font-size: 0.68rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
 }
 
 .smartai-hero__title h1 {
   position: relative;
   z-index: 2;
-
+  max-width: 720px;
   margin: 0;
-
-  color: #050505;
-
-  font-size: clamp(48px, 5vw, 66px);
-  line-height: 1.17;
-
+  color: var(--smart-black);
+  font-size: clamp(3.3rem, 5.5vw, 4.65rem);
+  line-height: 1.02;
   font-weight: 800;
-
-  letter-spacing: -2.8px;
+  letter-spacing: -2.6px;
 }
 
+.smartai-hero__title h1 span {
+  color: var(--smart-yellow);
+}
 
-/* =========================================================
-   DECORATIVE HERO SHAPE
-========================================================= */
-
+/* dashed ring: sits mostly off-screen to the left */
 .smartai-hero__shape {
   position: absolute;
-
-  top: -30px;
-  left: -68px;
-
+  top: 30px;
+  left: -120px;
+  z-index: 0;
   width: 180px;
   height: 180px;
-
-  opacity: 0.065;
+  opacity: 0.045;
+  transform: rotate(15deg);
+  pointer-events: none;
 }
 
 .smartai-hero__shape::before,
 .smartai-hero__shape::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
-  border: 26px dashed #000000;
+  border: 25px dashed var(--smart-black);
   border-radius: 50%;
 }
 
@@ -130,1097 +172,801 @@
   transform: rotate(45deg);
 }
 
-
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
-
 .smartai-hero__description {
-  position: relative;
-  z-index: 2;
+  max-width: 450px;
+  justify-self: end;
 }
 
 .smartai-hero__description p {
-  max-width: 430px;
-
   margin: 0;
-
-  color: #3c3c3c;
-
-  font-size: 17px;
-  line-height: 1.65;
-
-  font-weight: 500;
-}
-
-.smartai-hero__description strong {
-  color: #3a3a3a;
-
-  font-weight: 800;
+  color: var(--smart-text);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
 
-/* =========================================================
-   BREADCRUMB
-========================================================= */
+/* ---------- MAIN IMAGE ---------- */
+
+.smartai-feature {
+  width: 100%;
+  background: var(--smart-white);
+}
+
+.smartai-feature__media {
+  width: 100%;
+  height: 420px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #eeeeee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.smartai-feature__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ---------- BREADCRUMB ---------- */
 
 .smartai-breadcrumb-section {
-  background: #ffffff;
-
-  border-bottom: 1px solid #ededed;
+  width: 100%;
+  margin-top: var(--smart-gap);
+  background: var(--smart-white);
+  border-top: 1px solid var(--smart-border);
+  border-bottom: 1px solid var(--smart-border);
 }
 
 .smartai-breadcrumb {
-  min-height: 62px;
-
+  min-height: 60px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   gap: 10px;
-
-  font-size: 14px;
+  color: var(--smart-text);
+  font-size: 0.78rem;
 }
 
 .smartai-breadcrumb a {
-  color: #333333;
-
+  color: var(--smart-text);
   text-decoration: none;
-
   transition: color 0.2s ease;
 }
 
 .smartai-breadcrumb a:hover {
-  color: #000000;
+  color: var(--smart-yellow);
+}
+
+.smartai-breadcrumb > span {
+  color: #aaaaaa;
+  font-size: 0.7rem;
 }
 
 .smartai-breadcrumb strong {
-  color: #050505;
-
-  font-weight: 600;
-}
-
-.smartai-breadcrumb__dot {
-  width: 6px;
-  height: 6px;
-
-  flex: 0 0 auto;
-
-  border-radius: 50%;
-
-  background: #555555;
+  color: var(--smart-black);
+  font-weight: 700;
 }
 
 
-/* =========================================================
-   LARGE AI IMAGE
-========================================================= */
-
-.smartai-main-image {
-  width: 100%;
-  height: 475px;
-
-  overflow: hidden;
-
-  background: #eeeeee;
-}
-
-.smartai-main-image img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center 45%;
-}
-
-
-/* =========================================================
-   SERVICE OVERVIEW
-========================================================= */
+/* ---------- OVERVIEW ---------- */
 
 .smartai-overview {
-  padding: 62px 0 20px;
-
-  background: #ffffff;
+  width: 100%;
+  background: var(--smart-white);
 }
 
-.smartai-section-title {
+.smartai-section-heading {
+  width: 100%;
   margin: 0;
+  padding: 0;
+}
 
-  color: #050505;
+.smartai-section-heading__eyebrow {
+  display: inline-block;
+  margin: 0 0 11px;
+  color: var(--smart-yellow);
+  font-size: 0.68rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
 
-  font-size: clamp(36px, 4vw, 48px);
-  line-height: 1.1;
+.smartai-section-heading h2,
+.smartai-offer__header h2 {
+  margin: 0;
+  color: var(--smart-black);
+  font-size: clamp(2.25rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
 
-  font-weight: 700;
-
-  letter-spacing: -1.7px;
+.smartai-section-heading h2 span,
+.smartai-offer__header h2 span {
+  color: var(--smart-yellow);
 }
 
 .smartai-divider {
   width: 100%;
   height: 1px;
-
-  margin: 22px 0 56px;
-
-  background: #e5e5e5;
+  margin: 24px 0 36px;
+  background: var(--smart-border);
 }
 
 .smartai-overview__grid {
   display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
-
-  gap: 70px;
+  gap: 56px;
 }
-
-
-/* =========================================================
-   OVERVIEW LEFT
-========================================================= */
 
 .smartai-overview__text p {
-  margin: 0 0 22px;
-
-  color: #3e3e3e;
-
-  font-size: 15px;
-  line-height: 1.7;
-
-  font-weight: 500;
+  margin: 0 0 18px;
+  color: var(--smart-text);
+  font-size: 0.88rem;
+  line-height: 1.72;
 }
 
-.smartai-overview__text strong {
-  color: #353535;
-
-  font-weight: 800;
+.smartai-overview__text p:last-child {
+  margin-bottom: 0;
 }
 
 
-/* =========================================================
-   APPROACH RIGHT
-========================================================= */
+/* ---------- APPROACH ---------- */
 
 .smartai-approach h3 {
-  margin: 0 0 25px;
-
-  color: #050505;
-
-  font-size: 22px;
-  line-height: 1.25;
-
-  font-weight: 700;
-
-  letter-spacing: -0.6px;
+  margin: 0 0 22px;
+  color: var(--smart-black);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 750;
 }
 
 .smartai-approach__list {
   display: flex;
-
   flex-direction: column;
-
-  gap: 15px;
+  gap: 16px;
 }
 
 .smartai-approach__item {
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
   align-items: flex-start;
-
-  gap: 12px;
+  gap: 11px;
 }
 
 .smartai-approach__item > svg {
-  flex: 0 0 auto;
-
   margin-top: 4px;
-
-  color: #555555;
-
-  font-size: 16px;
+  color: var(--smart-yellow);
+  font-size: 0.9rem;
 }
 
 .smartai-approach__item p {
   margin: 0;
-
-  color: #4b4b4b;
-
-  font-size: 14px;
-  line-height: 1.6;
+  color: var(--smart-text);
+  font-size: 0.82rem;
+  line-height: 1.62;
 }
 
 .smartai-approach__item strong {
-  color: #050505;
-
+  display: block;
+  margin-bottom: 3px;
+  color: var(--smart-black);
   font-weight: 700;
 }
 
+.smartai-approach__item span {
+  display: block;
+  color: var(--smart-text);
+}
 
-/* =========================================================
-   WHAT WE OFFER
-========================================================= */
+
+/* ---------- WHAT WE OFFER ---------- */
 
 .smartai-offer {
-  padding: 35px 0 75px;
-
-  background: #ffffff;
+  width: 100%;
+  padding: var(--smart-gap) 0;
+  background: var(--smart-white);
 }
 
-.smartai-offer__heading {
-  margin: 0 0 48px;
-
-  color: #050505;
-
-  font-size: clamp(40px, 4.5vw, 52px);
-  line-height: 1;
-
-  font-weight: 700;
-
-  letter-spacing: -2px;
+.smartai-offer__header {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto 32px;
+  text-align: center;
 }
 
 .smartai-offer__grid {
   display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-
-/* =========================================================
-   OFFER CARD
-========================================================= */
-
 .smartai-offer__card {
-  min-height: 455px;
-
-  padding: 48px 40px 35px;
-
-  background: #f0f0f0;
-
-  border: 0;
-
+  min-width: 0;
+  min-height: 360px;
+  padding: 28px 26px;
+  border: 1px solid var(--smart-border);
+  border-radius: 14px;
+  background: var(--smart-card);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .smartai-offer__card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(253, 185, 19, 0.5);
+  background: var(--smart-white);
+  box-shadow: 0 15px 32px rgba(0, 0, 0, 0.06);
 }
-
-
-/* =========================================================
-   OFFER ICON
-========================================================= */
 
 .smartai-offer__icon {
-  height: 62px;
-
+  width: 52px;
+  height: 52px;
   display: flex;
-  align-items: flex-start;
-
-  color: #050505;
-
-  font-size: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: rgba(253, 185, 19, 0.12);
+  color: var(--smart-yellow);
+  font-size: 1.25rem;
 }
 
-
-/* =========================================================
-   OFFER TITLE
-========================================================= */
-
 .smartai-offer__card h3 {
-  min-height: 125px;
-
-  margin: 20px 0 0;
-
-  color: #050505;
-
-  font-size: 31px;
-  line-height: 1.25;
-
-  font-weight: 500;
-
-  letter-spacing: -1px;
+  min-height: 66px;
+  margin: 0;
+  color: var(--smart-black);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: 750;
 }
 
 .smartai-offer__line {
   width: 100%;
   height: 1px;
-
-  margin: 20px 0 30px;
-
-  background: #d1d1d1;
+  margin: 20px 0;
+  background: var(--smart-border);
 }
-
-
-/* =========================================================
-   OFFER LIST
-========================================================= */
 
 .smartai-offer__card ul {
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 .smartai-offer__card li {
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 5px;
-
+  position: relative;
   margin-bottom: 12px;
-
-  color: #080808;
-
-  font-size: 14px;
+  padding-left: 15px;
+  color: var(--smart-text);
+  font-size: 0.79rem;
   line-height: 1.55;
-
-  font-weight: 600;
+  font-weight: 550;
 }
 
-.smartai-offer__card li > span:first-child {
-  flex: 0 0 auto;
+.smartai-offer__card li:last-child {
+  margin-bottom: 0;
+}
 
+.smartai-offer__card li::before {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--smart-yellow);
   font-weight: 800;
 }
 
 
-/* =========================================================
-   IMAGE STRIP
-========================================================= */
-
-.smartai-image-strip {
-  padding: 36px 0 82px;
-
-  background: #ffffff;
-}
-
-.smartai-image-strip__grid {
-  width: min(1195px, calc(100% - 80px));
-
-  height: 355px;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1.1fr;
-
-  margin: 0 auto;
-
-  overflow: hidden;
-}
-
-.smartai-image-strip__item {
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-}
-
-.smartai-image-strip__item img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  transition: transform 0.5s ease;
-}
-
-.smartai-image-strip__item:hover img {
-  transform: scale(1.025);
-}
-
-
-/* =========================================================
-   AI AUTOMATION PROCESS
-========================================================= */
+/* ---------- AI PROCESS ---------- */
 
 .smartai-process {
   position: relative;
-
-  padding: 68px 0 65px;
-
+  width: 100%;
+  padding: var(--smart-gap) 0;
   overflow: hidden;
-
-  background: #050505;
-
-  color: #ffffff;
+  background: var(--smart-black);
+  color: var(--smart-white);
 }
-
-
-/* =========================================================
-   BLACK GRID BACKGROUND
-========================================================= */
 
 .smartai-process__grid-background {
   position: absolute;
-
   inset: 0;
-
-  opacity: 0.13;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    );
-
-  background-size: 8px 8px;
-
+  opacity: 0.12;
   pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 10px 10px;
 }
 
 .smartai-process__content {
   position: relative;
   z-index: 2;
-
   text-align: center;
 }
 
-
-/* =========================================================
-   PROCESS LABEL
-========================================================= */
+.smartai-process__label,
+.smartai-faq__label {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
 
 .smartai-process__label {
-  width: fit-content;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 10px 18px;
-
-  border: 1px solid #333333;
-  border-radius: 30px;
-
-  color: #ffffff;
-
-  font-size: 13px;
-  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--smart-yellow);
 }
-
-.smartai-process__label span {
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: #ffffff;
-}
-
-
-/* =========================================================
-   PROCESS HEADING
-========================================================= */
 
 .smartai-process h2 {
-  max-width: 1040px;
-
-  margin: 27px auto 60px;
-
-  color: #ffffff;
-
-  font-size: clamp(45px, 5.2vw, 68px);
-  line-height: 1.1;
-
-  font-weight: 700;
-
-  letter-spacing: -2.5px;
+  max-width: 950px;
+  margin: 0 auto 44px;
+  color: var(--smart-white);
+  font-size: clamp(2.4rem, 4.5vw, 3.7rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -1.6px;
 }
 
-
-/* =========================================================
-   PROCESS STEPS
-========================================================= */
+.smartai-process h2 span {
+  color: var(--smart-yellow);
+}
 
 .smartai-process__steps {
   position: relative;
-
   display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .smartai-process__line {
   position: absolute;
-
-  top: 19px;
-
-  left: 1%;
-  right: 1%;
-
+  top: 20px;
+  left: 4%;
+  right: 4%;
   height: 1px;
-
-  background: #292929;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .smartai-process__step {
   position: relative;
   z-index: 2;
-
   text-align: center;
 }
 
 .smartai-process__number {
   width: 40px;
   height: 40px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  margin: 0 auto 38px;
-
+  margin: 0 auto 24px;
   border-radius: 50%;
-
-  background: #ff9d00;
-
-  color: #050505;
-
-  font-size: 13px;
+  background: var(--smart-yellow);
+  color: var(--smart-black);
+  font-size: 0.72rem;
   font-weight: 800;
 }
 
 .smartai-process__step h3 {
-  min-height: 58px;
-
-  margin: 0 0 16px;
-
-  color: #ffffff;
-
-  font-size: 21px;
+  min-height: 52px;
+  margin: 0 0 12px;
+  color: var(--smart-white);
+  font-size: 1.08rem;
   line-height: 1.35;
-
   font-weight: 700;
 }
 
 .smartai-process__step p {
   max-width: 235px;
-
   margin: 0 auto;
-
-  color: #bdbdbd;
-
-  font-size: 14px;
+  color: #bcbcbc;
+  font-size: 0.79rem;
   line-height: 1.6;
 }
 
 
-/* =========================================================
-   FAQ
-========================================================= */
+/* ---------- FAQ ---------- */
 
 .smartai-faq {
-  padding: 76px 0 95px;
-
-  background: #ffffff;
-
+  width: 100%;
+  padding: var(--smart-gap) 0;
+  background: var(--smart-white);
   text-align: center;
 }
 
-
-/* =========================================================
-   FAQ LABEL
-========================================================= */
-
 .smartai-faq__label {
-  width: fit-content;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 10px 18px;
-
-  border: 1px solid #e5e5e5;
-  border-radius: 30px;
-
-  color: #050505;
-
-  font-size: 13px;
-  font-weight: 600;
+  border: 1px solid var(--smart-border);
+  color: var(--smart-yellow);
 }
-
-.smartai-faq__label span {
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: #050505;
-}
-
-
-/* =========================================================
-   FAQ HEADING
-========================================================= */
 
 .smartai-faq h2 {
   max-width: 800px;
-
-  margin: 25px auto 48px;
-
-  color: #050505;
-
-  font-size: clamp(44px, 5vw, 62px);
+  margin: 0 auto 34px;
+  color: var(--smart-black);
+  font-size: clamp(2.3rem, 4.2vw, 3.4rem);
   line-height: 1.07;
-
-  font-weight: 700;
-
-  letter-spacing: -2.2px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
 }
 
-
-/* =========================================================
-   FAQ ACCORDION
-========================================================= */
+.smartai-faq h2 span {
+  color: var(--smart-yellow);
+}
 
 .smartai-faq__accordion {
-  width: min(735px, 100%);
-
+  width: min(760px, 100%);
   margin: 0 auto;
-
   text-align: left;
 }
 
 .smartai-faq__item {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid var(--smart-border);
+  border-radius: 10px;
+  background: var(--smart-white);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
 
-  border: 1px solid #e4e4e4;
-
-  background: #ffffff;
+.smartai-faq__item:last-child {
+  margin-bottom: 0;
 }
 
 .smartai-faq__item--active {
-  background: #f0f0f0;
+  border-color: rgba(253, 185, 19, 0.38);
+  background: #fffdf7;
 }
-
-
-/* =========================================================
-   FAQ BUTTON
-========================================================= */
 
 .smartai-faq__button {
   width: 100%;
-  min-height: 54px;
-
+  min-height: 58px;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 20px;
-
-  padding: 14px 28px;
-
+  padding: 15px 20px;
   border: 0;
-
   outline: none;
-
   background: transparent;
-
-  color: #050505;
-
+  color: var(--smart-black);
   font-family: inherit;
-
-  font-size: 15px;
+  font-size: 0.84rem;
   line-height: 1.4;
-
   font-weight: 700;
-
   text-align: left;
-
   cursor: pointer;
 }
 
 .smartai-faq__button svg {
   flex: 0 0 auto;
-
-  color: #cecece;
-
-  font-size: 10px;
-
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+  color: var(--smart-yellow);
+  font-size: 0.75rem;
+  transition: transform 0.25s ease;
 }
 
-.smartai-faq__item--active
-.smartai-faq__button svg {
-  color: #050505;
-
+.smartai-faq__item--active .smartai-faq__button svg {
   transform: rotate(180deg);
 }
 
-
-/* =========================================================
-   FAQ ANSWER
-========================================================= */
-
 .smartai-faq__answer {
   display: grid;
-
   grid-template-rows: 0fr;
-
   transition: grid-template-rows 0.3s ease;
 }
 
 .smartai-faq__answer > div {
+  min-height: 0;
   overflow: hidden;
 }
 
-.smartai-faq__item--active
-.smartai-faq__answer {
+.smartai-faq__item--active .smartai-faq__answer {
   grid-template-rows: 1fr;
 }
 
 .smartai-faq__answer p {
   margin: 0;
-
-  padding: 0 28px 22px;
-
-  color: #4c4c4c;
-
-  font-size: 13px;
-  line-height: 1.7;
+  padding: 0 20px 20px;
+  color: var(--smart-text);
+  font-size: 0.79rem;
+  line-height: 1.68;
 }
 
 
 /* =========================================================
-   1100PX
+   LAPTOP <= 1200PX
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+
+  .smartai-page {
+    --smart-gap: 52px;
+  }
+
+  .smartai-page .smartai-container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
 
   .smartai-hero__grid {
     gap: 48px;
+    padding-top: 48px;
+    padding-bottom: 44px;
   }
 
-  .smartai-hero__title h1 {
-    font-size: 54px;
-  }
-
-  .smartai-overview__grid {
-    gap: 45px;
-  }
-
-  .smartai-offer__card {
-    padding: 40px 28px 32px;
-  }
-
-  .smartai-offer__card h3 {
-    font-size: 27px;
-  }
-
-  .smartai-process__steps {
-    gap: 15px;
+  .smartai-hero__shape {
+    left: -100px;
   }
 
 }
 
 
 /* =========================================================
-   TABLET
+   TABLET <= 900PX
 ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-  .smartai-container {
-    width: min(100% - 34px, 700px);
+  .smartai-page {
+    --smart-gap: 48px;
   }
 
+  .smartai-page .smartai-container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
 
-  /* HERO */
-
-  .smartai-hero {
-    padding: 48px 0 55px;
+  .smartai-page .smartai-feature {
+    padding: 32px 0 0 !important;
   }
 
   .smartai-hero__grid {
     grid-template-columns: 1fr;
-
-    gap: 28px;
-  }
-
-  .smartai-hero__title {
-    min-height: auto;
+    gap: 20px;
+    padding-top: 44px;
+    padding-bottom: 36px;
   }
 
   .smartai-hero__title h1 {
-    font-size: 48px;
+    max-width: 680px;
+    font-size: clamp(2.8rem, 8vw, 3.7rem);
   }
 
-  .smartai-hero__description p {
-    max-width: 620px;
+  .smartai-hero__description {
+    max-width: 650px;
+    justify-self: start;
   }
 
-
-  /* MAIN IMAGE */
-
-  .smartai-main-image {
-    height: 350px;
+  .smartai-feature__media {
+    height: 320px;
   }
-
-
-  /* OVERVIEW */
 
   .smartai-overview__grid {
     grid-template-columns: 1fr;
-
-    gap: 40px;
+    gap: 32px;
   }
 
-
-  /* OFFER */
-
   .smartai-offer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
   .smartai-offer__card {
-    min-height: 0;
-  }
-
-  .smartai-offer__card h3 {
     min-height: auto;
-
-    margin-bottom: 25px;
   }
-
-
-  /* IMAGE STRIP */
-
-  .smartai-image-strip__grid {
-    width: calc(100% - 34px);
-
-    height: auto;
-
-    grid-template-columns: 1fr;
-  }
-
-  .smartai-image-strip__item {
-    height: 300px;
-  }
-
-
-  /* PROCESS */
 
   .smartai-process__steps {
-    grid-template-columns: repeat(2, 1fr);
-
-    row-gap: 50px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 38px;
   }
 
   .smartai-process__line {
     display: none;
   }
 
-  .smartai-process__number {
-    margin-bottom: 22px;
-  }
-
 }
 
 
 /* =========================================================
-   MOBILE
+   MOBILE <= 640PX
 ========================================================= */
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
 
-  .smartai-container {
-    width: calc(100% - 28px);
+  .smartai-page {
+    --smart-gap: 40px;
   }
 
+  .smartai-page .smartai-container {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
 
-  /* HERO */
+  .smartai-page .smartai-feature {
+    padding: 24px 0 0 !important;
+  }
 
-  .smartai-hero {
-    padding: 38px 0 44px;
+  .smartai-hero__grid {
+    gap: 18px;
+    padding-top: 36px;
+    padding-bottom: 30px;
+  }
+
+  .smartai-hero__shape {
+    left: -70px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .smartai-eyebrow {
+    font-size: 0.6rem;
   }
 
   .smartai-hero__title h1 {
-    font-size: 38px;
-    line-height: 1.14;
-
-    letter-spacing: -1.6px;
+    font-size: clamp(2.2rem, 11vw, 2.9rem);
+    line-height: 1.04;
+    letter-spacing: -1.4px;
   }
 
   .smartai-hero__description p {
-    font-size: 15px;
+    font-size: 0.84rem;
+    line-height: 1.65;
   }
 
-
-  /* BREADCRUMB */
+  .smartai-feature__media {
+    height: 230px;
+    border-radius: 12px;
+  }
 
   .smartai-breadcrumb {
-    min-height: 58px;
-
+    min-height: 54px;
     gap: 8px;
-
-    font-size: 12px;
+    font-size: 0.72rem;
   }
 
-
-  /* MAIN IMAGE */
-
-  .smartai-main-image {
-    height: 250px;
-  }
-
-
-  /* OVERVIEW */
-
-  .smartai-overview {
-    padding-top: 45px;
-  }
-
-  .smartai-section-title {
-    font-size: 35px;
+  .smartai-section-heading h2,
+  .smartai-offer__header h2 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+    letter-spacing: -0.8px;
   }
 
   .smartai-divider {
-    margin: 20px 0 35px;
+    margin: 20px 0 26px;
   }
 
-
-  /* WHAT WE OFFER */
-
-  .smartai-offer {
-    padding-bottom: 55px;
+  .smartai-overview__text p {
+    font-size: 0.82rem;
   }
 
-  .smartai-offer__heading {
-    margin-bottom: 35px;
+  .smartai-approach h3 {
+    font-size: 1.15rem;
+  }
 
-    font-size: 40px;
+  .smartai-approach__item p {
+    font-size: 0.79rem;
+  }
+
+  .smartai-offer__header {
+    margin-bottom: 24px;
+  }
+
+  .smartai-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .smartai-offer__card {
-    padding: 32px 25px;
+    padding: 22px 20px;
   }
 
   .smartai-offer__card h3 {
-    font-size: 27px;
-  }
-
-
-  /* IMAGE STRIP */
-
-  .smartai-image-strip {
-    padding-bottom: 55px;
-  }
-
-  .smartai-image-strip__grid {
-    width: calc(100% - 28px);
-  }
-
-  .smartai-image-strip__item {
-    height: 230px;
-  }
-
-
-  /* PROCESS */
-
-  .smartai-process {
-    padding: 55px 0;
+    min-height: auto;
+    font-size: 1.15rem;
   }
 
   .smartai-process h2 {
-    margin-bottom: 45px;
-
-    font-size: 39px;
-
-    letter-spacing: -1.5px;
+    margin-bottom: 32px;
+    font-size: clamp(2rem, 9vw, 2.7rem);
   }
 
   .smartai-process__steps {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
 
-    gap: 45px;
+  .smartai-process__number {
+    margin-bottom: 16px;
   }
 
   .smartai-process__step h3 {
     min-height: auto;
   }
 
-
-  /* FAQ */
-
-  .smartai-faq {
-    padding: 60px 0 70px;
+  .smartai-process__step p {
+    max-width: 320px;
   }
 
   .smartai-faq h2 {
-    font-size: 38px;
-
-    letter-spacing: -1.5px;
+    margin-bottom: 28px;
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
   }
 
   .smartai-faq__button {
-    padding: 14px 18px;
-
-    font-size: 13px;
+    min-height: 54px;
+    padding: 14px 16px;
+    font-size: 0.79rem;
   }
 
   .smartai-faq__answer p {
-    padding: 0 18px 18px;
+    padding: 0 16px 17px;
+    font-size: 0.77rem;
   }
 
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   VERY SMALL MOBILE <= 360PX
 ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 360px) {
 
-  .smartai-hero__title h1 {
-    font-size: 34px;
+  .smartai-page {
+    --smart-gap: 36px;
   }
 
-  .smartai-section-title {
-    font-size: 31px;
+  .smartai-page .smartai-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
-  .smartai-offer__heading {
-    font-size: 35px;
+  .smartai-page .smartai-feature {
+    padding: 20px 0 0 !important;
   }
 
-  .smartai-process h2 {
-    font-size: 34px;
+  .smartai-hero__grid {
+    padding-top: 32px;
+    padding-bottom: 26px;
   }
 
-  .smartai-faq h2 {
-    font-size: 34px;
+  .smartai-feature__media {
+    height: 200px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .smartai-offer__card,
+  .smartai-faq__answer,
+  .smartai-faq__button svg,
+  .smartai-breadcrumb a {
+    transition: none !important;
   }
 
 }

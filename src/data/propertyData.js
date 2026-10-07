@@ -1,31 +1,50 @@
 const propertyTypes = [
   {
     name: "Plots",
+
     slug: "plots",
+
     image:
       "https://dynamic.realestateindia.com/prop_images/3799341/1367483_1.jpg",
 
     properties: [
       {
         id: 101,
+
         layer: "plot1",
+
         name: "Green Valley Residential Plot",
+
         propertyType: "Plot",
+
         location: {
           area: "Devanahalli",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562110",
+
           landmark: "Near Airport Road",
+
           address: "Green Valley Layout, Devanahalli, Bengaluru",
         },
+
         size: "30 x 40 ft",
+
         area: "1200 sq.ft",
+
         price: "₹42 Lakhs",
+
         pricePerSqft: "₹3,500/sq.ft",
+
         facing: "East",
+
         constructionStatus: "Ready to Register",
+
         status: "Available",
+
         amenities: [
           "Gated Community",
           "Black Top Road",
@@ -34,34 +53,52 @@ const propertyTypes = [
           "Electricity",
           "Security",
         ],
+
         description:
           "Residential plot located in a developing gated community with good road connectivity and nearby amenities.",
+
         images: [
           "https://th.bing.com/th/id/OIP.li6scxQcXcj4Lecv_d_rrgHaEK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
-          
         ],
       },
 
       {
         id: 102,
+
         layer: "plot2",
+
         name: "Airport Road Premium Plot",
+
         propertyType: "Plot",
+
         location: {
           area: "Yelahanka",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560064",
+
           landmark: "Near Airport Road",
+
           address: "Yelahanka New Town, Bengaluru",
         },
+
         size: "40 x 60 ft",
+
         area: "2400 sq.ft",
+
         price: "₹85 Lakhs",
+
         pricePerSqft: "₹3,542/sq.ft",
+
         facing: "North",
+
         constructionStatus: "Ready to Register",
+
         status: "Available",
+
         amenities: [
           "Gated Community",
           "24x7 Security",
@@ -70,8 +107,10 @@ const propertyTypes = [
           "Water",
           "Park",
         ],
+
         description:
           "Premium residential plot suitable for constructing a large independent house or villa.",
+
         images: [
           "https://tse2.mm.bing.net/th/id/OIP._w7vNeTkJSaXyNY8SZU85QHaC2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
         ],
@@ -79,24 +118,41 @@ const propertyTypes = [
 
       {
         id: 103,
+
         layer: "plot3",
+
         name: "Nature View Corner Plot",
+
         propertyType: "Plot",
+
         location: {
           area: "Sarjapur",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562125",
+
           landmark: "Near Sarjapur Road",
+
           address: "Sarjapur Road, Bengaluru",
         },
+
         size: "30 x 50 ft",
+
         area: "1500 sq.ft",
+
         price: "₹58 Lakhs",
+
         pricePerSqft: "₹3,867/sq.ft",
+
         facing: "North-East",
+
         constructionStatus: "Ready to Register",
+
         status: "Available",
+
         amenities: [
           "Corner Plot",
           "Park",
@@ -104,8 +160,10 @@ const propertyTypes = [
           "Electricity",
           "Security",
         ],
+
         description:
           "Corner residential plot with good ventilation and access to major roads.",
+
         images: [
           "https://img.hexahome.in/media/blogs/hexahome-blogs/plots-in-chennai/ch05en.webp",
         ],
@@ -113,24 +171,41 @@ const propertyTypes = [
 
       {
         id: 104,
+
         layer: "plot4",
+
         name: "Premium Investment Plot",
+
         propertyType: "Plot",
+
         location: {
           area: "Whitefield",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560066",
+
           landmark: "Near ITPL",
+
           address: "Whitefield Main Road, Bengaluru",
         },
+
         size: "40 x 40 ft",
+
         area: "1600 sq.ft",
+
         price: "₹72 Lakhs",
+
         pricePerSqft: "₹4,500/sq.ft",
+
         facing: "West",
+
         constructionStatus: "Ready to Register",
+
         status: "Available",
+
         amenities: [
           "Gated Layout",
           "Security",
@@ -138,8 +213,10 @@ const propertyTypes = [
           "Water",
           "Electricity",
         ],
+
         description:
           "Well-connected residential plot suitable for investment and future construction.",
+
         images: [
           "https://5.imimg.com/data5/ET/VJ/NX/SELLER-9549927/plots.jpeg",
         ],
@@ -149,35 +226,58 @@ const propertyTypes = [
 
   {
     name: "Villas",
+
     slug: "villas",
+
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
 
     properties: [
       {
         id: 201,
+
         layer: "villa1",
+
         name: "Luxury Garden Villa",
+
         propertyType: "Villa",
+
         location: {
           area: "Whitefield",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560066",
+
           landmark: "Near ITPL",
+
           address: "Whitefield, Bengaluru",
         },
+
         size: "40 x 60 ft",
+
         area: "2400 sq.ft",
+
         price: "₹2.25 Crores",
+
         bedrooms: 4,
+
         bathrooms: 4,
+
         balconies: 2,
+
         facing: "East",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Private Garden",
           "Swimming Pool",
@@ -186,8 +286,10 @@ const propertyTypes = [
           "Security",
           "Parking",
         ],
+
         description:
           "Spacious luxury villa with modern interiors, private garden and premium community amenities.",
+
         images: [
           "https://www.apartmentsbangalore.co.in/wp-content/uploads/prestige-glenwood-03-1536x864.jpeg",
         ],
@@ -195,28 +297,49 @@ const propertyTypes = [
 
       {
         id: 202,
+
         layer: "villa2",
+
         name: "Modern Family Villa",
+
         propertyType: "Villa",
+
         location: {
           area: "Sarjapur",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562125",
+
           landmark: "Sarjapur Road",
+
           address: "Sarjapur Road, Bengaluru",
         },
+
         size: "30 x 50 ft",
+
         area: "2100 sq.ft",
+
         price: "₹1.65 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         facing: "North",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Club House",
           "Children's Play Area",
@@ -224,39 +347,60 @@ const propertyTypes = [
           "Gym",
           "Parking",
         ],
+
         description:
           "Modern family villa with spacious rooms and community facilities.",
+
         images: [
           "https://orocircle.com/wp-content/uploads/2024/11/luxury-villas.webp",
-        
-          
         ],
       },
 
       {
         id: 203,
+
         layer: "villa3",
+
         name: "Premium Lake View Villa",
+
         propertyType: "Villa",
+
         location: {
           area: "Hebbal",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560024",
+
           landmark: "Near Hebbal Lake",
+
           address: "Hebbal, Bengaluru",
         },
+
         size: "50 x 80 ft",
+
         area: "3200 sq.ft",
+
         price: "₹3.20 Crores",
+
         bedrooms: 4,
+
         bathrooms: 5,
+
         balconies: 3,
+
         facing: "East",
+
         parking: "3 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Lake View",
           "Private Garden",
@@ -265,8 +409,10 @@ const propertyTypes = [
           "Security",
           "Club House",
         ],
+
         description:
           "Premium villa with spacious interiors and beautiful surroundings.",
+
         images: [
           "https://luxuryproperties.in/wp-content/uploads/2019/07/Prestige-Golfshire-Villa-1.jpg",
         ],
@@ -274,28 +420,49 @@ const propertyTypes = [
 
       {
         id: 204,
+
         layer: "villa4",
+
         name: "Elegant Corner Villa",
+
         propertyType: "Villa",
+
         location: {
           area: "Electronic City",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560100",
+
           landmark: "Near Electronic City",
+
           address: "Electronic City, Bengaluru",
         },
+
         size: "40 x 60 ft",
+
         area: "2600 sq.ft",
+
         price: "₹1.95 Crores",
+
         bedrooms: 4,
+
         bathrooms: 4,
+
         balconies: 2,
+
         facing: "North-East",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Corner Property",
           "Garden",
@@ -303,8 +470,10 @@ const propertyTypes = [
           "Gym",
           "Parking",
         ],
+
         description:
           "Elegant corner villa designed for modern family living.",
+
         images: [
           "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
         ],
@@ -314,35 +483,58 @@ const propertyTypes = [
 
   {
     name: "Farm House",
+
     slug: "farm-house",
+
     image:
       "https://www.nearbangalore.com/wp-content/uploads/2025/03/Heshi-Farm-Exterior.webp",
 
     properties: [
       {
         id: 301,
+
         layer: "farmhouse1",
+
         name: "Green Valley Farm House",
+
         propertyType: "Farm House",
+
         location: {
           area: "Nandi Hills",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562103",
+
           landmark: "Near Nandi Hills",
+
           address: "Nandi Hills Road, Bengaluru",
         },
+
         size: "1 Acre",
+
         area: "43,560 sq.ft",
+
         price: "₹2.80 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         facing: "East",
+
         parking: "4 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Private Garden",
           "Farm Area",
@@ -350,8 +542,10 @@ const propertyTypes = [
           "Security",
           "Parking",
         ],
+
         description:
           "Peaceful farm house surrounded by greenery and open spaces.",
+
         images: [
           "https://th.bing.com/th/id/R.3b3c3f490a410d9bced71254c5a3a4a1?rik=OfwyYA9IVr0F%2fw&riu=http%3a%2f%2fclv.h-cdn.co%2fassets%2f17%2f21%2f1495658513-work-of-heart-house-exterior-0617.jpg&ehk=AhI09FeQ6h8k5%2fiAe%2fOe%2bbiNZ3hm5f6n1J7okwM2MfQ%3d&risl=1&pid=ImgRaw&r=0",
         ],
@@ -359,28 +553,49 @@ const propertyTypes = [
 
       {
         id: 302,
+
         layer: "farmhouse2",
+
         name: "Nature Retreat Farm House",
+
         propertyType: "Farm House",
+
         location: {
           area: "Devanahalli",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562110",
+
           landmark: "Near Airport",
+
           address: "Devanahalli, Bengaluru",
         },
+
         size: "2 Acres",
+
         area: "87,120 sq.ft",
+
         price: "₹4.50 Crores",
+
         bedrooms: 4,
+
         bathrooms: 4,
+
         balconies: 3,
+
         facing: "North",
+
         parking: "5 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Large Garden",
           "Swimming Pool",
@@ -388,8 +603,10 @@ const propertyTypes = [
           "Security",
           "Parking",
         ],
+
         description:
           "Large private farm property suitable for weekend living and investment.",
+
         images: [
           "https://www.hosachiguru.com/assets/images/Hosachiguru%20Farmhouses_image_1.png",
         ],
@@ -397,28 +614,49 @@ const propertyTypes = [
 
       {
         id: 303,
+
         layer: "farmhouse3",
+
         name: "Luxury Countryside Farm",
+
         propertyType: "Farm House",
+
         location: {
           area: "Kanakapura",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562117",
+
           landmark: "Kanakapura Road",
+
           address: "Kanakapura Road, Bengaluru",
         },
+
         size: "3 Acres",
+
         area: "130,680 sq.ft",
+
         price: "₹5.75 Crores",
+
         bedrooms: 5,
+
         bathrooms: 5,
+
         balconies: 3,
+
         facing: "West",
+
         parking: "6 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Private Pool",
           "Garden",
@@ -426,8 +664,10 @@ const propertyTypes = [
           "Security",
           "Parking",
         ],
+
         description:
           "Large countryside property with luxury facilities and open surroundings.",
+
         images: [
           "https://i.pinimg.com/originals/f4/b2/bb/f4b2bb2c9ea93b9ad9b4be7b35fddd61.jpg",
         ],
@@ -435,28 +675,49 @@ const propertyTypes = [
 
       {
         id: 304,
+
         layer: "farmhouse4",
+
         name: "Peaceful Weekend Farm",
+
         propertyType: "Farm House",
+
         location: {
           area: "Doddaballapur",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "561203",
+
           landmark: "Doddaballapur Road",
+
           address: "Doddaballapur, Bengaluru",
         },
+
         size: "1.5 Acres",
+
         area: "65,340 sq.ft",
+
         price: "₹3.40 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         facing: "South",
+
         parking: "4 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Garden",
           "Open Space",
@@ -464,8 +725,10 @@ const propertyTypes = [
           "Parking",
           "Water Supply",
         ],
+
         description:
           "Comfortable weekend farm property surrounded by nature.",
+
         images: [
           "https://coralhomes.com.au/wp-content/uploads/COR608947_Highlands_196.jpg",
         ],
@@ -475,36 +738,60 @@ const propertyTypes = [
 
   {
     name: "Apartments",
+
     slug: "apartments",
+
     image:
       "https://tse3.mm.bing.net/th/id/OIP.6V6pRMYeeZ7HkggWlYvX7AHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
 
     properties: [
       {
         id: 401,
+
         layer: "apartment1",
+
         name: "Premium 3 BHK Apartment",
+
         propertyType: "Apartment",
+
         location: {
           area: "Whitefield",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560066",
+
           landmark: "Near ITPL",
+
           address: "Whitefield, Bengaluru",
         },
+
         size: "3 BHK",
+
         area: "1850 sq.ft",
+
         price: "₹1.35 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         floor: "12th Floor",
+
         facing: "East",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Swimming Pool",
           "Gym",
@@ -513,8 +800,10 @@ const propertyTypes = [
           "Lift",
           "Parking",
         ],
+
         description:
           "Modern 3 BHK apartment with premium amenities and excellent connectivity.",
+
         images: [
           "https://th.bing.com/th/id/R.efa919a2d28fc0dd5aa6b59959abe2e4?rik=TqOCBrBby4%2fKXw&riu=http%3a%2f%2fluxurylounge.in%2fimg%2fp-og-hero.jpg&ehk=8lRwGnmbI3hp%2ff4hA3zK89tbFww5jyR3Mobt%2fkFgCXQ%3d&risl=&pid=ImgRaw&r=0",
         ],
@@ -522,29 +811,51 @@ const propertyTypes = [
 
       {
         id: 402,
+
         layer: "apartment2",
+
         name: "Modern 2 BHK Apartment",
+
         propertyType: "Apartment",
+
         location: {
           area: "Electronic City",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560100",
+
           landmark: "Near Metro Station",
+
           address: "Electronic City, Bengaluru",
         },
+
         size: "2 BHK",
+
         area: "1250 sq.ft",
+
         price: "₹82 Lakhs",
+
         bedrooms: 2,
+
         bathrooms: 2,
+
         balconies: 2,
+
         floor: "8th Floor",
+
         facing: "North",
+
         parking: "1 Car",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Gym",
           "Swimming Pool",
@@ -552,8 +863,10 @@ const propertyTypes = [
           "Security",
           "Parking",
         ],
+
         description:
           "Affordable modern apartment suitable for families and working professionals.",
+
         images: [
           "https://www.prestigesouthernstar.info/images/prestige/prestige-apartments-in-south-bangalore-in-2025.webp",
         ],
@@ -561,29 +874,51 @@ const propertyTypes = [
 
       {
         id: 403,
+
         layer: "apartment3",
+
         name: "Luxury 4 BHK Apartment",
+
         propertyType: "Apartment",
+
         location: {
           area: "Hebbal",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560024",
+
           landmark: "Near Hebbal Flyover",
+
           address: "Hebbal, Bengaluru",
         },
+
         size: "4 BHK",
+
         area: "2800 sq.ft",
+
         price: "₹2.75 Crores",
+
         bedrooms: 4,
+
         bathrooms: 4,
+
         balconies: 3,
+
         floor: "18th Floor",
+
         facing: "East",
+
         parking: "3 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Club House",
           "Swimming Pool",
@@ -592,8 +927,10 @@ const propertyTypes = [
           "Lift",
           "Parking",
         ],
+
         description:
           "Luxury apartment with spacious interiors and premium facilities.",
+
         images: [
           "https://www.onebangalorewest.in/3-bhk-apartments-flats-in-bangalore/images/OBW_overview-1-1.webp",
         ],
@@ -601,29 +938,51 @@ const propertyTypes = [
 
       {
         id: 404,
+
         layer: "apartment4",
+
         name: "Garden View Apartment",
+
         propertyType: "Apartment",
+
         location: {
           area: "Sarjapur",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "562125",
+
           landmark: "Sarjapur Road",
+
           address: "Sarjapur Road, Bengaluru",
         },
+
         size: "3 BHK",
+
         area: "1650 sq.ft",
+
         price: "₹1.15 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         floor: "6th Floor",
+
         facing: "North-East",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Garden",
           "Gym",
@@ -631,8 +990,10 @@ const propertyTypes = [
           "Security",
           "Lift",
         ],
+
         description:
           "Garden-facing apartment designed for comfortable family living.",
+
         images: [
           "https://www.godrejwoodscapes.co/wp-content/uploads/2024/03/Luxury-Apartments-in-Bangalore.webp",
         ],
@@ -640,37 +1001,61 @@ const propertyTypes = [
 
       {
         id: 405,
+
         layer: "apartment5",
+
         name: "City Centre Apartment",
+
         propertyType: "Apartment",
+
         location: {
           area: "Indiranagar",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560038",
+
           landmark: "100 Feet Road",
+
           address: "Indiranagar, Bengaluru",
         },
+
         size: "2 BHK",
+
         area: "1150 sq.ft",
+
         price: "₹1.10 Crores",
+
         bedrooms: 2,
+
         bathrooms: 2,
+
         balconies: 1,
+
         floor: "5th Floor",
+
         facing: "West",
+
         parking: "1 Car",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Lift",
           "Security",
           "Parking",
           "Power Backup",
         ],
+
         description:
           "Well-connected city apartment close to shopping and entertainment areas.",
+
         images: [
           "https://luxuryproperties.in/wp-content/uploads/2019/05/Pheonix-One-Swimming-Pool.jpg",
         ],
@@ -680,35 +1065,58 @@ const propertyTypes = [
 
   {
     name: "Independent House",
+
     slug: "independent-house",
+
     image:
       "https://www.jainoncor.com/blog/wp-content/uploads/2023/11/Independent-houses-for-sale-in-Vasant-Vihar.jpg",
 
     properties: [
       {
         id: 501,
+
         layer: "independent-house1",
+
         name: "Spacious Family House",
+
         propertyType: "Independent House",
+
         location: {
           area: "JP Nagar",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560078",
+
           landmark: "Near Metro Station",
+
           address: "JP Nagar, Bengaluru",
         },
+
         size: "30 x 40 ft",
+
         area: "1800 sq.ft",
+
         price: "₹1.45 Crores",
+
         bedrooms: 3,
+
         bathrooms: 3,
+
         balconies: 2,
+
         facing: "East",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Terrace",
           "Parking",
@@ -716,8 +1124,10 @@ const propertyTypes = [
           "Water Supply",
           "Security",
         ],
+
         description:
           "Independent family house with spacious rooms and private parking.",
+
         images: [
           "https://i.pinimg.com/originals/7b/5c/b2/7b5cb28cde8616927944cffda3b08316.jpg",
         ],
@@ -725,28 +1135,49 @@ const propertyTypes = [
 
       {
         id: 502,
+
         layer: "independent-house2",
+
         name: "Modern Duplex House",
+
         propertyType: "Independent House",
+
         location: {
           area: "Banashankari",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560085",
+
           landmark: "Near Main Road",
+
           address: "Banashankari, Bengaluru",
         },
+
         size: "40 x 60 ft",
+
         area: "2800 sq.ft",
+
         price: "₹2.10 Crores",
+
         bedrooms: 4,
+
         bathrooms: 4,
+
         balconies: 3,
+
         facing: "North",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Duplex",
           "Terrace",
@@ -754,8 +1185,10 @@ const propertyTypes = [
           "Garden",
           "Security",
         ],
+
         description:
           "Modern duplex independent house with spacious living areas.",
+
         images: [
           "https://i.pinimg.com/originals/0a/6b/af/0a6baf70ba0a766f0818f76bf849c256.jpg",
         ],
@@ -763,28 +1196,49 @@ const propertyTypes = [
 
       {
         id: 503,
+
         layer: "independent-house3",
+
         name: "Premium Corner House",
+
         propertyType: "Independent House",
+
         location: {
           area: "HSR Layout",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560102",
+
           landmark: "HSR Main Road",
+
           address: "HSR Layout, Bengaluru",
         },
+
         size: "40 x 60 ft",
+
         area: "3000 sq.ft",
+
         price: "₹2.65 Crores",
+
         bedrooms: 4,
+
         bathrooms: 5,
+
         balconies: 3,
+
         facing: "North-East",
+
         parking: "3 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Corner House",
           "Garden",
@@ -792,8 +1246,10 @@ const propertyTypes = [
           "Parking",
           "Security",
         ],
+
         description:
           "Premium corner house with modern architecture and spacious rooms.",
+
         images: [
           "https://i.pinimg.com/originals/a6/d8/38/a6d83801787c6039734df73bcfa051d6.png",
         ],
@@ -801,36 +1257,59 @@ const propertyTypes = [
 
       {
         id: 504,
+
         layer: "independent-house4",
+
         name: "Affordable Independent House",
+
         propertyType: "Independent House",
+
         location: {
           area: "Kengeri",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560060",
+
           landmark: "Near NICE Road",
+
           address: "Kengeri, Bengaluru",
         },
+
         size: "30 x 40 ft",
+
         area: "1400 sq.ft",
+
         price: "₹78 Lakhs",
+
         bedrooms: 3,
+
         bathrooms: 2,
+
         balconies: 1,
+
         facing: "West",
+
         parking: "1 Car",
+
         furnishing: "Unfurnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Parking",
           "Terrace",
           "Water Supply",
           "Electricity",
         ],
+
         description:
           "Affordable independent house suitable for a small family.",
+
         images: [
           "https://brickzrealtors.com/images/thumbs/0000025_luxury-independent-house-for-sale-in-vanasthalipuram-hyderabad.jpeg",
         ],
@@ -840,33 +1319,52 @@ const propertyTypes = [
 
   {
     name: "Commercial",
+
     slug: "commercial",
+
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
 
     properties: [
       {
-      
         id: 601,
+
         layer: "commercial1",
+
         name: "Premium Office Space",
+
         propertyType: "Commercial",
+
         location: {
           area: "Whitefield",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560066",
+
           landmark: "Near ITPL",
+
           address: "Whitefield Main Road, Bengaluru",
         },
+
         size: "2500 sq.ft",
+
         area: "2500 sq.ft",
+
         price: "₹2.50 Crores",
+
         floor: "7th Floor",
+
         parking: "4 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Reception",
           "Conference Room",
@@ -875,8 +1373,10 @@ const propertyTypes = [
           "Security",
           "Power Backup",
         ],
+
         description:
           "Premium commercial office space suitable for IT and corporate companies.",
+
         images: [
           "https://images.bannerbear.com/direct/4mGpW3zwpg0ZK0AxQw/requests/000/096/623/639/on98ymlOAQyExwJrQvM5pkw3R/ed2fb24b3b26ae1b14995fd060da8989bac0a55a.jpg",
         ],
@@ -884,33 +1384,53 @@ const propertyTypes = [
 
       {
         id: 602,
+
         layer: "commercial2",
+
         name: "Retail Shop Space",
+
         propertyType: "Commercial",
+
         location: {
           area: "Indiranagar",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560038",
+
           landmark: "100 Feet Road",
+
           address: "Indiranagar, Bengaluru",
         },
+
         size: "1200 sq.ft",
+
         area: "1200 sq.ft",
+
         price: "₹1.80 Crores",
+
         floor: "Ground Floor",
+
         parking: "2 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Main Road",
           "Parking",
           "Security",
           "Power Backup",
         ],
+
         description:
           "High-visibility retail property suitable for shops and showrooms.",
+
         images: [
           "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://kwa.bz/wp-content/uploads/2020/08/7317.jpg",
         ],
@@ -918,25 +1438,43 @@ const propertyTypes = [
 
       {
         id: 603,
+
         layer: "commercial3",
+
         name: "Corporate Business Centre",
+
         propertyType: "Commercial",
+
         location: {
           area: "Koramangala",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560034",
+
           landmark: "Near Forum Mall",
+
           address: "Koramangala, Bengaluru",
         },
+
         size: "5000 sq.ft",
+
         area: "5000 sq.ft",
+
         price: "₹5.50 Crores",
+
         floor: "5th Floor",
+
         parking: "8 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Conference Room",
           "Reception",
@@ -945,8 +1483,10 @@ const propertyTypes = [
           "Parking",
           "Security",
         ],
+
         description:
           "Large corporate office space suitable for established businesses.",
+
         images: [
           "https://5.imimg.com/data5/SELLER/Default/2022/11/NZ/BB/KX/7572244/commercial-property-consultant-1000x1000.jpg",
         ],
@@ -954,25 +1494,43 @@ const propertyTypes = [
 
       {
         id: 604,
+
         layer: "commercial4",
+
         name: "Commercial Building",
+
         propertyType: "Commercial",
+
         location: {
           area: "Electronic City",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560100",
+
           landmark: "Electronic City Phase 1",
+
           address: "Electronic City, Bengaluru",
         },
+
         size: "6000 sq.ft",
+
         area: "6000 sq.ft",
+
         price: "₹4.80 Crores",
+
         floor: "G+4",
+
         parking: "10 Cars",
+
         furnishing: "Semi Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Parking",
           "Lift",
@@ -980,8 +1538,10 @@ const propertyTypes = [
           "Power Backup",
           "Main Road",
         ],
+
         description:
           "Multi-floor commercial building suitable for offices and businesses.",
+
         images: [
           "https://th.bing.com/th/id/R.715443e0b7858f463521acd8bd03b4d6?rik=CVvRD9VLjDADvw&riu=http%3a%2f%2fwww.liveenhanced.com%2fwp-content%2fuploads%2f2018%2f03%2fCommercial-Building-Design-15.jpg&ehk=xMpMyv5Tf2t9mF0637CFVM%2boTU2Zz8vHw0DVrJxUDnI%3d&risl=&pid=ImgRaw&r=0",
         ],
@@ -989,25 +1549,43 @@ const propertyTypes = [
 
       {
         id: 605,
+
         layer: "commercial5",
+
         name: "Business Plaza",
+
         propertyType: "Commercial",
+
         location: {
           area: "MG Road",
+
           city: "Bengaluru",
+
           state: "Karnataka",
+
           pincode: "560001",
+
           landmark: "MG Road Metro",
+
           address: "MG Road, Bengaluru",
         },
+
         size: "3500 sq.ft",
+
         area: "3500 sq.ft",
+
         price: "₹6.20 Crores",
+
         floor: "3rd Floor",
+
         parking: "6 Cars",
+
         furnishing: "Fully Furnished",
+
         constructionStatus: "Ready to Move",
+
         status: "Available",
+
         amenities: [
           "Metro Connectivity",
           "Reception",
@@ -1015,8 +1593,10 @@ const propertyTypes = [
           "Parking",
           "Security",
         ],
+
         description:
           "Prime commercial property located in a central business district.",
+
         images: [
           "https://img.freepik.com/premium-photo/urban-contemporary-building-features-plaza-business-offices_117038-43113.jpg",
         ],

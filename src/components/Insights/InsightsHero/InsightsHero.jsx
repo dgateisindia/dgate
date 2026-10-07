@@ -7,24 +7,39 @@ import {
   useRef,
 } from "react";
 
-import { Link } from "react-router-dom";
-
 import gsap from "gsap";
 
-import { FaArrowRight } from "react-icons/fa";
-
 import {
-  insightsHero,
-} from "../../../assets/images/Insights/hero";
+  FaArrowRight,
+} from "react-icons/fa";
 
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+import insightsHero
+  from "../../../assets/images/Insights/hero/insights-hero.png";
+
+
+/* =========================================================
+   THREE JS CANVAS
+========================================================= */
 
 const InsightsCanvas = lazy(
-  () => import("./InsightsCanvas")
+  () =>
+    import("./InsightsCanvas")
 );
 
 
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 function InsightsHero() {
-  const heroRef = useRef(null);
+
+  const heroRef =
+    useRef(null);
 
 
   /* =========================================================
@@ -33,89 +48,105 @@ function InsightsHero() {
   ========================================================= */
 
   useEffect(() => {
-    if (!heroRef.current) return;
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (reduceMotion) return;
+    if (!heroRef.current) {
+      return;
+    }
 
 
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline();
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
 
-      timeline
-        .from(
-          ".insights-page-hero__breadcrumb",
-          {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
-          }
-        )
-
-        .from(
-          ".insights-page-hero__title",
-          {
-            opacity: 0,
-            duration: 0.55,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.15"
-        )
-
-        .from(
-          ".insights-page-hero__line",
-          {
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.2"
-        )
-
-        .from(
-          ".insights-page-hero__description",
-          {
-            opacity: 0,
-            duration: 0.45,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.1"
-        )
-
-        .from(
-          ".insights-page-hero__button",
-          {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.15"
-        )
-
-        .from(
-          ".insights-page-hero__visual",
-          {
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.35"
-        );
-
-    }, heroRef);
+    if (reduceMotion) {
+      return;
+    }
 
 
-    return () => ctx.revert();
+    const ctx =
+      gsap.context(
+        () => {
+
+          const timeline =
+            gsap.timeline();
+
+
+          timeline
+
+            .from(
+              ".insights-page-hero__breadcrumb",
+              {
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                clearProps: "opacity",
+              }
+            )
+
+            .from(
+              ".insights-page-hero__title",
+              {
+                opacity: 0,
+                duration: 0.55,
+                ease: "power2.out",
+                clearProps: "opacity",
+              },
+              "-=0.15"
+            )
+
+            .from(
+              ".insights-page-hero__line",
+              {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out",
+                clearProps: "opacity",
+              },
+              "-=0.2"
+            )
+
+            .from(
+              ".insights-page-hero__description",
+              {
+                opacity: 0,
+                duration: 0.45,
+                ease: "power2.out",
+                clearProps: "opacity",
+              },
+              "-=0.1"
+            )
+
+            .from(
+              ".insights-page-hero__button",
+              {
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                clearProps: "opacity",
+              },
+              "-=0.15"
+            )
+
+            .from(
+              ".insights-page-hero__visual",
+              {
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                clearProps: "opacity",
+              },
+              "-=0.35"
+            );
+
+        },
+        heroRef
+      );
+
+
+    return () =>
+      ctx.revert();
 
   }, []);
 
@@ -124,47 +155,66 @@ function InsightsHero() {
      SCROLL TO FEATURED ARTICLE
   ========================================================= */
 
-  const handleExploreInsights = () => {
-    const featuredSection =
-      document.getElementById(
-        "featured-article"
-      );
+  const handleExploreInsights =
+    () => {
 
-    if (!featuredSection) return;
+      const featuredSection =
+        document.getElementById(
+          "featured-article"
+        );
 
-    featuredSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
+      if (!featuredSection) {
+        return;
+      }
+
+
+      featuredSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+    };
+
+
+  /* =========================================================
+     UI
+  ========================================================= */
 
   return (
+
     <section
       className="insights-page-hero"
       ref={heroRef}
       aria-labelledby="insights-page-hero-title"
     >
-      <div className="insights-page-hero__container">
+
+      <div
+        className="insights-page-hero__container"
+      >
 
 
-        {/* ==========================================
+        {/* =================================================
             LEFT CONTENT
-        ========================================== */}
+        ================================================= */}
 
-        <div className="insights-page-hero__content">
+        <div
+          className="insights-page-hero__content"
+        >
 
           <h1
             id="insights-page-hero-title"
             className="insights-page-hero__title"
           >
+
             Insights that{" "}
 
             <span>
               Inspire
             </span>{" "}
 
-            Innovation
+            Digital Growth
+
           </h1>
 
 
@@ -174,37 +224,51 @@ function InsightsHero() {
           />
 
 
-          <p className="insights-page-hero__description">
-            Stay updated with the latest trends,
-            insights and expert perspectives from
-            the world of engineering and technology.
+          <p
+            className="insights-page-hero__description"
+          >
+
+            Explore practical insights on
+            branding, web and app development,
+            digital marketing, performance
+            campaigns and customer engagement.
+
           </p>
 
 
           <button
             type="button"
             className="insights-page-hero__button"
-            onClick={handleExploreInsights}
+            onClick={
+              handleExploreInsights
+            }
           >
+
             <span>
               Explore Insights
             </span>
 
-            <FaArrowRight aria-hidden="true" />
+
+            <FaArrowRight
+              aria-hidden="true"
+            />
+
           </button>
 
         </div>
 
 
-        {/* ==========================================
+        {/* =================================================
             RIGHT VISUAL
-        ========================================== */}
+        ================================================= */}
 
-        <div className="insights-page-hero__visual">
+        <div
+          className="insights-page-hero__visual"
+        >
 
           <img
             src={insightsHero}
-            alt="DGATE engineering and technology insights"
+            alt="DGATE digital marketing, branding, web and app development insights"
             className="insights-page-hero__image"
           />
 
@@ -215,15 +279,23 @@ function InsightsHero() {
           />
 
 
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={null}
+          >
+
             <InsightsCanvas />
+
           </Suspense>
 
         </div>
 
+
       </div>
+
     </section>
+
   );
+
 }
 
 

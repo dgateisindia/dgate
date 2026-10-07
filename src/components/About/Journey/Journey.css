@@ -1,94 +1,154 @@
 /* =========================================================
    ABOUT JOURNEY
+   HOME PAGE DESIGN SYSTEM
 ========================================================= */
 
 .about-journey {
+  --journey-yellow:
+    var(--primary, #fdb913);
+
+  --journey-black:
+    var(--black, #101010);
+
+  --journey-text:
+    var(--text, #626262);
+
+  position: relative;
+
   width: 100%;
 
-  padding: 55px 0 70px;
+  margin: 0;
 
-  background: var(--white);
+  padding:
+    72px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--white, #ffffff);
 }
 
 
-/* TITLE */
+.about-journey > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 .about-journey__title {
-  margin-bottom: 55px;
+  width: 100%;
+
+  margin:
+    0 0 46px;
 
   text-align: center;
 }
 
 
 .about-journey__title h2 {
-  margin: 0 0 12px;
+  margin:
+    0 0 12px;
 
-  color: var(--black);
+  color:
+    var(--journey-black);
 
-  font-size: 2rem;
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      2.6rem
+    );
+
   font-weight: 800;
 
-  line-height: 1.2;
+  line-height: 1.1;
+
+  letter-spacing: -0.8px;
+
+  text-transform: uppercase;
 }
 
 
 .about-journey__title-line {
-  width: 55px;
+  width: 54px;
+
   height: 3px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  border-radius: 10px;
+  border-radius: 999px;
 
-  background: var(--primary);
+  background:
+    var(--journey-yellow);
 }
 
 
 /* =========================================================
-   TIMELINE
+   TIMELINE WRAPPER
 ========================================================= */
 
 .about-journey__wrapper {
   position: relative;
 
-  padding-top: 25px;
+  width: 100%;
+
+  padding-top: 24px;
 }
 
 
 .about-journey__timeline-line {
   position: absolute;
 
+  z-index: 1;
+
   top: 60px;
+
   left: 8%;
   right: 8%;
 
   height: 3px;
 
-  border-radius: 10px;
+  border-radius: 999px;
 
-  background: var(--primary);
-
-  z-index: 1;
+  background:
+    var(--journey-yellow);
 }
 
 
-/* ITEMS */
+/* =========================================================
+   ITEMS
+========================================================= */
 
 .about-journey__items {
   position: relative;
 
   z-index: 2;
 
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(5, minmax(0, 1fr));
+    repeat(
+      5,
+      minmax(0, 1fr)
+    );
 
-  gap: 10px;
+  gap: 14px;
 }
 
-
-/* ITEM */
 
 .about-journey__item {
   min-width: 0;
@@ -97,50 +157,55 @@
 }
 
 
-/* ICON */
+/* =========================================================
+   ICON
+========================================================= */
 
 .about-journey__icon {
-  width: 74px;
-  height: 74px;
-
-  margin: 0 auto 20px;
+  width: 72px;
+  height: 72px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  border: 2px solid var(--primary);
+  margin:
+    0 auto 18px;
+
+  border:
+    2px solid
+    var(--journey-yellow);
+
   border-radius: 50%;
 
-  background: var(--white);
+  background: #ffffff;
 
-  color: var(--black);
+  color:
+    var(--journey-black);
 
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 
   transition:
-    transform var(--transition),
-    background-color var(--transition);
+    transform 0.25s ease,
+    background-color 0.25s ease;
 }
 
 
-.about-journey__icon svg {
-  display: block;
-
-  transition:
-    transform var(--transition);
-}
-
-
-/* CONTENT */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .about-journey__content h3 {
-  margin: 0 0 10px;
+  margin:
+    0 0 8px;
 
-  color: var(--black);
+  color:
+    var(--journey-black);
 
-  font-size: 1.8rem;
+  font-size: 1.65rem;
+
   font-weight: 800;
 
   line-height: 1;
@@ -150,32 +215,46 @@
 .about-journey__content p {
   max-width: 150px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  color: var(--text);
+  color:
+    var(--journey-text);
 
-  font-size: 0.9rem;
+  font-size: 0.82rem;
 
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 
-/* HOVER */
+/* =========================================================
+   HOVER
+========================================================= */
 
 @media (hover: hover) {
 
   .about-journey__item:hover
   .about-journey__icon {
-    background: var(--primary);
+    transform:
+      translateY(-4px);
 
-    transform: translateY(-5px);
+    background:
+      var(--journey-yellow);
   }
+}
 
-  .about-journey__item:hover
-  .about-journey__icon svg {
-    transform: scale(1.1);
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .about-journey {
+    padding:
+      64px
+      32px;
   }
-
 }
 
 
@@ -183,91 +262,92 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .about-journey {
-    padding: 45px 0 55px;
+    padding:
+      56px
+      24px;
   }
+
 
   .about-journey__title {
     margin-bottom: 40px;
   }
 
-  .about-journey__title h2 {
-    font-size: 1.65rem;
-  }
 
   .about-journey__icon {
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
 
+    font-size: 1.4rem;
+  }
+
+
+  .about-journey__content h3 {
     font-size: 1.35rem;
   }
 
-  .about-journey__content h3 {
-    font-size: 1.3rem;
-  }
 
   .about-journey__content p {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
-
 }
 
 
 /* =========================================================
-   MOBILE
+   MOBILE TIMELINE
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
 
   .about-journey {
-    padding: 40px 0 50px;
+    padding:
+      48px
+      18px;
   }
+
 
   .about-journey__title {
     margin-bottom: 32px;
   }
 
+
   .about-journey__title h2 {
-    font-size: 1.45rem;
+    font-size: 1.8rem;
   }
 
-  .about-journey__title-line {
-    width: 42px;
-  }
-
-
-  /* VERTICAL TIMELINE */
 
   .about-journey__wrapper {
     padding:
-      0
-      0
-      0
+      0 0 0
       30px;
   }
 
+
   .about-journey__timeline-line {
     top: 0;
+
     bottom: 0;
 
     left: 25px;
+
     right: auto;
 
     width: 3px;
-    height: 100%;
 
-    transform-origin: top center;
+    height: 100%;
   }
+
 
   .about-journey__items {
     display: flex;
 
     flex-direction: column;
 
-    gap: 28px;
+    gap: 26px;
   }
+
 
   .about-journey__item {
     display: flex;
@@ -279,41 +359,50 @@
     text-align: left;
   }
 
+
   .about-journey__icon {
     width: 52px;
     height: 52px;
 
-    flex: 0 0 52px;
+    flex:
+      0 0 52px;
 
     margin:
-      0
-      0
-      0
+      0 0 0
       -30px;
 
     font-size: 1.2rem;
   }
 
-  .about-journey__content {
-    min-width: 0;
-  }
 
   .about-journey__content h3 {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 
     font-size: 1.2rem;
   }
+
 
   .about-journey__content p {
     max-width: none;
 
     margin: 0;
 
-    font-size: 0.85rem;
-
-    line-height: 1.55;
+    font-size: 0.81rem;
   }
+}
 
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-journey {
+    padding:
+      44px
+      16px;
+  }
 }
 
 
@@ -323,9 +412,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .about-journey__icon,
-  .about-journey__icon svg {
+  .about-journey__icon {
     transition: none;
   }
-
 }

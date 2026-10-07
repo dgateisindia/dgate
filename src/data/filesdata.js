@@ -1,365 +1,427 @@
-const photo = (id) =>
+/* =========================================================
+   DGATE GALLERY DATA
 
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=85`;
+   SAMPLE COMPANY-RELATED IMAGE LINKS
+   TEAM • MEETINGS • EVENTS • OFFICE • CELEBRATIONS
 
-const videoBase =
+   NOTE:
+   THESE ARE SAMPLE REMOTE IMAGE LINKS FOR TESTING ONLY.
+   REPLACE WITH YOUR REAL DGATE IMAGES LATER.
+========================================================= */
 
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/";
+
+/* =========================================================
+   GALLERY CATEGORIES
+========================================================= */
 
 export const galleryCategories = [
-
   "All",
-  "Branding",
-  "Web & App",
-  "Marketing",
+  "Team",
+  "Meetings",
   "Events",
-  "Photography",
-  "Video",
-
+  "Office",
+  "Celebrations",
 ];
 
-// Sample photography illustrating D-GATE service categories.
-// Replace with your own project images when available.
+
+/* =========================================================
+   GALLERY IMAGES
+========================================================= */
+
 export const galleryImages = [
-  {
 
-    id: "image-01",
-    type: "image",
-    title: "Creative Workspace",
-    category: "Branding",
-    src: photo("photo-1497366754035-f200968a6e72"),
-    alt: "Bright contemporary workspace with desks and indoor plants",
-
-  },
+  /* =======================================================
+     TEAM
+  ======================================================= */
 
   {
-
-    id: "image-02",
+    id: "gallery-01",
     type: "image",
-    title: "Website Development",
-    category: "Web & App",
-    src: photo("photo-1460925895917-afdab827c52f"),
-    alt: "Laptop displaying a digital business dashboard",
 
+    title:
+      "DGATE Team Meeting",
+
+    category:
+      "Team",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Professional team meeting and collaboration",
   },
+
 
   {
-
-    id: "image-03",
+    id: "gallery-02",
     type: "image",
-    title: "Digital Campaign Planning",
-    category: "Marketing",
-    src: photo("photo-1552664730-d307ca884978"),
-    alt: "Team collaborating on a business presentation",
 
+    title:
+      "Team Collaboration",
+
+    category:
+      "Team",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Professional team collaborating during a meeting",
   },
+
 
   {
-
-    id: "image-04",
+    id: "gallery-03",
     type: "image",
-    title: "Business Events",
-    category: "Events",
-    src: photo("photo-1511578314322-379afb476865"),
-    alt: "Guests attending a business networking event",
 
+    title:
+      "Ideas in Action",
+
+    category:
+      "Team",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Team discussing business ideas and strategies",
   },
+
 
   {
-
-    id: "image-05",
+    id: "gallery-04",
     type: "image",
-    title: "Product Photography",
-    category: "Photography",
-    src: photo("photo-1541643600914-78b084683601"),
-    alt: "Perfume bottle photographed as a premium product",
 
+    title:
+      "Working Together",
+
+    category:
+      "Team",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Corporate team working together",
   },
+
+
+  /* =======================================================
+     MEETINGS
+  ======================================================= */
 
   {
-
-    id: "image-06",
+    id: "gallery-05",
     type: "image",
-    title: "Mobile Experiences",
-    category: "Web & App",
-    src: photo("photo-1511707171634-5f897ff02aa9"),
-    alt: "Smartphone photographed against a simple background",
 
+    title:
+      "Client Discussion",
+
+    category:
+      "Meetings",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Professional client meeting and discussion",
   },
+
 
   {
-
-    id: "image-07",
+    id: "gallery-06",
     type: "image",
-    title: "Brand Strategy",
-    category: "Branding",
-    src: photo("photo-1522071820081-009f0129c71c"),
-    alt: "Creative team working together around a table",
 
+    title:
+      "Strategy Meeting",
+
+    category:
+      "Meetings",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Corporate strategy meeting",
   },
+
 
   {
-
-    id: "image-08",
+    id: "gallery-07",
     type: "image",
-    title: "Social Media Content",
-    category: "Marketing",
-    src: photo("photo-1611162617474-5b21e879e113"),
-    alt: "Social media themed graphic",
 
+    title:
+      "Project Presentation",
+
+    category:
+      "Meetings",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Business project presentation",
   },
+
 
   {
-
-    id: "image-09",
+    id: "gallery-08",
     type: "image",
-    title: "Live Experiences",
-    category: "Events",
-    src: photo("photo-1492684223066-81342ee5ff30"),
-    alt: "Audience gathered for a live event",
 
+    title:
+      "Brainstorming Session",
+
+    category:
+      "Meetings",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Team brainstorming session",
   },
+
+
+  /* =======================================================
+     EVENTS
+  ======================================================= */
 
   {
-
-    id: "image-10",
+    id: "gallery-09",
     type: "image",
-    title: "Architectural Photography",
-    category: "Photography",
-    src: photo("photo-1486406146926-c627a92ad1ab"),
-    alt: "Modern glass building photographed from below",
 
+    title:
+      "Corporate Event",
+
+    category:
+      "Events",
+
+    src:
+      "https://cdn.prod.website-files.com/678e1d6d7ed738f35f81c72b/68492d398ad5291c317cdb70_Blog%20-%20events.jpg",
+
+    alt:
+      "Corporate networking event",
   },
+
 
   {
-
-    id: "image-11",
+    id: "gallery-10",
     type: "image",
-    title: "Design Studio",
-    category: "Branding",
-    src: photo("photo-1497366811353-6870744d04b2"),
-    alt: "Open office interior with contemporary furniture",
 
+    title:
+      "Team at the Event",
+
+    category:
+      "Events",
+
+    src:
+      "https://cdn.prod.website-files.com/678e1d6d7ed738f35f81c72b/68492d398ad5291c317cdb70_Blog%20-%20events.jpg",
+
+    alt:
+      "Professional team attending an event",
   },
+
 
   {
-
-    id: "image-12",
+    id: "gallery-11",
     type: "image",
-    title: "Development in Progress",
-    category: "Web & App",
-    src: photo("photo-1498050108023-c5249f4df085"),
-    alt: "Laptop and desktop equipment used for development",
 
+    title:
+      "Industry Connect",
+
+    category:
+      "Events",
+
+    src:
+      "https://cdn.prod.website-files.com/678e1d6d7ed738f35f81c72b/68492d398ad5291c317cdb70_Blog%20-%20events.jpg",
+
+    alt:
+      "Industry networking and professional event",
   },
+
 
   {
-
-    id: "image-13",
+    id: "gallery-12",
     type: "image",
-    title: "Performance & Analytics",
-    category: "Marketing",
-    src: photo("photo-1551288049-bebda4e38f71"),
-    alt: "Analytics charts displayed on a screen",
 
+    title:
+      "Networking Moments",
+
+    category:
+      "Events",
+
+    src:
+      "https://cdn.prod.website-files.com/678e1d6d7ed738f35f81c72b/68492d398ad5291c317cdb70_Blog%20-%20events.jpg",
+
+    alt:
+      "Corporate networking moments",
   },
+
+
+  /* =======================================================
+     OFFICE
+  ======================================================= */
 
   {
-
-    id: "image-14",
+    id: "gallery-13",
     type: "image",
-    title: "Conference Moments",
-    category: "Events",
-    src: photo("photo-1505373877841-8d25f7d46678"),
-    alt: "Conference presentation in an auditorium",
 
+    title:
+      "Inside the Office",
+
+    category:
+      "Office",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Professional office environment",
   },
+
 
   {
-
-    id: "image-15",
+    id: "gallery-14",
     type: "image",
-    title: "Lifestyle Product Shoot",
-    category: "Photography",
-    src: photo("photo-1523275335684-37898b6baf30"),
-    alt: "Minimal watch product photograph",
 
+    title:
+      "A Day at Work",
+
+    category:
+      "Office",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Team working in a professional office environment",
   },
+
 
   {
-
-    id: "image-16",
+    id: "gallery-15",
     type: "image",
-    title: "Interface Development",
-    category: "Web & App",
-    src: photo("photo-1555066931-4365d14bab8c"),
-    alt: "Computer screen showing programming code",
 
+    title:
+      "Behind the Scenes",
+
+    category:
+      "Office",
+
+    src:
+      "https://www.sayonetech.com/images/service-images/solution-arch-service-dev-approach.webp",
+
+    alt:
+      "Behind the scenes office work",
   },
+
 
   {
-
-    id: "image-17",
+    id: "gallery-16",
     type: "image",
-    title: "Creative Collaboration",
-    category: "Branding",
-    src: photo("photo-1521737711867-e3b97375f902"),
-    alt: "Colleagues collaborating in a shared workspace",
 
+    title:
+      "Our Workspace",
+
+    category:
+      "Office",
+
+    src:
+      "https://vertexeng.com/app/uploads/2018/03/VERTEX-Mission-Core-Values.jpg",
+
+    alt:
+      "Modern professional workspace",
   },
 
-  { 
 
-    id: "image-18",
-    type: "image",
-    title: "Campaign Workshop",
-    category: "Marketing",
-    src: photo("photo-1556761175-b413da4baf72"),
-    alt: "Business team discussing ideas in an office",
-
-  },
+  /* =======================================================
+     CELEBRATIONS
+  ======================================================= */
 
   {
-    id: "image-19",
+    id: "gallery-17",
     type: "image",
-    title: "Stage & Music",
-    category: "Events",
-    src: photo("photo-1470229722913-7c0e2dbbafd3"),
-    alt: "Concert stage illuminated with colourful lights",
+
+    title:
+      "Celebrating Together",
+
+    category:
+      "Celebrations",
+
+    src:
+      "https://static.tildacdn.com/tild3630-3532-4566-a563-353534643531/teamgood.jpeg",
+
+    alt:
+      "Office team celebration",
   },
 
+
   {
-    id: "image-20",
+    id: "gallery-18",
     type: "image",
-    title: "Interior Photography",
-    category: "Photography",
-    src: photo("photo-1600210492486-724fe5c67fb0"),
-    alt: "Modern living room interior",
+
+    title:
+      "Team Celebration",
+
+    category:
+      "Celebrations",
+
+    src:
+      "https://static.tildacdn.com/tild3630-3532-4566-a563-353534643531/teamgood.jpeg",
+
+    alt:
+      "Professional team celebrating together",
   },
+
+
+  {
+    id: "gallery-19",
+    type: "image",
+
+    title:
+      "Success Together",
+
+    category:
+      "Celebrations",
+
+    src:
+      "https://static.tildacdn.com/tild3630-3532-4566-a563-353534643531/teamgood.jpeg",
+
+    alt:
+      "Team celebrating a business milestone",
+  },
+
+
+  {
+    id: "gallery-20",
+    type: "image",
+
+    title:
+      "Together Beyond Work",
+
+    category:
+      "Celebrations",
+
+    src:
+      "https://static.tildacdn.com/tild3630-3532-4566-a563-353534643531/teamgood.jpeg",
+
+    alt:
+      "Corporate team celebration and company moments",
+  },
+
 ];
 
-// Public sample clips for previewing the gallery player.
-// Names identify the sample content; these are not D-GATE productions.
-export const galleryVideos = [
-  {
 
-    id: "video-01",
-    type: "video",
-    title: "Volkswagen GTI — Sample",
-    category: "Video",
-    src: `${videoBase}VolkswagenGTIReview.mp4`,
-    poster: `${videoBase}images/VolkswagenGTIReview.jpg`,
+/* =========================================================
+   BACKWARD COMPATIBILITY
+========================================================= */
 
-  },
-
-  {
-
-    id: "video-02",
-    type: "video",
-    title: "Subaru Outback — Sample",
-    category: "Video",
-    src: `${videoBase}SubaruOutbackOnStreetAndDirt.mp4`,
-    poster: `${videoBase}images/SubaruOutbackOnStreetAndDirt.jpg`,
-
-  },
-
-  {
-
-    id: "video-03",
-    type: "video",
-    title: "For Bigger Fun — Sample",
-    category: "Video",
-    src: `${videoBase}ForBiggerFun.mp4`,
-    poster: `${videoBase}images/ForBiggerFun.jpg`,
-
-  },
-
-  {
-
-    id: "video-04",
-    type: "video",
-    title: "For Bigger Joyrides — Sample",
-    category: "Video",
-    src: `${videoBase}ForBiggerJoyrides.mp4`,
-    poster: `${videoBase}images/ForBiggerJoyrides.jpg`,
-
-  },
-
-  {
-
-    id: "video-05",
-    type: "video",
-    title: "For Bigger Escapes — Sample",
-    category: "Video",
-    src: `${videoBase}ForBiggerEscapes.mp4`,
-    poster: `${videoBase}images/ForBiggerEscapes.jpg`,
-
-  },
-
-  {
-
-    id: "video-06",
-    type: "video",
-    title: "For Bigger Blazes — Sample",
-    category: "Video",
-    src: `${videoBase}ForBiggerBlazes.mp4`,
-    poster: `${videoBase}images/ForBiggerBlazes.jpg`,
-
-  },
-
-  {
-
-    id: "video-07",
-    type: "video",
-    title: "For Bigger Meltdowns — Sample",
-    category: "Video",
-    src: `${videoBase}ForBiggerMeltdowns.mp4`,
-    poster: `${videoBase}images/ForBiggerMeltdowns.jpg`,
-
-  },
-
-  {
-
-    id: "video-08",
-    type: "video",
-    title: "Big Buck Bunny — Animation",
-    category: "Video",
-    src: `${videoBase}BigBuckBunny.mp4`,
-    poster: `${videoBase}images/BigBuckBunny.jpg`,
-
-  },
-
-  {
-
-    id: "video-09",
-    type: "video",
-    title: "Elephants Dream — Animation",
-    category: "Video",
-    src: `${videoBase}ElephantsDream.mp4`,
-    poster: `${videoBase}images/ElephantsDream.jpg`,
-
-  },
-
-  {
-
-    id: "video-10",
-    type: "video",
-    title: "Sintel — Film Sample",
-    category: "Video",
-    src: `${videoBase}Sintel.mp4`,
-    poster: `${videoBase}images/Sintel.jpg`,
-
-  },
-
-];
+export const galleryItems =
+  galleryImages;
 
 
+/* =========================================================
+   VIDEOS
+========================================================= */
 
-// Display two photos followed by one video.
-export const galleryItems = galleryVideos.flatMap((video, index) => [
-
-  galleryImages[index * 2],
-  galleryImages[index * 2 + 1],
-  video,
-
-]);
+export const galleryVideos = [];

@@ -1,144 +1,446 @@
+/* =========================================================
+   ABOUT - MISSION / VISION / VALUES
+   FINAL HOME-PAGE ALIGNMENT VERSION
+========================================================= */
+
 .about-principles {
+  --principles-yellow:
+    var(--primary, #fdb913);
+
+  --principles-black:
+    var(--black, #101010);
+
+  --principles-text:
+    var(--text, #626262);
+
+  --principles-white:
+    var(--white, #ffffff);
+
+  --principles-section:
+    var(--section, #f7f7f7);
+
+  --principles-border:
+    var(--border, rgba(17, 17, 17, 0.1));
+
+  position: relative;
+
   width: 100%;
 
-  padding:
-    72px
-    0;
+  margin: 0;
 
-  background: var(--section);
+  padding:
+    32px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--principles-section);
 }
 
+
+/* =========================================================
+   MASTER CONTAINER
+========================================================= */
+
+.about-principles > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .about-principles__heading {
-  text-align: center;
+  width: 100%;
 
-  margin-bottom: 35px;
+  max-width: 760px;
+
+  margin:
+    0 auto
+    30px;
+
+  padding: 0;
+
+  text-align: center;
 }
 
+
+/* =========================================================
+   EYEBROW
+========================================================= */
 
 .about-principles__heading > span {
-  color: var(--primary);
+  display: inline-block;
 
-  font-size: 0.7rem;
-  font-weight: 700;
+  margin:
+    0 0 11px;
+
+  padding: 0;
+
+  color:
+    var(--principles-yellow);
+
+  font-size: 0.66rem;
+
+  font-weight: 800;
+
+  line-height: 1;
 
   letter-spacing: 1.6px;
+
+  text-transform: uppercase;
 }
 
 
-.about-principles__heading h2 {
-  margin:
-    8px
-    0
-    0;
+/* =========================================================
+   TITLE
+========================================================= */
 
-  color: var(--black);
+.about-principles__heading h2 {
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--principles-black);
 
   font-size:
-    clamp(2rem, 3vw, 3rem);
+    clamp(
+      2.25rem,
+      3.8vw,
+      3.5rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.3px;
+
+  text-wrap: balance;
 }
 
 
 .about-principles__heading h2 strong {
-  color: var(--primary);
+  color:
+    var(--principles-yellow);
 }
 
 
+/* =========================================================
+   GRID
+========================================================= */
+
 .about-principles__grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
 
-  gap: 20px;
+  gap: 18px;
+
+  margin: 0;
+
+  padding: 0;
 }
 
 
+/* =========================================================
+   CARD
+========================================================= */
+
 .about-principles__card {
-  min-height: 275px;
+  min-width: 0;
+
+  min-height: 255px;
 
   padding:
-    30px
-    27px;
+    27px
+    26px;
 
   border:
     1px solid
-    var(--border);
+    var(--principles-border);
 
-  border-radius: var(--radius-md);
+  border-radius: 14px;
 
-  background: var(--white);
+  background:
+    var(--principles-white);
 
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-
-.about-principles__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.45);
+  box-sizing: border-box;
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.065);
+    0 5px 18px
+    rgba(0, 0, 0, 0.025);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+
+/* =========================================================
+   ICON
+========================================================= */
 
 .about-principles__icon {
   width: 52px;
+
   height: 52px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  margin-bottom: 22px;
+  margin:
+    0 0 20px;
 
   border-radius: 50%;
 
   background:
     rgba(253, 185, 19, 0.12);
 
-  color: var(--primary);
+  color:
+    var(--principles-yellow);
 
   font-size: 1.15rem;
 }
 
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
 .about-principles__card h3 {
   margin:
-    0
-    0
-    12px;
+    0 0 11px;
 
-  color: var(--black);
+  padding: 0;
 
-  font-size: 1.15rem;
+  color:
+    var(--principles-black);
+
+  font-size: 1.05rem;
+
+  font-weight: 750;
+
+  line-height: 1.35;
 }
 
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
 
 .about-principles__card p {
   margin: 0;
 
-  color: var(--text);
+  padding: 0;
 
-  font-size: 0.82rem;
+  color:
+    var(--principles-text);
 
-  line-height: 1.72;
+  font-size: 0.81rem;
+
+  font-weight: 400;
+
+  line-height: 1.7;
 }
 
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .about-principles__card:hover {
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(253, 185, 19, 0.45);
+
+    box-shadow:
+      0 14px 30px
+      rgba(0, 0, 0, 0.06);
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .about-principles {
+    padding:
+      30px
+      32px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-principles {
+    padding:
+      28px
+      24px;
+  }
+
+
+  .about-principles__heading {
+    margin-bottom: 28px;
+  }
+
+
+  .about-principles__heading h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
+  }
+
+
+  .about-principles__card {
+    min-height: 235px;
+
+    padding: 24px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
 
 @media (max-width: 768px) {
 
   .about-principles__grid {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
 
   .about-principles__card {
     min-height: auto;
   }
+}
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .about-principles {
+    padding:
+      24px
+      18px;
+  }
+
+
+  .about-principles__heading {
+    margin-bottom: 24px;
+  }
+
+
+  .about-principles__heading > span {
+    margin-bottom: 9px;
+
+    font-size: 0.6rem;
+  }
+
+
+  .about-principles__heading h2 {
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .about-principles__card {
+    padding: 21px;
+  }
+
+
+  .about-principles__icon {
+    width: 48px;
+
+    height: 48px;
+
+    margin-bottom: 17px;
+  }
+
+
+  .about-principles__card p {
+    font-size: 0.8rem;
+
+    line-height: 1.65;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-principles {
+    padding:
+      22px
+      16px;
+  }
+
+
+  .about-principles__card {
+    padding: 19px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-principles__card {
+    transition: none;
+  }
 }

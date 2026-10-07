@@ -11,8 +11,8 @@ import SuccessStories from "../../components/Home/SuccessStories/SuccessStories"
 import Clients from "../../components/Home/Clients/Clients";
 import Testimonials from "../../components/Home/Testimonials/Testimonials";
 import TrustProof from "../../components/Home/TrustProof/TrustProof";
-import ProvenImpact from "../../components/Home/ProvenImpact/ProvenImpact";
-{/* import HomeAchievements from "../../components/Home/HomeAchievements/HomeAchievements";  
+{/* import ProvenImpact from "../../components/Home/ProvenImpact/ProvenImpact";
+ import HomeAchievements from "../../components/Home/HomeAchievements/HomeAchievements";  
 import CTA from "../../components/Home/CTA/CTA"; */}
 import Footer from "../../components/Home/Footer/Footer";
 
@@ -54,11 +54,11 @@ function Home() {
         {/* 10. TESTIMONIALS */}
         <Testimonials />
 
-        {/* 11. TRUST PROOF */}
-        <TrustProof />
+        {/* 11. TRUST PROOF 
+        <TrustProof /> */}
 
-        {/* 12. PROVEN IMPACT */}
-        <ProvenImpact />
+        {/* 12. PROVEN IMPACT 
+        <ProvenImpact /> */}
 
         {/* 13. ACHIEVEMENTS 
         <HomeAchievements />    */}

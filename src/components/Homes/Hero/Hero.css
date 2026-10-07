@@ -1,38 +1,11 @@
 /* =========================================================
-   DGATE HOMES - HERO
+   DGATE HOMES HERO
+   BOOTSTRAP + FIXED RESPONSIVE ALIGNMENT
 ========================================================= */
 
 
 /* =========================================================
-   GLOBAL SAFETY
-========================================================= */
-
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
-
-  margin: 0;
-  padding: 0;
-}
-
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   HERO
+   ROOT
 ========================================================= */
 
 .home-hero {
@@ -42,8 +15,7 @@ body {
   min-height: 560px;
 
   display: flex;
-
-  align-items: flex-start;
+  align-items: center;
 
   margin: 0;
   padding: 0;
@@ -67,16 +39,14 @@ body {
 
   z-index: -3;
 
-  display: block;
-
   width: 100%;
   height: 100%;
 
+  display: block;
+
   object-fit: cover;
 
-  object-position: center;
-
-  transform: scale(1.01);
+  object-position: center center;
 
   pointer-events: none;
 
@@ -85,7 +55,7 @@ body {
 
 
 /* =========================================================
-   BACKGROUND OVERLAY
+   DARK OVERLAY
 ========================================================= */
 
 .home-hero::before {
@@ -97,16 +67,17 @@ body {
 
   z-index: -2;
 
+  pointer-events: none;
+
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.78) 0%,
-      rgba(0, 0, 0, 0.62) 38%,
-      rgba(0, 0, 0, 0.28) 68%,
-      rgba(0, 0, 0, 0.18) 100%
+      rgba(0, 0, 0, 0.84) 0%,
+      rgba(0, 0, 0, 0.71) 32%,
+      rgba(0, 0, 0, 0.46) 56%,
+      rgba(0, 0, 0, 0.20) 82%,
+      rgba(0, 0, 0, 0.10) 100%
     );
-
-  pointer-events: none;
 }
 
 
@@ -125,66 +96,63 @@ body {
 
   z-index: -1;
 
-  height: 180px;
+  height: 150px;
+
+  pointer-events: none;
 
   background:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.32),
       transparent
     );
-
-  pointer-events: none;
 }
 
 
 /* =========================================================
-   HERO CONTENT
+   CONTENT CONTAINER
+
+   IMPORTANT:
+   Override Bootstrap's default container widths so Hero
+   follows the same page alignment on every breakpoint.
 ========================================================= */
 
-.home-hero__content {
+.container.home-hero__content {
   position: relative;
 
   z-index: 2;
 
-  min-width: 0;
+  width: 100%;
 
-  width:
-    min(
-      calc(100% - 64px),
-      1180px
-    );
+  max-width: 1280px;
 
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 
   padding:
-    56px
-    0
-    64px;
+    54px
+    40px
+    58px;
+
+  text-align: left;
 }
 
 
 /* =========================================================
-   SMALL TAG
+   TAG
 ========================================================= */
 
 .home-hero__tag {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
-  gap: 0;
-
   margin:
-    0
-    0
-    18px;
+    0 0 18px;
 
   padding:
-    10px
-    18px;
+    9px 18px;
 
   border-radius: 999px;
 
@@ -192,8 +160,7 @@ body {
 
   color: #fdb913;
 
-  font-size: 13px;
-
+  font-size: 12px;
   font-weight: 800;
 
   line-height: 1;
@@ -206,47 +173,46 @@ body {
 }
 
 
-.home-hero__tag::before {
-  display: none;
-
-  content: none;
-}
-
-
 /* =========================================================
    TITLE
 ========================================================= */
 
 .home-hero__title {
-  max-width: 760px;
+  width: 100%;
+
+  max-width: 650px;
 
   margin:
-    0
-    0
-    22px;
+    0 0 20px;
+
+  padding: 0;
 
   color: #ffffff;
 
   font-size:
     clamp(
       52px,
-      6vw,
-      78px
+      5.2vw,
+      74px
     );
 
   font-weight: 700;
 
   line-height: 1.02;
 
-  letter-spacing: -3px;
+  letter-spacing: -2.4px;
+
+  text-align: left;
 }
 
 
 /* =========================================================
-   TITLE ACCENT
+   ACCENT
 ========================================================= */
 
 .home-hero__title-accent {
+  display: block;
+
   color: #fdb913;
 }
 
@@ -256,58 +222,51 @@ body {
 ========================================================= */
 
 .home-hero__description {
-  max-width: 650px;
+  width: 100%;
+
+  max-width: 610px;
 
   margin:
-    0
-    0
-    35px;
+    0 0 31px;
+
+  padding: 0;
 
   color:
-    rgba(
-      255,
-      255,
-      255,
-      0.88
-    );
+    rgba(255, 255, 255, 0.9);
 
-  font-size: 17px;
+  font-size: 16px;
 
-  font-weight: 400;
+  line-height: 1.65;
 
-  line-height: 1.7;
+  text-align: left;
 }
 
 
 /* =========================================================
-   PROPERTY SEARCH
+   SEARCH
 ========================================================= */
 
 .property-search {
   position: relative;
 
-  width:
-    min(
-      100%,
-      595px
-    );
+  width: 100%;
 
-  max-width: 100%;
+  max-width: 595px;
 
-  min-width: 0;
+  margin: 0;
+
+  padding: 0;
 }
 
 
 /* =========================================================
-   SEARCH INPUT WRAPPER
+   SEARCH WRAPPER
 ========================================================= */
 
 .property-search__input-wrapper {
   position: relative;
 
   width: 100%;
-
-  min-width: 0;
 
   display: flex;
 
@@ -316,19 +275,16 @@ body {
   overflow: hidden;
 
   border:
-    1px
-    solid
-    rgba(0, 0, 0, 0.05);
+    1px solid
+    rgba(0, 0, 0, 0.06);
 
   border-radius: 15px;
 
   background: #ffffff;
 
   box-shadow:
-    0
-    16px
-    45px
-    rgba(0, 0, 0, 0.22);
+    0 14px 38px
+    rgba(0, 0, 0, 0.2);
 
   transition:
     border-color 0.25s ease,
@@ -338,23 +294,13 @@ body {
 
 .property-search__input-wrapper:focus-within {
   border-color:
-    rgba(
-      253,
-      185,
-      19,
-      0.7
-    );
+    rgba(253, 185, 19, 0.72);
 
   box-shadow:
-    0
-    18px
-    50px
-    rgba(0, 0, 0, 0.28),
-    0
-    0
-    0
-    2px
-    rgba(253, 185, 19, 0.35);
+    0 16px 42px
+    rgba(0, 0, 0, 0.25),
+    0 0 0 2px
+    rgba(253, 185, 19, 0.3);
 }
 
 
@@ -366,7 +312,7 @@ body {
   position: absolute;
 
   top: 50%;
-  left: 24px;
+  left: 22px;
 
   z-index: 2;
 
@@ -386,27 +332,21 @@ body {
 ========================================================= */
 
 .property-search__input {
-  display: block;
-
   width: 100%;
 
-  min-width: 0;
-
-  height: 52px;
+  height: 54px;
 
   margin: 0;
 
   padding:
     0
-    58px
+    54px
     0
-    60px;
+    56px;
 
   border: 0;
 
   outline: 0;
-
-  border-radius: 15px;
 
   background: transparent;
 
@@ -414,34 +354,16 @@ body {
 
   font-family: inherit;
 
-  font-size: 17px;
-
-  font-weight: 400;
+  font-size: 16px;
 
   line-height: 1;
-
-  text-overflow: ellipsis;
 }
 
 
 .property-search__input::placeholder {
-  overflow: hidden;
-
   color: #777777;
 
   opacity: 1;
-
-  white-space: nowrap;
-
-  text-overflow: ellipsis;
-}
-
-
-.property-search__input::-webkit-search-cancel-button,
-.property-search__input::-webkit-search-decoration {
-  appearance: none;
-
-  -webkit-appearance: none;
 }
 
 
@@ -453,9 +375,7 @@ body {
   position: absolute;
 
   top: 50%;
-  right: 12px;
-
-  z-index: 4;
+  right: 10px;
 
   width: 34px;
   height: 34px;
@@ -473,62 +393,34 @@ body {
 
   border: 0;
 
-  outline: 0;
-
   border-radius: 50%;
 
   background: transparent;
 
   color: #777777;
 
-  font-size: 14px;
-
   cursor: pointer;
-
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-
-.property-search__clear:hover {
-  color: #111111;
-
-  background: #f0f0f0;
-
-  transform:
-    translateY(-50%)
-    scale(1.05);
-}
-
-
-.property-search__clear:focus-visible {
-  outline:
-    2px
-    solid
-    #fdb913;
-
-  outline-offset: 1px;
 }
 
 
 /* =========================================================
-   RESULT STATUS
+   STATUS
 ========================================================= */
 
 .property-search__status {
   width: 100%;
 
-  margin-top: 10px;
+  margin-top: 9px;
 
   color: #fdb913;
 
-  font-size: 14px;
+  font-size: 13px;
 
   font-weight: 700;
 
   line-height: 1.4;
+
+  text-align: left;
 }
 
 
@@ -539,21 +431,32 @@ body {
 @media (min-width: 1400px) {
 
   .home-hero {
-    min-height: 660px;
+    min-height: 620px;
   }
 
 
-  .home-hero__content {
-    width:
-      min(
-        calc(100% - 80px),
-        1280px
-      );
+  .container.home-hero__content {
+    max-width: 1280px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+
+  .home-hero__title {
+    max-width: 680px;
+
+    font-size: 76px;
+  }
+
+
+  .home-hero__description {
+    max-width: 630px;
   }
 
 
   .property-search {
-    width: 620px;
+    max-width: 620px;
   }
 
 }
@@ -561,89 +464,39 @@ body {
 
 /* =========================================================
    LAPTOP
+   992px - 1199px
+
+   MAIN LAPTOP ALIGNMENT FIX
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (
+  min-width: 992px
+) and (
+  max-width: 1199.98px
+) {
 
   .home-hero {
-    min-height: 530px;
+    min-height: 540px;
   }
 
 
-  .home-hero__content {
-    width:
-      calc(
-        100% - 50px
-      );
+  .container.home-hero__content {
+    max-width: 100%;
 
     padding:
-      52px
-      0
-      56px;
+      48px
+      32px
+      52px;
   }
 
 
   .home-hero__title {
-    max-width: 700px;
-
-    font-size:
-      clamp(
-        50px,
-        6vw,
-        68px
-      );
-  }
-
-
-  .home-hero__description {
     max-width: 590px;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 850px) {
-
-  .home-hero {
-    min-height: 500px;
-  }
-
-
-  .home-hero::before {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.76) 0%,
-        rgba(0, 0, 0, 0.6) 55%,
-        rgba(0, 0, 0, 0.35) 100%
-      );
-  }
-
-
-  .home-hero__content {
-    width:
-      calc(
-        100% - 36px
-      );
-
-    padding:
-      44px
-      0
-      48px;
-  }
-
-
-  .home-hero__title {
-    max-width: 650px;
 
     font-size:
       clamp(
-        46px,
-        8vw,
+        48px,
+        5.3vw,
         62px
       );
 
@@ -654,23 +507,89 @@ body {
   .home-hero__description {
     max-width: 550px;
 
-    font-size: 16px;
+    margin-bottom: 28px;
+
+    font-size: 15px;
   }
 
 
   .property-search {
-    width:
-      min(
-        100%,
-        580px
+    max-width: 550px;
+  }
+
+
+  .home-hero__bg {
+    object-position: 55% center;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   768px - 991px
+========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 991.98px
+) {
+
+  .home-hero {
+    min-height: 520px;
+  }
+
+
+  .container.home-hero__content {
+    max-width: 100%;
+
+    padding:
+      42px
+      24px
+      46px;
+  }
+
+
+  .home-hero::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.81) 0%,
+        rgba(0, 0, 0, 0.68) 50%,
+        rgba(0, 0, 0, 0.35) 100%
       );
   }
 
 
-  .property-search__input {
-    height: 58px;
+  .home-hero__title {
+    max-width: 550px;
 
-    font-size: 16px;
+    font-size:
+      clamp(
+        43px,
+        6.5vw,
+        55px
+      );
+
+    letter-spacing: -1.7px;
+  }
+
+
+  .home-hero__description {
+    max-width: 500px;
+
+    font-size: 15px;
+  }
+
+
+  .property-search {
+    max-width: 500px;
+  }
+
+
+  .home-hero__bg {
+    object-position: 58% center;
   }
 
 }
@@ -678,21 +597,36 @@ body {
 
 /* =========================================================
    MOBILE
+   <= 767px
+
+   MAIN MOBILE ALIGNMENT FIX
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 767.98px) {
 
   .home-hero {
     min-height: 500px;
+
+    align-items: center;
+  }
+
+
+  .container.home-hero__content {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding:
+      32px
+      18px
+      38px;
   }
 
 
   .home-hero__bg {
-    object-position:
-      52%
-      center;
-
-    transform: none;
+    object-position: 62% center;
   }
 
 
@@ -702,36 +636,13 @@ body {
         0,
         0,
         0,
-        0.61
+        0.66
       );
   }
 
 
   .home-hero::after {
-    height: 130px;
-  }
-
-
-  /* =====================================================
-     MOBILE CONTENT
-  ===================================================== */
-
-  .home-hero__content {
-    width:
-      calc(
-        100% - 32px
-      );
-
-    min-width: 0;
-
-    margin:
-      0
-      auto;
-
-    padding:
-      30px
-      0
-      44px;
+    height: 120px;
   }
 
 
@@ -739,8 +650,7 @@ body {
     margin-bottom: 13px;
 
     padding:
-      9px
-      15px;
+      8px 14px;
 
     font-size: 10px;
 
@@ -749,27 +659,31 @@ body {
 
 
   .home-hero__title {
+    width: 100%;
+
     max-width: 100%;
 
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 
     font-size:
       clamp(
-        37px,
-        11vw,
+        36px,
+        10vw,
         46px
       );
 
     line-height: 1.03;
 
-    letter-spacing: -1.4px;
+    letter-spacing: -1.3px;
   }
 
 
   .home-hero__description {
-    max-width: 100%;
+    width: 100%;
 
-    margin-bottom: 24px;
+    max-width: 440px;
+
+    margin-bottom: 22px;
 
     font-size: 14px;
 
@@ -777,181 +691,73 @@ body {
   }
 
 
-  /* =====================================================
-     MOBILE SEARCH
-     MAIN FIX
-  ===================================================== */
+  /*
+     IMPORTANT:
+     No margin:auto.
+
+     This keeps the search box on the SAME LEFT LINE
+     as tag, heading and paragraph.
+  */
 
   .property-search {
+    width: 100%;
 
-    /*
-      Controlled size rather than stretching too wide.
+    max-width: 440px;
 
-      On larger phones this becomes 340px.
-      On smaller phones it naturally shrinks.
-    */
-
-    width:
-      min(
-        100%,
-        340px
-      );
-
-    max-width: 340px;
-
-    min-width: 0;
-
-
-    /*
-      This centers the COMPLETE search box.
-    */
-
-    margin-left: auto;
-
-    margin-right: auto;
+    margin:
+      0;
   }
 
 
   .property-search__input-wrapper {
     width: 100%;
 
-    min-width: 0;
-
-    min-height: 56px;
-
-    overflow: hidden;
-
-    border:
-      1px
-      solid
-      rgba(255, 255, 255, 0.45);
-
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    box-shadow:
-      0
-      10px
-      28px
-      rgba(0, 0, 0, 0.24);
+    border-radius: 13px;
   }
 
 
-  .property-search__input-wrapper:focus-within {
-    border-color:
-      #fdb913;
+  .property-search__input {
+    width: 100%;
 
-    box-shadow:
+    height: 54px;
+
+    padding:
       0
-      12px
-      30px
-      rgba(0, 0, 0, 0.26),
+      42px
       0
-      0
-      0
-      2px
-      rgba(253, 185, 19, 0.32);
+      48px;
+
+    font-size: 16px;
   }
 
 
-  /* -----------------------------------------
-     MOBILE SEARCH ICON
-  ----------------------------------------- */
+  .property-search__input::placeholder {
+    font-size: 13.5px;
+  }
+
 
   .property-search__icon {
-    left: 18px;
+    left: 17px;
 
     font-size: 18px;
   }
 
 
-  /* -----------------------------------------
-     MOBILE INPUT
-  ----------------------------------------- */
-
-  .property-search__input {
-    width: 100%;
-
-    min-width: 0;
-
-    height: 56px;
-
-    padding:
-      0
-      44px
-      0
-      48px;
-
-    border-radius: 14px;
-
-    /*
-      Keep 16px.
-      Prevents iOS Safari zooming
-      when user focuses the input.
-    */
-
-    font-size: 16px;
-
-    line-height: 1;
-
-    text-overflow: ellipsis;
-  }
-
-
-  /*
-    Placeholder can safely be smaller than
-    input font-size while keeping iOS input
-    at 16px.
-  */
-
-  .property-search__input::placeholder {
-    overflow: hidden;
-
-    color: #707070;
-
-    font-size: 13.5px;
-
-    font-weight: 400;
-
-    opacity: 1;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-  }
-
-
-  /* -----------------------------------------
-     MOBILE CLEAR BUTTON
-  ----------------------------------------- */
-
   .property-search__clear {
-    right: 8px;
+    right: 7px;
 
-    width: 32px;
-    height: 32px;
+    width: 31px;
 
-    font-size: 13px;
+    height: 31px;
   }
 
-
-  /* -----------------------------------------
-     MOBILE RESULT
-  ----------------------------------------- */
 
   .property-search__status {
-    width: 100%;
-
-    margin-top: 9px;
-
-    padding: 0 4px;
+    margin-top: 8px;
 
     font-size: 12px;
 
-    line-height: 1.4;
-
-    text-align: center;
+    text-align: left;
   }
 
 }
@@ -959,108 +765,36 @@ body {
 
 /* =========================================================
    SMALL MOBILE
-   360px / 375px / 390px
+   <= 575px
 ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 575.98px) {
 
-  .home-hero {
-    min-height: 500px;
-  }
-
-
-  .home-hero__content {
-    width:
-      calc(
-        100% - 30px
-      );
-
+  .container.home-hero__content {
     padding:
-      28px
-      0
-      42px;
+      30px
+      18px
+      36px;
   }
 
 
   .home-hero__title {
-    margin-bottom: 14px;
-
     font-size:
       clamp(
         35px,
-        10.7vw,
-        39px
+        10.5vw,
+        42px
       );
-
-    letter-spacing: -1.2px;
   }
 
 
   .home-hero__description {
-    margin-bottom: 22px;
-
-    font-size: 13.5px;
+    max-width: 100%;
   }
 
-
-  /*
-    Keep it centered with a slightly
-    smaller maximum width.
-  */
 
   .property-search {
-    width:
-      min(
-        100%,
-        330px
-      );
-
-    max-width: 330px;
-
-    margin-left: auto;
-
-    margin-right: auto;
-  }
-
-
-  .property-search__input-wrapper {
-    min-height: 54px;
-
-    border-radius: 13px;
-  }
-
-
-  .property-search__input {
-    height: 54px;
-
-    padding-left: 46px;
-
-    padding-right: 42px;
-
-    border-radius: 13px;
-
-    font-size: 16px;
-  }
-
-
-  .property-search__input::placeholder {
-    font-size: 13px;
-  }
-
-
-  .property-search__icon {
-    left: 17px;
-
-    font-size: 17px;
-  }
-
-
-  .property-search__clear {
-    right: 7px;
-
-    width: 30px;
-
-    height: 30px;
+    max-width: 100%;
   }
 
 }
@@ -1068,53 +802,52 @@ body {
 
 /* =========================================================
    VERY SMALL MOBILE
-   320px / 340px
+   <= 390px
 ========================================================= */
 
-@media (max-width: 340px) {
+@media (max-width: 390px) {
 
-  .home-hero__content {
-    width:
-      calc(
-        100% - 24px
-      );
+  .container.home-hero__content {
+    padding:
+      28px
+      16px
+      34px;
+  }
+
+
+  .home-hero__tag {
+    padding:
+      8px 12px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
   }
 
 
   .home-hero__title {
-    font-size: 33px;
+    font-size:
+      clamp(
+        33px,
+        10.5vw,
+        39px
+      );
   }
 
 
   .home-hero__description {
-    font-size: 13px;
-  }
+    margin-bottom: 20px;
 
-
-  .property-search {
-    width: 100%;
-
-    max-width: 100%;
-
-    margin-left: auto;
-
-    margin-right: auto;
-  }
-
-
-  .property-search__input-wrapper {
-    min-height: 52px;
+    font-size: 13.5px;
   }
 
 
   .property-search__input {
     height: 52px;
 
-    padding-left: 44px;
+    padding-left: 45px;
 
-    padding-right: 40px;
-
-    font-size: 16px;
+    padding-right: 39px;
   }
 
 
@@ -1129,9 +862,29 @@ body {
     font-size: 16px;
   }
 
+}
 
-  .property-search__clear {
-    right: 6px;
+
+/* =========================================================
+   320px
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .container.home-hero__content {
+    padding-left: 14px;
+
+    padding-right: 14px;
+  }
+
+
+  .home-hero__title {
+    font-size: 32px;
+  }
+
+
+  .home-hero__description {
+    font-size: 13px;
   }
 
 }
@@ -1141,13 +894,10 @@ body {
    REDUCED MOTION
 ========================================================= */
 
-@media (
-  prefers-reduced-motion: reduce
-) {
+@media (prefers-reduced-motion: reduce) {
 
   .property-search__input-wrapper,
-  .property-search__clear,
-  .home-hero__bg {
+  .property-search__clear {
     transition: none;
   }
 

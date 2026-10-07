@@ -16,7 +16,7 @@ function Insights() {
       <FeaturedArticle/>
       <ExploreTopics/>
       <LatestArticles/>
-      <InsightsCTA/>
+      
 
       <Footer />
     </>

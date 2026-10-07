@@ -1,7 +1,12 @@
 import "./DataAnalyticsPerformance.css";
 
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import {
+  useEffect,
+} from "react";
+
+import {
+  Link,
+} from "react-router-dom";
 
 import {
   FaChartBar,
@@ -18,13 +23,35 @@ import Footer
 
 
 /* =========================================================
+   MAIN ANALYTICS IMAGE
+
+   ONLY ONE IMAGE
+========================================================= */
+
+const analyticsImage =
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=90";
+
+
+/* =========================================================
+   FALLBACK IMAGE
+========================================================= */
+
+const fallbackAnalyticsImage =
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=90";
+
+
+/* =========================================================
    SERVICE CARDS
 ========================================================= */
 
 const analyticsServices = [
+
   {
     id: "tracking",
-    icon: <FaBullseye />,
+
+    icon:
+      <FaBullseye />,
+
     title:
       "Social Media Analytics & Tracking Setup",
 
@@ -36,9 +63,13 @@ const analyticsServices = [
     ],
   },
 
+
   {
     id: "dashboard",
-    icon: <FaChartLine />,
+
+    icon:
+      <FaChartLine />,
+
     title:
       "Social Media Performance Dashboards & Reporting",
 
@@ -50,9 +81,13 @@ const analyticsServices = [
     ],
   },
 
+
   {
     id: "growth",
-    icon: <FaChartBar />,
+
+    icon:
+      <FaChartBar />,
+
     title:
       "Social Media Optimization & Growth Marketing",
 
@@ -63,6 +98,7 @@ const analyticsServices = [
       "Performance-driven growth experiments",
     ],
   },
+
 ];
 
 
@@ -71,8 +107,10 @@ const analyticsServices = [
 ========================================================= */
 
 const analyticsProcess = [
+
   {
     number: "01",
+
     title:
       "Audit & Analytics Setup",
 
@@ -80,8 +118,10 @@ const analyticsProcess = [
       "Audit social media accounts, ad platforms, GA4, pixels, events and conversions to ensure accurate performance tracking.",
   },
 
+
   {
     number: "02",
+
     title:
       "Social Media Data Analysis",
 
@@ -89,8 +129,10 @@ const analyticsProcess = [
       "Analyze audience behavior, content engagement, ad performance, traffic quality and funnel drop-offs across platforms.",
   },
 
+
   {
     number: "03",
+
     title:
       "Optimization & Growth Testing",
 
@@ -98,22 +140,26 @@ const analyticsProcess = [
       "Optimize ads, creatives, targeting, landing pages and messaging using performance data and structured A/B testing.",
   },
 
+
   {
     number: "04",
+
     title:
       "Reporting & Scaling Growth",
 
     description:
       "Deliver actionable dashboards, ROI insights and continuously scale high-performing social media campaigns.",
   },
+
 ];
 
 
 /* =========================================================
-   FAQs
+   FAQ
 ========================================================= */
 
 const faqs = [
+
   {
     question:
       "What is social media performance marketing and why does it matter?",
@@ -121,6 +167,7 @@ const faqs = [
     answer:
       "Social media performance marketing uses campaign data, audience behaviour and conversion tracking to improve advertising results. It helps businesses understand what is generating engagement, leads, sales and measurable return on investment.",
   },
+
 
   {
     question:
@@ -130,6 +177,7 @@ const faqs = [
       "Depending on the business, we can work with GA4, Google Tag Manager, Meta Pixel, Meta Ads Manager, Google Ads, LinkedIn Campaign Manager and custom reporting dashboards.",
   },
 
+
   {
     question:
       "Can you help improve ROI from social media ads?",
@@ -137,6 +185,7 @@ const faqs = [
     answer:
       "Yes. We analyse audiences, campaign structure, creatives, landing pages, conversion tracking and funnel performance to identify opportunities for improving efficiency and return on ad spend.",
   },
+
 
   {
     question:
@@ -146,6 +195,7 @@ const faqs = [
       "Yes. Reporting can be structured around the KPIs that matter to your business including reach, engagement, traffic, leads, conversions, revenue, customer acquisition cost and campaign ROI.",
   },
 
+
   {
     question:
       "Is social media marketing a one-time setup or ongoing service?",
@@ -153,98 +203,143 @@ const faqs = [
     answer:
       "Analytics setup can be completed as a defined project, but performance marketing works best as an ongoing process of measurement, testing, optimisation and scaling.",
   },
+
 ];
 
 
+/* =========================================================
+   DATA ANALYTICS PERFORMANCE PAGE
+========================================================= */
+
 function DataAnalyticsPerformance() {
 
-  /* =========================================================
+
+  /* =======================================================
      SEO
-  ========================================================= */
+  ======================================================= */
 
-  useEffect(() => {
-    document.title =
-      "Social Media Analytics & Performance Growth | DGATE IS";
+  useEffect(
+    () => {
 
-
-    const description =
-      "DGATE Integrated Services provides social media marketing analytics, campaign tracking, performance dashboards, conversion optimization and ROI-focused growth marketing services.";
+      document.title =
+        "Social Media Analytics & Performance Growth | DGATE IS";
 
 
-    let metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      );
+      const description =
+        "DGATE Integrated Services provides social media marketing analytics, campaign tracking, performance dashboards, conversion optimization and ROI-focused growth marketing services.";
 
 
-    if (!metaDescription) {
-      metaDescription =
-        document.createElement("meta");
+      let metaDescription =
+        document.querySelector(
+          'meta[name="description"]'
+        );
+
+
+      if (
+        !metaDescription
+      ) {
+
+        metaDescription =
+          document.createElement(
+            "meta"
+          );
+
+
+        metaDescription.setAttribute(
+          "name",
+          "description"
+        );
+
+
+        document.head.appendChild(
+          metaDescription
+        );
+
+      }
+
 
       metaDescription.setAttribute(
-        "name",
-        "description"
-      );
-
-      document.head.appendChild(
-        metaDescription
-      );
-    }
-
-
-    metaDescription.setAttribute(
-      "content",
-      description
-    );
-
-
-    let canonical =
-      document.querySelector(
-        'link[rel="canonical"]'
+        "content",
+        description
       );
 
 
-    if (!canonical) {
-      canonical =
-        document.createElement("link");
+      let canonical =
+        document.querySelector(
+          'link[rel="canonical"]'
+        );
+
+
+      if (
+        !canonical
+      ) {
+
+        canonical =
+          document.createElement(
+            "link"
+          );
+
+
+        canonical.setAttribute(
+          "rel",
+          "canonical"
+        );
+
+
+        document.head.appendChild(
+          canonical
+        );
+
+      }
+
 
       canonical.setAttribute(
-        "rel",
-        "canonical"
+        "href",
+        `${window.location.origin}/data-analytics-performance`
       );
 
-      document.head.appendChild(
-        canonical
-      );
-    }
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+
+    },
+    []
+  );
 
 
-    canonical.setAttribute(
-      "href",
-      `${window.location.origin}/DataAnalyticsPerformance`
-    );
-
-  }, []);
-
+  /* =======================================================
+     UI
+  ======================================================= */
 
   return (
+
     <>
+
       <Navbar />
 
 
-      <main className="performance-page">
+      <main
+        className="performance-page"
+      >
 
 
-        {/* =====================================================
-            TOP EDITORIAL INTRO
-        ===================================================== */}
+        {/* =================================================
+            HERO
+        ================================================= */}
 
-        <section className="performance-intro">
+        <section
+          className="performance-intro"
+        >
+
 
           <div
             className="performance-intro__burst"
             aria-hidden="true"
           />
+
 
           <div
             className="performance-intro__arc"
@@ -252,26 +347,54 @@ function DataAnalyticsPerformance() {
           />
 
 
-          <div className="performance-container performance-intro__layout">
+          <div
+            className="
+              performance-container
+              performance-intro__layout
+            "
+          >
 
-            <div className="performance-intro__heading">
+
+            {/* LEFT */}
+
+            <div
+              className="performance-intro__heading"
+            >
+
+              <span
+                className="performance-eyebrow"
+              >
+                DATA &amp; PERFORMANCE
+              </span>
+
 
               <h1>
+
                 Social Media
+
                 <br />
 
                 Marketing, Analytics &amp;
+
                 <br />
 
-                Performance Growth
+                <span>
+                  Performance Growth
+                </span>
+
               </h1>
 
             </div>
 
 
-            <div className="performance-intro__copy">
+            {/* RIGHT */}
+
+            <div
+              className="performance-intro__copy"
+            >
 
               <p>
+
                 We help brands grow faster on social
                 platforms using data-driven social
                 media marketing strategies. From
@@ -280,99 +403,132 @@ function DataAnalyticsPerformance() {
                 performance insights, and ROI-focused
                 growth — we turn social engagement into
                 measurable revenue.
+
               </p>
 
             </div>
 
+
           </div>
+
 
         </section>
 
 
-        {/* =====================================================
-            BREADCRUMB
-        ===================================================== */}
+        {/* =================================================
+            ANALYTICS IMAGE
+            ONE IMAGE ONLY
+        ================================================= */}
 
-        <div className="performance-breadcrumb">
-
-          <div className="performance-container">
-
-            <nav aria-label="Breadcrumb">
-
-              <Link to="/">
-                Home
-              </Link>
-
-              <span>
-                ●
-              </span>
-
-
-              <Link to="/services">
-                Services
-              </Link>
-
-              <span>
-                ●
-              </span>
-
-
-              <strong>
-                Data Analytics &amp; Performance Growth
-              </strong>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-
-        {/* =====================================================
-            HERO VISUAL
-        ===================================================== */}
-
-        <section className="performance-visual">
-
-          <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=90"
-            alt="Digital marketing analytics and performance growth dashboard"
-            loading="eager"
-            fetchPriority="high"
-          />
+        <section
+          className="performance-feature"
+        >
 
           <div
-            className="performance-visual__overlay"
-            aria-hidden="true"
-          />
+            className="performance-container"
+          >
+
+            <figure
+              className="performance-feature__media"
+            >
+
+              <img
+                src={
+                  analyticsImage
+                }
+
+                alt="Digital marketing analytics and performance growth dashboard"
+
+                loading="eager"
+
+                fetchPriority="high"
+
+                onError={
+                  (event) => {
+
+                    const image =
+                      event.currentTarget;
+
+
+                    if (
+                      !image.dataset.fallback
+                    ) {
+
+                      image.dataset.fallback =
+                        "true";
+
+                      image.src =
+                        fallbackAnalyticsImage;
+
+                    }
+
+                  }
+                }
+              />
+
+            </figure>
+
+          </div>
 
         </section>
 
 
-        {/* =====================================================
+
+        {/* =================================================
             SERVICE OVERVIEW
-        ===================================================== */}
+        ================================================= */}
 
-        <section className="performance-overview">
+        <section
+          className="performance-overview"
+        >
 
-          <div className="performance-container">
-
-            <h2 className="performance-overview__title">
-              Service Overview
-            </h2>
-
-
-            <div className="performance-divider" />
+          <div
+            className="performance-container"
+          >
 
 
-            <div className="performance-overview__grid">
+            <header
+              className="performance-section-heading"
+            >
+
+              <span
+                className="performance-section-heading__eyebrow"
+              >
+                SERVICE OVERVIEW
+              </span>
+
+
+              <h2>
+
+                Data Analytics –
+
+                <span>
+                  {" "}Performance Growth
+                </span>
+
+              </h2>
+
+            </header>
+
+
+            <div
+              className="performance-divider"
+            />
+
+
+            <div
+              className="performance-overview__grid"
+            >
 
 
               {/* LEFT */}
 
-              <div className="performance-overview__copy">
+              <div
+                className="performance-overview__copy"
+              >
 
                 <p>
+
                   Social media marketing and
                   performance analytics are the
                   backbone of modern digital growth.
@@ -384,10 +540,12 @@ function DataAnalyticsPerformance() {
                   YouTube, and Google Ads — powered
                   by accurate analytics and
                   actionable insights.
+
                 </p>
 
 
                 <p>
+
                   Our social-first approach ensures
                   every campaign is measurable and
                   optimized for results. From social
@@ -398,6 +556,7 @@ function DataAnalyticsPerformance() {
                   transform marketing data into
                   strategies that drive engagement,
                   leads, and sales.
+
                 </p>
 
               </div>
@@ -405,195 +564,244 @@ function DataAnalyticsPerformance() {
 
               {/* RIGHT */}
 
-              <div className="performance-approach">
+              <div
+                className="performance-approach"
+              >
 
                 <h3>
+
                   Our Approach to Data &amp;
                   Performance Growth
+
                 </h3>
 
 
-                <div className="performance-approach__item">
+                <div
+                  className="performance-approach__item"
+                >
 
                   <FaCheckCircle />
 
+
                   <p>
+
                     <strong>
                       Analytics &amp; Tracking Setup
                     </strong>
 
                     <span>
-                      Setting up GA4, GTM, Meta Pixel,
-                      Google Ads, LinkedIn and
-                      conversion APIs for accurate
-                      social tracking.
+
+                      Setting up GA4, GTM,
+                      Meta Pixel, Google Ads,
+                      LinkedIn and conversion APIs
+                      for accurate social tracking.
+
                     </span>
+
                   </p>
 
                 </div>
 
 
-                <div className="performance-approach__item">
+                <div
+                  className="performance-approach__item"
+                >
 
                   <FaCheckCircle />
 
+
                   <p>
+
                     <strong>
-                      Social Media Insights &amp;
-                      Analysis
+                      Social Media Insights &amp; Analysis
                     </strong>
 
                     <span>
+
                       Understanding audience behavior,
                       content performance, engagement
-                      metrics, and campaign
-                      effectiveness.
+                      metrics, and campaign effectiveness.
+
                     </span>
+
                   </p>
 
                 </div>
 
 
-                <div className="performance-approach__item">
+                <div
+                  className="performance-approach__item"
+                >
 
                   <FaCheckCircle />
 
+
                   <p>
+
                     <strong>
-                      Optimization &amp; Growth
-                      Marketing
+                      Optimization &amp; Growth Marketing
                     </strong>
 
                     <span>
+
                       Improving creatives, targeting,
                       funnels, and landing pages for
                       higher ROI.
+
                     </span>
+
                   </p>
 
                 </div>
 
 
-                <div className="performance-approach__item">
+                <div
+                  className="performance-approach__item"
+                >
 
                   <FaCheckCircle />
 
+
                   <p>
+
                     <strong>
                       Performance Scaling
                     </strong>
 
                     <span>
+
                       Continuous testing, reporting,
-                      and optimization to scale
-                      winning social media campaigns.
+                      and optimization to scale winning
+                      social media campaigns.
+
                     </span>
+
                   </p>
 
                 </div>
 
-              </div>
-
-            </div>
-
-
-            {/* =================================================
-                WHAT WE OFFER
-            ================================================= */}
-
-            <section className="performance-offer">
-
-              <h2>
-                What We Offer
-              </h2>
-
-
-              <div className="performance-offer__grid">
-
-                {analyticsServices.map(
-                  (service) => (
-
-                    <article
-                      key={service.id}
-                      className="performance-offer__card"
-                    >
-
-                      <div className="performance-offer__icon">
-                        {service.icon}
-                      </div>
-
-
-                      <h3>
-                        {service.title}
-                      </h3>
-
-
-                      <div className="performance-offer__line" />
-
-
-                      <ul>
-
-                        {service.items.map(
-                          (item) => (
-
-                            <li key={item}>
-                              {item}
-                            </li>
-
-                          )
-                        )}
-
-                      </ul>
-
-                    </article>
-
-                  )
-                )}
 
               </div>
 
-            </section>
-
-
-            {/* =================================================
-                SUPPORTING VISUALS
-            ================================================= */}
-
-            <div className="performance-gallery">
-
-              <figure>
-
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90"
-                  alt="Digital marketing growth analytics"
-                  loading="lazy"
-                />
-
-              </figure>
-
-
-              <figure>
-
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90"
-                  alt="Social media performance reporting dashboard"
-                  loading="lazy"
-                />
-
-              </figure>
 
             </div>
+
 
           </div>
 
         </section>
 
 
-        {/* =====================================================
-            PROCESS
-        ===================================================== */}
+        {/* =================================================
+            WHAT WE OFFER
+        ================================================= */}
 
-        <section className="performance-process">
+        <section
+          className="performance-offer"
+        >
+
+          <div
+            className="performance-container"
+          >
+
+
+            <header
+              className="performance-offer__header"
+            >
+
+              <span
+                className="performance-section-heading__eyebrow"
+              >
+                OUR EXPERTISE
+              </span>
+
+
+              <h2>
+
+                What We Offer in
+
+                <span>
+                  {" "}Performance Analytics
+                </span>
+
+              </h2>
+
+            </header>
+
+
+            <div
+              className="performance-offer__grid"
+            >
+
+
+              {analyticsServices.map(
+                (service) => (
+
+                  <article
+                    key={
+                      service.id
+                    }
+
+                    className="performance-offer__card"
+                  >
+
+
+                    <div
+                      className="performance-offer__icon"
+                    >
+                      {service.icon}
+                    </div>
+
+
+                    <h3>
+                      {service.title}
+                    </h3>
+
+
+                    <div
+                      className="performance-offer__line"
+                    />
+
+
+                    <ul>
+
+                      {service.items.map(
+                        (item) => (
+
+                          <li
+                            key={item}
+                          >
+                            {item}
+                          </li>
+
+                        )
+                      )}
+
+                    </ul>
+
+
+                  </article>
+
+                )
+              )}
+
+
+            </div>
+
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            PROCESS
+        ================================================= */}
+
+        <section
+          className="performance-process"
+        >
+
 
           <div
             className="performance-process__background"
@@ -601,36 +809,57 @@ function DataAnalyticsPerformance() {
           />
 
 
-          <div className="performance-container">
+          <div
+            className="performance-container"
+          >
 
-            <header className="performance-process__header">
 
-              <span className="performance-pill">
-                ●&nbsp; Our Methodology
+            <header
+              className="performance-process__header"
+            >
+
+              <span
+                className="performance-pill"
+              >
+                OUR METHODOLOGY
               </span>
 
 
               <h2>
+
                 Performance Analytics Process
+
                 <br />
 
-                From Data to Growth
+                <span>
+                  From Data to Growth
+                </span>
+
               </h2>
 
             </header>
 
 
-            <div className="performance-process__timeline">
+            <div
+              className="performance-process__timeline"
+            >
+
 
               {analyticsProcess.map(
                 (step) => (
 
                   <article
-                    key={step.number}
+                    key={
+                      step.number
+                    }
+
                     className="performance-process__step"
                   >
 
-                    <span className="performance-process__number">
+
+                    <span
+                      className="performance-process__number"
+                    >
                       {step.number}
                     </span>
 
@@ -644,53 +873,81 @@ function DataAnalyticsPerformance() {
                       {step.description}
                     </p>
 
+
                   </article>
 
                 )
               )}
+
 
             </div>
 
 
           </div>
 
+
         </section>
 
 
-        {/* =====================================================
+        {/* =================================================
             FAQ
-        ===================================================== */}
+        ================================================= */}
 
-        <section className="performance-faq-section">
+        <section
+          className="performance-faq-section"
+        >
 
-          <div className="performance-container performance-faq-section__inner">
+          <div
+            className="
+              performance-container
+              performance-faq-section__inner
+            "
+          >
 
-            <header className="performance-faq-header">
 
-              <span className="performance-pill performance-pill--light">
-                ●&nbsp; Social Media Marketing FAQs
+            <header
+              className="performance-faq-header"
+            >
+
+              <span
+                className="
+                  performance-pill
+                  performance-pill--light
+                "
+              >
+                SOCIAL MEDIA MARKETING FAQS
               </span>
 
 
               <h2>
+
                 Digital Marketing &amp;
+
                 <br />
 
-                Analytics Questions
+                <span>
+                  Analytics Questions
+                </span>
+
               </h2>
 
             </header>
 
 
-            <div className="performance-faq-list">
+            <div
+              className="performance-faq-list"
+            >
+
 
               {faqs.map(
-                (faq, index) => (
+                (faq) => (
 
                   <details
-                    key={faq.question}
-                    open={index === 0}
+                    key={
+                      faq.question
+                    }
                   >
+
 
                     <summary>
 
@@ -701,6 +958,7 @@ function DataAnalyticsPerformance() {
 
                       <span
                         className="performance-faq-list__toggle"
+
                         aria-hidden="true"
                       >
                         +
@@ -713,12 +971,15 @@ function DataAnalyticsPerformance() {
                       {faq.answer}
                     </p>
 
+
                   </details>
 
                 )
               )}
 
+
             </div>
+
 
           </div>
 
@@ -729,8 +990,12 @@ function DataAnalyticsPerformance() {
 
 
       <Footer />
+
+
     </>
+
   );
+
 }
 
 

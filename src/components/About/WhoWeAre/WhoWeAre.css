@@ -1,29 +1,67 @@
 /* =========================================================
-   ABOUT - WHO WE ARE
+   ABOUT PAGE - WHO WE ARE
+   SAME SYSTEM AS HOME PAGE
 ========================================================= */
 
 .about-who {
+  --who-yellow:
+    var(--primary, #fdb913);
+
+  --who-black:
+    var(--black, #101010);
+
+  --who-text:
+    var(--text, #626262);
+
+  position: relative;
+
   width: 100%;
 
-  padding: 70px 0;
+  margin: 0;
 
-  background: var(--white);
+  padding:
+    72px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--white, #ffffff);
 
   scroll-margin-top: 100px;
 }
 
 
-/* LAYOUT */
+.about-who > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
 
 .about-who__layout {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
   align-items: center;
 
-  gap: 70px;
+  gap: 56px;
 }
 
 
@@ -36,11 +74,11 @@
 
   overflow: hidden;
 
-  border-radius: var(--radius-lg);
+  border-radius: 14px;
 
   box-shadow:
-    0 20px 45px
-    rgba(0, 0, 0, 0.08);
+    0 16px 38px
+    rgba(0, 0, 0, 0.07);
 }
 
 
@@ -48,6 +86,7 @@
   display: block;
 
   width: 100%;
+
   height: auto;
 
   aspect-ratio: 4 / 3;
@@ -55,16 +94,7 @@
   object-fit: cover;
 
   transition:
-    transform var(--transition);
-}
-
-
-@media (hover: hover) {
-
-  .about-who__image:hover img {
-    transform: scale(1.05);
-  }
-
+    transform 0.35s ease;
 }
 
 
@@ -80,49 +110,77 @@
 /* TAG */
 
 .about-who__tag {
-  display: inline-block;
+  display: inline-flex;
 
-  margin-bottom: 18px;
+  align-items: center;
 
-  padding: 8px 18px;
+  margin:
+    0 0 14px;
 
-  border-radius: 30px;
+  padding:
+    7px
+    15px;
 
-  background: #fff7d6;
+  border-radius: 999px;
 
-  color: #a77f00;
+  background:
+    #fff7d6;
 
-  font-size: 0.82rem;
-  font-weight: 700;
+  color: #9c7000;
 
-  letter-spacing: 1px;
+  font-size: 0.66rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
 }
 
 
 /* TITLE */
 
 .about-who__content h2 {
-  margin: 0 0 24px;
+  margin:
+    0 0 18px;
 
-  color: var(--black);
+  color:
+    var(--who-black);
 
   font-size:
-    clamp(2.3rem, 4vw, 3rem);
+    clamp(
+      2.25rem,
+      3.8vw,
+      3.5rem
+    );
 
-  line-height: 1.15;
+  font-weight: 800;
+
+  line-height: 1.06;
+
+  letter-spacing: -1.3px;
 }
 
 
-/* TEXT */
+/* PARAGRAPH */
 
 .about-who__content p {
-  margin: 0 0 18px;
+  margin:
+    0 0 14px;
 
-  color: var(--text);
+  color:
+    var(--who-text);
 
-  font-size: 1rem;
+  font-size: 0.88rem;
 
-  line-height: 1.8;
+  line-height: 1.72;
+}
+
+
+.about-who__content p:last-of-type {
+  margin-bottom: 0;
 }
 
 
@@ -134,13 +192,16 @@
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
   gap:
-    18px
-    35px;
+    14px
+    28px;
 
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 
@@ -151,21 +212,58 @@
 
   align-items: center;
 
-  gap: 11px;
+  gap: 10px;
 
-  color: var(--black);
+  color:
+    var(--who-black);
 
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+
+  font-weight: 650;
+
+  line-height: 1.4;
 }
 
 
 .about-who__feature svg {
   flex: 0 0 auto;
 
-  color: var(--primary);
+  color:
+    var(--who-yellow);
 
-  font-size: 1.05rem;
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .about-who__image:hover img {
+    transform:
+      scale(1.04);
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .about-who {
+    padding:
+      64px
+      32px;
+  }
+
+
+  .about-who__layout {
+    gap: 48px;
+  }
 }
 
 
@@ -176,44 +274,45 @@
 @media (max-width: 900px) {
 
   .about-who {
-    padding: 55px 0;
+    padding:
+      56px
+      24px;
   }
+
 
   .about-who__layout {
     grid-template-columns: 1fr;
 
-    gap: 35px;
+    gap: 32px;
   }
+
 
   .about-who__image {
     width: 100%;
+
     max-width: 620px;
 
-    margin: 0 auto;
+    margin:
+      0 auto;
   }
+
 
   .about-who__content {
-    text-align: center;
-  }
-
-  .about-who__content p {
-    max-width: 650px;
+    max-width: 720px;
 
     margin:
-      0
-      auto
-      18px;
+      0 auto;
   }
 
-  .about-who__features {
-    max-width: 600px;
 
-    margin:
-      28px
-      auto
-      0;
+  .about-who__content h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
   }
-
 }
 
 
@@ -221,55 +320,70 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
 
   .about-who {
-    padding: 45px 0;
+    padding:
+      48px
+      18px;
   }
+
 
   .about-who__layout {
-    gap: 28px;
+    gap: 26px;
   }
 
-  .about-who__tag {
-    margin-bottom: 14px;
-
-    padding: 7px 15px;
-
-    font-size: 0.75rem;
-  }
 
   .about-who__content h2 {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 
-    font-size: 1.75rem;
-
-    line-height: 1.25;
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
   }
+
 
   .about-who__content p {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
 
-    line-height: 1.7;
-
-    text-align: left;
+    line-height: 1.65;
   }
+
+
+  .about-who__features {
+    gap:
+      12px
+      18px;
+
+    margin-top: 21px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
 
   .about-who__features {
     grid-template-columns: 1fr;
-
-    width: fit-content;
-
-    gap: 14px;
-
-    margin:
-      24px
-      auto
-      0;
   }
+}
 
-  .about-who__feature {
-    font-size: 0.85rem;
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-who {
+    padding:
+      44px
+      16px;
   }
-
 }

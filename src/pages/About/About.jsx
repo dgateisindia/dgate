@@ -3,14 +3,15 @@ import Footer from "../../components/Home/Footer/Footer";
 
 import AboutHero from "../../components/About/AboutHero/AboutHero.jsx";
 import StrategicExpertise from "../../components/Home/StrategicExpertise/StrategicExpertise";
-{/*  import WhoWeAre from "../../components/About/WhoWeAre/WhoWeAre.jsx";*/}
-import AboutExperience from "../../components/About/AboutExperience/AboutExperience.jsx";
-import FounderMessage from "../../components/About/FounderMessage/FounderMessage.jsx";
+{/*  import WhoWeAre from "../../components/About/WhoWeAre/WhoWeAre.jsx";
+import AboutExperience from "../../components/About/AboutExperience/AboutExperience.jsx";*/}
+import FounderMessage from "../../components/About/FounderMessage/FounderMessage.jsx"; 
 import Leadership from "../../components/About/Leadership/Leadership.jsx";
-import TrustedBrands from "../../components/About/TrustedBrands/TrustedBrands.jsx";
+{/*import TrustedBrands from "../../components/About/TrustedBrands/TrustedBrands.jsx";*/}
 import VisionMission from "../../components/About/VisionMission/VisionMission.jsx";
 import Journey from "../../components/About/Journey/Journey.jsx";
 {/*import AboutStats from "../../components/About/AboutStats/AboutStats.jsx";*/}
+import Testimonials from "../../components/Home/Testimonials/Testimonials";
 import ClientStories from "../../components/About/ClientStories/ClientStories.jsx";
 {/* import AboutCTA from "../../components/About/AboutCTA/AboutCTA.jsx";  */}
 
@@ -43,8 +44,8 @@ function About() {
 
         {/* =====================================================
             3. 20+ YEARS / COMPANY EXPERIENCE
-        ===================================================== */}
-        <AboutExperience />
+        ===================================================== 
+        <AboutExperience /> */}
 
 
         {/* =====================================================
@@ -61,8 +62,8 @@ function About() {
 
         {/* =====================================================
             6. TRUSTED BRANDS
-        ===================================================== */}
-        <TrustedBrands />
+        =====================================================
+        <TrustedBrands /> */}
 
 
         {/* =====================================================
@@ -83,10 +84,8 @@ function About() {
         <AboutStats />*/}
 
 
-        {/* =====================================================
-            10. CLIENT STORIES / TESTIMONIALS
-        ===================================================== */}
-        <ClientStories />
+        {/* 10. TESTIMONIALS */}
+                <Testimonials />
 
 
         {/* =====================================================

@@ -256,15 +256,13 @@ function Industries() {
             className="home-industries__heading"
           >
 
-            <span
-              className="home-industries__eyebrow"
-            >
-              INDUSTRIES
-            </span>
 
 
             <h2>
-              Industries We Serve
+              Industries{" "}
+              <span style={{ color: "#FDB913" }}>
+                We Serve
+              </span>
             </h2>
 
 

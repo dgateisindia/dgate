@@ -1,72 +1,157 @@
+/* =========================================================
+   ABOUT - FOUNDER MESSAGE
+   HOME PAGE DESIGN SYSTEM
+========================================================= */
+
 .about-founder {
+  --founder-yellow:
+    var(--primary, #fdb913);
+
+  --founder-black:
+    var(--black, #101010);
+
+  --founder-white:
+    var(--white, #ffffff);
+
+  position: relative;
+
   width: 100%;
+
+  margin: 0;
 
   padding:
     72px
-    0;
+    40px;
 
-  background: var(--black);
+  box-sizing: border-box;
+
+  background:
+    var(--founder-black);
 }
 
 
+/* MASTER CONTAINER */
+
+.about-founder > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
 .about-founder__grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    minmax(260px, 0.8fr)
-    minmax(0, 1.5fr);
+    minmax(260px, 0.78fr)
+    minmax(0, 1.42fr);
 
-  gap: 75px;
+  align-items: start;
+
+  gap: 56px;
 }
 
 
-.about-founder__title span {
-  color: var(--primary);
+/* =========================================================
+   LEFT TITLE
+========================================================= */
 
-  font-size: 0.72rem;
-  font-weight: 700;
+.about-founder__title {
+  min-width: 0;
+}
+
+
+.about-founder__title > span,
+.about-founder__title span {
+  display: inline-block;
+
+  margin: 0;
+
+  color:
+    var(--founder-yellow);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  line-height: 1;
 
   letter-spacing: 1.7px;
+
+  text-transform: uppercase;
 }
 
 
 .about-founder__title h2 {
   margin:
-    13px
-    0
-    0;
+    14px 0 0;
 
-  color: var(--white);
+  padding: 0;
+
+  color:
+    var(--founder-white);
 
   font-size:
-    clamp(2rem, 3.2vw, 3.3rem);
+    clamp(
+      2.3rem,
+      3.7vw,
+      3.5rem
+    );
 
-  line-height: 1.15;
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.3px;
+
+  text-wrap: balance;
 }
 
 
 .about-founder__title h2 strong {
-  color: var(--primary);
+  color:
+    var(--founder-yellow);
 }
 
+
+/* =========================================================
+   MESSAGE
+========================================================= */
 
 .about-founder__message {
   position: relative;
 
-  padding-left: 45px;
+  min-width: 0;
+
+  padding-left: 44px;
 
   border-left:
     2px solid
-    var(--primary);
+    var(--founder-yellow);
 }
 
 
 .about-founder__quote {
-  margin-bottom: 17px;
+  margin:
+    0 0 17px;
 
-  color: var(--primary);
+  color:
+    var(--founder-yellow);
 
   font-size: 1.8rem;
+
+  line-height: 1;
 }
 
 
@@ -74,63 +159,159 @@
   max-width: 760px;
 
   margin:
-    0
-    0
-    14px;
+    0 0 14px;
 
   color:
-    rgba(255, 255, 255, 0.77);
+    rgba(255, 255, 255, 0.8);
 
   font-size: 0.88rem;
 
-  line-height: 1.8;
+  line-height: 1.76;
 }
 
 
+.about-founder__message p:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   AUTHOR
+========================================================= */
+
 .about-founder__author {
-  margin-top: 25px;
+  margin-top: 24px;
 }
 
 
 .about-founder__author strong {
   display: block;
 
-  color: var(--white);
+  margin: 0;
 
-  font-size: 1rem;
+  color:
+    var(--founder-white);
+
+  font-size: 0.94rem;
+
+  font-weight: 700;
+
+  line-height: 1.4;
 }
 
 
 .about-founder__author span {
   display: block;
 
-  margin-top: 3px;
+  margin-top: 4px;
 
-  color: var(--primary);
+  color:
+    var(--founder-yellow);
 
-  font-size: 0.76rem;
+  font-size: 0.74rem;
+
+  line-height: 1.4;
 }
 
 
-@media (max-width: 768px) {
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
 
   .about-founder {
     padding:
-      55px
-      0;
+      64px
+      32px;
   }
 
 
   .about-founder__grid {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
+    gap: 48px;
   }
-
 }
 
 
-@media (max-width: 425px) {
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-founder {
+    padding:
+      56px
+      24px;
+  }
+
+
+  .about-founder__grid {
+    grid-template-columns:
+      minmax(220px, 0.8fr)
+      minmax(0, 1.2fr);
+
+    gap: 38px;
+  }
+
+
+  .about-founder__message {
+    padding-left: 32px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .about-founder__grid {
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+  }
+
+
+  .about-founder__title {
+    max-width: 600px;
+  }
+
+
+  .about-founder__message {
+    padding-left: 28px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .about-founder {
+    padding:
+      48px
+      18px;
+  }
+
+
+  .about-founder__grid {
+    gap: 28px;
+  }
+
+
+  .about-founder__title h2 {
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
+  }
+
 
   .about-founder__message {
     padding-left: 22px;
@@ -138,7 +319,32 @@
 
 
   .about-founder__message p {
-    font-size: 0.82rem;
+    font-size: 0.81rem;
+
+    line-height: 1.67;
   }
 
+
+  .about-founder__quote {
+    font-size: 1.55rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-founder {
+    padding:
+      44px
+      16px;
+  }
+
+
+  .about-founder__message {
+    padding-left: 18px;
+  }
 }

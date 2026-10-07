@@ -1,50 +1,96 @@
+/* =========================================================
+   D-GATE HOME TRUST PROOF
+   FINAL RESPONSIVE ALIGNMENT
+========================================================= */
+
 .home-trust {
+  position: relative;
+
   width: 100%;
 
-  padding:
-    25px
-    0
-    65px;
+  margin: 0;
 
-  background: var(--white);
+  padding:
+    72px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--white, #ffffff);
 }
 
 
+/* =========================================================
+   GRID
+========================================================= */
+
 .home-trust__grid {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
   display: grid;
 
   grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
 
   overflow: hidden;
 
   border:
     1px solid
-    var(--border);
+    var(--border, rgba(17,17,17,0.1));
 
-  border-radius: var(--radius-md);
+  border-radius:
+    var(--radius-md, 14px);
 
-  background: var(--white);
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 20px
+    rgba(0,0,0,0.035);
 }
 
 
+/* =========================================================
+   ITEM
+========================================================= */
+
 .home-trust__item {
-  min-height: 150px;
+  min-width: 0;
+
+  min-height: 128px;
 
   display: flex;
 
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
-  padding: 22px;
+  padding:
+    18px 16px;
 
   text-align: center;
 
   border-right:
     1px solid
-    var(--border);
+    var(--border, rgba(17,17,17,0.1));
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 
@@ -54,50 +100,151 @@
 
 
 .home-trust__item svg {
-  margin-bottom: 9px;
+  margin:
+    0 0 8px;
 
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 
 .home-trust__item strong {
-  color: var(--black);
+  display: block;
 
-  font-size: 1.85rem;
+  color:
+    var(--black, #101010);
+
+  font-size: 1.72rem;
+
   font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
 }
 
 
 .home-trust__item span {
-  margin-top: 4px;
+  display: block;
 
-  color: var(--text);
+  margin-top: 7px;
 
-  font-size: 0.72rem;
+  color:
+    var(--text, #656565);
+
+  font-size: 0.7rem;
+
   font-weight: 600;
+
+  line-height: 1.35;
 }
 
 
-@media (max-width: 768px) {
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-trust__item:hover {
+    background:
+      #fffaf1;
+
+    transform:
+      translateY(-2px);
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .home-trust {
+    padding:
+      64px
+      32px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-trust {
+    padding:
+      56px
+      24px;
+  }
+
 
   .home-trust__grid {
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .home-trust__item:nth-child(2) {
+    border-right: 0;
+  }
+
+
+  .home-trust__item:nth-child(1),
+  .home-trust__item:nth-child(2) {
+    border-bottom:
+      1px solid
+      var(--border, rgba(17,17,17,0.1));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-trust {
+    padding:
+      48px
+      18px;
   }
 
 
   .home-trust__item {
-    border-bottom:
-      1px solid
-      var(--border);
+    min-height: 108px;
+
+    padding:
+      16px 12px;
   }
 
+
+  .home-trust__item strong {
+    font-size: 1.5rem;
+  }
+
+
+  .home-trust__item span {
+    font-size: 0.67rem;
+  }
 }
 
 
-@media (max-width: 425px) {
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
 
   .home-trust__grid {
     grid-template-columns: 1fr;
@@ -106,6 +253,28 @@
 
   .home-trust__item {
     border-right: 0;
+
+    border-bottom:
+      1px solid
+      var(--border, rgba(17,17,17,0.1));
   }
 
+
+  .home-trust__item:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .home-trust {
+    padding:
+      44px
+      16px;
+  }
 }

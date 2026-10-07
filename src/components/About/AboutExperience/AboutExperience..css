@@ -1,16 +1,59 @@
+/* =========================================================
+   ABOUT - EXPERIENCE
+   SAME DESIGN SYSTEM AS HOME PAGE
+========================================================= */
+
 .about-experience {
+  --experience-yellow:
+    var(--primary, #fdb913);
+
+  --experience-black:
+    var(--black, #101010);
+
+  --experience-text:
+    var(--text, #626262);
+
+  --experience-border:
+    var(--border, rgba(17, 17, 17, 0.1));
+
+  position: relative;
+
   width: 100%;
 
-  padding:
-    30px
-    0
-    72px;
+  margin: 0;
 
-  background: var(--white);
+  padding:
+    72px
+    40px;
+
+  box-sizing: border-box;
+
+  background:
+    var(--white, #ffffff);
 }
 
 
+/* MASTER CONTAINER */
+
+.about-experience > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   BOX
+========================================================= */
+
 .about-experience__box {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
@@ -20,24 +63,27 @@
 
   align-items: center;
 
-  gap: 45px;
+  gap: 44px;
 
   padding:
     38px
-    45px;
+    44px;
 
   border:
     1px solid
-    var(--border);
+    var(--experience-border);
 
-  border-radius: var(--radius-md);
+  border-radius: 14px;
 
   background:
     linear-gradient(
       110deg,
-      #fffaf0,
-      var(--white)
+      #fffaf0 0%,
+      #ffffff 58%,
+      #ffffff 100%
     );
+
+  box-sizing: border-box;
 
   box-shadow:
     0 12px 30px
@@ -45,7 +91,13 @@
 }
 
 
+/* =========================================================
+   NUMBER
+========================================================= */
+
 .about-experience__number {
+  min-width: 0;
+
   text-align: center;
 }
 
@@ -53,62 +105,110 @@
 .about-experience__number strong {
   display: block;
 
-  color: var(--primary);
+  margin: 0;
 
-  font-size: 4.8rem;
+  color:
+    var(--experience-yellow);
+
+  font-size:
+    clamp(
+      4rem,
+      5.5vw,
+      4.8rem
+    );
+
   font-weight: 800;
 
-  line-height: 1;
+  line-height: 0.95;
+
+  letter-spacing: -2px;
 }
 
 
 .about-experience__number span {
   display: block;
 
-  margin-top: 8px;
+  margin-top: 12px;
 
-  color: var(--black);
+  color:
+    var(--experience-black);
 
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+
   font-weight: 700;
+
+  line-height: 1.35;
 }
 
 
+/* =========================================================
+   DIVIDER
+========================================================= */
+
 .about-experience__divider {
   width: 1px;
+
   height: 120px;
 
-  background: var(--border);
+  background:
+    var(--experience-border);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-experience__content {
+  min-width: 0;
 }
 
 
 .about-experience__eyebrow {
   display: block;
 
-  margin-bottom: 7px;
+  margin:
+    0 0 8px;
 
-  color: var(--primary);
+  color:
+    var(--experience-yellow);
 
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  line-height: 1;
 
   letter-spacing: 1.5px;
+
+  text-transform: uppercase;
 }
 
 
 .about-experience__content h2 {
   margin: 0;
 
-  color: var(--black);
+  color:
+    var(--experience-black);
 
-  font-size: 2rem;
+  font-size:
+    clamp(
+      1.8rem,
+      2.6vw,
+      2.4rem
+    );
 
-  line-height: 1.25;
+  font-weight: 800;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.8px;
 }
 
 
 .about-experience__content h2 span {
-  color: var(--primary);
+  color:
+    var(--experience-yellow);
 }
 
 
@@ -116,11 +216,10 @@
   max-width: 720px;
 
   margin:
-    12px
-    0
-    0;
+    13px 0 0;
 
-  color: var(--text);
+  color:
+    var(--experience-text);
 
   font-size: 0.84rem;
 
@@ -128,49 +227,122 @@
 }
 
 
+/* =========================================================
+   FEATURES
+========================================================= */
+
 .about-experience__features {
   display: flex;
 
+  align-items: center;
+
   flex-wrap: wrap;
 
-  gap: 18px;
+  gap:
+    12px
+    22px;
 
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 
 .about-experience__features span {
-  display: flex;
+  display: inline-flex;
+
   align-items: center;
 
   gap: 7px;
 
-  color: var(--black);
+  color:
+    var(--experience-black);
 
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+
+  font-weight: 650;
+
+  line-height: 1.4;
 }
 
 
 .about-experience__features svg {
-  color: var(--primary);
+  flex: 0 0 auto;
+
+  color:
+    var(--experience-yellow);
 }
 
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .about-experience {
+    padding:
+      64px
+      32px;
+  }
+
+
+  .about-experience__box {
+    grid-template-columns:
+      210px
+      1px
+      minmax(0, 1fr);
+
+    gap: 36px;
+
+    padding:
+      36px
+      38px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-experience {
+    padding:
+      56px
+      24px;
+  }
+
+
+  .about-experience__box {
+    grid-template-columns:
+      170px
+      1px
+      minmax(0, 1fr);
+
+    gap: 28px;
+
+    padding: 32px;
+  }
+
+
+  .about-experience__number strong {
+    font-size: 4rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
 
 @media (max-width: 768px) {
 
   .about-experience__box {
     grid-template-columns: 1fr;
 
-    gap: 25px;
+    gap: 24px;
 
-    padding: 30px;
-  }
-
-
-  .about-experience__divider {
-    width: 100%;
-    height: 1px;
+    padding: 28px;
   }
 
 
@@ -178,25 +350,88 @@
     text-align: left;
   }
 
+
+  .about-experience__divider {
+    width: 100%;
+
+    height: 1px;
+  }
 }
 
 
-@media (max-width: 425px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .about-experience {
+    padding:
+      48px
+      18px;
+  }
+
 
   .about-experience__box {
+    gap: 22px;
+
     padding:
       25px
-      20px;
+      22px;
   }
 
 
   .about-experience__number strong {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
 
 
   .about-experience__content h2 {
-    font-size: 1.55rem;
+    font-size: 1.75rem;
   }
 
+
+  .about-experience__content p {
+    font-size: 0.81rem;
+
+    line-height: 1.62;
+  }
+
+
+  .about-experience__features {
+    gap:
+      12px
+      18px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-experience {
+    padding:
+      44px
+      16px;
+  }
+
+
+  .about-experience__box {
+    padding:
+      22px
+      18px;
+  }
+
+
+  .about-experience__number strong {
+    font-size: 3.5rem;
+  }
+
+
+  .about-experience__content h2 {
+    font-size: 1.6rem;
+  }
 }

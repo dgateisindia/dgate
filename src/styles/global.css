@@ -118,7 +118,10 @@ body {
 
   background: var(--white);
 
+  /* clip, not hidden: hidden makes body a scroll container
+     and stops the sticky navbar from sticking */
   overflow-x: hidden;
+  overflow-x: clip;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

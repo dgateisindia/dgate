@@ -1,180 +1,455 @@
+/* =========================================================
+   ABOUT - STRATEGIC EXPERTISE
+   SAME DESIGN SYSTEM AS HOME PAGE
+========================================================= */
+
 .home-expertise {
+  --about-yellow: var(--primary, #fdb913);
+  --about-black: var(--black, #101010);
+  --about-text: var(--text, #626262);
+  --about-white: var(--white, #ffffff);
+  --about-section: var(--section, #f7f7f7);
+  --about-border: var(--border, rgba(17, 17, 17, 0.1));
+
+  position: relative;
+
   width: 100%;
+
+  margin: 0;
 
   padding:
     72px
-    0;
+    40px;
 
-  background: var(--section);
+  box-sizing: border-box;
+
+  background:
+    var(--about-section);
 }
 
 
+/* =========================================================
+   MASTER CONTAINER
+========================================================= */
+
+.home-expertise > .container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
 .home-expertise__heading {
-  max-width: 720px;
+  width: 100%;
+
+  max-width: 760px;
 
   margin:
     0 auto
-    38px;
+    34px;
+
+  padding: 0;
 
   text-align: center;
 }
 
 
-.home-expertise__heading > span {
-  color: var(--primary);
+/* EYEBROW */
 
-  font-size: 0.7rem;
-  font-weight: 700;
+.home-expertise__heading > span {
+  display: inline-block;
+
+  margin:
+    0 0 11px;
+
+  padding: 0;
+
+  color:
+    var(--about-yellow);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  line-height: 1;
 
   letter-spacing: 1.7px;
+
+  text-transform: uppercase;
 }
 
 
-.home-expertise__heading h2 {
-  margin:
-    8px
-    0
-    12px;
+/* TITLE */
 
-  color: var(--black);
+.home-expertise__heading h2 {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--about-black);
 
   font-size:
     clamp(
-      2rem,
-      3vw,
-      3rem
+      2.25rem,
+      3.8vw,
+      3.5rem
     );
 
-  line-height: 1.2;
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.3px;
+
+  text-wrap: balance;
 }
 
 
 .home-expertise__heading h2 strong {
-  color: var(--primary);
+  color:
+    var(--about-yellow);
 }
 
 
+/* DESCRIPTION */
+
 .home-expertise__heading p {
-  margin: 0;
+  max-width: 660px;
 
-  color: var(--text);
+  margin:
+    14px auto 0;
 
-  font-size: 0.84rem;
+  padding: 0;
+
+  color:
+    var(--about-text);
+
+  font-size: 0.88rem;
+
+  font-weight: 400;
 
   line-height: 1.7;
 }
 
 
+/* =========================================================
+   GRID
+========================================================= */
+
 .home-expertise__grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
 
   gap: 18px;
+
+  margin: 0;
+
+  padding: 0;
 }
 
 
+/* =========================================================
+   CARD
+========================================================= */
+
 .home-expertise__card {
+  min-width: 0;
+
   min-height: 220px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
 
   padding: 26px;
 
   border:
     1px solid
-    var(--border);
+    var(--about-border);
 
-  border-radius: var(--radius-md);
+  border-radius: 14px;
 
-  background: var(--white);
+  background:
+    var(--about-white);
 
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-
-.home-expertise__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.45);
+  box-sizing: border-box;
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.06);
+    0 5px 18px
+    rgba(0, 0, 0, 0.025);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
+
+/* =========================================================
+   ICON
+========================================================= */
 
 .home-expertise__icon {
   width: 48px;
   height: 48px;
 
+  flex:
+    0 0 48px;
+
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  margin-bottom: 18px;
+  margin:
+    0 0 18px;
 
   border-radius: 50%;
 
   background:
     rgba(253, 185, 19, 0.1);
 
-  color: var(--primary);
+  color:
+    var(--about-yellow);
 
   font-size: 1.05rem;
 }
 
 
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
 .home-expertise__card h3 {
   margin:
-    0
-    0
-    10px;
+    0 0 10px;
 
-  color: var(--black);
+  padding: 0;
+
+  color:
+    var(--about-black);
 
   font-size: 0.95rem;
+
+  font-weight: 750;
+
+  line-height: 1.35;
 }
 
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
 
 .home-expertise__card p {
   margin: 0;
 
-  color: var(--text);
+  padding: 0;
 
-  font-size: 0.76rem;
+  color:
+    var(--about-text);
+
+  font-size: 0.78rem;
 
   line-height: 1.68;
 }
 
 
-@media (max-width: 900px) {
+/* =========================================================
+   HOVER
+========================================================= */
 
-  .home-expertise__grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+@media (hover: hover) {
+
+  .home-expertise__card:hover {
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(253, 185, 19, 0.45);
+
+    background: #ffffff;
+
+    box-shadow:
+      0 15px 32px
+      rgba(0, 0, 0, 0.06);
   }
-
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
 
   .home-expertise {
     padding:
-      55px
-      0;
+      64px
+      32px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home-expertise {
+    padding:
+      56px
+      24px;
+  }
+
+
+  .home-expertise__heading {
+    margin-bottom: 30px;
+  }
+
+
+  .home-expertise__heading h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        2.8rem
+      );
+  }
+
+
+  .home-expertise__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 16px;
+  }
+
+
+  .home-expertise__card {
+    min-height: 205px;
+
+    padding: 24px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-expertise {
+    padding:
+      48px
+      18px;
+  }
+
+
+  .home-expertise__heading {
+    margin-bottom: 26px;
+  }
+
+
+  .home-expertise__heading > span {
+    font-size: 0.6rem;
+
+    letter-spacing: 1.4px;
+  }
+
+
+  .home-expertise__heading h2 {
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.4rem
+      );
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .home-expertise__heading p {
+    font-size: 0.82rem;
+
+    line-height: 1.62;
   }
 
 
   .home-expertise__grid {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
 
   .home-expertise__card {
     min-height: auto;
+
+    padding: 22px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .home-expertise {
+    padding:
+      44px
+      16px;
   }
 
+
+  .home-expertise__card {
+    padding: 20px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-expertise__card {
+    transition: none;
+  }
 }

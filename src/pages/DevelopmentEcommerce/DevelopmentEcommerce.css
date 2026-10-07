@@ -1,25 +1,45 @@
 /* =========================================================
    DGATE
    DEVELOPMENT & E-COMMERCE
+
+   SAME ALIGNMENT + SAME GAP AS
+   BRANDING / PERFORMANCE / TECHNOLOGY STACK
+
+   CONTENT WIDTH
+   Desktop 1200px | sides: 40 / 32 / 24 / 18 / 16px
+
+   VERTICAL SPACING (one variable)
+   --dev-gap : space between sections
+   Hero -> image     : 40px
+   Image -> overview : 56px
+========================================================= */
+
+
+/* =========================================================
+   PAGE ROOT
 ========================================================= */
 
 .development-page {
   --dev-yellow: #fdb913;
-  --dev-black: #050505;
-  --dev-text: #414141;
+  --dev-black: #101010;
+  --dev-text: #5f5f5f;
   --dev-muted: #777777;
-  --dev-border: #e5e5e5;
-  --dev-card: #f0f0f0;
+
+  --dev-border: rgba(17, 17, 17, 0.1);
+  --dev-card: #f7f7f7;
+  --dev-white: #ffffff;
+
+  /* vertical spacing */
+  --dev-gap: 56px;
 
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-
-  background: #ffffff;
+  background: var(--dev-white);
   color: var(--dev-black);
-
   font-family: inherit;
 }
+
 
 .development-page *,
 .development-page *::before,
@@ -29,264 +49,312 @@
 
 
 /* =========================================================
-   CONTAINER
+   MASTER CONTAINER
 ========================================================= */
 
 .dev-container {
-  width: min(1115px, calc(100% - 48px));
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
 
 /* =========================================================
    HERO
+   (smaller height, no bottom border touching the image)
 ========================================================= */
 
 .dev-hero {
   position: relative;
-
   width: 100%;
-  min-height: 330px;
-
+  min-height: 0;
   display: flex;
   align-items: center;
-
   overflow: hidden;
-
-  background: #ffffff;
-
-  border-bottom: 1px solid #e9e9e9;
+  background: var(--dev-white);
+  border-bottom: 0;
 }
+
 
 .dev-hero .dev-container {
   position: relative;
   z-index: 3;
 }
 
+
+/* =========================================================
+   HERO GRID
+========================================================= */
+
 .dev-hero__content {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.25fr)
-    minmax(320px, 0.85fr);
-
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   align-items: center;
-
-  gap: 78px;
-
-  padding: 58px 0;
+  gap: 64px;
+  padding: 64px 0 56px;
 }
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
 
 .dev-hero__title-area {
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
+
 
 .dev-eyebrow {
   display: inline-block;
-
-  margin-bottom: 16px;
-
-  color: #777777;
-
-  font-size: 12px;
+  margin: 0 0 14px;
+  color: var(--dev-yellow);
+  font-size: 0.68rem;
   line-height: 1;
-
-  font-weight: 700;
-
+  font-weight: 800;
   letter-spacing: 1.7px;
+  text-transform: uppercase;
 }
+
 
 .dev-hero__title-area h1 {
   max-width: 700px;
-
   margin: 0;
-
-  color: #050505;
-
-  font-size: clamp(48px, 5vw, 66px);
-  line-height: 1.08;
-
+  color: var(--dev-black);
+  font-size: clamp(3.3rem, 5.5vw, 4.65rem);
+  line-height: 1.02;
   font-weight: 800;
-
-  letter-spacing: -2.8px;
+  letter-spacing: -2.6px;
 }
 
-.dev-hero__description {
-  max-width: 430px;
-}
 
-.dev-hero__description p {
-  margin: 0;
-
-  color: #3c3c3c;
-
-  font-size: 17px;
-  line-height: 1.65;
-
-  font-weight: 500;
+.dev-hero__title-area h1 span {
+  color: var(--dev-yellow);
 }
 
 
 /* =========================================================
-   HERO SHAPES
+   HERO RIGHT
+========================================================= */
+
+.dev-hero__description {
+  max-width: 450px;
+  justify-self: end;
+}
+
+
+.dev-hero__description p {
+  margin: 0;
+  color: var(--dev-text);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   HERO DECORATION
 ========================================================= */
 
 .dev-hero__background-shape {
   position: absolute;
-
   pointer-events: none;
 }
 
-.dev-hero__background-shape--one {
-  top: 25px;
-  left: calc(50% - 620px);
 
+.dev-hero__background-shape--one {
+  top: 38px;
+  left: max(-70px, calc((100% - 1280px) / 2 - 100px));
   width: 180px;
   height: 180px;
-
-  opacity: 0.055;
-
-  border: 25px dashed #000000;
+  opacity: 0.045;
+  border: 25px dashed var(--dev-black);
   border-radius: 50%;
-
   transform: rotate(15deg);
 }
+
 
 .dev-hero__background-shape--two {
   width: 360px;
   height: 360px;
-
   right: -120px;
   bottom: -180px;
-
-  border: 82px solid #f0f0f0;
+  border: 80px solid #f2f2f2;
   border-radius: 50%;
 }
 
 
 /* =========================================================
-   BREADCRUMB
+   FEATURE IMAGE
+   40px above (from hero), 0 below.
+   The gap under the image comes only from the overview.
 ========================================================= */
 
-.dev-breadcrumb {
+.dev-feature {
   width: 100%;
-
-  background: #ffffff;
-
-  border-bottom: 1px solid #ededed;
-}
-
-.dev-breadcrumb .dev-container {
-  min-height: 62px;
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  color: #333333;
-
-  font-size: 14px;
-}
-
-.dev-breadcrumb span {
-  color: #333333;
-}
-
-.dev-breadcrumb b {
-  color: #555555;
-
-  font-size: 7px;
-}
-
-.dev-breadcrumb strong {
-  color: #050505;
-
-  font-weight: 600;
+  padding: 40px 0 0;
+  background: var(--dev-white);
 }
 
 
-/* =========================================================
-   MAIN IMAGE
-========================================================= */
-
-.dev-main-image {
+.dev-feature__media {
   width: 100%;
-  height: 475px;
-
+  height: 420px;
+  margin: 0;
   overflow: hidden;
-
+  border-radius: 14px;
   background: #eeeeee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.dev-main-image img {
+
+.dev-feature__media img {
+  display: block;
   width: 100%;
   height: 100%;
-
-  display: block;
-
   object-fit: cover;
   object-position: center;
 }
 
 
 /* =========================================================
+   BREADCRUMB
+   (gap above so it never touches the image)
+========================================================= */
+
+.dev-breadcrumb {
+  width: 100%;
+  margin-top: var(--dev-gap);
+  background: var(--dev-white);
+  border-top: 1px solid var(--dev-border);
+  border-bottom: 1px solid var(--dev-border);
+}
+
+
+.dev-breadcrumb nav {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--dev-text);
+  font-size: 0.78rem;
+}
+
+
+.dev-breadcrumb a {
+  color: var(--dev-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+
+.dev-breadcrumb a:hover {
+  color: var(--dev-yellow);
+}
+
+
+.dev-breadcrumb nav > span {
+  color: #aaaaaa;
+  font-size: 0.7rem;
+}
+
+
+.dev-breadcrumb strong {
+  color: var(--dev-black);
+  font-weight: 700;
+}
+
+
+/* =========================================================
    OVERVIEW
+   56px gap above and below
 ========================================================= */
 
 .dev-overview {
   width: 100%;
-
-  padding: 65px 0 82px;
-
-  background: #ffffff;
+  padding: var(--dev-gap) 0;
+  background: var(--dev-white);
 }
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
 
 .dev-section-heading {
   width: 100%;
-
-  margin-bottom: 55px;
-
-  padding-bottom: 22px;
-
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.dev-section-heading h2 {
   margin: 0;
-
-  color: #050505;
-
-  font-size: clamp(36px, 4vw, 48px);
-  line-height: 1.1;
-
-  font-weight: 700;
-
-  letter-spacing: -1.7px;
+  padding: 0;
 }
+
+
+.dev-section-heading__eyebrow {
+  display: inline-block;
+  margin: 0 0 11px;
+  color: var(--dev-yellow);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+
+.dev-section-heading h2,
+.dev-section-heading-center h2 {
+  margin: 0;
+  color: var(--dev-black);
+  font-size: clamp(2.25rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+
+
+.dev-section-heading h2 span,
+.dev-section-heading-center h2 span {
+  color: var(--dev-yellow);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.dev-section-divider {
+  width: 100%;
+  height: 1px;
+  margin: 24px 0 36px;
+  background: var(--dev-border);
+}
+
+
+/* =========================================================
+   OVERVIEW GRID
+========================================================= */
 
 .dev-overview__grid {
   display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
-
-  gap: 70px;
+  gap: 56px;
 }
+
+
+/* =========================================================
+   OVERVIEW TEXT
+========================================================= */
 
 .dev-overview__text p {
-  margin: 0 0 21px;
-
-  color: #414141;
-
-  font-size: 15px;
-  line-height: 1.7;
-
-  font-weight: 500;
+  margin: 0 0 18px;
+  color: var(--dev-text);
+  font-size: 0.88rem;
+  line-height: 1.72;
 }
+
 
 .dev-overview__text p:last-child {
   margin-bottom: 0;
@@ -298,55 +366,54 @@
 ========================================================= */
 
 .dev-approach h3 {
-  margin: 0 0 25px;
-
-  color: #050505;
-
-  font-size: 22px;
+  margin: 0 0 22px;
+  color: var(--dev-black);
+  font-size: 1.25rem;
   line-height: 1.3;
-
-  font-weight: 700;
-
-  letter-spacing: -0.6px;
+  font-weight: 750;
 }
+
 
 .dev-approach__item {
   display: grid;
-
-  grid-template-columns: 18px 1fr;
-
+  grid-template-columns: 18px minmax(0, 1fr);
   align-items: flex-start;
-
-  gap: 12px;
-
-  margin-bottom: 17px;
+  gap: 11px;
+  margin-bottom: 16px;
 }
+
 
 .dev-approach__item:last-child {
   margin-bottom: 0;
 }
 
+
 .dev-approach__item > svg {
   margin-top: 4px;
-
-  color: #555555;
-
-  font-size: 16px;
+  color: var(--dev-yellow);
+  font-size: 0.9rem;
 }
+
 
 .dev-approach__item p {
   margin: 0;
-
-  color: #4b4b4b;
-
-  font-size: 14px;
-  line-height: 1.6;
+  color: var(--dev-text);
+  font-size: 0.82rem;
+  line-height: 1.62;
 }
 
-.dev-approach__item strong {
-  color: #050505;
 
+.dev-approach__item strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--dev-black);
   font-weight: 700;
+}
+
+
+.dev-approach__item span {
+  display: block;
+  color: var(--dev-text);
 }
 
 
@@ -355,161 +422,135 @@
 ========================================================= */
 
 .dev-offer {
-  margin-top: 70px;
+  width: 100%;
+  margin-top: var(--dev-gap);
 }
 
-.dev-offer > h2 {
-  margin: 0 0 42px;
 
-  color: #050505;
+/* =========================================================
+   OFFER HEADING
+========================================================= */
 
-  font-size: clamp(40px, 4.5vw, 52px);
-  line-height: 1;
-
-  font-weight: 700;
-
-  letter-spacing: -2px;
+.dev-section-heading-center {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto 32px;
+  text-align: center;
 }
+
+
+/* =========================================================
+   OFFER GRID
+========================================================= */
 
 .dev-offer__grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
+
+
+/* =========================================================
+   OFFER CARD
+========================================================= */
 
 .dev-offer-card {
-  min-height: 455px;
-
-  padding: 48px 40px 35px;
-
-  background: #f0f0f0;
-
-  border: 0;
-
+  min-width: 0;
+  min-height: 360px;
+  padding: 28px 26px;
+  border: 1px solid var(--dev-border);
+  border-radius: 14px;
+  background: var(--dev-card);
   transition:
     transform 0.25s ease,
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
+
 
 .dev-offer-card:hover {
-  transform: translateY(-5px);
-
-  background: #ffffff;
-
-  box-shadow:
-    0 18px 38px
-    rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(253, 185, 19, 0.5);
+  background: var(--dev-white);
+  box-shadow: 0 15px 32px rgba(0, 0, 0, 0.06);
 }
+
+
+/* =========================================================
+   OFFER ICON
+========================================================= */
 
 .dev-offer-card__icon {
-  height: 62px;
-
+  width: 52px;
+  height: 52px;
   display: flex;
-  align-items: flex-start;
-
-  color: #050505;
-
-  font-size: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: rgba(253, 185, 19, 0.12);
+  color: var(--dev-yellow);
+  font-size: 1.25rem;
 }
+
+
+/* =========================================================
+   OFFER TITLE
+========================================================= */
 
 .dev-offer-card h3 {
-  min-height: 125px;
-
-  margin: 20px 0 0;
-
-  color: #050505;
-
-  font-size: 31px;
-  line-height: 1.25;
-
-  font-weight: 500;
-
-  letter-spacing: -1px;
+  min-height: 66px;
+  margin: 0;
+  color: var(--dev-black);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: 750;
 }
+
 
 .dev-offer-card__line {
   width: 100%;
   height: 1px;
-
-  margin: 20px 0 30px;
-
-  background: #d1d1d1;
+  margin: 20px 0;
+  background: var(--dev-border);
 }
+
+
+/* =========================================================
+   OFFER LIST
+========================================================= */
 
 .dev-offer-card ul {
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
+
 .dev-offer-card li {
+  position: relative;
   margin-bottom: 12px;
-
-  color: #080808;
-
-  font-size: 14px;
+  padding-left: 15px;
+  color: var(--dev-text);
+  font-size: 0.79rem;
   line-height: 1.55;
-
-  font-weight: 600;
+  font-weight: 550;
 }
+
 
 .dev-offer-card li:last-child {
   margin-bottom: 0;
 }
 
 
-/* =========================================================
-   SHOWCASE
-========================================================= */
-
-.dev-showcase {
-  width: 100%;
-
-  padding: 0 0 82px;
-
-  background: #ffffff;
-}
-
-.dev-showcase__grid {
-  width: min(1195px, calc(100% - 48px));
-  height: 355px;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1.1fr;
-
-  margin: 0 auto;
-
-  overflow: hidden;
-}
-
-.dev-showcase__image {
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  background: #eeeeee;
-}
-
-.dev-showcase__image img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  transition: transform 0.5s ease;
-}
-
-.dev-showcase__image:hover img {
-  transform: scale(1.03);
+.dev-offer-card li::before {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--dev-yellow);
+  font-weight: 800;
 }
 
 
@@ -519,222 +560,147 @@
 
 .dev-process {
   position: relative;
-
   width: 100%;
-
-  padding: 70px 0 68px;
-
+  padding: var(--dev-gap) 0;
   overflow: hidden;
-
-  background: #050505;
-
-  color: #ffffff;
-}
-
-.dev-process__grid {
-  position: absolute;
-
-  inset: 0;
-
-  opacity: 0.13;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    );
-
-  background-size: 8px 8px;
-}
-
-.dev-process__inner {
-  position: relative;
-  z-index: 2;
-
-  text-align: center;
-}
-
-.dev-process__badge {
-  width: fit-content;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 8px;
-
-  margin: 0 auto 22px;
-
-  padding: 10px 18px;
-
-  border: 1px solid #333333;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.02);
-
-  color: #ffffff;
-
-  font-size: 13px;
-  line-height: 1;
-
-  font-weight: 600;
-}
-
-.dev-process__badge span {
-  width: 8px;
-  height: 8px;
-
-  flex: 0 0 8px;
-
-  border-radius: 50%;
-
-  background: #ffffff;
-}
-
-.dev-process__inner > h2 {
-  max-width: 1000px;
-
-  margin: 0 auto 62px;
-
-  color: #ffffff;
-
-  font-size: clamp(45px, 5.2vw, 68px);
-  line-height: 1.08;
-
-  font-weight: 700;
-
-  letter-spacing: -2.6px;
-}
-
-.dev-process__steps {
-  position: relative;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  gap: 30px;
-}
-
-.dev-process__steps::before {
-  content: "";
-
-  position: absolute;
-
-  top: 20px;
-
-  left: 1%;
-  right: 1%;
-
-  height: 1px;
-
-  background: #292929;
-}
-
-.dev-process-step {
-  position: relative;
-  z-index: 2;
-
-  text-align: center;
-}
-
-.dev-process-step__number {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 auto 38px;
-
-  border-radius: 50%;
-
-  background: var(--dev-yellow);
-
-  color: #050505;
-
-  font-size: 13px;
-
-  font-weight: 800;
-}
-
-.dev-process-step h3 {
-  min-height: 58px;
-
-  margin: 0 0 16px;
-
-  color: #ffffff;
-
-  font-size: 21px;
-  line-height: 1.35;
-
-  font-weight: 700;
-}
-
-.dev-process-step p {
-  max-width: 235px;
-
-  margin: 0 auto;
-
-  color: #bdbdbd;
-
-  font-size: 14px;
-  line-height: 1.6;
+  background: var(--dev-black);
+  color: var(--dev-white);
 }
 
 
 /* =========================================================
-   PROCESS CTA
+   PROCESS GRID BACKGROUND
 ========================================================= */
 
-.dev-process__cta {
-  min-height: 50px;
+.dev-process__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
 
+
+/* =========================================================
+   PROCESS INNER
+========================================================= */
+
+.dev-process__inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+
+/* =========================================================
+   PROCESS BADGE
+========================================================= */
+
+.dev-process__badge {
+  width: fit-content;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  gap: 12px;
-
-  margin: 55px auto 0;
-
-  padding: 0 24px;
-
-  border: 0;
-
-  background: var(--dev-yellow);
-
-  color: #050505;
-
-  font-family: inherit;
-
-  font-size: 14px;
-
+  margin: 0 auto 16px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: var(--dev-yellow);
+  font-size: 0.66rem;
   font-weight: 800;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+  line-height: 1;
+  letter-spacing: 1.4px;
 }
 
-.dev-process__cta:hover {
-  transform: translateY(-3px);
 
-  background: #ffffff;
+/* =========================================================
+   PROCESS HEADING
+========================================================= */
+
+.dev-process__inner > h2 {
+  max-width: 900px;
+  margin: 0 auto 44px;
+  color: var(--dev-white);
+  font-size: clamp(2.4rem, 4.5vw, 3.7rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -1.6px;
 }
 
-.dev-process__cta svg {
-  font-size: 13px;
+
+.dev-process__inner > h2 span {
+  color: var(--dev-yellow);
+}
+
+
+/* =========================================================
+   PROCESS STEPS
+========================================================= */
+
+.dev-process__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+.dev-process__steps::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   PROCESS STEP
+========================================================= */
+
+.dev-process-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+
+.dev-process-step__number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: var(--dev-yellow);
+  color: var(--dev-black);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+
+.dev-process-step h3 {
+  min-height: 52px;
+  margin: 0 0 12px;
+  color: var(--dev-white);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+
+.dev-process-step p {
+  max-width: 235px;
+  margin: 0 auto;
+  color: #bcbcbc;
+  font-size: 0.79rem;
+  line-height: 1.6;
 }
 
 
@@ -744,210 +710,182 @@
 
 .dev-faq {
   width: 100%;
-
-  padding: 76px 0 95px;
-
-  background: #ffffff;
-
+  padding: var(--dev-gap) 0;
+  background: var(--dev-white);
   text-align: center;
 }
 
+
+/* =========================================================
+   FAQ BADGE
+========================================================= */
+
 .dev-faq__badge {
   width: fit-content;
-
   display: inline-flex;
   align-items: center;
-
-  gap: 8px;
-
-  margin: 0 auto 22px;
-
-  padding: 10px 18px;
-
-  border: 1px solid #e5e5e5;
+  justify-content: center;
+  margin: 0 auto 16px;
+  padding: 8px 16px;
+  border: 1px solid var(--dev-border);
   border-radius: 999px;
-
-  background: #ffffff;
-
-  color: #050505;
-
-  font-size: 13px;
-
-  font-weight: 600;
+  color: var(--dev-yellow);
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 1.4px;
 }
 
-.dev-faq__badge span {
-  width: 8px;
-  height: 8px;
 
-  flex: 0 0 8px;
-
-  border-radius: 50%;
-
-  background: #050505;
-}
+/* =========================================================
+   FAQ HEADING
+========================================================= */
 
 .dev-faq > .dev-container > h2 {
   max-width: 800px;
-
-  margin: 0 auto 48px;
-
-  color: #050505;
-
-  font-size: clamp(44px, 5vw, 62px);
+  margin: 0 auto 34px;
+  color: var(--dev-black);
+  font-size: clamp(2.3rem, 4.2vw, 3.4rem);
   line-height: 1.07;
-
-  font-weight: 700;
-
-  letter-spacing: -2.2px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
 }
 
+
+.dev-faq > .dev-container > h2 span {
+  color: var(--dev-yellow);
+}
+
+
+/* =========================================================
+   FAQ LIST
+========================================================= */
+
 .dev-faq__list {
-  width: min(735px, 100%);
-
+  width: min(760px, 100%);
   margin: 0 auto;
-
   text-align: left;
 }
 
+
+/* =========================================================
+   FAQ ITEM
+========================================================= */
+
 .dev-faq-item {
-  margin-bottom: 24px;
-
+  margin-bottom: 14px;
   overflow: hidden;
-
-  border: 1px solid #e4e4e4;
-
-  background: #ffffff;
-
+  border: 1px solid var(--dev-border);
+  border-radius: 10px;
+  background: var(--dev-white);
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease;
 }
 
+
 .dev-faq-item:last-child {
   margin-bottom: 0;
 }
 
+
 .dev-faq-item--open {
-  background: #f0f0f0;
+  border-color: rgba(253, 185, 19, 0.38);
+  background: #fffdf7;
 }
+
+
+/* =========================================================
+   FAQ BUTTON
+========================================================= */
 
 .dev-faq-item > button {
   width: 100%;
-  min-height: 54px;
-
+  min-height: 58px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 20px;
-
-  padding: 14px 28px;
-
+  padding: 15px 20px;
   border: 0;
   outline: none;
-
   background: transparent;
-
-  color: #050505;
-
+  color: var(--dev-black);
   font-family: inherit;
-
-  font-size: 15px;
+  font-size: 0.84rem;
   line-height: 1.4;
-
   font-weight: 700;
-
   text-align: left;
-
   cursor: pointer;
 }
 
+
 .dev-faq-item > button svg {
   flex: 0 0 auto;
-
-  color: #aaaaaa;
-
-  font-size: 11px;
-
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+  color: var(--dev-yellow);
+  font-size: 0.75rem;
+  transition: transform 0.25s ease;
 }
 
-.dev-faq-item--open > button svg {
-  color: #050505;
 
+.dev-faq-item--open > button svg {
   transform: rotate(180deg);
 }
 
+
+/* =========================================================
+   FAQ ANSWER
+========================================================= */
+
 .dev-faq-answer {
   display: grid;
-
   grid-template-rows: 0fr;
-
   transition: grid-template-rows 0.3s ease;
 }
 
+
 .dev-faq-answer > p {
   min-height: 0;
-
   overflow: hidden;
-
   margin: 0;
-
-  padding: 0 28px;
-
-  color: #4c4c4c;
-
-  font-size: 13px;
-  line-height: 1.7;
-
+  padding: 0 20px;
+  color: var(--dev-text);
+  font-size: 0.79rem;
+  line-height: 1.68;
   transition: padding 0.3s ease;
 }
+
 
 .dev-faq-item--open .dev-faq-answer {
   grid-template-rows: 1fr;
 }
 
-.dev-faq-item--open .dev-faq-answer > p {
-  padding-bottom: 22px;
-}
 
+.dev-faq-item--open .dev-faq-answer > p {
+  padding-bottom: 20px;
+}
 
 
 /* =========================================================
    LAPTOP
+   <= 1200PX
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+
+  .development-page {
+    --dev-gap: 52px;
+  }
+
 
   .dev-container {
-    width: min(100% - 42px, 980px);
+    padding: 0 32px;
   }
+
 
   .dev-hero__content {
     gap: 48px;
-  }
-
-  .dev-hero__title-area h1 {
-    font-size: 54px;
-  }
-
-  .dev-overview__grid {
-    gap: 45px;
-  }
-
-  .dev-offer-card {
-    padding: 40px 28px 32px;
-  }
-
-  .dev-offer-card h3 {
-    font-size: 27px;
-  }
-
-  .dev-process__steps {
-    gap: 15px;
+    padding: 56px 0 48px;
   }
 
 }
@@ -955,84 +893,90 @@
 
 /* =========================================================
    TABLET
+   <= 900PX
 ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
+
+  .development-page {
+    --dev-gap: 48px;
+  }
+
 
   .dev-container {
-    width: min(100% - 34px, 700px);
+    padding: 0 24px;
   }
+
+
+  /* HERO */
 
   .dev-hero {
     min-height: auto;
   }
 
+
   .dev-hero__content {
     grid-template-columns: 1fr;
-
-    gap: 28px;
-
-    padding: 50px 0;
+    gap: 20px;
+    padding: 48px 0 40px;
   }
+
 
   .dev-hero__title-area h1 {
-    max-width: 650px;
-
-    font-size: 48px;
+    max-width: 680px;
+    font-size: clamp(2.8rem, 8vw, 3.7rem);
   }
+
 
   .dev-hero__description {
-    max-width: 620px;
+    max-width: 650px;
+    justify-self: start;
   }
 
-  .dev-main-image {
-    height: 350px;
+
+  /* IMAGE */
+
+  .dev-feature {
+    padding: 32px 0 0;
   }
+
+
+  .dev-feature__media {
+    height: 320px;
+  }
+
+
+  /* OVERVIEW */
 
   .dev-overview__grid {
     grid-template-columns: 1fr;
-
-    gap: 40px;
+    gap: 32px;
   }
+
+
+  /* OFFER */
 
   .dev-offer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
+
 
   .dev-offer-card {
-    min-height: 0;
-  }
-
-  .dev-offer-card h3 {
     min-height: auto;
-
-    margin-bottom: 25px;
   }
 
-  .dev-showcase__grid {
-    width: calc(100% - 34px);
-    height: auto;
 
-    grid-template-columns: 1fr;
-  }
-
-  .dev-showcase__image {
-    height: 300px;
-  }
+  /* PROCESS */
 
   .dev-process__steps {
-    grid-template-columns:
-      repeat(2, 1fr);
-
-    row-gap: 50px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 38px;
   }
+
 
   .dev-process__steps::before {
     display: none;
-  }
-
-  .dev-process-step__number {
-    margin-bottom: 22px;
   }
 
 }
@@ -1040,221 +984,212 @@
 
 /* =========================================================
    MOBILE
+   <= 640PX
 ========================================================= */
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
+
+  .development-page {
+    --dev-gap: 40px;
+  }
+
 
   .dev-container {
-    width: calc(100% - 28px);
+    padding: 0 18px;
   }
+
+
+  /* HERO */
 
   .dev-hero__content {
-    padding: 40px 0;
+    gap: 18px;
+    padding: 40px 0 32px;
   }
+
 
   .dev-eyebrow {
-    margin-bottom: 13px;
-
-    font-size: 10px;
+    font-size: 0.6rem;
   }
+
 
   .dev-hero__title-area h1 {
-    font-size: 38px;
-    line-height: 1.13;
-
-    letter-spacing: -1.6px;
+    font-size: clamp(2.2rem, 11vw, 2.9rem);
+    line-height: 1.04;
+    letter-spacing: -1.4px;
   }
+
 
   .dev-hero__description p {
-    font-size: 15px;
+    font-size: 0.84rem;
+    line-height: 1.65;
   }
 
-  .dev-hero__background-shape--one {
-    left: -40px;
 
-    width: 130px;
-    height: 130px;
+  /* IMAGE */
 
-    opacity: 0.04;
+  .dev-feature {
+    padding: 24px 0 0;
   }
 
-  .dev-hero__background-shape--two {
-    width: 260px;
-    height: 260px;
 
-    right: -170px;
-    bottom: -150px;
+  .dev-feature__media {
+    height: 230px;
+    border-radius: 12px;
   }
 
-  .dev-breadcrumb .dev-container {
-    min-height: 58px;
 
+  /* BREADCRUMB */
+
+  .dev-breadcrumb nav {
+    min-height: 54px;
     gap: 8px;
-
-    font-size: 12px;
+    font-size: 0.72rem;
   }
 
-  .dev-main-image {
-    height: 250px;
+
+  /* HEADING */
+
+  .dev-section-heading h2,
+  .dev-section-heading-center h2 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+    letter-spacing: -0.8px;
   }
 
-  .dev-overview {
-    padding: 48px 0 60px;
+
+  .dev-section-divider {
+    margin: 20px 0 26px;
   }
 
-  .dev-section-heading {
-    margin-bottom: 35px;
 
-    padding-bottom: 20px;
-  }
-
-  .dev-section-heading h2 {
-    font-size: 34px;
-  }
+  /* OVERVIEW */
 
   .dev-overview__text p {
-    font-size: 14px;
+    font-size: 0.82rem;
+    line-height: 1.65;
   }
+
 
   .dev-approach h3 {
-    font-size: 20px;
+    font-size: 1.15rem;
   }
 
-  .dev-offer {
-    margin-top: 50px;
+
+  .dev-approach__item p {
+    font-size: 0.79rem;
   }
 
-  .dev-offer > h2 {
-    margin-bottom: 35px;
 
-    font-size: 39px;
-    line-height: 1.08;
+  /* OFFER */
+
+  .dev-section-heading-center {
+    margin-bottom: 24px;
   }
+
+
+  .dev-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
 
   .dev-offer-card {
-    padding: 32px 25px;
+    padding: 22px 20px;
   }
 
-  .dev-offer-card__icon {
-    height: 50px;
-
-    font-size: 36px;
-  }
 
   .dev-offer-card h3 {
-    font-size: 27px;
+    min-height: auto;
+    font-size: 1.15rem;
   }
 
-  .dev-showcase {
-    padding-bottom: 55px;
-  }
 
-  .dev-showcase__grid {
-    width: calc(100% - 28px);
-  }
-
-  .dev-showcase__image {
-    height: 230px;
-  }
-
-  .dev-process {
-    padding: 55px 0;
-  }
+  /* PROCESS */
 
   .dev-process__inner > h2 {
-    margin-bottom: 45px;
-
-    font-size: 39px;
-
-    letter-spacing: -1.5px;
+    margin-bottom: 32px;
+    font-size: clamp(2rem, 9vw, 2.7rem);
   }
+
 
   .dev-process__steps {
     grid-template-columns: 1fr;
-
-    gap: 45px;
+    gap: 30px;
   }
+
+
+  .dev-process-step__number {
+    margin-bottom: 16px;
+  }
+
 
   .dev-process-step h3 {
     min-height: auto;
   }
 
+
   .dev-process-step p {
-    max-width: 290px;
+    max-width: 320px;
   }
 
-  .dev-process__cta {
-    width: 100%;
 
-    margin-top: 45px;
-  }
-
-  .dev-faq {
-    padding: 60px 0 70px;
-  }
+  /* FAQ */
 
   .dev-faq > .dev-container > h2 {
-    margin-bottom: 38px;
-
-    font-size: 38px;
-
-    letter-spacing: -1.5px;
+    margin-bottom: 28px;
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
   }
 
-  .dev-faq-item {
-    margin-bottom: 14px;
-  }
 
   .dev-faq-item > button {
-    padding: 14px 18px;
-
-    font-size: 13px;
+    min-height: 54px;
+    padding: 14px 16px;
+    font-size: 0.79rem;
   }
+
 
   .dev-faq-answer > p {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 0.77rem;
   }
 
-  .dev-service-strip__track {
-    min-height: 58px;
 
-    justify-content: flex-start;
-
-    gap: 20px;
-
-    padding: 0 20px;
-
-    font-size: 12px;
+  .dev-faq-item--open .dev-faq-answer > p {
+    padding-bottom: 17px;
   }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   VERY SMALL MOBILE
+   <= 360PX
 ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 360px) {
 
-  .dev-hero__title-area h1 {
-    font-size: 34px;
+  .development-page {
+    --dev-gap: 36px;
   }
 
-  .dev-section-heading h2 {
-    font-size: 31px;
+
+  .dev-container {
+    padding: 0 16px;
   }
 
-  .dev-offer > h2 {
-    font-size: 35px;
+
+  .dev-hero__content {
+    padding: 36px 0 28px;
   }
 
-  .dev-process__inner > h2 {
-    font-size: 34px;
+
+  .dev-feature {
+    padding: 20px 0 0;
   }
 
-  .dev-faq > .dev-container > h2 {
-    font-size: 34px;
+
+  .dev-feature__media {
+    height: 200px;
   }
 
 }
@@ -1267,10 +1202,9 @@
 @media (prefers-reduced-motion: reduce) {
 
   .dev-offer-card,
-  .dev-showcase__image img,
-  .dev-process__cta,
   .dev-faq-answer,
-  .dev-faq-item > button svg {
+  .dev-faq-item > button svg,
+  .dev-breadcrumb a {
     transition: none !important;
   }
 

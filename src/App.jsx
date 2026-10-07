@@ -35,15 +35,18 @@ import Details
   from "./pages/Details/Details.jsx";
 
 import ServerDown
-  from "./pages/ServerDown/ServerDown";
+  from "./pages/ServerDown/ServerDown.jsx";
 
 
 /* =========================================================
-   D-GATE WEBSITE PAGES
+   MAIN WEBSITE PAGES
 ========================================================= */
 
 import Home
   from "./pages/Home/Home.jsx";
+
+import Homes
+  from "./pages/Homes/Homes.jsx";
 
 import About
   from "./pages/About/About.jsx";
@@ -67,16 +70,16 @@ import Contact
   from "./pages/Contact/Contact.jsx";
 
 import Portfolio
-  from "./pages/Portfolio/Portfolio";
+  from "./pages/Portfolio/Portfolio.jsx";
 
 import Blog
-  from "./pages/Blog/Blog";
+  from "./pages/Blog/Blog.jsx";
 
 import Achievements
-  from "./pages/Achievements/Achievements";
+  from "./pages/Achievements/Achievements.jsx";
 
 import Gallery
-  from "./pages/Gallery/Gallery";
+  from "./pages/Gallery/Gallery.jsx";
 
 import PropertyType
   from "./pages/PropertyType/PropertyType.jsx";
@@ -87,19 +90,19 @@ import PropertyType
 ========================================================= */
 
 import BrandingDesign
-  from "./pages/BrandingDesign/BrandingDesign";
+  from "./pages/BrandingDesign/BrandingDesign.jsx";
 
 import DevelopmentEcommerce
-  from "./pages/DevelopmentEcommerce/DevelopmentEcommerce";
+  from "./pages/DevelopmentEcommerce/DevelopmentEcommerce.jsx";
 
 import TechStackWeb
-  from "./pages/TechStackWeb/TechStackWeb";
+  from "./pages/TechStackWeb/TechStackWeb.jsx";
 
 import DataAnalyticsPerformance
-  from "./pages/DataAnalyticsPerformance/DataAnalyticsPerformance";
+  from "./pages/DataAnalyticsPerformance/DataAnalyticsPerformance.jsx";
 
 import SmartAIBusinessAutomation
-  from "./pages/SmartAIBusinessAutomation/SmartAIBusinessAutomation";
+  from "./pages/SmartAIBusinessAutomation/SmartAIBusinessAutomation.jsx";
 
 import DigitalMarketingCourse
   from "./pages/DigitalMarketingCourse/DigitalMarketingCourse.jsx";
@@ -124,20 +127,20 @@ function App() {
 
 
   /* =======================================================
-     INITIAL ANIMATION COMPLETE
+     INITIAL ANIMATION
 
      /
-     ↓
-     animation
-     ↓
-     /home
+        ↓
+     PageTransition
+        ↓
+     /production
   ======================================================= */
 
   const handleInitialAnimationComplete =
     () => {
 
       navigate(
-        "/home",
+        "/production",
         {
           replace: true,
         }
@@ -147,13 +150,15 @@ function App() {
 
 
   /* =======================================================
-     LET'S CONNECT CLICK
+     LET'S CONNECT
   ======================================================= */
 
   const handleLetsConnect =
     () => {
 
-      navigate("/contact");
+      navigate(
+        "/contact"
+      );
 
     };
 
@@ -173,7 +178,13 @@ function App() {
 
 
         {/* =================================================
-            INITIAL ANIMATION
+            FIRST WEBSITE VISIT
+
+            /
+              ↓
+            ANIMATION
+              ↓
+            PRODUCTION FORM
         ================================================= */}
 
         <Route
@@ -189,13 +200,94 @@ function App() {
 
 
         {/* =================================================
-            HOME
+            HOME ALIAS
         ================================================= */}
 
         <Route
           path="/home"
           element={
             <Home />
+          }
+        />
+
+
+        {/* =================================================
+            OPTIONAL INTRO / TRANSITION
+        ================================================= */}
+
+        <Route
+          path="/intro"
+          element={
+            <PageTransition
+              onComplete={
+                handleInitialAnimationComplete
+              }
+            />
+          }
+        />
+
+
+        {/* =================================================
+            PRODUCTION
+        ================================================= */}
+
+        <Route
+          path="/production"
+          element={
+            <Production />
+          }
+        />
+
+
+        {/* =================================================
+            OLD PRODUCTION URL
+        ================================================= */}
+
+        <Route
+          path="/Production"
+          element={
+            <Navigate
+              to="/production"
+              replace
+            />
+          }
+        />
+
+
+        {/* =================================================
+            VISITOR DATA
+        ================================================= */}
+
+        <Route
+          path="/api/visiter_data"
+          element={
+            <Details />
+          }
+        />
+
+
+        {/* =================================================
+            OLD DETAILS URLS
+        ================================================= */}
+
+        <Route
+          path="/details"
+          element={
+            <Navigate
+              to="/api/visiter_data"
+              replace
+            />
+          }
+        />
+
+
+        <Route
+          path="/Details"
+          element={
+            <Navigate
+              to="/api/visiter_data"
+              replace
+            />
           }
         />
 
@@ -213,6 +305,62 @@ function App() {
 
 
         {/* =================================================
+            HOMES
+        ================================================= */}
+
+        <Route
+          path="/homes"
+          element={
+            <Homes />
+          }
+        />
+
+
+        {/* =================================================
+            PROPERTY CATEGORY
+
+            Example:
+            /property/apartments
+            /property/villas
+            /property/plots
+        ================================================= */}
+
+        <Route
+          path="/property/:type"
+          element={
+            <PropertyType />
+          }
+        />
+
+
+        {/* =================================================
+            OLD PROPERTY TYPE URL
+        ================================================= */}
+
+        <Route
+          path="/property-type"
+          element={
+            <Navigate
+              to="/homes"
+              replace
+            />
+          }
+        />
+
+
+        {/* =================================================
+            OLD DYNAMIC PROPERTY URL SUPPORT
+        ================================================= */}
+
+        <Route
+          path="/property-type/:type"
+          element={
+            <PropertyType />
+          }
+        />
+
+
+        {/* =================================================
             SERVICES
         ================================================= */}
 
@@ -220,6 +368,21 @@ function App() {
           path="/services"
           element={
             <Services />
+          }
+        />
+
+
+        {/* =================================================
+            OLD SERVICES URL
+        ================================================= */}
+
+        <Route
+          path="/Home/Services"
+          element={
+            <Navigate
+              to="/services"
+              replace
+            />
           }
         />
 
@@ -321,6 +484,18 @@ function App() {
 
 
         {/* =================================================
+            CERTIFICATES ALIAS
+        ================================================= */}
+
+        <Route
+          path="/certificates"
+          element={
+            <Achievements />
+          }
+        />
+
+
+        {/* =================================================
             GALLERY
         ================================================= */}
 
@@ -328,18 +503,6 @@ function App() {
           path="/gallery"
           element={
             <Gallery />
-          }
-        />
-
-
-        {/* =================================================
-            PROPERTY TYPE
-        ================================================= */}
-
-        <Route
-          path="/property-type"
-          element={
-            <PropertyType />
           }
         />
 
@@ -356,8 +519,21 @@ function App() {
         />
 
 
+        {/* OLD URL */}
+
+        <Route
+          path="/BrandingDesign"
+          element={
+            <Navigate
+              to="/branding-design"
+              replace
+            />
+          }
+        />
+
+
         {/* =================================================
-            DEVELOPMENT & ECOMMERCE
+            DEVELOPMENT & E-COMMERCE
         ================================================= */}
 
         <Route
@@ -368,14 +544,40 @@ function App() {
         />
 
 
+        {/* OLD URL */}
+
+        <Route
+          path="/DevelopmentEcommerce"
+          element={
+            <Navigate
+              to="/development-ecommerce"
+              replace
+            />
+          }
+        />
+
+
         {/* =================================================
-            TECH STACK WEB
+            TECHNOLOGY STACK & WEB
         ================================================= */}
 
         <Route
           path="/tech-stack-web"
           element={
             <TechStackWeb />
+          }
+        />
+
+
+        {/* OLD URL */}
+
+        <Route
+          path="/TechStackWeb"
+          element={
+            <Navigate
+              to="/tech-stack-web"
+              replace
+            />
           }
         />
 
@@ -392,14 +594,40 @@ function App() {
         />
 
 
+        {/* OLD URL */}
+
+        <Route
+          path="/DataAnalyticsPerformance"
+          element={
+            <Navigate
+              to="/data-analytics-performance"
+              replace
+            />
+          }
+        />
+
+
         {/* =================================================
-            SMART AI BUSINESS AUTOMATION
+            SMART AI
         ================================================= */}
 
         <Route
           path="/smart-ai-business-automation"
           element={
             <SmartAIBusinessAutomation />
+          }
+        />
+
+
+        {/* OLD URL */}
+
+        <Route
+          path="/SmartAIBusinessAutomation"
+          element={
+            <Navigate
+              to="/smart-ai-business-automation"
+              replace
+            />
           }
         />
 
@@ -416,12 +644,28 @@ function App() {
         />
 
 
+        {/* OLD URL */}
+
+        <Route
+          path="/DigitalMarketingCourse"
+          element={
+            <Navigate
+              to="/digital-marketing-course"
+              replace
+            />
+          }
+        />
+
+
         {/* =================================================
-            SUCCESS STORY
+            SUCCESS STORY DETAILS
+
+            Current format:
+            /success-stories/project-slug
         ================================================= */}
 
         <Route
-          path="/success-story/:id"
+          path="/success-stories/:slug"
           element={
             <SuccessStoryDetails />
           }
@@ -429,40 +673,13 @@ function App() {
 
 
         {/* =================================================
-            PRODUCTION FORM
+            OLD SUCCESS STORY URL
         ================================================= */}
 
         <Route
-          path="/production"
+          path="/success-story/:slug"
           element={
-            <Production />
-          }
-        />
-
-
-        {/* =================================================
-            VISITOR DATA
-        ================================================= */}
-
-        <Route
-          path="/api/visiter_data"
-          element={
-            <Details />
-          }
-        />
-
-
-        {/* =================================================
-            OLD DETAILS URL
-        ================================================= */}
-
-        <Route
-          path="/details"
-          element={
-            <Navigate
-              to="/api/visiter_data"
-              replace
-            />
+            <SuccessStoryDetails />
           }
         />
 
@@ -479,15 +696,30 @@ function App() {
         />
 
 
+        {/* OLD URL */}
+
+        <Route
+          path="/ServerDown"
+          element={
+            <Navigate
+              to="/server-down"
+              replace
+            />
+          }
+        />
+
+
         {/* =================================================
             FALLBACK
+
+            Any bad/old URL returns to Home.
         ================================================= */}
 
         <Route
           path="*"
           element={
             <Navigate
-              to="/"
+              to="/home"
               replace
             />
           }
@@ -498,11 +730,7 @@ function App() {
 
 
       {/* ===================================================
-          GLOBAL FLOATING ACTIONS
-
-          IMPORTANT:
-          This is OUTSIDE Routes,
-          therefore visible on EVERY page.
+          GLOBAL FLOATING BUTTONS
       =================================================== */}
 
       <div
@@ -533,7 +761,7 @@ function App() {
           <span
             className="floating-connect__text"
           >
-            LET'S CONNECT
+            LET&apos;S CONNECT
           </span>
 
         </button>

@@ -1,958 +1,335 @@
 /* =========================================================
    INSIGHTS PAGE HERO
+   Text starts on the same left line as every other section
+   (1200px content, sides 40/32/24/18/16px)
 ========================================================= */
 
 .insights-page-hero {
+  --is-side: 40px;
+  --is-gap: 56px;
+
   position: relative;
-
   width: 100%;
-
   overflow: hidden;
-
   background: var(--white);
 }
-
-
-/* =========================================================
-   HERO CONTAINER
-========================================================= */
 
 .insights-page-hero__container {
   position: relative;
-
   width: 100%;
-  max-width: 1600px;
-
-  min-height: 560px;
-
-  margin: 0 auto;
-
+  max-width: none;
+  min-height: 500px;
+  margin: 0;
+  padding-left: max(var(--is-side), calc((100% - 1200px) / 2));
+  padding-right: 0;
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 46%)
-    minmax(0, 54%);
-
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   align-items: stretch;
 }
 
-
-/* =========================================================
-   LEFT CONTENT
-========================================================= */
-
 .insights-page-hero__content {
   position: relative;
-
   z-index: 10;
-
   min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
-  padding:
-    45px
-    90px
-    45px
-    clamp(45px, 5vw, 80px);
-
+  padding: 56px 72px 56px 0;
   background: var(--white);
 }
 
-
-/* =========================================================
-   BREADCRUMB
-========================================================= */
-
 .insights-page-hero__breadcrumb {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   margin-bottom: 18px;
-
   color: var(--text);
-
   font-size: 0.85rem;
 }
 
-
 .insights-page-hero__breadcrumb a {
   color: var(--text);
-
   text-decoration: none;
-
-  transition:
-    color var(--transition);
+  transition: color var(--transition);
 }
 
-
-.insights-page-hero__breadcrumb a:hover {
-  color: var(--primary);
-}
-
-
-/* =========================================================
-   TITLE
-========================================================= */
+.insights-page-hero__breadcrumb a:hover { color: var(--primary); }
 
 .insights-page-hero__title {
   width: 100%;
   max-width: 590px;
-
   margin: 0;
-
   color: var(--black);
-
-  font-size:
-    clamp(
-      2.8rem,
-      4vw,
-      3.8rem
-    );
-
+  font-size: clamp(2.8rem, 4vw, 3.8rem);
   font-weight: 800;
-
   line-height: 1.06;
-
   letter-spacing: -1px;
 }
 
-
-.insights-page-hero__title span {
-  color: var(--primary);
-}
-
-
-/* =========================================================
-   YELLOW LINE
-========================================================= */
+.insights-page-hero__title span { color: var(--primary); }
 
 .insights-page-hero__line {
   width: 55px;
   height: 4px;
-
   margin-top: 20px;
-
   border-radius: 10px;
-
   background: var(--primary);
 }
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
 
 .insights-page-hero__description {
   width: 100%;
   max-width: 530px;
-
   margin: 21px 0 0;
-
   color: var(--text);
-
   font-size: 0.95rem;
-
   line-height: 1.7;
 }
 
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
 .insights-page-hero__button {
   width: fit-content;
-
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
   margin-top: 24px;
-
   padding: 14px 22px;
-
-  border:
-    1px solid
-    var(--primary);
-
+  border: 1px solid var(--primary);
   border-radius: var(--radius-sm);
-
   background: var(--primary);
-
   color: var(--black);
-
   font-family: inherit;
-
   font-size: 0.76rem;
   font-weight: 750;
-
   letter-spacing: 0.02em;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
-  transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    color var(--transition),
-    box-shadow var(--transition);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
 }
 
-
-.insights-page-hero__button svg {
-  flex-shrink: 0;
-
-  font-size: 0.76rem;
-}
-
-
-/* =========================================================
-   BUTTON HOVER
-   NO TRANSLATE
-========================================================= */
+.insights-page-hero__button svg { flex-shrink: 0; font-size: 0.76rem; }
 
 @media (hover: hover) {
-
   .insights-page-hero__button:hover {
     border-color: var(--black);
-
     background: var(--black);
-
     color: var(--primary);
-
-    box-shadow:
-      0 8px 20px
-      rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
-
 }
 
-
-/* =========================================================
-   RIGHT VISUAL
-========================================================= */
-
+/* VISUAL */
 .insights-page-hero__visual {
   position: relative;
-
   min-width: 0;
-  min-height: 560px;
-
+  min-height: 500px;
   overflow: hidden;
-
   background: var(--black);
 }
 
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
 .insights-page-hero__image {
   position: absolute;
-
   inset: 0;
-
   z-index: 1;
-
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   object-position: 58% center;
-
-  transition:
-    filter var(--transition);
+  transition: filter var(--transition);
 }
-
-
-/* =========================================================
-   IMAGE HOVER
-   NO SCALE
-========================================================= */
 
 @media (hover: hover) {
-
-  .insights-page-hero__visual:hover
-  .insights-page-hero__image {
-    filter:
-      brightness(1.03)
-      saturate(1.03);
+  .insights-page-hero__visual:hover .insights-page-hero__image {
+    filter: brightness(1.03) saturate(1.03);
   }
-
 }
-
-
-/* =========================================================
-   IMAGE OVERLAY
-========================================================= */
 
 .insights-page-hero__overlay {
   position: absolute;
-
   inset: 0;
-
   z-index: 2;
-
   pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.03),
-      rgba(0, 0, 0, 0) 35%
-    );
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0) 35%);
 }
-
-
-/* =========================================================
-   THREE JS CANVAS
-========================================================= */
 
 .insights-page-hero__canvas {
   position: absolute;
-
   inset: 0;
-
   z-index: 3;
-
   width: 100%;
   height: 100%;
-
   pointer-events: none;
-
   opacity: 0.6;
 }
 
-
 .insights-page-hero__canvas canvas {
   display: block;
-
   width: 100% !important;
   height: 100% !important;
 }
 
-
-/* =========================================================
-   WHITE DIAGONAL
-   STRUCTURAL TRANSFORM ONLY
-========================================================= */
-
 .insights-page-hero__visual::before {
   content: "";
-
   position: absolute;
-
   top: -3%;
   left: -72px;
-
   z-index: 4;
-
   width: 145px;
   height: 106%;
-
   background: var(--white);
-
   transform: skewX(-13deg);
-
   pointer-events: none;
 }
-
-
-/* =========================================================
-   YELLOW DIAGONAL
-   STRUCTURAL TRANSFORM ONLY
-========================================================= */
 
 .insights-page-hero__visual::after {
   content: "";
-
   position: absolute;
-
   top: -3%;
   left: -7px;
-
   z-index: 5;
-
   width: 6px;
   height: 106%;
-
   background: var(--primary);
-
   transform: skewX(-13deg);
-
   pointer-events: none;
-
-  box-shadow:
-    2px 0 8px
-    rgba(253, 185, 19, 0.15);
+  box-shadow: 2px 0 8px rgba(253, 185, 19, 0.15);
 }
 
-
-/* =========================================================
-   1200PX
-========================================================= */
-
+/* 1200 */
 @media (max-width: 1200px) {
+  .insights-page-hero { --is-side: 32px; --is-gap: 52px; }
 
-  .insights-page-hero__content {
-    padding:
-      45px
-      70px
-      45px
-      5%;
-  }
-
-
-  .insights-page-hero__title {
-    font-size: 3.2rem;
-  }
-
+  .insights-page-hero__content { padding: 48px 56px 48px 0; }
+  .insights-page-hero__title { font-size: 3.2rem; }
 }
 
-
-/* =========================================================
-   1024PX
-========================================================= */
-
+/* 1024 */
 @media (max-width: 1024px) {
-
-  .insights-page-hero__container {
-    min-height: 540px;
-
-    grid-template-columns:
-      minmax(0, 47%)
-      minmax(0, 53%);
-  }
-
-
-  .insights-page-hero__content {
-    padding:
-      40px
-      60px
-      40px
-      5%;
-  }
-
-
-  .insights-page-hero__title {
-    font-size: 2.8rem;
-  }
-
-
-  .insights-page-hero__description {
-    font-size: 0.9rem;
-  }
-
-
-  .insights-page-hero__visual {
-    min-height: 540px;
-  }
-
-
-  .insights-page-hero__canvas {
-    opacity: 0.55;
-  }
-
+  .insights-page-hero__container { min-height: 480px; grid-template-columns: minmax(0, 47fr) minmax(0, 53fr); }
+  .insights-page-hero__content { padding: 44px 48px 44px 0; }
+  .insights-page-hero__title { font-size: 2.8rem; }
+  .insights-page-hero__description { font-size: 0.9rem; }
+  .insights-page-hero__visual { min-height: 480px; }
+  .insights-page-hero__canvas { opacity: 0.55; }
 }
 
+@media (max-width: 900px) {
+  .insights-page-hero { --is-side: 24px; --is-gap: 48px; }
+}
 
-/* =========================================================
-   TABLET - 768PX
-========================================================= */
-
+/* 768: full background image */
 @media (max-width: 768px) {
-
-  .insights-page-hero {
-    background: var(--white);
-  }
-
-
   .insights-page-hero__container {
-    position: relative;
-
     display: flex;
-
     align-items: center;
-
-    width: 100%;
-
-    min-height: 560px;
-
+    min-height: 500px;
+    padding-left: var(--is-side);
+    padding-right: var(--is-side);
     overflow: hidden;
   }
-
-
-  /* =====================================================
-     FULL BACKGROUND IMAGE
-  ===================================================== */
 
   .insights-page-hero__visual {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     min-height: 100%;
-
-    overflow: hidden;
   }
-
-
-  /* REMOVE DESKTOP DIAGONALS */
 
   .insights-page-hero__visual::before,
-  .insights-page-hero__visual::after {
-    display: none;
-  }
+  .insights-page-hero__visual::after { display: none; }
 
-
-  .insights-page-hero__image {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: 70% center;
-
-    filter: none;
-  }
-
-
-  /* =====================================================
-     LIGHT MOBILE OVERLAY
-  ===================================================== */
+  .insights-page-hero__image { object-position: 70% center; filter: none; }
 
   .insights-page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.91) 42%,
-        rgba(255, 255, 255, 0.74) 67%,
-        rgba(255, 255, 255, 0.30) 100%
-      );
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.91) 42%, rgba(255, 255, 255, 0.74) 67%, rgba(255, 255, 255, 0.3) 100%);
   }
 
-
-  /* =====================================================
-     CONTENT
-  ===================================================== */
-
   .insights-page-hero__content {
-    position: relative;
-
-    z-index: 10;
-
     width: 75%;
     max-width: 560px;
-
-    min-height: 560px;
-
-    padding:
-      48px
-      7%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
+    min-height: 500px;
+    padding: 48px 0;
     background: transparent;
   }
 
-
   .insights-page-hero__breadcrumb,
-  .insights-page-hero__breadcrumb a {
-    color: #333333;
-  }
+  .insights-page-hero__breadcrumb a { color: #333333; }
 
-
-  .insights-page-hero__title {
-    max-width: 470px;
-
-    color: var(--black);
-
-    font-size: 2.7rem;
-
-    line-height: 1.07;
-
-    letter-spacing: -0.7px;
-  }
-
-
-  .insights-page-hero__title span {
-    color: var(--primary);
-  }
-
-
-  .insights-page-hero__description {
-    max-width: 430px;
-
-    color: #333333;
-
-    font-size: 0.9rem;
-
-    line-height: 1.65;
-  }
-
-
-  .insights-page-hero__canvas {
-    opacity: 0.12;
-  }
-
+  .insights-page-hero__title { max-width: 470px; font-size: 2.7rem; line-height: 1.07; letter-spacing: -0.7px; }
+  .insights-page-hero__description { max-width: 430px; color: #333333; font-size: 0.9rem; line-height: 1.65; }
+  .insights-page-hero__canvas { opacity: 0.12; }
 }
 
-
-/* =========================================================
-   MOBILE - 600PX
-========================================================= */
+@media (max-width: 640px) {
+  .insights-page-hero { --is-side: 18px; --is-gap: 40px; }
+}
 
 @media (max-width: 600px) {
-
   .insights-page-hero__container,
-  .insights-page-hero__visual {
-    min-height: 520px;
-  }
+  .insights-page-hero__visual { min-height: 480px; }
 
-
-  .insights-page-hero__content {
-    width: 100%;
-    max-width: none;
-
-    min-height: 520px;
-
-    margin: 0;
-
-    padding:
-      38px
-      20px;
-
-    justify-content: center;
-  }
-
-
-  /*
-     Push image further right.
-
-     This removes most of the text that is
-     already inside your background image
-     from behind the hero heading.
-  */
-
-  .insights-page-hero__image {
-    object-position: 78% center;
-  }
-
+  .insights-page-hero__content { width: 100%; max-width: none; min-height: 480px; padding: 38px 0; }
+  .insights-page-hero__image { object-position: 78% center; }
 
   .insights-page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.91) 48%,
-        rgba(255, 255, 255, 0.72) 70%,
-        rgba(255, 255, 255, 0.25) 100%
-      );
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.91) 48%, rgba(255, 255, 255, 0.72) 70%, rgba(255, 255, 255, 0.25) 100%);
   }
 
-
-  .insights-page-hero__breadcrumb {
-    margin-bottom: 18px;
-
-    font-size: 0.82rem;
-  }
-
-
-  .insights-page-hero__title {
-    max-width: 310px;
-
-    font-size: 2rem;
-
-    line-height: 1.08;
-
-    letter-spacing: -0.4px;
-  }
-
-
-  .insights-page-hero__line {
-    width: 44px;
-    height: 3px;
-
-    margin-top: 15px;
-  }
-
-
-  .insights-page-hero__description {
-    max-width: 310px;
-
-    margin-top: 16px;
-
-    color: #333333;
-
-    font-size: 0.86rem;
-
-    line-height: 1.62;
-  }
-
-
-  .insights-page-hero__button {
-    margin-top: 21px;
-
-    padding:
-      13px
-      18px;
-
-    font-size: 0.7rem;
-  }
-
-
-  /* PERFORMANCE */
-
-  .insights-page-hero__canvas {
-    display: none;
-  }
-
+  .insights-page-hero__breadcrumb { margin-bottom: 18px; font-size: 0.82rem; }
+  .insights-page-hero__title { max-width: 310px; font-size: 2rem; line-height: 1.08; letter-spacing: -0.4px; }
+  .insights-page-hero__line { width: 44px; height: 3px; margin-top: 15px; }
+  .insights-page-hero__description { max-width: 310px; margin-top: 16px; font-size: 0.86rem; line-height: 1.62; }
+  .insights-page-hero__button { margin-top: 21px; padding: 13px 18px; font-size: 0.7rem; }
+  .insights-page-hero__canvas { display: none; }
 }
-
-
-/* =========================================================
-   425PX
-========================================================= */
 
 @media (max-width: 425px) {
-
   .insights-page-hero__container,
   .insights-page-hero__content,
-  .insights-page-hero__visual {
-    min-height: 500px;
-  }
+  .insights-page-hero__visual { min-height: 465px; }
 
-
-  .insights-page-hero__content {
-    padding:
-      34px
-      18px;
-  }
-
-
-  .insights-page-hero__image {
-    object-position: 80% center;
-  }
-
-
-  .insights-page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.91) 50%,
-        rgba(255, 255, 255, 0.68) 74%,
-        rgba(255, 255, 255, 0.22) 100%
-      );
-  }
-
-
-  .insights-page-hero__breadcrumb {
-    margin-bottom: 17px;
-
-    font-size: 0.8rem;
-  }
-
-
-  .insights-page-hero__title {
-    max-width: 290px;
-
-    font-size: 1.9rem;
-  }
-
-
-  .insights-page-hero__description {
-    max-width: 295px;
-
-    font-size: 0.84rem;
-  }
-
-
-  .insights-page-hero__button {
-    font-size: 0.69rem;
-  }
-
+  .insights-page-hero__content { padding: 34px 0; }
+  .insights-page-hero__image { object-position: 80% center; }
+  .insights-page-hero__breadcrumb { margin-bottom: 17px; font-size: 0.8rem; }
+  .insights-page-hero__title { max-width: 290px; font-size: 1.9rem; }
+  .insights-page-hero__description { max-width: 295px; font-size: 0.84rem; }
+  .insights-page-hero__button { font-size: 0.69rem; }
 }
-
-
-/* =========================================================
-   375PX
-========================================================= */
 
 @media (max-width: 375px) {
-
   .insights-page-hero__container,
   .insights-page-hero__content,
-  .insights-page-hero__visual {
-    min-height: 485px;
-  }
+  .insights-page-hero__visual { min-height: 450px; }
 
-
-  .insights-page-hero__content {
-    padding:
-      32px
-      16px;
-  }
-
-
-  .insights-page-hero__image {
-    object-position: 82% center;
-  }
-
-
-  .insights-page-hero__breadcrumb {
-    font-size: 0.79rem;
-  }
-
-
-  .insights-page-hero__title {
-    max-width: 275px;
-
-    font-size: 1.78rem;
-  }
-
-
-  .insights-page-hero__description {
-    max-width: 280px;
-
-    font-size: 0.83rem;
-  }
-
-
-  .insights-page-hero__button {
-    font-size: 0.68rem;
-  }
-
+  .insights-page-hero__content { padding: 32px 0; }
+  .insights-page-hero__image { object-position: 82% center; }
+  .insights-page-hero__title { max-width: 275px; font-size: 1.78rem; }
+  .insights-page-hero__description { max-width: 280px; font-size: 0.83rem; }
+  .insights-page-hero__button { font-size: 0.68rem; }
 }
 
-
-/* =========================================================
-   VERY SMALL MOBILE - 340PX
-========================================================= */
+@media (max-width: 360px) {
+  .insights-page-hero { --is-side: 16px; --is-gap: 36px; }
+}
 
 @media (max-width: 340px) {
-
   .insights-page-hero__container,
   .insights-page-hero__content,
-  .insights-page-hero__visual {
-    min-height: 470px;
-  }
+  .insights-page-hero__visual { min-height: 440px; }
 
-
-  .insights-page-hero__content {
-    padding:
-      30px
-      14px;
-  }
-
-
-  .insights-page-hero__image {
-    object-position: 84% center;
-  }
-
-
-  .insights-page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.96) 0%,
-        rgba(255, 255, 255, 0.92) 52%,
-        rgba(255, 255, 255, 0.68) 76%,
-        rgba(255, 255, 255, 0.22) 100%
-      );
-  }
-
-
-  .insights-page-hero__breadcrumb {
-    margin-bottom: 15px;
-
-    font-size: 0.77rem;
-  }
-
-
-  .insights-page-hero__title {
-    max-width: 260px;
-
-    font-size: 1.65rem;
-
-    line-height: 1.1;
-  }
-
-
-  .insights-page-hero__line {
-    width: 38px;
-    height: 3px;
-
-    margin-top: 13px;
-  }
-
-
-  .insights-page-hero__description {
-    max-width: 265px;
-
-    margin-top: 14px;
-
-    font-size: 0.81rem;
-
-    line-height: 1.6;
-  }
-
-
-  .insights-page-hero__button {
-    margin-top: 18px;
-
-    padding:
-      12px
-      15px;
-
-    font-size: 0.67rem;
-  }
-
+  .insights-page-hero__content { padding: 30px 0; }
+  .insights-page-hero__image { object-position: 84% center; }
+  .insights-page-hero__breadcrumb { margin-bottom: 15px; font-size: 0.77rem; }
+  .insights-page-hero__title { max-width: 260px; font-size: 1.65rem; line-height: 1.1; }
+  .insights-page-hero__line { width: 38px; margin-top: 13px; }
+  .insights-page-hero__description { max-width: 265px; margin-top: 14px; font-size: 0.81rem; line-height: 1.6; }
+  .insights-page-hero__button { margin-top: 18px; padding: 12px 15px; font-size: 0.67rem; }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
   .insights-page-hero__button,
-  .insights-page-hero__image {
-    transition: none;
-  }
+  .insights-page-hero__image { transition: none; }
 
-
-  .insights-page-hero__canvas {
-    display: none;
-  }
-
+  .insights-page-hero__canvas { display: none; }
 }

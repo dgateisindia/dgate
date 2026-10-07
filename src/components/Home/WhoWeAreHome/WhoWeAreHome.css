@@ -1,53 +1,113 @@
 /* =========================================================
-   HOME - WHO WE ARE
+   D-GATE HOME - WHO WE ARE
+   FINAL RESPONSIVE ALIGNMENT
+========================================================= */
+
+
+/* =========================================================
+   SECTION ROOT
 ========================================================= */
 
 .home-about-intro {
   width: 100%;
 
+  margin: 0;
+
   padding:
-    80px
-    0;
+    72px
+    40px;
 
-  background: var(--white);
-}
+  background:
+    var(--white, #ffffff);
 
-
-.home-about-intro__grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.8fr)
-    minmax(0, 1.2fr);
-
-  gap: 75px;
-
-  align-items: start;
+  box-sizing: border-box;
 }
 
 
 /* =========================================================
-   LEFT
+   MASTER 1200PX CONTENT GRID
+========================================================= */
+
+.home-about-intro__grid {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.82fr)
+    minmax(0, 1.18fr);
+
+  align-items: start;
+
+  gap: 56px;
+}
+
+
+.home-about-intro__grid > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   LEFT COLUMN
+========================================================= */
+
+.home-about-intro__heading {
+  width: 100%;
+
+  max-width: 470px;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   EYEBROW
 ========================================================= */
 
 .home-about-intro__eyebrow {
   display: block;
 
-  margin-bottom: 10px;
+  margin: 0 0 12px;
 
-  color: var(--primary);
+  padding: 0;
 
-  font-size: 0.72rem;
-  font-weight: 700;
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  line-height: 1.2;
 
   letter-spacing: 1.8px;
+
+  text-transform: uppercase;
 }
 
 
+/* =========================================================
+   HEADING
+========================================================= */
+
 .home-about-intro__heading h2 {
+  width: 100%;
+
+  max-width: 470px;
+
   margin: 0;
 
-  color: var(--black);
+  padding: 0;
+
+  color:
+    var(--black, #111111);
 
   font-size:
     clamp(
@@ -58,76 +118,132 @@
 
   font-weight: 800;
 
-  line-height: 1.13;
+  line-height: 1.08;
 
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
+
+  text-wrap: balance;
 }
 
 
 .home-about-intro__heading h2 span {
-  color: var(--primary);
+  color:
+    var(--primary, #fdb913);
 }
 
 
+/* =========================================================
+   HEADING ACCENT
+========================================================= */
+
 .home-about-intro__line {
   width: 52px;
+
   height: 3px;
 
   margin-top: 20px;
 
-  border-radius: 5px;
+  border-radius: 999px;
 
-  background: var(--primary);
+  background:
+    var(--primary, #fdb913);
 }
 
 
 /* =========================================================
-   CONTENT
+   RIGHT CONTENT COLUMN
+========================================================= */
+
+.home-about-intro__content {
+  width: 100%;
+
+  max-width: 720px;
+
+  min-width: 0;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   NORMAL TEXT
 ========================================================= */
 
 .home-about-intro__content > p {
+  width: 100%;
+
   max-width: 720px;
 
-  margin:
-    0
-    0
-    13px;
+  margin: 0 0 14px;
 
-  color: var(--text);
+  padding: 0;
 
-  font-size: 0.9rem;
+  color:
+    var(--text, #666666);
 
-  line-height: 1.75;
+  font-size: 0.94rem;
+
+  font-weight: 400;
+
+  line-height: 1.72;
 }
 
 
-.home-about-intro__content
-.home-about-intro__lead {
-  color: var(--black);
-
-  font-size: 1rem;
-  font-weight: 500;
+.home-about-intro__content > p:last-of-type {
+  margin-bottom: 0;
 }
 
 
 /* =========================================================
-   CAPABILITIES
+   LEAD TEXT
 ========================================================= */
 
-.home-about-intro__capabilities {
-  display: grid;
+.home-about-intro__content
+.home-about-intro__lead {
+  color:
+    var(--black, #111111);
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  font-size: 1rem;
 
-  gap: 12px;
+  font-weight: 500;
 
-  margin-top: 25px;
+  line-height: 1.7;
 }
 
 
+/* =========================================================
+   CAPABILITIES GRID
+========================================================= */
+
+.home-about-intro__capabilities {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin: 26px 0 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   CAPABILITY CARD
+========================================================= */
+
 .home-about-intro__capability {
-  min-height: 54px;
+  min-width: 0;
+
+  min-height: 56px;
 
   display: flex;
 
@@ -135,79 +251,173 @@
 
   gap: 11px;
 
-  padding:
-    0
-    16px;
+  padding: 10px 16px;
 
   border:
     1px solid
-    var(--border);
+    var(--border, rgba(17, 17, 17, 0.1));
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 10px);
 
-  background: var(--section);
+  background:
+    var(--section, #f7f7f7);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
 
-.home-about-intro__capability svg {
-  flex-shrink: 0;
+/* =========================================================
+   CAPABILITY HOVER
+========================================================= */
 
-  color: var(--primary);
+@media (hover: hover) {
+
+  .home-about-intro__capability:hover {
+    transform:
+      translateY(-2px);
+
+    border-color:
+      rgba(253, 185, 19, 0.35);
+
+    background:
+      #fffaf0;
+
+    box-shadow:
+      0 7px 18px
+      rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+/* =========================================================
+   CAPABILITY ICON
+========================================================= */
+
+.home-about-intro__capability svg {
+  flex: 0 0 auto;
+
+  color:
+    var(--primary, #fdb913);
 
   font-size: 1rem;
 }
 
 
-.home-about-intro__capability span {
-  color: var(--black);
+/* =========================================================
+   CAPABILITY TEXT
+========================================================= */
 
-  font-size: 0.76rem;
+.home-about-intro__capability span {
+  min-width: 0;
+
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--black, #111111);
+
+  font-size: 0.78rem;
+
   font-weight: 600;
+
+  line-height: 1.4;
 }
 
 
 /* =========================================================
-   BOTTOM
+   BOTTOM AREA
 ========================================================= */
 
 .home-about-intro__bottom {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
 
   gap: 28px;
 
-  margin-top: 28px;
-}
+  margin: 28px 0 0;
 
-
-.home-about-intro__stat {
-  display: flex;
-
-  flex-direction: column;
-}
-
-
-.home-about-intro__stat strong {
-  color: var(--primary);
-
-  font-size: 1.55rem;
-  font-weight: 800;
-}
-
-
-.home-about-intro__stat span {
-  margin-top: 2px;
-
-  color: var(--text);
-
-  font-size: 0.68rem;
-  font-weight: 600;
+  padding: 0;
 }
 
 
 /* =========================================================
-   BUTTON
+   STAT
+========================================================= */
+
+.home-about-intro__stat {
+  flex: 0 0 auto;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+========================================================= */
+
+.home-about-intro__stat strong {
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--primary, #fdb913);
+
+  font-size: 1.55rem;
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   STAT LABEL
+========================================================= */
+
+.home-about-intro__stat span {
+  margin: 4px 0 0;
+
+  padding: 0;
+
+  color:
+    var(--text, #666666);
+
+  font-size: 0.7rem;
+
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   CTA BUTTON
 ========================================================= */
 
 .home-about-intro__button {
@@ -216,66 +426,211 @@
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 9px;
 
   margin-left: auto;
 
-  padding:
-    0
-    20px;
+  padding: 0 20px;
 
   border:
     1px solid
-    var(--primary);
+    var(--primary, #fdb913);
 
-  border-radius: var(--radius-sm);
+  border-radius:
+    var(--radius-sm, 8px);
 
-  background: var(--primary);
+  outline: none;
 
-  color: var(--black);
+  background:
+    var(--primary, #fdb913);
 
-  font-size: 0.7rem;
+  color:
+    var(--black, #111111);
+
+  font-family: inherit;
+
+  font-size: 0.72rem;
+
   font-weight: 700;
+
+  line-height: 1;
+
+  text-align: center;
 
   text-decoration: none;
 
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  -webkit-tap-highlight-color: transparent;
+
   transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    color var(--transition);
-}
-
-
-.home-about-intro__button:hover {
-  border-color: var(--black);
-
-  background: var(--black);
-
-  color: var(--primary);
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease,
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   CTA HOVER
+========================================================= */
+
+@media (hover: hover) {
+
+  .home-about-intro__button:hover {
+    transform:
+      translateY(-2px);
+
+    border-color:
+      var(--black, #111111);
+
+    background:
+      var(--black, #111111);
+
+    color:
+      var(--primary, #fdb913);
+
+    box-shadow:
+      0 8px 20px
+      rgba(0, 0, 0, 0.11);
+  }
+}
+
+
+/* =========================================================
+   CTA ACTIVE
+========================================================= */
+
+.home-about-intro__button:active {
+  transform:
+    translateY(0)
+    scale(0.98);
+}
+
+
+/* =========================================================
+   CTA FOCUS
+========================================================= */
+
+.home-about-intro__button:focus-visible {
+  outline:
+    3px solid
+    rgba(253, 185, 19, 0.4);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   LAPTOP
+   <= 1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .home-about-intro {
+    padding:
+      64px
+      32px;
+  }
+
+
+  .home-about-intro__grid {
+    gap: 48px;
+  }
+
+
+  .home-about-intro__heading h2 {
+    font-size:
+      clamp(
+        2.1rem,
+        3.5vw,
+        3.15rem
+      );
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   <= 900px
 ========================================================= */
 
 @media (max-width: 900px) {
 
-  .home-about-intro__grid {
-    gap: 45px;
+  .home-about-intro {
+    padding:
+      56px
+      24px;
   }
 
+
+  .home-about-intro__grid {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1.15fr);
+
+    gap: 36px;
+  }
+
+
+  .home-about-intro__heading h2 {
+    font-size:
+      clamp(
+        2rem,
+        4.5vw,
+        2.75rem
+      );
+  }
+
+
+  .home-about-intro__content > p {
+    font-size: 0.9rem;
+  }
+
+
+  .home-about-intro__content
+  .home-about-intro__lead {
+    font-size: 0.96rem;
+  }
+
+
+  .home-about-intro__capabilities {
+    gap: 10px;
+  }
+
+
+  .home-about-intro__capability {
+    padding:
+      10px 13px;
+  }
+
+
+  .home-about-intro__bottom {
+    gap: 20px;
+  }
 }
 
+
+/* =========================================================
+   SMALL TABLET
+   <= 768px
+========================================================= */
 
 @media (max-width: 768px) {
 
   .home-about-intro {
     padding:
-      60px
-      0;
+      56px
+      24px;
   }
 
 
@@ -285,36 +640,182 @@
     gap: 32px;
   }
 
-}
 
-
-@media (max-width: 600px) {
-
-  .home-about-intro__bottom {
-    flex-wrap: wrap;
-  }
-
-
-  .home-about-intro__button {
-    width: 100%;
-
-    margin-left: 0;
-  }
-
-}
-
-
-@media (max-width: 425px) {
-
-  .home-about-intro {
-    padding:
-      48px
-      0;
+  .home-about-intro__heading {
+    max-width: 620px;
   }
 
 
   .home-about-intro__heading h2 {
-    font-size: 1.9rem;
+    max-width: 620px;
+
+    font-size:
+      clamp(
+        2.1rem,
+        6vw,
+        3rem
+      );
+  }
+
+
+  .home-about-intro__content {
+    max-width: 100%;
+  }
+
+
+  .home-about-intro__content > p {
+    max-width: 720px;
+  }
+
+
+  .home-about-intro__capabilities {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 10px;
+  }
+
+
+  .home-about-intro__bottom {
+    margin-top: 26px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 640px
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-about-intro {
+    padding:
+      48px
+      18px;
+  }
+
+
+  .home-about-intro__grid {
+    gap: 28px;
+  }
+
+
+  .home-about-intro__eyebrow {
+    margin-bottom: 10px;
+
+    font-size: 0.66rem;
+
+    letter-spacing: 1.4px;
+  }
+
+
+  .home-about-intro__heading h2 {
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        2rem,
+        8vw,
+        2.6rem
+      );
+
+    line-height: 1.08;
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .home-about-intro__line {
+    width: 46px;
+
+    margin-top: 17px;
+  }
+
+
+  .home-about-intro__content > p {
+    margin-bottom: 12px;
+
+    font-size: 0.87rem;
+
+    line-height: 1.68;
+  }
+
+
+  .home-about-intro__content
+  .home-about-intro__lead {
+    font-size: 0.93rem;
+
+    line-height: 1.65;
+  }
+
+
+  .home-about-intro__capabilities {
+    margin-top: 22px;
+
+    gap: 10px;
+  }
+
+
+  .home-about-intro__capability {
+    min-height: 54px;
+
+    padding:
+      9px
+      12px;
+  }
+
+
+  .home-about-intro__capability span {
+    font-size: 0.75rem;
+  }
+
+
+  .home-about-intro__bottom {
+    flex-wrap: wrap;
+
+    gap:
+      18px
+      24px;
+
+    margin-top: 24px;
+  }
+
+
+  .home-about-intro__button {
+    min-height: 44px;
+
+    padding:
+      0
+      18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   <= 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .home-about-intro {
+    padding:
+      48px
+      18px;
+  }
+
+
+  .home-about-intro__grid {
+    gap: 26px;
+  }
+
+
+  .home-about-intro__heading h2 {
+    font-size: 2rem;
   }
 
 
@@ -322,4 +823,111 @@
     grid-template-columns: 1fr;
   }
 
+
+  .home-about-intro__bottom {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    align-items: start;
+
+    gap:
+      20px
+      16px;
+  }
+
+
+  .home-about-intro__stat {
+    width: 100%;
+  }
+
+
+  .home-about-intro__button {
+    grid-column:
+      1 / -1;
+
+    width: 100%;
+
+    margin-left: 0;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   <= 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .home-about-intro {
+    padding:
+      44px
+      16px;
+  }
+
+
+  .home-about-intro__grid {
+    gap: 24px;
+  }
+
+
+  .home-about-intro__eyebrow {
+    font-size: 0.62rem;
+  }
+
+
+  .home-about-intro__heading h2 {
+    font-size: 1.85rem;
+  }
+
+
+  .home-about-intro__content > p {
+    font-size: 0.84rem;
+  }
+
+
+  .home-about-intro__content
+  .home-about-intro__lead {
+    font-size: 0.9rem;
+  }
+
+
+  .home-about-intro__capability span {
+    font-size: 0.74rem;
+  }
+
+
+  .home-about-intro__bottom {
+    gap:
+      18px
+      12px;
+  }
+
+
+  .home-about-intro__stat strong {
+    font-size: 1.4rem;
+  }
+
+
+  .home-about-intro__stat span {
+    font-size: 0.66rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-about-intro__capability,
+  .home-about-intro__button {
+    transition: none;
+  }
 }

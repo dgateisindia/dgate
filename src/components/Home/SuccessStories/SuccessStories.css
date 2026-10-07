@@ -1,16 +1,37 @@
 /* =========================================================
-   SUCCESS STORIES
+   D-GATE HOME SUCCESS STORIES
+   TIGHT GAP VERSION
 ========================================================= */
 
 .home-success {
-  --success-yellow: var(--primary, #fdb913);
-  --success-yellow-dark: #e3a400;
-  --success-black: #101010;
-  --success-text: #666666;
+  --success-yellow:
+    var(--primary, #fdb913);
+
+  --success-yellow-dark:
+    #e3a400;
+
+  --success-black:
+    #101010;
+
+  --success-text:
+    #666666;
+
+  position: relative;
 
   width: 100%;
 
-  padding: 80px 0 90px;
+  margin: 0;
+
+  /*
+    IMPORTANT:
+    Reduced top gap.
+    Previous section already provides spacing.
+  */
+
+  padding:
+    12px
+    var(--dg-page-padding-desktop, 40px)
+    48px;
 
   overflow: hidden;
 
@@ -24,22 +45,32 @@
 
 .home-success__header {
   width: 100%;
+
   max-width: 760px;
 
-  margin: 0 auto 42px;
+  margin:
+    0 auto 30px;
+
+  padding: 0;
 
   text-align: center;
 }
 
 
+/* =========================================================
+   EYEBROW
+========================================================= */
+
 .home-success__eyebrow {
   display: block;
 
-  margin-bottom: 12px;
+  margin:
+    0 0 12px;
 
   color: #9e6c00;
 
   font-size: 11px;
+
   font-weight: 800;
 
   line-height: 1;
@@ -57,37 +88,44 @@
 .home-success__title {
   margin: 0;
 
-  color: var(--success-black);
+  color:
+    var(--success-black);
 
-  font-size: clamp(
-    42px,
-    5vw,
-    68px
-  );
+  font-size:
+    clamp(
+      40px,
+      4.5vw,
+      60px
+    );
 
   font-weight: 800;
 
-  line-height: 1;
+  line-height: 1.02;
 
   letter-spacing: -1.5px;
+
+  text-wrap: balance;
 }
 
 
 .home-success__title span {
-  color: var(--success-yellow);
+  color:
+    var(--success-yellow);
 }
 
 
 /* =========================================================
-   HEADER DESCRIPTION
+   DESCRIPTION
 ========================================================= */
 
 .home-success__header p {
   max-width: 630px;
 
-  margin: 18px auto 0;
+  margin:
+    15px auto 0;
 
-  color: var(--success-text);
+  color:
+    var(--success-text);
 
   font-size: 14px;
 
@@ -104,12 +142,16 @@
 
   width: 100%;
 
-  margin: 0;
+  max-width:
+    var(--dg-content-max, 1200px);
+
+  margin:
+    0 auto;
 }
 
 
 /* =========================================================
-   HORIZONTAL PROJECT CAROUSEL
+   STORIES LIST
 ========================================================= */
 
 .home-success__list {
@@ -118,65 +160,70 @@
   display: flex;
 
   flex-direction: row;
+
   flex-wrap: nowrap;
 
   align-items: flex-start;
 
-  gap: 20px;
+  gap: 18px;
 
   margin: 0;
 
-  padding: 4px 2px 18px;
+  padding:
+    4px
+    2px
+    4px;
 
   overflow-x: auto;
+
   overflow-y: hidden;
 
   scroll-behavior: smooth;
 
-  scroll-snap-type: x mandatory;
+  scroll-snap-type:
+    x mandatory;
 
-  overscroll-behavior-x: contain;
+  overscroll-behavior-x:
+    contain;
 
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling:
+    touch;
 
-  scrollbar-width: thin;
+  scrollbar-width: none;
 
-  scrollbar-color:
-    var(--success-yellow)
-    #e6e6e6;
+  -ms-overflow-style: none;
 }
 
 
 /* =========================================================
-   SCROLLBAR
+   REMOVE SWIPE BAR
 ========================================================= */
 
 .home-success__list::-webkit-scrollbar {
-  height: 6px;
+  display: none;
+
+  width: 0;
+
+  height: 0;
 }
 
 
 .home-success__list::-webkit-scrollbar-track {
-  border-radius: 50px;
+  display: none;
 
-  background: #e6e6e6;
+  background: transparent;
 }
 
 
 .home-success__list::-webkit-scrollbar-thumb {
-  border-radius: 50px;
+  display: none;
 
-  background: var(--success-yellow);
-}
-
-
-.home-success__list::-webkit-scrollbar-thumb:hover {
-  background: var(--success-yellow-dark);
+  background: transparent;
 }
 
 
 /* =========================================================
-   LEFT / RIGHT ARROWS
+   NAV BUTTON
 ========================================================= */
 
 .home-success__nav {
@@ -186,112 +233,84 @@
 
   top: 50%;
 
-  width: 48px;
-  height: 48px;
+  width: 44px;
+
+  height: 44px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   padding: 0;
 
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border:
+    1px solid
+    rgba(0, 0, 0, 0.08);
 
   border-radius: 50%;
 
-  background: #ffffff;
+  outline: none;
 
-  color: var(--success-black);
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  color:
+    var(--success-black);
 
   box-shadow:
     0 8px 25px
     rgba(0, 0, 0, 0.16);
 
-  font-size: 16px;
-
   cursor: pointer;
 
-  transform: translateY(-50%);
+  transform:
+    translateY(-50%);
 
   transition:
     background-color 0.25s ease,
-    color 0.25s ease,
     border-color 0.25s ease,
-    box-shadow 0.25s ease,
     transform 0.25s ease;
 }
 
 
 .home-success__nav svg {
-  display: block;
-
   width: 15px;
+
   height: 15px;
 
-  pointer-events: none;
+  display: block;
 }
 
-
-/* LEFT */
 
 .home-success__nav--left {
-  left: -24px;
+  left: 6px;
 }
 
-
-/* RIGHT */
 
 .home-success__nav--right {
-  right: -24px;
+  right: 6px;
 }
 
-
-/* =========================================================
-   ARROW HOVER
-========================================================= */
 
 @media (hover: hover) {
 
-  .home-success__nav:hover {
-    border-color: var(--success-yellow);
+  .home-success__nav:not(:disabled):hover {
+    border-color:
+      var(--success-yellow);
 
-    background: var(--success-yellow);
-
-    color: #101010;
-
-    box-shadow:
-      0 10px 30px
-      rgba(0, 0, 0, 0.2);
-
-    transform:
-      translateY(-50%)
-      scale(1.08);
+    background:
+      var(--success-yellow);
   }
 
 }
 
 
-/* =========================================================
-   ARROW ACTIVE
-========================================================= */
+.home-success__nav:disabled {
+  opacity: 0.35;
 
-.home-success__nav:active {
-  transform:
-    translateY(-50%)
-    scale(0.94);
-}
-
-
-/* =========================================================
-   ARROW KEYBOARD FOCUS
-========================================================= */
-
-.home-success__nav:focus-visible {
-  outline:
-    3px solid
-    rgba(253, 185, 19, 0.4);
-
-  outline-offset: 3px;
+  pointer-events: none;
 }
 
 
@@ -302,34 +321,29 @@
 .home-success__card {
   position: relative;
 
-  /*
-    3 equal cards visible on desktop.
-    Additional cards continue horizontally.
-  */
-
   flex:
     0 0
     calc(
-      (100% - 40px) / 3
+      (100% - 36px) / 3
     );
 
   width:
     calc(
-      (100% - 40px) / 3
+      (100% - 36px) / 3
     );
 
-  min-width: 390px;
+  min-width: 360px;
 
   height: 280px;
 
-  margin: 0 !important;
+  margin:
+    0 !important;
 
   overflow: hidden;
 
   scroll-snap-align: start;
-  scroll-snap-stop: always;
 
-  border: 0;
+  scroll-snap-stop: always;
 
   border-radius: 14px;
 
@@ -339,12 +353,8 @@
     0 8px 24px
     rgba(0, 0, 0, 0.09);
 
-  /*
-    GSAP applies translateY during animation.
-    Keep final card alignment horizontal.
-  */
-
-  transform: none !important;
+  transform:
+    none !important;
 
   transition:
     box-shadow 0.3s ease;
@@ -359,6 +369,7 @@
   position: relative;
 
   width: 100%;
+
   height: 100%;
 
   display: block;
@@ -383,11 +394,13 @@
   inset: 0;
 
   width: 100%;
+
   height: 100%;
 
   display: block;
 
   object-fit: cover;
+
   object-position: center;
 
   transition:
@@ -396,7 +409,7 @@
 
 
 /* =========================================================
-   IMAGE OVERLAY
+   OVERLAY
 ========================================================= */
 
 .home-success__overlay {
@@ -420,7 +433,7 @@
 
 
 /* =========================================================
-   CARD TOP SECTION
+   CARD TOP
 ========================================================= */
 
 .home-success__top {
@@ -429,7 +442,9 @@
   z-index: 5;
 
   top: 16px;
+
   left: 16px;
+
   right: 16px;
 
   display: flex;
@@ -453,8 +468,6 @@
 
   align-items: center;
 
-  flex-wrap: nowrap;
-
   gap: 5px;
 }
 
@@ -464,8 +477,7 @@
   flex-shrink: 0;
 
   padding:
-    5px
-    9px;
+    5px 9px;
 
   border:
     1px solid
@@ -477,12 +489,6 @@
     rgba(20, 20, 20, 0.42);
 
   color: #ffffff;
-
-  -webkit-backdrop-filter:
-    blur(8px);
-
-  backdrop-filter:
-    blur(8px);
 
   font-size: 7px;
 
@@ -496,17 +502,13 @@
 }
 
 
-/* =========================================================
-   YEAR
-========================================================= */
-
 .home-success__year {
   margin-left: auto;
 }
 
 
 /* =========================================================
-   CENTER PROJECT CONTENT
+   PROJECT COPY
 ========================================================= */
 
 .home-success__project-copy {
@@ -515,12 +517,11 @@
   z-index: 5;
 
   top: 52%;
+
   left: 50%;
 
   width:
-    calc(
-      100% - 40px
-    );
+    calc(100% - 40px);
 
   transform:
     translate(
@@ -532,16 +533,13 @@
 }
 
 
-/* =========================================================
-   BRAND
-========================================================= */
-
 .home-success__brand {
   display: block;
 
   margin-bottom: 7px;
 
-  color: var(--success-yellow);
+  color:
+    var(--success-yellow);
 
   font-size: 9px;
 
@@ -555,16 +553,13 @@
 }
 
 
-/* =========================================================
-   PROJECT TITLE
-========================================================= */
-
 .home-success__project-copy h3 {
   width: 100%;
 
   max-width: 355px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
   color: #ffffff;
 
@@ -601,6 +596,7 @@
   z-index: 6;
 
   right: 15px;
+
   bottom: 14px;
 
   display: flex;
@@ -615,8 +611,6 @@
 
   font-weight: 800;
 
-  line-height: 1;
-
   text-transform: uppercase;
 
   opacity: 0;
@@ -630,17 +624,13 @@
 }
 
 
-/* =========================================================
-   VIEW PROJECT BUTTON
-========================================================= */
-
 .home-success__view-project span {
   width: 32px;
+
   height: 32px;
 
   flex:
-    0 0
-    32px;
+    0 0 32px;
 
   display: flex;
 
@@ -650,29 +640,20 @@
 
   border-radius: 50%;
 
-  background: var(--success-yellow);
+  background:
+    var(--success-yellow);
 
   color: #101010;
 }
 
 
-.home-success__view-project svg {
-  display: block;
-
-  width: 11px;
-  height: 11px;
-}
-
-
 /* =========================================================
-   CARD HOVER
+   HOVER
 ========================================================= */
 
 @media (hover: hover) {
 
   .home-success__card:hover {
-    transform: none !important;
-
     box-shadow:
       0 15px 35px
       rgba(0, 0, 0, 0.16);
@@ -698,120 +679,28 @@
 
 
 /* =========================================================
-   CARD KEYBOARD FOCUS
-========================================================= */
-
-.home-success__card-link:focus-visible {
-  outline:
-    3px solid
-    var(--success-yellow);
-
-  outline-offset: -3px;
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1500px) {
-
-  .home-success__list {
-    gap: 22px;
-  }
-
-
-  .home-success__card {
-    flex:
-      0 0
-      calc(
-        (100% - 44px) / 3
-      );
-
-    width:
-      calc(
-        (100% - 44px) / 3
-      );
-
-    min-width: 420px;
-
-    height: 290px;
-  }
-
-
-  .home-success__project-copy h3 {
-    max-width: 380px;
-
-    font-size: 39px;
-  }
-
-
-  .home-success__nav {
-    width: 50px;
-    height: 50px;
-  }
-
-
-  .home-success__nav--left {
-    left: -25px;
-  }
-
-
-  .home-success__nav--right {
-    right: -25px;
-  }
-
-}
-
-
-/* =========================================================
    LAPTOP
 ========================================================= */
 
-@media (
-  min-width: 1001px
-) and (
-  max-width: 1300px
-) {
+@media (max-width: 1200px) {
 
-  .home-success__list {
-    gap: 18px;
+  .home-success {
+    padding:
+      10px
+      var(--dg-page-padding-laptop, 32px)
+      44px;
   }
 
 
   .home-success__card {
     flex:
-      0 0
-      385px;
+      0 0 360px;
 
-    width: 385px;
+    width: 360px;
 
-    min-width: 385px;
+    min-width: 360px;
 
     height: 260px;
-  }
-
-
-  .home-success__project-copy h3 {
-    max-width: 330px;
-
-    font-size: 32px;
-  }
-
-
-  .home-success__nav {
-    width: 44px;
-    height: 44px;
-  }
-
-
-  .home-success__nav--left {
-    left: -12px;
-  }
-
-
-  .home-success__nav--right {
-    right: -12px;
   }
 
 }
@@ -821,173 +710,13 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
 
   .home-success {
     padding:
-      65px
-      0
-      70px;
-  }
-
-
-  .home-success__header {
-    margin-bottom: 36px;
-  }
-
-
-  .home-success__list {
-    gap: 16px;
-  }
-
-
-  .home-success__card {
-    flex:
-      0 0
-      360px;
-
-    width: 360px;
-
-    min-width: 360px;
-
-    height: 245px;
-  }
-
-
-  .home-success__top {
-    top: 14px;
-    left: 14px;
-    right: 14px;
-  }
-
-
-  .home-success__project-copy {
-    width:
-      calc(
-        100% - 30px
-      );
-  }
-
-
-  .home-success__project-copy h3 {
-    max-width: 315px;
-
-    font-size: 30px;
-
-    letter-spacing: -0.7px;
-  }
-
-
-  .home-success__brand {
-    font-size: 8px;
-  }
-
-
-  .home-success__view-project {
-    right: 13px;
-    bottom: 12px;
-
-    opacity: 1;
-
-    transform: none;
-  }
-
-
-  /* ARROWS */
-
-  .home-success__nav {
-    width: 42px;
-    height: 42px;
-
-    font-size: 14px;
-  }
-
-
-  .home-success__nav--left {
-    left: -8px;
-  }
-
-
-  .home-success__nav--right {
-    right: -8px;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET SMALL
-========================================================= */
-
-@media (max-width: 768px) {
-
-  .home-success {
-    padding:
-      58px
-      0
-      62px;
-  }
-
-
-  .home-success__title {
-    font-size:
-      clamp(
-        38px,
-        8vw,
-        52px
-      );
-  }
-
-
-  .home-success__card {
-    flex:
-      0 0
-      330px;
-
-    width: 330px;
-
-    min-width: 330px;
-
-    height: 230px;
-  }
-
-
-  .home-success__project-copy h3 {
-    max-width: 290px;
-
-    font-size: 28px;
-  }
-
-
-  .home-success__nav {
-    width: 40px;
-    height: 40px;
-  }
-
-
-  .home-success__nav--left {
-    left: 4px;
-  }
-
-
-  .home-success__nav--right {
-    right: 4px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-  .home-success {
-    padding:
-      50px
-      0
-      55px;
+      10px
+      var(--dg-page-padding-tablet, 24px)
+      40px;
   }
 
 
@@ -999,12 +728,60 @@
   .home-success__title {
     font-size:
       clamp(
-        34px,
-        11vw,
-        44px
+        38px,
+        7vw,
+        52px
       );
+  }
 
-    letter-spacing: -0.8px;
+
+  .home-success__card {
+    flex:
+      0 0 340px;
+
+    width: 340px;
+
+    min-width: 340px;
+
+    height: 240px;
+  }
+
+
+  .home-success__view-project {
+    opacity: 1;
+
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .home-success {
+    padding:
+      8px
+      var(--dg-page-padding-mobile, 18px)
+      36px;
+  }
+
+
+  .home-success__header {
+    margin-bottom: 24px;
+  }
+
+
+  .home-success__title {
+    font-size:
+      clamp(
+        32px,
+        10vw,
+        42px
+      );
   }
 
 
@@ -1023,14 +800,9 @@
     padding:
       4px
       2px
-      15px;
+      4px;
   }
 
-
-  /*
-    One complete card with a small portion
-    of the next card visible.
-  */
 
   .home-success__card {
     flex:
@@ -1053,69 +825,15 @@
       );
 
     height: 215px;
-
-    border-radius: 12px;
-  }
-
-
-  .home-success__top {
-    top: 11px;
-    left: 11px;
-    right: 11px;
-
-    gap: 6px;
-  }
-
-
-  .home-success__tags {
-    gap: 3px;
-  }
-
-
-  .home-success__tags span,
-  .home-success__year {
-    padding:
-      4px
-      6px;
-
-    font-size: 6px;
-  }
-
-
-  .home-success__project-copy {
-    top: 52%;
-
-    width:
-      calc(
-        100% - 24px
-      );
-  }
-
-
-  .home-success__brand {
-    margin-bottom: 6px;
-
-    font-size: 7.5px;
-
-    letter-spacing: 1.3px;
   }
 
 
   .home-success__project-copy h3 {
-    max-width: 270px;
-
     font-size: 25px;
-
-    line-height: 1.05;
-
-    letter-spacing: -0.6px;
   }
 
 
   .home-success__view-project {
-    right: 10px;
-    bottom: 10px;
-
     opacity: 1;
 
     transform: none;
@@ -1124,76 +842,47 @@
   }
 
 
-  .home-success__view-project span {
-    width: 30px;
-    height: 30px;
-
-    flex-basis: 30px;
-  }
-
-
-  .home-success__view-project svg {
-    width: 10px;
-    height: 10px;
-  }
-
-
-  /* MOBILE ARROWS */
-
   .home-success__nav {
     width: 38px;
+
     height: 38px;
-
-    background:
-      rgba(
-        255,
-        255,
-        255,
-        0.95
-      );
-
-    font-size: 13px;
-
-    box-shadow:
-      0 6px 18px
-      rgba(0, 0, 0, 0.18);
-  }
-
-
-  .home-success__nav svg {
-    width: 12px;
-    height: 12px;
-  }
-
-
-  .home-success__nav--left {
-    left: 5px;
-  }
-
-
-  .home-success__nav--right {
-    right: 5px;
   }
 
 }
 
 
 /* =========================================================
-   EXTRA SMALL MOBILE
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .home-success {
+    padding:
+      8px
+      var(--dg-page-padding-mobile, 18px)
+      32px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL
 ========================================================= */
 
 @media (max-width: 380px) {
 
   .home-success {
     padding:
-      45px
-      0
-      50px;
+      6px
+      16px
+      30px;
   }
 
 
   .home-success__title {
-    font-size: 32px;
+    font-size: 31px;
   }
 
 
@@ -1207,44 +896,6 @@
     height: 205px;
   }
 
-
-  .home-success__project-copy h3 {
-    max-width: 245px;
-
-    font-size: 23px;
-  }
-
-
-  .home-success__brand {
-    font-size: 7px;
-  }
-
-
-  .home-success__tags span,
-  .home-success__year {
-    padding:
-      4px
-      5px;
-
-    font-size: 5.8px;
-  }
-
-
-  .home-success__nav {
-    width: 35px;
-    height: 35px;
-  }
-
-
-  .home-success__nav--left {
-    left: 4px;
-  }
-
-
-  .home-success__nav--right {
-    right: 4px;
-  }
-
 }
 
 
@@ -1254,17 +905,16 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .home-success *,
-  .home-success *::before,
-  .home-success *::after {
-    animation:
-      none !important;
+  .home-success__list {
+    scroll-behavior: auto;
+  }
 
-    transition:
-      none !important;
 
-    scroll-behavior:
-      auto !important;
+  .home-success__card,
+  .home-success__image,
+  .home-success__view-project,
+  .home-success__nav {
+    transition: none !important;
   }
 
 }
