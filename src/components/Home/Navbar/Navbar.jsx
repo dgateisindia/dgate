@@ -104,6 +104,12 @@ const serviceLinks = [
 const afterServiceLinks = [
 
   {
+    id: "homes",
+    label: "HOMES",
+    path: "/Homes",
+  },
+
+  {
     id: "portfolio",
     label: "PORTFOLIO",
     path: "/portfolio",
