@@ -77,7 +77,7 @@ const offices = [
     country: "India",
     city: "Bengaluru",
     address:
-      "Bengaluru, Karnataka, India",
+      "2nd Floor, JP Royale Complex, 218, Sampige Rd, Malleshwaram, Bengaluru, Karnataka 560003",
   },
 
   {
@@ -163,6 +163,17 @@ function ContactInfo() {
             opacity: 0,
             duration: 0.38,
             stagger: 0.06,
+            ease: "power2.out",
+            clearProps: "opacity",
+          },
+          "-=0.15"
+        )
+
+        .from(
+          ".contact-page-info__map-wrapper",
+          {
+            opacity: 0,
+            duration: 0.4,
             ease: "power2.out",
             clearProps: "opacity",
           },
@@ -389,6 +400,24 @@ function ContactInfo() {
 
           ))}
 
+        </div>
+
+        {/* =================================================
+            LOCATION MAP EMBED
+        ================================================= */}
+        <div className="contact-page-info__map-wrapper">
+          <div className="contact-page-info__map-card">
+            <iframe
+              src="https://maps.google.com/maps?q=Uniheal+Robust+Private+Limited,+2nd+Floor,+JP+Royale+Complex,+218,+Sampige+Rd,+Malleshwaram,+Bengaluru,+Karnataka+560003&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              title="Office Location - Uniheal Robust Private Limited"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
 
  

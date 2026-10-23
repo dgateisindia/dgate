@@ -42,11 +42,11 @@ const navLinks = [
     label: "What We Do",
     path: "/services",
   },
-  {
+  /* {
     id: "products",
     label: "Products",
     isDropdown: true,
-  },
+  }, */
   {
     id: "portfolio",
     label: "Our Work",

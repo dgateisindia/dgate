@@ -1011,11 +1011,13 @@
 
   margin-bottom: 8px;
 
-  color: #333333;
+  color: #050505;
 
-  font-size: 15px;
+  font-size: 24px;
 
-  font-weight: 400;
+  font-weight: 700;
+
+  letter-spacing: -0.2px;
 }
 
 
@@ -1542,6 +1544,10 @@
   }
 
 
+  .case-study__navigation-project span {
+    font-size: 20px;
+  }
+
   .case-study__navigation-project strong {
     font-size: 21px;
   }
@@ -1994,6 +2000,10 @@
     text-align: left;
   }
 
+
+  .case-study__navigation-project span {
+    font-size: 18px;
+  }
 
   .case-study__navigation-project strong {
     font-size: 19px;
