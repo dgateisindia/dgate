@@ -1,0 +1,362 @@
+/* =========================================================
+   ABOUT PAGE - OUR POINT OF VIEW & HOW WE THINK
+   Symmetric to Home Page layout (Editorial Left + Single Card Right)
+========================================================= */
+
+.about-pov {
+  width: 100%;
+  padding: 70px 0;
+  background: var(--white, #ffffff);
+  position: relative;
+}
+
+.about-pov__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 480px);
+  gap: 50px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT COLUMN: OUR POINT OF VIEW
+========================================================= */
+
+.about-pov__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-pov__eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--primary, #fdb913);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.about-pov__title {
+  margin: 0;
+  color: var(--black, #101010);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.about-pov__title span {
+  color: var(--primary, #fdb913);
+}
+
+.about-pov__line {
+  width: 52px;
+  height: 3px;
+  margin: 20px 0 22px;
+  border-radius: 5px;
+  background: var(--primary, #fdb913);
+}
+
+.about-pov__lead {
+  max-width: 620px;
+  margin: 0 0 26px;
+  color: #1e293b;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.06rem;
+  font-weight: 600;
+  line-height: 1.68;
+}
+
+/* EDITORIAL SUB-SECTION: WHAT TRANSFORMATION MEANS TO US */
+
+.about-pov__transformation {
+  margin-top: 6px;
+  padding-left: 20px;
+  border-left: 3px solid var(--primary, #fdb913);
+}
+
+.about-pov__trans-title {
+  margin: 0 0 10px;
+  color: var(--black, #101010);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.about-pov__trans-p {
+  margin: 0 0 10px;
+  color: #000000;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.about-pov__trans-p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN: HOW WE THINK
+   EXACT HOME SERVICES CARD DESIGN (NO NESTED BOXES, NO NUMBERS)
+========================================================= */
+
+.about-pov__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Outer Card Container */
+.about-pov__card.home-services__card,
+.about-pov__card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  min-height: auto !important;
+  height: auto !important;
+  align-self: start;
+  margin-top: 0 !important;
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+  background: var(--card-light-bg, linear-gradient(145deg, #ffffff 0%, #fdfdfd 100%));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), var(--card-inner-shading);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* Card Top Accent Line */
+.about-pov__card.home-services__card::before,
+.about-pov__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  opacity: 0;
+  background: linear-gradient(90deg, var(--primary, #fdb913), #ff9500);
+  transform: scaleX(0.25);
+  transform-origin: left center;
+  transition: opacity 0.28s ease, transform 0.32s ease;
+}
+
+/* Card Hover Elevation */
+@media (hover: hover) {
+  .about-pov__card.home-services__card:hover,
+  .about-pov__card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(253, 185, 19, 0.55);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(253, 185, 19, 0.22), var(--card-inner-shading-hover);
+  }
+
+  .about-pov__card.home-services__card:hover::before,
+  .about-pov__card:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .about-pov__card.home-services__card:hover .home-services__icon,
+  .about-pov__card:hover .home-services__icon {
+    transform: translateY(-2px);
+    border-color: var(--primary, #fdb913);
+    background: var(--primary, #fdb913);
+    color: var(--black, #101010);
+  }
+}
+
+/* Card Header */
+.about-pov__card .home-services__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Icon (Squircle Badge) */
+.about-pov__card .home-services__icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(253, 185, 19, 0.38);
+  border-radius: 12px;
+  background: #fff9e9;
+  color: #e3a400;
+  font-size: 1.25rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.about-pov__card .home-services__icon svg {
+  display: block;
+}
+
+/* Heading */
+.about-pov__card .home-services__heading {
+  min-width: 0;
+}
+
+.about-pov__card .home-services__heading h3 {
+  margin: 0;
+  color: var(--black, #101010);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 1.55rem;
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+
+/* Subheading */
+.about-pov__card .home-services__subheading {
+  margin: 0 0 20px;
+  color: #0f172a;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+}
+
+/* Clean List (Zero bullet points, no borders) */
+.about-pov__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  list-style: none;
+}
+
+.about-pov__list-item {
+  min-width: 0;
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Bullet Dot - Hidden */
+.about-pov__card .home-services__bullet {
+  display: none !important;
+}
+
+/* Text Container */
+.about-pov__item-text {
+  flex: 1;
+  min-width: 0;
+  color: #475569;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.91rem;
+  line-height: 1.5;
+}
+
+.about-pov__item-title {
+  color: #0b0f17;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-weight: 800;
+  font-size: 0.96rem;
+  letter-spacing: -0.2px;
+}
+
+.about-pov__item-sep {
+  color: var(--primary, #fdb913);
+  font-weight: 700;
+}
+
+.about-pov__item-desc {
+  color: #000000;
+  font-weight: 400;
+}
+
+/* Corner Accent Circle */
+.about-pov__card .home-services__corner {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(253, 185, 19, 0.07);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 992px) {
+  .about-pov {
+    padding: 60px 0;
+  }
+
+  .about-pov__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-pov__card.home-services__card,
+  .about-pov__card {
+    min-height: auto !important;
+    height: auto !important;
+    max-width: 100%;
+    padding: 22px 20px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-pov {
+    padding: 50px 0;
+  }
+
+  .about-pov__title {
+    font-size: 2.2rem;
+  }
+
+  .about-pov__lead {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-pov {
+    padding: 42px 0;
+  }
+
+  .about-pov__title {
+    font-size: 1.85rem;
+  }
+
+  .about-pov__card.home-services__card,
+  .about-pov__card {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 18px 16px 16px;
+  }
+
+  .about-pov__card .home-services__heading h3 {
+    font-size: 1.35rem;
+  }
+
+  .about-pov__list {
+    gap: 10px;
+  }
+
+  .about-pov__item-text {
+    font-size: 0.88rem;
+  }
+}

@@ -5,21 +5,15 @@ import {
   useRef,
   useState,
 } from "react";
+import { Link } from "react-router-dom";
 
 import {
-  FaLightbulb,
-  FaMobileAlt,
-  FaCode,
-  FaBullhorn,
-  FaChartLine,
-  FaEnvelopeOpenText,
-  FaNewspaper,
-  FaWhatsapp,
-  FaBell,
-  FaBroadcastTower,
+  FaLayerGroup,
+  FaRocket,
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
+import ThinkLightbulbIcon from "../../Shared/ThinkLightbulbIcon";
 
 
 /* =========================================================
@@ -27,184 +21,67 @@ import {
 ========================================================= */
 
 const services = [
+
   {
     id: "branding-creative",
-    number: "01",
-    Icon: FaLightbulb,
-    title: "Branding & Creative Solutions",
+    Icon: ThinkLightbulbIcon,
+    category: "IDEATE",
+    title: "THINK",
+    subheading: "Shape the idea into a clear direction worth pursuing.",
+    ctaText: "EXPLORE THINK",
+    ctaLink: "/services/think",
 
     items: [
-      "Logo Design & Brand Identity",
-      "Brand Strategy & Positioning",
-      "Brand Guidelines",
-      "Corporate Identity",
-      "Rebranding & Brand Refresh",
-      "Visual Storytelling & Creative Direction",
-      "Social Media Branding Kits",
+      "Brand strategy & positioning",
+      "Marketing & campaign strategy",
+      "Content & communication strategy",
+      "Audience & market insight",
+      "Creative direction",
     ],
 
-    tagline: "Build a brand people remember.",
   },
 
   {
     id: "app-development",
-    number: "02",
-    Icon: FaMobileAlt,
-    title: "App Development",
+    Icon: FaLayerGroup,
+    category: "INNOVATE",
+    title: "BUILD",
+    subheading: "Turn the idea into experiences people notice and remember.",
+    ctaText: "EXPLORE BUILD",
+    ctaLink: "/services/build",
 
     items: [
-      "Android App Development",
-      "iOS App Development",
-      "Hybrid App Development",
-      "App Testing & QA",
-      "App Maintenance & Updates",
-      "Enterprise Mobility Solutions",
+      "Brand identity & visual systems",
+      "Campaign creative",
+      "Content creation",
+      "Websites & digital experiences",
+      "UI/UX",
+      "Video & motion",
     ],
 
-    tagline: "Turning ideas into seamless mobile experiences.",
   },
 
   {
     id: "web-development",
-    number: "03",
-    Icon: FaCode,
-    title: "Web Development",
+    Icon: FaRocket,
+    category: "INITIATE",
+    title: "SOLVE",
+    subheading: "Turn attention into powerful, sustained business momentum.",
+    ctaText: "EXPLORE SOLVE",
+    ctaLink: "/services/solve",
 
     items: [
-      "Custom Website Development",
-      "WordPress Development",
-      "E-Commerce Development",
-      "Landing Page Design & Optimization",
-      "Website Speed Optimization",
-      "Website Maintenance & Support",
-      "CMS Development",
-      "API Integrations",
+      "Performance marketing",
+      "SEO & search",
+      "Social media campaigns",
+      "Lead generation",
+      "Conversion optimisation",
+      "Marketing automation & analytics",
     ],
 
-    tagline: "Your website is your digital storefront; we make it powerful.",
-  },
-
-  {
-    id: "digital-marketing",
-    number: "04",
-    Icon: FaBullhorn,
-    title: "Digital Marketing",
-
-    items: [
-      "Social Media Marketing",
-      "Search Engine Optimization",
-      "Content Marketing",
-      "Video Marketing",
-    ],
-
-    tagline: "Grow your presence. Build your audience.",
-  },
-
-  {
-    id: "performance-marketing",
-    number: "05",
-    Icon: FaChartLine,
-    title: "Performance Marketing",
-
-    items: [
-      "Google Ads",
-      "Meta Ads",
-      "LinkedIn Ads",
-      "Conversion Rate Optimization",
-      "Funnel Strategy & Optimization",
-      "Retargeting & Remarketing Campaigns",
-      "Analytics & Reporting",
-    ],
-
-    tagline: "Every click optimized for results.",
-  },
-
-  {
-    id: "email-marketing",
-    number: "06",
-    Icon: FaEnvelopeOpenText,
-    title: "Email Marketing",
-
-    items: [
-      "Email Campaign Strategy",
-      "Newsletter Design",
-      "Automation & Drip Campaigns",
-      "Lead Nurturing Funnels",
-      "Email Copywriting",
-      "A/B Testing & Optimization",
-    ],
-
-    tagline: "Right message. Right time. Right audience.",
-  },
-
-  {
-    id: "digital-pr",
-    number: "07",
-    Icon: FaNewspaper,
-    title: "Digital PR",
-
-    items: [
-      "Press Release Writing & Distribution",
-      "Media Outreach",
-      "Influencer PR Campaigns",
-      "Brand Mentions & Coverage",
-      "Crisis Management",
-    ],
-
-    tagline: "Get featured. Get recognized.",
-  },
-
-  {
-    id: "whatsapp-marketing",
-    number: "08",
-    Icon: FaWhatsapp,
-    title: "WhatsApp Marketing",
-
-    items: [
-      "WhatsApp API Integration",
-      "Broadcast Campaigns",
-      "Automated Chatbots",
-      "Customer Support Automation",
-      "Lead Generation Campaigns",
-      "Personalized Messaging",
-    ],
-
-    tagline: "Connect instantly. Convert faster.",
-  },
-
-  {
-    id: "push-notification-marketing",
-    number: "09",
-    Icon: FaBell,
-    title: "Push Notification Marketing",
-
-    items: [
-      "Web Push Notifications",
-      "Mobile Push Notifications",
-      "Behavioural Trigger Campaigns",
-      "Campaign Analytics",
-    ],
-
-    tagline: "Bring users back. Boost retention.",
-  },
-
-  {
-    id: "traditional-marketing",
-    number: "10",
-    Icon: FaBroadcastTower,
-    title: "Traditional Marketing",
-
-    items: [
-      "Print Advertising",
-      "TV & Radio Advertising",
-      "Event Marketing & Promotions",
-      "Outdoor Advertising",
-      "Media Buying & Planning",
-    ],
-
-    tagline: "Build visibility beyond the digital world.",
   },
 ];
+
 
 
 /* =========================================================
@@ -444,7 +321,7 @@ function Services() {
 
             <span className="home-services__eyebrow">
 
-              WHAT WE DO
+              Our Role
 
             </span>
 
@@ -453,13 +330,7 @@ function Services() {
               id="home-services-title"
               className="home-services__title"
             >
-
-              Our{" "}
-
-              <span>
-                Core Services
-              </span>
-
+              From business ambition to market impact.
             </h2>
 
           </div>
@@ -467,12 +338,7 @@ function Services() {
 
           <p className="home-services__intro">
 
-            From branding and development to
-            performance marketing and customer
-            engagement, DGATE provides integrated
-            digital and traditional solutions
-            designed to help businesses build,
-            connect and grow.
+            D-GATE brings strategy, brand, creative, digital and growth thinking into one connected system. We work across the moments that shape perception, consideration and action-so every part of the brand moves in the same direction.
 
           </p>
 
@@ -535,17 +401,18 @@ function Services() {
 
                 const Icon =
                   service.Icon;
-
+                const isSolveCard =
+                  service.id === "web-development";
 
                 return (
 
                   <article
-                    className="home-services__card"
+                    className={`home-services__card home-services__card--${service.id}`}
                     key={service.id}
                   >
 
                     {/* =====================================
-                        HEADER
+                        HEADER: ICON ON LEFT, CATEGORY+ARROW & TITLE ON RIGHT
                     ===================================== */}
 
                     <div className="home-services__card-header">
@@ -561,37 +428,84 @@ function Services() {
 
 
                       <div className="home-services__heading">
-
-                        <span className="home-services__number">
-
-                          {service.number}
-
-                        </span>
-
-
-                        <h3>
-
+                        {service.category && (
+                          <div className="home-services__category-row">
+                            <span className="home-services__category">
+                              {service.category}
+                            </span>
+                            <span
+                              className="home-services__category-arrow"
+                              aria-hidden="true"
+                            >
+                              <svg
+                                width="42"
+                                height="12"
+                                viewBox="0 0 42 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <defs>
+                                  <linearGradient
+                                    id={`arrow-fade-${service.id}`}
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="0%"
+                                  >
+                                    <stop
+                                      offset="0%"
+                                      stopColor="#fdb913"
+                                      stopOpacity="0"
+                                    />
+                                    <stop
+                                      offset="25%"
+                                      stopColor="#fdb913"
+                                      stopOpacity="0.25"
+                                    />
+                                    <stop
+                                      offset="65%"
+                                      stopColor="#fdb913"
+                                      stopOpacity="0.9"
+                                    />
+                                    <stop
+                                      offset="80%"
+                                      stopColor="#fdb913"
+                                      stopOpacity="1"
+                                    />
+                                    <stop
+                                      offset="100%"
+                                      stopColor="#fdb913"
+                                      stopOpacity="1"
+                                    />
+                                  </linearGradient>
+                                </defs>
+                                <path
+                                  d="M0 6H38.5M34 1.4L38.5 6L34 10.6"
+                                  stroke={`url(#arrow-fade-${service.id})`}
+                                  strokeWidth="1.8"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        )}
+                        <h3 className="home-services__card-title">
                           {service.title}
-
                         </h3>
-
                       </div>
 
                     </div>
 
 
                     {/* =====================================
-                        OPTIONAL INTRO
+                        SUBHEADING OF TITLE
                     ===================================== */}
 
-                    {service.intro && (
-
-                      <p className="home-services__service-intro">
-
-                        {service.intro}
-
-                      </p>
-
+                    {service.subheading && (
+                      <h4 className="home-services__subheading">
+                        {service.subheading}
+                      </h4>
                     )}
 
 
@@ -625,20 +539,72 @@ function Services() {
 
 
                     {/* =====================================
-                        TAGLINE
+                        BOTTOM ACTION / EXPLORE LINK
                     ===================================== */}
 
-                    <p className="home-services__tagline">
+                    <div className="home-services__action">
+                      <Link
+                        to={service.ctaLink}
+                        className="home-services__cta-btn"
+                      >
+                        <span className="home-services__cta-text">
+                          {service.ctaText}
+                        </span>
+                        <span
+                          className="home-services__cta-circle"
+                          aria-hidden="true"
+                        >
+                          <FaChevronRight />
+                        </span>
+                      </Link>
+                    </div>
 
-                      {service.tagline}
 
-                    </p>
+                    {/* =====================================
+                        CORNER GLOW / DECORATIVE WATERMARK
+                    ===================================== */}
 
-
-                    <span
-                      className="home-services__corner"
+                    <div
+                      className={`home-services__corner-glow ${
+                        isSolveCard
+                          ? "home-services__corner-glow--solve"
+                          : ""
+                      }`}
                       aria-hidden="true"
-                    />
+                    >
+                      {isSolveCard && (
+                        <svg
+                          className="home-services__corner-svg"
+                          viewBox="0 0 140 140"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="140"
+                            cy="140"
+                            r="125"
+                            stroke="#fdb913"
+                            strokeWidth="1.2"
+                            strokeOpacity="0.25"
+                          />
+                          <circle
+                            cx="140"
+                            cy="140"
+                            r="85"
+                            stroke="#fdb913"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.32"
+                          />
+                          <circle
+                            cx="140"
+                            cy="140"
+                            r="45"
+                            fill="#fdb913"
+                            fillOpacity="0.4"
+                          />
+                        </svg>
+                      )}
+                    </div>
 
                   </article>
 
@@ -683,21 +649,6 @@ function Services() {
         ================================================= */}
 
         <div className="home-services__carousel-footer">
-
-          <div className="home-services__scroll-note">
-
-            <span
-              className="home-services__scroll-line"
-              aria-hidden="true"
-            />
-
-
-            <span>
-              Use the arrows or swipe to explore all services
-            </span>
-
-          </div>
-
 
           <div
             className="home-services__progress"

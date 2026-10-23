@@ -1,7 +1,7 @@
 import {
   useEffect,
-  useRef,
   useState,
+  useRef,
 } from "react";
 
 import {
@@ -12,7 +12,6 @@ import {
 import {
   FaBars,
   FaTimes,
-  FaChevronDown,
 } from "react-icons/fa";
 
 import {
@@ -23,748 +22,294 @@ import "./Navbar.css";
 
 
 /* =========================================================
-   NAVIGATION BEFORE SERVICES
+   NAVIGATION LINKS
 ========================================================= */
 
-const beforeServiceLinks = [
+const navLinks = [
   {
     id: "home",
-    label: "HOME",
-
-    /*
-      HOME FIRST OPENS TRANSITION.
-
-      /home-transition
-            ↓
-      PageTransition
-            ↓
-          /home
-    */
-
+    label: "Home",
     path: "/home-transition",
-
     end: true,
   },
-
   {
     id: "about",
-    label: "ABOUT US",
+    label: "Who We Are",
     path: "/about",
   },
-];
-
-
-/* =========================================================
-   SERVICES DROPDOWN LINKS
-========================================================= */
-
-const serviceLinks = [
   {
-    id: "branding-design",
-    label: "Branding Design",
-    path: "/BrandingDesign",
+    id: "services",
+    label: "What We Do",
+    path: "/services",
   },
-
   {
-    id: "development-ecommerce",
-    label: "Development & E-Commerce Solutions",
-    path: "/DevelopmentEcommerce",
+    id: "products",
+    label: "Products",
+    isDropdown: true,
   },
-
-  {
-    id: "tech-stack-web",
-    label: "Technology Stack & Web Experience",
-    path: "/TechStackWeb",
-  },
-
-  {
-    id: "data-analytics-performance",
-    label: "Data Analytics & Performance Growth",
-    path: "/DataAnalyticsPerformance",
-  },
-
-  {
-    id: "smart-ai-business-automation",
-    label: "Smart AI & Business",
-    path: "/SmartAIBusinessAutomation",
-  },
-
-  {
-    id: "digital-marketing-courses",
-    label: "Digital Marketing Courses [Offline/Online]",
-    path: "/DigitalMarketingCourse",
-  },
-];
-
-
-/* =========================================================
-   NAVIGATION AFTER SERVICES
-========================================================= */
-
-const afterServiceLinks = [
-
   {
     id: "portfolio",
-    label: "PORTFOLIO",
+    label: "Our Work",
     path: "/portfolio",
   },
-
-  {
-    id: "achievements",
-    label: "CERTIFICATES",
-    path: "/achievements",
-  },
-
-  {
-    id: "gallery",
-    label: "GALLERY",
-    path: "/gallery",
-  },
-
   {
     id: "careers",
-    label: "CAREERS",
+    label: "Careers",
     path: "/careers",
   },
-
-  {
-    id: "insights",
-    label: "INSIGHTS",
-    path: "/insights",
-  },
-
 ];
 
 
 function Navbar() {
-
-  const [menuOpen, setMenuOpen] =
-    useState(false);
-
-  const [servicesOpen, setServicesOpen] =
-    useState(false);
-
-
-  const location =
-    useLocation();
-
-
-  const servicesRef =
-    useRef(null);
-
-
-  /* =========================================================
-     CHECK WHETHER SERVICES IS ACTIVE
-  ========================================================= */
-
-  const servicesActive =
-    location.pathname === "/services" ||
-
-    serviceLinks.some(
-      (service) =>
-        service.path ===
-        location.pathname
-    );
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const productsDropdownRef = useRef(null);
+  const location = useLocation();
 
   /* =========================================================
      CLOSE NAVIGATION
   ========================================================= */
+  const closeNavigation = () => {
+    setMenuOpen(false);
+    setProductsOpen(false);
+  };
 
-  const closeNavigation =
-    () => {
-
-      setMenuOpen(false);
-
-      setServicesOpen(false);
-
-    };
-
+  /* =========================================================
+     TOGGLE PRODUCTS DROPDOWN
+  ========================================================= */
+  const toggleProducts = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setProductsOpen((current) => !current);
+  };
 
   /* =========================================================
      CLOSE AFTER ROUTE CHANGE
   ========================================================= */
+  useEffect(() => {
+    setMenuOpen(false);
+    setProductsOpen(false);
+  }, [location.pathname]);
 
-  useEffect(
-    () => {
+  /* =========================================================
+     OUTSIDE CLICK LISTENER FOR DROPDOWN
+  ========================================================= */
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        productsDropdownRef.current &&
+        !productsDropdownRef.current.contains(event.target)
+      ) {
+        setProductsOpen(false);
+      }
+    };
 
-      setMenuOpen(false);
-
-      setServicesOpen(false);
-
-    },
-    [
-      location.pathname,
-    ]
-  );
-
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   /* =========================================================
      ESCAPE KEY
   ========================================================= */
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setProductsOpen(false);
+      }
+    };
 
-  useEffect(
-    () => {
-
-      const handleEscape =
-        (event) => {
-
-          if (
-            event.key ===
-            "Escape"
-          ) {
-
-            setMenuOpen(false);
-
-            setServicesOpen(false);
-
-          }
-
-        };
-
-
-      window.addEventListener(
-        "keydown",
-        handleEscape
-      );
-
-
-      return () => {
-
-        window.removeEventListener(
-          "keydown",
-          handleEscape
-        );
-
-      };
-
-    },
-    []
-  );
-
-
-  /* =========================================================
-     CLICK OUTSIDE SERVICES
-  ========================================================= */
-
-  useEffect(
-    () => {
-
-      const handleOutsideClick =
-        (event) => {
-
-          if (
-            servicesRef.current &&
-            !servicesRef.current.contains(
-              event.target
-            )
-          ) {
-
-            setServicesOpen(false);
-
-          }
-
-        };
-
-
-      document.addEventListener(
-        "mousedown",
-        handleOutsideClick
-      );
-
-
-      return () => {
-
-        document.removeEventListener(
-          "mousedown",
-          handleOutsideClick
-        );
-
-      };
-
-    },
-    []
-  );
-
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   /* =========================================================
      WINDOW RESIZE
   ========================================================= */
-
-  useEffect(
-    () => {
-
-      const handleResize =
-        () => {
-
-          if (
-            window.innerWidth >
-            1180
-          ) {
-
-            setMenuOpen(false);
-
-            setServicesOpen(false);
-
-          }
-
-        };
-
-
-      window.addEventListener(
-        "resize",
-        handleResize
-      );
-
-
-      return () => {
-
-        window.removeEventListener(
-          "resize",
-          handleResize
-        );
-
-      };
-
-    },
-    []
-  );
-
-
-  /* =========================================================
-     SERVICES TOGGLE
-  ========================================================= */
-
-  const toggleServices =
-    () => {
-
-      setServicesOpen(
-        (current) =>
-          !current
-      );
-
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1180) {
+        setMenuOpen(false);
+      }
     };
 
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   /* =========================================================
-     UI
+     CHECK ACTIVE STATE
   ========================================================= */
+  const isProductsActive =
+    location.pathname === "/crm" ||
+    location.pathname === "/products/crm" ||
+    location.pathname === "/hms" ||
+    location.pathname === "/products/hms";
+
+  const isLinkActive = (link) => {
+    if (link.id === "home") {
+      return (
+        location.pathname === "/home" ||
+        location.pathname === "/home-transition"
+      );
+    }
+    if (link.id === "services") {
+      return (
+        location.pathname === "/services" ||
+        location.pathname.startsWith("/services/")
+      );
+    }
+    if (link.id === "products") {
+      return isProductsActive;
+    }
+    if (link.id === "portfolio") {
+      return (
+        location.pathname === "/portfolio" ||
+        location.pathname === "/case-study" ||
+        location.pathname === "/case-studies"
+      );
+    }
+    return location.pathname === link.path;
+  };
 
   return (
-
     <header className="site-navbar">
-
-
       <div className="container site-navbar__container">
-
-
         {/* =================================================
             LOGO
-
-            LOGO ALSO USES HOME TRANSITION
         ================================================= */}
-
         <NavLink
           to="/home-transition"
           className="site-navbar__logo"
-          onClick={
-            closeNavigation
-          }
+          onClick={closeNavigation}
           aria-label="DGATE Integrated Services Home"
         >
-
-          <img
-            src={logo}
-            alt="DGATE Integrated Services"
-          />
-
+          <img src={logo} alt="DGATE Integrated Services" />
         </NavLink>
-
 
         {/* =================================================
             NAVIGATION
         ================================================= */}
-
         <nav
           id="main-navigation"
-
-          className={`
-            site-navbar__nav
-            ${
-              menuOpen
-                ? "site-navbar__nav--open"
-                : ""
-            }
-          `}
-
+          className={`site-navbar__nav ${
+            menuOpen ? "site-navbar__nav--open" : ""
+          }`}
           aria-label="Main navigation"
         >
-
-
           <ul className="site-navbar__links">
-
-
-            {/* =============================================
-                HOME + ABOUT
-            ============================================= */}
-
-            {beforeServiceLinks.map(
-              (link) => (
-
-                <li
-                  key={
-                    link.id
-                  }
-                >
-
-
-                  <NavLink
-                    to={
-                      link.path
-                    }
-
-                    end={
-                      link.end
-                    }
-
-                    onClick={
-                      closeNavigation
-                    }
-
-                    className={({
-                      isActive,
-                    }) => {
-
-                      const homeIsActive =
-                        link.id ===
-                          "home" &&
-
-                        (
-                          location.pathname ===
-                            "/home" ||
-
-                          location.pathname ===
-                            "/home-transition"
-                        );
-
-
-                      if (
-                        isActive ||
-                        homeIsActive
-                      ) {
-
-                        return "site-navbar__link active";
-
-                      }
-
-
-                      return "site-navbar__link";
-
-                    }}
+            {navLinks.map((link) => {
+              if (link.isDropdown && link.id === "products") {
+                return (
+                  <li
+                    key={link.id}
+                    ref={productsDropdownRef}
+                    className={`site-navbar__products-item ${
+                      productsOpen ? "site-navbar__products-item--open" : ""
+                    }`}
                   >
+                    <button
+                      type="button"
+                      className={`site-navbar__link site-navbar__products-trigger ${
+                        isProductsActive ? "active" : ""
+                      }`}
+                      onClick={toggleProducts}
+                      aria-expanded={productsOpen}
+                      aria-haspopup="true"
+                    >
+                      Products
+                    </button>
 
-                    {
-                      link.label
-                    }
-
-                  </NavLink>
-
-
-                </li>
-
-              )
-            )}
-
-
-            {/* =============================================
-                SERVICES
-            ============================================= */}
-
-            <li
-              ref={
-                servicesRef
-              }
-
-              className={`
-                site-navbar__services-item
-                ${
-                  servicesOpen
-                    ? "site-navbar__services-item--open"
-                    : ""
-                }
-              `}
-            >
-
-
-              <button
-                type="button"
-
-                className={`
-                  site-navbar__link
-                  site-navbar__services-trigger
-                  ${
-                    servicesActive
-                      ? "active"
-                      : ""
-                  }
-                `}
-
-                onClick={
-                  toggleServices
-                }
-
-                aria-expanded={
-                  servicesOpen
-                }
-
-                aria-controls="services-dropdown"
-
-                aria-haspopup="true"
-              >
-
-                <span>
-                  SERVICES
-                </span>
-
-
-                <FaChevronDown
-                  className="site-navbar__services-chevron"
-                  aria-hidden="true"
-                />
-
-
-              </button>
-
-
-              {/* ===========================================
-                  DROPDOWN
-              =========================================== */}
-
-              <div
-                id="services-dropdown"
-                className="site-navbar__services-dropdown"
-              >
-
-
-                <div className="site-navbar__services-menu">
-
-
-                  <nav
-                    className="site-navbar__services-list"
-                    aria-label="Services navigation"
-                  >
-
-
-                    {serviceLinks.map(
-                      (service) => (
-
+                    <div className="site-navbar__products-dropdown">
+                      <div className="site-navbar__products-menu">
                         <NavLink
-                          key={
-                            service.id
-                          }
-
-                          to={
-                            service.path
-                          }
-
-                          onClick={
-                            closeNavigation
-                          }
-
-                          className={({
-                            isActive,
-                          }) =>
-
-                            isActive
-
-                              ? "site-navbar__service-option site-navbar__service-option--active"
-
-                              : "site-navbar__service-option"
-
+                          to="/crm"
+                          onClick={closeNavigation}
+                          className={({ isActive }) =>
+                            isActive || location.pathname === "/products/crm"
+                              ? "site-navbar__products-link active"
+                              : "site-navbar__products-link"
                           }
                         >
-
-                          <span>
-
-                            {
-                              service.label
-                            }
-
-                          </span>
-
+                          CRM
                         </NavLink>
 
-                      )
-                    )}
+                        <NavLink
+                          to="/hms"
+                          onClick={closeNavigation}
+                          className={({ isActive }) =>
+                            isActive || location.pathname === "/products/hms"
+                              ? "site-navbar__products-link active"
+                              : "site-navbar__products-link"
+                          }
+                        >
+                          HMS
+                        </NavLink>
+                      </div>
+                    </div>
+                  </li>
+                );
+              }
 
-
-                  </nav>
-
-
-                </div>
-
-
-              </div>
-
-
-            </li>
-
-
-            {/* =============================================
-                LINKS AFTER SERVICES
-            ============================================= */}
-
-            {afterServiceLinks.map(
-              (link) => (
-
-                <li
-                  key={
-                    link.id
-                  }
-                >
-
+              return (
+                <li key={link.id}>
                   <NavLink
-                    to={
-                      link.path
-                    }
-
-                    onClick={
-                      closeNavigation
-                    }
-
-                    className={({
-                      isActive,
-                    }) =>
-
-                      isActive
-
+                    to={link.path}
+                    end={link.end}
+                    onClick={closeNavigation}
+                    className={({ isActive }) =>
+                      isActive || isLinkActive(link)
                         ? "site-navbar__link active"
-
                         : "site-navbar__link"
-
                     }
                   >
-
-                    {
-                      link.label
-                    }
-
+                    {link.label}
                   </NavLink>
-
                 </li>
-
-              )
-            )}
-
+              );
+            })}
 
             {/* =============================================
                 CONTACT
             ============================================= */}
-
             <li className="site-navbar__contact-item">
-
-
               <NavLink
                 to="/contact"
-
-                onClick={
-                  closeNavigation
-                }
-
-                className={({
-                  isActive,
-                }) =>
-
+                onClick={closeNavigation}
+                className={({ isActive }) =>
                   isActive
-
                     ? "site-navbar__contact site-navbar__contact--active"
-
                     : "site-navbar__contact"
-
                 }
               >
-
-                CONTACT US
-
+                Contact Us
               </NavLink>
-
-
             </li>
-
-
           </ul>
-
-
         </nav>
-
 
         {/* =================================================
             MOBILE TOGGLE
         ================================================= */}
-
         <button
           type="button"
-
           className="site-navbar__toggle"
-
-          onClick={
-            () => {
-
-              setMenuOpen(
-                (current) =>
-                  !current
-              );
-
-
-              setServicesOpen(
-                false
-              );
-
-            }
-          }
-
-          aria-label={
-            menuOpen
-
-              ? "Close navigation menu"
-
-              : "Open navigation menu"
-          }
-
-          aria-expanded={
-            menuOpen
-          }
-
+          onClick={() => setMenuOpen((current) => !current)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
           aria-controls="main-navigation"
         >
-
-
-          {menuOpen ? (
-
-            <FaTimes
-              aria-hidden="true"
-            />
-
-          ) : (
-
-            <FaBars
-              aria-hidden="true"
-            />
-
-          )}
-
-
+          {menuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
         </button>
-
-
       </div>
-
-
     </header>
-
   );
-
 }
-
 
 export default Navbar;

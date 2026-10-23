@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import {
-  FaWhatsapp,
   FaComments,
 } from "react-icons/fa";
 
@@ -54,6 +53,15 @@ import About
 import Services
   from "./pages/Services/Services.jsx";
 
+import ThinkPage
+  from "./pages/Services/Pillars/ThinkPage.jsx";
+
+import BuildPage
+  from "./pages/Services/Pillars/BuildPage.jsx";
+
+import SolvePage
+  from "./pages/Services/Pillars/SolvePage.jsx";
+
 import Industries
   from "./pages/Industries/Industries.jsx";
 
@@ -72,6 +80,15 @@ import Contact
 import Portfolio
   from "./pages/Portfolio/Portfolio.jsx";
 
+import CRM
+  from "./pages/Products/CRM.jsx";
+
+import HMS
+  from "./pages/Products/HMS.jsx";
+
+import CaseStudy
+  from "./pages/CaseStudy/CaseStudy.jsx";
+
 import Blog
   from "./pages/Blog/Blog.jsx";
 
@@ -80,6 +97,12 @@ import Achievements
 
 import Gallery
   from "./pages/Gallery/Gallery.jsx";
+
+import TermsOfUse
+  from "./pages/TermsOfUse/TermsOfUse.jsx";
+
+import PrivacyPolicy
+  from "./pages/PrivacyPolicy/PrivacyPolicy.jsx";
 
 
 /* =========================================================
@@ -248,51 +271,23 @@ function HomeTransition() {
 ========================================================= */
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navigate =
-    useNavigate();
+  const handleLetsConnect = () => {
+    navigate("/contact");
+  };
 
-
-  const location =
-    useLocation();
-
-
-  /* =========================================================
-     LET'S CONNECT
-  ========================================================= */
-
-  const handleLetsConnect =
-    () => {
-
-      navigate(
-        "/contact"
-      );
-
-    };
-
-
-  /* =========================================================
-     HIDE FLOATING BUTTONS
-
-     Production + Visitor pages must stay clean
-  ========================================================= */
-
-  const hideFloatingActions =
-    [
-      "/production",
-      "/api/visiter_data",
-      "/details",
-      "/server-down",
-      "/home-transition",
-    ].includes(
-      location.pathname.toLowerCase()
-    );
-
+  const hideFloatingActions = [
+    "/production",
+    "/api/visiter_data",
+    "/details",
+    "/server-down",
+    "/home-transition",
+  ].includes(location.pathname.toLowerCase());
 
   return (
-
     <>
-
       <ScrollToAnchor />
 
 
@@ -343,6 +338,27 @@ function App() {
           path="/services"
           element={
             <Services />
+          }
+        />
+
+        <Route
+          path="/services/think"
+          element={
+            <ThinkPage />
+          }
+        />
+
+        <Route
+          path="/services/build"
+          element={
+            <BuildPage />
+          }
+        />
+
+        <Route
+          path="/services/solve"
+          element={
+            <SolvePage />
           }
         />
 
@@ -404,6 +420,50 @@ function App() {
           }
         />
 
+        <Route
+          path="/crm"
+          element={
+            <CRM />
+          }
+        />
+
+        <Route
+          path="/products/crm"
+          element={
+            <CRM />
+          }
+        />
+
+        <Route
+          path="/hms"
+          element={
+            <HMS />
+          }
+        />
+
+        <Route
+          path="/products/hms"
+          element={
+            <HMS />
+          }
+        />
+
+
+        <Route
+          path="/case-study"
+          element={
+            <CaseStudy />
+          }
+        />
+
+
+        <Route
+          path="/case-studies"
+          element={
+            <CaseStudy />
+          }
+        />
+
 
         <Route
           path="/blog"
@@ -425,6 +485,38 @@ function App() {
           path="/gallery"
           element={
             <Gallery />
+          }
+        />
+
+        {/* =================================================
+            LEGAL / TERMS OF USE
+        ================================================= */}
+
+        <Route
+          path="/terms-of-use"
+          element={
+            <TermsOfUse />
+          }
+        />
+
+        <Route
+          path="/terms"
+          element={
+            <TermsOfUse />
+          }
+        />
+
+        <Route
+          path="/privacy-policy"
+          element={
+            <PrivacyPolicy />
+          }
+        />
+
+        <Route
+          path="/privacy"
+          element={
+            <PrivacyPolicy />
           }
         />
 
@@ -903,75 +995,33 @@ function App() {
 
           }
         />
-
-
       </Routes>
-
 
       {/* ===================================================
           FLOATING CONTACT ACTIONS
       =================================================== */}
-
       {!hideFloatingActions && (
-
-        <div
-          className="floating-contact-actions"
-        >
-
-
+        <div className="floating-contact-actions">
           {/* LET'S CONNECT */}
-
           <button
             type="button"
             className="floating-connect"
-            onClick={
-              handleLetsConnect
-            }
+            onClick={handleLetsConnect}
             aria-label="Let's Connect"
           >
-
-            <span
-              className="floating-connect__icon"
-            >
-
+            <span className="floating-connect__icon">
               <FaComments />
-
             </span>
 
-
-            <span
-              className="floating-connect__text"
-            >
-
-              LET&apos;S CONNECT
-
+            <span className="floating-connect__text">
+              Let&apos;s Connect
             </span>
-
           </button>
-
-
-          {/* WHATSAPP */}
-
-          <a
-            href="https://wa.me/919538562600?text=Hello%20DGATE%20Integrated%20Services%2C%20I%20would%20like%20to%20discuss%20a%20project."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="floating-whatsapp"
-            aria-label="Chat with DGATE on WhatsApp"
-          >
-
-            <FaWhatsapp />
-
-          </a>
-
         </div>
-
       )}
 
     </>
-
   );
-
 }
 
 

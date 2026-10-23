@@ -48,21 +48,14 @@ function Hero({
       });
 
 
-      tl.from(".home-hero__tag", {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-      })
-
-        .from(
-          ".home-hero__title",
-          {
-            y: 45,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.2"
-        )
+      tl.from(
+        ".home-hero__title",
+        {
+          y: 45,
+          opacity: 0,
+          duration: 0.8,
+        }
+      )
 
         .from(
           ".home-hero__description",

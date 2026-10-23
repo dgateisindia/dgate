@@ -22,18 +22,11 @@
   --services-soft:
     #fff9e9;
 
-
   position: relative;
-
   width: 100%;
-
-  padding:
-    76px 0 68px;
-
+  padding: 38px 0;
   overflow: hidden;
-
-  background:
-    #ffffff;
+  background: #ffffff;
 }
 
 
@@ -129,28 +122,14 @@
 
 .home-services__eyebrow {
   display: inline-block;
-
-  margin-bottom: 11px;
-
-  color:
-    var(--primary);
-
-  font-size:
-    0.68rem;
-
-  font-weight:
-    800;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    1.7px;
-
-  text-transform:
-    uppercase;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
 }
-
 
 /* =========================================================
    TITLE
@@ -158,51 +137,27 @@
 
 .home-services__title {
   margin: 0;
-
-  color:
-    var(--services-black);
-
-  font-size:
-    clamp(
-      2.3rem,
-      3.6vw,
-      3.6rem
-    );
-
-  font-weight:
-    800;
-
-  line-height:
-    1.05;
-
-  letter-spacing:
-    -1.4px;
+  color: var(--services-black);
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
 }
-
 
 .home-services__title span {
-  color:
-    var(--services-yellow);
+  color: var(--services-black);
 }
-
 
 /* =========================================================
    INTRO
 ========================================================= */
 
 .home-services__intro {
-  max-width: 540px;
-
+  max-width: 600px;
   margin: 0;
-
-  color:
-    var(--services-text);
-
-  font-size:
-    0.9rem;
-
-  line-height:
-    1.72;
+  color: var(--services-text);
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+  line-height: 1.68;
 }
 
 
@@ -251,14 +206,14 @@
 
   align-items: stretch;
 
-  gap: 18px;
+  gap: 30px;
 
   overflow-x: auto;
 
   overflow-y: hidden;
 
   padding:
-    6px 5px 18px;
+    8px 6px 20px;
 
   scroll-behavior:
     smooth;
@@ -318,21 +273,21 @@
   flex:
     0 0
     clamp(
-      270px,
-      23vw,
-      305px
+      330px,
+      calc((100% - 60px) / 3),
+      420px
     );
 
   min-width: 0;
 
   min-height:
-    415px;
+    500px;
 
   overflow:
     hidden;
 
   padding:
-    21px 19px 19px;
+    36px 30px 32px 30px;
 
   display: flex;
 
@@ -346,31 +301,21 @@
 
   border:
     1px solid
-    var(--services-border);
+    #e8edf3;
 
   border-radius:
-    15px;
+    24px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #ffffff 0%,
-      #fdfdfd 100%
-    );
+  background: #ffffff;
 
   box-shadow:
-    0 6px 20px
-    rgba(
-      0,
-      0,
-      0,
-      0.04
-    );
+    0 10px 30px -4px rgba(15, 23, 42, 0.04),
+    0 2px 6px -1px rgba(15, 23, 42, 0.02);
 
   transition:
-    transform 0.28s ease,
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.28s ease,
-    box-shadow 0.28s ease;
+    box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
@@ -387,7 +332,7 @@
   left: 0;
 
   width: 100%;
-  height: 3px;
+  height: 3.5px;
 
   opacity: 0;
 
@@ -411,18 +356,14 @@
 
 
 /* =========================================================
-   CARD HEADER
+   CARD HEADER: ICON + (PROGRESSION ROW & TITLE)
 ========================================================= */
 
 .home-services__card-header {
   display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  margin-bottom:
-    15px;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
 
@@ -431,44 +372,24 @@
 ========================================================= */
 
 .home-services__icon {
-  width: 45px;
-  height: 45px;
-
-  flex:
-    0 0 45px;
-
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  border:
-    1px solid
-    rgba(
-      253,
-      185,
-      19,
-      0.38
-    );
-
-  border-radius:
-    12px;
-
-  background:
-    var(--services-soft);
-
-  color:
-    var(--services-yellow-dark);
-
-  font-size:
-    1.2rem;
-
+  border: 1.5px solid rgba(253, 185, 19, 0.38);
+  border-radius: 14px;
+  background: #fffdf5;
+  color: var(--services-yellow, #fdb913);
+  font-size: 1.35rem;
+  box-shadow: 0 2px 8px rgba(253, 185, 19, 0.08);
   transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease;
+    transform 0.28s ease,
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    color 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
 
@@ -483,30 +404,41 @@
 
 .home-services__heading {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
 }
 
+.home-services__category-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
 
-/* =========================================================
-   NUMBER
-========================================================= */
+.home-services__category {
+  display: inline-block;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #b57b00;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 5px 13px;
+  background: #fff8e8;
+  border-radius: 999px;
+  border: 1px solid rgba(253, 185, 19, 0.25);
+}
 
-.home-services__number {
+.home-services__category-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-services__category-arrow svg {
   display: block;
-
-  margin-bottom:
-    3px;
-
-  color:
-    #a9a39b;
-
-  font-size:
-    0.56rem;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1.3px;
+  overflow: visible;
 }
 
 
@@ -514,41 +446,32 @@
    CARD TITLE
 ========================================================= */
 
+.home-services__card-title,
 .home-services__card h3 {
-  margin: 0;
-
-  color:
-    var(--services-black);
-
-  font-size:
-    0.98rem;
-
-  font-weight:
-    750;
-
-  line-height:
-    1.28;
+  margin: 4px 0 0;
+  color: #0b0f17;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(2.2rem, 2.7vw, 2.65rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
 }
 
 
 /* =========================================================
-   SERVICE INTRO
+   SUBHEADING
 ========================================================= */
 
-.home-services__service-intro {
-  margin:
-    0 0 12px;
-
-  color:
-    #686868;
-
-  font-size:
-    0.72rem;
-
-  line-height:
-    1.48;
+.home-services__subheading {
+  margin: 0 0 20px;
+  color: #0b0f17;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.42;
+  letter-spacing: -0.2px;
 }
-
 
 /* =========================================================
    SERVICE LIST
@@ -556,18 +479,12 @@
 
 .home-services__list {
   margin: 0;
-
   padding: 0;
-
   display: flex;
-
   flex-direction: column;
-
-  gap: 6px;
-
+  gap: 10px;
   list-style: none;
 }
-
 
 /* =========================================================
    LIST ITEM
@@ -575,95 +492,128 @@
 
 .home-services__list li {
   min-width: 0;
-
   display: flex;
-
   align-items: flex-start;
-
-  gap: 8px;
-
-  color:
-    #505050;
-
-  font-size:
-    0.7rem;
-
-  line-height:
-    1.43;
+  gap: 10px;
+  color: #000000;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.48;
 }
-
 
 /* =========================================================
    BULLET
 ========================================================= */
 
 .home-services__bullet {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--services-yellow, #fdb913);
+}
 
-  flex:
-    0 0 4px;
+/* =========================================================
+   BOTTOM ACTION / EXPLORE LINK
+========================================================= */
 
-  margin-top:
-    6px;
+.home-services__action {
+  margin-top: auto;
+  padding-top: 28px;
+}
 
-  border-radius:
-    50%;
+.home-services__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
 
-  background:
-    var(--services-yellow);
+.home-services__cta-text {
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: #0b0f17;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.home-services__cta-circle {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  border: 1.5px solid #fde3a7;
+  background: #fffdf5;
+  color: #b57b00;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  transition:
+    transform 0.28s ease,
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    color 0.28s ease;
+}
+
+.home-services__card:hover .home-services__cta-circle,
+.home-services__cta-btn:hover .home-services__cta-circle {
+  background: var(--services-yellow, #fdb913);
+  border-color: var(--services-yellow, #fdb913);
+  color: #0b0f17;
+  transform: translateX(4px);
 }
 
 
 /* =========================================================
-   TAGLINE
+   CORNER DECORATION / GLOW
 ========================================================= */
 
-.home-services__tagline {
-  margin: auto 0 0;
-
-  padding-top: 15px;
-
-  min-height: 47px;
-
-  box-sizing: border-box;
-
-  color: var(--services-black);
-
-  font-size: 0.67rem;
-
-  font-weight: 750;
-
-  line-height: 1.45;
-}
-
-
-/* =========================================================
-   CORNER DECORATION
-========================================================= */
-
-.home-services__corner {
+.home-services__corner-glow {
   position: absolute;
-
   right: -25px;
   bottom: -25px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(253, 185, 19, 0.22) 0%,
+    rgba(253, 185, 19, 0.07) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
 
-  width: 54px;
-  height: 54px;
+.home-services__corner-glow--solve {
+  width: 170px;
+  height: 170px;
+  right: -25px;
+  bottom: -25px;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(253, 185, 19, 0.3) 0%,
+    rgba(253, 185, 19, 0.1) 45%,
+    transparent 75%
+  );
+}
 
-  border-radius:
-    50%;
-
-  background:
-    rgba(
-      253,
-      185,
-      19,
-      0.07
-    );
-
-  pointer-events:
-    none;
+.home-services__corner-svg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 
@@ -675,23 +625,30 @@
 
   .home-services__card:hover {
     transform:
-      translateY(-5px);
+      translateY(-8px);
 
     border-color:
       rgba(
         253,
         185,
         19,
-        0.58
+        0.55
       );
 
     box-shadow:
-      0 18px 42px
+      0 22px 48px -6px
       rgba(
-        0,
-        0,
-        0,
-        0.085
+        15,
+        23,
+        42,
+        0.08
+      ),
+      0 0 0 1px
+      rgba(
+        253,
+        185,
+        19,
+        0.25
       );
   }
 
@@ -707,16 +664,19 @@
   .home-services__card:hover
   .home-services__icon {
     transform:
-      translateY(-2px);
+      scale(1.05);
 
     border-color:
       var(--services-yellow);
 
-    background:
-      var(--services-yellow);
-
-    color:
-      var(--services-black);
+    box-shadow:
+      0 4px 14px
+      rgba(
+        253,
+        185,
+        19,
+        0.2
+      );
   }
 
 }
@@ -814,7 +774,7 @@
 ========================================================= */
 
 .home-services__slider-arrow--left {
-  left: 10px;
+  left: -20px;
 }
 
 
@@ -823,7 +783,15 @@
 ========================================================= */
 
 .home-services__slider-arrow--right {
-  right: 10px;
+  right: -20px;
+}
+
+@media (min-width: 901px) {
+  .home-services__slider-arrow:disabled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 
@@ -918,7 +886,7 @@
   align-items: center;
 
   justify-content:
-    space-between;
+    flex-end;
 
   gap:
     20px;
@@ -1093,10 +1061,17 @@
 
   .home-services__card {
     flex:
-      0 0 285px;
+      0 0 340px;
 
     min-height:
-      405px;
+      480px;
+
+    padding:
+      30px 24px 26px;
+  }
+
+  .home-services__grid {
+    gap: 22px;
   }
 
 
@@ -1132,7 +1107,7 @@
 
   .home-services__eyebrow {
     font-size:
-      0.62rem;
+      0.68rem;
   }
 
 
@@ -1147,7 +1122,7 @@
 
   .home-services__intro {
     font-size:
-      0.84rem;
+      0.9rem;
 
     line-height:
       1.62;
@@ -1172,20 +1147,20 @@
     flex:
       0 0
       min(
-        80vw,
-        278px
+        88vw,
+        340px
       );
 
     min-height:
-      395px;
+      460px;
 
     padding:
-      19px 17px 18px;
+      26px 20px 22px;
   }
 
 
   .home-services__grid {
-    gap: 13px;
+    gap: 18px;
 
     padding:
       5px 4px 15px;
@@ -1194,45 +1169,51 @@
 
   .home-services__card-header {
     margin-bottom:
-      14px;
+      16px;
+    gap:
+      12px;
   }
 
 
   .home-services__icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
     flex-basis:
-      42px;
+      44px;
 
     border-radius:
-      10px;
+      12px;
 
     font-size:
-      1.05rem;
+      1.15rem;
   }
 
 
+  .home-services__card-title,
   .home-services__card h3 {
     font-size:
-      0.92rem;
+      1.85rem;
+  }
+
+  .home-services__subheading {
+    font-size:
+      0.96rem;
+    margin-bottom:
+      16px;
   }
 
 
   .home-services__list {
-    gap: 6px;
+    gap: 8px;
   }
 
 
   .home-services__list li {
     font-size:
-      0.68rem;
-  }
-
-
-  .home-services__tagline {
-    font-size:
-      0.64rem;
+      0.85rem;
+    line-height:
+      1.45;
   }
 
 
@@ -1282,19 +1263,8 @@
 
 
   .home-services__carousel-footer {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap: 10px;
-  }
-
-
-  .home-services__scroll-note {
-    font-size:
-      0.62rem;
+    justify-content:
+      center;
   }
 
 }
@@ -1317,10 +1287,10 @@
       78vw;
 
     min-height:
-      390px;
+      auto;
 
     padding:
-      18px 15px 17px;
+      16px 14px 14px;
   }
 
 

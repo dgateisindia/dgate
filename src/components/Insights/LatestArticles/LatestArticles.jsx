@@ -42,7 +42,7 @@ const articles = [
     image: cloudEngineering,
     category: "Cloud & DevOps",
     title:
-      "Cloud Engineering Best Practices for Scalable Applications",
+      "Why more content is not the same as more relevance ",
     date: "April 28, 2024",
     readTime: "5 min read",
   },
@@ -52,7 +52,7 @@ const articles = [
     image: cyberSecurity,
     category: "Cyber Security",
     title:
-      "Cybersecurity in the Digital Era: Challenges & Opportunities",
+      "When a website redesign is really a positioning problem",
     date: "April 20, 2024",
     readTime: "4 min read",
   },
@@ -62,7 +62,7 @@ const articles = [
     image: sustainableEngineering,
     category: "Sustainability",
     title:
-      "Sustainable Engineering: Building a Greener Tomorrow",
+      "When a website redesign is really a positioning problem ",
     date: "April 15, 2024",
     readTime: "6 min read",
   },
@@ -72,7 +72,7 @@ const articles = [
     image: dataAnalytics,
     category: "Data & Analytics",
     title:
-      "Data Analytics Driving Smarter Business Decisions",
+      "The difference between traffic and demand ",
     date: "April 10, 2024",
     readTime: "5 min read",
   },
@@ -82,7 +82,7 @@ const articles = [
     image: automationManufacturing,
     category: "Engineering Trends",
     title:
-      "The Future of Automation in Manufacturing",
+      "AI should remove friction, not add another layer of noise ",
     date: "April 5, 2024",
     readTime: "4 min read",
   },
@@ -171,7 +171,7 @@ function LatestArticles() {
           <div className="insights-latest__heading">
 
             <h2 id="insights-latest-title">
-              Latest Articles
+              Sample article headlines
             </h2>
 
 

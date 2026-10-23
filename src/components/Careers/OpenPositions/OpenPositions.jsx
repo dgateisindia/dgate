@@ -32,8 +32,8 @@ const jobs = [
   {
     id: "software-engineer",
     icon: FaLaptopCode,
-    title: "Software Engineer",
-    location: "Pune, India",
+    title: "Sales Executive",
+    location:"UAE",
     experience: "3 - 6 Years Experience",
   },
 
@@ -41,7 +41,7 @@ const jobs = [
     id: "cloud-engineer",
     icon: FaCloud,
     title: "Cloud Engineer",
-    location: "Bangalore, India",
+    location: "UAE",
     experience: "4 - 8 Years Experience",
   },
 
@@ -49,7 +49,7 @@ const jobs = [
     id: "qa-automation-engineer",
     icon: FaShieldAlt,
     title: "QA Automation Engineer",
-    location: "Chennai, India",
+    location: "Bangalore, India",
     experience: "3 - 6 Years Experience",
   },
 
@@ -57,7 +57,7 @@ const jobs = [
     id: "data-engineer",
     icon: FaChartLine,
     title: "Data Engineer",
-    location: "Hyderabad, India",
+    location:"Bangalore, India",
     experience: "4 - 7 Years Experience",
   },
 
@@ -65,7 +65,7 @@ const jobs = [
     id: "ui-ux-designer",
     icon: FaPalette,
     title: "UI/UX Designer",
-    location: "Pune, India",
+    location: "Bangalore, India",
     experience: "2 - 5 Years Experience",
   },
 ];
@@ -109,7 +109,7 @@ function OpenPositions() {
 
 
     window.addEventListener(
-      "resize",
+      "resize", 
       updateVisibleCards
     );
 

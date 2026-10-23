@@ -1,1 +1,1 @@
-export { default as heroBg } from "./hero-bg.png";
+export { default as heroBg } from "./3a.webp";

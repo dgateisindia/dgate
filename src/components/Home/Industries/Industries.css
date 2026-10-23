@@ -1,5 +1,5 @@
 /* =========================================================
-   HOME INDUSTRIES
+   HOME INDUSTRIES — TRANSFORMATION STATEMENT
 ========================================================= */
 
 .home-industries {
@@ -8,768 +8,287 @@
   --industry-text: #666666;
 
   position: relative;
-
   width: 100%;
-
-  padding: 75px 0;
-
+  padding: 48px 0;
   overflow: hidden;
-
   background: #ffffff;
 }
-
 
 /* =========================================================
    CONTAINER
 ========================================================= */
 
 .home-industries__container {
-  width:
-    min(
-      calc(100% - 48px),
-      1240px
-    );
-
+  width: min(calc(100% - 48px), 1240px);
   margin: 0 auto;
 }
 
-
 /* =========================================================
-   HEADER
+   2-COLUMN GRID (HEADING ON LEFT, SINGLE CARD ON RIGHT)
 ========================================================= */
 
-.home-industries__header {
-  margin-bottom: 38px;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content:
-    space-between;
-
-  gap: 30px;
+.home-industries__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 520px);
+  gap: 52px;
+  align-items: center;
 }
 
+/* =========================================================
+   LEFT: HEADING & NARRATIVE
+========================================================= */
 
 .home-industries__heading {
-  max-width: 650px;
+  max-width: 540px;
 }
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
 
 .home-industries__eyebrow {
   display: inline-block;
-
   margin-bottom: 12px;
-
-  color: var(--primary);
-
-  font-size: 10px;
-
+  color: var(--primary, var(--industry-yellow));
+  font-size: 0.78rem;
   font-weight: 800;
-
   letter-spacing: 1.8px;
-
   text-transform: uppercase;
+  line-height: 1;
 }
-
-
-/* =========================================================
-   TITLE
-========================================================= */
 
 .home-industries__heading h2 {
   margin: 0;
-
-  color:
-    var(--industry-black);
-
-  font-size:
-    clamp(
-      36px,
-      4vw,
-      54px
-    );
-
+  color: var(--industry-black);
+  font-size: clamp(2.1rem, 3.2vw, 3.3rem);
   font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -1.7px;
+  line-height: 1.15;
+  letter-spacing: -1px;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
 
 .home-industries__heading p {
-  max-width: 560px;
+    margin: 18px 0 0;
+    color: #111111;
+    font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+    line-height: 1.7;
 
-  margin: 14px 0 0;
-
-  color:
-    var(--industry-text);
-
-  font-size: 14px;
-
-  line-height: 1.7;
 }
-
 
 /* =========================================================
-   VIEW ALL BUTTON
+   RIGHT: SINGLE CARD WRAPPER
 ========================================================= */
 
-.home-industries__view-all {
-  min-height: 46px;
-
-  padding:
-    0
-    17px;
-
-  flex-shrink: 0;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  border-radius: 7px;
-
-  background:
-    var(--industry-yellow);
-
-  color: #111111;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: 0.4px;
-
-  text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-.home-industries__view-all svg {
-  display: block;
-
-  flex-shrink: 0;
-}
-
-
-.home-industries__view-all:hover {
-  color: #111111;
-
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 12px 28px
-    rgba(
-      0,
-      0,
-      0,
-      0.12
-    );
-}
-
-
-/* =========================================================
-   SLIDER
-========================================================= */
-
-.home-industries__slider {
-  position: relative;
-
+.home-industries__card-wrapper {
   width: 100%;
-}
-
-
-/* =========================================================
-   HORIZONTAL RAIL
-========================================================= */
-
-.home-industries__rail {
-  width: 100%;
-
   display: flex;
-
-  flex-direction: row;
-
-  flex-wrap: nowrap;
-
-  align-items: stretch;
-
-  gap: 20px;
-
-  overflow-x: auto;
-
-  overflow-y: hidden;
-
-  padding:
-    8px
-    4px
-    18px;
-
-  scroll-behavior: smooth;
-
-  scroll-snap-type:
-    x mandatory;
-
-  overscroll-behavior-x:
-    contain;
-
-  scrollbar-width: none;
-
-  -webkit-overflow-scrolling:
-    touch;
+  justify-content: flex-end;
 }
-
-
-.home-industries__rail::-webkit-scrollbar {
-  display: none;
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
 
 .home-industries__card {
   position: relative;
-
-  flex:
-    0 0
-    300px;
-
-  width: 300px;
-
-  height: 330px;
-
-  display: block;
-
-  overflow: hidden;
-
-  border-radius: 15px;
-
-  background: #1b1b1b;
-
-  color: inherit;
-
-  text-decoration: none;
-
-  scroll-snap-align: start;
-
-  scroll-snap-stop: always;
-
-  isolation: isolate;
-
-  box-shadow:
-    0 10px 30px
-    rgba(
-      0,
-      0,
-      0,
-      0.1
-    );
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-
-.home-industries__card:focus-visible {
-  outline:
-    2px solid
-    var(--industry-yellow);
-
-  outline-offset: 3px;
-}
-
-
-/* =========================================================
-   IMAGE
-========================================================= */
-
-.home-industries__card > img {
-  position: absolute;
-
-  z-index: 1;
-
-  inset: 0;
-
   width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center;
-
-  transition:
-    transform 0.6s ease;
+  max-width: 520px;
+  background: var(--card-light-bg, #ffffff);
+  border: 1px solid #e9ecef;
+  border-radius: 18px;
+  padding: 22px 26px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), var(--card-inner-shading);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* =========================================================
-   DARK OVERLAY
-========================================================= */
-
-.home-industries__overlay {
-  position: absolute;
-
-  z-index: 2;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(
-        0,
-        0,
-        0,
-        0.03
-      ) 20%,
-      rgba(
-        0,
-        0,
-        0,
-        0.14
-      ) 50%,
-      rgba(
-        0,
-        0,
-        0,
-        0.9
-      ) 100%
-    );
-
-  pointer-events: none;
+.home-industries__card:hover {
+  background: var(--card-light-bg-hover, #ffffff);
+  border-color: rgba(253, 185, 19, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(253, 185, 19, 0.2), var(--card-inner-shading-hover);
 }
 
-
 /* =========================================================
-   CARD CONTENT
+   CARD HEADER
 ========================================================= */
 
-.home-industries__card-content {
-  position: absolute;
-
-  z-index: 3;
-
-  left: 20px;
-  right: 20px;
-
-  bottom: 20px;
-}
-
-
-/* =========================================================
-   INDUSTRY LABEL
-========================================================= */
-
-.home-industries__card-content > span {
-  display: block;
-
-  margin-bottom: 9px;
-
-  color:
-    var(--industry-yellow);
-
-  font-size: 8px;
-
-  font-weight: 900;
-
-  line-height: 1;
-
-  letter-spacing: 1.5px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   CARD BOTTOM
-========================================================= */
-
-.home-industries__card-bottom {
-  width: 100%;
-
-  display: block;
-}
-
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
-.home-industries__card h3 {
-  width: 100%;
-
-  margin: 0;
-
-  color: #ffffff;
-
-  font-size: 20px;
-
-  font-weight: 750;
-
-  line-height: 1.2;
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
-
-@media (hover: hover) {
-
-  .home-industries__card:hover {
-    transform:
-      translateY(-5px);
-
-    box-shadow:
-      0 20px 45px
-      rgba(
-        0,
-        0,
-        0,
-        0.17
-      );
-  }
-
-
-  .home-industries__card:hover
-  > img {
-    transform:
-      scale(1.06);
-  }
-
-}
-
-
-/* =========================================================
-   LEFT / RIGHT NAVIGATION
-========================================================= */
-
-.home-industries__nav {
-  position: absolute;
-
-  z-index: 20;
-
-  top: 50%;
-
-  width: 46px;
-  height: 46px;
-
-  padding: 0;
-
+.home-industries__card-header {
   display: flex;
-
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
 
-  justify-content: center;
+.home-industries__card-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0f172a;
+}
 
-  border:
-    1px solid
-    #eeeeee;
+/* =========================================================
+   SHIFTS LIST
+========================================================= */
 
-  border-radius: 50%;
+.home-industries__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
+.home-industries__list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
   background: #ffffff;
-
-  color: #111111;
-
-  box-shadow:
-    0 8px 25px
-    rgba(
-      0,
-      0,
-      0,
-      0.16
-    );
-
-  transform:
-    translateY(-50%);
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-
-.home-industries__nav svg {
-  display: block;
+.home-industries__list-item:hover {
+  background: #fffdf5;
+  border-color: rgba(253, 185, 19, 0.45);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(253, 185, 19, 0.08);
 }
-
 
 /* =========================================================
-   LEFT ARROW
+   STATEMENT (FROM -> TO)
 ========================================================= */
 
-.home-industries__nav--left {
-  left: -22px;
+.home-industries__list-statement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
 }
 
-
-/* =========================================================
-   RIGHT ARROW
-========================================================= */
-
-.home-industries__nav--right {
-  right: -22px;
+/* FROM */
+.home-industries__list-from {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-
-/* =========================================================
-   NAVIGATION HOVER
-========================================================= */
-
-.home-industries__nav:hover {
-  border-color:
-    var(--industry-yellow);
-
-  background:
-    var(--industry-yellow);
-
-  color: #111111;
+.home-industries__list-label {
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  line-height: 1;
 }
 
-
-/* =========================================================
-   NAVIGATION FOCUS
-========================================================= */
-
-.home-industries__nav:focus-visible {
-  outline:
-    2px solid
-    var(--industry-yellow);
-
-  outline-offset: 3px;
+.home-industries__list-label--to {
+  color: var(--primary, var(--industry-yellow));
+  font-weight: 800;
 }
 
-
-/* =========================================================
-   DISABLED NAVIGATION
-========================================================= */
-
-.home-industries__nav:disabled {
-  opacity: 0.35;
-
-  cursor: default;
-
-  pointer-events: none;
+.home-industries__list-from-text {
+  color: rgb(1, 6, 15)00;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: capitalize;
+  word-break: break-word;
 }
 
+/* TO */
+.home-industries__list-to {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.home-industries__list-to-text {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+  text-transform: capitalize;
+  word-break: break-word;
+}
 
 /* =========================================================
-   TABLET
+   RESPONSIVE DESIGN
 ========================================================= */
 
-@media (max-width: 900px) {
-
+@media (max-width: 992px) {
   .home-industries {
-    padding:
-      60px
-      0;
+    padding: 38px 0;
   }
 
-
-  .home-industries__header {
-    align-items:
-      flex-start;
-
-    flex-direction:
-      column;
-
-    gap: 22px;
+  .home-industries__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
+  .home-industries__heading {
+    max-width: 100%;
+  }
+
+  .home-industries__card-wrapper {
+    justify-content: flex-start;
+  }
 
   .home-industries__card {
-    flex:
-      0 0
-      285px;
-
-    width: 285px;
-
-    height: 310px;
+    max-width: 520px;
   }
-
-
-  .home-industries__nav--left {
-    left: 5px;
-  }
-
-
-  .home-industries__nav--right {
-    right: 5px;
-  }
-
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-  .home-industries {
-    padding:
-      52px
-      0;
-  }
-
-
+@media (max-width: 640px) {
   .home-industries__container {
-    width:
-      calc(
-        100% - 30px
-      );
+    width: calc(100% - 32px);
   }
-
-
-  .home-industries__header {
-    margin-bottom: 28px;
-  }
-
-
-  .home-industries__heading h2 {
-    font-size: 36px;
-  }
-
-
-  .home-industries__heading p {
-    font-size: 13px;
-  }
-
-
-  .home-industries__view-all {
-    min-height: 42px;
-
-    padding:
-      0
-      14px;
-
-    font-size: 9px;
-  }
-
-
-  .home-industries__rail {
-    gap: 15px;
-
-    padding-bottom: 15px;
-  }
-
 
   .home-industries__card {
-    flex:
-      0 0
-      min(
-        82vw,
-        320px
-      );
-
-    width:
-      min(
-        82vw,
-        320px
-      );
-
-    height: 280px;
+    padding: 20px 16px 16px;
+    border-radius: 16px;
   }
 
-
-  .home-industries__card-content {
-    left: 17px;
-    right: 17px;
-
-    bottom: 17px;
+  .home-industries__list-item {
+    padding: 10px 10px;
   }
 
-
-  .home-industries__card h3 {
-    font-size: 18px;
+  .home-industries__list-statement {
+    gap: 14px;
+    grid-template-columns: 1fr 1.1fr;
   }
 
-
-  .home-industries__nav {
-    width: 40px;
-    height: 40px;
+  .home-industries__list-from-text {
+    font-size: 0.86rem;
   }
 
+  .home-industries__list-to-text {
+    font-size: 0.9rem;
+  }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 420px) {
-
+@media (max-width: 480px) {
   .home-industries__heading h2 {
-    font-size: 32px;
+    font-size: 1.95rem;
   }
 
-
-  .home-industries__card {
-    height: 250px;
+  .home-industries__list-statement {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
-
-
-  .home-industries__card-content {
-    left: 15px;
-    right: 15px;
-
-    bottom: 15px;
-  }
-
-
-  .home-industries__card h3 {
-    font-size: 17px;
-  }
-
 }
-
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-  .home-industries__rail {
-    scroll-behavior: auto;
-  }
-
-
   .home-industries__card,
-  .home-industries__card > img,
-  .home-industries__nav,
-  .home-industries__view-all {
+  .home-industries__list-item {
     transition: none;
+    transform: none;
   }
-
 }

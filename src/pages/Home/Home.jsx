@@ -3,17 +3,12 @@ import BannerPopup from "../../components/Home/Popup/BannerPopup";
 import Hero from "../../components/Home/Hero/Hero";
 import WhoWeAreHome from "../../components/Home/WhoWeAreHome/WhoWeAreHome";
 import Stats from "../../components/Home/Stats/Stata";
-import StrategicExpertise from "../../components/Home/StrategicExpertise/StrategicExpertise";
 import Services from "../../components/Home/Services/Services";
-import Industries from "../../components/Home/Industries/Industries";
-{/* import Technologies from "../../components/Home/Technologies/Technologies"; */}
+import DgateProcess from "../../components/Home/DgateProcess/DgateProcess";
 import SuccessStories from "../../components/Home/SuccessStories/SuccessStories";
 import Clients from "../../components/Home/Clients/Clients";
 import Testimonials from "../../components/Home/Testimonials/Testimonials";
-import TrustProof from "../../components/Home/TrustProof/TrustProof";
-import ProvenImpact from "../../components/Home/ProvenImpact/ProvenImpact";
-{/* import HomeAchievements from "../../components/Home/HomeAchievements/HomeAchievements";  
-import CTA from "../../components/Home/CTA/CTA"; */}
+
 import Footer from "../../components/Home/Footer/Footer";
 
 function Home() {
@@ -39,8 +34,8 @@ function Home() {
         {/* 5. SERVICES */}
         <Services />
 
-        {/* 6. INDUSTRIES */}
-        <Industries />
+        {/* 6. THE D-GATE PROCESS */}
+        <DgateProcess />
        
         {/* 7. TECHNOLOGIES 
         <Technologies />*/}
@@ -48,23 +43,16 @@ function Home() {
         {/* 8. DIGITAL SUCCESS STORIES */}
         <SuccessStories />
 
+        {/* SECTION 06 — HOW WE WORK (Combined into The D-GATE Process diagram above)
+        <HowWeWork /> */}
+
         {/* 9. TRUSTED CLIENTS */}
         <Clients />
 
         {/* 10. TESTIMONIALS */}
         <Testimonials />
 
-        {/* 11. TRUST PROOF */}
-        <TrustProof />
 
-        {/* 12. PROVEN IMPACT */}
-        <ProvenImpact />
-
-        {/* 13. ACHIEVEMENTS 
-        <HomeAchievements />    */}
-
-        {/* 14. CTA 
-        <CTA /> */}
       </main>
 
       <Footer />

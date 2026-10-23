@@ -8,8 +8,6 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { FaArrowRight } from "react-icons/fa";
-
 import {
   life1,
   life2,
@@ -112,19 +110,6 @@ function LifeAtDgate() {
   }, []);
 
 
-  const scrollToPositions = () => {
-    const section =
-      document.getElementById("open-positions");
-
-    if (!section) return;
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-
   return (
     <section
       className="careers-life"
@@ -176,19 +161,6 @@ function LifeAtDgate() {
               come together to solve challenges,
               celebrate achievements and grow together.
             </p>
-
-
-            <button
-              type="button"
-              className="careers-life__button"
-              onClick={scrollToPositions}
-            >
-              <span>
-                Join Our Team
-              </span>
-
-              <FaArrowRight aria-hidden="true" />
-            </button>
 
           </div>
 

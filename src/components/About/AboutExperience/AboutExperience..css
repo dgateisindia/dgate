@@ -11,44 +11,16 @@
 
 
 .about-experience__box {
-  display: grid;
-
-  grid-template-columns:
-    240px
-    1px
-    minmax(0, 1fr);
-
-  align-items: center;
-
-  gap: 45px;
-
-  padding:
-    38px
-    45px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: var(--radius-md);
-
-  background:
-    linear-gradient(
-      110deg,
-      #fffaf0,
-      var(--white)
-    );
-
-  box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.045);
+    display: grid;
+    grid-template-columns: 240px 1px minmax(0, 1fr);
+    align-items: center;
+    gap: 45px;
+    padding: 38px 45px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(110deg, #ffc1078c, var(--white));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.045);
 }
-
-
-.about-experience__number {
-  text-align: center;
-}
-
 
 .about-experience__number strong {
   display: block;

@@ -133,7 +133,7 @@ function PageTransition({
 
 
         /* =====================================================
-           TIMELINE
+           TIMELINE (Total duration: 2.0 seconds)
         ===================================================== */
 
         const timeline =
@@ -161,7 +161,8 @@ function PageTransition({
 
 
         /* =====================================================
-           1. SHOW LETTERS ONE BY ONE
+           1. SHOW LETTERS ONE BY ONE (0.50s)
+           - 6 letters, 0.04s stagger + 0.30s duration = 0.50s
         ===================================================== */
 
         timeline.to(
@@ -177,10 +178,10 @@ function PageTransition({
               1,
 
             duration:
-              0.45,
+              0.3,
 
             stagger:
-              0.06,
+              0.04,
 
             ease:
               "power3.out",
@@ -189,20 +190,21 @@ function PageTransition({
 
 
         /* =====================================================
-           SMALL PAUSE
+           SMALL PAUSE (0.08s) -> Total at 0.58s
         ===================================================== */
 
         timeline.to(
           {},
           {
             duration:
-              0.2,
+              0.08,
           }
         );
 
 
         /* =====================================================
-           2. COLOR CHANGE ONE BY ONE
+           2. COLOR CHANGE ONE BY ONE (0.50s) -> Total at 1.08s
+           - 6 letters, 0.06s stagger + 0.20s duration = 0.50s
         ===================================================== */
 
         timeline.to(
@@ -212,10 +214,10 @@ function PageTransition({
               "#8a8a8a",
 
             duration:
-              0.28,
+              0.2,
 
             stagger:
-              0.24,
+              0.06,
 
             ease:
               "power2.inOut",
@@ -224,20 +226,7 @@ function PageTransition({
 
 
         /* =====================================================
-           SMALL PAUSE
-        ===================================================== */
-
-        timeline.to(
-          {},
-          {
-            duration:
-              0.25,
-          }
-        );
-
-
-        /* =====================================================
-           3. FINAL TEXT PULSE
+           3. FINAL TEXT PULSE (0.24s) -> Total at 1.32s
         ===================================================== */
 
         timeline.to(
@@ -247,7 +236,7 @@ function PageTransition({
               1.025,
 
             duration:
-              0.22,
+              0.12,
 
             ease:
               "power2.out",
@@ -262,7 +251,7 @@ function PageTransition({
               1,
 
             duration:
-              0.2,
+              0.12,
 
             ease:
               "power2.inOut",
@@ -271,7 +260,7 @@ function PageTransition({
 
 
         /* =====================================================
-           4. FADE D-GATE BEFORE PANELS OPEN
+           4. FADE D-GATE BEFORE PANELS OPEN (0.18s) -> Total at 1.50s
         ===================================================== */
 
         timeline.to(
@@ -284,7 +273,7 @@ function PageTransition({
               0.96,
 
             duration:
-              0.28,
+              0.18,
 
             ease:
               "power2.in",
@@ -293,7 +282,7 @@ function PageTransition({
 
 
         /* =====================================================
-           5. OPEN SCREEN
+           5. OPEN SCREEN (0.50s) -> Total at 2.00s
         ===================================================== */
 
         timeline.to(
@@ -303,7 +292,7 @@ function PageTransition({
               -100,
 
             duration:
-              0.8,
+              0.5,
 
             ease:
               "power4.inOut",
@@ -318,7 +307,7 @@ function PageTransition({
               100,
 
             duration:
-              0.8,
+              0.5,
 
             ease:
               "power4.inOut",

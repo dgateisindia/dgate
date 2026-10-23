@@ -1,0 +1,229 @@
+/* =========================================================
+   CASE STUDY SECTION - DESIGN SYSTEM
+   Theme: Yellow #FDB913, Black #0B0F17, Clean Light Cards
+========================================================= */
+
+.case-study-section {
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+  color: var(--black, #0b0f17);
+  overflow: hidden;
+  padding-bottom: clamp(48px, 6vw, 72px);
+}
+
+/* =========================================================
+   CONTAINER (UNIFORM WITH WEBSITE GRID)
+========================================================= */
+
+.case-study-container {
+  width: min(calc(100% - 48px), 1240px);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HERO / HEADER SECTION
+========================================================= */
+
+.case-study-hero {
+  width: 100%;
+  position: relative;
+  padding-top: clamp(36px, 4.5vw, 54px);
+  padding-bottom: clamp(28px, 3.5vw, 40px);
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(253, 185, 19, 0.06), transparent 70%);
+}
+
+/* Title */
+.case-study-hero__title {
+  margin: 0;
+  color: var(--black, #0b0f17);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.case-study-hero__title span {
+  color: var(--primary, #fdb913);
+}
+
+/* Accent Line */
+.case-study-hero__line {
+  width: 44px;
+  height: 3px;
+  border-radius: 10px;
+  background: var(--primary, #fdb913);
+  margin: 14px auto 18px;
+}
+
+/* Description */
+.case-study-hero__description {
+  max-width: 780px;
+  margin: 0 auto;
+  color: #4b5563;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.72;
+  font-weight: 450;
+  text-wrap: balance;
+}
+
+/* =========================================================
+   FRAMEWORK SECTION & CARDS GRID
+========================================================= */
+
+.case-study-framework {
+  width: 100%;
+  position: relative;
+  padding-top: 10px;
+}
+
+.case-study-framework__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CARD (NO NUMBERS, UNIFORM INNER SHADING & STYLING)
+========================================================= */
+
+.case-study-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 160px;
+  padding: 24px 26px 26px;
+  background: var(--card-light-bg, #ffffff);
+  border: 1.5px solid rgba(11, 15, 23, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(11, 15, 23, 0.03), var(--card-inner-shading);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+/* Top Accent Reveal Line */
+.case-study-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #FDB913 0%, #FFD54F 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card Header */
+.case-study-card__header {
+  margin-bottom: 12px;
+}
+
+.case-study-card__title {
+  margin: 0;
+  color: var(--black, #0b0f17);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(1.22rem, 1.45vw, 1.4rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+  transition: color 0.25s ease;
+}
+
+/* Card Description */
+.case-study-card__desc {
+  margin: 0;
+  color: #4b5563;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(0.92rem, 1.02vw, 0.98rem);
+  line-height: 1.62;
+  font-weight: 450;
+}
+
+/* Card Hover */
+@media (hover: hover) {
+  .case-study-card:hover {
+    transform: translateY(-4px);
+    background: var(--card-light-bg-hover, #ffffff);
+    border-color: rgba(253, 185, 19, 0.45);
+    box-shadow:
+      0 14px 30px -6px rgba(11, 15, 23, 0.08),
+      0 0 20px -2px rgba(253, 185, 19, 0.15),
+      var(--card-inner-shading-hover);
+  }
+
+  .case-study-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .case-study-card:hover .case-study-card__title {
+    color: #0b0f17;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1024px) {
+  .case-study-framework__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-study-container {
+    width: calc(100% - 32px);
+  }
+
+  .case-study-hero {
+    padding-top: 32px;
+    padding-bottom: 22px;
+  }
+
+  .case-study-section {
+    padding-bottom: 38px;
+  }
+
+  .case-study-framework__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .case-study-card {
+    padding: 20px 20px 22px;
+  }
+
+  .case-study-card__title {
+    font-size: 1.18rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-card {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .case-study-card::before {
+    display: none;
+  }
+}

@@ -24,22 +24,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 /* =========================================================
-   SERVICE OPTIONS
+   OPTIONS
 ========================================================= */
 
-const services = [
-  "Branding & Creative Solutions",
-  "App Development",
-  "Web Development",
-  "Digital Marketing",
-  "Performance Marketing",
-  "Email Marketing",
-  "Digital PR",
-  "WhatsApp Marketing",
-  "Push Notification Marketing",
-  "Traditional Marketing",
-  "Other",
+const helpOptions = [
+  "Strategy",
+  "Brand",
+  "Creative",
+  "Digital",
+  "Growth",
+  "Not sure yet",
 ];
+
+const timingOptions = [
+  "Immediately / Ready to start",
+  "Within 1–3 months",
+  "3–6 months",
+  "Exploring / Planning stage",
+];
+
 
 
 /* =========================================================
@@ -48,10 +51,12 @@ const services = [
 
 const initialFormData = {
   name: "",
-  email: "",
   company: "",
+  email: "",
   phone: "",
   service: "",
+  timing: "",
+  budget: "",
   message: "",
 };
 
@@ -295,8 +300,19 @@ function ContactForm() {
         phone ||
         "Not provided",
 
+      help_needed:
+        formData.service,
+
       service:
         formData.service,
+
+      timing:
+        formData.timing ||
+        "Not specified",
+
+      budget:
+        formData.budget ||
+        "Not provided",
 
       message,
 
@@ -421,7 +437,7 @@ function ContactForm() {
 
                   <h2 id="contact-page-form-title">
 
-                    Send Us a Message
+                    Conversation form
 
                   </h2>
 
@@ -440,6 +456,34 @@ function ContactForm() {
 
 
               {/* =============================================
+                  DIRECT CONTACT COPY
+              ============================================= */}
+
+              <div className="contact-page-form__meta-strip mb-4">
+
+                <div className="contact-page-form__meta-item">
+
+                  <span className="contact-page-form__meta-label">
+                    Prefer email?
+                  </span>
+
+                  <a
+                    href="mailto:info@dgateis.com"
+                    className="contact-page-form__meta-link"
+                  >
+                    info@dgateis.com
+                  </a>
+
+                </div>
+
+                <div className="contact-page-form__meta-item contact-page-form__meta-location">
+                  Bengaluru, India &bull; UAE
+                </div>
+
+              </div>
+
+
+              {/* =============================================
                   FORM
               ============================================= */}
 
@@ -450,7 +494,7 @@ function ContactForm() {
 
 
                 {/* ===========================================
-                    NAME + EMAIL
+                    NAME + COMPANY
                 =========================================== */}
 
                 <div className="row g-3 mb-3">
@@ -469,7 +513,7 @@ function ContactForm() {
                         className="form-label"
                       >
 
-                        Full Name
+                        Name
 
                         <span>
                           {" "}*
@@ -483,7 +527,7 @@ function ContactForm() {
                         id="contact-name"
                         name="name"
                         className="form-control"
-                        placeholder="Enter your full name"
+                        placeholder="Enter your name"
                         value={formData.name}
                         onChange={handleChange}
                         autoComplete="name"
@@ -495,57 +539,6 @@ function ContactForm() {
 
 
                   </div>
-
-
-                  {/* EMAIL */}
-
-                  <div className="col-12 col-md-6">
-
-
-                    <div className="contact-page-form__field">
-
-
-                      <label
-                        htmlFor="contact-email"
-                        className="form-label"
-                      >
-
-                        Email Address
-
-                        <span>
-                          {" "}*
-                        </span>
-
-                      </label>
-
-
-                      <input
-                        type="email"
-                        id="contact-email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Enter your email address"
-                        value={formData.email}
-                        onChange={handleChange}
-                        autoComplete="email"
-                        required
-                      />
-
-
-                    </div>
-
-
-                  </div>
-
-
-                </div>
-
-
-                {/* ===========================================
-                    COMPANY + PHONE
-                =========================================== */}
-
-                <div className="row g-3 mb-3">
 
 
                   {/* COMPANY */}
@@ -561,7 +554,7 @@ function ContactForm() {
                         className="form-label"
                       >
 
-                        Company Name
+                        Company
 
                       </label>
 
@@ -584,6 +577,57 @@ function ContactForm() {
                   </div>
 
 
+                </div>
+
+
+                {/* ===========================================
+                    WORK EMAIL + PHONE
+                =========================================== */}
+
+                <div className="row g-3 mb-3">
+
+
+                  {/* WORK EMAIL */}
+
+                  <div className="col-12 col-md-6">
+
+
+                    <div className="contact-page-form__field">
+
+
+                      <label
+                        htmlFor="contact-email"
+                        className="form-label"
+                      >
+
+                        Work email
+
+                        <span>
+                          {" "}*
+                        </span>
+
+                      </label>
+
+
+                      <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        className="form-control"
+                        placeholder="Enter your work email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        autoComplete="email"
+                        required
+                      />
+
+
+                    </div>
+
+
+                  </div>
+
+
                   {/* PHONE */}
 
                   <div className="col-12 col-md-6">
@@ -597,7 +641,7 @@ function ContactForm() {
                         className="form-label"
                       >
 
-                        Phone Number
+                        Phone
 
                       </label>
 
@@ -624,7 +668,7 @@ function ContactForm() {
 
 
                 {/* ===========================================
-                    SERVICE
+                    WHAT KIND OF HELP DO YOU THINK YOU NEED?
                 =========================================== */}
 
                 <div className="mb-3">
@@ -638,7 +682,7 @@ function ContactForm() {
                       className="form-label"
                     >
 
-                      Select Service
+                      What kind of help do you think you need?
 
                       <span>
                         {" "}*
@@ -659,20 +703,20 @@ function ContactForm() {
 
                       <option value="">
 
-                        Select Service
+                        Select an option
 
                       </option>
 
 
-                      {services.map(
-                        (service) => (
+                      {helpOptions.map(
+                        (option) => (
 
                           <option
-                            key={service}
-                            value={service}
+                            key={option}
+                            value={option}
                           >
 
-                            {service}
+                            {option}
 
                           </option>
 
@@ -690,7 +734,52 @@ function ContactForm() {
 
 
                 {/* ===========================================
-                    MESSAGE
+                    PROJECT TIMING
+                =========================================== */}
+
+                <div className="mb-3">
+
+                  <div className="contact-page-form__field">
+
+                    <label
+                      htmlFor="contact-timing"
+                      className="form-label"
+                    >
+                      Project timing
+                    </label>
+
+                    <select
+                      id="contact-timing"
+                      name="timing"
+                      className="form-select"
+                      value={formData.timing}
+                      onChange={handleChange}
+                    >
+
+                      <option value="">
+                        Select project timing
+                      </option>
+
+                      {timingOptions.map(
+                        (timing) => (
+                          <option
+                            key={timing}
+                            value={timing}
+                          >
+                            {timing}
+                          </option>
+                        )
+                      )}
+
+                    </select>
+
+                  </div>
+
+                </div>
+
+
+                {/* ===========================================
+                    WHAT ARE YOU LOOKING TO CHANGE?
                 =========================================== */}
 
                 <div className="mb-3">
@@ -704,8 +793,7 @@ function ContactForm() {
                       className="form-label"
                     >
 
-                      Tell us about your project
-                      or requirement
+                      What are you looking to change?
 
                       <span>
                         {" "}*
@@ -718,8 +806,8 @@ function ContactForm() {
                       id="contact-message"
                       name="message"
                       className="form-control"
-                      placeholder="Tell us about your project or requirement"
-                      rows="6"
+                      placeholder="Tell us what you are looking to change or achieve..."
+                      rows="5"
                       value={formData.message}
                       onChange={handleChange}
                       required
@@ -816,7 +904,7 @@ function ContactForm() {
 
 
                     {/* =======================================
-                        SEND MESSAGE
+                        START THE CONVERSATION
                     ======================================= */}
 
                     <button
@@ -832,7 +920,7 @@ function ContactForm() {
                       )}
 
                       <span>
-                        {isSending ? "SENDING..." : "SEND MESSAGE"}
+                        {isSending ? "Starting..." : "Start the Conversation"}
                       </span>
                     </button>
 

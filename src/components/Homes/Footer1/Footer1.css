@@ -424,7 +424,9 @@
 }
 
 
-.site-footer__legal span {
+.site-footer__legal span,
+.site-footer__legal a,
+.site-footer__legal-link {
   color: #bfbfbf;
 
   font-size: 0.8rem;
@@ -432,6 +434,12 @@
   line-height: 1.5;
 
   white-space: nowrap;
+}
+
+.site-footer__legal a:hover,
+.site-footer__legal-link:hover {
+  color: #fdb913;
+  text-decoration: underline;
 }
 
 

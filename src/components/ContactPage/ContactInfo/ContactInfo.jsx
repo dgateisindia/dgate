@@ -81,27 +81,11 @@ const offices = [
   },
 
   {
-    id: "usa",
-    country: "USA",
-    city: "United States",
-    address:
-      "Serving clients across the United States",
-  },
-
-  {
     id: "uae",
     country: "UAE",
     city: "Dubai",
     address:
       "Dubai, United Arab Emirates",
-  },
-
-  {
-    id: "singapore",
-    country: "Singapore",
-    city: "Singapore",
-    address:
-      "Serving clients across Singapore and APAC",
   },
 ];
 

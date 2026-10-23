@@ -5,7 +5,7 @@
     72px
     0;
 
-  background: var(--section);
+  background: var(--white);
 }
 
 
@@ -23,23 +23,27 @@
 .about-stories__heading > span {
   color: var(--primary);
 
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
 
   letter-spacing: 1.6px;
+  text-transform: uppercase;
 }
 
 
 .about-stories__heading h2 {
   margin:
-    8px
+    10px
     0
-    10px;
+    12px;
 
   color: var(--black);
 
   font-size:
-    clamp(2rem, 3vw, 3rem);
+    clamp(2rem, 3.2vw, 3.2rem);
+
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 
@@ -51,9 +55,9 @@
 .about-stories__heading p {
   margin: 0;
 
-  color: var(--text);
+  color: #4B5563;
 
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 
   line-height: 1.7;
 }
@@ -65,7 +69,7 @@
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  gap: 18px;
+  gap: 22px;
 }
 
 
@@ -76,29 +80,41 @@
 
   flex-direction: column;
 
-  padding: 27px;
+  padding: 30px;
 
   border:
     1px solid
-    var(--border);
+    #E5E7EB;
 
   border-radius: var(--radius-md);
 
-  background: var(--white);
+  background: var(--card-light-bg, var(--white));
+
+  box-shadow:
+    0 4px 20px
+    rgba(0, 0, 0, 0.04),
+    var(--card-inner-shading);
 
   transition:
+    transform var(--transition),
     border-color var(--transition),
-    box-shadow var(--transition);
+    box-shadow var(--transition),
+    background var(--transition);
 }
 
 
 .about-stories__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.4);
+  background: var(--card-light-bg-hover, var(--white));
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.06);
+    0 14px 30px
+    rgba(0, 0, 0, 0.07),
+    0 0 0 1px
+    rgba(253, 185, 19, 0.25),
+    var(--card-inner-shading-hover);
 }
 
 
@@ -129,9 +145,9 @@
 
   margin: 0;
 
-  color: var(--text);
+  color: #4B5563;
 
-  font-size: 0.82rem;
+  font-size: 0.84rem;
 
   line-height: 1.72;
 }
@@ -144,7 +160,7 @@
 
   border-top:
     1px solid
-    var(--border);
+    #E5E7EB;
 }
 
 
@@ -153,7 +169,8 @@
 
   color: var(--black);
 
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 
@@ -162,9 +179,9 @@
 
   margin-top: 3px;
 
-  color: #777777;
+  color: #6B7280;
 
-  font-size: 0.7rem;
+  font-size: 0.72rem;
 }
 
 

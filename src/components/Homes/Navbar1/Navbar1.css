@@ -28,7 +28,7 @@
   width: 100%;
   max-width: 1600px;
 
-  min-height: 80px;
+  min-height: 52px;
 
   margin: 0 auto;
 
@@ -65,8 +65,8 @@
 .site-navbar__logo img {
   display: block;
 
-  width: 170px;
-  height: auto;
+  width: auto;
+  height: 32px;
 
   object-fit: contain;
 }
@@ -90,9 +90,11 @@
 ========================================================= */
 
 .site-navbar__links {
-  width: 100%;
+  width: auto;
 
   margin: 0;
+  margin-left: auto;
+  margin-right: 60px;
   padding: 0;
 
   display: flex;
@@ -103,12 +105,7 @@
 
   flex-wrap: nowrap;
 
-  gap:
-    clamp(
-      20px,
-      1.65vw,
-      30px
-    );
+  gap: 8px;
 
   list-style: none;
 }
@@ -131,11 +128,12 @@
 .site-navbar__link {
   position: relative;
 
-  min-height: 48px;
+  min-height: 52px;
+  height: 52px;
 
   padding:
     0
-    2px;
+    4px;
 
   display: inline-flex;
 
@@ -541,11 +539,12 @@
 ========================================================= */
 
 .site-navbar__contact {
-  min-height: 48px;
+  min-height: 32px;
+  height: 32px;
 
   padding:
     0
-    22px;
+    14px;
 
   display: inline-flex;
 
@@ -558,7 +557,7 @@
     var(--primary, #fdb913);
 
   border-radius:
-    var(--radius-sm, 8px);
+    6px;
 
   background:
     var(--primary, #fdb913);
@@ -566,11 +565,13 @@
   color:
     var(--black, #101010);
 
-  font-size: 14px;
+  font-size: 11px;
 
-  font-weight: 700;
+  font-weight: 800;
 
   line-height: 1;
+
+  letter-spacing: 0.3px;
 
   text-decoration: none;
 
@@ -716,7 +717,7 @@
 @media (min-width: 1500px) {
 
   .site-navbar__container {
-    min-height: 84px;
+    min-height: 52px;
 
     padding:
       0
@@ -727,28 +728,33 @@
 
 
   .site-navbar__logo img {
-    width: 180px;
+    width: auto;
+    height: 32px;
   }
 
 
   .site-navbar__links {
-    gap: 34px;
+    gap: 8px;
+    margin-right: 60px;
   }
 
 
   .site-navbar__link {
-    font-size: 16px;
+    font-size: 14px;
+    padding: 0 4px;
   }
 
 
   .site-navbar__contact {
-    min-height: 50px;
+    min-height: 32px;
+    height: 32px;
 
     padding:
       0
-      24px;
+      14px;
 
-    font-size: 14.5px;
+    font-size: 11px;
+    font-weight: 800;
   }
 
 
@@ -775,7 +781,7 @@
 ) {
 
   .site-navbar__container {
-    min-height: 78px;
+    min-height: 52px;
 
     padding:
       0
@@ -786,40 +792,34 @@
 
 
   .site-navbar__logo img {
-    width: 155px;
+    width: auto;
+    height: 32px;
   }
 
 
   .site-navbar__links {
-    gap:
-      clamp(
-        16px,
-        1.35vw,
-        22px
-      );
+    gap: 8px;
+    margin-right: 60px;
   }
 
 
   .site-navbar__link {
-    font-size:
-      clamp(
-        13px,
-        0.92vw,
-        14.5px
-      );
-
+    font-size: 14px;
+    padding: 0 4px;
     letter-spacing: 0.1px;
   }
 
 
   .site-navbar__contact {
-    min-height: 46px;
+    min-height: 32px;
+    height: 32px;
 
     padding:
       0
-      18px;
+      14px;
 
-    font-size: 13px;
+    font-size: 11px;
+    font-weight: 800;
   }
 
 }
@@ -834,16 +834,16 @@
   .site-navbar__container {
     position: relative;
 
-    min-height: 72px;
+    min-height: 10px;
 
     padding:
       0
-      24px;
+      20px;
 
     justify-content:
       space-between;
 
-    gap: 24px;
+    gap: 20px;
   }
 
 
@@ -908,6 +908,10 @@
 
   .site-navbar__links {
     width: 100%;
+
+    margin: 0;
+    margin-right: 0;
+    margin-left: 0;
 
     padding:
       12px

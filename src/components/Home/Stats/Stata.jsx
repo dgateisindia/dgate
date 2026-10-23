@@ -5,11 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-  FaUsers,
+  FaBriefcase,
   FaGlobe,
   FaAward,
-  FaBuilding,
-  FaBriefcase,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,33 +18,19 @@ const statsData = [
     icon: FaBriefcase,
     value: 20,
     suffix: "+",
-    title: "Years Team Experience",
-  },
-  {
-    id: "experts",
-    icon: FaUsers,
-    value: 2500,
-    suffix: "+",
-    title: "Engineering Experts",
+    title: "Years Of Team Experience",
   },
   {
     id: "clients",
-    icon: FaBuilding,
-    value: 500,
+    icon: FaGlobe,
+    value: 50,
     suffix: "+",
     title: "Global Clients",
   },
   {
-    id: "countries",
-    icon: FaGlobe,
-    value: 25,
-    suffix: "+",
-    title: "Countries Served",
-  },
-  {
     id: "retention",
     icon: FaAward,
-    value: 98,
+    value: 80,
     suffix: "%",
     title: "Client Retention",
   },

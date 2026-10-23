@@ -165,7 +165,9 @@
 
   letter-spacing: 0.02em;
 
-  text-transform: uppercase;
+  text-transform: none;
+
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -201,6 +203,8 @@
 
     color: var(--primary);
 
+    text-decoration: none;
+
     box-shadow:
       0 10px 22px
       rgba(0, 0, 0, 0.12);
@@ -208,6 +212,7 @@
 
 
   .careers-cta__button:hover {
+    text-decoration: none;
     border-color: var(--black);
 
     background: var(--black);

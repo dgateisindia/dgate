@@ -158,13 +158,13 @@ function InsightsHero() {
             id="insights-page-hero-title"
             className="insights-page-hero__title"
           >
-            Insights that{" "}
+            Ideas worth {" "}
 
             <span>
-              Inspire
+              carrying
             </span>{" "}
 
-            Innovation
+           into the next conversation.
           </h1>
 
 
@@ -175,9 +175,7 @@ function InsightsHero() {
 
 
           <p className="insights-page-hero__description">
-            Stay updated with the latest trends,
-            insights and expert perspectives from
-            the world of engineering and technology.
+            Our perspective on brands, creativity, digital experience, marketing performance and the shifts changing how businesses grow.
           </p>
 
 
@@ -187,7 +185,7 @@ function InsightsHero() {
             onClick={handleExploreInsights}
           >
             <span>
-              Explore Insights
+              Explore Our Thinking
             </span>
 
             <FaArrowRight aria-hidden="true" />

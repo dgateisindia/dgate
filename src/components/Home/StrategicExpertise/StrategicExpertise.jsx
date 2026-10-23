@@ -14,50 +14,39 @@ const expertise = [
   {
     id: "strategy",
     Icon: FaLightbulb,
-    title: "Strategic Expertise",
+    title: "Visibility → Relevance",
     description:
       "Every solution begins with clear business objectives, research and a focused digital strategy.",
   },
-
   {
     id: "technology",
     Icon: FaRocket,
-    title: "Future-Ready Technology",
+    title: "Traffic → Demand",
     description:
       "Modern digital platforms built for performance, scalability and changing business needs.",
   },
-
   {
     id: "performance",
     Icon: FaChartLine,
-    title: "Performance-Driven Growth",
+    title: "Websites → Experiences",
     description:
       "Marketing and optimisation focused on measurable outcomes, leads and business growth.",
   },
-
   {
     id: "creative",
     Icon: FaPalette,
-    title: "Creative Solutions",
+    title: "Campaigns → Growth",
     description:
       "Strong branding and user experiences designed to make businesses stand out.",
   },
-
   {
     id: "data",
     Icon: FaDatabase,
-    title: "Data-Driven Decisions",
+    title: "Technology → Advantage",
     description:
       "Analytics and performance insights that help improve campaigns and customer journeys.",
   },
 
-  {
-    id: "partnership",
-    Icon: FaHandshake,
-    title: "Long-Term Partnership",
-    description:
-      "A collaborative approach focused on consistent value beyond individual projects.",
-  },
 ];
 
 
@@ -72,18 +61,24 @@ function StrategicExpertise() {
         <div className="home-expertise__heading">
 
           <span>
-            WHY DGATE
+            Your Business Has Evolved.
           </span>
 
           <h2 id="home-expertise-title">
-            Expertise Built Around
-            <strong> Business Growth</strong>
+            Has Your Brand Kept Up?
+            <strong></strong>
           </h2>
 
           <p>
-            Strategy, creativity, technology and performance
-            working together as one integrated digital
-            ecosystem.
+            Markets shift. Customer expectations rise. Technology changes the way people discover, evaluate and choose businesses.
+What worked yesterday may not create the same advantage tomorrow.
+A brand cannot exist separately from the experience it creates.
+A digital experience cannot exist separately from the business behind it.
+And growth cannot be separated from either.
+<br></br>
+<strong>D-GATE connects the pieces.</strong>
+<h3>We help businesses move from:</h3>
+
           </p>
 
         </div>
@@ -92,7 +87,6 @@ function StrategicExpertise() {
         <div className="home-expertise__grid">
 
           {expertise.map((item) => {
-
             const Icon = item.Icon;
 
             return (
@@ -116,7 +110,6 @@ function StrategicExpertise() {
                 </p>
               </article>
             );
-
           })}
 
         </div>
@@ -125,6 +118,5 @@ function StrategicExpertise() {
     </section>
   );
 }
-
 
 export default StrategicExpertise;

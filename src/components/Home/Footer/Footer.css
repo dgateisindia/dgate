@@ -139,6 +139,46 @@
 
 
 /* =========================================================
+   PRESENCE (BENGALURU • INDIA • UAE)
+========================================================= */
+
+.site-footer__presence {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 189, 0, 0.08);
+  border: 1px solid rgba(255, 189, 0, 0.22);
+}
+
+.site-footer__presence-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--footer-primary);
+  box-shadow: 0 0 8px rgba(255, 189, 0, 0.6);
+}
+
+.site-footer__presence-text {
+  color: var(--footer-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.site-footer__presence-badge {
+  display: block;
+  color: var(--footer-primary);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+
+/* =========================================================
    GST / CIN
 ========================================================= */
 
@@ -484,12 +524,20 @@
 }
 
 
-.site-footer__legal span {
+.site-footer__legal span,
+.site-footer__legal a,
+.site-footer__legal-link {
   color: var(--footer-muted);
 
   font-size: 0.8rem;
 
   white-space: nowrap;
+}
+
+.site-footer__legal a:hover,
+.site-footer__legal-link:hover {
+  color: var(--primary, #fdb913);
+  text-decoration: underline;
 }
 
 

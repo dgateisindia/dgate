@@ -8,27 +8,27 @@ import {
 
 const testimonials = [
   {
-    id: "testimonial-1",
+    id: "amit-verma",
     quote:
-      "From branding to leads, every detail of DGATE was strategic and performance-driven.",
+      "D-GATE brought strategy and creativity together seamlessly. From branding to lead generation, every part of the engagement was focused, consistent and results-driven.",
     name: "Amit Verma",
-   
+    role: "Founder, GrowthX Solutions",
   },
 
   {
-    id: "testimonial-2",
+    id: "neha-sharma",
     quote:
-      "Our website conversions and ad performance improved within weeks. DGATE feels more like a growth partner than an agency.",
+      "Our website performance and conversion journey improved significantly. D-GATE worked more like a growth partner than a traditional agency.",
     name: "Neha Sharma",
-   
+    role: "Marketing Head, UrbanCart",
   },
 
   {
-    id: "testimonial-3",
+    id: "rahul-mehta",
     quote:
-      "From brand identity to digital campaigns, DGATE delivered clarity, consistency and measurable business growth.",
+      "From brand identity to digital campaigns, D-GATE delivered clarity, consistency and a stronger foundation for measurable growth.",
     name: "Rahul Mehta",
-    
+    role: "Co-Founder, ScaleHive",
   },
 ];
 
@@ -53,8 +53,7 @@ function Testimonials() {
           </h2>
 
           <p>
-            Partnerships built around strategy,
-            transparency and measurable results.
+            We build long-term partnerships through clear strategy, strong execution and measurable outcomes.
           </p>
 
         </div>

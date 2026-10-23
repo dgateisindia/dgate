@@ -54,21 +54,6 @@ function CareersCTA() {
   }, []);
 
 
-  const scrollToPositions = () => {
-    const section =
-      document.getElementById(
-        "open-positions"
-      );
-
-    if (!section) return;
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-
   return (
     <section
       className="careers-cta"
@@ -114,17 +99,18 @@ function CareersCTA() {
               BUTTON
           ========================================== */}
 
-          <button
-            type="button"
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=hr@dgateis.com&su=Job%20Application%20-%20Resume"
+            target="_blank"
+            rel="noopener noreferrer"
             className="careers-cta__button"
-            onClick={scrollToPositions}
           >
             <span>
-              Browse Open Positions
+              Apply Now
             </span>
 
             <FaArrowRight aria-hidden="true" />
-          </button>
+          </a>
 
         </div>
 

@@ -46,19 +46,19 @@ const PageLoader = () => {
 
 
       /* =====================================
-         LOGO APPEARS
+         LOGO APPEARS (0.35s)
       ===================================== */
 
       tl.to(logoRef.current, {
         scale: 1,
         opacity: 1,
-        duration: 0.7,
+        duration: 0.35,
         ease: "power3.out",
       });
 
 
       /* =====================================
-         D-GATE LETTERS
+         D-GATE LETTERS (0.45s)
       ===================================== */
 
       tl.to(
@@ -66,45 +66,45 @@ const PageLoader = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.08,
+          duration: 0.35,
+          stagger: 0.04,
           ease: "power4.out",
         },
-        "-=0.2"
+        "-=0.1"
       );
 
 
       /* =====================================
-         LINE
+         LINE (0.35s)
       ===================================== */
 
       tl.to(
         lineRef.current,
         {
           scaleX: 1,
-          duration: 0.8,
+          duration: 0.35,
           ease: "power3.inOut",
         },
-        "-=0.3"
+        "-=0.15"
       );
 
 
       /* =====================================
-         SMALL DELAY
+         SMALL DELAY (0.15s)
       ===================================== */
 
       tl.to({}, {
-        duration: 0.35,
+        duration: 0.15,
       });
 
 
       /* =====================================
-         EXIT ANIMATION
+         EXIT ANIMATION (0.50s)
       ===================================== */
 
       tl.to(loader, {
         yPercent: -100,
-        duration: 1.1,
+        duration: 0.5,
         ease: "power4.inOut",
       });
 

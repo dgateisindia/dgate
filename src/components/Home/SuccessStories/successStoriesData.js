@@ -89,207 +89,6 @@ import hiyathShowcase from "../../../assets/images/home/success-stories/hiyath/s
 export const successStories = [
 
   /* =========================================================
-     KANAJA FOODS
-  ========================================================= */
-
-  {
-    id: "kanaja-foods",
-
-    slug: "kanaja-foods",
-
-    brand: "Kanaja Foods",
-
-    year: "2022",
-
-    cardTitle:
-      "Next-Gen Brand Identity System",
-
-    categories: [
-      "UI/UX Design",
-      "Brand Strategy",
-    ],
-
-
-    /* HOME PAGE CARD */
-
-    image: kanaja,
-
-
-    /* DETAILS PAGE IMAGES */
-
-    images: {
-      logo:
-        kanajaLogo,
-
-      hero:
-        kanajaHero,
-
-      brandAssets:
-        kanajaBrandAssets,
-
-      galleryOne:
-        kanajaGalleryOne,
-
-      galleryTwo:
-        kanajaGalleryTwo,
-
-      largeShowcase:
-        kanajaShowcase,
-    },
-
-
-    theme: {
-      background:
-        "#eeebb8",
-
-      accent:
-        "#2f8d49",
-    },
-
-
-    heroTitle:
-      "Crafting Brand-Led Food Experiences.",
-
-
-    heroDescription:
-      "At DGATE Integrated Services, we don't just design visuals — we build brand experiences that customers can recognize, trust and remember. For Kanaja Foods, we delivered a cohesive branding system, product design and UI/UX experience that blends authenticity, clarity and modern usability.",
-
-
-    projectInfo: {
-      category:
-        "Branding, Product Design & UI/UX",
-
-      client:
-        "Kanaja Foods",
-
-      industry:
-        "Food & FMCG",
-
-      launchDate:
-        "15 June, 2022",
-    },
-
-
-    stage: {
-      paragraphs: [
-        "Kanaja Foods approached DGATE Integrated Services with a vision to build a strong, trustworthy food brand that reflects quality, purity and modern Indian sensibilities. The objective was to create a consistent brand identity across packaging and digital platforms while ensuring an intuitive and engaging user experience.",
-
-        "Branding in the food industry goes beyond visuals — it builds trust at first glance. Logo systems, colour psychology, packaging design, typography and digital interfaces all need to communicate freshness, authenticity and reliability.",
-      ],
-
-      challenge:
-        "Kanaja Foods lacked a unified brand identity across packaging and digital platforms, making it difficult to stand out in a competitive FMCG market. Our challenge was to create a distinctive and trustworthy visual language while maintaining a smooth digital customer experience.",
-    },
-
-
-    approach: [
-      {
-        title:
-          "Research & Strategy",
-
-        description:
-          "We conducted brand discovery sessions to understand Kanaja Foods' values, product positioning, target audience and competitive landscape.",
-      },
-
-      {
-        title:
-          "Design & Development",
-
-        description:
-          "Our team designed packaging layouts, digital wireframes and UI mockups to ensure consistency across physical and digital touchpoints.",
-      },
-
-      {
-        title:
-          "Branding Elements",
-
-        description:
-          "We developed a cohesive logo system, natural colour palette, clear typography and visual guidelines reinforcing trust, freshness and quality.",
-      },
-
-      {
-        title:
-          "User Experience Considerations",
-
-        description:
-          "Responsive layouts, readability and intuitive navigation were prioritized so users could discover products and understand the brand effortlessly.",
-      },
-    ],
-
-
-    outcome: {
-      description:
-        "The completed system gave Kanaja Foods a stronger and more recognizable identity across packaging and digital touchpoints. The result is a scalable foundation supporting consistency, brand recall and future growth.",
-
-      metrics: [
-        {
-          value:
-            "360°",
-
-          label:
-            "consistent brand experience",
-        },
-
-        {
-          value:
-            "Unified",
-
-          label:
-            "physical & digital identity",
-        },
-      ],
-    },
-
-
-    faqTitle:
-      "How DGATE Built Kanaja Foods' Brand Identity System",
-
-
-    faqs: [
-      {
-        question:
-          "Why did Kanaja Foods choose DGATE Integrated Services?",
-
-        answer:
-          "Kanaja Foods needed a partner capable of combining brand strategy, product presentation, packaging and digital experiences into one consistent identity system.",
-      },
-
-      {
-        question:
-          "What branding work did DGATE create?",
-
-        answer:
-          "DGATE worked on visual identity, brand positioning, packaging direction, typography, colour systems and digital brand presentation.",
-      },
-
-      {
-        question:
-          "How did UI/UX improve the Kanaja Foods experience?",
-
-        answer:
-          "The interface was structured around clearer hierarchy, improved readability, responsive behaviour and easier product discovery.",
-      },
-
-      {
-        question:
-          "Was the branding created for future expansion?",
-
-        answer:
-          "Yes. The system was built to remain consistent as Kanaja Foods expands its product catalogue and digital presence.",
-      },
-
-      {
-        question:
-          "Can DGATE create similar FMCG brand systems?",
-
-        answer:
-          "Yes. DGATE can develop complete branding, packaging, digital experiences and marketing systems for food, retail and FMCG brands.",
-      },
-    ],
-  },
-
-
-  /* =========================================================
      HEXAD
   ========================================================= */
 
@@ -345,11 +144,11 @@ export const successStories = [
 
 
     heroTitle:
-      "Engineering High-Performance Digital Experiences.",
+      "Making the digital experience faster, clearer and more credible.",
 
 
     heroDescription:
-      "At DGATE Integrated Services, we don't just build websites — we engineer high-performance digital platforms that load faster, rank higher and convert better. For Hexad, we delivered a speed-optimized website, refined brand presentation and an SEO-ready architecture.",
+      "We refined the brand expression and improved the performance architecture to create a sharper online presence built for trust and usability.",
 
 
     projectInfo: {
@@ -380,45 +179,45 @@ export const successStories = [
 
 
     approach: [
+
       {
         title:
-          "Performance-First Strategy",
-
+          "Website Planning",
         description:
-          "We analyzed Hexad's business goals, customers and competitors and created a strategy around Core Web Vitals, speed and conversion performance.",
+        "We reviewed Hexad’s services and website requirements to create a clearer structure and improve how information is presented.",
+
       },
 
       {
         title:
           "Design & Development",
-
         description:
-          "The website was developed using clean modular components and optimized assets to maintain fast performance across devices.",
+        "We designed and developed a responsive website with clean layouts and optimized assets for consistent performance across devices.",
+
+
       },
 
       {
         title:
-          "Logo Branding & Visual Identity",
+          "Brand Refinement",
+         description:
+         "We improved the website’s overall visual consistency through typography, colour usage and brand presentation.",
 
-        description:
-          "Hexad's visual presentation, colour system and typography were refined for greater consistency and professional credibility.",
       },
 
       {
         title:
-          "On-Page SEO Optimization",
-
+          "SEO Foundation",
         description:
-          "Semantic HTML, metadata, internal linking and keyword-focused content architecture created a stronger search foundation.",
-      },
+        "We worked on page structure, metadata, internal linking and content organization to create a stronger foundation for search visibility.",
 
+      },
       {
-        title:
-          "User Experience Considerations",
-
+      title:
+          "User Experience ",
         description:
-          "Responsive layouts, clear CTAs and intuitive navigation helped visitors understand Hexad's services and move naturally toward enquiry.",
-      },
+        "We simplified navigation and service presentation, making it easier for visitors to understand Hexad’s offerings and reach the relevant enquiry points.",
+      }
     ],
 
 
@@ -434,7 +233,6 @@ export const successStories = [
           label:
             "increase in website performance score",
         },
-
         {
           value:
             "30%",
@@ -559,11 +357,11 @@ export const successStories = [
 
 
     heroTitle:
-      "Engineering Trust-Driven Healthcare Growth Experiences.",
+      "Building trust into a high-consideration healthcare journey.",
 
 
     heroDescription:
-      "At DGATE Integrated Services, we don't just build healthcare websites — we create trust-driven, performance-led digital ecosystems that attract global patients, build medical credibility and convert interest into consultations.",
+      "For a healthcare and medical-tourism platform, credibility is not a design layer — it is the experience.We shaped the brand and digital journey around clarity, reassurance and discoverability.",
 
 
     projectInfo: {
@@ -594,45 +392,44 @@ export const successStories = [
 
 
     approach: [
+
       {
         title:
-          "Healthcare Branding & Positioning",
-
+          "Brand & Communication Direction",
         description:
-          "We created messaging and visual direction designed around trust, expertise, compassion and international medical standards.",
+         "We worked on presenting Uniheal with a clear and professional visual and communication style suited to the healthcare space.",
       },
 
       {
         title:
-          "Design & High-Performance Web Development",
-
+          "Website Design & Development",
         description:
-          "The website was designed using a performance-first architecture with fast loading, responsive behaviour and intuitive navigation.",
+          "We designed and developed the website with responsive layouts, clear content structure and easy access to important treatment and service information.",
+
       },
 
       {
         title:
-          "SEO-Optimized Architecture",
-
+          "SEO Foundation",
         description:
-          "Technical SEO, semantic HTML, Core Web Vitals and healthcare keyword architecture created a strong organic search foundation.",
+        "We worked on page structure, metadata, internal linking and content organization to support better search visibility.",
+
       },
 
       {
         title:
-          "Growth Marketing Strategy",
-
+          "Content & Growth Support",
         description:
-          "Organic SEO expansion, content strategy and conversion optimization were used to strengthen qualified enquiry generation.",
+        "We structured content around relevant services and search intent to help improve discoverability and support enquiry generation.",
       },
 
-      {
+            {
         title:
-          "User Experience Considerations",
-
+          "User Experience",
         description:
-          "Accessibility, multilingual readiness, trust signals and clear CTAs helped international patients navigate treatment information confidently.",
+        "We simplified navigation, calls to action and information flow so visitors could understand Uniheal’s services more easily and move toward enquiry with confidence.",
       },
+      
     ],
 
 
@@ -773,11 +570,11 @@ export const successStories = [
 
 
     heroTitle:
-      "Building a Scalable Luxury eCommerce Marketplace.",
+      "From product catalogue to scalable commerce experience.",
 
 
     heroDescription:
-      "At DGATE Integrated Services, we don't just launch online stores — we build revenue-driven eCommerce ecosystems designed to scale, perform and convert at every stage of the customer journey. For Hiyath, we delivered end-to-end branding, UX design, Shopify development and performance marketing.",
+      "Hiyath Chronicles needed more than an online store. The opportunity was to create a stronger brand-and-commerce ecosystem capable of handling a broad product universe while supporting acquisition and growth.",
 
 
     projectInfo: {
@@ -808,45 +605,43 @@ export const successStories = [
 
 
     approach: [
+
       {
         title:
-          "Brand-Led eCommerce Strategy",
-
+          "E-Commerce Planning",
         description:
-          "We positioned Hiyath within the competitive watch market through premium yet approachable visual and communication direction.",
+        "We worked on structuring Hiyath’s online store around its product categories, brands and customer browsing needs.",
       },
 
       {
         title:
-          "Design & Shopify Development",
-
+          "Shopify Development",
         description:
-          "We designed and developed a high-performance Shopify store capable of handling a large catalogue, optimized assets and scalable product architecture.",
-      },
+        "We designed and developed the Shopify store with a focus on responsive performance, product organisation and ease of management."
+          },
 
       {
         title:
-          "Branding & Visual Identity",
-
+          "Visual Consistency",
         description:
-          "DGATE created a refined visual identity system including typography, colour palette, logo usage and product presentation guidelines.",
-      },
+        "We refined the overall look and feel of the platform to keep product presentation, typography and brand communication consistent.",
+    },
 
-      {
+    {
         title:
-          "Conversion-Focused UX",
-
+          "Shopping Experience",
         description:
-          "Product discovery, comparison and purchase journeys were optimized with intuitive navigation, clear CTAs and mobile-first design.",
-      },
+          "We improved navigation, product discovery and the purchase journey to make the store easier to browse across desktop and mobile.",
 
-      {
+            },
+    {
         title:
-          "Performance Marketing & Growth",
-
+          "Marketing Support",
         description:
-          "Performance campaigns, funnel optimization and retargeting strategies were implemented to strengthen sustainable revenue growth.",
-      },
+          "We supported the platform with performance marketing activities focused on driving traffic, retargeting users and improving campaign effectiveness.",
+
+            },
+
     ],
 
 

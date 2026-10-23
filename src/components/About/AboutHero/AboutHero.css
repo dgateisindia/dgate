@@ -1,23 +1,37 @@
 /* =========================================================
    ABOUT PAGE HERO
+   Indentation, structure, and responsive layout matching Home Hero
 ========================================================= */
 
 .about-page-hero {
   position: relative;
 
   width: 100%;
+  height: calc(100svh - 90px);
 
   min-height: 650px;
-
-  display: flex;
-
-  align-items: center;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  max-height: 900px;
 
   overflow: hidden;
+
+  background: #fdb913;
+}
+
+
+/* Background Image */
+
+.about-page-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 
@@ -28,6 +42,8 @@
 
   position: absolute;
   inset: 0;
+
+  z-index: 1;
 
   background:
     linear-gradient(
@@ -42,25 +58,22 @@
 }
 
 
-/* CONTAINER */
-
-.about-page-hero__container {
-  position: relative;
-
-  z-index: 2;
-
-  width: 100%;
-
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-
-/* CONTENT */
+/* CONTENT — EXACT INDENTATION MATCHING HOME HERO (left: 3.5%) */
 
 .about-page-hero__content {
-  width: 100%;
-  max-width: 520px;
+  position: absolute;
+
+  top: 50%;
+  left: 3.5% !important;
+
+  transform: translateY(-50%);
+
+  width: min(650px, 45%) !important;
+  max-width: 650px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  z-index: 3;
 
   color: var(--white);
 }
@@ -80,38 +93,37 @@
   font-size: 0.9rem;
 }
 
-
 .about-page-hero__breadcrumb a {
   color: var(--white);
 }
 
-
 .about-page-hero__breadcrumb a:hover {
   color: var(--primary);
 }
-
 
 .about-page-hero__breadcrumb span {
   color: #dddddd;
 }
 
 
-/* TITLE */
+/* TITLE — EXACT SAME 64px FONT AS HOME HERO */
 
+.about-page-hero__title,
 .about-page-hero__content h1 {
-  margin: 0;
+  margin: 0 0 20px !important;
+  padding: 0 !important;
 
   color: var(--white);
 
-  font-size:
-    clamp(3rem, 5vw, 4rem);
+  font-family: var(--font-heading, "Outfit", sans-serif) !important;
+  font-size: 64px !important;
+  font-weight: 800 !important;
 
-  font-weight: 800;
-
-  line-height: 1.05;
+  line-height: 1.1 !important;
+  letter-spacing: -1.2px !important;
 }
 
-
+.about-page-hero__title span,
 .about-page-hero__content h1 span {
   color: var(--primary);
 }
@@ -134,30 +146,33 @@
 /* SUB HEADING */
 
 .about-page-hero__content h2 {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 
   color: var(--white);
 
   font-size: 1.8rem;
   font-weight: 700;
 
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 
-/* DESCRIPTION */
+/* DESCRIPTION — EXACT SAME FONT AND SPACING AS HOME HERO */
 
+.about-page-hero__description,
 .about-page-hero__content p {
-  max-width: 500px;
+  max-width: 620px !important;
 
-  margin: 0 0 32px;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
 
-  color:
-    rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.92);
 
-  font-size: 1rem;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
 
-  line-height: 1.75;
+  line-height: 1.7 !important;
 }
 
 
@@ -171,7 +186,7 @@
 
   gap: 10px;
 
-  padding: 14px 28px;
+  padding: 5px 10px;
 
   border-radius: var(--radius-sm);
 
@@ -188,7 +203,6 @@
     box-shadow var(--transition);
 }
 
-
 .about-page-hero__button:hover {
   background: var(--white);
 
@@ -199,118 +213,102 @@
 
 
 /* =========================================================
-   TABLET
+   RESPONSIVE — EXACT MATCH WITH HOME HERO
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
   .about-page-hero {
+    height: calc(100svh - 80px);
+
     min-height: 560px;
-
-    background-position: center;
-  }
-
-  .about-page-hero::before {
-    background:
-      rgba(0, 0, 0, 0.58);
-  }
-
-  .about-page-hero__container {
-    padding-top: 65px;
-    padding-bottom: 65px;
   }
 
   .about-page-hero__content {
-    max-width: 620px;
+    left: 3%;
 
-    margin: 0 auto;
-
-    text-align: center;
+    width: min(720px, 52%);
   }
 
-  .about-page-hero__breadcrumb {
-    justify-content: center;
-  }
-
-  .about-page-hero__line {
-    margin:
-      22px
-      auto;
-  }
-
+  .about-page-hero__title,
   .about-page-hero__content h1 {
-    font-size: 2.8rem;
-  }
-
-  .about-page-hero__content h2 {
-    font-size: 1.5rem;
-  }
-
-  .about-page-hero__content p {
-    margin:
-      0
-      auto
-      30px;
-
-    font-size: 0.95rem;
+    font-size: 48px;
+    margin-bottom: 20px;
   }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+@media (max-width: 768px) {
+
+  .about-page-hero {
+    height: auto;
+
+    min-height: 520px;
+  }
+
+  .about-page-hero__content {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    transform: none;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 90px 24px 60px;
+
+    text-align: left;
+  }
+
+  .about-page-hero__title,
+  .about-page-hero__content h1 {
+    font-size: 38px;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .about-page-hero__description,
+  .about-page-hero__content p {
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+}
+
 
 @media (max-width: 480px) {
 
   .about-page-hero {
-    min-height: 520px;
+    min-height: 480px;
   }
 
-  .about-page-hero__container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .about-page-hero__content {
+    padding: 80px 16px 50px;
   }
 
-  .about-page-hero__breadcrumb {
-    margin-bottom: 18px;
-
-    font-size: 0.8rem;
-  }
-
+  .about-page-hero__title,
   .about-page-hero__content h1 {
-    font-size: 2.2rem;
+    font-size: 32px;
+    margin-bottom: 14px;
+    line-height: 1.18;
   }
 
-  .about-page-hero__line {
-    width: 55px;
-
-    margin:
-      18px
-      auto;
-  }
-
-  .about-page-hero__content h2 {
-    margin-bottom: 16px;
-
-    font-size: 1.25rem;
-  }
-
+  .about-page-hero__description,
   .about-page-hero__content p {
-    font-size: 0.88rem;
-
-    line-height: 1.65;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
   }
 
   .about-page-hero__button {
-    width: 100%;
-
-    max-width: 250px;
-
-    padding: 13px 20px;
-
-    font-size: 0.82rem;
+    width: auto;
+    padding: 13px 24px;
+    font-size: 0.85rem;
   }
 
 }

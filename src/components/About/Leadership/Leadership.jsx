@@ -8,11 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   FaLinkedinIn,
-  FaMapMarkerAlt,
   FaUserTie,
 } from "react-icons/fa";
-
-import worldMap from "../../../assets/images/about/world-map.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,39 +37,6 @@ const leaders = [
     name: "Leader Name",
     role: "Chief Operations Officer",
     linkedin: null,
-  },
-];
-
-const locations = [
-  {
-    id: "north-america",
-    label: "North America",
-    className: "about-leadership__pin--north-america",
-  },
-  {
-    id: "south-america",
-    label: "South America",
-    className: "about-leadership__pin--south-america",
-  },
-  {
-    id: "europe",
-    label: "Europe",
-    className: "about-leadership__pin--europe",
-  },
-  {
-    id: "middle-east",
-    label: "Middle East",
-    className: "about-leadership__pin--middle-east",
-  },
-  {
-    id: "india",
-    label: "India",
-    className: "about-leadership__pin--india",
-  },
-  {
-    id: "asia-pacific",
-    label: "Asia Pacific",
-    className: "about-leadership__pin--asia",
   },
 ];
 
@@ -116,29 +80,6 @@ function Leadership() {
             ease: "power2.out",
           },
           "-=0.3"
-        )
-
-        .from(
-          ".about-leadership__map",
-          {
-            x: 35,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        )
-
-        .from(
-          ".about-leadership__pin",
-          {
-            scale: 0,
-            opacity: 0,
-            duration: 0.35,
-            stagger: 0.07,
-            ease: "back.out(1.7)",
-          },
-          "-=0.35"
         );
     }, sectionRef);
 
@@ -219,60 +160,18 @@ function Leadership() {
               to="/contact"
               className="about-leadership__button"
             >
-              MEET THE TEAM
+              Meet The Team
             </Link>
 
           </div>
 
-
-          {/* GLOBAL PRESENCE */}
-          <div className="about-leadership__section">
-
-            <div className="about-leadership__heading">
-
-              <h2>
-                Global Presence
-              </h2>
-
-              <div
-                className="about-leadership__line"
-                aria-hidden="true"
-              />
-
-              <p>
-                Delivering excellence across the globe.
-              </p>
-
-            </div>
-
-            <div className="about-leadership__map">
-
-              <img
-                src={worldMap}
-                alt="World map showing D-GATE global presence"
-                loading="lazy"
-              />
-
-              {locations.map((location) => (
-                <div
-                  key={location.id}
-                  className={`about-leadership__pin ${location.className}`}
-                  aria-label={location.label}
-                >
-                  <FaMapMarkerAlt aria-hidden="true" />
-
-                  <span>
-                    {location.label}
-                  </span>
-                </div>
-              ))}
-
-            </div>
-
-          </div>
+          {/* RIGHT SIDE EMPTY CARD */}
+          <div
+            className="about-leadership__section about-leadership__section--empty"
+            aria-label="Empty card"
+          />
 
         </div>
-
       </div>
     </section>
   );

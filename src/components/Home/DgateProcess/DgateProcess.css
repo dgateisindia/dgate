@@ -1,0 +1,559 @@
+/* =========================================================
+   THE D-GATE PROCESS — 2-COLUMN SECTION
+   Left: Content (Heading & Narrative)
+   Right: The D-GATE Process Circular Chart
+   Both start from the exact same top line
+========================================================= */
+
+.dgate-process-section {
+  --dgate-yellow: #fdb913;
+  --dgate-yellow-soft: #fff9e6;
+  --dgate-dark: #0a1128;
+  --dgate-text-primary: #0f172a;
+  --dgate-text-secondary: #64748b;
+  --dgate-card-bg: var(--card-light-bg, #ffffff);
+  --dgate-border: rgba(226, 232, 240, 0.7);
+  --dgate-orbit-gray: #cbd5e1;
+
+  position: relative;
+  width: 100%;
+  padding: 60px 0 72px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* =========================================================
+   CONTAINER & 2-COLUMN GRID (TOP-ALIGNED)
+========================================================= */
+
+.dgate-process__container {
+  width: min(calc(100% - 48px), 1280px);
+  margin: 0 auto;
+}
+
+.dgate-process__grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start; /* Aligns left content and right chart to exact same top line */
+}
+
+/* =========================================================
+   LEFT: HEADING & NARRATIVE CONTENT (STARTING AT TOP LINE)
+========================================================= */
+
+.dgate-process__heading-col {
+  max-width: 420px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.dgate-process__eyebrow {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: var(--primary, var(--dgate-yellow));
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.dgate-process__title {
+  margin: 0 0 16px;
+  color: #0b0f17;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+}
+
+.dgate-process__intro {
+  margin: 0;
+  color: #000000;
+  font-size: clamp(0.92rem, 1vw, 1.02rem);
+  line-height: 1.68;
+}
+
+/* =========================================================
+   RIGHT: THE D-GATE PROCESS CIRCULAR CHART (STARTING AT TOP LINE)
+========================================================= */
+
+.dgate-process__chart-col {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.dgate-chart-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.dgate-chart {
+  position: relative;
+  width: 680px;
+  height: 400px;
+  max-width: 100%;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* SVG Orbit Behind Cards */
+.dgate-chart__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dgate-orbit-outer {
+  fill: none;
+  stroke: var(--dgate-orbit-gray);
+  stroke-width: 1.3px;
+  stroke-dasharray: 3 4;
+}
+
+.dgate-spoke-line {
+  stroke: var(--dgate-orbit-gray);
+  stroke-width: 1.3px;
+  stroke-dasharray: 3 4;
+}
+
+/* Glowing Orbit Nodes */
+.dgate-orbit-node {
+  transition: transform 0.25s ease;
+}
+
+.dgate-node-halo {
+  fill: #ffffff;
+  stroke: #e2e8f0;
+  stroke-width: 1.4px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.05));
+}
+
+.dgate-node-dot {
+  fill: var(--dgate-yellow);
+}
+
+/* =========================================================
+   CENTER HUB: "The D-GATE Process"
+========================================================= */
+
+.dgate-center-hub {
+  position: absolute;
+  top: 200px;
+  left: 340px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 126px;
+  height: 126px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dgate-center-hub__disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffdf2 0%, #fff8e3 58%, #fdf2d0 100%);
+  border: 1px solid rgba(253, 185, 19, 0.35);
+  box-shadow: 0 8px 24px rgba(253, 185, 19, 0.12),
+              0 2px 8px rgba(0, 0, 0, 0.03),
+              inset 0 0 14px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.dgate-center-hub__disc:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(253, 185, 19, 0.2),
+              0 4px 12px rgba(0, 0, 0, 0.04),
+              inset 0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+.dgate-center-hub__subtitle {
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--dgate-text-primary);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.dgate-center-hub__brand {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--dgate-dark);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.dgate-center-hub__process {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--dgate-dark);
+  line-height: 1.12;
+  margin-top: 1px;
+}
+
+.dgate-center-hub__accent-bar {
+  display: block;
+  width: 22px;
+  height: 2.2px;
+  background-color: var(--dgate-yellow);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   COMPACT BOXES (ALL BOX SIZES EQUAL, HEADING & ICON LEVEL ALIGNED)
+========================================================= */
+
+.dgate-card {
+  position: absolute;
+  width: 190px;
+  height: 108px;
+  box-sizing: border-box;
+  background: var(--dgate-card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--dgate-border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.035),
+              0 2px 5px rgba(0, 0, 0, 0.02),
+              var(--card-inner-shading);
+  padding: 8px 10px 8px 9px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background 0.25s ease;
+}
+
+.dgate-card:hover {
+  transform: translateY(-3px);
+  background: var(--card-light-bg-hover, var(--dgate-card-bg));
+  border-color: rgba(253, 185, 19, 0.5);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05),
+              0 0 0 1px rgba(253, 185, 19, 0.2),
+              var(--card-inner-shading-hover);
+}
+
+/* Icon Container — aligned on the exact same level as the heading */
+.dgate-card__icon-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--dgate-yellow-soft);
+  color: var(--dgate-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.dgate-card:hover .dgate-card__icon-wrapper {
+  transform: scale(1.08);
+  background-color: var(--dgate-yellow);
+  color: #0b0f17;
+}
+
+.dgate-card__icon-svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+/* Card Body */
+.dgate-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dgate-card__title {
+  margin: 3.5px 0 2px 0;
+  color: var(--dgate-text-primary);
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+}
+
+.dgate-card__desc {
+  margin: 0;
+  color: #0b0f17;
+  font-size: 0.705rem;
+  line-height: 1.32;
+  font-weight: 400;
+}
+
+/* =========================================================
+   ABSOLUTE POSITIONS FOR 6 CARDS (TOP CARDS AT TOP: 0)
+========================================================= */
+
+/* Left Column Cards */
+.dgate-card--discover {
+  top: 0;
+  left: 0;
+}
+
+.dgate-card--improve {
+  top: 200px;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.dgate-card--improve:hover {
+  transform: translateY(calc(-50% - 3px));
+}
+
+.dgate-card--activate {
+  bottom: 0;
+  left: 0;
+}
+
+/* Right Column Cards */
+.dgate-card--define {
+  top: 0;
+  right: 0;
+}
+
+.dgate-card--create {
+  top: 200px;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.dgate-card--create:hover {
+  transform: translateY(calc(-50% - 3px));
+}
+
+.dgate-card--build {
+  bottom: 0;
+  right: 0;
+}
+
+/* =========================================================
+   MOBILE & TABLET VIEW
+========================================================= */
+
+.dgate-process__mobile {
+  display: none;
+}
+
+/* Tablet Scaling (between 992px and 1200px) */
+@media (max-width: 1200px) and (min-width: 992px) {
+  .dgate-process__grid {
+    gap: 32px;
+    grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  }
+
+  .dgate-chart {
+    transform: scale(0.9);
+    transform-origin: top right;
+  }
+}
+
+/* Responsive breakpoint: below 992px */
+@media (max-width: 991px) {
+  .dgate-process-section {
+    padding: 48px 0 60px;
+  }
+
+  .dgate-process__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .dgate-process__heading-col {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .dgate-chart-wrapper {
+    display: none;
+  }
+
+  .dgate-process__mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .dgate-process__mobile-hub {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dgate-process__mobile-hub .dgate-center-hub__disc {
+    width: 140px;
+    height: 140px;
+  }
+
+  .dgate-process__mobile-hub .dgate-center-hub__brand {
+    font-size: 21px;
+  }
+
+  .dgate-process__mobile-hub .dgate-center-hub__process {
+    font-size: 16px;
+  }
+
+  .dgate-process__mobile-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    padding-left: 24px;
+  }
+
+  /* Connecting vertical dotted timeline line */
+  .dgate-process__mobile-list::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    border-left: 2px dotted var(--dgate-orbit-gray);
+  }
+
+  .dgate-process__mobile-card {
+    position: relative;
+    width: 100%;
+  }
+
+  .dgate-process__mobile-node {
+    position: absolute;
+    left: -24px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .dgate-process__mobile-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--dgate-yellow);
+  }
+
+  .dgate-process__mobile-card .dgate-card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .dgate-process__container {
+    width: calc(100% - 32px);
+  }
+
+  .dgate-process__heading-col {
+    text-align: left;
+  }
+
+  .dgate-process__title {
+    font-size: 2rem;
+  }
+
+  .dgate-process__mobile-list {
+    padding-left: 18px;
+  }
+
+  .dgate-process__mobile-list::before {
+    left: 4px;
+  }
+
+  .dgate-process__mobile-node {
+    left: -18px;
+    top: 16px;
+    width: 13px;
+    height: 13px;
+  }
+
+  .dgate-process__mobile-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .dgate-card {
+    padding: 10px 10px;
+    border-radius: 14px;
+    gap: 8px;
+  }
+
+  .dgate-card__icon-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dgate-card__icon-svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .dgate-card__title {
+    font-size: 0.84rem;
+  }
+
+  .dgate-card__desc {
+    font-size: 0.7rem;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .dgate-card,
+  .dgate-center-hub__disc,
+  .dgate-card__icon-wrapper {
+    transition: none !important;
+    transform: none !important;
+  }
+}

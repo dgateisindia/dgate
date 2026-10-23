@@ -162,17 +162,17 @@ function InsightsCTA() {
 
 
               <h2 id="insights-page-cta-title">
-                Discover More Engineering{" "}
+                See how we think about{" "}
 
                 <span>
-                  Insights
+                  growth &amp; market impact
                 </span>
               </h2>
 
 
               <p>
-                Explore ideas, technologies and engineering
-                trends shaping the future of innovation.
+                Explore perspectives on brand positioning, creative direction
+                and connected digital systems that shape lasting market momentum.
               </p>
 
             </div>
@@ -192,7 +192,7 @@ function InsightsCTA() {
               onClick={handleExploreTopics}
             >
               <span>
-                Explore Topics
+                See How We Think
               </span>
 
               <FaArrowRight aria-hidden="true" />
@@ -204,7 +204,7 @@ function InsightsCTA() {
               className="insights-page-cta__button insights-page-cta__button--secondary"
             >
               <span>
-                Contact Our Experts
+                Start a Conversation
               </span>
 
               <FaArrowRight aria-hidden="true" />

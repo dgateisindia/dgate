@@ -91,15 +91,15 @@ function IndustriesCTA() {
             <div className="industries-page-cta__text">
 
               <h2 id="industries-page-cta-title">
-                Let&apos;s Build Industry-Specific
-                Solutions Together
+                Bring us your toughest
+                <br />
+                industry challenge
               </h2>
 
               <p>
-                Our experts understand your industry challenges
-                and deliver innovative engineering solutions
-                that create measurable business impact through
-                digital transformation and technology excellence.
+                We clarify industry dynamics, shape distinctive positioning
+                and build connected digital systems that move ambitious
+                businesses forward.
               </p>
 
             </div>
@@ -110,9 +110,10 @@ function IndustriesCTA() {
           <Link
             to="/contact"
             className="industries-page-cta__button"
+            aria-label="Bring us the challenge"
           >
             <span>
-              TALK TO OUR EXPERTS
+              Bring Us the Challenge
             </span>
 
             <FaArrowRight aria-hidden="true" />

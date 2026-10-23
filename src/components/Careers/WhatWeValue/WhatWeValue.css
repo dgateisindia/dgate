@@ -1,0 +1,262 @@
+/* =========================================================
+   CAREERS PAGE - WHAT WE VALUE
+   D-GATE Design System: Yellow #FDB913, Black #0B0F17, White
+========================================================= */
+
+.what-we-value-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  background-image: radial-gradient(circle at 50% 0%, rgba(253, 185, 19, 0.05), transparent 70%);
+  padding-top: clamp(38px, 4vw, 52px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 56px) !important;
+  border-bottom: 1px solid rgba(11, 15, 23, 0.06);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.what-we-value__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(24px, 3vw, 36px);
+}
+
+.what-we-value__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #c89000;
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.what-we-value__eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(253, 185, 19, 0.8);
+  display: inline-block;
+  animation: pulseValueDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseValueDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
+}
+
+.what-we-value__title {
+  margin: 0 0 8px;
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.what-we-value__title span {
+  color: #fdb913;
+  position: relative;
+}
+
+.what-we-value__line {
+  width: 44px;
+  height: 3px;
+  border-radius: 10px;
+  background: var(--primary);
+  margin: 12px auto 16px;
+}
+
+.what-we-value__lead {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   GRID / CARDS CONTAINER
+========================================================= */
+
+.what-we-value__grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   CARD BOX (Deliberately avoids -card / article classes)
+========================================================= */
+
+.what-we-value__box {
+  position: relative;
+  flex: 0 1 calc(33.333% - 12px);
+  max-width: calc(33.333% - 12px);
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 20px;
+  background: var(--card-light-bg, #ffffff);
+  border: 1.5px solid rgba(11, 15, 23, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(11, 15, 23, 0.03), var(--card-inner-shading);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+
+/* Top Accent Reveal Line */
+.what-we-value__box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #FDB913 0%, #FFD54F 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card Hover */
+@media (hover: hover) {
+  .what-we-value__box:hover {
+    transform: translateY(-4px);
+    border-color: rgba(253, 185, 19, 0.45);
+    box-shadow:
+      0 14px 30px -6px rgba(11, 15, 23, 0.08),
+      0 0 20px -2px rgba(253, 185, 19, 0.15),
+      var(--card-inner-shading-hover);
+  }
+
+  .what-we-value__box:hover::before {
+    transform: scaleX(1);
+  }
+
+  .what-we-value__box:hover .what-we-value__box-title {
+    color: #0b0f17;
+  }
+}
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.what-we-value__box-header {
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.what-we-value__box-title {
+  margin: 0;
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  transition: color 0.25s ease;
+}
+
+.what-we-value__box-desc {
+  margin: 0;
+  color: #475569;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET & MOBILE
+========================================================= */
+
+@media (max-width: 1024px) {
+  .what-we-value__box {
+    flex: 0 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    padding: 18px 20px;
+  }
+
+  .what-we-value__box:last-child {
+    flex: 0 1 calc(55% - 10px);
+    max-width: calc(55% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .what-we-value-section {
+    padding-top: 36px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .what-we-value__header {
+    margin-bottom: 24px;
+  }
+
+  .what-we-value__grid {
+    gap: 14px;
+  }
+
+  .what-we-value__box,
+  .what-we-value__box:last-child {
+    flex: 0 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 18px 18px;
+  }
+
+  .what-we-value__box-title {
+    font-size: 1.15rem;
+  }
+
+  .what-we-value__box-desc {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-we-value__box {
+    padding: 16px 16px;
+    border-radius: 14px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY: REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .what-we-value__eyebrow-dot {
+    animation: none;
+  }
+
+  .what-we-value__box,
+  .what-we-value__box::before {
+    transition: none !important;
+    transform: none !important;
+  }
+}

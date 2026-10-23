@@ -55,47 +55,52 @@ function AboutExperience() {
 
 
             <h2 id="about-experience-title">
-              Two Decades of Building
+              20+ Years of Turning
               <span>
-                {" "}Business Growth
+                {" "}Ideas Into Growth
               </span>
             </h2>
 
 
             <p>
-              Our experience spans branding, technology,
-              digital marketing and performance growth,
-              helping businesses build stronger digital
-              foundations and scale with confidence.
+              Across branding, technology, digital marketing and business
+              transformation, we’ve spent over two decades helping brands build
+              stronger foundations, sharper experiences and sustainable growth.
             </p>
 
 
             <div className="about-experience__features">
 
-              <div>
-                <FaAward aria-hidden="true" />
-
-                <span>
-                  Proven Experience
-                </span>
+              <div className="about-experience__feature-item">
+                <div className="about-experience__feature-header">
+                  <FaAward aria-hidden="true" />
+                  <h4>Strategic Expertise</h4>
+                </div>
+                <p>
+                  Built on years of cross-industry experience and practical execution.
+                </p>
               </div>
 
 
-              <div>
-                <FaHandshake aria-hidden="true" />
-
-                <span>
-                  Long-Term Partnerships
-                </span>
+              <div className="about-experience__feature-item">
+                <div className="about-experience__feature-header">
+                  <FaHandshake aria-hidden="true" />
+                  <h4>Long-Term Partnerships</h4>
+                </div>
+                <p>
+                  We work beyond projects to create lasting value with our clients.
+                </p>
               </div>
 
 
-              <div>
-                <FaChartLine aria-hidden="true" />
-
-                <span>
-                  Growth Focused
-                </span>
+              <div className="about-experience__feature-item">
+                <div className="about-experience__feature-header">
+                  <FaChartLine aria-hidden="true" />
+                  <h4>Growth Focused</h4>
+                </div>
+                <p>
+                  Every solution is designed to support measurable business progress.
+                </p>
               </div>
 
             </div>

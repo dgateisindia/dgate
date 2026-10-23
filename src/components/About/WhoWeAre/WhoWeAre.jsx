@@ -111,7 +111,6 @@ function WhoWeAre() {
               innovative engineering solutions to clients across
               industries.
             </p>
-
             <p>
               Our journey is built on a foundation of trust,
               innovation, and a relentless focus on creating value

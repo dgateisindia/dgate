@@ -199,34 +199,6 @@ function SuccessStories() {
 
 
                   {/* =======================================
-                      TOP TAGS / YEAR
-                  ======================================= */}
-
-                  <div className="home-success__top">
-
-                    <div className="home-success__tags">
-
-                      {project.categories.map(
-                        (category) => (
-
-                          <span key={category}>
-                            {category}
-                          </span>
-
-                        )
-                      )}
-
-                    </div>
-
-
-                    <span className="home-success__year">
-                      {project.year}
-                    </span>
-
-                  </div>
-
-
-                  {/* =======================================
                       PROJECT TITLE
                   ======================================= */}
 

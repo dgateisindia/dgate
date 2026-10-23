@@ -1,0 +1,241 @@
+/* =========================================================
+   HOME FINAL CTA (SECTION 08)
+   WHAT SHOULD YOUR BUSINESS BECOME NEXT?
+   EXACT MATCH TO DESIGN SCREENSHOT
+========================================================= */
+
+.home-final-cta {
+  width: 100%;
+  padding: 32px 0 60px;
+  background: #ffffff;
+  position: relative;
+}
+
+/* =========================================================
+   BANNER BOX (CLEAN ROUNDED YELLOW CARD)
+========================================================= */
+
+.home-final-cta__box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 38px 48px;
+  border-radius: 22px;
+  background: #fdb913;
+  box-shadow: 0 12px 36px rgba(253, 185, 19, 0.22), 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+/* Decorative Background Concentric SVG Rings on Right */
+.home-final-cta__bg-rings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 440px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-final-cta__bg-rings svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.home-final-cta__content {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 740px;
+}
+
+.home-final-cta__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #0b0f17;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 5px 12px;
+  border-radius: 100px;
+  line-height: 1;
+}
+
+.home-final-cta__title {
+  margin: 0 0 12px;
+  color: #0b0f17;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(1.85rem, 2.7vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.6px;
+}
+
+.home-final-cta__description {
+  margin: 0 0 18px;
+  color: rgba(11, 15, 23, 0.88);
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.55;
+  max-width: 630px;
+}
+
+/* =========================================================
+   FEATURE POINTS / TAGS
+========================================================= */
+
+.home-final-cta__points {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.home-final-cta__points span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #0b0f17;
+  font-size: 0.80rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.home-final-cta__points span:hover {
+  background: rgba(0, 0, 0, 0.13);
+  transform: translateY(-2px);
+}
+
+.home-final-cta__points span svg {
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.home-final-cta__action {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+}
+
+.home-final-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 26px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 100px;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              box-shadow 0.28s ease;
+}
+
+.home-final-cta__btn-icon {
+  font-size: 0.82rem;
+  transition: transform 0.25s ease;
+}
+
+.home-final-cta__btn:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.home-final-cta__btn:hover .home-final-cta__btn-icon {
+  transform: translateX(4px);
+}
+
+.home-final-cta__btn:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 992px) {
+  .home-final-cta {
+    padding: 24px 0 44px;
+  }
+
+  .home-final-cta__box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+    padding: 32px 28px;
+  }
+
+  .home-final-cta__bg-rings {
+    width: 320px;
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-final-cta {
+    padding: 16px 0 35px;
+  }
+
+  .home-final-cta__box {
+    padding: 24px 20px;
+    border-radius: 16px;
+    gap: 20px;
+  }
+
+  .home-final-cta__title {
+    font-size: 1.55rem;
+    letter-spacing: -0.4px;
+  }
+
+  .home-final-cta__description {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .home-final-cta__points {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .home-final-cta__action {
+    width: 100%;
+  }
+
+  .home-final-cta__btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+}

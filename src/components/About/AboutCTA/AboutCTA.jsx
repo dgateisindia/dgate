@@ -90,12 +90,11 @@ function AboutCTA() {
             <div className="about-cta__content">
 
               <h2 id="about-cta-title">
-                Let's Build Something Great Together
+                Have a business challenge worth rethinking?
               </h2>
 
               <p>
-                Partner with D-GATE to accelerate your digital
-                transformation journey.
+                Let’s find the change that creates the next opportunity.
               </p>
 
             </div>
@@ -105,13 +104,13 @@ function AboutCTA() {
           <Link
             to="/contact"
             className="about-cta__button"
-            aria-label="Get in touch with D-GATE"
+            aria-label="Talk to D-GATE"
           >
-            <span>GET IN TOUCH</span>
+            <span>Talk to D-GATE</span>
 
             <FaArrowRight aria-hidden="true" />
           </Link>
-
+``
         </div>
 
       </div>

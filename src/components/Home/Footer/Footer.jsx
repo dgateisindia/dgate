@@ -21,33 +21,23 @@ import {
 
 const companyLinks = [
   {
-    label: "About Us",
+    label: "Who We Are",
     to: "/about",
   },
   {
-    label: "Services",
+    label: "What We Do",
     to: "/services",
   },
   {
-    label: "Portfolio",
+    label: "Our Work",
     to: "/portfolio",
   },
-  {
-    label: "CERTIFICATES",
-    to: "/achievements",
-  },
-  {
-    label: "Gallery",
-    to: "/gallery",
-  },
+  
   {
     label: "Careers",
     to: "/careers",
   },
-  {
-    label: "Insights",
-    to: "/insights",
-  },
+  
   {
     label: "Contact Us",
     to: "/contact",
@@ -86,22 +76,9 @@ function Footer() {
 
 
             <p className="site-footer__description">
-              D-GATE Integrated Services is a growth-focused
-              engineering solutions company helping businesses
-              innovate, transform and scale through cutting-edge
-              technologies.
-            </p>
-
-
-            <p className="site-footer__company-info">
-              <strong>GST:</strong>{" "}
-              29AAJCD5329F1ZI
-            </p>
-
-
-            <p className="site-footer__company-info">
-              <strong>CIN:</strong>{" "}
-              U74999KA2022PTC165544
+              A transformative marketing agency connecting strategy,
+              creativity, digital experience and growth to help ambitious
+              businesses move forward.
             </p>
 
           </div>
@@ -152,7 +129,7 @@ function Footer() {
             <div className="footer-heading-line"></div>
 
 
-            {/* ADDRESS */}
+            {/* ADDRESS & PRESENCE */}
 
             <div className="site-footer__contact-item">
 
@@ -161,38 +138,28 @@ function Footer() {
                 aria-hidden="true"
               />
 
-              <a
-                href="https://maps.app.goo.gl/WkxFxd7u8LUEDW756"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                218, 2nd Floor, JP Royale Complex
-                <br />
+              <div>
+                <span className="site-footer__presence-badge">
+                  India • UAE
+                </span>
 
-                13th Cross, Sampige Rd
-                <br />
+                <a
+                  href="https://maps.app.goo.gl/WkxFxd7u8LUEDW756"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  218, 2nd Floor, JP Royale Complex
+                  <br />
 
-                Malleshwaram
-                <br />
+                  13th Cross, Sampige Rd
+                  <br />
 
-                Bengaluru, Karnataka 560003
-              </a>
+                  Malleshwaram
+                  <br />
 
-            </div>
-
-
-            {/* PHONE */}
-
-            <div className="site-footer__contact-item">
-
-              <FaPhoneAlt
-                className="site-footer__contact-icon"
-                aria-hidden="true"
-              />
-
-              <a href="tel:+919538562600">
-                9538562600
-              </a>
+                  Bengaluru, Karnataka 560003
+                </a>
+              </div>
 
             </div>
 
@@ -208,6 +175,22 @@ function Footer() {
 
               <a href="mailto:info@dgateis.com">
                 info@dgateis.com
+              </a>
+
+            </div>
+
+
+            {/* PHONE */}
+
+            <div className="site-footer__contact-item">
+
+              <FaPhoneAlt
+                className="site-footer__contact-icon"
+                aria-hidden="true"
+              />
+
+              <a href="tel:+918040907113">
+                +91 80 4090 7113
               </a>
 
             </div>
@@ -291,13 +274,13 @@ function Footer() {
 
           <div className="site-footer__legal">
 
-            <span>
+            <Link to="/privacy-policy" className="site-footer__legal-link">
               Privacy Policy
-            </span>
+            </Link>
 
-            <span>
+            <Link to="/terms-of-use" className="site-footer__legal-link">
               Terms of Use
-            </span>
+            </Link>
 
             <span>
               Sitemap

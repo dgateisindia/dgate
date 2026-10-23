@@ -1,0 +1,78 @@
+/* =========================================================
+   PRODUCTS EMPTY PAGE STYLES
+========================================================= */
+
+.product-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+.product-page__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.product-page__container {
+  width: min(100% - 40px, 700px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-page__empty-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 60px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-page__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #101010;
+  background: #fdb913;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.product-page__title {
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: #101010;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.product-page__desc {
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.05rem;
+  color: #666666;
+  max-width: 480px;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.product-page__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #888888;
+  border-top: 1px dashed #e2e2e2;
+  padding-top: 20px;
+  margin-top: 10px;
+}

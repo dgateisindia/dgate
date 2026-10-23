@@ -15,7 +15,6 @@ import {
 import {
   FaCheckCircle,
   FaChevronDown,
-  FaExternalLinkAlt,
 } from "react-icons/fa";
 
 import Navbar from "../../components/Home/Navbar/Navbar";
@@ -359,96 +358,7 @@ function SuccessStoryDetails() {
           </div>
 
 
-          {/* =================================================
-              PROJECT INFO
-          ================================================= */}
-
-          <aside className="case-study__info-card">
-
-            <dl>
-
-              <div>
-
-                <dt>
-                  Category
-                </dt>
-
-                <dd>
-                  {
-                    project
-                      .projectInfo
-                      .category
-                  }
-                </dd>
-
-              </div>
-
-
-              <div>
-
-                <dt>
-                  Client Name
-                </dt>
-
-                <dd>
-                  {
-                    project
-                      .projectInfo
-                      .client
-                  }
-                </dd>
-
-              </div>
-
-
-              <div>
-
-                <dt>
-                  Industry
-                </dt>
-
-                <dd>
-                  {
-                    project
-                      .projectInfo
-                      .industry
-                  }
-                </dd>
-
-              </div>
-
-
-              <div>
-
-                <dt>
-                  Launch Date
-                </dt>
-
-                <dd>
-                  {
-                    project
-                      .projectInfo
-                      .launchDate
-                  }
-                </dd>
-
-              </div>
-
-            </dl>
-
-
-            <a
-              href="#project-story"
-              className="case-study__info-button"
-            >
-
-              VIEW THIS PROJECT
-
-              <FaExternalLinkAlt />
-
-            </a>
-
-          </aside>
+          
 
         </section>
 
@@ -633,12 +543,7 @@ function SuccessStoryDetails() {
 
                     <span>
                       Aa Bb Cc Dd Ee Ff Gg
-                    </span><img
-                      src={previousProject.image}
-                      alt={`${previousProject.brand} project`}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    </span>
 
 
                     <div className="case-study__asset-colors">

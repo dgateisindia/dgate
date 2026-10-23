@@ -80,20 +80,16 @@
     #101010;
 
   font-size:
-    clamp(
-      42px,
-      5vw,
-      68px
-    );
+    var(--fs-h2);
 
   font-weight:
     800;
 
   line-height:
-    1;
+    1.15;
 
   letter-spacing:
-    -2px;
+    -1px;
 }
 
 
@@ -108,20 +104,13 @@
 ========================================================= */
 
 .home-success__header p {
-  max-width:
-    620px;
+    max-width: 620px;
+    margin: 18px 0 0;
+    color: #0b0f17;
+    font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+    line-height: 1.7;
+    text-align: left;
 
-  margin:
-    18px auto 0;
-
-  color:
-    #666666;
-
-  font-size:
-    14px;
-
-  line-height:
-    1.7;
 }
 
 

@@ -10,7 +10,7 @@ const stories = [
   {
     id: "amit-verma",
     quote:
-      "From branding to leads, every detail of D-GATE was strategic and performance-driven.",
+      "D-GATE brought strategy and creativity together seamlessly. From branding to lead generation, every part of the engagement was focused, consistent and results-driven.",
     name: "Amit Verma",
     role: "Founder, GrowthX Solutions",
   },
@@ -18,7 +18,7 @@ const stories = [
   {
     id: "neha-sharma",
     quote:
-      "Our website conversions and ad performance improved within weeks. D-GATE feels more like a growth partner than an agency.",
+      "Our website performance and conversion journey improved significantly. D-GATE worked more like a growth partner than a traditional agency",
     name: "Neha Sharma",
     role: "Marketing Head, UrbanCart",
   },
@@ -26,7 +26,7 @@ const stories = [
   {
     id: "rahul-mehta",
     quote:
-      "From brand identity to digital campaigns, D-GATE delivered clarity, consistency, and measurable business growth.",
+      "From brand identity to digital campaigns, D-GATE delivered clarity, consistency and a stronger foundation for measurable growth.",
     name: "Rahul Mehta",
     role: "Co-Founder, ScaleHive",
   },
@@ -50,16 +50,15 @@ function ClientStories() {
           </span>
 
           <h2 id="about-stories-title">
-            Trusted by
+            What Our Clients Say.
             <strong>
-              {" "}Growing Brands
+              {" "}
             </strong>
           </h2>
 
           <p>
-            Real results delivered through branding,
-            high-performance websites and data-driven
-            digital marketing.
+            We build long-term partnerships through clear strategy, strong execution and measurable outcomes.
+
           </p>
 
         </div>

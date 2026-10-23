@@ -9,12 +9,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
-  FaMicrochip,
-  FaCloud,
-  FaShieldAlt,
-  FaChartBar,
-  FaRobot,
-  FaLeaf,
+  FaCompass,
+  FaFileAlt,
+  FaLayerGroup,
+  FaBroadcastTower,
   FaArrowRight,
 } from "react-icons/fa";
 
@@ -28,45 +26,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 const topics = [
   {
-    id: "ai-machine-learning",
-    title: "AI & Machine Learning",
-    articles: "12 Articles",
-    Icon: FaMicrochip,
+    id: "point-of-view",
+    title: "Point of View",
+    desc: "Sharp opinions on category shifts, brand behaviour and marketing choices.",
+    articles: "2 Articles",
+    Icon: FaCompass,
   },
 
   {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
-    articles: "15 Articles",
-    Icon: FaCloud,
+    id: "case-notes",
+    title: "Case Notes",
+    desc: "What a project taught us — without turning every article into a sales pitch.",
+    articles: "Explore",
+    Icon: FaFileAlt,
   },
 
   {
-    id: "cyber-security",
-    title: "Cyber Security",
-    articles: "10 Articles",
-    Icon: FaShieldAlt,
+    id: "playbooks",
+    title: "Playbooks",
+    desc: "Practical frameworks for brand, content, digital and growth teams.",
+    articles: "Explore",
+    Icon: FaLayerGroup,
   },
 
   {
-    id: "data-analytics",
-    title: "Data & Analytics",
-    articles: "14 Articles",
-    Icon: FaChartBar,
-  },
-
-  {
-    id: "engineering-trends",
-    title: "Engineering Trends",
-    articles: "20 Articles",
-    Icon: FaRobot,
-  },
-
-  {
-    id: "sustainability",
-    title: "Sustainability",
-    articles: "8 Articles",
-    Icon: FaLeaf,
+    id: "signals",
+    title: "Signals",
+    desc: "Short observations on emerging behaviours, platforms and creative patterns.",
+    articles: "Explore",
+    Icon: FaBroadcastTower,
   },
 ];
 
@@ -192,6 +180,13 @@ function ExploreTopics() {
                 <h3>
                   {topic.title}
                 </h3>
+
+
+                {topic.desc && (
+                  <p className="insights-topics__desc">
+                    {topic.desc}
+                  </p>
+                )}
 
 
                 <div className="insights-topics__bottom">

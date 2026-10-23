@@ -4,11 +4,7 @@
 
 .home-about-intro {
   width: 100%;
-
-  padding:
-    80px
-    0;
-
+  padding: 38px 0;
   background: var(--white);
 }
 
@@ -33,14 +29,16 @@
 .home-about-intro__eyebrow {
   display: block;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   color: var(--primary);
 
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
 
   letter-spacing: 1.8px;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 
@@ -53,12 +51,12 @@
     clamp(
       2.2rem,
       3.4vw,
-      3.5rem
+      3.4rem
     );
 
   font-weight: 800;
 
-  line-height: 1.13;
+  line-height: 1.15;
 
   letter-spacing: -1px;
 }
@@ -91,13 +89,13 @@
   margin:
     0
     0
-    13px;
+    14px;
 
   color: var(--text);
 
-  font-size: 0.9rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
 
-  line-height: 1.75;
+  line-height: 1.68;
 }
 
 
@@ -105,8 +103,9 @@
 .home-about-intro__lead {
   color: var(--black);
 
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.65;
 }
 
 
@@ -127,42 +126,41 @@
 
 
 .home-about-intro__capability {
-  min-height: 54px;
-
+  min-height: 56px;
   display: flex;
-
   align-items: center;
-
-  gap: 11px;
-
-  padding:
-    0
-    16px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: var(--radius-sm);
-
-  background: var(--section);
+  gap: 14px;
+  padding: 14px 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  background: var(--card-light-bg, #ffffff);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), var(--card-inner-shading);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
+.home-about-intro__capability:hover {
+  background: var(--card-light-bg-hover, #fffdf6);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(253, 185, 19, 0.15), var(--card-inner-shading-hover);
+}
 
 .home-about-intro__capability svg {
   flex-shrink: 0;
-
   color: var(--primary);
-
-  font-size: 1rem;
+  font-size: 1.25rem;
+  transition: transform 0.25s ease;
 }
 
+.home-about-intro__capability:hover svg {
+  transform: scale(1.15);
+}
 
 .home-about-intro__capability span {
-  color: var(--black);
-
-  font-size: 0.76rem;
-  font-weight: 600;
+  color: #0F172A;
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: var(--font-body);
 }
 
 
@@ -201,7 +199,7 @@
 
   color: var(--text);
 
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
@@ -211,20 +209,20 @@
 ========================================================= */
 
 .home-about-intro__button {
-  min-height: 46px;
+  min-height: 48px;
 
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  gap: 9px;
+  gap: 10px;
 
-  margin-left: auto;
+  margin-left: 0;
 
   padding:
     0
-    20px;
+    24px;
 
   border:
     1px solid
@@ -236,8 +234,8 @@
 
   color: var(--black);
 
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 750;
 
   text-decoration: none;
 

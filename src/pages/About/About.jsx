@@ -2,17 +2,11 @@ import Navbar from "../../components/Home/Navbar/Navbar";
 import Footer from "../../components/Home/Footer/Footer";
 
 import AboutHero from "../../components/About/AboutHero/AboutHero.jsx";
-import StrategicExpertise from "../../components/Home/StrategicExpertise/StrategicExpertise";
-{/*  import WhoWeAre from "../../components/About/WhoWeAre/WhoWeAre.jsx";*/}
-import AboutExperience from "../../components/About/AboutExperience/AboutExperience.jsx";
+import AboutPointOfView from "../../components/About/AboutPointOfView/AboutPointOfView.jsx";
+import AboutPartnership from "../../components/About/AboutPartnership/AboutPartnership.jsx";
 import FounderMessage from "../../components/About/FounderMessage/FounderMessage.jsx";
-import Leadership from "../../components/About/Leadership/Leadership.jsx";
-import TrustedBrands from "../../components/About/TrustedBrands/TrustedBrands.jsx";
+// import Leadership from "../../components/About/Leadership/Leadership.jsx";
 import VisionMission from "../../components/About/VisionMission/VisionMission.jsx";
-import Journey from "../../components/About/Journey/Journey.jsx";
-{/*import AboutStats from "../../components/About/AboutStats/AboutStats.jsx";*/}
-import ClientStories from "../../components/About/ClientStories/ClientStories.jsx";
-{/* import AboutCTA from "../../components/About/AboutCTA/AboutCTA.jsx";  */}
 
 
 function About() {
@@ -34,35 +28,31 @@ function About() {
         ===================================================== */}
         <AboutHero />
 
-        <StrategicExpertise />
         {/* =====================================================
-            2. WHO WE ARE
-        ===================================================== 
-        <WhoWeAre />          */}
-
-
-        {/* =====================================================
-            3. 20+ YEARS / COMPANY EXPERIENCE
+            2. OUR POINT OF VIEW & HOW WE THINK
         ===================================================== */}
-        <AboutExperience />
+        <AboutPointOfView />
 
 
         {/* =====================================================
-            4. FOUNDER'S MESSAGE
+            3. PARTNERSHIP
+        ===================================================== */}
+        <AboutPartnership />
+
+
+
+
+
+        {/* =====================================================
+            5. FOUNDER'S MESSAGE
         ===================================================== */}
         <FounderMessage />
 
 
         {/* =====================================================
-            5. LEADERSHIP / TEAM
+            6. LEADERSHIP / TEAM (Temporarily hidden - preserved for future use)
         ===================================================== */}
-        <Leadership />
-
-
-        {/* =====================================================
-            6. TRUSTED BRANDS
-        ===================================================== */}
-        <TrustedBrands />
+        {/* <Leadership /> */}
 
 
         {/* =====================================================
@@ -71,28 +61,7 @@ function About() {
         <VisionMission />
 
 
-        {/* =====================================================
-            8. COMPANY JOURNEY
-        ===================================================== */}
-        <Journey />
 
-
-        {/* =====================================================
-            9. COMPANY STATS
-        ===================================================== 
-        <AboutStats />*/}
-
-
-        {/* =====================================================
-            10. CLIENT STORIES / TESTIMONIALS
-        ===================================================== */}
-        <ClientStories />
-
-
-        {/* =====================================================
-            11. ABOUT CTA
-        ===================================================== 
-        <AboutCTA />     */}
 
       </main>
 

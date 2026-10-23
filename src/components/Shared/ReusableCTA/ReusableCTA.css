@@ -1,0 +1,168 @@
+/* =========================================================
+   REUSABLE CTA COMPONENT STYLES
+   Brand Guideline 16
+========================================================= */
+
+.reusable-cta {
+  width: 100%;
+  padding: 60px 0;
+  position: relative;
+  background: transparent;
+}
+
+.reusable-cta__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px 56px;
+  background: linear-gradient(135deg, #0e131f 0%, #151c2e 100%);
+  border: 1px solid rgba(253, 185, 19, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.reusable-cta__box::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(
+    circle,
+    rgba(253, 185, 19, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.reusable-cta__content {
+  flex: 1;
+  max-width: 680px;
+  z-index: 1;
+}
+
+.reusable-cta__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--primary, #fdb913);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.reusable-cta__title {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.reusable-cta__description {
+  margin: 0 0 22px;
+  color: #cbd5e1;
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.reusable-cta__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.reusable-cta__point {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.reusable-cta__point-icon {
+  color: var(--primary, #fdb913);
+  font-size: 0.95rem;
+}
+
+.reusable-cta__action {
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.reusable-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--primary, #fdb913);
+  color: #0b0f17;
+  font-size: 0.96rem;
+  font-weight: 800;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(253, 185, 19, 0.28);
+  transition: all 0.25s ease;
+}
+
+.reusable-cta__btn:hover {
+  background: #ffffff;
+  color: #0b0f17;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(253, 185, 19, 0.38);
+}
+
+.reusable-cta__btn-icon {
+  transition: transform 0.22s ease;
+}
+
+.reusable-cta__btn:hover .reusable-cta__btn-icon {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .reusable-cta__box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 38px 32px;
+    gap: 30px;
+  }
+
+  .reusable-cta__action {
+    width: 100%;
+  }
+
+  .reusable-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .reusable-cta {
+    padding: 40px 0;
+  }
+
+  .reusable-cta__box {
+    padding: 30px 22px;
+    border-radius: 18px;
+  }
+
+  .reusable-cta__points {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

@@ -2,6 +2,7 @@ import Navbar from "../../components/Home/Navbar/Navbar";
 import Footer from "../../components/Home/Footer/Footer";
 
 import CareersHero from "../../components/Careers/CareersHero/CareersHero";
+import WhatWeValue from "../../components/Careers/WhatWeValue/WhatWeValue";
 import OpenPositions from "../../components/Careers/OpenPositions/OpenPositions";
 import WhyWorkHere from "../../components/Careers/WhyWorkHere/WhyWorkHere";
 import LifeAtDgate from "../../components/Careers/LifeAtDgate/LifeAtDgate";
@@ -13,6 +14,8 @@ function Careers() {
       <Navbar />
 
       <CareersHero />
+
+      <WhatWeValue />
 
       <OpenPositions />
 

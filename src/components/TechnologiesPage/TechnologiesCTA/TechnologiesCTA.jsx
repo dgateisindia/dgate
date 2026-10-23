@@ -92,7 +92,7 @@ function TechnologiesCTA() {
           <div className="technologies-page-cta__content">
 
             <span className="technologies-page-cta__tag">
-              LET&apos;S BUILD TOGETHER
+              CONNECTED PLATFORMS
             </span>
 
 
@@ -100,29 +100,28 @@ function TechnologiesCTA() {
               id="technologies-page-cta-title"
               className="technologies-page-cta__title"
             >
-              Ready To Transform
+              Let’s build what’s next
 
               <span>
-                Your Business?
+                for your brand
               </span>
             </h2>
 
 
             <p className="technologies-page-cta__text">
-              Partner with D-GATE to leverage modern
-              technologies, AI, Cloud, Data Engineering,
-              IoT, and Enterprise solutions that accelerate
-              innovation, improve efficiency, and drive
-              sustainable business growth.
+              Connect strategy, experience design and modern digital
+              technologies to create seamless customer touchpoints and
+              drive sustained momentum.
             </p>
 
 
             <Link
               to="/contact"
               className="technologies-page-cta__button"
+              aria-label="Let's build what's next with D-GATE"
             >
               <span>
-                Talk To Our Experts
+                Let’s Build What’s Next
               </span>
 
               <FaArrowRight aria-hidden="true" />

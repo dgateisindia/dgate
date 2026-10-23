@@ -26,11 +26,11 @@
 
   border-radius: 14px;
 
-  background: #ffffff;
+  background: var(--card-light-bg, #ffffff);
 
   box-shadow:
-    0 12px 40px
-    rgba(0, 0, 0, 0.06);
+    0 12px 40px rgba(0, 0, 0, 0.06),
+    var(--card-inner-shading);
 }
 
 
@@ -110,6 +110,56 @@
 
 
 /* =========================================================
+   CONTACT META STRIP (Prefer email + presence)
+========================================================= */
+
+.contact-page-form__meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 18px;
+
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+
+  background: #fbfbfb;
+
+  font-size: 0.82rem;
+}
+
+.contact-page-form__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-page-form__meta-label {
+  color: #666666;
+}
+
+.contact-page-form__meta-link {
+  color: #111111;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.contact-page-form__meta-link:hover {
+  color: #fdb913;
+}
+
+.contact-page-form__meta-location {
+  color: #666666;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
    FIELD
 ========================================================= */
 
@@ -134,6 +184,13 @@
 
 .contact-page-form__field .form-label span {
   color: #fdb913;
+}
+
+.contact-page-form__field .form-label .contact-page-form__optional {
+  color: #888888;
+  font-weight: 400;
+  font-size: 0.74rem;
+  margin-left: 4px;
 }
 
 

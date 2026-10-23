@@ -1,136 +1,85 @@
 import "./CareersHero.css";
 
 import {
-  lazy,
-  Suspense,
   useEffect,
   useRef,
 } from "react";
 
-import { Link } from "react-router-dom";
-
 import gsap from "gsap";
 
-import { FaArrowRight } from "react-icons/fa";
-
-import {
-  careersHero,
-} from "../../../assets/images/Careers/hero";
-
-
-const CareersCanvas = lazy(
-  () => import("./CareersCanvas")
-);
+import { careersHeroBg } from "../../../assets/images/Careers/hero";
 
 
 function CareersHero() {
   const heroRef = useRef(null);
 
 
+  /* =========================================================
+     HERO ENTRANCE ANIMATION
+  ========================================================= */
+
   useEffect(() => {
-    if (!heroRef.current) return;
+    if (!heroRef.current) return undefined;
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    if (reduceMotion) return;
-
+    if (reduceMotion) {
+      return undefined;
+    }
 
     const ctx = gsap.context(() => {
-      const timeline = gsap.timeline();
-
-
-      /* ===============================================
-         FADE ONLY
-         NO X / Y / SCALE
-      =============================================== */
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
 
       timeline
         .from(
-          ".careers-page-hero__breadcrumb",
+          ".careers-page-hero__tag",
           {
             opacity: 0,
+            y: 16,
             duration: 0.45,
-            ease: "power2.out",
-            clearProps: "opacity",
           }
         )
-
         .from(
           ".careers-page-hero__title",
           {
             opacity: 0,
-            duration: 0.55,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 35,
+            duration: 0.7,
           },
           "-=0.2"
         )
-
         .from(
           ".careers-page-hero__line",
           {
             opacity: 0,
-            duration: 0.35,
-            ease: "power2.out",
-            clearProps: "opacity",
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.45,
           },
-          "-=0.2"
+          "-=0.3"
         )
-
         .from(
           ".careers-page-hero__description",
           {
             opacity: 0,
-            duration: 0.45,
-            ease: "power2.out",
-            clearProps: "opacity",
+            y: 20,
+            duration: 0.55,
           },
-          "-=0.15"
-        )
-
-        .from(
-          ".careers-page-hero__button",
-          {
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.15"
-        )
-
-        .from(
-          ".careers-page-hero__visual",
-          {
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            clearProps: "opacity",
-          },
-          "-=0.35"
+          "-=0.2"
         );
-
     }, heroRef);
 
-
-    return () => ctx.revert();
-
+    return () => {
+      ctx.revert();
+    };
   }, []);
-
-
-  const scrollToPositions = () => {
-    const section =
-      document.getElementById("open-positions");
-
-    if (!section) return;
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
 
   return (
@@ -139,85 +88,41 @@ function CareersHero() {
       ref={heroRef}
       aria-labelledby="careers-page-hero-title"
     >
-      <div className="careers-page-hero__container">
+      <img
+        src={careersHeroBg}
+        alt=""
+        aria-hidden="true"
+        className="careers-page-hero__bg"
+        loading="eager"
+        fetchPriority="high"
+      />
 
+      <div className="careers-page-hero__content">
+        <span className="careers-page-hero__tag">
+          Careers At D-GATE
+        </span>
 
-        {/* ==========================================
-            CONTENT
-        ========================================== */}
+        <h1
+          id="careers-page-hero-title"
+          className="careers-page-hero__title"
+        >
+          Come make work that moves{" "}
+          <span className="careers-page-hero__title-accent">
+            something.
+          </span>
+        </h1>
 
-        <div className="careers-page-hero__content">
+        <div
+          className="careers-page-hero__line"
+          aria-hidden="true"
+        />
 
-          <h1
-            id="careers-page-hero-title"
-            className="careers-page-hero__title"
-          >
-            Build Your Future
-
-            <span>
-              With DGATE
-            </span>
-          </h1>
-
-
-          <div
-            className="careers-page-hero__line"
-            aria-hidden="true"
-          />
-
-
-          <p className="careers-page-hero__description">
-            At DGATE, we believe our people are our
-            greatest strength. Join a team that inspires
-            you to innovate, grow and make a meaningful
-            impact.
-          </p>
-
-
-          <button
-            type="button"
-            className="careers-page-hero__button"
-            onClick={scrollToPositions}
-          >
-            <span>
-              Explore Opportunities
-            </span>
-
-            <FaArrowRight aria-hidden="true" />
-          </button>
-
-        </div>
-
-
-        {/* ==========================================
-            VISUAL
-        ========================================== */}
-
-        <div className="careers-page-hero__visual">
-
-          <img
-            src={careersHero}
-            alt="DGATE team collaborating at work"
-            className="careers-page-hero__image"
-          />
-
-
-          <div
-            className="careers-page-hero__overlay"
-            aria-hidden="true"
-          />
-
-
-          <Suspense fallback={null}>
-            <CareersCanvas />
-          </Suspense>
-
-        </div>
-
+        <p className="careers-page-hero__description">
+          We are building a team of strategists, designers, creators, marketers, developers and problem-solvers who care about the quality of the idea and what the idea does in the real world.
+        </p>
       </div>
     </section>
   );
 }
-
 
 export default CareersHero;

@@ -5,7 +5,7 @@
     72px
     0;
 
-  background: var(--section);
+  background: var(--white);
 }
 
 
@@ -19,23 +19,27 @@
 .about-principles__heading > span {
   color: var(--primary);
 
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
 
   letter-spacing: 1.6px;
+  text-transform: uppercase;
 }
 
 
 .about-principles__heading h2 {
   margin:
-    8px
+    10px
     0
     0;
 
   color: var(--black);
 
   font-size:
-    clamp(2rem, 3vw, 3rem);
+    clamp(2rem, 3.2vw, 3.2rem);
+
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 
@@ -50,7 +54,7 @@
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  gap: 20px;
+  gap: 22px;
 }
 
 
@@ -58,30 +62,41 @@
   min-height: 275px;
 
   padding:
-    30px
-    27px;
+    32px
+    28px;
 
   border:
     1px solid
-    var(--border);
+    #E5E7EB;
 
   border-radius: var(--radius-md);
 
-  background: var(--white);
+  background: var(--card-light-bg, var(--white));
+
+  box-shadow:
+    0 4px 20px
+    rgba(0, 0, 0, 0.04),
+    var(--card-inner-shading);
 
   transition:
+    transform var(--transition),
     border-color var(--transition),
     box-shadow var(--transition);
 }
 
 
 .about-principles__card:hover {
-  border-color:
-    rgba(253, 185, 19, 0.45);
+  background: var(--card-light-bg-hover, var(--white));
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.065);
+    0 14px 30px
+    rgba(0, 0, 0, 0.07),
+    0 0 0 1px
+    rgba(253, 185, 19, 0.25),
+    var(--card-inner-shading-hover);
 }
 
 
@@ -103,7 +118,14 @@
 
   color: var(--primary);
 
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+}
+
+.about-principles__custom-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
 }
 
 
@@ -116,15 +138,16 @@
   color: var(--black);
 
   font-size: 1.15rem;
+  font-weight: 700;
 }
 
 
 .about-principles__card p {
   margin: 0;
 
-  color: var(--text);
+  color: #000000;
 
-  font-size: 0.82rem;
+  font-size: 0.85rem;
 
   line-height: 1.72;
 }

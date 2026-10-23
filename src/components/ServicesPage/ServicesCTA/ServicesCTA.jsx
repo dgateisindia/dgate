@@ -91,20 +91,19 @@ function ServicesCTA() {
             <div className="services-page-cta__content">
 
               <span className="services-page-cta__tag">
-                LET&apos;S CONNECT
+                CONNECTED SYSTEMS
               </span>
 
               <h2 id="services-page-cta-title">
-                Ready to Transform
+                Turn marketing into
                 <br />
-                Your Business?
+                sustained momentum
               </h2>
 
               <p>
-                Talk to our engineering experts and discover
-                how D-GATE can help accelerate innovation,
-                digital transformation and sustainable
-                business growth.
+                Connect strategy, brand identity, digital experience
+                and performance into one unified system that moves your
+                business forward.
               </p>
 
             </div>
@@ -114,9 +113,10 @@ function ServicesCTA() {
           <Link
             to="/contact"
             className="services-page-cta__button"
+            aria-label="Bring us the challenge"
           >
             <span>
-              TALK TO OUR EXPERTS
+              Bring Us the Challenge
             </span>
 
             <FaArrowRight aria-hidden="true" />

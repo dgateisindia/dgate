@@ -2813,16 +2813,11 @@
     var(--dg-radius-md);
 
   background:
-    var(--dg-white);
+    var(--card-light-bg, var(--dg-white));
 
   box-shadow:
-    0 8px 26px
-    rgba(
-      0,
-      0,
-      0,
-      0.035
-    );
+    0 8px 26px rgba(0, 0, 0, 0.035),
+    var(--card-inner-shading);
 
   transition:
     transform var(--dg-transition),
@@ -3391,7 +3386,11 @@
     var(--dg-radius-md);
 
   background:
-    var(--dg-white);
+    var(--card-light-bg, var(--dg-white));
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.04),
+    var(--card-inner-shading);
 
   transition:
     transform var(--dg-transition),

@@ -2,35 +2,25 @@ import "./WhoWeAreHome.css";
 
 import { Link } from "react-router-dom";
 
-import {
-  FaPalette,
-  FaLaptopCode,
-  FaChartLine,
-  FaRobot,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 
 const capabilities = [
   {
     id: "branding",
-    Icon: FaPalette,
-    title: "Branding",
+    title: "Brand Direction",
   },
   {
     id: "development",
-    Icon: FaLaptopCode,
-    title: "Web & E-Commerce",
+    title: "Digital Experiences",
   },
   {
     id: "marketing",
-    Icon: FaChartLine,
-    title: "Performance Marketing",
+    title: "Growth Systems",
   },
   {
     id: "automation",
-    Icon: FaRobot,
-    title: "AI & Automation",
+    title: "Intelligent Operations",
   },
 ];
 
@@ -51,15 +41,16 @@ function WhoWeAreHome() {
           <div className="home-about-intro__heading">
 
             <span className="home-about-intro__eyebrow">
-              WHO WE ARE
+              Point of View
             </span>
 
             <h2 id="home-about-intro-title">
-              Building Brands.
+              The market does not stand still.
+
               <br />
 
-              Creating Digital
-              <span> Growth.</span>
+               Neither should your brand.
+              <span> </span>
             </h2>
 
             <div
@@ -75,64 +66,39 @@ function WhoWeAreHome() {
           <div className="home-about-intro__content">
 
             <p className="home-about-intro__lead">
-              DGATE Integrated Services is a digital
-              solutions agency helping businesses build
-              stronger brands, high-performing digital
-              platforms and measurable growth.
+              Customers change. Categories evolve. New platforms alter how decisions are made. The businesses that stay relevant are the ones willing to rethink how they show up, how they communicate and how they create value.
             </p>
 
             <p>
-              We bring branding, web development,
-              e-commerce, performance marketing, analytics
-              and intelligent automation together under one
-              integrated digital strategy.
+              That is where transformation begins — not with another campaign, but with a clearer idea of what needs to change.
             </p>
 
 
             <div className="home-about-intro__capabilities">
 
-              {capabilities.map((item) => {
-                const Icon = item.Icon;
-
-                return (
-                  <div
-                    className="home-about-intro__capability"
-                    key={item.id}
-                  >
-                    <Icon aria-hidden="true" />
-
-                    <span>
-                      {item.title}
-                    </span>
-                  </div>
-                );
-              })}
+              {capabilities.map((item) => (
+                <div
+                  className="home-about-intro__capability"
+                  key={item.id}
+                >
+                  <span>
+                    {item.title}
+                  </span>
+                </div>
+              ))}
 
             </div>
 
 
             <div className="home-about-intro__bottom">
-
-              <div className="home-about-intro__stat">
-                <strong>20+</strong>
-                <span>Years team Experience</span>
-              </div>
-
-              <div className="home-about-intro__stat">
-                <strong>250+</strong>
-                <span>Trusted Brands</span>
-              </div>
-
-
               <Link
                 to="/about"
                 className="home-about-intro__button"
               >
-                KNOW MORE ABOUT US
+                Know More About Us
 
                 <FaArrowRight aria-hidden="true" />
               </Link>
-
             </div>
 
           </div>

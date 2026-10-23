@@ -1,7 +1,6 @@
 import "./Hero.css";
 
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 
 import { heroBg } from "../../../assets/images/home/hero";
@@ -26,20 +25,14 @@ function Hero() {
         },
       });
 
-      tl.from(".home-hero__tag", {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-      })
-        .from(
-          ".home-hero__title",
-          {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.2"
-        )
+      tl.from(
+        ".home-hero__title",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+        }
+      )
         .from(
           ".home-hero__description",
           {
@@ -48,15 +41,6 @@ function Hero() {
             duration: 0.6,
           },
           "-=0.35"
-        )
-        .from(
-          ".home-hero__actions",
-          {
-            y: 20,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.3"
         );
     }, heroRef);
 
@@ -82,44 +66,21 @@ function Hero() {
 
       <div className="home-hero__content">
 
-        <span className="home-hero__tag">
-          IDEATE | INNOVATE | INITIATE
-        </span>
-
         <h1
           id="home-hero-title"
           className="home-hero__title"
         >
-          DGATE
-          <br />
-          Transformative Marketing
-          <br />
-          Agency in Bangalore
+          We transform how businesses are seen, experienced and chosen.
         </h1>
-
+<br></br>
         <p className="home-hero__description">
-          Bangalore-based digital agency for branding, web development,
-          eCommerce, SEO &amp; AI automation. 250+ brands scaled. Get a
-          free consult.
+          Strategy, Creativity, Digital Experience, Growth — brought together to move ambitious businesses forward.
+
+We help brands find sharper direction, create stronger experiences, and build marketing systems that turn attention into meaningful business momentum.
         </p>
-
-        <div className="home-hero__actions">
-
-          <Link
-            to="/services"
-            className="home-hero__button home-hero__button--primary"
-          >
-            Explore Services
-          </Link>
-
-          <Link
-            to="/contact"
-            className="home-hero__button home-hero__button--secondary"
-          >
-            Contact Us
-          </Link>
-
-        </div>
+         <span className="home-hero__tag">
+        Transformative Marketing Agency
+        </span>
 
       </div>
     </section>

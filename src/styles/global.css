@@ -1,77 +1,145 @@
 /* =========================================================
-   GOOGLE FONTS
+   D-GATE MASTER GLOBAL STYLES & TYPOGRAPHY SYSTEM
+   Symmetrical Font Alignment, Global CSS & Layout Resets
 ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+/* =========================================================
+   1. GOOGLE FONTS IMPORT (FALLBACK & OPTIMIZED LOADING)
+========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap");
 
 
 /* =========================================================
-   DESIGN TOKENS
+   2. DESIGN TOKENS & VERCEL-STYLE DARK AGENCY THEME
 ========================================================= */
-
 :root {
 
-  /* ================= Brand Colors ================= */
-
+  /* ================= Brand & Glow Accent Colors ================= */
   --primary: #FDB913;
   --primary-light: #FFD54F;
+  --primary-dark: #D99A00;
+  --primary-soft: rgba(253, 185, 19, 0.12);
+  --primary-glow: rgba(253, 185, 19, 0.3);
 
-
-  /* ================= Base Colors ================= */
-
-  --black: #111111;
+  /* ================= Dark Charcoal Base Colors ================= */
+  --black: #0B0F17;
+  --dark: #07090E;
+  --dark-surface: #111827;
+  --dark-surface-2: #1E293B;
+  --dark-card: rgba(17, 24, 39, 0.75);
   --white: #ffffff;
 
+  /* ================= Primary Text Colors ================= */
+  --text: #0B0F17;
+  --text-dark: #0B0F17;
+  --text-light: #1E293B;
+  --text-muted: #334155;
 
-  /* ================= Text Colors ================= */
+  /* ================= Backgrounds ================= */
+  --gray: #0F172A;
+  --section: #0B0F17;
+  --card-bg: rgba(17, 24, 39, 0.75);
 
-  --text: #555555;
-  --text-light: #888888;
+  /* ================= Glassmorphism Borders ================= */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-primary: rgba(253, 185, 19, 0.3);
+  --border-dark: rgba(255, 255, 255, 0.05);
 
+  /* ================= Symmetrical Font Families ================= */
+  --font-heading: "Outfit", "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* ================= Background ================= */
+  /* ================= Symmetrical Font Weights ================= */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
 
-  --gray: #f5f5f5;
-  --section: #fafafa;
+  /* ================= Symmetrical Line Heights ================= */
+  --lh-none: 1;
+  --lh-tight: 1.15;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+  --lh-loose: 1.8;
 
+  /* ================= Symmetrical Letter Spacing ================= */
+  --ls-tight: -0.02em;
+  --ls-normal: 0em;
+  --ls-wide: 0.03em;
+  --ls-wider: 0.08em;
+  --ls-caps: 0.12em;
 
-  /* ================= Border ================= */
+  /* ================= Responsive Typography System ================= */
+  /* Line Heights */
+  --lh-h1: 1.15;
+  --lh-h2: 1.2;
+  --lh-h3: 1.25;
+  --lh-h4: 1.3;
+  --lh-body: 1.6;
+  --lh-small: 1.45;
+  --lh-button: 1.2;
 
-  --border: #ececec;
+  /* Standardized Fluid Typographic Scale (1.25 Modular Ratio) */
+  --fs-h1: clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem);      /* 36px (mobile) -> 56px (desktop) */
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.75vw, 2.5rem);      /* 28px (mobile) -> 40px (desktop) */
+  --fs-h3: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);       /* 21px (mobile) -> 28px (desktop) */
+  --fs-h4: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);         /* 17px (mobile) -> 21.6px (desktop) */
+  --fs-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);   /* 15px (mobile) -> 16.8px (desktop) */
+  --fs-small: clamp(0.8rem, 0.775rem + 0.15vw, 0.875rem);/* 12.8px (mobile) -> 14px (desktop) */
+  --fs-button: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem); /* 14px (mobile) -> 16px (desktop) */
 
+  /* Legacy & Semantic Font Size Mappings for 100% Uniformity */
+  --fs-hero: var(--fs-h1);
+  --fs-4xl: var(--fs-h1);
+  --fs-3xl: var(--fs-h2);
+  --fs-2xl: var(--fs-h3);
+  --fs-xl: var(--fs-h4);
+  --fs-lg: var(--fs-h4);
+  --fs-md: var(--fs-body);
+  --fs-base: var(--fs-body);
+  --fs-sm: var(--fs-small);
+  --fs-xs: var(--fs-small);
+  --fs-2xs: var(--fs-small);
+  --fs-3xs: var(--fs-small);
 
-  /* ================= Fonts ================= */
+  /* Section Gaps & Container Spacing */
+  --container-max-width: 1320px;
+  --container-min-width: 1200px;
+  --container-width: clamp(1200px, 90vw, 1320px);
+  --container-side-padding: clamp(1rem, -0.1429rem + 5.7143vw, 5rem); /* 16px (mobile) -> 40px (tablet) -> 80px (desktop) */
+  --container-padding: var(--container-side-padding);
 
-  --font-body: "Poppins", sans-serif;
-  --font-heading: "Oswald", sans-serif;
+  --gap-h2-section: clamp(1rem, 0.8rem + 0.8vw, 1.75rem);       /* 16px (mobile) -> 22px (tablet) -> 28px (desktop) */
+  --gap-h3-section: clamp(0.875rem, 0.7rem + 0.6vw, 1.25rem);
+  --gap-h4-section: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+  --gap-body-section: clamp(0.5rem, 0.4rem + 0.4vw, 0.875rem);
 
-
-  /* ================= Layout ================= */
-
-  --container-width: 1400px;
-  --container-padding: 24px;
-
+  --section-padding-desktop: 36px 0;
+  --section-padding-tablet: 28px 0;
+  --section-padding-mobile: 20px 0;
+  --grid-gap-equal: 24px;
 
   /* ================= Radius ================= */
-
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
-
+  --radius-pill: 9999px;
 
   /* ================= Shadow ================= */
-
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
+  --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.14);
 
   /* ================= Transition ================= */
-
-  --transition: 0.35s ease;
+  --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 
 /* =========================================================
-   GLOBAL RESET
+   3. UNIVERSAL RESET & HIGH-PRECISION FONT SMOOTHING
 ========================================================= */
 
 *,
@@ -80,97 +148,164 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  /* Superior, crisp font rendering across all platforms */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 
 /* =========================================================
-   HTML
+   4. HTML & BODY BASELINE ALIGNMENT
 ========================================================= */
 
 html {
   width: 100%;
-
   scroll-behavior: smooth;
-
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
-
-
-/* =========================================================
-   BODY
-========================================================= */
 
 body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
-
   margin: 0;
 
   font-family: var(--font-body);
-
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
 
   color: var(--text);
-
   background: var(--white);
 
   overflow-x: hidden;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
 }
 
-
-/* React Root */
-
+/* React Root Container */
 #root {
   width: 100%;
   min-height: 100vh;
+  background: var(--white);
+  color: var(--text);
 }
 
 
 /* =========================================================
-   TYPOGRAPHY
+   5. SYMMETRICAL TYPOGRAPHY BASE (HEADINGS & PARAGRAPHS)
 ========================================================= */
 
+/* Symmetrical Heading Scale & Alignment */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 
   font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
 
-  color: var(--black);
-
-  font-weight: 600;
-
-  line-height: 1.2;
+  color: var(--text-dark);
+  text-wrap: balance; /* Prevents uneven orphan lines on headings */
 }
 
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-h1);
+}
 
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+}
+
+h5 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+}
+
+h6 {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-normal);
+}
+
+/* Symmetrical Paragraph & Body Text */
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--ls-normal);
 
   color: var(--text);
+  text-wrap: pretty; /* Prevents typographic orphans */
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Strong & Emphasized Text */
+b,
+strong {
+  font-weight: var(--fw-bold);
+  color: var(--text-dark);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+/* Numerical Symmetry: Keep stats, metrics & figures tabularly aligned */
+.num-stat,
+.stat-number,
+.count,
+.price,
+table td,
+table th {
+  font-variant-numeric: tabular-nums;
 }
 
 
 /* =========================================================
-   LINKS
+   6. LINKS, LISTS & MEDIA ALIGNMENT
 ========================================================= */
 
 a {
   color: inherit;
-
   text-decoration: none;
-
   transition:
     color var(--transition),
     background-color var(--transition),
@@ -178,54 +313,26 @@ a {
     transform var(--transition);
 }
 
-
 a:hover {
   text-decoration: none;
 }
-
-
-/* =========================================================
-   LISTS
-========================================================= */
 
 ul,
 ol {
   margin: 0;
   padding: 0;
-}
-
-
-/*
-   Most website navigation/card lists should not show markers.
-*/
-
-ul {
   list-style: none;
 }
 
-
-/*
-   Use this class wherever you WANT normal bullet points.
-
-   Example:
-   <ul className="content-list">
-*/
-
 .content-list {
-  padding-left: 22px;
-
+  padding-left: 1.5rem;
   list-style: disc;
 }
 
-
 .content-list li {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+  line-height: var(--lh-relaxed);
 }
-
-
-/* =========================================================
-   IMAGES / MEDIA
-========================================================= */
 
 img,
 picture,
@@ -233,271 +340,704 @@ svg,
 video,
 canvas {
   display: block;
-
   max-width: 100%;
 }
-
 
 img {
   width: auto;
   height: auto;
-}
-
-
-video {
-  width: 100%;
+  vertical-align: middle;
 }
 
 
 /* =========================================================
-   FORM ELEMENTS
+   7. FORM ELEMENTS & BUTTON FONT ALIGNMENT
 ========================================================= */
 
 button,
 input,
 textarea,
 select {
-  font: inherit;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--text-dark);
+  vertical-align: middle;
 }
-
 
 button {
   border: 0;
-
   background: none;
-
   cursor: pointer;
 }
-
 
 input,
 textarea,
 select {
+  width: 100%;
   max-width: 100%;
+  background-color: var(--white);
+  border: 1px solid #e2e8f0;
+  color: var(--text-dark);
 }
-
 
 textarea {
   resize: vertical;
 }
 
 
-/* =========================================================
-   FOCUS ACCESSIBILITY
-========================================================= */
-
+/* Focus Accessibility */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--primary);
-
   outline-offset: 3px;
 }
 
 
 /* =========================================================
-   MAIN LAYOUT
+   8. BOOTSTRAP OVERRIDES FOR SYMMETRICAL TYPOGRAPHY
+========================================================= */
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-bold) !important;
+  color: var(--text-dark) !important;
+  line-height: var(--lh-snug) !important;
+  margin-top: 0 !important;
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-black) !important;
+  line-height: var(--lh-tight) !important;
+  letter-spacing: var(--ls-tight) !important;
+  color: var(--text-dark) !important;
+}
+
+.lead {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-md) !important;
+  line-height: var(--lh-relaxed) !important;
+  color: var(--text) !important;
+}
+
+.card-title {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-semibold) !important;
+  line-height: var(--lh-snug) !important;
+  color: var(--text-dark) !important;
+}
+
+.card-text {
+  font-family: var(--font-body) !important;
+  line-height: var(--lh-relaxed) !important;
+  color: var(--text) !important;
+}
+
+.nav-link {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-sm) !important;
+  font-weight: var(--fw-medium) !important;
+  letter-spacing: var(--ls-wide) !important;
+}
+
+.form-control,
+.form-select {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-sm) !important;
+  line-height: var(--lh-normal) !important;
+  background-color: var(--white) !important;
+  color: var(--text-dark) !important;
+  border-color: #e2e8f0 !important;
+}
+
+.form-label {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-sm) !important;
+  font-weight: var(--fw-medium) !important;
+  color: var(--text-dark) !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.badge {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: var(--ls-wider) !important;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   9. MAIN CONTAINER & COMMON SECTION LAYOUT
 ========================================================= */
 
 main {
   display: block;
-
   width: 100%;
 }
-
 
 section {
   width: 100%;
 }
 
-
-/* =========================================================
-   GLOBAL CONTAINER
-========================================================= */
-
 .container {
   width: 100%;
   max-width: var(--container-width);
-
   margin-left: auto;
   margin-right: auto;
-
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
 
-
-/* =========================================================
-   FLEX / GRID OVERFLOW PROTECTION
-========================================================= */
-
-.container,
-.row,
-[class*="col-"],
-.grid,
-.flex {
-  min-width: 0;
-}
-
-
-/* =========================================================
-   COMMON SECTION
-========================================================= */
-
 .section {
   width: 100%;
-
-  padding: 80px 0;
+  padding: 36px 0;
 }
 
 
 /* =========================================================
-   COMMON BUTTON FOUNDATION
+   10. BUTTON FOUNDATION, HOVER SHIMMER & ON-CLICK ANIMATIONS
 ========================================================= */
 
 .btn {
-  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
-  gap: 8px;
-
-  padding: 12px 22px;
-
+  padding: 12px 26px;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
 
   font-family: var(--font-body);
-
-  font-size: 14px;
-  font-weight: 600;
-
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
   line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
 
   cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   transition:
-    background-color var(--transition),
-    color var(--transition),
-    border-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* Light Shimmer Effect on Button Hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 1;
+}
 
+.btn:hover::before {
+  left: 140%;
+}
+
+/* Hover State - Spring Lift & Glow */
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(253, 185, 19, 0.35);
 }
 
+/* Click / Active State - Tactile Press Feedback */
+.btn:active,
+button:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-outline-primary:active,
+.floating-connect:active,
+.floating-whatsapp:active {
+  transform: translateY(1px) scale(0.96) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+}
 
-/* Yellow primary button */
+/* Button Icon Motion on Hover */
+.btn svg,
+.btn i,
+button svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
+.btn:hover svg,
+.btn:hover i,
+button:hover svg {
+  transform: translateX(4px) scale(1.1);
+}
+
+/* Primary Yellow Button */
 .btn-primary {
   color: var(--black);
-
   background: var(--primary);
-
   border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(253, 185, 19, 0.28);
 }
-
 
 .btn-primary:hover {
   color: var(--black);
-
   background: var(--primary-light);
-
   border-color: var(--primary-light);
+  box-shadow: 0 12px 28px rgba(253, 185, 19, 0.42);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  color: var(--black);
+  background: var(--gray);
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  color: var(--black);
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Outline Primary Button */
+.btn-outline-primary {
+  color: var(--black);
+  background: transparent;
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  color: var(--black);
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 10px 24px rgba(253, 185, 19, 0.35);
 }
 
 
 /* =========================================================
-   COMMON CARD
+   11. CARD & TABLE LAYOUT
 ========================================================= */
 
 .card {
   background: var(--white);
-
   border: 1px solid var(--border);
-
   border-radius: var(--radius-md);
-
   box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-
-
-/* =========================================================
-   RESPONSIVE TABLE
-========================================================= */
 
 table {
   width: 100%;
-
   border-collapse: collapse;
+  font-family: var(--font-body);
 }
-
 
 .table-responsive {
   width: 100%;
-
   overflow-x: auto;
-
   -webkit-overflow-scrolling: touch;
 }
 
 
 /* =========================================================
-   OTHER OVERFLOW PROTECTION
+   12. CONSOLIDATED GLOBAL FLOATING CONTACT ACTIONS (App.css)
 ========================================================= */
 
-iframe {
-  display: block;
+.floating-contact-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483000;
 
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 12px;
+
+  pointer-events: none;
 }
 
+/* Floating Connect Button */
+.floating-connect {
+  position: relative;
+  min-width: 128px;
+  height: 38px;
 
-pre {
-  max-width: 100%;
+  padding: 4px 14px 4px 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 0;
 
-  overflow-x: auto;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-pill);
+  outline: none;
+  background: var(--primary);
+  color: var(--black);
+
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.22);
+  -webkit-appearance: none;
+  appearance: none;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.floating-connect__icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  flex: 0 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--black);
+  font-size: 13px;
+
+  transition: border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.floating-connect__icon svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  color: var(--black);
+  fill: currentColor;
+}
+
+.floating-connect__icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.floating-connect__text {
+  display: block;
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: var(--ls-wider);
+  white-space: nowrap;
+  transition: color 0.22s ease;
+}
+
+@media (hover: hover) {
+  .floating-connect:hover {
+    transform: translateY(-3px);
+    background: #111318;
+    border-color: #111318;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  }
+
+  .floating-connect:hover .floating-connect__text {
+    color: var(--primary);
+  }
+
+  .floating-connect:hover .floating-connect__icon {
+    border-color: var(--primary);
+    background: var(--white);
+  }
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  flex: 0 0 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(37, 211, 102, 0.55);
+  border-radius: 50%;
+  background: #25d366;
+  color: var(--white);
+  font-size: 25px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.3);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.floating-whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.floating-whatsapp svg {
+  position: relative;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
+  display: block;
+  color: var(--white);
+  fill: currentColor;
+}
+
+@media (hover: hover) {
+  .floating-whatsapp:hover {
+    transform: translateY(-3px) scale(1.04);
+    background: #128c7e;
+    border-color: #128c7e;
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.38);
+  }
+}
+
+.floating-connect:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.floating-whatsapp:active {
+  transform: scale(0.96);
+}
+
+.floating-connect:focus-visible {
+  outline: 3px solid rgba(253, 185, 19, 0.45);
+  outline-offset: 3px;
+}
+
+.floating-whatsapp:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.45);
+  outline-offset: 3px;
 }
 
 
 /* =========================================================
-   TEXT SELECTION
+   13. SYMMETRICAL TYPOGRAPHY & FONT ALIGNMENT UTILITIES
+========================================================= */
+
+/* Text Alignment Utilities */
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+  text-justify: inter-word;
+}
+
+/* Typographic Balance */
+.text-balance {
+  text-wrap: balance !important;
+}
+
+.text-pretty {
+  text-wrap: pretty !important;
+}
+
+/* Font Family Utility Overrides */
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+.font-body {
+  font-family: var(--font-body) !important;
+}
+
+/* Font Weight Helpers */
+.fw-light { font-weight: var(--fw-light) !important; }
+.fw-regular { font-weight: var(--fw-regular) !important; }
+.fw-medium { font-weight: var(--fw-medium) !important; }
+.fw-semibold { font-weight: var(--fw-semibold) !important; }
+.fw-bold { font-weight: var(--fw-bold) !important; }
+.fw-black { font-weight: var(--fw-black) !important; }
+
+/* Text Case & Letter Spacing Helpers */
+.text-uppercase {
+  text-transform: uppercase !important;
+  letter-spacing: var(--ls-wider);
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.tracking-tight { letter-spacing: var(--ls-tight) !important; }
+.tracking-normal { letter-spacing: var(--ls-normal) !important; }
+.tracking-wide { letter-spacing: var(--ls-wide) !important; }
+.tracking-wider { letter-spacing: var(--ls-wider) !important; }
+.tracking-caps { letter-spacing: var(--ls-caps) !important; }
+
+/* Line Height Helpers */
+.lh-tight { line-height: var(--lh-tight) !important; }
+.lh-snug { line-height: var(--lh-snug) !important; }
+.lh-normal { line-height: var(--lh-normal) !important; }
+.lh-relaxed { line-height: var(--lh-relaxed) !important; }
+.lh-loose { line-height: var(--lh-loose) !important; }
+
+/* Symmetrical Flex Baseline & Alignment Helpers */
+.flex-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.inline-flex-center {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.flex-align-center {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+/* Standardized Section Header Block for Perfect Symmetry */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--black);
+  text-wrap: balance;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  color: var(--text);
+  line-height: var(--lh-relaxed);
+  text-wrap: pretty;
+}
+
+.eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(253, 185, 19, 0.1);
+  border: 1px solid rgba(253, 185, 19, 0.3);
+  color: var(--primary-dark);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   14. SELECTION & SCROLLBAR STYLING
 ========================================================= */
 
 ::selection {
   color: var(--black);
-
   background: var(--primary);
 }
-
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
 
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-
 ::-webkit-scrollbar-track {
   background: var(--gray);
 }
 
-
 ::-webkit-scrollbar-thumb {
   background: #cccccc;
-
   border-radius: 20px;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
@@ -505,97 +1045,828 @@ pre {
 
 
 /* =========================================================
-   LAPTOP
+   15. RESPONSIVE MEDIA QUERIES & REDUCED MOTION
 ========================================================= */
 
 @media (max-width: 1200px) {
-
   :root {
     --container-padding: 22px;
   }
-
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
 @media (max-width: 992px) {
-
   :root {
     --container-padding: 20px;
   }
 
-
   .section {
-    padding: 65px 0;
+    padding: 28px 0;
   }
-
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 768px) {
-
   :root {
     --container-padding: 16px;
   }
-
 
   body {
     font-size: 15px;
   }
 
-
   .section {
-    padding: 50px 0;
+    padding: 24px 0;
   }
 
+  .floating-contact-actions {
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .floating-connect {
+    min-width: 118px;
+    height: 34px;
+    padding: 3px 11px 3px 4px;
+    gap: 6px;
+  }
+
+  .floating-connect__icon {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    flex-basis: 26px;
+  }
+
+  .floating-connect__icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .floating-connect__text {
+    font-size: 10.5px;
+  }
+
+  .floating-whatsapp {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    flex-basis: 50px;
+    font-size: 23px;
+  }
+
+  .floating-whatsapp svg {
+    width: 23px;
+    height: 23px;
+  }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
 @media (max-width: 480px) {
-
   :root {
     --container-padding: 14px;
   }
 
-
   .section {
-    padding: 42px 0;
+    padding: 20px 0;
   }
 
+  .floating-contact-actions {
+    right: 12px;
+    bottom: 12px;
+    gap: 9px;
+  }
+
+  .floating-connect {
+    min-width: 108px;
+    height: 32px;
+    padding: 3px 10px 3px 3px;
+    gap: 5px;
+  }
+
+  .floating-connect__icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    flex-basis: 24px;
+  }
+
+  .floating-connect__icon svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .floating-connect__text {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  .floating-whatsapp {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    flex-basis: 48px;
+    font-size: 22px;
+  }
+
+  .floating-whatsapp svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
+@media (max-width: 360px) {
+  .floating-contact-actions {
+    right: 10px;
+    bottom: 10px;
+  }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+  .floating-connect {
+    min-width: 102px;
+    height: 30px;
+  }
 
+  .floating-connect__text {
+    font-size: 9.5px;
+  }
+
+  .floating-whatsapp {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    flex-basis: 46px;
+  }
+}
+
+/* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
-
 
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
-
     scroll-behavior: auto !important;
   }
+}
 
+/* =========================================================
+   16. STRICT UNIFORM VERTICAL SECTION SPACING
+   Enforces uniform vertical padding across ALL site sections
+========================================================= */
+
+:root {
+  --section-padding-v: 36px;
+}
+
+@media (max-width: 992px) {
+  :root {
+    --section-padding-v: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-v: 20px;
+  }
+}
+
+/* Apply strict uniform vertical padding to all sections */
+section:not([class*="pillar-"]):not([class*="services-overview__"]),
+.section:not([class*="pillar-"]):not([class*="services-overview__"]),
+main:not(.pillar-detail-page):not(.services-overview-page) > div > section,
+main:not(.pillar-detail-page):not(.services-overview-page) > section,
+[class*="-section"]:not([class*="pillar-"]):not([class*="services-overview__"]),
+[class*="section-"]:not([class*="pillar-"]):not([class*="services-overview__"]),
+[class*="-block"]:not([class*="pillar-"]):not([class*="services-overview__"]),
+.home-about-intro,
+.home-services,
+.home-expertise,
+.home-impact,
+.home-trust,
+.home-testimonials,
+.home-achievements,
+.home-cta,
+.home-stats,
+.home-clients,
+.home-technologies,
+.home-industries,
+.home-success-stories,
+.service-page-shell,
+.service-hero,
+.why-choose,
+.service-grid,
+.services-cta,
+.industry-grid,
+.industries-hero,
+.industries-cta,
+.technology-grid,
+.technologies-hero,
+.technologies-cta,
+.insights-hero,
+.explore-topics,
+.latest-articles,
+.featured-article,
+.insights-cta,
+.contact-hero,
+.contact-info,
+.contact-form,
+.dgate-portfolio-section,
+.dgate-blog-section,
+.dgate-achievements-section,
+.dgate-gallery-section,
+.dgate-section {
+  padding-top: var(--section-padding-v) !important;
+  padding-bottom: var(--section-padding-v) !important;
+}
+
+/* Prevent layout shifts from stacked margins */
+main > section + section,
+main > div > section + section {
+  margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   17. ADVANCED ATTRACTIVE ANIMATIONS SYSTEM
+========================================================= */
+
+/* A. Smooth Soft Floating Levitation */
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float,
+.floating-badge,
+.hero-floating-card {
+  animation: floatSoft 4.5s ease-in-out infinite;
+}
+
+/* B. Glowing Ambient Pulse for Badges & Eyebrows */
+@keyframes ambientGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(253, 185, 19, 0.4);
+    border-color: rgba(253, 185, 19, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(253, 185, 19, 0.25);
+    border-color: rgba(253, 185, 19, 0.8);
+  }
+}
+
+.eyebrow-tag,
+.badge-tag,
+.dgate-eyebrow {
+  animation: ambientGlowPulse 3.5s ease-in-out infinite;
+}
+
+/* C. Card Shimmer & Gloss Effect on Hover */
+.card,
+[class*="-card"],
+article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after,
+[class*="-card"]::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 55%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card:hover::after,
+[class*="-card"]:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* D. Image Smooth Scale Zoom on Card Hover */
+.card img,
+[class*="-card"] img,
+article img {
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1), filter 0.55s ease;
+  will-change: transform;
+}
+
+.card:hover img,
+[class*="-card"]:hover img,
+article:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.04);
+}
+
+/* E. Interactive Link Slide Highlight */
+.animated-link,
+.dgate-link,
+a.hover-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.animated-link::after,
+.dgate-link::after,
+a.hover-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animated-link:hover::after,
+.dgate-link:hover::after,
+a.hover-link:hover::after {
+  width: 100%;
+}
+
+/* F. Subtle Shimmer Pulse for Primary Call to Actions */
+@keyframes ctaPulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(253, 185, 19, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(253, 185, 19, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 185, 19, 0);
+  }
+}
+
+.btn-cta-pulse {
+  animation: ctaPulseRing 2.8s infinite;
+}
+
+/* G. Smooth Entrance Keyframes for Dynamic Loading */
+@keyframes fadeInUpSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInSmooth {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomInSmooth 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+/* =========================================================
+   18. AESTHETIC VISUAL REFINEMENT & PREMIUM GLASSMORPHISM
+========================================================= */
+
+/* Premium Soft Box Shadows & Card Interior Shading */
+:root {
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 20px 48px -8px rgba(0, 0, 0, 0.1), 0 8px 24px -4px rgba(253, 185, 19, 0.12);
+  --shadow-glow: 0 0 35px rgba(253, 185, 19, 0.22);
+
+  /* Light Interior Shading & Luminous Depth */
+  --card-light-bg: linear-gradient(168deg, #ffffff 0%, #f7f8fb 45%, #eaedf5 100%);
+  --card-light-bg-hover: linear-gradient(168deg, #ffffff 0%, #fafbfe 45%, #e3e7f2 100%);
+  --card-inner-shading: inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                        inset 0 0 26px rgba(0, 0, 0, 0.05),
+                        inset 0 -10px 22px rgba(0, 0, 0, 0.04);
+  --card-inner-shading-hover: inset 0 1px 2px rgba(255, 255, 255, 1),
+                              inset 0 0 28px rgba(253, 185, 19, 0.07),
+                              inset 0 -10px 22px rgba(0, 0, 0, 0.045);
+}
+
+/* Light Interior Shading on All Cards */
+body .card,
+body article.blog-card,
+body .portfolio-card,
+body .blog-card,
+body .home-services__card,
+body .home-how-we-work__card,
+body .home-industries__card,
+body .home-technologies__card,
+body .home-testimonials__card,
+body .home-achievements__card,
+body .home-expertise__card,
+body .home-success__card,
+body .home-about-intro__capability,
+body .about-pov__card,
+body .about-principles__card,
+body .about-stats__card,
+body .about-leadership__card,
+body .about-stories__card,
+body .dgate-card,
+body [class*="dgate-card"],
+body .contact-page-form__card,
+body .contact-page-info__card,
+body .contact-page-info__office-card,
+body .services-why__card,
+body .services-grid-page__card,
+body .service-pillar__card,
+body .service-shell__service-card,
+body .service-shell__visual-card,
+body .careers-open-positions__card,
+body .insights-featured__card,
+body .insights-latest__card,
+body .insights-topics__card,
+body .case-study__info-card,
+body .technologies-grid__card,
+body .technologies-stats__card,
+body .branding-offer__card,
+body .dev-offer-card,
+body .performance-offer__card,
+body .smartai-offer__card,
+body .techstack-offer__card,
+body .think-round-card,
+body .journey-card,
+body .leadership-card,
+body .vision-mission__card,
+body [class$="-card"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card),
+body [class$="__card"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card),
+body [class*="-card--"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card),
+body [class*="__card--"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card) {
+  background: var(--card-light-bg) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), var(--card-inner-shading) !important;
+}
+
+body .card:hover,
+body article.blog-card:hover,
+body .portfolio-card:hover,
+body .blog-card:hover,
+body .home-services__card:hover,
+body .home-how-we-work__card:hover,
+body .home-industries__card:hover,
+body .home-technologies__card:hover,
+body .home-testimonials__card:hover,
+body .home-achievements__card:hover,
+body .home-expertise__card:hover,
+body .home-success__card:hover,
+body .home-about-intro__capability:hover,
+body .about-pov__card:hover,
+body .about-principles__card:hover,
+body .about-stats__card:hover,
+body .about-leadership__card:hover,
+body .about-stories__card:hover,
+body .dgate-card:hover,
+body [class*="dgate-card"]:hover,
+body .contact-page-form__card:hover,
+body .contact-page-info__card:hover,
+body .contact-page-info__office-card:hover,
+body .services-why__card:hover,
+body .services-grid-page__card:hover,
+body .service-pillar__card:hover,
+body .service-shell__service-card:hover,
+body .service-shell__visual-card:hover,
+body .careers-open-positions__card:hover,
+body .insights-featured__card:hover,
+body .insights-latest__card:hover,
+body .insights-topics__card:hover,
+body .case-study__info-card:hover,
+body .technologies-grid__card:hover,
+body .technologies-stats__card:hover,
+body .branding-offer__card:hover,
+body .dev-offer-card:hover,
+body .performance-offer__card:hover,
+body .smartai-offer__card:hover,
+body .techstack-offer__card:hover,
+body .think-round-card:hover,
+body .journey-card:hover,
+body .leadership-card:hover,
+body .vision-mission__card:hover,
+body [class$="-card"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card):hover,
+body [class$="__card"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card):hover,
+body [class*="-card--"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card):hover,
+body [class*="__card--"]:not(.home-stats__card):not(.about-cta__box):not(.about-experience__box):not(.hero-floating-card):not(.about-partnership__proof):not(.about-partnership__proof-card):hover {
+  background: var(--card-light-bg-hover) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(253, 185, 19, 0.2), var(--card-inner-shading-hover) !important;
+}
+
+/* Subtle ambient background glow on light sections */
+section:nth-child(even),
+.section:nth-child(even),
+.section-bg-alt {
+  background-image: radial-gradient(circle at 50% 0%, rgba(253, 185, 19, 0.04), transparent 70%);
+}
+
+/* Dark Section Glass & Radiant Glow */
+.home-stats,
+[class*="dark-section"],
+.dgate-inner-hero {
+  background-image: radial-gradient(circle at 80% 20%, rgba(253, 185, 19, 0.08), transparent 50%),
+                    radial-gradient(circle at 20% 80%, rgba(253, 185, 19, 0.05), transparent 50%);
+}
+
+/* Refined Image Mask Corner Radii & Outer Glow */
+.card img,
+[class*="-card"] img,
+article img {
+  border-radius: var(--radius-sm);
+}
+
+/* Refined Form Input Controls Aesthetic */
+input,
+select,
+textarea,
+.form-control {
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px rgba(253, 185, 19, 0.18) !important;
+  outline: none !important;
+}
+
+/* Refined Header & Subtitle Typography Accent Lines */
+.section-header {
+  position: relative;
+}
+
+/* Primary Accent Text Glow */
+.home-hero__title-accent,
+.section-title strong,
+.text-accent {
+  color: var(--primary);
+  text-shadow: 0 2px 14px rgba(253, 185, 19, 0.25);
+}
+
+/* Elevated Sticky Header / Navbar Glassmorphism */
+header,
+nav,
+.navbar {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =========================================================
+   19. RESPONSIVE TYPOGRAPHY & SPACING SYSTEM IMPLEMENTATION
+   Strictly Enforced Rules across Desktop (1440px+), Tablet (768-1024px), Mobile (320-767px)
+========================================================= */
+
+/* H1 / Hero Heading */
+h1, .h1, .hero-title, .hero-heading, .dgate-hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: var(--fw-bold);
+  color: var(--text-dark);
+}
+
+/* H2 / Main Section Heading */
+h2, .h2, .section-title, .main-section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-bold);
+  color: var(--text-dark);
+  margin-bottom: calc(var(--gap-h2-section) * 0.35);
+}
+
+/* H3 / Subsection Heading */
+h3, .h3, .subsection-title, .subsection-heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-semibold);
+  color: var(--text-dark);
+  margin-bottom: calc(var(--gap-h3-section) * 0.35);
+}
+
+/* H4 */
+h4, .h4, h5, .h5 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--text-dark);
+  margin-bottom: calc(var(--gap-h4-section) * 0.35);
+}
+
+/* H6 */
+h6, .h6 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  color: var(--text-dark);
+}
+
+/* Body Text */
+body, p, .body-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  margin-bottom: var(--gap-body-section);
+}
+
+/* Small Text */
+small, .small-text, .text-small, .caption, .meta-text {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--text);
+}
+
+/* Button Text */
+button, .btn, .button, .btn-primary, .btn-secondary, .btn-outline {
+  font-family: var(--font-body);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+}
+
+/* Containers */
+.container, .site-container, .wrapper {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+}
+
+/* Section Gaps - Strictly Bound to Uniform Vertical Section Spacing */
+section, .section {
+  padding-top: var(--section-padding-v) !important;
+  padding-bottom: var(--section-padding-v) !important;
+}
+
+/* =========================================================
+   20. EXPLICIT BREAKPOINT MEDIA QUERIES
+   Laptop 1440px+, Laptop 1024px, Tablet 768px,
+   Mobile L (425px), Mobile M (375px), Mobile S (320px)
+========================================================= */
+
+/* 🖥️ 1. Laptop / Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max-width: 1360px;
+    --container-side-padding: 40px;
+    --section-padding-v: 36px;
+    --grid-gap-equal: 28px;
+    --fs-h1: clamp(44px, 3.8vw, 56px);
+    --fs-h2: clamp(32px, 2.5vw, 40px);
+    --fs-h3: clamp(22px, 1.7vw, 28px);
+    --fs-h4: clamp(18px, 1.3vw, 22px);
+    --fs-body: 17px;
+    --fs-small: 14px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+}
+
+/* 💻 2. Laptop Standard (1024px – 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  :root {
+    --container-max-width: 1140px;
+    --container-side-padding: 32px;
+    --section-padding-v: 32px;
+    --grid-gap-equal: 24px;
+    --fs-h1: clamp(38px, 3.5vw, 48px);
+    --fs-h2: clamp(28px, 2.3vw, 36px);
+    --fs-h3: clamp(20px, 1.5vw, 24px);
+    --fs-h4: clamp(16px, 1.2vw, 20px);
+    --fs-body: 16px;
+    --fs-small: 13.5px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+}
+
+/* 📱 3. Tablet (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --container-max-width: 960px;
+    --container-side-padding: 24px;
+    --section-padding-v: 28px;
+    --grid-gap-equal: 20px;
+    --fs-h1: clamp(32px, 4vw, 40px);
+    --fs-h2: clamp(24px, 3vw, 30px);
+    --fs-h3: clamp(18px, 2.2vw, 22px);
+    --fs-h4: clamp(15px, 1.8vw, 18px);
+    --fs-body: 15.5px;
+    --fs-small: 13px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+}
+
+/* 📱 4. Mobile L (425px – 767px) */
+@media (min-width: 425px) and (max-width: 767px) {
+  :root {
+    --container-side-padding: 20px;
+    --section-padding-v: 24px;
+    --grid-gap-equal: 16px;
+    --fs-h1: clamp(28px, 6.5vw, 34px);
+    --fs-h2: clamp(22px, 5vw, 26px);
+    --fs-h3: clamp(17px, 4vw, 20px);
+    --fs-h4: clamp(14.5px, 3.5vw, 16.5px);
+    --fs-body: 15px;
+    --fs-small: 12.5px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+}
+
+/* 📱 5. Mobile M (375px – 424px) */
+@media (min-width: 375px) and (max-width: 424px) {
+  :root {
+    --container-side-padding: 16px;
+    --section-padding-v: 20px;
+    --grid-gap-equal: 14px;
+    --fs-h1: clamp(26px, 7vw, 30px);
+    --fs-h2: clamp(20px, 5.5vw, 24px);
+    --fs-h3: clamp(16px, 4.5vw, 19px);
+    --fs-h4: clamp(14px, 3.8vw, 16px);
+    --fs-body: 14.5px;
+    --fs-small: 12px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+}
+
+/* 📱 6. Mobile S (320px – 374px) */
+@media (max-width: 374px) {
+  :root {
+    --container-side-padding: 12px;
+    --section-padding-v: 18px;
+    --grid-gap-equal: 12px;
+    --fs-h1: 22px;
+    --fs-h2: 18px;
+    --fs-h3: 15px;
+    --fs-h4: 13px;
+    --fs-body: 13.5px;
+    --fs-small: 11px;
+    --gap-h2-section: var(--section-padding-v);
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    max-width: 100% !important;
+  }
+
+  /* Prevent text pills/badges from expanding beyond 320px */
+  span, .badge, [class*="__tag"], [class*="__eyebrow"] {
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    width: 100% !important;
+  }
+
+  .floating-contact-actions {
+    right: 8px !important;
+    bottom: 8px !important;
+  }
 }

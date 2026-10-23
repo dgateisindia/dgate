@@ -20,51 +20,6 @@ gsap.registerPlugin(ScrollTrigger);
    DGATE SERVICES
 ========================================================= */
 
-const services = [
-  {
-    id: "branding-creative",
-    icon: FaPalette,
-    title: "Branding & Creative Design",
-    description:
-      "Build a powerful brand identity through strategic design, visual storytelling, UI/UX and creative assets.",
-  },
-  {
-    id: "website-development",
-    icon: FaCode,
-    title: "Website Development",
-    description:
-      "High-performance, responsive and scalable websites designed to strengthen your digital presence and drive conversions.",
-  },
-  {
-    id: "ecommerce-solutions",
-    icon: FaShoppingCart,
-    title: "E-Commerce Solutions",
-    description:
-      "Complete Shopify and e-commerce solutions including store development, payment integration and performance optimization.",
-  },
-  {
-    id: "digital-marketing",
-    icon: FaBullhorn,
-    title: "Digital Marketing & Performance",
-    description:
-      "ROI-focused digital marketing through Google Ads, Meta Ads, social media marketing and performance campaigns.",
-  },
-  {
-    id: "seo-analytics",
-    icon: FaChartLine,
-    title: "SEO, Data & Analytics",
-    description:
-      "Improve search visibility, track customer behaviour and turn digital performance data into actionable business insights.",
-  },
-  {
-    id: "ai-automation",
-    icon: FaRobot,
-    title: "AI & Business Automation",
-    description:
-      "Transform business operations using AI-powered automation, intelligent workflows, CRM integrations and smart digital solutions.",
-  },
-];
-
 function ServiceGrid() {
   const sectionRef = useRef(null);
 

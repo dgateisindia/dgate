@@ -19,7 +19,7 @@ const trustData = [
   {
     id: "retention",
     Icon: FaHandshake,
-    value: "95%+",
+    value: "85%+",
     label: "Client Retention",
   },
 
@@ -33,8 +33,8 @@ const trustData = [
   {
     id: "experience",
     Icon: FaAward,
-    value: "20+",
-    label: "Years Team Experience",
+    value: "10+",
+    label: "Years Of Team Experience",
   },
 ];
 

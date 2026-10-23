@@ -1,19 +1,20 @@
 import "./VisionMission.css";
 
 import {
-  FaBullseye,
   FaEye,
   FaGem,
 } from "react-icons/fa";
+
+import missionIcon from "../../../assets/images/about/mission-icon.png";
 
 
 const items = [
   {
     id: "mission",
-    Icon: FaBullseye,
+    iconSrc: missionIcon,
     title: "Our Mission",
     text:
-      "To build impactful brands, high-performing websites, and result-driven digital marketing solutions that help businesses grow with clarity, consistency, and measurable success.",
+      "To help businesses grow through stronger brands, smarter digital experiences, and performance-driven marketing that create measurable impact.",
   },
 
   {
@@ -21,7 +22,7 @@ const items = [
     Icon: FaEye,
     title: "Our Vision",
     text:
-      "To become a trusted digital growth partner, uniting branding, technology, and marketing to help businesses stand out and scale globally.",
+      "To become a trusted growth partner for ambitious businesses by bringing strategy, creativity, technology, and marketing together under one integrated approach.",
   },
 
   {
@@ -29,7 +30,7 @@ const items = [
     Icon: FaGem,
     title: "Our Values",
     text:
-      "We believe in strategic thinking, transparency, and collaboration — aligning branding, web, and marketing efforts with real business goals and long-term value.",
+      "We believe in clarity, accountability, collaboration, and continuous improvement-creating work that is purposeful, transparent, and built for long-term value.",
   },
 ];
 
@@ -47,7 +48,7 @@ function VisionMission() {
         <div className="about-principles__heading">
 
           <span>
-            WHAT DRIVES DGATE
+            WHAT DRIVES D-GATE
           </span>
 
           <h2 id="about-principles-title">
@@ -76,7 +77,15 @@ function VisionMission() {
                   className="about-principles__icon"
                   aria-hidden="true"
                 >
-                  <Icon />
+                  {item.iconSrc ? (
+                    <img
+                      src={item.iconSrc}
+                      alt={item.title}
+                      className="about-principles__custom-icon"
+                    />
+                  ) : (
+                    <Icon />
+                  )}
                 </div>
 
                 <h3>

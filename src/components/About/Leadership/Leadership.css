@@ -22,7 +22,11 @@
 
   gap: 30px;
 
-  align-items: start;
+  align-items: stretch;
+}
+
+.about-leadership__section--empty {
+  min-height: 100%;
 }
 
 
@@ -154,26 +158,18 @@
 ========================================================= */
 
 .about-leadership__photo {
-  width: 70px;
-  height: 70px;
-
-  flex: 0 0 70px;
-
-  margin: 0 auto 12px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 3px solid var(--primary);
-  border-radius: 50%;
-
-  background: var(--gray);
-
-  color: var(--black);
-
-  font-size: 1.8rem;
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    background: #f8f9fa;
+    color: #fdb913;
+    font-size: 1.8rem;
 }
 
 
@@ -430,13 +426,11 @@
 ========================================================= */
 
 @media (max-width: 1200px) {
-
   .about-leadership__layout {
     grid-template-columns:
       minmax(0, 1.2fr)
       minmax(0, 1fr);
   }
-
 
   .about-leadership__section {
     padding: 26px 26px 32px;

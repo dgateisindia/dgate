@@ -103,6 +103,7 @@ function PropertyType() {
               <span className="property-list-subtitle">
                 DGATE HOMES
               </span>
+              
 
               <h2>
                 Explore {propertyCategory.name}

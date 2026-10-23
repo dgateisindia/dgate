@@ -161,7 +161,7 @@ function Clients() {
 
           <span className="home-clients__eyebrow">
 
-            BRANDS WE WORK WITH
+            OUR CLIENT PARTNERS
 
           </span>
 
@@ -171,10 +171,10 @@ function Clients() {
             className="home-clients__title"
           >
 
-            Trusted by{" "}
+            Built On Trust.{" "}
 
             <span>
-              Leading Brands
+              Driven by Results.
             </span>
 
           </h2>
@@ -182,10 +182,9 @@ function Clients() {
 
           <p className="home-clients__subtitle">
 
-            From growing businesses to established
-            organizations, we collaborate with brands
-            across industries to create meaningful
-            digital experiences and measurable growth.
+            We work with forward-thinking brands to transform ideas into
+            meaningful experiences combining strategy, creativity and
+            technology to create lasting business impact.
 
           </p>
 

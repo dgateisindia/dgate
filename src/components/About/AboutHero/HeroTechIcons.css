@@ -32,7 +32,7 @@
     color:#fff;
 
     transition:.35s;
-    animation:float 5s ease-in-out infinite;
+    animation:float 2s ease-in-out infinite;
 }
 
 .circle svg{
