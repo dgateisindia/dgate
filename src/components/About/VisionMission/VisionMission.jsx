@@ -54,7 +54,7 @@ function VisionMission() {
           <h2 id="about-principles-title">
             Mission Vision
             <strong>
-              {" "}Values
+              {" "}Values.
             </strong>
           </h2>
 

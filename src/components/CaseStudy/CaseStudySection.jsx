@@ -97,7 +97,7 @@ function CaseStudySection() {
         <div className="case-study-container">
           {/* MAIN HEADING */}
           <h2 className="case-study-hero__title case-study-hero__anim">
-            Case <span>Study</span>
+            Case <span>Studiesgit branch</span>
           </h2>
 
           <div className="case-study-hero__line case-study-hero__anim" />

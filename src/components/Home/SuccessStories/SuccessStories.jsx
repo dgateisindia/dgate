@@ -76,7 +76,7 @@ function SuccessStories() {
             <div className="home-success__cta-row">
               {isPortfolioPage ? (
                 <a href="#case-study" className="home-success__case-study-btn">
-                  <span>Case Study</span>
+                  <span>Case Studies</span>
                   <FaArrowRight className="home-success__case-study-arrow" />
                 </a>
               ) : (
