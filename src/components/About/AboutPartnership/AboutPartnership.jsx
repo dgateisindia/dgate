@@ -14,25 +14,25 @@ const proofPoints = [
     id: "experience",
     metric: "20+",
     label: "Years Of Team Experience",
-    detail: "Over two decades of continuous cross-industry strategic execution",
+    detail: "Over two decades of continuous cross-industry strategic execution.",
   },
   {
     id: "brands",
     metric: "50+",
     label: "Brands Served",
-    detail: "Trusted across consumer, enterprise and growth-stage brands",
+    detail: "Trusted across consumer, enterprise and growth-stage brands.",
   },
   {
     id: "retention",
     metric: "80%",
     label: "Client Retention",
-    detail: "Hands-on, transparent and long-term client relationships",
+    detail: "Hands-on, transparent and long-term client relationships.",
   },
   {
     id: "presence",
     metric: "India • UAE",
     label: "Operational Hubs",
-    detail: "Substantiated operational presence in Bengaluru & Dubai",
+    detail: "Substantiated operational presence in Bengaluru & Dubai.",
   },
 ];
 

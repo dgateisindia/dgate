@@ -12,7 +12,7 @@ const stories = [
     quote:
       "D-GATE brought strategy and creativity together seamlessly. From branding to lead generation, every part of the engagement was focused, consistent and results-driven.",
     name: "Amit Verma",
-    role: "Founder, GrowthX Solutions",
+    role: "GrowthX Solutions",
   },
 
   {
@@ -20,7 +20,7 @@ const stories = [
     quote:
       "Our website performance and conversion journey improved significantly. D-GATE worked more like a growth partner than a traditional agency",
     name: "Neha Sharma",
-    role: "Marketing Head, UrbanCart",
+    role: "UrbanCart",
   },
 
   {
@@ -28,7 +28,7 @@ const stories = [
     quote:
       "From brand identity to digital campaigns, D-GATE delivered clarity, consistency and a stronger foundation for measurable growth.",
     name: "Rahul Mehta",
-    role: "Co-Founder, ScaleHive",
+    role: "ScaleHive",
   },
 ];
 

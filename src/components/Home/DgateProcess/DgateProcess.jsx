@@ -56,7 +56,7 @@ function renderCardIcon(type) {
     case "search":
       return (
         <svg
-          className="dgate-card__icon-svg"
+          className="dgate-process-icon-svg"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -71,7 +71,7 @@ function renderCardIcon(type) {
     case "target":
       return (
         <svg
-          className="dgate-card__icon-svg"
+          className="dgate-process-icon-svg"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -87,7 +87,7 @@ function renderCardIcon(type) {
     case "palette":
       return (
         <svg
-          className="dgate-card__icon-svg"
+          className="dgate-process-icon-svg"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -97,7 +97,7 @@ function renderCardIcon(type) {
     case "code":
       return (
         <svg
-          className="dgate-card__icon-svg"
+          className="dgate-process-icon-svg"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -111,11 +111,11 @@ function renderCardIcon(type) {
         </svg>
       );
     case "rocket":
-      return <FaRocket className="dgate-card__icon-svg" />;
+      return <FaRocket className="dgate-process-icon-svg" />;
     case "chart":
       return (
         <svg
-          className="dgate-card__icon-svg"
+          className="dgate-process-icon-svg"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -296,16 +296,16 @@ function DgateProcess() {
                 {/* Card 01: Discover (Top Left) */}
                 <article className="dgate-card dgate-card--discover">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.discover.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.discover.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.discover.description}
                     </p>
                   </div>
@@ -314,16 +314,16 @@ function DgateProcess() {
                 {/* Card 06: Improve (Middle Left) */}
                 <article className="dgate-card dgate-card--improve">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.improve.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.improve.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.improve.description}
                     </p>
                   </div>
@@ -332,16 +332,16 @@ function DgateProcess() {
                 {/* Card 05: Activate (Bottom Left) */}
                 <article className="dgate-card dgate-card--activate">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.activate.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.activate.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.activate.description}
                     </p>
                   </div>
@@ -350,16 +350,16 @@ function DgateProcess() {
                 {/* Card 02: Define (Top Right) */}
                 <article className="dgate-card dgate-card--define">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.define.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.define.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.define.description}
                     </p>
                   </div>
@@ -368,16 +368,16 @@ function DgateProcess() {
                 {/* Card 03: Create (Middle Right) */}
                 <article className="dgate-card dgate-card--create">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.create.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.create.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.create.description}
                     </p>
                   </div>
@@ -386,16 +386,16 @@ function DgateProcess() {
                 {/* Card 04: Build (Bottom Right) */}
                 <article className="dgate-card dgate-card--build">
                   <div
-                    className="dgate-card__icon-wrapper"
+                    className="dgate-process-icon"
                     aria-hidden="true"
                   >
                     {renderCardIcon(stepMap.build.iconType)}
                   </div>
-                  <div className="dgate-card__body">
-                    <h3 className="dgate-card__title">
+                  <div className="dgate-process-body">
+                    <h3 className="dgate-process-title">
                       {stepMap.build.title}
                     </h3>
-                    <p className="dgate-card__desc">
+                    <p className="dgate-process-desc">
                       {stepMap.build.description}
                     </p>
                   </div>
@@ -427,14 +427,14 @@ function DgateProcess() {
                     </div>
                     <div className="dgate-card">
                       <div
-                        className="dgate-card__icon-wrapper"
+                        className="dgate-process-icon"
                         aria-hidden="true"
                       >
                         {renderCardIcon(step.iconType)}
                       </div>
-                      <div className="dgate-card__body">
-                        <h3 className="dgate-card__title">{step.title}</h3>
-                        <p className="dgate-card__desc">{step.description}</p>
+                      <div className="dgate-process-body">
+                        <h3 className="dgate-process-title">{step.title}</h3>
+                        <p className="dgate-process-desc">{step.description}</p>
                       </div>
                     </div>
                   </article>
