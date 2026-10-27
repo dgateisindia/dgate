@@ -74,7 +74,7 @@ function Hero() {
         </h1>
 <br></br>
         <p className="home-hero__description">
-          Strategy, Creativity, Digital Experience, Growth — brought together to move ambitious businesses forward.
+          Strategy, Creativity, Digital Experience, Growth-brought together to move ambitious businesses forward.
 
 We help brands find sharper direction, create stronger experiences, and build marketing systems that turn attention into meaningful business momentum.
         </p>

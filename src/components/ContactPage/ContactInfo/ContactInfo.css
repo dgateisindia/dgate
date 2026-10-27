@@ -14,13 +14,7 @@
 
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--section) 0%,
-      var(--white) 48%,
-      var(--section) 100%
-    );
+  background: #ffffff;
 }
 
 

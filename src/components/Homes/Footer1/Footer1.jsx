@@ -138,7 +138,7 @@ function Footer() {
 
               <div>
                 <span className="site-footer__presence-badge">
-                  India • UAE
+                •  India
                 </span>
 
                 <a
@@ -189,6 +189,12 @@ function Footer() {
 
               <a href="tel:+918040907113">
                 +91 80 4090 7113
+              </a>
+              <span className="site-footer__presence-badge">
+                • UAE
+                </span>
+               <a href="mailto:uaesales@dgateis.com">
+                uaesales@dgateis.com
               </a>
 
             </div>

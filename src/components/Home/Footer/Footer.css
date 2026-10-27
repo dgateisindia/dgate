@@ -168,13 +168,21 @@
   letter-spacing: 0.6px;
 }
 
+.site-footer__presence-block {
+  margin-bottom: 17px;
+}
+
+.site-footer__presence-block .site-footer__contact-item {
+  margin-bottom: 0;
+}
+
 .site-footer__presence-badge {
   display: block;
   color: var(--footer-primary);
   font-size: 0.82rem;
   font-weight: 750;
   letter-spacing: 0.5px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 

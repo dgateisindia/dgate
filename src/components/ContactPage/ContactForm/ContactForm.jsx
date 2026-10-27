@@ -45,6 +45,10 @@ const timingOptions = [
 
 
 
+const GOOGLE_SHEET_URL =
+  import.meta.env.VITE_GOOGLE_SHEET_URL ||
+  "https://script.google.com/macros/s/AKfycbz-fAsGyjODkumuWKp8glxaDe_1FDmnpMbHYs6myrKgQHEW3amHPv9inPunOiBdbYs-JQ/exec";
+
 /* =========================================================
    INITIAL FORM DATA
 ========================================================= */
@@ -242,40 +246,7 @@ function ContactForm() {
 
 
     /* =======================================================
-       EMAILJS ENVIRONMENT VARIABLES
-    ======================================================= */
-
-    const serviceId =
-      import.meta.env
-        .VITE_EMAILJS_SERVICE_ID;
-
-    const templateId =
-      import.meta.env
-        .VITE_EMAILJS_TEMPLATE_ID;
-
-    const publicKey =
-      import.meta.env
-        .VITE_EMAILJS_PUBLIC_KEY;
-
-
-    if (
-      !serviceId ||
-      !templateId ||
-      !publicKey
-    ) {
-
-      setStatus({
-        type: "error",
-        message:
-          "The contact form is temporarily unavailable. Please try again later.",
-      });
-
-      return;
-    }
-
-
-    /* =======================================================
-       START SENDING
+       SEND TO BACKEND (EXCEL STORAGE) & OPTIONAL EMAILJS
     ======================================================= */
 
     setIsSending(true);
@@ -285,89 +256,137 @@ function ContactForm() {
       message: "",
     });
 
-
-    const templateParams = {
-
+    try {
+    const payload = {
       name,
-
+      company,
       email,
-
-      company:
-        company ||
-        "Not provided",
-
-      phone:
-        phone ||
-        "Not provided",
-
-      help_needed:
-        formData.service,
-
-      service:
-        formData.service,
-
-      timing:
-        formData.timing ||
-        "Not specified",
-
-      budget:
-        formData.budget ||
-        "Not provided",
-
+      phone,
+      service: formData.service,
+      timing: formData.timing,
       message,
-
     };
 
+    const now = new Date();
+    const formattedDate = now.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
 
-    /* =======================================================
-       SEND EMAIL
-    ======================================================= */
+    const payloadWithDate = {
+      date: formattedDate,
+      ...payload,
+    };
 
+    let savedToGoogleSheet = false;
+    let savedToLocalBackend = false;
+
+    // 1. Direct sync to Google Sheet in dgateengine@gmail.com Google Drive (Works 24/7 globally on live web)
     try {
+      await fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payloadWithDate),
+      });
+      savedToGoogleSheet = true;
+    } catch (gErr) {
+      console.warn("Direct Google Sheet sync:", gErr);
+    }
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        {
-          publicKey,
-        }
+    // 2. Also notify local backend if running (updates local Excel spreadsheet when on localhost)
+    try {
+      const backendBaseUrl =
+        import.meta.env.VITE_BACKEND_URL ||
+        import.meta.env.VITE_API_URL ||
+        "http://localhost:5000";
+
+      const localRes = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() =>
+        fetch(`${backendBaseUrl.replace(/\/$/, "")}/api/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
       );
 
+      if (localRes && localRes.ok) {
+        const ct = localRes.headers.get("content-type") || "";
+        if (ct.includes("application/json")) {
+          savedToLocalBackend = true;
+        }
+      }
+    } catch (bErr) {
+      // Local backend is optional when deployed on live domain
+    }
+
+    if (!savedToGoogleSheet && !savedToLocalBackend) {
+      throw new Error(
+        "Unable to send your message right now. Please check your internet connection and try again."
+      );
+    }
+
+      // Optional: If EmailJS credentials are configured, send email notification as well
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        try {
+          await emailjs.send(
+            serviceId,
+            templateId,
+            {
+              name,
+              email,
+              company: company || "Not provided",
+              phone: phone || "Not provided",
+              help_needed: formData.service,
+              service: formData.service,
+              timing: formData.timing || "Not specified",
+              budget: formData.budget || "Not provided",
+              message,
+            },
+            {
+              publicKey,
+            }
+          );
+        } catch (emailError) {
+          console.warn("EmailJS notification error:", emailError);
+        }
+      }
 
       setStatus({
         type: "success",
         message:
-          "Thank you! Your message has been sent successfully.",
+                    "Thank you! Your information has been saved successfully.",
       });
 
+      setFormData(initialFormData);
 
-      setFormData(
-        initialFormData
-      );
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "EmailJS Error:",
-        error
-      );
-
+    } catch (error) {
+      console.error("Submission Error:", error);
 
       setStatus({
         type: "error",
         message:
-          "We couldn't send your message right now. Please try again shortly.",
+          error.message ||
+          "We couldn't save your message right now. Please try again.",
       });
 
-    }
-
-    finally {
-
+    } finally {
       setIsSending(false);
-
     }
 
   };
@@ -913,14 +932,13 @@ function ContactForm() {
                       disabled={isSending}
                     >
                       {!isSending && (
-                        <i
-                          className="bi bi-chat-left-text"
+                        <FaPaperPlane
                           aria-hidden="true"
                         />
                       )}
 
                       <span>
-                        {isSending ? "Starting..." : "Start the Conversation"}
+                        {isSending ? "Submitting..." : "Submit"}
                       </span>
                     </button>
 

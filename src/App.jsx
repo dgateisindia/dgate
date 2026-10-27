@@ -22,6 +22,9 @@ import "./App.css";
 import ScrollToAnchor
   from "./components/ScrollToAnchor.jsx";
 
+import PageTitleManager
+  from "./components/PageTitleManager.jsx";
+
 import PageTransition
   from "./components/PageTransition/PageTransition.jsx";
 
@@ -289,6 +292,7 @@ function App() {
   return (
     <>
       <ScrollToAnchor />
+      <PageTitleManager />
 
 
       <Routes>

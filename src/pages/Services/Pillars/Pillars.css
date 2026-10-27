@@ -437,7 +437,7 @@
   width: max-content;
   flex-direction: row;
   flex-wrap: nowrap;
-  animation: marqueeLeftToRight 32s linear infinite;
+  animation: marqueeRightToLeft 32s linear infinite;
   will-change: transform;
 }
 
@@ -456,12 +456,12 @@
   flex-shrink: 0;
 }
 
-@keyframes marqueeLeftToRight {
+@keyframes marqueeRightToLeft {
   0% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

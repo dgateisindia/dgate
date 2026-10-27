@@ -32,42 +32,43 @@ const jobs = [
   {
     id: "software-engineer",
     icon: FaLaptopCode,
-    title: "Sales Executive",
+    title: "Business Development Manager",
     location:"UAE",
-    experience: "3 - 6 Years Experience",
+    experience: "3 - 5 Years Exp",
   },
 
   {
-    id: "cloud-engineer",
+    id: "Associate Creative Director",
     icon: FaCloud,
-    title: "Cloud Engineer",
-    location: "UAE",
-    experience: "4 - 8 Years Experience",
+    title: "Associate Creative Director",
+    location: "Bangalore",
+    experience: "5 - 6 Years Exp",
   },
 
   {
-    id: "qa-automation-engineer",
+    id: "Digital Marketing Manager",
     icon: FaShieldAlt,
-    title: "QA Automation Engineer",
-    location: "Bangalore, India",
-    experience: "3 - 6 Years Experience",
+    title: "Digital Marketing Manager",
+    location: "Bangalore",
+    experience: "4 - 5 Years Exp",
+  },
+  
+  {
+    id: "ui-ux-designer",
+    icon: FaPalette,
+    title: "UI/UX Designer",
+    location: "Bangalore",
+    experience: "2 - 5 Years Exp",
   },
 
   {
     id: "data-engineer",
     icon: FaChartLine,
     title: "Data Engineer",
-    location:"Bangalore, India",
-    experience: "4 - 7 Years Experience",
+    location:"UAE",
+    experience: "4 - 7 Years Exp",
   },
 
-  {
-    id: "ui-ux-designer",
-    icon: FaPalette,
-    title: "UI/UX Designer",
-    location: "Bangalore, India",
-    experience: "2 - 5 Years Experience",
-  },
 ];
 
 

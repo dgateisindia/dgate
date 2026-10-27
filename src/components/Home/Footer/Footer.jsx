@@ -129,19 +129,20 @@ function Footer() {
             <div className="footer-heading-line"></div>
 
 
-            {/* ADDRESS & PRESENCE */}
+            {/* INDIA PRESENCE & ADDRESS */}
 
-            <div className="site-footer__contact-item">
+            <div className="site-footer__presence-block">
 
-              <FaMapMarkerAlt
-                className="site-footer__contact-icon"
-                aria-hidden="true"
-              />
+              <span className="site-footer__presence-badge">
+                • India
+              </span>
 
-              <div>
-                <span className="site-footer__presence-badge">
-                  India • UAE
-                </span>
+              <div className="site-footer__contact-item">
+
+                <FaMapMarkerAlt
+                  className="site-footer__contact-icon"
+                  aria-hidden="true"
+                />
 
                 <a
                   href="https://maps.app.goo.gl/WkxFxd7u8LUEDW756"
@@ -159,6 +160,7 @@ function Footer() {
 
                   Bengaluru, Karnataka 560003
                 </a>
+
               </div>
 
             </div>
@@ -192,6 +194,30 @@ function Footer() {
               <a href="tel:+918040907113">
                 +91 80 4090 7113
               </a>
+
+            </div>
+
+
+            {/* UAE PRESENCE & EMAIL */}
+
+            <div className="site-footer__presence-block">
+
+              <span className="site-footer__presence-badge">
+                • UAE
+              </span>
+
+              <div className="site-footer__contact-item">
+
+                <FaEnvelope
+                  className="site-footer__contact-icon"
+                  aria-hidden="true"
+                />
+
+                <a href="mailto:uaesales@dgateis.com">
+                  uaesales@dgateis.com
+                </a>
+
+              </div>
 
             </div>
 

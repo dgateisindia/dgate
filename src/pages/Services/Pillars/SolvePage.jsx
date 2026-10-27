@@ -165,7 +165,7 @@ function SolvePage() {
         </section>
 
         {/* =====================================================
-            WHAT WE HELP DEFINE (CONTINUOUS LEFT-TO-RIGHT MARQUEE)
+            WHAT WE HELP DEFINE (CONTINUOUS RIGHT-TO-LEFT MARQUEE)
         ===================================================== */}
         <section className="pillar-define-section">
           <div className="pillar-hero__container">
@@ -178,7 +178,7 @@ function SolvePage() {
               <div
                 className="think-marquee-track"
                 role="region"
-                aria-label="Capabilities marquee moving from left to right"
+                aria-label="Capabilities marquee moving from right to left"
               >
                 {/* FIRST COPY */}
                 <div className="think-marquee-group" aria-hidden="false">

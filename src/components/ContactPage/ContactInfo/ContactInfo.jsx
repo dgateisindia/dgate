@@ -408,8 +408,8 @@ function ContactInfo() {
         <div className="contact-page-info__map-wrapper">
           <div className="contact-page-info__map-card">
             <iframe
-              src="https://maps.google.com/maps?q=Uniheal+Robust+Private+Limited,+2nd+Floor,+JP+Royale+Complex,+218,+Sampige+Rd,+Malleshwaram,+Bengaluru,+Karnataka+560003&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              title="Office Location - Uniheal Robust Private Limited"
+              src="https://maps.google.com/maps?q=D-Gate,+2nd+Floor,+JP+Royale+Complex,+218,+Sampige+Rd,+Malleshwaram,+Bengaluru,+Karnataka+560003&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              title="Office Location - D-Gate"
               width="100%"
               height="100%"
               style={{ border: 0 }}

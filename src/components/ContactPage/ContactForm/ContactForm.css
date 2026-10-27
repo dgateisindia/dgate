@@ -370,7 +370,8 @@
   text-transform: uppercase;
 }
 
-.contact-page-form__submit .bi {
+.contact-page-form__submit .bi,
+.contact-page-form__submit svg {
   flex: 0 0 auto;
   font-size: 1rem;
   line-height: 1;

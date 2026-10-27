@@ -64,7 +64,26 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const productsDropdownRef = useRef(null);
+  const navRef = useRef(null);
+  const [navHeight, setNavHeight] = useState(0);
   const location = useLocation();
+
+  useEffect(() => {
+    if (!navRef.current) return;
+    const updateHeight = () => {
+      if (navRef.current) {
+        setNavHeight(navRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(navRef.current);
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, []);
 
   /* =========================================================
      CLOSE NAVIGATION
@@ -179,7 +198,8 @@ function Navbar() {
   };
 
   return (
-    <header className="site-navbar">
+    <>
+      <header className="site-navbar" ref={navRef}>
       <div className="container site-navbar__container">
         {/* =================================================
             LOGO
@@ -309,6 +329,12 @@ function Navbar() {
         </button>
       </div>
     </header>
+    <div
+      className="site-navbar-spacer"
+      style={{ height: navHeight ? `${navHeight}px` : undefined }}
+      aria-hidden="true"
+    />
+  </>
   );
 }
 

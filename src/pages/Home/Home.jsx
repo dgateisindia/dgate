@@ -1,5 +1,5 @@
 import Navbar from "../../components/Home/Navbar/Navbar";
-import BannerPopup from "../../components/Home/Popup/BannerPopup";
+
 import Hero from "../../components/Home/Hero/Hero";
 import WhoWeAreHome from "../../components/Home/WhoWeAreHome/WhoWeAreHome";
 import Stats from "../../components/Home/Stats/Stata";
@@ -16,7 +16,7 @@ function Home() {
     <>
       <Navbar />
 
-      <BannerPopup />
+
 
       <main className="home-page">
         {/* 1. HERO */}

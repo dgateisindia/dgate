@@ -213,104 +213,105 @@
 
 
 /* =========================================================
-   RESPONSIVE — EXACT MATCH WITH HOME HERO
+   RESPONSIVE — EXACT MATCH WITH PORTFOLIO / OUR WORK HERO
 ========================================================= */
 
 @media (max-width: 1024px) {
 
   .about-page-hero {
     height: calc(100svh - 80px);
-
     min-height: 560px;
   }
 
   .about-page-hero__content {
     left: 3%;
-
     transform: translateY(calc(-50% - 10px));
-
     width: min(720px, 52%);
-  }
-
-  .about-page-hero__title,
-  .about-page-hero__content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
   }
 
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 991px) {
 
   .about-page-hero {
-    height: auto;
-
-    min-height: 520px;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 100px 0 60px !important;
   }
 
   .about-page-hero__content {
-    position: relative;
-
-    top: auto;
-    left: auto;
-
-    transform: none;
-
-    width: 100%;
-
-    max-width: 100%;
-
-    padding: 90px 24px 60px;
-
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 24px !important;
     text-align: left;
   }
 
   .about-page-hero__title,
   .about-page-hero__content h1 {
-    font-size: 38px;
-    margin-bottom: 16px;
-    line-height: 1.15;
+    max-width: 100% !important;
+    margin-bottom: 14px !important;
+    font-size: clamp(1.75rem, 7.5vw, 2.3rem) !important;
+    line-height: 1.08 !important;
   }
 
   .about-page-hero__description,
   .about-page-hero__content p {
-    margin: 0 0 24px;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    max-width: 100% !important;
+    margin: 0 0 32px !important;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem) !important;
+    line-height: 1.55 !important;
+  }
+
+  .about-page-hero__button {
+    padding: 6px 14px;
+    font-size: 0.88rem;
   }
 
 }
 
-
-@media (max-width: 480px) {
-
-  .about-page-hero {
-    min-height: 480px;
-  }
-
-  .about-page-hero__content {
-    padding: 80px 16px 50px;
-  }
+@media (max-width: 575px) {
 
   .about-page-hero__title,
   .about-page-hero__content h1 {
-    font-size: 32px;
-    margin-bottom: 14px;
-    line-height: 1.18;
+    font-size: 1.6rem !important;
   }
 
   .about-page-hero__description,
   .about-page-hero__content p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 18px;
+    font-size: 0.78rem !important;
   }
 
   .about-page-hero__button {
-    width: auto;
-    padding: 13px 24px;
-    font-size: 0.85rem;
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .about-page-hero {
+    height: auto;
+    min-height: 560px;
+    padding: 70px 0 50px !important;
+  }
+
+  .about-page-hero__content {
+    padding: 0 20px !important;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .about-page-hero {
+    min-height: 520px;
+    padding: 60px 0 40px !important;
   }
 
 }
